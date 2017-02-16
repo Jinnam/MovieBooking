@@ -1,7 +1,5 @@
 package kr.co.cinema;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -17,9 +15,9 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
+	//정빈이가쓰는 테스트 페이지 사용 ㄴㄴ
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);	
 		return "main";
 	}
 	
@@ -27,6 +25,12 @@ public class HomeController {
 	@RequestMapping(value = "/mainCarousel", method = RequestMethod.GET)
 	public String mainCarousel() {	
 		return "mainCarousel";
+	}
+	
+	//메인 페이지
+	@RequestMapping(value = "/movieMain", method = RequestMethod.GET)
+	public String movieMain() {	
+		return "movieMain";
 	}
 	
 	

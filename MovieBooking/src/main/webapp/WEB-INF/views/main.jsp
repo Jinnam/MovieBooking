@@ -6,6 +6,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/movieMain.jsp" %>
+<%@ include file="/WEB-INF/views/booking/bookingSelect1.jsp" %>
 </body>
 </html>
