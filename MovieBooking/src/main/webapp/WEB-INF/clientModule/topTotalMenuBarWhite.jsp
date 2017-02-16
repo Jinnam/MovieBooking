@@ -7,9 +7,9 @@
 </head>
 <body>
 
-    <div class="container" style="position:relative">
+    <div class="container" style="width:970px ; position:relative">
       <!-- 전체메뉴 absolute -->
-      <div class="container row" style="height:60px; width:970px; position:relative ; left:110px;">  <!--전체메뉴 div -->
+      <div class="row" style="height:60px;">  <!--전체메뉴 div -->
 
           <!-- 전체메뉴 버튼 -->
           <a class="waves-effect col btn s1 white"
