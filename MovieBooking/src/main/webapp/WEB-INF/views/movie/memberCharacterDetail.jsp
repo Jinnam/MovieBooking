@@ -4,6 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="SHORTCUT ICON" href="resources/module-img/titleIcon.png">
 </head>
 <body>
 
@@ -42,8 +43,8 @@
                   <sapn>　</span>
                 </span>
                 <div class="divider"></div>
-                <div><b>출생 : </b> <span>대한민국</span></div>
-                <div><b>국적 : </b> <span>1990.05.30</span></div>
+                <div><b>출생 : </b> <span>1990.05.30</span></div>
+                <div><b>국적 : </b> <span>대한민국</span></div>
                 <!-- 간격 --><div style="height:200px"></div>
               </div>
 
