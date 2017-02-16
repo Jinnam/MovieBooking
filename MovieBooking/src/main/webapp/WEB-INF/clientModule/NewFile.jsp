@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="/WEB-INF/clientModule/topNavBar.jsp" %>
-<%@ include file="/WEB-INF/clientModule/topTotalMenuBarBlack.jsp" %>
-<%@ include file="/WEB-INF/clientModule/footer.jsp" %>
+
 </body>
 </html>
