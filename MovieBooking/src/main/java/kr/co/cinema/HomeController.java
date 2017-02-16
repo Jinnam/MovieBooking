@@ -33,6 +33,10 @@ public class HomeController {
 		return "movieMain";
 	}
 	
-	
+	//준비중입니다 페이지
+	@RequestMapping(value = "/beforeReady", method = RequestMethod.GET)
+	public String beforeReady() {	
+		return "beforeReady";
+	}	
 	
 }

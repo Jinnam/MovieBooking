@@ -22,8 +22,8 @@
 
            <!--  빠른예매 버튼-->
            <span style="float:right">
-             <a class="waves-effect waves-light btn  purple darken-4"
-                style=" height:40px ;  border:1px solid #3F0099 ;
+             <a href="beforeReady" class="waves-effect waves-light btn  blue darken-4"
+                style=" height:40px ;  border:1px solid #0d47a1 ;
                        box-shadow:none ; margin-top:20px ; margin-right:20px ; margin-left:10px ; border-radius: 0em ;">
              <span style=" text-decoration:none ; color:white ;">
                <b>빠른예매</b>
@@ -33,10 +33,10 @@
 
            <!-- 상영시간표 버튼 -->
            <span style="float:right">
-             <a class="waves-effect waves-light btn white"
-                style="opacity: 0.7 ; height:40px ;  border:1px solid #3F0099 ;
+             <a href="beforeReady" class="waves-effect waves-light btn white"
+                style="opacity: 0.7 ; height:40px ;  border:1px solid #0d47a1 ;
                        box-shadow:none ; margin-top:20px ; margin-left:20px ; border-radius: 0em ;">
-             <span style="opacity: none ; text-decoration:none ; color:#3F0099 ;">
+             <span style="opacity: none ; text-decoration:none ; color:#0d47a1 ;">
                <b>상영시간표</b>
              </span>
             </a>
@@ -49,13 +49,13 @@
 
                <div class="item">
                  <div class="content">
-                   <div class="header" style="font-size:14px ; ">필름 소사이어티</div>
+                   <div class="header" style="font-size:14px ; "><a href="beforeReady">필름 소사이어티</a></div>
                  </div>
                </div>
 
                <div class="item">
                  <div class="content">
-                   <div class="header" style="font-size:14px ; ">클래식 소사이어티</div>
+                   <div class="header" style="font-size:14px ; "><a href="beforeReady">클래식 소사이어티</a></div>
                  </div>
                </div>
 
@@ -68,19 +68,19 @@
 
                <div class="item">
                  <div class="content">
-                   <div class="header" style="font-size:14px ; ">고객센터</div>
+                   <div class="header" style="font-size:14px ; "><a href="beforeReady">고객센터</a></div>
                  </div>
                </div>
 
                <div class="item">
                  <div class="content">
-                   <div class="header" style="font-size:14px ; ">멤버십</div>
+                   <div class="header" style="font-size:14px ; "><a href="beforeReady">멤버십</a></div>
                  </div>
                </div>
 
                <div class="item">
                  <div class="content">
-                   <div class="header" style="font-size:14px ;  ">VIP</div>
+                   <div class="header" style="font-size:14px ;  "><a href="beforeReady">VIP</div>
                  </div>
                </div>
 
