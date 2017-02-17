@@ -20,29 +20,31 @@
 
 	<!-- 선택조건 view div -->
 	<div class="grey darken-3" style="height:100px ; margin-top:10px ; color:white ;">
-		<div class="container row">
-			<div class="col s3">
-				asddasdasds
-			</div>
-		</div>
+		<div class="container row" ></div>
 		
-	<!-- 선택조건 form -->
-	<div class="container row" >
-		<form>
-			<div class="col s3">
-				<input type="text">
-			</div>
-			<div class="col s3">
-				<input type="text">
-			</div>
-			<div class="col s3">
-				<input type="text">
-			</div>
-			<div class="col s3">
-				<input type="text">
-			</div>								
-		</form>
-	</div>	
+		<!-- 선택조건 form -->
+		<div class="container row" >
+			<form>
+				<div class="col s2">
+					<input type="text">
+				</div>
+				<div class="col s2">
+					<input type="text">
+				</div>
+				<div class="col s3">
+					<input type="text">
+				</div>
+				<div class="col s2">
+					<input type="text">
+				</div>		
+				<div class="col s2">
+				  <button class="btn waves-effect waves-light" 
+				  			style="height:60px;"
+				  			type="submit" 
+				  			name="action">좌석선택</button>
+				</div>											
+			</form>
+		</div>	
 			
 	</div>
 	
