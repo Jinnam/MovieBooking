@@ -7,7 +7,7 @@
 </head>
 <body>
     <footer class="grey darken-3 page-footer">
-      <div class="container">
+      <div class="container" style="width:1000px;">
         <div class="row">
           <div class="col l6 s12">
             <h5 class="white-text">메가박스 영화관 찾기</h5>
@@ -31,7 +31,7 @@
     </footer>
 
     <footer class="grey darken-4 page-footer">
-      <div class="container">
+      <div class="container" style="width:1000px;">
         <div class="row">
           <div class="col l6 s12">
             <h5 class="white-text"><img src="http://image2.megabox.co.kr/mop/home/logo_footer_new.png"></h5>
@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="footer-copyright">
-        <div class="container">
+        <div class="container" style="width:1000px;">
         Copyright 2014 by MEGABOX. All rights reserved
         <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
         </div>

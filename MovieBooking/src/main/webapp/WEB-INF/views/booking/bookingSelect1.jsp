@@ -18,30 +18,88 @@
 <%@ include file="/WEB-INF/clientModule/topMovieBar.jsp" %>
 
 
-    <div class="container row">
+	<div class="container row">
+		<form>
+			<div class="col s3">
+				<input type="text">
+			</div>
+			<div class="col s3">
+				<input type="text">
+			</div>
+			<div class="col s3">
+				<input type="text">
+			</div>
+			<div class="col s3">
+				<input type="text">
+			</div>								
+		</form>
+	</div>
 
-      <div class="col s3 card blue-grey lighten-5" style="height:500px">
+	<div class="grey darken-3" style="height:100px ; margin-top:10px ; color:white ;">
+		<div class="container row">
+			<div class="col s3">
+				asddasdasds
+			</div>
+		</div>
+	</div>
+
+
+    <div class="container row">
+    
+    
+	  <!-- 날짜 -->
+      <div class="col s2 card blue-grey lighten-5" style="height:500px ; margin_bottom:10px;">      
       	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_date.png">
         </div>
+        <div style="height:450px ; overflow:scroll;">
+        	<div style="height:30px;margin-left:10px;">
+	        	<span style="line-height:30px">2017-02-06</span>
+        	</div>
+        	<div style="height:30px;margin-left:10px;">
+	        	<span style="line-height:30px">2017-02-06</span>
+        	</div> 	        	
+        </div>
       </div>
 
-      <div class="col s3 card blue-grey lighten-5" style="height:500px">
+	  <!-- 극장 -->
+      <div class="col s3 card blue-grey lighten-5" style="height:500px ; margin_bottom:10px;">
       	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_theater.png">
         </div>
+        <div style="height:450px ; overflow:scroll;">
+        </div>
       </div>
-
-      <div class="col s3 card blue-grey lighten-5" style="height:500px">
+      
+	  <!-- 영화 -->
+      <div class="col s3 card blue-grey lighten-5" style="height:500px ; margin_bottom:10px;">
       	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_movie.png">
         </div>
+        
+        <div style="height:450px ; overflow:scroll;">
+        	<div style="height:30px;margin-left:10px;">
+	        	<span style="line-height:30px">공조</span>
+        	</div>
+        	<div style="height:30px;margin-left:10px;">
+	        	<span style="line-height:30px">조작된도시</span>
+        	</div> 
+        </div>        
       </div>
 
-      <div class="col s3 card blue-grey lighten-5" style="height:500px">
+	  <!-- 시간 -->
+      <div class="col s3 card blue-grey lighten-5" style="height:500px ; margin_bottom:10px;">
       	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_time.png">
         </div>
+        <div style="height:450px ; overflow:scroll;">
+        	<div style="height:30px;margin-left:10px;">
+	        	<span style="line-height:30px">14:00 디지털</span>
+        	</div>
+        	<div style="height:30px;margin-left:10px;">
+	        	<span style="line-height:30px">17:00 3D</span>
+        	</div> 	
+        </div>        
       </div>
 
     </div>
