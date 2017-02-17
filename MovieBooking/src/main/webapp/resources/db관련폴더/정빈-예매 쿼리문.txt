@@ -1,0 +1,60 @@
+
+상영중인 영화 조회
+
+SELECT
+	movie.mov_code,
+	movie.mov_korName
+FROM
+	movie
+WHERE
+	movie.mov_status='상영중';
+
+-------------------------------------------
+
+지점 조회 
+
+SELECT
+	branch.brc_code,
+	branch.brc_name,
+	branch.brc_local
+FROM
+	branch
+
+
+-------------------------------------------
+
+상영되는 영화가 존재하는 상영날짜 조회 (중복제거)
+
+SELECT DISTINCT 
+	screen_schedule.scs_date
+FROM
+	screen_schedule
+
+
+-------------------------------------------
+
+상영 조건에 맞는 상영시간 &상영코드 검색 쿼리문 (영화+상영관+날짜)
+
+SELECT 
+	screen_schedule.scs_code,
+	screen_schedule.scs_startTime
+FROM
+	screen_schedule
+WHERE
+	screen_schedule.mov_code=1 &&
+	screen_schedule.brc_code=1 &&
+	screen_schedule.scs_date='2017-02-17';
+
+
+-------------------------------------------
+
+상영코드에 해당하는 좌석상태 가져오기
+
+SELECT
+	*
+FROM
+	seat
+WHERE
+	seat.scs_code=1;
+
+

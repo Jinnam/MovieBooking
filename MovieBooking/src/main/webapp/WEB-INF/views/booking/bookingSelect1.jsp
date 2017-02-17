@@ -14,11 +14,20 @@
 <!-- 전체메뉴 white-->
 <%@ include file="/WEB-INF/clientModule/topTotalMenuBarWhite.jsp" %>
 
-<!-- 영화 메뉴 바-->
-<%@ include file="/WEB-INF/clientModule/topMovieBar.jsp" %>
 
 
-	<div class="container row">
+
+
+	<!-- 선택조건 view div -->
+	<div class="grey darken-3" style="height:100px ; margin-top:10px ; color:white ;">
+		<div class="container row">
+			<div class="col s3">
+				asddasdasds
+			</div>
+		</div>
+		
+	<!-- 선택조건 form -->
+	<div class="container row" >
 		<form>
 			<div class="col s3">
 				<input type="text">
@@ -33,15 +42,12 @@
 				<input type="text">
 			</div>								
 		</form>
+	</div>	
+			
 	</div>
+	
+	
 
-	<div class="grey darken-3" style="height:100px ; margin-top:10px ; color:white ;">
-		<div class="container row">
-			<div class="col s3">
-				asddasdasds
-			</div>
-		</div>
-	</div>
 
 
     <div class="container row">

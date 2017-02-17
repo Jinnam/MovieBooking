@@ -6,7 +6,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<div style="height:50px;"></div>
     <div class="container" style="width:970px ; position:relative">
       <!-- 전체메뉴 absolute -->
       <div class="row" style="height:60px;">  <!--전체메뉴 div -->
@@ -80,7 +80,7 @@
 
                <div class="item">
                  <div class="content">
-                   <div class="header" style="font-size:14px ;  "><a href="beforeReady">VIP</div>
+                   <div class="header" style="font-size:14px ;  "><a href="beforeReady">VIP</a></div>
                  </div>
                </div>
 

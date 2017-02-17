@@ -1,0 +1,77 @@
+----------------------------------------------------------
+
+지점
+
+INSERT INTO `branch` (`brc_code`, `brc_name`, `brc_local`, `brc_addr`, `brc_infoDetail`, `brc_imgPath`) VALUES
+	(1, '전주 금암점', '전라북도', '금암동', '영화관 설명', '이미지주소');
+----------------------------------------------------------
+
+인물
+
+INSERT INTO `character` (`char_code`, `char_korName`, `char_engName`, `char_birth`, `char_gender`, `char_profileImgPath`, `char_nation`, `char_bioGraphy`, `char_finalModifyDate`) VALUES
+	(1, '임윤아', 'Lim Yoon A', '1990-05-30', '여', 'http://img.theqoo.net/img/rBOBZ.png', '대한민국', '바이오그래피', '2017-02-17 20:44:32');
+
+----------------------------------------------------------
+
+인물 다:다
+
+INSERT INTO `characters` (`chars_code`, `mov_code`, `char_code`) VALUES
+	(1, 1, 1);
+
+----------------------------------------------------------
+
+영화
+
+INSERT INTO `movie` (`mov_code`, `mov_korName`, `mov_engName`, `mov_nation`, `mov_grade`, `mov_genre`, `mov_maker`, `mov_runningTime`, `mov_openDate`, `mov_infoDetail`, `mov_imgPath`, `mov_videoPath`, `mov_status`, `mov_finalModifyDate`) VALUES
+	(1, '공조', ' Confidential Assignment', '대한민국', '15', '액션', '제작사', '00:02:00', '2017-02-17', '영화상세설명', 'http://movie.phinf.naver.net/20170118_143/1484714583493K148x_JPEG/movie_image.jpg', '유튜브주소', '상영중', '2017-02-17 20:47:30');
+
+----------------------------------------------------------
+
+상영관
+
+INSERT INTO `screen` (`scr_code`, `brc_code`, `scr_name`, `scr_rowSize`, `scr_colSize`) VALUES
+	(1, 1, '1관', 10, 10);
+
+----------------------------------------------------------
+
+상영일정
+
+INSERT INTO `screen_schedule` (`scs_code`, `mov_code`, `brc_code`, `scr_code`, `scs_date`, `scs_startTime`, `scs_finishTime`, `scs_screen`, `scs_timeDiscount`, `scs_insertDate`) VALUES
+	(1, 1, 1, 1, '2017-02-17', '20:51:36', '20:51:37', '디지털', '일반', '2017-02-17 20:53:53'),
+	(2, 1, 1, 1, '2017-02-17', '20:51:36', '20:51:37', '3D', '조조', '2017-02-17 20:53:53');
+
+----------------------------------------------------------
+
+좌석정보
+
+INSERT INTO `seat` (`seat_code`, `scs_code`, `scr_code`, `seta_row`, `seat_col`, `seat_useStatus`) VALUES
+	(1, 1, 1, 'a', 1, '미사용'),
+	(2, 1, 1, 'a', 2, '미사용'),
+	(3, 1, 1, 'a', 3, '미사용'),
+	(4, 1, 1, 'a', 4, '미사용'),
+	(5, 1, 1, 'a', 5, '미사용'),
+	(6, 1, 1, 'a', 6, '미사용'),
+	(7, 1, 1, 'a', 7, '미사용'),
+	(8, 1, 1, 'a', 8, '미사용'),
+	(9, 1, 1, 'a', 9, '미사용'),
+	(10, 1, 1, 'a', 10, '미사용'),
+	(11, 1, 1, 'b', 1, '미사용'),
+	(12, 1, 1, 'b', 2, '미사용'),
+	(13, 1, 1, 'b', 3, '미사용'),
+	(14, 1, 1, 'b', 4, '미사용'),
+	(15, 1, 1, 'b', 5, '미사용'),
+	(16, 1, 1, 'b', 6, '미사용'),
+	(17, 1, 1, 'b', 7, '미사용'),
+	(18, 1, 1, 'b', 8, '미사용'),
+	(19, 1, 1, 'b', 9, '미사용'),
+	(20, 1, 1, 'b', 10, '미사용'),
+	(21, 1, 1, 'c', 1, '미사용'),
+	(23, 1, 1, 'c', 3, '미사용'),
+	(24, 1, 1, 'c', 4, '미사용'),
+	(25, 1, 1, 'c', 5, '미사용'),
+	(26, 1, 1, 'c', 6, '미사용'),
+	(27, 1, 1, 'c', 7, '미사용'),
+	(28, 1, 1, 'c', 8, '미사용'),
+	(29, 1, 1, 'c', 9, '미사용'),
+	(30, 1, 1, 'c', 10, '미사용'),
+	(22, 1, 1, 'c', 2, '미사용');

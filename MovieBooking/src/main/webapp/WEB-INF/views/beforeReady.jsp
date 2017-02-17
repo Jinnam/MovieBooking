@@ -11,6 +11,9 @@
 <!-- 네비게이션 바 -->
 <%@ include file="/WEB-INF/clientModule/topNavBar.jsp" %>
 
+<!-- 전체메뉴 white-->
+<%@ include file="/WEB-INF/clientModule/topTotalMenuBarWhite.jsp" %>
+
 <div class="container" style="width:970px">
 	<div style="height:200px ; text-align:center ; ">
 		<img src="resources/module-img/bigLogo.png">

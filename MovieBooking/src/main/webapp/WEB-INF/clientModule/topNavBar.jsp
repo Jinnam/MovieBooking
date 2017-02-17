@@ -88,6 +88,6 @@
         <a class="item" style ="width:1px"></a>  <!-- 메뉴 끝선 -->
       </div> <!-- 상단바 container 끝 -->
     </div> <!-- 상단바 끝 -->
-	<div style="height:50px;"></div>
+
 </body>
 </html>
