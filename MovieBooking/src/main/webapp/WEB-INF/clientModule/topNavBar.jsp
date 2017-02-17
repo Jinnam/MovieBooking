@@ -24,7 +24,7 @@
 </head>
 <body>
     <!-- 상단바 -->
-    <div class="ui three item menu" style="height:50px ; margin-top:0px ; margin-bottom:-0 ; box-shadow:none ; border-radius:0em ;">
+    <div class="ui three item menu" style="height:50px ; margin-top:0px ; margin-bottom:-0 ; box-shadow:none ; border-radius:0em ; position:fixed ; z-index:1000 ; ">
       <div class="container" style="width:970px">
         <a href="movieMain" style="margin-top:8px"><img src="resources/module-img/logo2.png"></a>
         <a class="item" style ="width:20px"></a> <!-- 시작선 -->
@@ -88,6 +88,6 @@
         <a class="item" style ="width:1px"></a>  <!-- 메뉴 끝선 -->
       </div> <!-- 상단바 container 끝 -->
     </div> <!-- 상단바 끝 -->
-
+	<div style="height:50px;"></div>
 </body>
 </html>
