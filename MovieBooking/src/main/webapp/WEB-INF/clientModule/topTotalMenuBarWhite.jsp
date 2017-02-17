@@ -13,7 +13,7 @@
 
           <!-- 전체메뉴 버튼 -->
           <a class="waves-effect col btn s1 white"
-             style="height:30px ; width:80px ; border:1px solid #353535; box-shadow:none ; margin-top:20px ; margin-right:20px ; border-radius: 0em ; "
+             style="height:30px ; width:80px ; border:1px solid #353535; box-shadow:none ; margin-top:20px ; margin-right:20px ; margin-left:10px ; border-radius: 0em ; "
              href="#modal1">
              <span style=" text-decoration:none ; color:#353535; font-size:12px; position:relative; top:-5px;">
                전체메뉴

@@ -22,7 +22,7 @@
    <!-- 메인 -->
   </br>
 
-    <div class="container"> <!-- 메인컨테이너 시작 -->
+    <div class="container" style="width:970px"> <!-- 메인컨테이너 시작 -->
 
       <div class="row"> <!-- 메인이미지 시작 -->
         <div class="col s3">
