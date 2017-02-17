@@ -18,48 +18,32 @@
 <%@ include file="/WEB-INF/clientModule/topMovieBar.jsp" %>
 
 
-    <div class="container row" style="width:970px;">
+    <div class="container row">
 
-      <div class="col s3 card">
-        <div> 영화관</div>
-        <div></div>
-      </div>
-
-      <div class="col s2 card">
-        날짜
-      </div>
-
-      <div class="col s3 card">
-        영화
-      </div>
-
-      <div class="col s4 card">
-        시간
-      </div>
-
-    </div>
-    <div class="ui grid">
-      <div class="four wide column">
-        <div class="ui vertical fluid tabular menu">
-          <a class="item">
-            Bio
-          </a>
-          <a class="item">
-            Pics
-          </a>
-          <a class="item active">
-            Companies
-          </a>
-          <a class="item">
-            Links
-          </a>
+      <div class="col s3 card blue-grey lighten-5" style="height:500px">
+      	<div class="grey darken-3" style="text-align:center;">
+        	<img src="resources/module-img/booking_menu_date.png">
         </div>
       </div>
-      <div class="twelve wide stretched column">
-        <div class="ui segment">
-          This is an stretched grid column. This segment will always match the tab height
+
+      <div class="col s3 card blue-grey lighten-5" style="height:500px">
+      	<div class="grey darken-3" style="text-align:center;">
+        	<img src="resources/module-img/booking_menu_theater.png">
         </div>
       </div>
+
+      <div class="col s3 card blue-grey lighten-5" style="height:500px">
+      	<div class="grey darken-3" style="text-align:center;">
+        	<img src="resources/module-img/booking_menu_movie.png">
+        </div>
+      </div>
+
+      <div class="col s3 card blue-grey lighten-5" style="height:500px">
+      	<div class="grey darken-3" style="text-align:center;">
+        	<img src="resources/module-img/booking_menu_time.png">
+        </div>
+      </div>
+
     </div>
 
 
