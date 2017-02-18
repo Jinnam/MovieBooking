@@ -16,32 +16,31 @@
 
 
 
-
-
 	<!-- 선택조건 view div -->
 	<div class="grey darken-3" style="height:100px ; margin-top:10px ; color:white ;">
 		<div class="container row" ></div>
 		
 		<!-- 선택조건 form -->
 		<div class="container row" >
-			<form>
+			<form action="/bookingSeatSelect" method="post">
 				<div class="col s2">
-					<input type="text">
+					<input type="text" name="asd">
 				</div>
 				<div class="col s2">
-					<input type="text">
+					<input type="text" name="asddd">
 				</div>
 				<div class="col s3">
-					<input type="text">
+					<input type="text" name="as21d">
 				</div>
 				<div class="col s2">
-					<input type="text">
+					<input type="text" name="asccd">
 				</div>		
 				<div class="col s2">
 				  <button class="btn waves-effect waves-light" 
 				  			style="height:60px;"
 				  			type="submit" 
-				  			name="action">좌석선택</button>
+				  			name="action">좌석선택
+				  </button>
 				</div>											
 			</form>
 		</div>	

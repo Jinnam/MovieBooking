@@ -7,6 +7,8 @@
 <link rel="SHORTCUT ICON" href="resources/module-img/titleIcon.png">
 </head>
 <body>
-<%@ include file="/WEB-INF/views/booking/bookingSelect1.jsp" %>
+
+<%@ include file="/WEB-INF/views/booking/bookingSelect.jsp" %>
+
 </body>
 </html>

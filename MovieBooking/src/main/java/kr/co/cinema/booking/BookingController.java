@@ -14,11 +14,17 @@ public class BookingController {
 
 	
 	//영화 예매 선택페이지 1
-	@RequestMapping(value = "/bookingSelect1", method = RequestMethod.GET)
-	public String bookingSelect1() {	
-		return "booking/bookingSelect1";
+	@RequestMapping(value = "/bookingSelect", method = RequestMethod.GET)
+	public String bookingSelect() {	
+		logger.debug("bookingSelect 영화 예매 선택페이지");
+		return "booking/bookingSelect";
 	}
 	
-	
+	//영화 좌석 선택페이지 1
+	@RequestMapping(value = "/bookingSeatSelect", method = RequestMethod.POST)
+	public String bookingSeatSelect() {	
+		logger.debug("bookingSeatSelect 영화 좌석 선택페이지");
+		return "booking/bookingSeatSelect";
+	}	
 	
 }
