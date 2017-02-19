@@ -17,7 +17,7 @@
 
 
 	<!-- 선택조건 view div -->
-	<div class="grey darken-3" style="height:100px ; margin-top:10px ; color:white ;">
+	<div class="grey darken-3" style="height:100px ; margin-top:10px ; color:white ;"><!-- 선택조건 view div 열기 -->
 		<div class="container row" ></div>
 		
 		<!-- 선택조건 form -->
@@ -45,17 +45,17 @@
 			</form>
 		</div>	
 			
-	</div>
+	</div> <!-- 선택조건 view div 닫기 -->
 	
 	
 
 
-
-    <div class="container row">
+	<!-- 상영정보 div -->
+    <div class="container row"> <!-- 상영정보 div 열기 -->
     
     
 	  <!-- 날짜 -->
-      <div class="col s2 card blue-grey lighten-5" style="height:500px ; margin_bottom:10px;">      
+      <div class="col s2 card grey lighten-4" style="height:500px ; margin_bottom:10px;">      
       	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_date.png">
         </div>
@@ -70,7 +70,7 @@
       </div>
 
 	  <!-- 극장 -->
-      <div class="col s3 card blue-grey lighten-5" style="height:500px ; margin_bottom:10px;">
+      <div class="col s3 card grey lighten-4" style="height:500px ; margin_bottom:10px;">
       	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_theater.png">
         </div>
@@ -79,7 +79,7 @@
       </div>
       
 	  <!-- 영화 -->
-      <div class="col s3 card blue-grey lighten-5" style="height:500px ; margin_bottom:10px;">
+      <div class="col s3 card grey lighten-4" style="height:500px ; margin_bottom:10px;">
       	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_movie.png">
         </div>
@@ -95,7 +95,7 @@
       </div>
 
 	  <!-- 시간 -->
-      <div class="col s3 card blue-grey lighten-5" style="height:500px ; margin_bottom:10px;">
+      <div class="col s3 card grey lighten-4" style="height:500px ; margin_bottom:10px;">
       	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_time.png">
         </div>
@@ -109,7 +109,7 @@
         </div>        
       </div>
 
-    </div>
+    </div> <!-- 상영정보 div 닫기 -->
 
 
 <!-- 하단바 -->
