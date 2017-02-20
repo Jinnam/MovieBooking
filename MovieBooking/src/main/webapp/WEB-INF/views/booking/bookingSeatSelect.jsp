@@ -7,18 +7,36 @@
 <link rel="SHORTCUT ICON" href="resources/module-img/titleIcon.png">
 <style>
 	.seat{
+		font-size:11px;
+		cursor:pointer;
 		width:16px;
 		height:16px;
-	    border-style: solid;
-	    border-width: 1px;
-	    border-color: black;
 		margin: 1 1 1 1;
 		display:inline-block;
 		text-align:center;
 		line-height:14px;
 	}
-	.seatRow{
-
+	.able{
+		background-color: #686868;
+		color:white;
+	}
+	.unable{
+		background-color: #D5D5D5;
+		color:white;
+	}
+	.currentSelect{
+		background-color: #24468A;
+		color:white;
+	}	
+	.seat-Row{
+		font-size:11px;
+		cursor:pointer;
+		width:16px;
+		height:16px;
+		margin: 1 5 1 1;
+		display:inline-block;
+		text-align:center;
+		line-height:14px;
 	}
 	.seatWrapper{
 		width:600px;
@@ -95,59 +113,59 @@
 					<div class="seatCell">
 						<!-- 좌석 행 1 -->
 						<div>
-							<div class="seat">A</div>
-							<div class=seat>1</div>
-							<div class=seat>2</div>
-							<div class=seat>3</div>
-							<div class=seat>4</div>
-							<div class=seat>5</div>	
-							<div class=seat>1</div>
-							<div class=seat>2</div>
-							<div class=seat>3</div>
-							<div class=seat>4</div>
-							<div class=seat>5</div>										
+							<div class="seat-Row">A</div>
+							<div class="seat unable">1</div>
+							<div class="seat able">2</div>
+							<div class="seat currentSelect">3</div>
+							<div class="seat">4</div>
+							<div class="seat">5</div>	
+							<div class="seat">6</div>
+							<div class="seat">7</div>
+							<div class="seat">8</div>
+							<div class="seat">9</div>
+							<div class="seat">10</div>										
 						</div>
 						<!-- 좌석 행 1 -->
 						<div>
-							<div class="seat">B</div>
-							<div class=seat>1</div>
-							<div class=seat>2</div>
-							<div class=seat>3</div>
-							<div class=seat>4</div>
-							<div class=seat>5</div>	
-							<div class=seat>1</div>
-							<div class=seat>2</div>
-							<div class=seat>3</div>
-							<div class=seat>4</div>
-							<div class=seat>5</div>										
+							<div class="seat-Row">A</div>
+							<div class="seat unable">1</div>
+							<div class="seat able">2</div>
+							<div class="seat currentSelect">3</div>
+							<div class="seat">4</div>
+							<div class="seat">5</div>	
+							<div class="seat">6</div>
+							<div class="seat">7</div>
+							<div class="seat">8</div>
+							<div class="seat">9</div>
+							<div class="seat">10</div>											
 						</div>
 						<!-- 좌석 행 1 -->
 						<div>
-							<div class="seat">C</div>
-							<div class=seat>1</div>
-							<div class=seat>2</div>
-							<div class=seat>3</div>
-							<div class=seat>4</div>
-							<div class=seat>5</div>	
-							<div class=seat>1</div>
-							<div class=seat>2</div>
-							<div class=seat>3</div>
-							<div class=seat>4</div>
-							<div class=seat>5</div>										
+							<div class="seat-Row">A</div>
+							<div class="seat unable">1</div>
+							<div class="seat able">2</div>
+							<div class="seat currentSelect">3</div>
+							<div class="seat">4</div>
+							<div class="seat">5</div>	
+							<div class="seat">6</div>
+							<div class="seat">7</div>
+							<div class="seat">8</div>
+							<div class="seat">9</div>
+							<div class="seat">10</div>												
 						</div>
 						<!-- 좌석 행 1 -->
 						<div>
-							<div class="seat">D</div>
-							<div class=seat>1</div>
-							<div class=seat>2</div>
-							<div class=seat>3</div>
-							<div class=seat>4</div>
-							<div class=seat>5</div>	
-							<div class=seat>1</div>
-							<div class=seat>2</div>
-							<div class=seat>3</div>
-							<div class=seat>4</div>
-							<div class=seat>5</div>										
+							<div class="seat-Row">A</div>
+							<div class="seat unable">1</div>
+							<div class="seat able">2</div>
+							<div class="seat currentSelect">3</div>
+							<div class="seat">4</div>
+							<div class="seat">5</div>	
+							<div class="seat">6</div>
+							<div class="seat">7</div>
+							<div class="seat">8</div>
+							<div class="seat">9</div>
+							<div class="seat">10</div>												
 						</div>																
 					</div>									
 				</div> <!-- 좌석 div 닫기  -->
