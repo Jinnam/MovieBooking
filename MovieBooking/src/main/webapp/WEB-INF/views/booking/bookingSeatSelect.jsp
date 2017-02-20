@@ -5,6 +5,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>좌석 선택</title>
 <link rel="SHORTCUT ICON" href="resources/module-img/titleIcon.png">
+<style>
+	.seat{
+		width:16px;
+		height:16px;
+	    border-style: solid;
+	    border-width: 1px;
+	    border-color: #FFAAFF;
+		margin: 1 1 1 1;
+		display:inline-block;
+		text-align:center;
+		line-height:16px;
+	}
+	.seatRow{
+	display:inline;
+	}
+
+</style>
 </head>
 <body>
 
@@ -64,7 +81,36 @@
 			</div>
 			<div class="col s8 grey lighten-5" style="height:400px">
 				<div class="grey lighten-2" style="text-align:center"><img src="resources/module-img/booking_menu_screen.png"></div>
-				좌석 영역
+				<!-- 좌석  -->
+				<div> <!-- 좌석 div 열기 -->
+					<!-- 좌석 행 1 -->
+					<div>
+						<div class="seat">A</div>
+						<div class=seat>1</div>
+						<div class=seat>2</div>
+						<div class=seat>3</div>
+						<div class=seat>4</div>
+						<div class=seat>5</div>		
+					</div>
+					<!-- 좌석 행 1 -->
+					<div>
+						<div class="seat">C</div>
+						<div class=seat>1</div>
+						<div class=seat>2</div>
+						<div class=seat>3</div>
+						<div class=seat>4</div>
+						<div class=seat>5</div>		
+					</div>
+					<!-- 좌석 행 1 -->
+					<div>
+						<div class="seat">B</div>
+						<div class=seat>1</div>
+						<div class=seat>2</div>
+						<div class=seat>3</div>
+						<div class=seat>4</div>
+						<div class=seat>5</div>		
+					</div>										
+				</div> <!-- 좌석 div 닫기  -->
 			</div>
 			<div class="col s2">
 				안내 영역

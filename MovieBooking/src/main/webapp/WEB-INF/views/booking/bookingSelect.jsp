@@ -22,7 +22,7 @@
 		
 		<!-- 선택조건 form -->
 		<div class="container row" >
-			<form action="/bookingSeatSelect" method="post">
+			<form action="bookingSeatSelect" method="post">
 				<div class="col s2">
 					<input type="text" name="asd">
 				</div>
