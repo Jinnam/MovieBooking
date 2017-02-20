@@ -11,7 +11,6 @@
 		cursor:pointer;
 		width:16px;
 		height:16px;
-		margin: 1 1 1 1;
 		display:inline-block;
 		text-align:center;
 		line-height:14px;
@@ -33,14 +32,15 @@
 		cursor:pointer;
 		width:16px;
 		height:16px;
-		margin: 1 5 1 1;
+    	border-top: 1px solid gray;
+		margin: 0 5 0 0;
 		display:inline-block;
 		text-align:center;
 		line-height:14px;
 	}
 	.seatWrapper{
 		width:600px;
-		height:300px;
+		height:200px;
 		display:table;
 	}
 	.seatCell{
@@ -73,17 +73,17 @@
 				<div class="col s2">
 					<input type="text" name="asddd">
 				</div>
-				<div class="col s3">
+				<div class="col s4">
 					<input type="text" name="as21d">
 				</div>
 				<div class="col s2">
 					<input type="text" name="asccd">
 				</div>		
 				<div class="col s2">
-				  <button class="btn waves-effect waves-light" 
+				  <button class="btn waves-effect waves-light grey lighten-3" 
 				  			style="height:60px;"
 				  			type="submit" 
-				  			name="action">좌석선택
+				  			name="action">결제
 				  </button>
 				</div>											
 			</form>
