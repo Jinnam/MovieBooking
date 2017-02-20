@@ -1,15 +1,15 @@
 package kr.co.cinema.dto;
 
-// ÆòÁ¡ºĞ¼® dto
+// í‰ì ë¶„ì„ dto
 public class Grade {
 
-	private int movCode;				// ¿µÈ­ÄÚµå
-	private int graAcGrade;				// ÃÑ ´©Àû ÆòÁ¡
-	private int graTotalNum;			// ÃÑ Æò°¡ ÀÎ¿ø ¼ö
-	private int graBeforeOpenGrade;		// °³ºÀ Àü ´©Àû ÆòÁ¡
-	private int graBeforeOpenNum;		// °³ºÀ Àü Æò°¡ ÀÎ¿ø ¼ö
-	private int graVistorGrade;			// °ü¶÷°´ ´©Àû ÆòÁ¡
-	private int graVistorGradeNum;		// °ü¶÷°´ Æò°¡ ÀÎ¿ø
+	private int movCode;				// ì˜í™”ì½”ë“œ
+	private int graAcGrade;				// ì´ ëˆ„ì  í‰ì 
+	private int graTotalNum;			// ì´ í‰ê°€ ì¸ì› ìˆ˜
+	private int graBeforeOpenGrade;		// ê°œë´‰ ì „ ëˆ„ì  í‰ì 
+	private int graBeforeOpenNum;		// ê°œë´‰ ì „ í‰ê°€ ì¸ì› ìˆ˜
+	private int graVistorGrade;			// ê´€ëŒê° ëˆ„ì  í‰ì 
+	private int graVistorGradeNum;		// ê´€ëŒê° í‰ê°€ ì¸ì›
 	
 	public int getMovCode() {
 		return movCode;

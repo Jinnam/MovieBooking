@@ -1,13 +1,13 @@
 package kr.co.cinema.dto;
 
-// ºñÈ¸¿ø dto
+// ë¹„íšŒì› dto
 public class NonMember {
 	
-	private int nmemCode;			// ºñÈ¸¿ø ÄÚµå
-	private int nmemPhone;			// ÈŞ´ëÆù ¹øÈ£
-	private String nmemName;		// ÀÌ¸§
-	private String nmemBirth;		// »ı³â¿ùÀÏ
-	private String nmemPw;			// ºñ¹Ğ¹øÈ£
+	private int nmemCode;			// ë¹„íšŒì› ì½”ë“œ
+	private int nmemPhone;			// íœ´ëŒ€í° ë²ˆí˜¸
+	private String nmemName;		// ì´ë¦„
+	private String nmemBirth;		// ìƒë…„ì›”ì¼
+	private String nmemPw;			// ë¹„ë°€ë²ˆí˜¸
 	
 	public int getNmemCode() {
 		return nmemCode;

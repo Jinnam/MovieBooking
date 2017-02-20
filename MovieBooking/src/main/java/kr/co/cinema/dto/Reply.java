@@ -1,16 +1,16 @@
 package kr.co.cinema.dto;
 
-//ÇÑÁÙÆò,ÆòÁ¡
+//í•œì¤„í‰,í‰ì 
 public class Reply {
 
-	private int rpCode;				// ÇÑÁÙÆò ÄÚµå
-	private String memId;			// ¾ÆÀÌµğ
-	private int movCode;			// ¿µÈ­ÄÚµå
-	private String rpTitle;			// Á¦¸ñ
-	private String rpDetail;		// ³»¿ë
-	private int rpRecomend;			// ÃßÃµ¼ö
-	private int rpGrade;			// ÆòÁ¡
-	private String rpInsertDate;	// µî·ÏÀÏÀÚ
+	private int rpCode;				// í•œì¤„í‰ ì½”ë“œ
+	private String memId;			// ì•„ì´ë””
+	private int movCode;			// ì˜í™”ì½”ë“œ
+	private String rpTitle;			// ì œëª©
+	private String rpDetail;		// ë‚´ìš©
+	private int rpRecomend;			// ì¶”ì²œìˆ˜
+	private int rpGrade;			// í‰ì 
+	private String rpInsertDate;	// ë“±ë¡ì¼ì
 	
 	public int getRpCode() {
 		return rpCode;

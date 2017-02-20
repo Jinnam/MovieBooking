@@ -1,14 +1,14 @@
 package kr.co.cinema.dto;
 
-// ÁÂ¼® Á¤º¸ dto
+// ì¢Œì„ ì •ë³´ dto
 public class Seat {
 
-	private int seatCode;			// ÁÂ¼® ÄÚµå
-	private int scsCode;			// »ó¿µ ÄÚµå
-	private int scrCode;			// »ó¿µ°ü ÄÚµå
-	private String setaRow;			// Çà
-	private int seatCol;			// ¿­
-	private String seatUseStatus;	// »ç¿ë ¿©ºÎ
+	private int seatCode;			// ì¢Œì„ ì½”ë“œ
+	private int scsCode;			// ìƒì˜ ì½”ë“œ
+	private int scrCode;			// ìƒì˜ê´€ ì½”ë“œ
+	private String setaRow;			// í–‰
+	private int seatCol;			// ì—´
+	private String seatUseStatus;	// ì‚¬ìš© ì—¬ë¶€
 	
 	public int getSeatCode() {
 		return seatCode;

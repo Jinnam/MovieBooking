@@ -1,18 +1,18 @@
 package kr.co.cinema.dto;
 
-// »ó¿µ ÀÏÁ¤ dto
+// ìƒì˜ ì¼ì • dto
 public class ScreenSchedule {
 
-	private int scsCode;				// »ó¿µ ÄÚµå
-	private int movCode;				// ¿µÈ­ ÄÚµå
-	private int brcCode;				// ÁöÁ¡ ÄÚµå
-	private int scrCode;				// »ó¿µ°ü ÄÚµå
-	private String scsDate;				// »ó¿µ ÀÏÀÚ
-	private String scsStartTime;		// ¿µÈ­ ½ÃÀÛ ½Ã°£
-	private String scsFinishTime;		// ¿µÈ­ Á¾·á ½Ã°£
-	private String scsScreen;			// ½ºÅ©¸° Á¾·ù
-	private String scsTimeDiscount;		// ÇÒÀÎ Á¤º¸
-	private String scsInsertDate;		// µî·ÏÀÏ
+	private int scsCode;				// ìƒì˜ ì½”ë“œ
+	private int movCode;				// ì˜í™” ì½”ë“œ
+	private int brcCode;				// ì§€ì  ì½”ë“œ
+	private int scrCode;				// ìƒì˜ê´€ ì½”ë“œ
+	private String scsDate;				// ìƒì˜ ì¼ì
+	private String scsStartTime;		// ì˜í™” ì‹œì‘ ì‹œê°„
+	private String scsFinishTime;		// ì˜í™” ì¢…ë£Œ ì‹œê°„
+	private String scsScreen;			// ìŠ¤í¬ë¦° ì¢…ë¥˜
+	private String scsTimeDiscount;		// í• ì¸ ì •ë³´
+	private String scsInsertDate;		// ë“±ë¡ì¼
 	
 	public int getScsCode() {
 		return scsCode;

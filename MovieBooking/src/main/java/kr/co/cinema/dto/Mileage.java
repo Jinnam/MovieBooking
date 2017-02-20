@@ -1,14 +1,14 @@
 package kr.co.cinema.dto;
 
-// ¸¶ÀÏ¸®Áö dto
+// ë§ˆì¼ë¦¬ì§€ dto
 public class Mileage {
 
-	private int milCode;		// ¸¶ÀÏ¸®Áö ÄÚµå
-	private int pmtCode;		// °áÁ¦ÄÚµå
-	private String memId;		// ¾ÆÀÌµğ
-	private int milUse;			// »ç¿ë ¸¶ÀÏ¸®Áö
-	private int milSave;		// Àû¸³ ¸¶ÀÏ¸®Áö
-	private String milDate;		// ¸¶ÀÏ¸®Áö »ç¿ë,Àû¸³ ³¯Â¥
+	private int milCode;		// ë§ˆì¼ë¦¬ì§€ ì½”ë“œ
+	private int pmtCode;		// ê²°ì œì½”ë“œ
+	private String memId;		// ì•„ì´ë””
+	private int milUse;			// ì‚¬ìš© ë§ˆì¼ë¦¬ì§€
+	private int milSave;		// ì ë¦½ ë§ˆì¼ë¦¬ì§€
+	private String milDate;		// ë§ˆì¼ë¦¬ì§€ ì‚¬ìš©,ì ë¦½ ë‚ ì§œ
 	
 	public int getMilCode() {
 		return milCode;

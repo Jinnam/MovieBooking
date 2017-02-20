@@ -1,22 +1,22 @@
 package kr.co.cinema.dto;
 
-// ¿µÈ­  dto
+// ì˜í™”  dto
 public class Movie {
 
-	private int mov_code;				// ¿µÈ­ ÄÚµå
-	private String movKorName;			// ¿µÈ­ ÇÑ±Û Á¦¸ñ
-	private String movEngName;			// ¿µÈ­ ¿µ¹® Á¦¸ñ
-	private String movNation;			// ±¹°¡
-	private String movGrade;			// µî±Ş
-	private String movGenre;			// Àå¸£
-	private String movMaker;			// Á¦ÀÛ»ç
-	private String movRunningTime;		// ·¯´×Å¸ÀÓ
-	private String movOpenDate;			// °³ºÀÀÏ
-	private String movInfoDetail;		// »ó¼¼¼³¸í
-	private String movImgPath;			// ½æ³×ÀÏ ÀÌ¹ÌÁö °æ·Î
-	private String movVideoPath;		// ¿µ»ó(¿¹°íÆí) °æ·Î
-	private String movStatus;			// ÇöÀç »ó¿µ ¿©ºÎ
-	private String movFinalModifyDate;	// ÃÖÃÑ ¼öÁ¤ ÀÏÀÚ
+	private int mov_code;				// ì˜í™” ì½”ë“œ
+	private String movKorName;			// ì˜í™” í•œê¸€ ì œëª©
+	private String movEngName;			// ì˜í™” ì˜ë¬¸ ì œëª©
+	private String movNation;			// êµ­ê°€
+	private String movGrade;			// ë“±ê¸‰
+	private String movGenre;			// ì¥ë¥´
+	private String movMaker;			// ì œì‘ì‚¬
+	private String movRunningTime;		// ëŸ¬ë‹íƒ€ì„
+	private String movOpenDate;			// ê°œë´‰ì¼
+	private String movInfoDetail;		// ìƒì„¸ì„¤ëª…
+	private String movImgPath;			// ì¸ë„¤ì¼ ì´ë¯¸ì§€ ê²½ë¡œ
+	private String movVideoPath;		// ì˜ìƒ(ì˜ˆê³ í¸) ê²½ë¡œ
+	private String movStatus;			// í˜„ì¬ ìƒì˜ ì—¬ë¶€
+	private String movFinalModifyDate;	// ìµœì´ ìˆ˜ì • ì¼ì
 	
 	public int getMov_code() {
 		return mov_code;

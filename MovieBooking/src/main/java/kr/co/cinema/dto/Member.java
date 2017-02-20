@@ -1,21 +1,21 @@
 package kr.co.cinema.dto;
 
-// È¸¿ø dto
+// íšŒì› dto
 public class Member {
 
-	private String memId;			// È¸¿ø ¾ÆÀÌµğ
-	private String memPw;			// È¸¿ø ºñ¹Ğ¹øÈ£
-	private String memPhone;		// ÈŞ´ëÆù ¹øÈ£
-	private String memName;			// ÀÌ¸§
-	private String memGender;		// ¼ºº°
-	private String memBirth;		// »ı³â¿ùÀÏ
-	private int memPostNo;			// ¿ìÆí¹øÈ£
-	private String memAddr;			// ÁÖ¼Ò
-	private String memMail;			// ÀÌ¸ŞÀÏ
-	private int memMileage;			// ¸¶ÀÏ¸®Áö
-	private String memJoinDay;		// °¡ÀÔÀÏ
-	private String memStatus;		// È¸¿ø»óÅÂ(ÀÏ¹İ,Å»Åğ)
-	private String memLeaveDay;		// Å»ÅğÀÏ
+	private String memId;			// íšŒì› ì•„ì´ë””
+	private String memPw;			// íšŒì› ë¹„ë°€ë²ˆí˜¸
+	private String memPhone;		// íœ´ëŒ€í° ë²ˆí˜¸
+	private String memName;			// ì´ë¦„
+	private String memGender;		// ì„±ë³„
+	private String memBirth;		// ìƒë…„ì›”ì¼
+	private int memPostNo;			// ìš°í¸ë²ˆí˜¸
+	private String memAddr;			// ì£¼ì†Œ
+	private String memMail;			// ì´ë©”ì¼
+	private int memMileage;			// ë§ˆì¼ë¦¬ì§€
+	private String memJoinDay;		// ê°€ì…ì¼
+	private String memStatus;		// íšŒì›ìƒíƒœ(ì¼ë°˜,íƒˆí‡´)
+	private String memLeaveDay;		// íƒˆí‡´ì¼
 	
 	public String getMemId() {
 		return memId;

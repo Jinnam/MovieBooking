@@ -1,13 +1,13 @@
 package kr.co.cinema.dto;
 
-// °ü¸®ÀÚ Á¤º¸ dto
+// ê´€ë¦¬ì ì •ë³´ dto
 public class Admin {
 	
-	private String admId;		// °ü¸®ÀÚ ¾ÆÀÌµğ
-	private String admPw;		// °ü¸®ÀÚ ºñ¹Ğ¹øÈ£
-	private int brcCode;		// ÁöÁ¡ ÄÚµå
-	private String admAuth;		// °ü¸®ÀÚ ±ÇÇÑ
-	private String admDate;		// °ü¸®ÀÚ ½ÂÀÏ ÀÏÀÚ
+	private String admId;		// ê´€ë¦¬ì ì•„ì´ë””
+	private String admPw;		// ê´€ë¦¬ì ë¹„ë°€ë²ˆí˜¸
+	private int brcCode;		// ì§€ì  ì½”ë“œ
+	private String admAuth;		// ê´€ë¦¬ì ê¶Œí•œ
+	private String admDate;		// ê´€ë¦¬ì ìŠ¹ì¼ ì¼ì
 	
 	public String getAdmId() {
 		return admId;

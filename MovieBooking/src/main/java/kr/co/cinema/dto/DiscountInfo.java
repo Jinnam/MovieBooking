@@ -1,14 +1,14 @@
 package kr.co.cinema.dto;
 
-// ÇÒÀÎÁ¤º¸ dto
+// í• ì¸ì •ë³´ dto
 public class DiscountInfo {
 	
-	private int dcinfCode;			// ÇÒÀÎÁ¤º¸ ÄÚµå
-	private String dcinfInfo;		// ÇÒÀÎÁ¤º¸
-	private int dcinfPrice;			// ÇÒÀÎ °¡°İ
-	private int dcinfApplyYear;		// Àû¿ë ³âµµ
-	private String dcinfStatus;		// ÇöÀç Àû¿ë À¯¹«
-	private String dcinfDate;		// ½Ã½ºÅÛ µî·ÏÀÏÀÚ
+	private int dcinfCode;			// í• ì¸ì •ë³´ ì½”ë“œ
+	private String dcinfInfo;		// í• ì¸ì •ë³´
+	private int dcinfPrice;			// í• ì¸ ê°€ê²©
+	private int dcinfApplyYear;		// ì ìš© ë…„ë„
+	private String dcinfStatus;		// í˜„ì¬ ì ìš© ìœ ë¬´
+	private String dcinfDate;		// ì‹œìŠ¤í…œ ë“±ë¡ì¼ì
 	
 	public int getDcinfCode() {
 		return dcinfCode;

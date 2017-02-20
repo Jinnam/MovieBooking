@@ -1,17 +1,17 @@
 package kr.co.cinema.dto;
 
-// °áÁ¦ dto
+// ê²°ì œ dto
 public class Payment {
 
-	private int pmtCode;			// °áÁ¦ ÄÚµå
-	private int scsCode;			// »ó¿µ ÄÚµå
-	private String memIdd;			// ¾ÆÀÌµğ(È¸¿ø)
-	private int nmemCode;			// ºñÈ¸¿ø ÄÚµå(ºñÈ¸¿ø)
-	private int sccoCode;			// »ó¿µ ´Ü°¡ ÄÚµå
-	private int dcinfCode;			// ÇÒÀÎ ÄÚµå
-	private int pmtTicketNum;		// ÀÎ¿ø
-	private int pmtPrice;			// °áÁ¦ ±İ¾×
-	private String pmtDate;			// °áÁ¦ ³¯Â¥
+	private int pmtCode;			// ê²°ì œ ì½”ë“œ
+	private int scsCode;			// ìƒì˜ ì½”ë“œ
+	private String memIdd;			// ì•„ì´ë””(íšŒì›)
+	private int nmemCode;			// ë¹„íšŒì› ì½”ë“œ(ë¹„íšŒì›)
+	private int sccoCode;			// ìƒì˜ ë‹¨ê°€ ì½”ë“œ
+	private int dcinfCode;			// í• ì¸ ì½”ë“œ
+	private int pmtTicketNum;		// ì¸ì›
+	private int pmtPrice;			// ê²°ì œ ê¸ˆì•¡
+	private String pmtDate;			// ê²°ì œ ë‚ ì§œ
 	
 	public int getPmtCode() {
 		return pmtCode;

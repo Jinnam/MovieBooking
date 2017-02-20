@@ -1,17 +1,17 @@
 package kr.co.cinema.dto;
 
-// ÀÎ¹° °ü·Ã dto
+// ì¸ë¬¼ ê´€ë ¨ dto
 public class Character {
 
-	private int charCode;					// ÀÎ¹° ÄÚµå
-	private String charKorName;				// ÇÑ±Û ÀÌ¸§
-	private String charEngName;				// ¿µ¹® ÀÌ¸§
-	private String charBirth;				// »ı³â¿ùÀÏ
-	private String charGender;				// ¼ºº°
-	private String charFrofileImgPath;		// ÇÁ·ÎÇÊ »çÁø °æ·Î
-	private String charNation;				// ±¹Àû
-	private String charBioGraphy;			// ¹ÙÀÌ¿À ±×·¡ÇÇ(¼Ò°³)
-	private String charFinalModifyDate;		// ÃÖÁ¾ ¼öÁ¤ ÀÏÀÚ
+	private int charCode;					// ì¸ë¬¼ ì½”ë“œ
+	private String charKorName;				// í•œê¸€ ì´ë¦„
+	private String charEngName;				// ì˜ë¬¸ ì´ë¦„
+	private String charBirth;				// ìƒë…„ì›”ì¼
+	private String charGender;				// ì„±ë³„
+	private String charFrofileImgPath;		// í”„ë¡œí•„ ì‚¬ì§„ ê²½ë¡œ
+	private String charNation;				// êµ­ì 
+	private String charBioGraphy;			// ë°”ì´ì˜¤ ê·¸ë˜í”¼(ì†Œê°œ)
+	private String charFinalModifyDate;		// ìµœì¢… ìˆ˜ì • ì¼ì
 	
 	public int getCharCode() {
 		return charCode;

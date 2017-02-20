@@ -1,20 +1,20 @@
 package kr.co.cinema.dto;
 
-// Åë°è¸¦ À§ÇÑ dto
+// í†µê³„ë¥¼ ìœ„í•œ dto
 public class Analisys {
 	
-	private int movCode;					// ¿µÈ­ÄÚµå
-	private int anlTotalTicketCount;		// ÀüÃ¼ ¿¹¸ÅÀÎ¿ø¼ö
-	private int anl10sTicketCount;			// 10´ë ¿¹¸Å ÀÎ¿ø¼ö
-	private int anl20sTicketCount;			// 20´ë ¿¹¸Å ÀÎ¿ø¼ö
-	private int anl30sTicketCount;			// 30´ë ¿¹¸Å ÀÎ¿ø¼ö
-	private int anl40sTicketCount;			// 40´ë ¿¹¸Å ÀÎ¿ø¼ö
-	private int anl50sTicketCount;			// 50´ë ¿¹¸Å ÀÎ¿ø¼ö
-	private int anlOver50sTicketCount;		// 50´ë ÀÌ»ó¿¹¸Å ÀÎ¿ø¼ö
-	private int anlManTicketCount;			// ³²¼º ¿¹¸Å ÀÎ¿ø¼ö
-	private int anlWomanTicketCount;		// ¿©¼º ¿¹¸Å ÀÎ¿ø¼ö
-	private int anlAcSales;					// ´©Àû ¸ÅÃâ¾×
-	private String anlFinalModifyDate;		// ÃÖÁ¾ ¼öÁ¤ÀÏÀÚ
+	private int movCode;					// ì˜í™”ì½”ë“œ
+	private int anlTotalTicketCount;		// ì „ì²´ ì˜ˆë§¤ì¸ì›ìˆ˜
+	private int anl10sTicketCount;			// 10ëŒ€ ì˜ˆë§¤ ì¸ì›ìˆ˜
+	private int anl20sTicketCount;			// 20ëŒ€ ì˜ˆë§¤ ì¸ì›ìˆ˜
+	private int anl30sTicketCount;			// 30ëŒ€ ì˜ˆë§¤ ì¸ì›ìˆ˜
+	private int anl40sTicketCount;			// 40ëŒ€ ì˜ˆë§¤ ì¸ì›ìˆ˜
+	private int anl50sTicketCount;			// 50ëŒ€ ì˜ˆë§¤ ì¸ì›ìˆ˜
+	private int anlOver50sTicketCount;		// 50ëŒ€ ì´ìƒì˜ˆë§¤ ì¸ì›ìˆ˜
+	private int anlManTicketCount;			// ë‚¨ì„± ì˜ˆë§¤ ì¸ì›ìˆ˜
+	private int anlWomanTicketCount;		// ì—¬ì„± ì˜ˆë§¤ ì¸ì›ìˆ˜
+	private int anlAcSales;					// ëˆ„ì  ë§¤ì¶œì•¡
+	private String anlFinalModifyDate;		// ìµœì¢… ìˆ˜ì •ì¼ì
 	
 	public int getMovCode() {
 		return movCode;

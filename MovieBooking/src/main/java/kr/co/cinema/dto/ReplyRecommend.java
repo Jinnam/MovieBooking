@@ -1,12 +1,12 @@
 package kr.co.cinema.dto;
 
-//ÇÑÁÙÆò ÃßÃµ¼ö dto
+//í•œì¤„í‰ ì¶”ì²œìˆ˜ dto
 public class ReplyRecommend {
 
-	private int recoCode;		// ÇÑÁÙÆòÃßÃµÄÚµå
-	private int rpCode;			// ÇÑÁÙÆò ÄÚµå
-	private String memId;		// ¾ÆÀÌµğ(ÃßÃµÇÑ È¸¿ø)
-	private String recoDate;	// ÃßÃµ ÀÏÀÚ
+	private int recoCode;		// í•œì¤„í‰ì¶”ì²œì½”ë“œ
+	private int rpCode;			// í•œì¤„í‰ ì½”ë“œ
+	private String memId;		// ì•„ì´ë””(ì¶”ì²œí•œ íšŒì›)
+	private String recoDate;	// ì¶”ì²œ ì¼ì
 	
 	public int getRecoCode() {
 		return recoCode;

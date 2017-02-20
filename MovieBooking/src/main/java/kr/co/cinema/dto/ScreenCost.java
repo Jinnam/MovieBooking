@@ -1,14 +1,14 @@
 package kr.co.cinema.dto;
 
-// ½ºÅ©¸°º° ´Ü°¡
+// ìŠ¤í¬ë¦°ë³„ ë‹¨ê°€
 public class ScreenCost {
 
-	private int sccoCode;			// ½ºÅ©¸°º° ´Ü°¡ ÄÚµå
-	private String sccoScreen;		// ½ºÅ©¸° Á¾·ù
-	private int sccoPrice;			// ´Ü°¡
-	private int sccoApplyYear;		// Àû¿ë³â
-	private String sccoStatus;		// ÇöÀç Àû¿ë À¯¹«
-	private String sccoDate;		// ½Ã½ºÅÛ µî·Ï ÀÏÀÚ
+	private int sccoCode;			// ìŠ¤í¬ë¦°ë³„ ë‹¨ê°€ ì½”ë“œ
+	private String sccoScreen;		// ìŠ¤í¬ë¦° ì¢…ë¥˜
+	private int sccoPrice;			// ë‹¨ê°€
+	private int sccoApplyYear;		// ì ìš©ë…„
+	private String sccoStatus;		// í˜„ì¬ ì ìš© ìœ ë¬´
+	private String sccoDate;		// ì‹œìŠ¤í…œ ë“±ë¡ ì¼ì
 	
 	public int getSccoCode() {
 		return sccoCode;

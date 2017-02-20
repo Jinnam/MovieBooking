@@ -1,13 +1,13 @@
 package kr.co.cinema.dto;
 
-// »ó¿µ°ü dto
+// ìƒì˜ê´€ dto
 public class Screen {
 
-	private int scrCode;		// »ó¿µ°ü ÄÚµå
-	private int brcCode;		// ÁöÁ¡ ÄÚµå
-	private String scrName;		// »ó¿µ°ü ÀÌ¸§
-	private int scrRowSize;		// Çà Å©±â
-	private int scrColSize;		// ¿­ Å©±â
+	private int scrCode;		// ìƒì˜ê´€ ì½”ë“œ
+	private int brcCode;		// ì§€ì  ì½”ë“œ
+	private String scrName;		// ìƒì˜ê´€ ì´ë¦„
+	private int scrRowSize;		// í–‰ í¬ê¸°
+	private int scrColSize;		// ì—´ í¬ê¸°
 	
 	public int getScrCode() {
 		return scrCode;

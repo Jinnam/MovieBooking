@@ -1,14 +1,14 @@
 package kr.co.cinema.dto;
 
-// ÁöÁ¡º° ÀÏÀÏ¿¹¸Å,¸ÅÃâ dto
+// ì§€ì ë³„ ì¼ì¼ì˜ˆë§¤,ë§¤ì¶œ dto
 public class BranchDayCount {
 
-	private int brcCntCode;			// ÁöÁ¡º° ¿¹¸Å,¸ÅÃâÄÚµå
-	private int brcCode;			// ÁöÁ¡ÄÚµå
-	private int movCode;			// ¿µÈ­ÄÚµå
-	private int brcCntClientCount;	// ÀÏÀÏ°ü°´¼ö
-	private int brcCntSaleTotal;	// ¸ÅÃâ¾×
-	private String brcCntDate;		// ³¯Â¥(ÀÏ,¿ù ¸ÅÃâÀÇ ±âÁØÀÌ µÊ)
+	private int brcCntCode;			// ì§€ì ë³„ ì˜ˆë§¤,ë§¤ì¶œì½”ë“œ
+	private int brcCode;			// ì§€ì ì½”ë“œ
+	private int movCode;			// ì˜í™”ì½”ë“œ
+	private int brcCntClientCount;	// ì¼ì¼ê´€ê°ìˆ˜
+	private int brcCntSaleTotal;	// ë§¤ì¶œì•¡
+	private String brcCntDate;		// ë‚ ì§œ(ì¼,ì›” ë§¤ì¶œì˜ ê¸°ì¤€ì´ ë¨)
 	
 	public int getBrcCntCode() {
 		return brcCntCode;

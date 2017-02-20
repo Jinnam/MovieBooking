@@ -1,14 +1,14 @@
 package kr.co.cinema.dto;
 
-// ÁöÁ¡ dto
+// ì§€ì  dto
 public class Branch {
 	
-	private int brcCode;			// ÁöÁ¡ ÄÚµå
-	private String brcName;			// ÁöÁ¡ ÀÌ¸§
-	private String brcLocal;		// ÁöÁ¡ À§Ä¡
-	private String brcAddr;			// ÁöÁ¡ ÁÖ¼Ò
-	private String brcInfoDetail;	// ÁöÁ¡¼Ò°³
-	private String brcImgPath;		// ÀÌ¹ÌÁö °æ·Î
+	private int brcCode;			// ì§€ì  ì½”ë“œ
+	private String brcName;			// ì§€ì  ì´ë¦„
+	private String brcLocal;		// ì§€ì  ìœ„ì¹˜
+	private String brcAddr;			// ì§€ì  ì£¼ì†Œ
+	private String brcInfoDetail;	// ì§€ì ì†Œê°œ
+	private String brcImgPath;		// ì´ë¯¸ì§€ ê²½ë¡œ
 	
 	public int getBrcCode() {
 		return brcCode;
