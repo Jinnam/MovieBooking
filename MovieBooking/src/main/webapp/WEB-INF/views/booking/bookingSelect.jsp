@@ -36,7 +36,7 @@
 					<input type="text" name="asccd">
 				</div>		
 				<div class="col s2">
-				  <button class="btn waves-effect waves-light grey lighten-3" 
+				  <button class="btn waves-effect waves-light" 
 				  			style="height:60px;"
 				  			type="submit" 
 				  			name="action">좌석선택

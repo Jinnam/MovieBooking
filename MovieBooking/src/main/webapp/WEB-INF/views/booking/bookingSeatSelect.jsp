@@ -60,6 +60,35 @@
 <%@ include file="/WEB-INF/clientModule/topTotalMenuBarWhite.jsp" %>
 
 
+
+<script>
+    $(document).ready(function(){
+		$(".seat").click(function(){
+			
+			if($(this).hasClass('currentSelect')){
+				alert('현재 선택된 좌석입니다.');
+			}				
+			
+			if($(this).hasClass('able')){
+				console.log('사용가능');
+				//$(this).toggleClass('currentSelect');
+				$(this).attr('class','seat currentSelect');
+			}
+
+			if($(this).hasClass('unable')){
+				alert('이미 예매된 좌석입니다.');
+			}
+					
+			
+		});
+    });
+</script>
+
+
+
+
+
+
 	<!-- 선택조건 view div -->
 	<div class="grey darken-3" style="height:100px ; margin-top:10px ; color:white ;"><!-- 선택조건 view div 열기 -->
 		<div class="container row" ></div>
@@ -80,7 +109,7 @@
 					<input type="text" name="asccd">
 				</div>		
 				<div class="col s2">
-				  <button class="btn waves-effect waves-light grey lighten-3" 
+				  <button class="btn waves-effect waves-light" 
 				  			style="height:60px;"
 				  			type="submit" 
 				  			name="action">결제
@@ -116,57 +145,57 @@
 							<div class="seat-Row">A</div>
 							<div class="seat unable">1</div>
 							<div class="seat able">2</div>
-							<div class="seat currentSelect">3</div>
-							<div class="seat">4</div>
-							<div class="seat">5</div>	
-							<div class="seat">6</div>
-							<div class="seat">7</div>
-							<div class="seat">8</div>
-							<div class="seat">9</div>
-							<div class="seat">10</div>										
+							<div class="seat able">3</div>
+							<div class="seat able">4</div>
+							<div class="seat able">5</div>	
+							<div class="seat able">6</div>
+							<div class="seat able">7</div>
+							<div class="seat able">8</div>
+							<div class="seat able">9</div>
+							<div class="seat able">10</div>										
 						</div>
 						<!-- 좌석 행 1 -->
 						<div>
 							<div class="seat-Row">A</div>
-							<div class="seat unable">1</div>
-							<div class="seat able">2</div>
-							<div class="seat currentSelect">3</div>
-							<div class="seat">4</div>
-							<div class="seat">5</div>	
-							<div class="seat">6</div>
-							<div class="seat">7</div>
-							<div class="seat">8</div>
-							<div class="seat">9</div>
-							<div class="seat">10</div>											
+							<div class="seat unable" id="seat">1</div>
+							<div class="seat able" id="seat">2</div>
+							<div class="seat currentSelect" id="seat">3</div>
+							<div class="seat unable" id="seat">4</div>
+							<div class="seat unable" id="seat">5</div>	
+							<div class="seat unable" id="seat">6</div>
+							<div class="seat unable" id="seat">7</div>
+							<div class="seat unable" id="seat">8</div>
+							<div class="seat unable" id="seat">9</div>
+							<div class="seat unable" id="seat">10</div>										
 						</div>
 						<!-- 좌석 행 1 -->
 						<div>
 							<div class="seat-Row">A</div>
-							<div class="seat unable">1</div>
-							<div class="seat able">2</div>
-							<div class="seat currentSelect">3</div>
-							<div class="seat">4</div>
-							<div class="seat">5</div>	
-							<div class="seat">6</div>
-							<div class="seat">7</div>
-							<div class="seat">8</div>
-							<div class="seat">9</div>
-							<div class="seat">10</div>												
+							<div class="seat unable" id="seat">1</div>
+							<div class="seat able" id="seat">2</div>
+							<div class="seat currentSelect" id="seat">3</div>
+							<div class="seat able" id="seat">4</div>
+							<div class="seat able" id="seat">5</div>	
+							<div class="seat able" id="seat">6</div>
+							<div class="seat able" id="seat">7</div>
+							<div class="seat able" id="seat">8</div>
+							<div class="seat able" id="seat">9</div>
+							<div class="seat able" id="seat">10</div>										
 						</div>
 						<!-- 좌석 행 1 -->
 						<div>
 							<div class="seat-Row">A</div>
-							<div class="seat unable">1</div>
-							<div class="seat able">2</div>
-							<div class="seat currentSelect">3</div>
-							<div class="seat">4</div>
-							<div class="seat">5</div>	
-							<div class="seat">6</div>
-							<div class="seat">7</div>
-							<div class="seat">8</div>
-							<div class="seat">9</div>
-							<div class="seat">10</div>												
-						</div>																
+							<div class="seat unable" id="seat">1</div>
+							<div class="seat able" id="seat">2</div>
+							<div class="seat currentSelect" id="seat">3</div>
+							<div class="seat able" id="seat">4</div>
+							<div class="seat able" id="seat">5</div>	
+							<div class="seat able" id="seat">6</div>
+							<div class="seat able" id="seat">7</div>
+							<div class="seat able" id="seat">8</div>
+							<div class="seat able" id="seat">9</div>
+							<div class="seat able" id="seat">10</div>										
+						</div>															
 					</div>									
 				</div> <!-- 좌석 div 닫기  -->
 			</div>
