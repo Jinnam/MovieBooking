@@ -11,15 +11,24 @@
 		height:16px;
 	    border-style: solid;
 	    border-width: 1px;
-	    border-color: #FFAAFF;
+	    border-color: black;
 		margin: 1 1 1 1;
 		display:inline-block;
 		text-align:center;
-		line-height:16px;
+		line-height:14px;
 	}
 	.seatRow{
-	display:inline;
+
 	}
+	.seatWrapper{
+		width:600px;
+		height:300px;
+		display:table;
+	}
+	.seatCell{
+	  display: table-cell; 
+	  vertical-align: middle;
+	}	
 
 </style>
 </head>
@@ -38,7 +47,7 @@
 		<div class="container row" ></div>
 		
 		<!-- 선택조건 form -->
-		<div class="container row" >
+		<div class="container row" style="width:970px;">
 			<form action="/bookingSeatSelect" method="post">
 				<div class="col s2">
 					<input type="text" name="asd">
@@ -79,37 +88,68 @@
 			<div class="col s2">
 				티켓 정보 영역
 			</div>
-			<div class="col s8 grey lighten-5" style="height:400px">
-				<div class="grey lighten-2" style="text-align:center"><img src="resources/module-img/booking_menu_screen.png"></div>
+			<div class="col s8 grey lighten-5" style="height:400px;text-align:center;">
+				<div class="grey lighten-2"><img src="resources/module-img/booking_menu_screen.png"></div>
 				<!-- 좌석  -->
-				<div> <!-- 좌석 div 열기 -->
-					<!-- 좌석 행 1 -->
-					<div>
-						<div class="seat">A</div>
-						<div class=seat>1</div>
-						<div class=seat>2</div>
-						<div class=seat>3</div>
-						<div class=seat>4</div>
-						<div class=seat>5</div>		
-					</div>
-					<!-- 좌석 행 1 -->
-					<div>
-						<div class="seat">C</div>
-						<div class=seat>1</div>
-						<div class=seat>2</div>
-						<div class=seat>3</div>
-						<div class=seat>4</div>
-						<div class=seat>5</div>		
-					</div>
-					<!-- 좌석 행 1 -->
-					<div>
-						<div class="seat">B</div>
-						<div class=seat>1</div>
-						<div class=seat>2</div>
-						<div class=seat>3</div>
-						<div class=seat>4</div>
-						<div class=seat>5</div>		
-					</div>										
+				<div class="seatWrapper"> <!-- 좌석 div 열기 -->
+					<div class="seatCell">
+						<!-- 좌석 행 1 -->
+						<div>
+							<div class="seat">A</div>
+							<div class=seat>1</div>
+							<div class=seat>2</div>
+							<div class=seat>3</div>
+							<div class=seat>4</div>
+							<div class=seat>5</div>	
+							<div class=seat>1</div>
+							<div class=seat>2</div>
+							<div class=seat>3</div>
+							<div class=seat>4</div>
+							<div class=seat>5</div>										
+						</div>
+						<!-- 좌석 행 1 -->
+						<div>
+							<div class="seat">B</div>
+							<div class=seat>1</div>
+							<div class=seat>2</div>
+							<div class=seat>3</div>
+							<div class=seat>4</div>
+							<div class=seat>5</div>	
+							<div class=seat>1</div>
+							<div class=seat>2</div>
+							<div class=seat>3</div>
+							<div class=seat>4</div>
+							<div class=seat>5</div>										
+						</div>
+						<!-- 좌석 행 1 -->
+						<div>
+							<div class="seat">C</div>
+							<div class=seat>1</div>
+							<div class=seat>2</div>
+							<div class=seat>3</div>
+							<div class=seat>4</div>
+							<div class=seat>5</div>	
+							<div class=seat>1</div>
+							<div class=seat>2</div>
+							<div class=seat>3</div>
+							<div class=seat>4</div>
+							<div class=seat>5</div>										
+						</div>
+						<!-- 좌석 행 1 -->
+						<div>
+							<div class="seat">D</div>
+							<div class=seat>1</div>
+							<div class=seat>2</div>
+							<div class=seat>3</div>
+							<div class=seat>4</div>
+							<div class=seat>5</div>	
+							<div class=seat>1</div>
+							<div class=seat>2</div>
+							<div class=seat>3</div>
+							<div class=seat>4</div>
+							<div class=seat>5</div>										
+						</div>																
+					</div>									
 				</div> <!-- 좌석 div 닫기  -->
 			</div>
 			<div class="col s2">

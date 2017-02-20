@@ -21,7 +21,7 @@
 		<div class="container row" ></div>
 		
 		<!-- 선택조건 form -->
-		<div class="container row" >
+		<div class="container row" style=width:970px; >
 			<form action="bookingSeatSelect" method="post">
 				<div class="col s2">
 					<input type="text" name="asd">
@@ -51,7 +51,7 @@
 
 
 	<!-- 상영정보 div -->
-    <div class="container row"> <!-- 상영정보 div 열기 -->
+    <div class="container row" style="width:970px;"> <!-- 상영정보 div 열기 -->
     
     
 	  <!-- 날짜 -->
