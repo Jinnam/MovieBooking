@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="kr.co.cinema.HomeMapper">
+	<select id="selectCode" parameterType="String" resultType="String">
+		SELECT
+			<if test="kind=='nonMember'">
+				max(nmem_code)	
+			</if>
+			<if test="kind=='mileage'">
+				max(mil_code)	
+			</if>
+			<if test="kind=='reply'">
+				max(rp_code)
+			</if>
+			<if test="kind=='replyRecommend'">
+				max(reco_code)
+			</if>
+		FROM
+			<if test="kind=='nonMember'">
+				NON_MEMBER
+			</if>
+			<if test="kind=='mileage'">
+				MILEAGE
+			</if>
+			<if test="kind=='reply'">
+				REPLY
+			</if>
+			<if test="kind=='replyRecommend'">
+				REPLY_RECOMMEND
+			</if>
+	</select>
+
+</mapper>
