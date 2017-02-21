@@ -1,5 +1,7 @@
 package kr.co.cinema.booking;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +23,11 @@ public class BookingController {
 	@RequestMapping(value = "/bookingSelect", method = RequestMethod.GET)
 	public String bookingSelect(Model model) {	
 		logger.debug("bookingSelect 영화 예매 선택페이지");
+		List<String> date =bookingService.searchListDate();
+		System.out.println(date.get(0).toString());
 		model.addAttribute("date",bookingService.searchListDate());
-		model.addAttribute("movie",bookingService.searchListMovie());
-		model.addAttribute("branch",bookingService.searchListBranch());
+		//model.addAttribute("movie",bookingService.searchListMovie());
+		//model.addAttribute("branch",bookingService.searchListBranch());
 		return "booking/bookingSelect";
 	}
 	

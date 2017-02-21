@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jstl/core"  %>    
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -60,12 +61,11 @@
         	<img src="resources/module-img/booking_menu_date.png">
         </div>
         <div style="height:450px ; overflow:scroll;">
-        	<div style="height:30px;margin-left:10px;">
-	        	<span style="line-height:30px">2017-02-06</span>
-        	</div>
-        	<div style="height:30px;margin-left:10px;">
-	        	<span style="line-height:30px">2017-02-06</span>
-        	</div> 	        	
+        	<c:forEach var="date" items="${date}">
+	        	<div style="height:30px;margin-left:10px;">
+		        	<span style="line-height:30px">h</span>
+	        	</div>        	
+        	</c:forEach>       	
         </div>
       </div>
 
