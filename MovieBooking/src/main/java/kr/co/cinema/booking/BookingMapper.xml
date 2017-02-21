@@ -5,4 +5,33 @@
   
 <mapper namespace="kr.co.cinema.booking.BookingMapper">
   
+  <!-- 영화 예매페이지에서 나타낼 현재 상영중인 영화가 있는 날짜 조회 -->
+  <select id="selectListDate" resultType="String">
+	SELECT DISTINCT 
+		screen_schedule.scs_date
+	FROM
+		screen_schedule  
+  </select>
+  
+  <!-- 영화 예매페이지에서 나타낼 현재 상영중인 영화 조회 -->
+  <select id="selectListMovie" resultType="kr.co.cinema.dto.Movie">
+	SELECT
+		movie.mov_code,
+		movie.mov_korName
+	FROM
+		movie
+	WHERE
+		movie.mov_status='상영중';  
+  </select>
+  
+  <!-- 영화 예매페이지에서 나타낼 현재 상영중인 지점 조회 -->
+  <select id="selectListBranch" resultType="kr.co.cinema.dto.Branch">
+	SELECT
+		branch.brc_code,
+		branch.brc_name,
+		branch.brc_local
+	FROM
+		branch  
+  </select>    
+  
 </mapper>
