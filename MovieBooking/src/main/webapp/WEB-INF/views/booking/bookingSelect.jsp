@@ -34,19 +34,31 @@
 			//영화 선택시
 			$(".scMovie").click(function(){
 				
+				//지점 선택하지 않았을경우 
+				if($('#selectBranch').val()==''){
+					console.log('지점선택하지않음');
+					return;
+				}
+				
 				$('.scMovie').parent().removeClass('selectBlock');		//속성제거
 				$(this).parent().addClass('selectBlock');				//속성추가
 				console.log($(this).text());							//선택값출력	
 				$("#selectMovie").val($(this).text());					//값변경
 				
-			});				
+							
+				
+				
+				
+			});	
+			
+			
 		});
 	</script>
 	
 	
 	<style>
 		.selectBlock {
-			background-color : #424242;
+			background-color : #757575;
 			color:white;
 		}
 		
@@ -66,31 +78,39 @@
 
 
 
+
 	<!-- 선택조건 view div -->
 	<div class="grey darken-3" style="height:100px ; margin-top:10px ; color:white ;"><!-- 선택조건 view div 열기 -->
 		<div class="container row" ></div>
 		
 		<!-- 선택조건 form -->
-		<div class="container row" style=width:970px; >
-			<form action="bookingSeatSelect" method="post">
+		<div class="container row" style="width:970px;" >
+		
+			<form action="bookingSeatSelect" method="post" id="selectForm">
+			
+				<!-- 날짜 선택 폼 -->
 				<div class="col s2">
 					<input type="text" name="" id="selectDate">
 				</div>
+				<!-- 지점 선택 폼 -->
 				<div class="col s2">
 					<input type="text" name="" id="selectBranch">
 				</div>
+				<!-- 영화 선택 폼 -->
 				<div class="col s3">
 					<input type="text" name="" id="selectMovie">
 				</div>
+				<!-- 상영시간 선택 폼 -->
 				<div class="col s2">
 					<input type="text" name="" id="selectScreen">
 				</div>		
+				<!-- 선택 버튼 -->
 				<div class="col s2">
 				  <button class="btn waves-effect waves-light" 
 				  			style="height:60px;"
 				  			type="submit" 
 				  			name="action">좌석선택
-				  </button>
+				  </button>						  
 				</div>											
 			</form>
 		</div>	
@@ -101,7 +121,7 @@
 
 
 	<!-- 상영정보 div -->
-    <div class="container row" style="width:970px;"> <!-- 상영정보 div 열기 -->
+    <div class="container row" style="width:970px; text-align:right;"> <!-- 상영정보 div 열기 -->
     
     
 	  <!-- 날짜 -->
@@ -153,12 +173,14 @@
         	<img src="resources/module-img/booking_menu_time.png">
         </div>
         <div style="height:450px ; overflow:scroll;">
+        
+        	<div style="height:30px;margin-left:10px;">
+	        	<span style="line-height:30px">상영날짜 / 극장 / 영화 선택</span>
+        	</div>
+        	        
         	<div style="height:30px;margin-left:10px;">
 	        	<span style="line-height:30px">14:00 디지털</span>
         	</div>
-        	<div style="height:30px;margin-left:10px;">
-	        	<span style="line-height:30px">17:00 3D</span>
-        	</div> 	
         </div>        
       </div>
 
