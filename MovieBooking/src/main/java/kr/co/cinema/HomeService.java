@@ -3,21 +3,32 @@ package kr.co.cinema;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.co.cinema.dto.BranchDayCount;
+import kr.co.cinema.dto.Screen;
 
 @Service
 public class HomeService {
+	
+	private static final Logger logger = LoggerFactory.getLogger(HomeService.class);
+	
 	@Autowired
 	private HomeDao homeDao;
 	
+	//******코드(PK) 생성 시작******
 	
-	String resultCode = "";									// 반환할 코드 초기화
-	// 코드 생성하는 메서드(비회원,마일리지,한줄평/평점
+	static private String resultCode = "";							// 반환할 코드 초기화
+	// 코드 생성하는 메서드(비회원,마일리지,한줄평/평점,좌석(다:다))
 	public String makeCode(String kind){
+		logger.debug("HomeService makeCode() 진입");
 		
+		System.out.println("HomeService makeCode() kind : "+kind);
 		String getCode = homeDao.selectOneCode(kind);		// db에서 마지막으로 입력된 코드 값 가져오기
+		logger.debug("HomeService makeCode() getCode : "+getCode);
 		String getFirst= getCode.substring(0,2);			// 코드에서 고유번호 추출
 		String getDate = getCode.substring(2, 8);			// 코드에서 날짜 추출
 		String getNum= getCode.substring(8);				// 코드에서 숫자 추출
@@ -53,7 +64,9 @@ public class HomeService {
 				case "replyRecommend" :
 					resultCode = "32"+dDay+"100001";
 					break;
-					
+				case "seats" :
+					resultCode = "45"+dDay+"1000001";
+					break;
 				default : break;
 				}
 		
@@ -61,6 +74,27 @@ public class HomeService {
 		System.out.println("최종 resultCode : "+resultCode);
 		return resultCode;
 	}
+	// screen code 만들기
+	public String madeCode(Screen screen){
+		
+		int getBrcCode=screen.getBrcCode();											// 입력값에서 brcCode 가져오기
+		String getScreenCode = homeDao.selectOneScreenCode(screen.getBrcCode());	// brcCode에 해당하는 최신의 screenCode 가져오기  42+101+101
+		String screenNum = getScreenCode.substring(5);								// screenCode에서 번호 추출
+		int resultNum = Integer.parseInt(screenNum)+1;								// 추출한 번호에 +1로 다음번호 생성
+		System.out.println("resultNum : "+resultNum);
+		String brcCode = Integer.toString(getBrcCode);								// brcCode String형으로 변환
+		String brcNum= brcCode.substring(2);										// brcCode에서 지점 번호만 추출
+		System.out.println("brcNum : "+brcNum);
 
+		resultCode = "42"+brcNum+resultNum;											// 반환 코드 생성
+		System.out.println(resultCode);
+
+		return resultCode;
+	}
+	
+	public String madeCode(BranchDayCount branchDayCount){
+		
+		return null;
+	}
 
 }
