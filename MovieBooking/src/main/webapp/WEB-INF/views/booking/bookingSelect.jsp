@@ -10,17 +10,35 @@
     <!-- jquery cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script>
-		$(document).ready(function(){		
+		$(document).ready(function(){
+			
+			//날짜 선택시
 			$(".scDate").click(function(){
-				$(this).parent().toggleClass('selectBlock');
+				
+				$('.scDate').parent().removeClass('selectBlock');	//속성제거
+				$(this).parent().addClass('selectBlock');			//속성추가
+				console.log($(this).text());						//선택값 출력
+				$("#selectDate").val($(this).text());				//값 변경
 			});		
 			
+			//극장 선택시
 			$(".scBranch").click(function(){
-				$(this).parent().toggleClass('selectBlock');
+				
+				$('.scBranch').parent().removeClass('selectBlock');		//속성제거
+				$(this).parent().addClass('selectBlock');				//속성추가
+				console.log($(this).text());							//선택값 출력
+				$("#selectBranch").val($(this).text());					//값 변경
+				
 			});	
 			
+			//영화 선택시
 			$(".scMovie").click(function(){
-				$(this).parent().toggleClass('selectBlock');
+				
+				$('.scMovie').parent().removeClass('selectBlock');		//속성제거
+				$(this).parent().addClass('selectBlock');				//속성추가
+				console.log($(this).text());							//선택값출력	
+				$("#selectMovie").val($(this).text());					//값변경
+				
 			});				
 		});
 	</script>
@@ -56,16 +74,16 @@
 		<div class="container row" style=width:970px; >
 			<form action="bookingSeatSelect" method="post">
 				<div class="col s2">
-					<input type="text" name="asd">
+					<input type="text" name="" id="selectDate">
 				</div>
 				<div class="col s2">
-					<input type="text" name="asddd">
+					<input type="text" name="" id="selectBranch">
 				</div>
-				<div class="col s4">
-					<input type="text" name="as21d">
+				<div class="col s3">
+					<input type="text" name="" id="selectMovie">
 				</div>
 				<div class="col s2">
-					<input type="text" name="asccd">
+					<input type="text" name="" id="selectScreen">
 				</div>		
 				<div class="col s2">
 				  <button class="btn waves-effect waves-light" 
