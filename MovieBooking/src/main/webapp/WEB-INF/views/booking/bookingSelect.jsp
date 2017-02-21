@@ -1,11 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c"  uri="http://java.sun.com/jstl/core"  %>    
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"  %>    
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>예매 조건 선택</title>
 <link rel="SHORTCUT ICON" href="resources/module-img/titleIcon.png">
+
+    <!-- jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){		
+			$(".scDate").click(function(){
+				$(this).parent().toggleClass('selectBlock');
+			});		
+			
+			$(".scBranch").click(function(){
+				$(this).parent().toggleClass('selectBlock');
+			});	
+			
+			$(".scMovie").click(function(){
+				$(this).parent().toggleClass('selectBlock');
+			});				
+		});
+	</script>
+	
+	
+	<style>
+		.selectBlock {
+			background-color : #424242;
+			color:white;
+		}
+		
+		.scDate , .scBranch , .scMovie{
+			cursor:pointer;
+		}
+	</style>
+
 </head>
 <body>
 
@@ -63,7 +94,7 @@
         <div style="height:450px ; overflow:scroll;">
         	<c:forEach var="date" items="${date}">
 	        	<div style="height:30px;margin-left:10px;">
-		        	<span style="line-height:30px">h</span>
+		        	<span class="scDate" style="line-height:30px">${date}</span>
 	        	</div>        	
         	</c:forEach>       	
         </div>
@@ -75,6 +106,11 @@
         	<img src="resources/module-img/booking_menu_theater.png">
         </div>
         <div style="height:450px ; overflow:scroll;">
+        	<c:forEach var="branch" items="${branch}">
+	        	<div style="height:30px;margin-left:10px;">
+		        	<span class="scBranch" style="line-height:30px">${branch.brcName}</span>
+	        	</div>        	
+        	</c:forEach>         
         </div>
       </div>
       
@@ -85,12 +121,11 @@
         </div>
         
         <div style="height:450px ; overflow:scroll;">
-        	<div style="height:30px;margin-left:10px;">
-	        	<span style="line-height:30px">공조</span>
-        	</div>
-        	<div style="height:30px;margin-left:10px;">
-	        	<span style="line-height:30px">조작된도시</span>
-        	</div> 
+        	<c:forEach var="movie" items="${movie}">
+	        	<div style="height:30px;margin-left:10px;">
+		        	<span class="scMovie"style="line-height:30px">${movie.movKorName}</span>
+	        	</div>        	
+        	</c:forEach>   
         </div>        
       </div>
 

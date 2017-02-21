@@ -26,8 +26,8 @@ public class BookingController {
 		List<String> date =bookingService.searchListDate();
 		System.out.println(date.get(0).toString());
 		model.addAttribute("date",bookingService.searchListDate());
-		//model.addAttribute("movie",bookingService.searchListMovie());
-		//model.addAttribute("branch",bookingService.searchListBranch());
+		model.addAttribute("movie",bookingService.searchListMovie());
+		model.addAttribute("branch",bookingService.searchListBranch());
 		return "booking/bookingSelect";
 	}
 	

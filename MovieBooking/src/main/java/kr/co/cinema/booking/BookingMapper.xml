@@ -16,8 +16,8 @@
   <!-- 영화 예매페이지에서 나타낼 현재 상영중인 영화 조회 -->
   <select id="selectListMovie" resultType="kr.co.cinema.dto.Movie">
 	SELECT
-		MOVIE.mov_code,
-		MOVIE.mov_korName
+		MOVIE.mov_code as movCode,
+		MOVIE.mov_korName as movKorName
 	FROM
 		MOVIE
 	WHERE
@@ -27,9 +27,9 @@
   <!-- 영화 예매페이지에서 나타낼 현재 상영중인 지점 조회 -->
   <select id="selectListBranch" resultType="kr.co.cinema.dto.Branch">
 	SELECT
-		BRANCH.brc_code,
-		BRANCH.brc_name,
-		BRANCH.brc_local
+		BRANCH.brc_code as brcCode,
+		BRANCH.brc_name as brcName,
+		BRANCH.brc_local as brcLocal
 	FROM
 		BRANCH  
   </select>    
