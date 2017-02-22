@@ -331,85 +331,85 @@
     <!-- 원그래프  -->
     <script type="text/javascript">
 		Highcharts
-				.chart(
-						'branchGraph',
-						{
-							title : {
-								text : '지점별 영화 매출(단위 월)'	//상단 타이틀
+			.chart(
+				'branchGraph',
+				{
+					title : {
+						text : '지점별 영화 매출(단위 월)'	//상단 타이틀
+					},
+					xAxis : {
+						categories : [ '강남점', '부산서면점', '창원점', '전주송천점', '전주효자점' ] //하단 지점 이름
+					},
+					labels : {
+						items : [ {
+							html : '총 영화 매출순위(단위 월)', //원 그래프 타이틀
+							style : {
+								left : '50px',
+								top : '18px',
+								color : (Highcharts.theme && Highcharts.theme.textColor)
+										|| 'black'
+							}
+						} ]
+					},
+					series : [
+							{
+								type : 'column', //첫번째 바 내용
+								name : '조작된도시',
+								data : [ 3, 2, 1, 3, 4 ]
 							},
-							xAxis : {
-								categories : [ '강남점', '부산서면점', '창원점', '전주송천점', '전주효자점' ] //하단 지점 이름
+							{
+								type : 'column', //두번째 바 내용
+								name : '공조',
+								data : [ 2, 3, 5, 7, 6 ]
 							},
-							labels : {
-								items : [ {
-									html : '총 영화 매출순위(단위 월)', //원 그래프 타이틀
-									style : {
-										left : '50px',
-										top : '18px',
-										color : (Highcharts.theme && Highcharts.theme.textColor)
-												|| 'black'
-									}
-								} ]
+							{
+								type : 'column', //세번째 바 내용
+								name : '재심',
+								data : [ 4, 3, 3, 9, 1 ]
 							},
-							series : [
-									{
-										type : 'column', //첫번째 바 내용
-										name : '조작된도시',
-										data : [ 3, 2, 1, 3, 4 ]
-									},
-									{
-										type : 'column', //두번째 바 내용
-										name : '공조',
-										data : [ 2, 3, 5, 7, 6 ]
-									},
-									{
-										type : 'column', //세번째 바 내용
-										name : '재심',
-										data : [ 4, 3, 3, 9, 1 ]
-									},
-									{
-										type : 'spline', //평균치 곡선 그래프 내용
-										name : 'Average',
-										data : [ 3, 2.67, 3, 6.33, 3.33 ],
-										marker : {
-											lineWidth : 2,
-											lineColor : Highcharts.getOptions().colors[3],
-											fillColor : 'white'
-										}
-									},
-									{
-										type : 'pie', //원그래프 내용
-										name : 'Total consumption',
-										data : [
-												{
-													name : '조작된도시',
-													y : 13,
-													color : Highcharts
-															.getOptions().colors[0]
-												// 조작된도시 색상 하늘색
-												},
-												{
-													name : '공조',
-													y : 23,
-													color : Highcharts
-															.getOptions().colors[1]
-												// 공조 색상 검은색
-												},
-												{
-													name : '재심',
-													y : 19,
-													color : Highcharts
-															.getOptions().colors[2]
-												// 재심 색상 녹색
-												} ],
-										center : [ 100, 80 ],
-										size : 100,
-										showInLegend : false,
-										dataLabels : {
-											enabled : false
-										}
-									} ]
-						});
+							{
+								type : 'spline', //평균치 곡선 그래프 내용
+								name : 'Average',
+								data : [ 3, 2.67, 3, 6.33, 3.33 ],
+								marker : {
+									lineWidth : 2,
+									lineColor : Highcharts.getOptions().colors[3],
+									fillColor : 'white'
+								}
+							},
+							{
+								type : 'pie', //원그래프 내용
+								name : 'Total consumption',
+								data : [
+										{
+											name : '조작된도시',
+											y : 13,
+											color : Highcharts
+													.getOptions().colors[0]
+										// 조작된도시 색상 하늘색
+										},
+										{
+											name : '공조',
+											y : 23,
+											color : Highcharts
+													.getOptions().colors[1]
+										// 공조 색상 검은색
+										},
+										{
+											name : '재심',
+											y : 19,
+											color : Highcharts
+													.getOptions().colors[2]
+										// 재심 색상 녹색
+										} ],
+								center : [ 100, 80 ],
+								size : 100,
+								showInLegend : false,
+								dataLabels : {
+									enabled : false
+								}
+							} ]
+				});
 	</script>
 </body>
 </html>
