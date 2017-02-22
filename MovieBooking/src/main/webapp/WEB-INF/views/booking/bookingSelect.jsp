@@ -23,20 +23,35 @@
 		            type:'post',                                              
 		            data:$('#scsInfoForm').serialize(),                              
 		            dataType : "json",                                        
-		            success:function(data){       
-		            	$("#movieSelector").html(''); //movieSelector 영역 초기화
-		            	var list = data;
-		                $.each(list, function(i) {
-		                	$("#movieSelector").append('<div id=\"scsDiv'+i+'\">');
-		                	$("#scsDiv"+i).append(			'<span id=\"scsSpan'+i+'\">');
-		                	$("#scsSpan"+i).append(				list[i].scsStartTime);
-		                	$("#scsDiv"+i).append(			'</span>');
-		                	$("#movieSelector").append("</div>");
-		                });
+		            success:function(data){
+		            	
+		            	console.log(data[0]);
+		            	
+		            	//조건에맞는상영일정 존재하지 않는경우
+		            	if(data[0]==undefined){
+		            		
+		            		console.log('데이터없음');
+		            		$("#movieSelector").html(''); //movieSelector 영역 초기화
+		            		$('#scHelper').text('해당조건 상영중인 영화 없음');  
+		            	//상영일정 존재하는 경우
+		            	}else {
+		            		
+			            	$("#movieSelector").html(''); //movieSelector 영역 초기화
+			            	$('#scHelper').text('영화 선택'); //헬퍼 영역 초기화
+			            	
+			            	var list = data;
+			                $.each(list, function(i) {
+			                	$("#movieSelector").append('<div id=\"scsDiv'+i+'\" class=\"selectorDiv\">');
+			                	$("#scsDiv"+i).append(			'<span id=\"scsSpan'+i+'\">');
+			                	$("#scsSpan"+i).append(				list[i].scsStartTime);
+			                	$("#scsDiv"+i).append(			'</span>');
+			                	$("#movieSelector").append("</div>");
+			                });		            		
+		            	}
+		            	
 		            }
 		        });
 		        
-				//$('#scHelper').text('해당조건 상영중인 영화 없음');
 				
 			}
 			
@@ -119,6 +134,12 @@
 		
 		.scDate , .scBranch , .scMovie , .scTime{
 			cursor:pointer;
+			width:200px;
+		}
+		.selectorDiv{
+			height:30px;
+			margin-left:10px;
+			line-height:30px;
 		}
 	</style>
 
@@ -202,7 +223,7 @@
     <div class="container row" style="width:970px;"> <!-- 상영정보 div 열기 -->
     
     
-	  <!-- 영화 -->
+	  <!-- 영화 선택자 -->
       <div class="col s3 card grey lighten-4" style="height:500px ; margin_bottom:10px;">
       	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_movie.png">
@@ -210,49 +231,49 @@
         
         <div style="height:450px ; overflow:scroll;">
         	<c:forEach var="movie" items="${movie}">
-	        	<div class="scMovie" style="height:30px;margin-left:10px;">
-		        	<span style="line-height:30px" value="${movie.movCode}" >${movie.movKorName}</span>
+	        	<div class="scMovie selectorDiv waves-effect">
+		        	<span value="${movie.movCode}" >${movie.movKorName}</span>
 	        	</div>        	
         	</c:forEach>   
         </div>        
       </div>
           
-	  <!-- 극장 -->
+	  <!-- 극장 선택자 -->
       <div class="col s3 card grey lighten-4" style="height:500px ; margin_bottom:10px;">
       	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_theater.png">
         </div>
         <div style="height:450px ; overflow:scroll;">
         	<c:forEach var="branch" items="${branch}">
-	        	<div class="scBranch" style="height:30px;margin-left:10px;">
-		        	<span style="line-height:30px" value="${branch.brcCode}">${branch.brcName}</span>
+	        	<div class="scBranch selectorDiv waves-effect">
+		        	<span value="${branch.brcCode}">${branch.brcName}</span>
 	        	</div>        	
         	</c:forEach>         
         </div>
       </div>
       
-	  <!-- 날짜 -->
+	  <!-- 날짜 선택자-->
       <div class="col s2 card grey lighten-4" style="height:500px ; margin_bottom:10px;">      
       	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_date.png">
         </div>
         <div style="height:450px ; overflow:scroll;">
         	<c:forEach var="date" items="${date}">
-	        	<div class="scDate" style="height:30px;margin-left:10px;">
-		        	<span style="line-height:30px">${date}</span>
+	        	<div class="scDate selectorDiv waves-effect">
+		        	<span >${date}</span>
 	        	</div>        	
         	</c:forEach>       	
         </div>
       </div>      
 
-	  <!-- 시간 -->
+	  <!-- 시간 선택자 -->
       <div class="col s4 card grey lighten-4" style="height:500px ; margin_bottom:10px;">
       	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_time.png">
         </div>
         <!-- 헬퍼 -->
-       	<div style="height:30px;margin-left:10px;">
-        	<span style="line-height:30px" id="scHelper">상영날짜 / 극장 / 영화 선택</span>
+       	<div class="selectorDiv">
+        	<span style="font-size:18px;color:blue;" id="scHelper">상영날짜 / 극장 / 영화 선택</span>
        	</div>  
        	      
         <div style="height:450px ; overflow:scroll;" id="movieSelector">
