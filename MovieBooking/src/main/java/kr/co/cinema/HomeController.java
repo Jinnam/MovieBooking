@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,8 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
+	@Autowired
+	private HomeService homeService;
 	//진남이가 쓰는 테이스 페이지 사용 ㄴㄴ
 	@RequestMapping(value="/codeTest", method=RequestMethod.GET)
 	public String codeTest(){
@@ -25,7 +28,6 @@ public class HomeController {
 	public String codeTest(@RequestParam("kind") String kind, Model model){
 		logger.debug("/codeTest Post 진입");
 		System.out.println("homeController kind : "+kind);
-		HomeService homeService = new HomeService();
 		String resultCode = homeService.makeCode(kind);
 		model.addAttribute("resultCode",resultCode);
 		return "payment/codeTest";

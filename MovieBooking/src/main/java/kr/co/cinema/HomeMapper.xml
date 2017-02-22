@@ -6,10 +6,9 @@
 <mapper namespace="kr.co.cinema.HomeMapper">
 
 	<!-- 마지막 코드(PK) 가져오기(비회원, 마일리지, 한줄평/평점, 한줄평추천, 좌석(다:다) -->
-	<select id="selectCode" parameterType="String" resultType="String">
+	<select id="selectCode" parameterType="Map" resultType="String">
 		SELECT
-			max(nmem_code)
-			<!-- <if test='kind.equals("nonMember")'>
+			<if test='kind.equals("nonMember")'>
 				max(nmem_code)	
 			</if>
 			<if test='kind.equals("mileage")'>
@@ -23,10 +22,9 @@
 			</if>
 			<if test='kind.equals("seats")'>
 				max(seats_code)
-			</if> -->
+			</if>
 		FROM
-			NON_MEMBER
-			<!-- <if test='kind.equals("nonMember")'>
+			<if test='kind.equals("nonMember")'>
 				NON_MEMBER
 			</if>
 			<if test='kind.equals("mileage")'>
@@ -40,7 +38,7 @@
 			</if>
 			<if test='kind.equals("seats")'>
 				SEATS
-			</if> -->
+			</if>
 			
 	<!-- 마지막 스크린 코드(PK) 가져오기 -->
 	</select>
