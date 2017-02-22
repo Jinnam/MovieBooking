@@ -4,6 +4,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="kr.co.cinema.booking.BookingMapper">
+
+  <!-- ajax 영화+지점+날짜에 맞는 상영일정 가져오기 -->
+  <select id="SelectListScreenInfo" resultType="kr.co.cinema.dto.ScreenSchedule" parameterType="kr.co.cinema.dto.Movie">
+	SELECT 
+		SCREEN_SCHEDULE.scs_code as scsCode,
+		SCREEN_SCHEDULE.scs_startTime as scsStartTime
+	FROM
+		SCREEN_SCHEDULE
+	WHERE
+		SCREEN_SCHEDULE.mov_code = #{movCode} &amp;&amp; 
+		SCREEN_SCHEDULE.brc_code = #{brcCode} &amp;&amp; 
+		SCREEN_SCHEDULE.scs_date = #{Date};
+  </select>
   
   <!-- 영화 예매페이지에서 나타낼 현재 상영중인 영화가 있는 날짜 조회 -->
   <select id="selectListDate" resultType="String">

@@ -16,21 +16,23 @@
 			//선택조건 선택시 상영시간 가져오는 함수
 			var importSC = function(){
 				
-		        $.ajax({                                                    //jquery ajax
-		            url:'/oneSelectRental',                                    //비동기통신할 주소
-		            type:'get',                                                //데이터전송방식
-		            data:$('#selectForm').serialize(),                                //form 태그 안의 데이터 전송
-		            dataType : "json",                                        //서버측에서 전송한 데이터 해석할 타입
-		            success:function(data){                                //통신 성공시 실행되는 함수 data는 서버측에서 전송한 데이터
-		                console.log('success');                                
-		                $('#bookName').text(data.book.bookName);
-		                $('#memberId').text(data.memberId);
-		                $('#rentalStartDay').text(data.rentalStartDay);
-		                $('#returnExpectDay').text(data.returnExpectDay);
-		                $('#returnDay').text(data.returnDay);
-		                $('#returnStatus').text(data.returnStatus);
-		                $('#rentalPrice').text(data.rentalPrice);
-		                $('#result1').css("display","");
+				
+				
+		        $.ajax({                               
+		            url:'searchListScreenInfo',                                    
+		            type:'post',                                              
+		            data:$('#scsInfoForm').serialize(),                              
+		            dataType : "json",                                        
+		            success:function(data){       
+		            	$("#movieSelector").html(''); //movieSelector 영역 초기화
+		            	var list = data;
+		                $.each(list, function(i) {
+		                	$("#movieSelector").append('<div id=\"scsDiv'+i+'\">');
+		                	$("#scsDiv"+i).append(			'<span id=\"scsSpan'+i+'\">');
+		                	$("#scsSpan"+i).append(				list[i].scsStartTime);
+		                	$("#scsDiv"+i).append(			'</span>');
+		                	$("#movieSelector").append("</div>");
+		                });
 		            }
 		        });
 		        
@@ -132,26 +134,26 @@
 
 
 	<div class="container row"> <!-- 실제 값이 전송될 폼 -->
-		<form action="bookingSeatSelect" method="post" id="selectForm">
+		<form action="bookingSeatSelect" method="post" id="scsInfoForm">
 		
 			<!-- 영화코드 -->
 			<div class="col s3">
-				<input type="text" id="movCode">
+				<input type="text" id="movCode" name="movCode">
 			</div>
 			
 			<!-- 지점코드 -->
 			<div class="col s3">
-				<input type="text" id="brcCode">
+				<input type="text" id="brcCode" name="brcCode">
 			</div>
 			
 			<!-- 날짜 -->
 			<div class="col s3">
-				<input type="text" id="Date">
+				<input type="text" id="Date" name="Date">
 			</div>
 			
 			<!-- 상영정보 코드 -->
 			<div class="col s3">
-				<input type="text" id="scsCode">			
+				<input type="text" id="scsCode" name="scsCode">			
 			</div>
 			
 		</form>
@@ -248,16 +250,15 @@
       	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_time.png">
         </div>
-        <div style="height:450px ; overflow:scroll;">
-        
-        	<div style="height:30px;margin-left:10px;">
-	        	<span style="line-height:30px" id="scHelper">상영날짜 / 극장 / 영화 선택</span>
-        	</div>
-        	        
-        	<div class="scTime" style="height:30px;margin-left:10px;">
-	        	<span style="line-height:30px" value="1122325">14:00 디지털</span>
-        	</div>
-        </div>        
+        <!-- 헬퍼 -->
+       	<div style="height:30px;margin-left:10px;">
+        	<span style="line-height:30px" id="scHelper">상영날짜 / 극장 / 영화 선택</span>
+       	</div>  
+       	      
+        <div style="height:450px ; overflow:scroll;" id="movieSelector">
+			<!-- ajax 데이터 들어올 영역 -->
+        </div>    
+            
       </div>
 
     </div> <!-- 상영정보 div 닫기 -->
