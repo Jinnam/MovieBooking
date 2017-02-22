@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.co.cinema.dto.BranchDayCount;
+import kr.co.cinema.dto.Screen;
+import kr.co.cinema.dto.ScreenSchedule;
+
 
 @Controller
 public class HomeController {
@@ -28,6 +32,26 @@ public class HomeController {
 	public String codeTest(@RequestParam("kind") String kind, Model model){
 		logger.debug("/codeTest Post 진입");
 		System.out.println("homeController kind : "+kind);
+		
+		// <상영일정 코드> 생성 테스트
+		ScreenSchedule screenSchedule = new ScreenSchedule();
+		screenSchedule.setScrCode(42101101);
+		String returnSCSCCode = homeService.madeCode(screenSchedule);
+		model.addAttribute("returnSCSCCode",returnSCSCCode);
+		
+		// <상영 코드> 생성 테스트
+		Screen screen = new Screen();
+		screen.setBrcCode(41101);
+		String returnScreenCode = homeService.madeCode(screen);
+		model.addAttribute("returnScreenCode",returnScreenCode);
+		
+		// <지점별 예매.매출 코드> 생성 테스트
+		BranchDayCount branchDayCount = new BranchDayCount();
+		branchDayCount.setBrcCode(41101);
+		String returnBDCCode = homeService.madeCode(branchDayCount);
+		model.addAttribute("returnBDCCode",returnBDCCode);
+
+		// 일반 코드 생성테스트
 		String resultCode = homeService.makeCode(kind);
 		model.addAttribute("resultCode",resultCode);
 		return "payment/codeTest";

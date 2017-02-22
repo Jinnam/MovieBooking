@@ -22,10 +22,10 @@ public class HomeDao {
 		return sqlSession.selectOne(NS+"selectCode",map);
 	}
 	
-	// 코드 생성을 위해 기존 스크린 코드 가져오는 메서드
-	public String selectOneScreenCode(int brcCode){
-		logger.debug("			selectOneScreenCode 진입 brcCode : "+brcCode);
-		return sqlSession.selectOne(NS+"selectScreenCode", brcCode);
+	// 코드 생성을 위해 기존 코드 가져오는 메서드
+	public String selectObjectCode(Map<String, String> map){
+		logger.debug("			selectObjectCode() 진입 map : "+map);
+		return sqlSession.selectOne(NS+"selectObjectCode",map);
 	}
 	
 }

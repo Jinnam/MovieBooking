@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div style="align:center">
+	<div class="container">
 		<label>코드 생성</label>
 		<form action="/codeTest" method="post">
 		<select name="kind">
@@ -20,8 +20,18 @@
 		</select>
 		<input type="submit" value="코드생성"/>
 		</form>
-		<label>생성된 코드</label>
-		<span>${resultCode}</span>
+		<label>생성된 코드@ : </label>
+		<span>${resultCode}</span><br/>
+		<label>상영 코드 : </label>
+		<span>${returnScreenCode}</span><br/>
+		<label>지점별 예매.매출 코드 : </label>
+		<span>${returnBDCCode}</span><br/>
+		<label>상영 일정 코드 : </label>
+		<span>${returnSCSCCode}</span><br/>
+		<%-- <label>좌석 코드 : </label>
+		<span>${resultCode}</span><br/>
+		<label>결제 코드 : </label>
+		<span>${resultCode}</span><br/> --%>
 	</div>
 </body>
 </html>

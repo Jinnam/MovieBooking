@@ -7,48 +7,89 @@
 
 	<!-- 마지막 코드(PK) 가져오기(비회원, 마일리지, 한줄평/평점, 한줄평추천, 좌석(다:다) -->
 	<select id="selectCode" parameterType="Map" resultType="String">
-		SELECT
-			<if test='kind.equals("nonMember")'>
-				max(nmem_code)	
-			</if>
-			<if test='kind.equals("mileage")'>
-				max(mil_code)	
-			</if>
-			<if test='kind.equals("reply")'>
-				max(rp_code)
-			</if>
-			<if test='kind.equals("replyRecommend")'>
-				max(reco_code)
-			</if>
-			<if test='kind.equals("seats")'>
-				max(seats_code)
-			</if>
-		FROM
-			<if test='kind.equals("nonMember")'>
-				NON_MEMBER
-			</if>
-			<if test='kind.equals("mileage")'>
-				MILEAGE
-			</if>
-			<if test='kind.equals("reply")'>
-				REPLY
-			</if>
-			<if test='kind.equals("replyRecommend")'>
-				REPLY_RECOMMEND
-			</if>
-			<if test='kind.equals("seats")'>
-				SEATS
-			</if>
+		<choose>
+			<!-- 마지막 비회원 코드 가져오기 -->
+			<when test='kind.equals("nonMember")'>
+				SELECT
+					max(nmem_code)	
+				FROM
+					NON_MEMBER
+			</when>
 			
-	<!-- 마지막 스크린 코드(PK) 가져오기 -->
+			<!-- 마지막 마일리지 코드 가져오기 -->
+			<when test='kind.equals("mileage")'>
+				SELECT
+					max(mil_code)
+				FROM
+					MILEAGE	
+			</when>
+			
+			<!-- 마지막 한줄평/평점 코드 가져오기 -->
+			<when test='kind.equals("reply")'>
+				SELECT
+					max(rp_code)
+				FROM
+					REPLY
+			</when>
+			
+			<!-- 마지막 한줄평추천 코드 가져오기 -->
+			<when test='kind.equals("replyRecommend")'>
+				SELECT
+					max(reco_code)
+				FROM
+					REPLY_RECOMMEND
+			</when>
+			
+			<!-- 마지막 좌석(다:다) 코드 가져오기 -->
+			<when test='kind.equals("seats")'>
+				SELECT
+					max(seats_code)
+				FROM
+					SEATS
+			</when>
+			<otherwise>
+			
+			</otherwise>
+		
+		</choose>
+		
 	</select>
-	<select id="selectScreenCode" parameterType="int" resultType="String">
-		SELECT
-			max(scr_code)
-		FROM 
-			SCREEN
-		WHERE 
-			brc_code=#{brcCode}
+	
+	<!-- Object code가져오기 -->
+	<select id="selectObjectCode" parameterType="Map" resultType="String">
+	
+	<choose>
+		<!-- 마지막 상영관 코드 가져오기 -->
+		 <when test="ScreenBrcCode != null">
+			SELECT
+				max(scr_code)
+			FROM
+				SCREEN
+			WHERE 
+				brc_code=#{ScreenBrcCode}
+		</when>
+		
+		<!-- 마지막 지점별 일일예매/매출 코드 가져오기 -->
+		<when test='BDCBrcCode != null'>
+			SELECT
+				max(brcCnt_code)
+			FROM
+				BRANCH_DAY_COUNT
+			WHERE
+				 brc_code=#{BDCBrcCode}
+		</when>
+		<when test="srcCode != null">
+			SELECT
+				max(scs_code)
+			FROM
+				SCREEN_SCHEDULE
+			WHERE
+				scr_code=#{srcCode}
+		</when>
+		<otherwise>
+		
+		</otherwise>
+	</choose>
 	</select>
 
 </mapper>
