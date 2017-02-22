@@ -12,46 +12,74 @@
 	<script>
 		$(document).ready(function(){
 			
+			
+			//선택조건 선택시 상영시간 가져오는 함수
+			var importSC = function(){
+				console.log('함수실행');
+				$('#scHelper').text('해당조건 상영중인 영화 없음');
+			}
+			
 			//날짜 선택시
 			$(".scDate").click(function(){
+					
+				$('.scDate').removeClass('selectBlock');	//속성제거
+				$(this).addClass('selectBlock');			//속성추가
+				console.log($(this).children().text());						//선택값 출력
+				$("#selectDate").val($(this).children().text());				//값 변경
 				
-				$('.scDate').parent().removeClass('selectBlock');	//속성제거
-				$(this).parent().addClass('selectBlock');			//속성추가
-				console.log($(this).text());						//선택값 출력
-				$("#selectDate").val($(this).text());				//값 변경
+				//모든 선택이 완료된 경우
+				if($('#selectDate').val()!='' && $('#selectMovie').val()!='' && $('#selectBranch').val()!='')
+				{
+					importSC(); //상영 시간 가져오는 함수
+					return;
+				}				
+				
 			});		
 			
 			//극장 선택시
 			$(".scBranch").click(function(){
 				
-				$('.scBranch').parent().removeClass('selectBlock');		//속성제거
-				$(this).parent().addClass('selectBlock');				//속성추가
-				console.log($(this).text());							//선택값 출력
-				$("#selectBranch").val($(this).text());					//값 변경
+				$('.scBranch').removeClass('selectBlock');		//속성제거
+				$(this).addClass('selectBlock');				//속성추가
+				console.log($(this).children().text());							//선택값 출력
+				$("#selectBranch").val($(this).children().text());					//값 변경
+				
+				//모든 선택이 완료된 경우
+				if($('#selectDate').val()!='' && $('#selectMovie').val()!='' && $('#selectBranch').val()!='')
+				{
+					importSC(); //상영 시간 가져오는 함수
+					return;
+				}				
 				
 			});	
 			
 			//영화 선택시
 			$(".scMovie").click(function(){
+								
+				$('.scMovie').removeClass('selectBlock');		//속성제거
+				$(this).addClass('selectBlock');				//속성추가
+				console.log($(this).children().text());							//선택값출력	
+				$("#selectMovie").val($(this).children().text());					//값변경
 				
-				//지점 선택하지 않았을경우 
-				if($('#selectBranch').val()==''){
-					console.log('지점선택하지않음');
+				//날짜 극장 영화 선택완료시
+				if($('#selectDate').val()!='' && $('#selectMovie').val()!='' && $('#selectBranch').val()!='')
+				{
+					importSC(); //상영 시간 가져오는 함수
 					return;
-				}
-				
-				$('.scMovie').parent().removeClass('selectBlock');		//속성제거
-				$(this).parent().addClass('selectBlock');				//속성추가
-				console.log($(this).text());							//선택값출력	
-				$("#selectMovie").val($(this).text());					//값변경
-				
+				}					
 							
-				
-				
-				
-			});	
+			});
 			
-			
+			//시간 선택시
+			$(".scTime").click(function(){
+								
+				$('.scTime').removeClass('selectBlock');						//속성제거
+				$(this).addClass('selectBlock');										//속성추가
+				console.log($(this).children().attr('value'));							//선택값출력	
+				$("#selectScreen").val($(this).children().text());					//값변경
+										
+			});			
+									
 		});
 	</script>
 	
@@ -62,7 +90,7 @@
 			color:white;
 		}
 		
-		.scDate , .scBranch , .scMovie{
+		.scDate , .scBranch , .scMovie , .scTime{
 			cursor:pointer;
 		}
 	</style>
@@ -131,8 +159,8 @@
         </div>
         <div style="height:450px ; overflow:scroll;">
         	<c:forEach var="date" items="${date}">
-	        	<div style="height:30px;margin-left:10px;">
-		        	<span class="scDate" style="line-height:30px">${date}</span>
+	        	<div class="scDate" style="height:30px;margin-left:10px;">
+		        	<span style="line-height:30px">${date}</span>
 	        	</div>        	
         	</c:forEach>       	
         </div>
@@ -145,8 +173,8 @@
         </div>
         <div style="height:450px ; overflow:scroll;">
         	<c:forEach var="branch" items="${branch}">
-	        	<div style="height:30px;margin-left:10px;">
-		        	<span class="scBranch" style="line-height:30px">${branch.brcName}</span>
+	        	<div class="scBranch" style="height:30px;margin-left:10px;">
+		        	<span style="line-height:30px">${branch.brcName}</span>
 	        	</div>        	
         	</c:forEach>         
         </div>
@@ -160,8 +188,8 @@
         
         <div style="height:450px ; overflow:scroll;">
         	<c:forEach var="movie" items="${movie}">
-	        	<div style="height:30px;margin-left:10px;">
-		        	<span class="scMovie"style="line-height:30px">${movie.movKorName}</span>
+	        	<div class="scMovie" style="height:30px;margin-left:10px;">
+		        	<span style="line-height:30px">${movie.movKorName}</span>
 	        	</div>        	
         	</c:forEach>   
         </div>        
@@ -175,11 +203,11 @@
         <div style="height:450px ; overflow:scroll;">
         
         	<div style="height:30px;margin-left:10px;">
-	        	<span style="line-height:30px">상영날짜 / 극장 / 영화 선택</span>
+	        	<span style="line-height:30px" id="scHelper">상영날짜 / 극장 / 영화 선택</span>
         	</div>
         	        
-        	<div style="height:30px;margin-left:10px;">
-	        	<span style="line-height:30px">14:00 디지털</span>
+        	<div class="scTime" style="height:30px;margin-left:10px;">
+	        	<span style="line-height:30px" value="1122325">14:00 디지털</span>
         	</div>
         </div>        
       </div>
