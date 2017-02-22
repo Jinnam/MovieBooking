@@ -3,7 +3,7 @@ package kr.co.cinema.dto;
 // 영화  dto
 public class Movie {
 
-	private int mov_code;				// 영화 코드
+	private int movCode;				// 영화 코드
 	private String movKorName;			// 영화 한글 제목
 	private String movEngName;			// 영화 영문 제목
 	private String movNation;			// 국가
@@ -18,11 +18,11 @@ public class Movie {
 	private String movStatus;			// 현재 상영 여부
 	private String movFinalModifyDate;	// 최총 수정 일자
 	
-	public int getMov_code() {
-		return mov_code;
+	public int getMovCode() {
+		return movCode;
 	}
-	public void setMov_code(int mov_code) {
-		this.mov_code = mov_code;
+	public void setMovCode(int mov_code) {
+		this.movCode = mov_code;
 	}
 	public String getMovKorName() {
 		return movKorName;
@@ -105,7 +105,7 @@ public class Movie {
 	
 	@Override
 	public String toString() {
-		return "Movie [mov_code=" + mov_code + ", movKorName=" + movKorName + ", movEngName=" + movEngName
+		return "Movie [mov_code=" + movCode + ", movKorName=" + movKorName + ", movEngName=" + movEngName
 				+ ", movNation=" + movNation + ", movGrade=" + movGrade + ", movGenre=" + movGenre + ", movMaker="
 				+ movMaker + ", movRunningTime=" + movRunningTime + ", movOpenDate=" + movOpenDate + ", movInfoDetail="
 				+ movInfoDetail + ", movImgPath=" + movImgPath + ", movVideoPath=" + movVideoPath + ", movStatus="
