@@ -3,7 +3,7 @@ package kr.co.cinema.dto;
 //한줄평,평점
 public class Reply {
 
-	private int rpCode;				// 한줄평 코드
+	private String rpCode;			// 한줄평 코드
 	private String memId;			// 아이디
 	private int movCode;			// 영화코드
 	private String rpTitle;			// 제목
@@ -12,10 +12,11 @@ public class Reply {
 	private int rpGrade;			// 평점
 	private String rpInsertDate;	// 등록일자
 	
-	public int getRpCode() {
+	
+	public String getRpCode() {
 		return rpCode;
 	}
-	public void setRpCode(int rpCode) {
+	public void setRpCode(String rpCode) {
 		this.rpCode = rpCode;
 	}
 	public String getMemId() {

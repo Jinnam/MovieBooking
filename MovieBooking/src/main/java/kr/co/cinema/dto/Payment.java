@@ -3,7 +3,7 @@ package kr.co.cinema.dto;
 // 결제 dto
 public class Payment {
 
-	private int pmtCode;			// 결제 코드
+	private String pmtCode;			// 결제 코드
 	private int scsCode;			// 상영 코드
 	private String memIdd;			// 아이디(회원)
 	private int nmemCode;			// 비회원 코드(비회원)
@@ -13,10 +13,10 @@ public class Payment {
 	private int pmtPrice;			// 결제 금액
 	private String pmtDate;			// 결제 날짜
 	
-	public int getPmtCode() {
+	public String getPmtCode() {
 		return pmtCode;
 	}
-	public void setPmtCode(int pmtCode) {
+	public void setPmtCode(String pmtCode) {
 		this.pmtCode = pmtCode;
 	}
 	public int getScsCode() {

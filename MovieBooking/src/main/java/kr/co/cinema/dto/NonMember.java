@@ -3,16 +3,16 @@ package kr.co.cinema.dto;
 // 비회원 dto
 public class NonMember {
 	
-	private int nmemCode;			// 비회원 코드
+	private String nmemCode;		// 비회원 코드
 	private int nmemPhone;			// 휴대폰 번호
 	private String nmemName;		// 이름
 	private String nmemBirth;		// 생년월일
 	private String nmemPw;			// 비밀번호
 	
-	public int getNmemCode() {
+	public String getNmemCode() {
 		return nmemCode;
 	}
-	public void setNmemCode(int nmemCode) {
+	public void setNmemCode(String nmemCode) {
 		this.nmemCode = nmemCode;
 	}
 	public int getNmemPhone() {
@@ -46,4 +46,5 @@ public class NonMember {
 				+ ", nmemBirth=" + nmemBirth + ", nmemPw=" + nmemPw + "]";
 	}
 	
+
 }

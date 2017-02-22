@@ -3,17 +3,17 @@ package kr.co.cinema.dto;
 // 지점별 일일예매,매출 dto
 public class BranchDayCount {
 
-	private int brcCntCode;			// 지점별 예매,매출코드
+	private String brcCntCode;		// 지점별 예매,매출코드
 	private int brcCode;			// 지점코드
 	private int movCode;			// 영화코드
 	private int brcCntClientCount;	// 일일관객수
 	private int brcCntSaleTotal;	// 매출액
 	private String brcCntDate;		// 날짜(일,월 매출의 기준이 됨)
 	
-	public int getBrcCntCode() {
+	public String getBrcCntCode() {
 		return brcCntCode;
 	}
-	public void setBrcCntCode(int brcCntCode) {
+	public void setBrcCntCode(String brcCntCode) {
 		this.brcCntCode = brcCntCode;
 	}
 	public int getBrcCode() {

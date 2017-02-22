@@ -3,7 +3,7 @@ package kr.co.cinema.dto;
 // 상영 일정 dto
 public class ScreenSchedule {
 
-	private int scsCode;				// 상영 코드
+	private String scsCode;				// 상영 코드
 	private int movCode;				// 영화 코드
 	private int brcCode;				// 지점 코드
 	private int scrCode;				// 상영관 코드
@@ -14,10 +14,10 @@ public class ScreenSchedule {
 	private String scsTimeDiscount;		// 할인 정보
 	private String scsInsertDate;		// 등록일
 	
-	public int getScsCode() {
+	public String getScsCode() {
 		return scsCode;
 	}
-	public void setScsCode(int scsCode) {
+	public void setScsCode(String scsCode) {
 		this.scsCode = scsCode;
 	}
 	public int getMovCode() {

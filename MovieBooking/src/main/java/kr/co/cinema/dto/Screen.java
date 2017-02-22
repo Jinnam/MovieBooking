@@ -3,16 +3,16 @@ package kr.co.cinema.dto;
 // 상영관 dto
 public class Screen {
 
-	private int scrCode;		// 상영관 코드
+	private String scrCode;		// 상영관 코드
 	private int brcCode;		// 지점 코드
 	private String scrName;		// 상영관 이름
 	private int scrRowSize;		// 행 크기
 	private int scrColSize;		// 열 크기
 	
-	public int getScrCode() {
+	public String getScrCode() {
 		return scrCode;
 	}
-	public void setScrCode(int scrCode) {
+	public void setScrCode(String scrCode) {
 		this.scrCode = scrCode;
 	}
 	public int getBrcCode() {

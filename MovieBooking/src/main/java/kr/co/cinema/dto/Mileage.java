@@ -3,17 +3,17 @@ package kr.co.cinema.dto;
 // 마일리지 dto
 public class Mileage {
 
-	private int milCode;		// 마일리지 코드
+	private String milCode;		// 마일리지 코드
 	private int pmtCode;		// 결제코드
 	private String memId;		// 아이디
 	private int milUse;			// 사용 마일리지
 	private int milSave;		// 적립 마일리지
 	private String milDate;		// 마일리지 사용,적립 날짜
 	
-	public int getMilCode() {
+	public String getMilCode() {
 		return milCode;
 	}
-	public void setMilCode(int milCode) {
+	public void setMilCode(String milCode) {
 		this.milCode = milCode;
 	}
 	public int getPmtCode() {
@@ -52,6 +52,7 @@ public class Mileage {
 		return "Mileage [milCode=" + milCode + ", pmtCode=" + pmtCode + ", memId=" + memId + ", milUse=" + milUse
 				+ ", milSave=" + milSave + ", milDate=" + milDate + "]";
 	}
+	
 	
 	
 }
