@@ -11,18 +11,21 @@
 	<title>Mega Box Admin - Admin Main</title>
 	
 	<!-- Bootstrap core CSS -->
-	<link href="/resources/assets/css/bootstrap.css" rel="stylesheet">
+	<link href="resources/assets/css/bootstrap.css" rel="stylesheet">
 	<!--external css-->
-	<link href="/resources/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="/resources/assets/css/zabuto_calendar.css">
-	<link rel="stylesheet" type="text/css" href="/resources/assets/js/gritter/css/jquery.gritter.css" />
-	<link rel="stylesheet" type="text/css" href="/resources/assets/lineicons/style.css">
+	<link href="resources/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="resources/assets/css/zabuto_calendar.css">
+	<link rel="stylesheet" type="text/css" href="resources/assets/js/gritter/css/jquery.gritter.css" />
+	<link rel="stylesheet" type="text/css" href="resources/assets/lineicons/style.css">
 	
 	<!-- Custom styles for this template -->
-	<link href="/resources/assets/css/style.css" rel="stylesheet">
-	<link href="/resources/assets/css/style-responsive.css" rel="stylesheet">
+	<link href="resources/assets/css/style.css" rel="stylesheet">
+	<link href="resources/assets/css/style-responsive.css" rel="stylesheet">
 	
-	<script src="/resources/assets/js/chart-master/Chart.js"></script>
+	<script src="resources/assets/js/chart-master/Chart.js"></script>
+	<!-- 지점별 영화매출 통계 -->
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -38,7 +41,7 @@
 			<ul class="sidebar-menu" id="nav-accordion">
 				<p class="centered">
 					<a href="admin/adminMain">
-						<img src="assets/img/megaboxlogo.JPG" class="img-circle" width="60">
+						<img src="resources/assets/img/megaboxlogo.JPG" class="img-circle" width="60">
 					</a>
 				</p>
 				<h5 class="centered">Mega Box Admin Page</h5>
@@ -238,22 +241,22 @@
 	<%@include file="/WEB-INF/adminModule/footer.jsp" %>
 	
 	<!-- js placed at the end of the document so the pages load faster -->
-	<script src="/resources/assets/js/jquery.js"></script>
-	<script src="/resources/assets/js/jquery-1.8.3.min.js"></script>
-	<script src="/resources/assets/js/bootstrap.min.js"></script>
-	<script class="include" type="text/javascript" src="/resources/assets/js/jquery.dcjqaccordion.2.7.js"></script>
-	<script src="/resources/assets/js/jquery.scrollTo.min.js"></script>
-	<script src="/resources/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-	<script src="/resources/assets/js/jquery.sparkline.js"></script>
+	<script src="resources/assets/js/jquery.js"></script>
+	<script src="resources/assets/js/jquery-1.8.3.min.js"></script>
+	<script src="resources/assets/js/bootstrap.min.js"></script>
+	<script class="include" type="text/javascript" src="resources/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="resources/assets/js/jquery.scrollTo.min.js"></script>
+	<script src="resources/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+	<script src="resources/assets/js/jquery.sparkline.js"></script>
 
 	<!--common script for all pages-->
-	<script src="/resources/assets/js/common-scripts.js"></script>
-	<script type="text/javascript" src="/resources/assets/js/gritter/js/jquery.gritter.js"></script>
-	<script type="text/javascript" src="/resources/assets/js/gritter-conf.js"></script>
+	<script src="resources/assets/js/common-scripts.js"></script>
+	<script type="text/javascript" src="resources/assets/js/gritter/js/jquery.gritter.js"></script>
+	<script type="text/javascript" src="resources/assets/js/gritter-conf.js"></script>
 
 	<!--script for this page-->
-	<script src="/resources/assets/js/sparkline-chart.js"></script>
-	<script src="/resources/assets/js/zabuto_calendar.js"></script>
+	<script src="resources/assets/js/sparkline-chart.js"></script>
+	<script src="resources/assets/js/zabuto_calendar.js"></script>
 	<script type="application/javascript">
 		
         $(document).ready(function () {
