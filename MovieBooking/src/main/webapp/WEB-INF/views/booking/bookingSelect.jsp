@@ -138,20 +138,53 @@
 			line-height:30px;
 		}
 		
-/* 정빈 추가 */
-
-.grade16_All{
-	max-width:16px !important;
-	max-hight:16px !important;
-	width:16px;
-	height:16px;
-	background-image:url('resources/module-img/grade_icon/All.png');
-	background-size: 16px 16px; 
-	display:inline-block;
-
-}
-
-
+		/* 정빈 추가 */
+		
+		.grade16_All{
+			max-width:16px !important;
+			max-hight:16px !important;
+			width:16px;
+			height:16px;
+			background-image:url('resources/module-img/grade_icon/All.png');
+			background-size: 16px 16px; 
+			display:inline-block;
+		
+		}
+		
+		.grade16_12{
+			max-width:16px !important;
+			max-hight:16px !important;
+			width:16px;
+			height:16px;
+			background-image:url('resources/module-img/grade_icon/12.png');
+			background-size: 16px 16px; 
+			background-position: center;
+			display:inline-block;
+			postion:absolute;
+			top:10px;
+			
+		}
+		
+		.grade16_15{
+			max-width:16px !important;
+			max-hight:16px !important;
+			width:16px;
+			height:16px;
+			background-image:url('resources/module-img/grade_icon/15.png');
+			background-size: 16px 16px; 
+			display:inline-block;
+		
+		}
+		
+		.grade16_19{
+			max-width:16px !important;
+			max-hight:16px !important;
+			width:16px;
+			height:16px;
+			background-image:url('resources/module-img/grade_icon/19.png');
+			background-size: 16px 16px; 
+			display:inline-block;
+		}
 	</style>
 
 </head>

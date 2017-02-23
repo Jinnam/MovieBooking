@@ -1,0 +1,809 @@
+-- --------------------------------------------------------
+-- 호스트:                          better4307.cafe24.com
+-- 서버 버전:                        5.5.17-log - MySQL Community Server (GPL)
+-- 서버 OS:                        Linux
+-- HeidiSQL 버전:                  8.0.0.4396
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- information_schema 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `information_schema`;
+
+
+-- better4307 의 데이터베이스 구조 덤핑
+DROP DATABASE IF EXISTS `better4307`;
+CREATE DATABASE IF NOT EXISTS `better4307` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `better4307`;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. ADMIN
+DROP TABLE IF EXISTS `ADMIN`;
+CREATE TABLE IF NOT EXISTS `ADMIN` (
+  `adm_id` varchar(20) NOT NULL COMMENT '아이디',
+  `brc_code` int(11) DEFAULT NULL COMMENT '지점코드',
+  `adm_pw` varchar(20) NOT NULL COMMENT '비밀번호',
+  `adm_auth` varchar(20) NOT NULL COMMENT '권한',
+  `adm_date` datetime DEFAULT NULL COMMENT '승인일자',
+  PRIMARY KEY (`adm_id`),
+  KEY `FK_BRANCH_TO_ADMIN` (`brc_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='관리자';
+
+-- Dumping data for table better4307.ADMIN: 7 rows
+/*!40000 ALTER TABLE `ADMIN` DISABLE KEYS */;
+INSERT INTO `ADMIN` (`adm_id`, `brc_code`, `adm_pw`, `adm_auth`, `adm_date`) VALUES
+	('admin07', 41101, '123', '지점관리자', '2017-02-22 09:17:26'),
+	('admin01', 41111, '123', '중앙관리자', '2017-02-22 09:17:57'),
+	('admin02', 41102, '123', '지점관리자', '2017-02-23 09:28:35'),
+	('admin03', 41111, 'PW123', '중앙관리자', '2017-02-23 09:28:50'),
+	('admin04', 41104, '123', '지점관리자', '2017-02-23 09:29:17'),
+	('admin05', 41105, '123', '지점관리자', '2017-02-23 09:29:33'),
+	('admin06', 41106, '123', '지점관리자', '2017-02-23 09:33:24');
+/*!40000 ALTER TABLE `ADMIN` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. ANALYSIS
+DROP TABLE IF EXISTS `ANALYSIS`;
+CREATE TABLE IF NOT EXISTS `ANALYSIS` (
+  `mov_code` int(11) NOT NULL COMMENT '영화코드',
+  `anl_totalTicketCount` int(11) NOT NULL COMMENT '전체예매인원수',
+  `anl_10sTicketCount` int(11) NOT NULL COMMENT '10대예매인원수',
+  `anl_20sTicketCount` int(11) NOT NULL COMMENT '20대예매인원수',
+  `anl_30sTicketCount` int(11) NOT NULL COMMENT '30대예매인원수',
+  `anl_40sTicketCount` int(11) NOT NULL COMMENT '40대예매인원수',
+  `anl_50sTicketCount` int(11) NOT NULL COMMENT '50대예매인원수',
+  `anl_over50sTicketCount` int(11) NOT NULL COMMENT '50대이상',
+  `anl_manTicketCount` int(11) NOT NULL COMMENT '남성예매인원수',
+  `anl_womanTicketCount` int(11) NOT NULL COMMENT '여성예매인원수',
+  `anl_acSales` int(11) NOT NULL COMMENT '누적매출액',
+  `anl_finalModifyDate` datetime NOT NULL COMMENT '최종수정일자',
+  PRIMARY KEY (`mov_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='영화 분석/통계';
+
+-- Dumping data for table better4307.ANALYSIS: 0 rows
+/*!40000 ALTER TABLE `ANALYSIS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ANALYSIS` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. BRANCH
+DROP TABLE IF EXISTS `BRANCH`;
+CREATE TABLE IF NOT EXISTS `BRANCH` (
+  `brc_code` int(11) NOT NULL AUTO_INCREMENT COMMENT '지점코드',
+  `brc_name` varchar(20) NOT NULL COMMENT '지점명',
+  `brc_local` varchar(20) NOT NULL COMMENT '지역',
+  `brc_addr` varchar(50) NOT NULL COMMENT '주소',
+  `brc_infoDetail` varchar(100) NOT NULL COMMENT '소개',
+  `brc_imgPath` varchar(100) NOT NULL COMMENT '이미지 경로',
+  PRIMARY KEY (`brc_code`)
+) ENGINE=MyISAM AUTO_INCREMENT=41112 DEFAULT CHARSET=utf8 COMMENT='지점';
+
+-- Dumping data for table better4307.BRANCH: 11 rows
+/*!40000 ALTER TABLE `BRANCH` DISABLE KEYS */;
+INSERT INTO `BRANCH` (`brc_code`, `brc_name`, `brc_local`, `brc_addr`, `brc_infoDetail`, `brc_imgPath`) VALUES
+	(41101, '전주 금암점', '전라북도', '금암동', '영화관 설명', '이미지주소'),
+	(41102, '전주 송천점', '전라북도', '금암동', '영화관 설명', '이미지주소'),
+	(41103, '전주 고사점', '전라북도', '금암동', '영화관 설명', '이미지주소'),
+	(41104, '전주 효자점', '전라북도', '효자동', '영화관 설명', '이미지주소'),
+	(41105, '전주 서신점', '전라북도', '서신동', '영화관 설명', '이미지주소'),
+	(41106, '서울 센트럴시티점', '서울특별시', '반포4동', '영화관 설명', '이미지주소'),
+	(41107, '대구 수성점', '대구광역시', '수성동', '영화관설명', '이미지주소'),
+	(41108, '김포 사우점', '경기도', '사우동', '영화관설명', '이미지주소'),
+	(41109, '고양 화정점', '경기도', '화정동', '영화관설명', '이미지주소'),
+	(41110, '서울 구로점', '서울특별시', '구로5동', '영화관설명', '이미지주소'),
+	(41111, '본사', '서울특별시', '삼성동', '영화관설명', '이미지주소');
+/*!40000 ALTER TABLE `BRANCH` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. BRANCH_DAY_COUNT
+DROP TABLE IF EXISTS `BRANCH_DAY_COUNT`;
+CREATE TABLE IF NOT EXISTS `BRANCH_DAY_COUNT` (
+  `brcCnt_code` varchar(20) NOT NULL COMMENT '지점별 예매/매출코드',
+  `brc_code` int(11) NOT NULL COMMENT '지점코드',
+  `mov_code` int(11) NOT NULL COMMENT '영화코드',
+  `brcCnt_clientCount` int(11) NOT NULL COMMENT '일일 관객수',
+  `brcCnt_saleTotal` int(11) NOT NULL COMMENT '매출액',
+  `brcCnt_date` date NOT NULL COMMENT '날짜',
+  PRIMARY KEY (`brcCnt_code`),
+  KEY `FK_BRANCH_TO_BRANCH_DAY_COUNT` (`brc_code`),
+  KEY `FK_MOVIE_TO_BRANCH_DAY_COUNT` (`mov_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='지점별 일일예매/매출';
+
+-- Dumping data for table better4307.BRANCH_DAY_COUNT: 13 rows
+/*!40000 ALTER TABLE `BRANCH_DAY_COUNT` DISABLE KEYS */;
+INSERT INTO `BRANCH_DAY_COUNT` (`brcCnt_code`, `brc_code`, `mov_code`, `brcCnt_clientCount`, `brcCnt_saleTotal`, `brcCnt_date`) VALUES
+	('35101101', 41101, 2100003, 500, 4000000, '2017-02-02'),
+	('35101102', 41102, 2100001, 1000, 8000000, '2017-02-02'),
+	('35101103', 41101, 2100001, 400, 3200000, '2017-02-03'),
+	('35101104', 41102, 2100002, 50, 400000, '2017-02-03'),
+	('35101105', 41103, 2100002, 55, 440000, '2017-02-03'),
+	('35101106', 41103, 2100001, 55, 440000, '2017-02-03'),
+	('35101107', 41104, 2100003, 50, 400000, '2017-02-20'),
+	('35101108', 41105, 2100001, 55, 440000, '2017-02-22'),
+	('35101109', 41106, 2100002, 400, 3200000, '2017-02-22'),
+	('35101110', 41107, 2100003, 55, 440000, '2017-02-22'),
+	('35101111', 41102, 2100001, 400, 3200000, '2017-02-07'),
+	('35101112', 41102, 2100003, 55, 440000, '2017-02-22'),
+	('35101113', 41102, 2100004, 55, 440000, '2017-01-01');
+/*!40000 ALTER TABLE `BRANCH_DAY_COUNT` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. CHARACTER
+DROP TABLE IF EXISTS `CHARACTER`;
+CREATE TABLE IF NOT EXISTS `CHARACTER` (
+  `char_code` int(11) NOT NULL AUTO_INCREMENT COMMENT '인물코드',
+  `char_korName` varchar(30) NOT NULL COMMENT '이름',
+  `char_engName` varchar(30) NOT NULL COMMENT '영문이름',
+  `char_birth` date NOT NULL COMMENT '생년월일',
+  `char_gender` varchar(2) NOT NULL COMMENT '성별',
+  `char_profileImgPath` varchar(100) NOT NULL COMMENT '프로필사진경로',
+  `char_nation` varchar(20) NOT NULL COMMENT '국적',
+  `char_bioGraphy` varchar(200) NOT NULL COMMENT '바이오그래피',
+  `char_finalModifyDate` datetime NOT NULL COMMENT '최종수정일자',
+  PRIMARY KEY (`char_code`)
+) ENGINE=MyISAM AUTO_INCREMENT=2300012 DEFAULT CHARSET=utf8 COMMENT='인물';
+
+-- Dumping data for table better4307.CHARACTER: 11 rows
+/*!40000 ALTER TABLE `CHARACTER` DISABLE KEYS */;
+INSERT INTO `CHARACTER` (`char_code`, `char_korName`, `char_engName`, `char_birth`, `char_gender`, `char_profileImgPath`, `char_nation`, `char_bioGraphy`, `char_finalModifyDate`) VALUES
+	(2300001, '임윤아', 'Lim Yoon A', '1990-05-30', '여', 'http://img.theqoo.net/img/rBOBZ.png', '대한민국', '바이오그래피', '2017-02-17 20:44:32'),
+	(2300002, '현빈', 'Hyeon Bin', '1982-09-25', '남', '', '대한민국', '바이오그래피', '2017-02-22 09:28:00'),
+	(2300003, '김성훈', 'Kim Sung Hoon', '1974-02-22', '남', 'http://search.de.phinf.net/common/?src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F70%2F20121210162750', '대한민국', '바이오그래피', '2017-02-22 09:40:05'),
+	(2300004, '크리스토퍼 놀란', 'Christopher Nolan', '1970-07-30', '남', 'http://search.de.phinf.net/common/?src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F25%2F20141110180225', '미국', '바이오그래피', '2017-02-22 09:53:52'),
+	(2300005, '앤 해서웨이', 'Anne Hathaway', '1982-11-12', '여', 'http://movie.phinf.naver.net/20141015_32/1413363944878sCBUP_JPEG/movie_image.jpg?type=m665_443_2', '미국', '바이오그래피', '2017-02-22 00:00:00'),
+	(2300006, '맷 데이먼', 'Matt Damon', '1970-10-08', '남', 'https://cdn.namuwikiusercontent.com/f8/f827ef65ac9d0b392bbceebc334e9dedd37d380465086b832c1f578d1072d', '미국', '바이오그래피', '2017-02-22 11:28:45'),
+	(2300007, '매슈 매코너헤이', 'Matthew David McConaughey', '1969-11-04', '남', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Matthew_McConaughey_-_Goldene_Kamera_2014_', '미국', '바이오그래피', '2017-02-22 12:26:14'),
+	(2300008, '톰 행크스', 'Tom Hanks', '1956-07-09', '남', 'https://pbs.twimg.com/profile_images/280455139/l_ecdf8f7aa81d5163129fee54d83a5e63_400x400.jpg', '미국', '바이오그래피', '2017-02-23 09:40:25'),
+	(2300009, '톰 라일리', 'Tom Riley', '1981-04-05', '남', 'http://iv1.lisimg.com/image/7265816/736full-tom-riley.jpg', '미국', '바이오그래피', '2017-02-23 09:41:41'),
+	(2300010, '히스 레저', 'Heath Ledger', '1974-04-04', '남', 'https://image-proxy.namuwikiusercontent.com/r/http%3A%2F%2Fcdn.wallpapersafari.com%2F16%2F68%2FR6JnB', '미국', '바이오그래피', '2017-02-23 10:31:35'),
+	(2300011, '이주영', 'Lee Ju young', '0000-00-00', '여', 'http://search.de.phinf.net/common/?src=http%3A%2F%2Fimgmovie.naver.net%2Fmdi%2Fpi%2F000003084%2FPM30', '대한민국', '바이오그래피', '2017-02-23 14:57:28');
+/*!40000 ALTER TABLE `CHARACTER` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. CHARACTERS
+DROP TABLE IF EXISTS `CHARACTERS`;
+CREATE TABLE IF NOT EXISTS `CHARACTERS` (
+  `chars_code` int(11) NOT NULL AUTO_INCREMENT COMMENT '인물(다)코드',
+  `mov_code` int(11) NOT NULL COMMENT '영화코드',
+  `char_code` int(11) NOT NULL COMMENT '인물코드',
+  PRIMARY KEY (`chars_code`),
+  KEY `FK_CHARACTER_TO_CHARACTERS` (`char_code`),
+  KEY `FK_MOVIE_TO_CHARACTERS` (`mov_code`)
+) ENGINE=MyISAM AUTO_INCREMENT=2400005 DEFAULT CHARSET=utf8 COMMENT='인물(다:다)';
+
+-- Dumping data for table better4307.CHARACTERS: 4 rows
+/*!40000 ALTER TABLE `CHARACTERS` DISABLE KEYS */;
+INSERT INTO `CHARACTERS` (`chars_code`, `mov_code`, `char_code`) VALUES
+	(2400001, 2100001, 2300001),
+	(2400002, 2100001, 2300002),
+	(2400003, 2100003, 2300005),
+	(2400004, 2100006, 2300010);
+/*!40000 ALTER TABLE `CHARACTERS` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. DISCOUNT_INFO
+DROP TABLE IF EXISTS `DISCOUNT_INFO`;
+CREATE TABLE IF NOT EXISTS `DISCOUNT_INFO` (
+  `dcinf_code` int(11) NOT NULL AUTO_INCREMENT COMMENT '할인코드',
+  `dcinf_info` varchar(10) NOT NULL COMMENT '할인정보',
+  `dcinf_price` int(11) NOT NULL COMMENT '할인가',
+  `dcinf_applyYear` int(11) NOT NULL COMMENT '적용년',
+  `dcinf_status` varchar(10) NOT NULL COMMENT '현재적용유무',
+  `dcinf_date` datetime NOT NULL COMMENT '시스템등록일자',
+  PRIMARY KEY (`dcinf_code`)
+) ENGINE=MyISAM AUTO_INCREMENT=53004 DEFAULT CHARSET=utf8 COMMENT='할인정보 (조조/심야/청소년)';
+
+-- Dumping data for table better4307.DISCOUNT_INFO: 4 rows
+/*!40000 ALTER TABLE `DISCOUNT_INFO` DISABLE KEYS */;
+INSERT INTO `DISCOUNT_INFO` (`dcinf_code`, `dcinf_info`, `dcinf_price`, `dcinf_applyYear`, `dcinf_status`, `dcinf_date`) VALUES
+	(53000, '일반', 0, 2000, '적용', '2000-01-01 14:11:09'),
+	(53001, '청소년', 1000, 2017, '적용', '2017-02-22 14:25:06'),
+	(53002, '장애인', 2000, 2017, '적용', '2017-02-22 14:17:37'),
+	(53003, '국가유공자', 3000, 2012, '미적용', '2012-02-22 14:22:30');
+/*!40000 ALTER TABLE `DISCOUNT_INFO` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. GRADE
+DROP TABLE IF EXISTS `GRADE`;
+CREATE TABLE IF NOT EXISTS `GRADE` (
+  `mov_code` int(11) NOT NULL COMMENT '영화코드',
+  `gra_acGrade` int(11) NOT NULL COMMENT '총누적평점',
+  `gra_totalNum` int(11) NOT NULL COMMENT '총평가인원수',
+  `gra_beforeOpenGrade` int(11) NOT NULL COMMENT '개봉전 누적 평점',
+  `gra_beforeOpenNum` int(11) NOT NULL COMMENT '개봉전 평가인원',
+  `gra_vistorGrade` int(11) NOT NULL COMMENT '관람객 누적 평점',
+  `gra_vistorGradeNum` int(11) NOT NULL COMMENT '관람객 평가인원',
+  PRIMARY KEY (`mov_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='평점분석';
+
+-- Dumping data for table better4307.GRADE: 0 rows
+/*!40000 ALTER TABLE `GRADE` DISABLE KEYS */;
+/*!40000 ALTER TABLE `GRADE` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. MEMBER
+DROP TABLE IF EXISTS `MEMBER`;
+CREATE TABLE IF NOT EXISTS `MEMBER` (
+  `mem_id` varchar(20) NOT NULL COMMENT '아이디',
+  `mem_pw` varchar(20) NOT NULL COMMENT '비밀번호',
+  `mem_phone` varchar(15) NOT NULL COMMENT '휴대폰번호',
+  `mem_name` varchar(20) NOT NULL COMMENT '이름',
+  `mem_gender` varchar(2) NOT NULL COMMENT '성별',
+  `mem_birth` date NOT NULL COMMENT '생년월일',
+  `mem_postNo` int(11) NOT NULL COMMENT '우편번호',
+  `mem_addr` varchar(50) NOT NULL COMMENT '주소',
+  `mem_mail` varchar(50) NOT NULL COMMENT '이메일',
+  `mem_mileage` int(11) NOT NULL COMMENT '마일리지',
+  `mem_joinDay` datetime NOT NULL COMMENT '가입일',
+  `mem_status` varchar(20) DEFAULT NULL COMMENT '회원상태(일반,탈퇴)',
+  `mem_leaveDay` datetime DEFAULT NULL COMMENT '탈퇴일',
+  PRIMARY KEY (`mem_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='회원';
+
+-- Dumping data for table better4307.MEMBER: 3 rows
+/*!40000 ALTER TABLE `MEMBER` DISABLE KEYS */;
+INSERT INTO `MEMBER` (`mem_id`, `mem_pw`, `mem_phone`, `mem_name`, `mem_gender`, `mem_birth`, `mem_postNo`, `mem_addr`, `mem_mail`, `mem_mileage`, `mem_joinDay`, `mem_status`, `mem_leaveDay`) VALUES
+	('kim123', 'kim123', '01053531212', '김우빈', '남', '1990-03-23', 54907, '전북 전주시 덕진구 금암1동 1542-3', 'better4307@naver.com', 0, '2017-02-22 10:06:45', NULL, NULL),
+	('id001', 'pw001', '01053531213', '조민국', '남', '1990-03-23', 54907, '전북 전주시 덕진구 금암1동 1542-3', 'better4307@naver.com', 0, '2017-02-22 10:06:45', NULL, NULL),
+	('id002', 'pw002', '01053531214', '정우성', '남', '1990-03-23', 54907, '전북 전주시 덕진구 금암1동 1542-3', 'better4307@naver.com', 0, '2017-02-22 10:06:45', NULL, NULL);
+/*!40000 ALTER TABLE `MEMBER` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. MILEAGE
+DROP TABLE IF EXISTS `MILEAGE`;
+CREATE TABLE IF NOT EXISTS `MILEAGE` (
+  `mil_code` varchar(20) NOT NULL COMMENT '마일리지로그코드',
+  `pmt_code` varchar(25) NOT NULL COMMENT '결제코드',
+  `mem_id` varchar(20) NOT NULL COMMENT '아이디',
+  `mil_use` int(11) NOT NULL COMMENT '사용마일리지',
+  `mil_save` int(11) NOT NULL COMMENT '적립마일리지',
+  `mil_date` datetime NOT NULL COMMENT '날짜',
+  PRIMARY KEY (`mil_code`),
+  KEY `FK_MEMBER_TO_MILEAGE` (`mem_id`),
+  KEY `FK_PAYMENT_TO_MILEAGE` (`pmt_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='마일리지적립/사용기록';
+
+-- Dumping data for table better4307.MILEAGE: 0 rows
+/*!40000 ALTER TABLE `MILEAGE` DISABLE KEYS */;
+/*!40000 ALTER TABLE `MILEAGE` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. MOVIE
+DROP TABLE IF EXISTS `MOVIE`;
+CREATE TABLE IF NOT EXISTS `MOVIE` (
+  `mov_code` int(11) NOT NULL AUTO_INCREMENT COMMENT '영화코드',
+  `mov_korName` varchar(30) NOT NULL COMMENT '영화한글제목',
+  `mov_engName` varchar(30) NOT NULL COMMENT '영화영문제목',
+  `char_code` int(11) NOT NULL COMMENT '인물코드(감독)',
+  `mov_nation` varchar(20) NOT NULL COMMENT '국가',
+  `mov_grade` varchar(20) NOT NULL COMMENT '등급',
+  `mov_genre` varchar(20) NOT NULL COMMENT '장르',
+  `mov_maker` varchar(50) NOT NULL COMMENT '제작사',
+  `mov_runningTime` time NOT NULL COMMENT '러닝타임',
+  `mov_openDate` date NOT NULL COMMENT '개봉일',
+  `mov_infoDetail` varchar(200) NOT NULL COMMENT '상세설명',
+  `mov_imgPath` varchar(200) NOT NULL COMMENT '썸네일이미지경로',
+  `mov_videoPath` varchar(200) NOT NULL COMMENT '영상경로',
+  `mov_status` varchar(20) NOT NULL COMMENT '현재상영여부',
+  `mov_date` datetime NOT NULL COMMENT '등록일자',
+  `mov_finalModifyDate` datetime NOT NULL COMMENT '최종수정일자',
+  PRIMARY KEY (`mov_code`),
+  KEY `FK_CHARACTER_TO_MOVIE` (`char_code`)
+) ENGINE=MyISAM AUTO_INCREMENT=21000017 DEFAULT CHARSET=utf8 COMMENT='영화';
+
+-- Dumping data for table better4307.MOVIE: 7 rows
+/*!40000 ALTER TABLE `MOVIE` DISABLE KEYS */;
+INSERT INTO `MOVIE` (`mov_code`, `mov_korName`, `mov_engName`, `char_code`, `mov_nation`, `mov_grade`, `mov_genre`, `mov_maker`, `mov_runningTime`, `mov_openDate`, `mov_infoDetail`, `mov_imgPath`, `mov_videoPath`, `mov_status`, `mov_date`, `mov_finalModifyDate`) VALUES
+	(2100001, '공조', ' Confidential Assignment', 2300003, '한국', '15', '액션', 'JK필름', '00:02:00', '2017-02-17', '남한으로 숨어든 탈북범죄조직을 쫓기 위해 북한 형사와 남한 형사가 극비리에 공조수사에 나서며 펼쳐지는 이야기를 그린 영화다.', 'http://movie.phinf.naver.net/20170118_143/1484714583493K148x_JPEG/movie_image.jpg', '유튜브주소', '상영중', '0000-00-00 00:00:00', '2017-02-17 20:47:30'),
+	(2100002, '인셉션', 'Inception', 2300004, '미국', '12', 'SF', '레전더리 픽쳐스', '02:00:00', '2010-07-21', '인셉션', 'http://movie.naver.com/movie/bi/mi/basic.nhn?code=52515', 'https://www.youtube.com/watch?v=hx1fqhNoH8A', '상영중', '2010-07-01 00:00:00', '2017-02-22 00:00:00'),
+	(2100003, '인터스텔라', 'Interstellar', 2300004, '미국', '12', 'SF', '레전더리 픽쳐스', '02:09:00', '2014-11-06', '가까운 미래, 전 지구적 규모의 식량난과 환경 변화에 의해서 인류가 멸망하는 카운트다운이 진행되고 있었다.\r\n	그런 상황에서, 어느 중요임무의 수행자로 과거 우주선 조종사 겸 엔지니어였던 남자가 발탁된다. \r\n	그 중요임무란, 우주에서 새롭게 발견된 미개지로 여행을 떠나는 것이었다. \r\n	지구에 남지 않으면 안 되는 가족과 인류 멸망으로부터의 구원,\r\n	둘', 'http://movie.phinf.naver.net/20160106_138/1452044846608eaFcJ_JPEG/movie_image.jpg', 'https://www.youtube.com/watch?v=nyc6RJEEe0U', '종영', '2017-02-22 10:29:27', '2017-02-22 10:29:27'),
+	(2100004, '다크나이트라이즈', 'The Dark Knight Rises', 2300004, '미국', '15', '액션', '레전더리픽쳐스', '02:04:00', '2012-07-19', '배트맨’ vs. ‘베인’, 운명을 건 최후의 전투', 'http://movie.naver.com/movie/bi/mi/photoViewPopup.nhn?movieCode=72054', 'https://www.youtube.com/watch?v=lPSYDCRliFA', '종영', '2012-07-01 00:00:00', '0000-00-00 00:00:00'),
+	(2100005, '올드보이', 'oldboy', 6, '한국', '19', '스릴러', 'CJ', '02:02:02', '2000-03-03', '최민식대표작', '../../...jpg', '../../..mp4', '종영', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(2100006, '다크 나이트', 'The Dark Knight', 2300004, '미국', '15', 'SF', '레전더리 픽쳐스', '01:52:00', '2008-07-18', '무법천지에 온 것을 환영한다.', 'https://cdn.namuwikiusercontent.com/35/3518048764ef57702c4dba2555c1c5524d90218b8bbf61375da7cc23564a2', 'https://www.youtube.com/watch?v=yQ5U8suTUw0', '종영', '2017-02-23 10:25:19', '2017-02-23 10:25:19'),
+	(2100007, '싱글라이더', 'A single rider', 2300011, '한국', '12', '드라마', '퍼펙트스톰필름', '01:37:00', '2017-02-22', '그가 사라졌다 그에게서 모든 것이 사라졌다', 'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000079/79451/79451_185.jpg', 'https://www.youtube.com/watch?v=zfJFnN9llRM', '상영중', '2017-02-23 15:02:20', '2017-02-23 15:02:20');
+/*!40000 ALTER TABLE `MOVIE` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. NON_MEMBER
+DROP TABLE IF EXISTS `NON_MEMBER`;
+CREATE TABLE IF NOT EXISTS `NON_MEMBER` (
+  `nmem_code` varchar(20) NOT NULL COMMENT '비회원코드',
+  `nmem_phone` varchar(15) NOT NULL COMMENT '휴대폰번호',
+  `nmem_name` varchar(20) NOT NULL COMMENT '이름',
+  `nmem_birth` date NOT NULL COMMENT '생년월일',
+  `nmem_pw` varchar(20) NOT NULL COMMENT '비밀번호',
+  PRIMARY KEY (`nmem_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='비회원';
+
+-- Dumping data for table better4307.NON_MEMBER: 5 rows
+/*!40000 ALTER TABLE `NON_MEMBER` DISABLE KEYS */;
+INSERT INTO `NON_MEMBER` (`nmem_code`, `nmem_phone`, `nmem_name`, `nmem_birth`, `nmem_pw`) VALUES
+	('1317022110001', '01012344321', '조민국', '1990-05-05', 'qwer'),
+	('1317022110002', '01012344322', '김민국', '1990-05-05', 'qwer'),
+	('1317022110003', '01012344323', '이민국', '1990-05-05', 'qwer'),
+	('1317022110004', '01012344324', '한민국', '1990-05-05', 'qwer'),
+	('1317022110005', '01012344325', '박민국', '1990-05-05', 'qwer');
+/*!40000 ALTER TABLE `NON_MEMBER` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. PAYMENT
+DROP TABLE IF EXISTS `PAYMENT`;
+CREATE TABLE IF NOT EXISTS `PAYMENT` (
+  `pmt_code` varchar(25) NOT NULL COMMENT '결제코드',
+  `scs_code` varchar(20) NOT NULL COMMENT '상영코드',
+  `mem_id` varchar(20) DEFAULT NULL COMMENT '아이디',
+  `nmem_code` varchar(20) DEFAULT NULL COMMENT '비회원코드',
+  `scco_code` int(11) NOT NULL COMMENT '상영단가코드',
+  `dcinf_code` int(11) NOT NULL COMMENT '할인코드',
+  `pmt_ticketNum` int(11) NOT NULL COMMENT '인원',
+  `pmt_price` int(11) NOT NULL COMMENT '결제금액',
+  `pmt_date` datetime NOT NULL COMMENT '결제날짜',
+  PRIMARY KEY (`pmt_code`),
+  KEY `FK_SCREEN_COST_TO_PAYMENT` (`scco_code`),
+  KEY `FK_DISCOUNT_INFO_TO_PAYMENT` (`dcinf_code`),
+  KEY `FK_MEMBER_TO_PAYMENT` (`mem_id`),
+  KEY `FK_SCREEN_SCHEDULE_TO_PAYMENT` (`scs_code`),
+  KEY `FK_NON_MEMBER_TO_PAYMENT` (`nmem_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='결제';
+
+-- Dumping data for table better4307.PAYMENT: 2 rows
+/*!40000 ALTER TABLE `PAYMENT` DISABLE KEYS */;
+INSERT INTO `PAYMENT` (`pmt_code`, `scs_code`, `mem_id`, `nmem_code`, `scco_code`, `dcinf_code`, `pmt_ticketNum`, `pmt_price`, `pmt_date`) VALUES
+	('511702021011011031001', '43170221101101103\r\n', 'id001', NULL, 52000, 53002, 1, 9000, '2017-02-23 11:20:00'),
+	('511702021011011041002', '43170221101101104', 'id002', NULL, 52001, 53000, 2, 18000, '2017-02-21 10:00:00');
+/*!40000 ALTER TABLE `PAYMENT` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. REPLY
+DROP TABLE IF EXISTS `REPLY`;
+CREATE TABLE IF NOT EXISTS `REPLY` (
+  `rp_code` varchar(20) NOT NULL COMMENT '한줄평코드',
+  `mem_id` varchar(20) NOT NULL COMMENT '아이디',
+  `mov_code` int(11) NOT NULL COMMENT '영화코드',
+  `rp_title` varchar(20) NOT NULL COMMENT '제목',
+  `rp_detail` varchar(50) NOT NULL COMMENT '내용',
+  `rp_recomend` int(11) NOT NULL COMMENT '추천수',
+  `rp_grade` int(11) NOT NULL COMMENT '평점',
+  `rp_insertDate` datetime NOT NULL COMMENT '등록일자',
+  `rp_status` varchar(10) DEFAULT NULL COMMENT '삭제유무',
+  `re_deleteDate` datetime DEFAULT NULL COMMENT '삭제일자',
+  PRIMARY KEY (`rp_code`),
+  KEY `FK_MOVIE_TO_REPLY` (`mov_code`),
+  KEY `FK_MEMBER_TO_REPLY` (`mem_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='한줄평/평점';
+
+-- Dumping data for table better4307.REPLY: 2 rows
+/*!40000 ALTER TABLE `REPLY` DISABLE KEYS */;
+INSERT INTO `REPLY` (`rp_code`, `mem_id`, `mov_code`, `rp_title`, `rp_detail`, `rp_recomend`, `rp_grade`, `rp_insertDate`, `rp_status`, `re_deleteDate`) VALUES
+	('31170221100001', 'id001', 2100001, 'Wow', 'this movie is good', 0, 8, '2017-02-21 09:24:00', NULL, NULL),
+	('31170221100002', 'id002', 2100002, 'good', 'good Movie!!', 0, 9, '2017-02-22 09:25:19', NULL, NULL);
+/*!40000 ALTER TABLE `REPLY` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. REPLY_RECOMMEND
+DROP TABLE IF EXISTS `REPLY_RECOMMEND`;
+CREATE TABLE IF NOT EXISTS `REPLY_RECOMMEND` (
+  `reco_code` varchar(20) NOT NULL COMMENT '한줄평추천코드',
+  `rp_code` varchar(20) NOT NULL COMMENT '한줄평코드',
+  `mem_id` varchar(20) NOT NULL COMMENT '한줄평 추천 아이디',
+  `reco_date` datetime NOT NULL COMMENT '추천일자',
+  PRIMARY KEY (`reco_code`),
+  KEY `FK_REPLY_TO_REPLY_RECOMMEND` (`rp_code`),
+  KEY `FK_MEMBER_TO_REPLY_RECOMMEND` (`mem_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='한줄평추천수';
+
+-- Dumping data for table better4307.REPLY_RECOMMEND: 0 rows
+/*!40000 ALTER TABLE `REPLY_RECOMMEND` DISABLE KEYS */;
+/*!40000 ALTER TABLE `REPLY_RECOMMEND` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. SCREEN
+DROP TABLE IF EXISTS `SCREEN`;
+CREATE TABLE IF NOT EXISTS `SCREEN` (
+  `scr_code` varchar(20) NOT NULL COMMENT '상영관코드',
+  `brc_code` int(11) NOT NULL COMMENT '지점코드',
+  `scr_name` varchar(20) NOT NULL COMMENT '상영관명',
+  `scr_rowSize` int(11) NOT NULL COMMENT '상영관행크기',
+  `scr_colSize` int(11) NOT NULL COMMENT '상영관열크기',
+  PRIMARY KEY (`scr_code`),
+  KEY `FK_BRANCH_TO_SCREEN` (`brc_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='상영관';
+
+-- Dumping data for table better4307.SCREEN: 8 rows
+/*!40000 ALTER TABLE `SCREEN` DISABLE KEYS */;
+INSERT INTO `SCREEN` (`scr_code`, `brc_code`, `scr_name`, `scr_rowSize`, `scr_colSize`) VALUES
+	('42103101', 41103, '1관', 10, 10),
+	('42101101', 41101, '1관', 10, 12),
+	('42102101', 41102, '1관', 12, 8),
+	('42101102', 41101, '2관', 8, 8),
+	('42102102', 41102, '2관', 10, 10),
+	('42103102', 41103, '2관', 8, 8),
+	('42104101', 41104, '1관', 12, 12),
+	('42104102', 41104, '2관', 12, 8);
+/*!40000 ALTER TABLE `SCREEN` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. SCREEN_COST
+DROP TABLE IF EXISTS `SCREEN_COST`;
+CREATE TABLE IF NOT EXISTS `SCREEN_COST` (
+  `scco_code` int(11) NOT NULL AUTO_INCREMENT COMMENT '상영단가코드',
+  `scco_screen` varchar(10) NOT NULL COMMENT '스크린',
+  `scco_price` int(11) NOT NULL COMMENT '단가',
+  `scco_applyYear` int(11) NOT NULL COMMENT '적용년',
+  `scco_status` varchar(10) NOT NULL COMMENT '현재적용유무',
+  `scco_date` datetime NOT NULL COMMENT '시스템등록일자',
+  PRIMARY KEY (`scco_code`)
+) ENGINE=MyISAM AUTO_INCREMENT=52004 DEFAULT CHARSET=utf8 COMMENT='상영 단가 (2D,3D,IMAX)';
+
+-- Dumping data for table better4307.SCREEN_COST: 4 rows
+/*!40000 ALTER TABLE `SCREEN_COST` DISABLE KEYS */;
+INSERT INTO `SCREEN_COST` (`scco_code`, `scco_screen`, `scco_price`, `scco_applyYear`, `scco_status`, `scco_date`) VALUES
+	(52000, '2D', 9000, 2017, '적용', '2017-02-22 13:57:50'),
+	(52001, '3D', 10000, 2017, '적용', '2017-02-22 13:59:08'),
+	(52002, 'IMAX', 13000, 2017, '적용', '2017-02-22 14:01:25'),
+	(52003, '2D', 7000, 2012, '미적용', '2017-02-22 14:21:25');
+/*!40000 ALTER TABLE `SCREEN_COST` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. SCREEN_SCHEDULE
+DROP TABLE IF EXISTS `SCREEN_SCHEDULE`;
+CREATE TABLE IF NOT EXISTS `SCREEN_SCHEDULE` (
+  `scs_code` varchar(20) NOT NULL COMMENT '상영코드',
+  `mov_code` int(11) NOT NULL COMMENT '영화코드',
+  `brc_code` int(11) NOT NULL COMMENT '지점코드',
+  `scr_code` varchar(20) NOT NULL COMMENT '상영관코드',
+  `scs_date` date NOT NULL COMMENT '상영날짜',
+  `scs_startTime` time NOT NULL COMMENT '상영시작시간',
+  `scs_finishTime` time NOT NULL COMMENT '상영종료시간',
+  `scs_screen` varchar(20) NOT NULL COMMENT '2d/3d/imax',
+  `scs_timeDiscount` varchar(20) NOT NULL COMMENT '조조/일반/심야',
+  `scs_totalSeatCnt` int(11) NOT NULL COMMENT '총 좌석 수',
+  `scs_remainSeatCnt` int(11) NOT NULL COMMENT '남은 좌석 수',
+  `scs_insertDate` datetime NOT NULL COMMENT '등록일',
+  `scs_status` varchar(50) DEFAULT NULL COMMENT '상영일정상태',
+  PRIMARY KEY (`scs_code`),
+  KEY `FK_SCREEN_TO_SCREEN_SCHEDULE` (`scr_code`),
+  KEY `FK_BRANCH_TO_SCREEN_SCHEDULE` (`brc_code`),
+  KEY `FK_MOVIE_TO_SCREEN_SCHEDULE` (`mov_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='상영일정';
+
+-- Dumping data for table better4307.SCREEN_SCHEDULE: 14 rows
+/*!40000 ALTER TABLE `SCREEN_SCHEDULE` DISABLE KEYS */;
+INSERT INTO `SCREEN_SCHEDULE` (`scs_code`, `mov_code`, `brc_code`, `scr_code`, `scs_date`, `scs_startTime`, `scs_finishTime`, `scs_screen`, `scs_timeDiscount`, `scs_totalSeatCnt`, `scs_remainSeatCnt`, `scs_insertDate`, `scs_status`) VALUES
+	('43170221101101104', 2100001, 41101, '42101102', '2017-02-02', '20:51:37', '20:51:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '종영'),
+	('43170221101101103', 2100001, 41103, '42101102', '2017-03-01', '07:52:22', '07:52:22', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
+	('43170221101101101', 2100001, 41101, '42101101', '2017-03-01', '10:51:37', '10:51:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
+	('43170221101101102', 2100001, 41102, '42101102', '2017-03-06', '13:22:37', '13:22:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
+	('43170221101101105', 2100001, 41102, '42101102', '2017-03-01', '14:51:37', '14:51:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
+	('43170221101101106', 2100001, 41103, '42101102', '2017-03-02', '09:51:37', '09:51:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
+	('43170221101101107', 2100001, 41102, '42101102', '2017-03-01', '13:22:37', '13:22:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
+	('43170221101101108', 2100001, 41102, '42101102', '2017-03-03', '13:22:37', '13:22:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
+	('43170221101101109', 2100001, 41102, '42101102', '2017-03-04', '13:22:37', '13:22:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
+	('43170221101101110', 2100001, 41102, '42101102', '2017-03-05', '13:22:37', '13:22:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
+	('43170221101101111', 2100001, 41102, '42101102', '2017-03-06', '13:22:37', '13:22:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
+	('43170221101101112', 2100001, 41102, '42101102', '2017-04-01', '13:22:37', '13:22:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
+	('43170221101101113', 2100002, 41104, '42104101', '2016-12-23', '13:00:00', '15:00:00', '2D', '일반', 0, 0, '2017-02-23 00:00:00', '종영'),
+	('43170221101101114', 2100002, 41104, '42104101', '2016-02-23', '16:30:10', '18:30:14', '2D', '일반', 0, 0, '2017-02-23 16:30:33', '종영');
+/*!40000 ALTER TABLE `SCREEN_SCHEDULE` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. SEAT
+DROP TABLE IF EXISTS `SEAT`;
+CREATE TABLE IF NOT EXISTS `SEAT` (
+  `seat_code` varchar(25) NOT NULL COMMENT '좌석코드',
+  `scs_code` varchar(20) NOT NULL COMMENT '상영코드',
+  `scr_code` varchar(20) NOT NULL COMMENT '상영관코드',
+  `seta_row` char(1) NOT NULL COMMENT '행',
+  `seat_col` int(11) NOT NULL COMMENT '열',
+  `seat_useStatus` varchar(20) NOT NULL COMMENT '사용여부',
+  PRIMARY KEY (`seat_code`),
+  KEY `FK_SCREEN_SCHEDULE_TO_SEAT` (`scs_code`),
+  KEY `FK_SCREEN_TO_SEAT` (`scr_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='좌석정보';
+
+-- Dumping data for table better4307.SEAT: 30 rows
+/*!40000 ALTER TABLE `SEAT` DISABLE KEYS */;
+INSERT INTO `SEAT` (`seat_code`, `scs_code`, `scr_code`, `seta_row`, `seat_col`, `seat_useStatus`) VALUES
+	('1', '1', '1', 'a', 1, '미사용'),
+	('2', '1', '1', 'a', 2, '미사용'),
+	('3', '1', '1', 'a', 3, '미사용'),
+	('4', '1', '1', 'a', 4, '미사용'),
+	('5', '1', '1', 'a', 5, '미사용'),
+	('6', '1', '1', 'a', 6, '미사용'),
+	('7', '1', '1', 'a', 7, '미사용'),
+	('8', '1', '1', 'a', 8, '미사용'),
+	('9', '1', '1', 'a', 9, '미사용'),
+	('10', '1', '1', 'a', 10, '미사용'),
+	('11', '1', '1', 'b', 1, '미사용'),
+	('12', '1', '1', 'b', 2, '미사용'),
+	('13', '1', '1', 'b', 3, '미사용'),
+	('14', '1', '1', 'b', 4, '미사용'),
+	('15', '1', '1', 'b', 5, '미사용'),
+	('16', '1', '1', 'b', 6, '미사용'),
+	('17', '1', '1', 'b', 7, '미사용'),
+	('18', '1', '1', 'b', 8, '미사용'),
+	('19', '1', '1', 'b', 9, '미사용'),
+	('20', '1', '1', 'b', 10, '미사용'),
+	('21', '1', '1', 'c', 1, '미사용'),
+	('23', '1', '1', 'c', 3, '미사용'),
+	('24', '1', '1', 'c', 4, '미사용'),
+	('25', '1', '1', 'c', 5, '미사용'),
+	('26', '1', '1', 'c', 6, '미사용'),
+	('27', '1', '1', 'c', 7, '미사용'),
+	('28', '1', '1', 'c', 8, '미사용'),
+	('29', '1', '1', 'c', 9, '미사용'),
+	('30', '1', '1', 'c', 10, '미사용'),
+	('22', '1', '1', 'c', 2, '미사용');
+/*!40000 ALTER TABLE `SEAT` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. SEATS
+DROP TABLE IF EXISTS `SEATS`;
+CREATE TABLE IF NOT EXISTS `SEATS` (
+  `seats_code` varchar(20) NOT NULL COMMENT '좌석(다)코드',
+  `pmt_code` varchar(25) NOT NULL COMMENT '결제코드',
+  `seat_code` varchar(25) NOT NULL COMMENT '좌석코드',
+  PRIMARY KEY (`seats_code`),
+  KEY `FK_PAYMENT_TO_SEATS` (`pmt_code`),
+  KEY `FK_SEAT_TO_SEATS` (`seat_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='좌석(다:다)';
+
+-- Dumping data for table better4307.SEATS: 0 rows
+/*!40000 ALTER TABLE `SEATS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SEATS` ENABLE KEYS */;
+
+
+-- 테이블 better4307의 구조를 덤프합니다. STILLCUTIMG
+DROP TABLE IF EXISTS `STILLCUTIMG`;
+CREATE TABLE IF NOT EXISTS `STILLCUTIMG` (
+  `stcImg_code` int(11) NOT NULL AUTO_INCREMENT COMMENT '이미지코드',
+  `mov_code` int(11) NOT NULL COMMENT '영화코드',
+  `stcImg_path` varchar(100) NOT NULL COMMENT '이미지경로',
+  PRIMARY KEY (`stcImg_code`),
+  KEY `FK_MOVIE_TO_STILLCUTIMG` (`mov_code`)
+) ENGINE=MyISAM AUTO_INCREMENT=2200000 DEFAULT CHARSET=utf8 COMMENT='스틸컷이미지';
+
+-- Dumping data for table better4307.STILLCUTIMG: 0 rows
+/*!40000 ALTER TABLE `STILLCUTIMG` DISABLE KEYS */;
+/*!40000 ALTER TABLE `STILLCUTIMG` ENABLE KEYS */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
