@@ -9,7 +9,8 @@
   <select id="SelectListScreenInfo" resultType="kr.co.cinema.dto.ScreenSchedule" parameterType="kr.co.cinema.dto.Movie">
 	SELECT 
 		SCREEN_SCHEDULE.scs_code as scsCode,
-		SCREEN_SCHEDULE.scs_startTime as scsStartTime
+		SCREEN_SCHEDULE.scs_startTime as scsStartTime,
+		SCREEN_SCHEDULE.scs_timeDiscount as scsTimeDiscount
 	FROM
 		SCREEN_SCHEDULE
 	WHERE
@@ -24,13 +25,18 @@
 		SCREEN_SCHEDULE.scs_date
 	FROM
 		SCREEN_SCHEDULE
+	WHERE
+		scs_date>now()
+	ORDER BY
+		scs_date ASC
   </select>
   
   <!-- 영화 예매페이지에서 나타낼 현재 상영중인 영화 조회 -->
   <select id="selectListMovie" resultType="kr.co.cinema.dto.Movie">
 	SELECT
 		MOVIE.mov_code as movCode,
-		MOVIE.mov_korName as movKorName
+		MOVIE.mov_korName as movKorName,
+		MOVIE.mov_grade as movGrade
 	FROM
 		MOVIE
 	WHERE

@@ -105,7 +105,7 @@
 			                $.each(list, function(i) {
 			                	$("#movieSelector").append('<div id=\"scsDiv'+i+'\" class=\"scTime selectorDiv waves-effect\">');
 			                	$("#scsDiv"+i).append(			'<span id=\"scsSpan'+i+'\" value=\"'+list[i].scsCode+'\">');
-			                	$("#scsSpan"+i).append(				list[i].scsStartTime);
+			                	$("#scsSpan"+i).append(				list[i].scsStartTime+' '+list[i].scsTimeDiscount);
 			                	$("#scsDiv"+i).append(			'</span>');
 			                	$("#movieSelector").append("</div>");
 			                });		            		
@@ -137,6 +137,21 @@
 			margin-left:10px;
 			line-height:30px;
 		}
+		
+/* 정빈 추가 */
+
+.grade16_All{
+	max-width:16px !important;
+	max-hight:16px !important;
+	width:16px;
+	height:16px;
+	background-image:url('resources/module-img/grade_icon/All.png');
+	background-size: 16px 16px; 
+	display:inline-block;
+
+}
+
+
 	</style>
 
 </head>
@@ -147,7 +162,6 @@
 
 <!-- 전체메뉴 white-->
 <%@ include file="/WEB-INF/clientModule/topTotalMenuBarWhite.jsp" %>
-
 
 
 	<div class="container row" style="display:none;"> <!-- 실제 값이 전송될 폼 -->
@@ -175,7 +189,6 @@
 			
 		</form>
 	</div>
-
 
 
 	<!-- 선택조건 view div -->
@@ -211,7 +224,6 @@
 	
 	
 
-
 	<!-- 상영정보 div -->
     <div class="container row" style="width:970px;"> <!-- 상영정보 div 열기 -->
     
@@ -221,11 +233,15 @@
       	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_movie.png">
         </div>
-        
+
         <div style="height:450px ; overflow:auto;">
+         
         	<c:forEach var="movie" items="${movie}">
 	        	<div class="scMovie selectorDiv waves-effect">
-		        	<span value="${movie.movCode}" >${movie.movKorName}</span>
+		        	<div value="${movie.movCode}" style="display:inline-block;" >
+		        		<div class="grade16_${movie.movGrade}"></div>
+		        		<div style="display:inline-block">${movie.movKorName}</div>
+		        	</div> 
 	        	</div>        	
         	</c:forEach>   
         </div>        
