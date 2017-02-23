@@ -22,7 +22,7 @@
 				$("#movCode").val($(this).children().attr('value'));
 				
 				//날짜 극장 영화 선택완료시
-				if($('#selectDate').text()!='' && $('#selectMovie').text()!='' && $('#selectBranch').text()!='')
+				if($('#movCode').val()!='' && $('#brcCode').val()!='' && $('#Date').val()!='')
 				{
 					importSC(); //상영 시간 가져오는 함수
 					return;
@@ -40,7 +40,7 @@
 				$("#brcCode").val($(this).children().attr('value'));
 				
 				//모든 선택이 완료된 경우
-				if($('#selectDate').text()!='' && $('#selectMovie').text()!='' && $('#selectBranch').text()!='')
+				if($('#movCode').val()!='' && $('#brcCode').val()!='' && $('#Date').val()!='')
 				{
 					importSC(); //상영 시간 가져오는 함수
 					return;
@@ -58,7 +58,7 @@
 				$("#Date").val($(this).children().text());
 				
 				//모든 선택이 완료된 경우
-				if($('#selectDate').text()!='' && $('#selectMovie').text()!='' && $('#selectBranch').text()!='')
+				if($('#movCode').val()!='' && $('#brcCode').val()!='' && $('#Date').val()!='')
 				{
 					importSC(); //상영 시간 가져오는 함수
 					return;
@@ -112,7 +112,16 @@
 		            	}	    
 		            } //sucess 블럭 닫기
 		        });	//ajax 블럭 닫기	        			
-			}		
+			}
+			
+			//좌석 선택 버튼 클릭시 
+			$('#seatSelectBtn').click(function(){
+				if($('#scsCode').val()!=""){
+					$('#scsInfoForm').submit();
+				}else {
+					alert('상영시간을 선택하세요');
+				}
+			});
 			
 		});
 	</script>
@@ -228,22 +237,22 @@
 	<div class="grey darken-3" style="height:100px ; margin-top:10px ; color:white ;"><!-- 선택조건 view div 열기 -->
 		<div class="container row" ></div>
 		
-		<!-- 선택조건 form -->
+		<!-- 선택조건 div -->
 		<div class="container row" style="width:970px;" >
 
-				<!-- 영화 선택 폼 -->
+				<!-- 영화 선택 div -->
 				<div class="col s3">
 					<div id="selectMovie"> </div>
 				</div>			
-				<!-- 지점 선택 폼 -->
+				<!-- 지점 선택 div -->
 				<div class="col s2">
 					<div id="selectBranch"> </div>
 				</div>
-				<!-- 날짜 선택 폼 -->
+				<!-- 날짜 선택 div -->
 				<div class="col s2">
 					<div id="selectDate"> </div>
 				</div>				
-				<!-- 상영시간 선택 폼 -->
+				<!-- 상영시간 선택 div -->
 				<div class="col s2">
 					<div id="selectScreen"> </div>
 				</div>		
@@ -272,7 +281,7 @@
         	<c:forEach var="movie" items="${movie}">
 	        	<div class="scMovie selectorDiv waves-effect">
 		        	<div value="${movie.movCode}" style="display:inline-block;" >
-		        		<div class="grade16_${movie.movGrade}"></div>
+		        		<i class="grade16_${movie.movGrade}" style="position:relative;top:2px;"></i>
 		        		<div style="display:inline-block">${movie.movKorName}</div>
 		        	</div> 
 	        	</div>        	

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.cinema.dto.BookingSelect;
@@ -44,8 +45,9 @@ public class BookingController {
 	
 	//영화 좌석 선택페이지
 	@RequestMapping(value = "/bookingSeatSelect", method = RequestMethod.POST)
-	public String bookingSeatSelect() {	
+	public String bookingSeatSelect(@RequestParam(value="scsCode") String scsCode) {	
 		logger.debug("bookingSeatSelect 영화 좌석 선택페이지");
+		
 		return "booking/bookingSeatSelect";
 	}	
 	

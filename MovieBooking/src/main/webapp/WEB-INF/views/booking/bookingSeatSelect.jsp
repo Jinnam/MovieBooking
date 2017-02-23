@@ -19,6 +19,11 @@
 		background-color: #686868;
 		color:white;
 	}
+	.use{
+		background-color: #D5D5D5;
+		color:white;
+		background-image: url('resources/module-img/seat_use.png');
+	}
 	.unable{
 		background-color: #D5D5D5;
 		color:white;
@@ -143,7 +148,7 @@
 						<!-- 좌석 행 1 -->
 						<div>
 							<div class="seat-Row">A</div>
-							<div class="seat unable">1</div>
+							<div class="seat currentSelect">1</div>
 							<div class="seat able">2</div>
 							<div class="seat able">3</div>
 							<div class="seat able">4</div>
@@ -157,9 +162,23 @@
 						<!-- 좌석 행 1 -->
 						<div>
 							<div class="seat-Row">A</div>
-							<div class="seat unable" id="seat">1</div>
-							<div class="seat able" id="seat">2</div>
-							<div class="seat currentSelect" id="seat">3</div>
+							<div class="seat able" id="seat">1</div>
+							<div class="seat use" id="seat">2</div>
+							<div class="seat use" id="seat">3</div>
+							<div class="seat use" id="seat">4</div>
+							<div class="seat use" id="seat">5</div>	
+							<div class="seat use" id="seat">6</div>
+							<div class="seat use" id="seat">7</div>
+							<div class="seat use" id="seat">8</div>
+							<div class="seat use" id="seat">9</div>
+							<div class="seat use" id="seat">10</div>										
+						</div>
+						<!-- 좌석 행 1 -->
+						<div>
+							<div class="seat-Row">A</div>
+							<div class="seat use" id="seat">1</div>
+							<div class="seat unable" id="seat">2</div>
+							<div class="seat unable" id="seat">3</div>
 							<div class="seat unable" id="seat">4</div>
 							<div class="seat unable" id="seat">5</div>	
 							<div class="seat unable" id="seat">6</div>
@@ -172,29 +191,15 @@
 						<div>
 							<div class="seat-Row">A</div>
 							<div class="seat unable" id="seat">1</div>
-							<div class="seat able" id="seat">2</div>
+							<div class="seat currentSelect" id="seat">2</div>
 							<div class="seat currentSelect" id="seat">3</div>
-							<div class="seat able" id="seat">4</div>
-							<div class="seat able" id="seat">5</div>	
-							<div class="seat able" id="seat">6</div>
-							<div class="seat able" id="seat">7</div>
-							<div class="seat able" id="seat">8</div>
-							<div class="seat able" id="seat">9</div>
-							<div class="seat able" id="seat">10</div>										
-						</div>
-						<!-- 좌석 행 1 -->
-						<div>
-							<div class="seat-Row">A</div>
-							<div class="seat unable" id="seat">1</div>
-							<div class="seat able" id="seat">2</div>
-							<div class="seat currentSelect" id="seat">3</div>
-							<div class="seat able" id="seat">4</div>
-							<div class="seat able" id="seat">5</div>	
-							<div class="seat able" id="seat">6</div>
-							<div class="seat able" id="seat">7</div>
-							<div class="seat able" id="seat">8</div>
-							<div class="seat able" id="seat">9</div>
-							<div class="seat able" id="seat">10</div>										
+							<div class="seat currentSelect" id="seat">4</div>
+							<div class="seat currentSelect" id="seat">5</div>	
+							<div class="seat currentSelect" id="seat">6</div>
+							<div class="seat currentSelect" id="seat">7</div>
+							<div class="seat currentSelect" id="seat">8</div>
+							<div class="seat currentSelect" id="seat">9</div>
+							<div class="seat currentSelect" id="seat">10</div>										
 						</div>															
 					</div>									
 				</div> <!-- 좌석 div 닫기  -->
