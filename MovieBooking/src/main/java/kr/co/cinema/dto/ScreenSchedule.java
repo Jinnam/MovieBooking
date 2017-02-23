@@ -6,7 +6,7 @@ public class ScreenSchedule {
 	private String scsCode;				// 상영 코드
 	private int movCode;				// 영화 코드
 	private int brcCode;				// 지점 코드
-	private int scrCode;				// 상영관 코드
+	private String scrCode;				// 상영관 코드
 	private String scsDate;				// 상영 일자
 	private String scsStartTime;		// 영화 시작 시간
 	private String scsFinishTime;		// 영화 종료 시간
@@ -14,6 +14,12 @@ public class ScreenSchedule {
 	private String scsTimeDiscount;		// 할인 정보
 	private String scsInsertDate;		// 등록일
 	
+	public String getScrCode() {
+		return scrCode;
+	}
+	public void setScrCode(String scrCode) {
+		this.scrCode = scrCode;
+	}
 	public String getScsCode() {
 		return scsCode;
 	}
@@ -31,12 +37,6 @@ public class ScreenSchedule {
 	}
 	public void setBrcCode(int brcCode) {
 		this.brcCode = brcCode;
-	}
-	public int getScrCode() {
-		return scrCode;
-	}
-	public void setScrCode(int scrCode) {
-		this.scrCode = scrCode;
 	}
 	public String getScsDate() {
 		return scsDate;

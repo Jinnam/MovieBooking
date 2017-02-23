@@ -4,23 +4,23 @@ package kr.co.cinema.dto;
 public class Mileage {
 
 	private String milCode;		// 마일리지 코드
-	private int pmtCode;		// 결제코드
+	private String pmtCode;		// 결제코드
 	private String memId;		// 아이디
 	private int milUse;			// 사용 마일리지
 	private int milSave;		// 적립 마일리지
 	private String milDate;		// 마일리지 사용,적립 날짜
 	
+	public String getPmtCode() {
+		return pmtCode;
+	}
+	public void setPmtCode(String pmtCode) {
+		this.pmtCode = pmtCode;
+	}
 	public String getMilCode() {
 		return milCode;
 	}
 	public void setMilCode(String milCode) {
 		this.milCode = milCode;
-	}
-	public int getPmtCode() {
-		return pmtCode;
-	}
-	public void setPmtCode(int pmtCode) {
-		this.pmtCode = pmtCode;
 	}
 	public String getMemId() {
 		return memId;

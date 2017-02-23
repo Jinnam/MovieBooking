@@ -4,38 +4,38 @@ package kr.co.cinema.dto;
 public class Payment {
 
 	private String pmtCode;			// 결제 코드
-	private int scsCode;			// 상영 코드
+	private String scsCode;			// 상영 코드
 	private String memIdd;			// 아이디(회원)
-	private int nmemCode;			// 비회원 코드(비회원)
+	private String nmemCode;			// 비회원 코드(비회원)
 	private int sccoCode;			// 상영 단가 코드
 	private int dcinfCode;			// 할인 코드
 	private int pmtTicketNum;		// 인원
 	private int pmtPrice;			// 결제 금액
 	private String pmtDate;			// 결제 날짜
 	
+	public String getScsCode() {
+		return scsCode;
+	}
+	public void setScsCode(String scsCode) {
+		this.scsCode = scsCode;
+	}
+	public String getNmemCode() {
+		return nmemCode;
+	}
+	public void setNmemCode(String nmemCode) {
+		this.nmemCode = nmemCode;
+	}
 	public String getPmtCode() {
 		return pmtCode;
 	}
 	public void setPmtCode(String pmtCode) {
 		this.pmtCode = pmtCode;
 	}
-	public int getScsCode() {
-		return scsCode;
-	}
-	public void setScsCode(int scsCode) {
-		this.scsCode = scsCode;
-	}
 	public String getMemIdd() {
 		return memIdd;
 	}
 	public void setMemIdd(String memIdd) {
 		this.memIdd = memIdd;
-	}
-	public int getNmemCode() {
-		return nmemCode;
-	}
-	public void setNmemCode(int nmemCode) {
-		this.nmemCode = nmemCode;
 	}
 	public int getSccoCode() {
 		return sccoCode;

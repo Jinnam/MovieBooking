@@ -4,22 +4,22 @@ package kr.co.cinema.dto;
 public class ReplyRecommend {
 
 	private String recoCode;	// 한줄평추천코드
-	private int rpCode;			// 한줄평 코드
+	private String rpCode;		// 한줄평 코드
 	private String memId;		// 아이디(추천한 회원)
 	private String recoDate;	// 추천 일자
 	
 	
+	public String getRpCode() {
+		return rpCode;
+	}
+	public void setRpCode(String rpCode) {
+		this.rpCode = rpCode;
+	}
 	public String getRecoCode() {
 		return recoCode;
 	}
 	public void setRecoCode(String recoCode) {
 		this.recoCode = recoCode;
-	}
-	public int getRpCode() {
-		return rpCode;
-	}
-	public void setRpCode(int rpCode) {
-		this.rpCode = rpCode;
 	}
 	public String getMemId() {
 		return memId;

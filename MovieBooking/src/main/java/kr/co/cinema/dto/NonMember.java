@@ -4,22 +4,22 @@ package kr.co.cinema.dto;
 public class NonMember {
 	
 	private String nmemCode;		// 비회원 코드
-	private int nmemPhone;			// 휴대폰 번호
+	private String nmemPhone;		// 휴대폰 번호
 	private String nmemName;		// 이름
 	private String nmemBirth;		// 생년월일
 	private String nmemPw;			// 비밀번호
 	
+	public String getNmemPhone() {
+		return nmemPhone;
+	}
+	public void setNmemPhone(String nmemPhone) {
+		this.nmemPhone = nmemPhone;
+	}
 	public String getNmemCode() {
 		return nmemCode;
 	}
 	public void setNmemCode(String nmemCode) {
 		this.nmemCode = nmemCode;
-	}
-	public int getNmemPhone() {
-		return nmemPhone;
-	}
-	public void setNmemPhone(int nmemPhone) {
-		this.nmemPhone = nmemPhone;
 	}
 	public String getNmemName() {
 		return nmemName;
