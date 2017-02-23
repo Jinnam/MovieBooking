@@ -35,7 +35,7 @@ public class HomeController {
 		
 		// <상영일정 코드> 생성 테스트
 		ScreenSchedule screenSchedule = new ScreenSchedule();
-		screenSchedule.setScrCode(42101101);
+		screenSchedule.setScrCode("42101101");
 		String returnSCSCCode = homeService.madeCode(screenSchedule);
 		model.addAttribute("returnSCSCCode",returnSCSCCode);
 		

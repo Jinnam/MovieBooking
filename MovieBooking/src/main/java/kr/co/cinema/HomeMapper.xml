@@ -78,6 +78,8 @@
 			WHERE
 				 brc_code=#{BDCBrcCode}
 		</when>
+		
+		<!-- 마지막 상영일정 코드 가져오기 -->
 		<when test="srcCode != null">
 			SELECT
 				max(scs_code)
@@ -85,6 +87,26 @@
 				SCREEN_SCHEDULE
 			WHERE
 				scr_code=#{srcCode}
+		</when>
+		
+		<!-- 마지막  좌석 코드 가져오기-->
+		<when test="SeatScsCode != null">
+			SELECT
+				max(seat_code)
+			FROM
+				SEAT
+			WHERE
+				scs_code=#{SeatScsCode}
+		</when>
+		
+		<!-- 마지막 결제 코드 가져오기 -->
+		<when test="PaymentScsCode != null">
+			SELECT
+				max(pmt_code)
+			FROM
+				PAYMENT
+			WHERE
+				scs_code=#{PaymentScsCode}		
 		</when>
 		<otherwise>
 		

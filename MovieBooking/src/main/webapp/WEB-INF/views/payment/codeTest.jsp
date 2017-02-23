@@ -28,10 +28,10 @@
 		<span>${returnBDCCode}</span><br/>
 		<label>상영 일정 코드 : </label>
 		<span>${returnSCSCCode}</span><br/>
-		<%-- <label>좌석 코드 : </label>
+		<label>좌석 코드 : </label>
 		<span>${resultCode}</span><br/>
 		<label>결제 코드 : </label>
-		<span>${resultCode}</span><br/> --%>
+		<span>${resultCode}</span><br/>
 	</div>
 </body>
 </html>

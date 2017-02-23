@@ -31,7 +31,7 @@ public class HomeService {
 	
 	// 코드 생성하는 메서드(비회원,마일리지,한줄평/평점,좌석(다:다))
 	public String makeCode(String kind){
-		logger.debug("		makeCode() 진입");
+		logger.debug("		makeCode(String) 진입");
 		
 		map.put("kind", kind);										// 맵에 "kind"라는 이름으로 들어온 입력값을 put
 		String getCode = homeDao.selectOneCode(map);				// db에서 마지막으로 입력된 코드 값 가져오기
@@ -56,18 +56,23 @@ public class HomeService {
 			logger.debug("		makeCode() 날짜 값이 다름");
 			switch(kind){											// 입력값에 따른 스위치 문
 				case "nonMember" :									// 입력값이 nonMember이면
+					logger.debug("		makeCode() nonMember");
 					resultCode = "13"+dDay+"10001";					// 고유번호 +현재날짜+숫자 초기화
 					break;
 				case "mileage" :
+					logger.debug("		makeCode() mileage");
 					resultCode = "14"+dDay+"10001";
 					break;
 				case "reply" :
+					logger.debug("		makeCode() reply");
 					resultCode = "31"+dDay+"100001";
 					break;
 				case "replyRecommend" :
+					logger.debug("		makeCode() replyRecommend");
 					resultCode = "32"+dDay+"100001";
 					break;
 				case "seats" :
+					logger.debug("		makeCode() seats");
 					resultCode = "45"+dDay+"1000001";
 					break;
 				default : break;
@@ -81,14 +86,16 @@ public class HomeService {
 	
 	// Object형식으로 받아서 코드 생성하기
 		public String madeCode(Object object){
-		
+			logger.debug("		makeCode(Object) 진입");
+			
 			SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");							// yyMMdd 형식으로  포맷지정
 			Date currentDate = new Date();													// 현재 날짜
 			String dDay=sdf.format(currentDate);											// 현재 날자를 yyMMdd로 바꿈
 			logger.debug("		makeCode() 현재 날짜 : "+dDay);
 			
-			// 상영관
+			// 상영관 코드 생성
 			if(object instanceof Screen){													// object를 Screen 타입인지 비교
+				logger.debug("		makeCode(Object) Screen");
 				Screen screen = (Screen) object;											// object를 Screen으로 형변환
 				
 				String getBrcCode=Integer.toString(screen.getBrcCode());					// 입력값에서 brcCode 가져오기 ex)41101
@@ -108,8 +115,9 @@ public class HomeService {
 				logger.debug("		makeCode() 반환될 코드 값 : "+resultCode);
 			}
 			
-			// 지점별 예매/매출
+			// 지점별 예매/매출 코드 생성
 			else if(object instanceof BranchDayCount){
+				logger.debug("		makeCode(Object) BranchDayCount");
 				BranchDayCount branchDayCount = (BranchDayCount) object;
 				
 				String getBrcCode=Integer.toString(branchDayCount.getBrcCode());			// 입력값에서 brcCode 가져오기 ex)41101
@@ -128,12 +136,12 @@ public class HomeService {
 				logger.debug("		makeCode() 반환될 코드 값 : "+resultCode);
 				
 			}
-			// 상영 일정 코드
+			// 상영 일정 코드 생성
 			else if(object instanceof ScreenSchedule){
-				
+				logger.debug("		makeCode(Object) ScreenSchedule");
 				ScreenSchedule screenSchedule = (ScreenSchedule) object;					// object를 ScreenSchedule 타입으로 변경
 
-				String getScreenCode  = Integer.toString(screenSchedule.getScrCode());		// 입력값에서 scrCode 가져오기 ex)42101101
+				String getScreenCode  = screenSchedule.getScrCode();						// 입력값에서 scrCode 가져오기 ex)42101101
 				
 				map.put("srcCode",getScreenCode);
 				String getScreenScheduleCode = homeDao.selectObjectCode(map);				// scrCode에 해당하는 최신의 scs_code 가져오기 
@@ -152,13 +160,54 @@ public class HomeService {
 					resultCode = getFirst+dDay+getScreenNum+"101";
 				}
 			}
-			
-			//44+170202+101+101+101+1001
+
+			// 좌석 코드 생성
 			else if(object instanceof Seat){
+				logger.debug("		makeCode(Object) Seat");
 				Seat seat = (Seat) object;
+				
+				String getScsCode = seat.getScsCode();
+				map.put("SeatScsCode", getScsCode);
+				String getSeatCode = homeDao.selectObjectCode(map);
+				
+				String getFirst = getSeatCode.substring(0,2);
+				String getDate = getSeatCode.substring(2,8);
+				String getScsNum = getSeatCode.substring(8,17);
+				String getNum = getSeatCode.substring(17);
+				
+				if(dDay.equals(getDate)){
+					logger.debug("		makeCode() 날짜 값이 같음");
+					int intNum = Integer.parseInt(getNum);
+					resultCode = getFirst+getDate+getScsNum+Integer.toString(intNum+1);
+				}
+				else{
+					logger.debug("		makeCode() 날짜 값이 다름");
+					resultCode = getFirst+dDay+getScsNum+"1001";
+				}
 			}
-			//51+170201+101+1001
+			
+			//결제 코드 생성
 			else if(object instanceof Payment){
+				logger.debug("		makeCode(Object) Payment");
+				Payment payment = (Payment) object;
+				String getScsCode = payment.getScsCode();
+				map.put("PaymentScsCode", getScsCode);
+				String getPmtCode = homeDao.selectObjectCode(map);
+				
+				String getFirst = getPmtCode.substring(0, 2);
+				String getDate = getPmtCode.substring(2,8);
+				String getScsNum = getPmtCode.substring(8,17);
+				String getNum = getPmtCode.substring(17);
+				
+				if(dDay.equals(getDate)){
+					logger.debug("		makeCode() 날짜 값이 같음");
+					int intNum = Integer.parseInt(getNum);
+					resultCode = getFirst+getDate+getScsNum+Integer.toString(intNum+1);
+				}
+				else{
+					logger.debug("		makeCode() 날짜 값이 다름");
+					resultCode = getFirst+dDay+getScsNum+"1001";
+				}
 				
 			}
 			
