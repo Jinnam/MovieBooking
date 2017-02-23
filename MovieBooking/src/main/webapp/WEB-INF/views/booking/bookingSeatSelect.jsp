@@ -76,14 +76,16 @@
 			
 			if($(this).hasClass('able')){
 				console.log('사용가능');
-				//$(this).toggleClass('currentSelect');
 				$(this).attr('class','seat currentSelect');
 			}
 
-			if($(this).hasClass('unable')){
+			if($(this).hasClass('use')){
 				alert('이미 예매된 좌석입니다.');
 			}
-					
+
+			if($(this).hasClass('unable')){
+				alert('선택불가 좌석입니다..');
+			}
 			
 		});
     });
@@ -91,39 +93,30 @@
 
 
 
-
-
-
-	<!-- 선택조건 view div -->
-	<div class="grey darken-3" style="height:100px ; margin-top:10px ; color:white ;"><!-- 선택조건 view div 열기 -->
-		<div class="container row" ></div>
-		
-		<!-- 선택조건 form -->
-		<div class="container row" style="width:970px;">
-			<form action="/bookingSeatSelect" method="post">
-				<div class="col s2">
-					<input type="text" name="asd">
+	<!-- 좌석정보 -->
+	<div class="container"> <!-- 좌석정보 div 열기-->
+		<form><!-- 좌석정보 폼 열기-->
+			<div>
+			
+				<div style="width:200px;">
+					상영코드 <input type="text" class="" name="" id="scsCode">				
 				</div>
-				<div class="col s2">
-					<input type="text" name="asddd">
+				<div style="display:inline-block; width:200px;">
+					좌석코드1<input type="text" class="" name="" id=""> 			
 				</div>
-				<div class="col s4">
-					<input type="text" name="as21d">
+				<div style="display:inline-block; width:200px;">
+					좌석코드2<input type="text" class="" name="" id=""> 				
 				</div>
-				<div class="col s2">
-					<input type="text" name="asccd">
-				</div>		
-				<div class="col s2">
-				  <button class="btn waves-effect waves-light" 
-				  			style="height:60px;"
-				  			type="submit" 
-				  			name="action">결제
-				  </button>
-				</div>											
-			</form>
-		</div>
-	</div> <!-- 선택조건 view div 닫기 -->
-	<div style="height:10px"></div><!-- 간격 -->
+				<div style="display:inline-block; width:200px;">
+					좌석코드3<input type="text" class="" name="" id=""> 				
+				</div>
+				<div style="display:inline-block; width:200px;">
+					좌석코드4<input type="text" class="" name="" id=""> 			
+				</div>	
+																			
+			</div>
+		</form><!-- 좌석정보 폼 닫기-->
+	</div> <!-- 좌석정보 div 닫기-->
 
 	<!-- 좌석선택 div -->
 	<div class ="container row" style="width:970px;"> <!-- 좌석선택 div 열기 -->
@@ -132,13 +125,31 @@
 			<img src="resources/module-img/booking_menu_seatnum.png">
 		</div>
 		
-		<div style="height:100px">
-			티켓 정보 영역
-		</div>	
 		
 		<div class="col s12 grey lighten-3">
 			<div class="col s2">
-				티켓 정보 영역
+				<!-- 인원 -->
+				<div style="width:100px" style="display:inline-block;"> 
+					<br>
+					<div style="display:inline-block;">인원</div>
+				     <select class="ui fluid dropdown" style="width:50px;display:inline-block !important;">
+				        <option value="1">1</option>
+				        <option value="2">2</option>
+				        <option value="3">3</option>
+				        <option value="4">4</option>
+				     </select>
+				</div>	
+				<!-- 좌석정보 -->	
+				<div>
+					<div>a1</div>
+					<div>a1</div>
+					<div>a1</div>
+					<div>a1</div>
+				</div>
+				<!-- 리셋버튼 -->
+				<div>
+					<input type="button">
+				</div>		
 			</div>
 			<div class="col s8 grey lighten-5" style="height:400px;text-align:center;">
 				<div class="grey lighten-2"><img src="resources/module-img/booking_menu_screen.png"></div>
@@ -200,12 +211,14 @@
 							<div class="seat currentSelect" id="seat">8</div>
 							<div class="seat currentSelect" id="seat">9</div>
 							<div class="seat currentSelect" id="seat">10</div>										
-						</div>															
+						</div>	
+																	
 					</div>									
 				</div> <!-- 좌석 div 닫기  -->
+				<img src="resources/module-img/seat_info.png" style="position:relative;left:250px;bottom:180px;">	
 			</div>
 			<div class="col s2">
-				안내 영역
+			
 			</div>
 		</div>
 							
