@@ -58,60 +58,61 @@
 	<!-- Object code가져오기 -->
 	<select id="selectObjectCode" parameterType="Map" resultType="String">
 	
-	<choose>
-		<!-- 마지막 상영관 코드 가져오기 -->
-		 <when test="ScreenBrcCode != null">
-			SELECT
-				max(scr_code)
-			FROM
-				SCREEN
-			WHERE 
-				brc_code=#{ScreenBrcCode}
-		</when>
+		<choose>
+			<!-- 마지막 상영관 코드 가져오기 -->
+			 <when test="ScreenBrcCode != null">
+				SELECT
+					max(scr_code)
+				FROM
+					SCREEN
+				WHERE 
+					brc_code=#{ScreenBrcCode}
+			</when>
+			
+			<!-- 마지막 지점별 일일예매/매출 코드 가져오기 -->
+			<when test='BDCBrcCode != null'>
+				SELECT
+					max(brcCnt_code)
+				FROM
+					BRANCH_DAY_COUNT
+				WHERE
+					 brc_code=#{BDCBrcCode}
+			</when>
+			
+			<!-- 마지막 상영일정 코드 가져오기 -->
+			<when test="srcCode != null">
+				SELECT
+					max(scs_code)
+				FROM
+					SCREEN_SCHEDULE
+				WHERE
+					scr_code=#{srcCode}
+			</when>
+			
+			<!-- 마지막  좌석 코드 가져오기-->
+			<when test="SeatScsCode != null">
+				SELECT
+					max(seat_code)
+				FROM
+					SEAT
+				WHERE
+					substr(scs_code,9)=#{substr(SeatScsCode,9)}
+			</when>
+			
+			<!-- 마지막 결제 코드 가져오기 -->
+			<when test="PaymentScsCode != null">
+				SELECT
+					max(pmt_code)
+				FROM
+					PAYMENT
+				WHERE
+					substr(scs_code,9)=#{substr(PaymentScsCode,9)}		
+			</when>
+			<otherwise>
+			</otherwise>
+			
+		</choose>
 		
-		<!-- 마지막 지점별 일일예매/매출 코드 가져오기 -->
-		<when test='BDCBrcCode != null'>
-			SELECT
-				max(brcCnt_code)
-			FROM
-				BRANCH_DAY_COUNT
-			WHERE
-				 brc_code=#{BDCBrcCode}
-		</when>
-		
-		<!-- 마지막 상영일정 코드 가져오기 -->
-		<when test="srcCode != null">
-			SELECT
-				max(scs_code)
-			FROM
-				SCREEN_SCHEDULE
-			WHERE
-				scr_code=#{srcCode}
-		</when>
-		
-		<!-- 마지막  좌석 코드 가져오기-->
-		<when test="SeatScsCode != null">
-			SELECT
-				max(seat_code)
-			FROM
-				SEAT
-			WHERE
-				scs_code=#{SeatScsCode}
-		</when>
-		
-		<!-- 마지막 결제 코드 가져오기 -->
-		<when test="PaymentScsCode != null">
-			SELECT
-				max(pmt_code)
-			FROM
-				PAYMENT
-			WHERE
-				scs_code=#{PaymentScsCode}		
-		</when>
-		<otherwise>
-		
-		</otherwise>
-	</choose>
 	</select>
 
 </mapper>

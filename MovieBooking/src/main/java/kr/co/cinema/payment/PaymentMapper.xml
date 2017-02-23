@@ -4,5 +4,44 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="kr.co.cinema.payment.PaymentMapper">
+	
+	<select id="selectDiscountInfo" resultType="kr.co.cinema.dto.DiscountInfo">
+		SELECT 
+			dcinf_code AS dcinfCode,
+			dcinf_info AS dcinfInfo,
+			dcinf_price AS dcinfPrice,
+			dcinf_applyYear AS dcinfApplyYear,
+			dcinf_status AS dcinfStatus
+		FROM 
+			DISCOUNT_INFO
+		WHERE 
+			dcinf_status="적용"
+	</select>
 
+
+	<insert id="insertPayment" parameterType="kr.co.cinema.dto.Payment">
+		INSERT INTO PAYMENT(
+			pmt_code,
+			scs_code,
+			mem_id,
+			nmem_code,
+			scco_code,
+			dcinf_code,
+			pmt_ticketNum,
+			pmt_price,
+			pmt_date
+		) VALUES (
+			pmtCode,
+			scsCode,
+			memId,
+			nmemCode,
+			sccoCode,
+			dcinfCode,
+			pmtTicketNum
+			pmtPrice,
+			now()
+			)
+	</insert>
+	
+	
 </mapper>

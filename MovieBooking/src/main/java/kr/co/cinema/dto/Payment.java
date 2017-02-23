@@ -5,8 +5,8 @@ public class Payment {
 
 	private String pmtCode;			// 결제 코드
 	private String scsCode;			// 상영 코드
-	private String memIdd;			// 아이디(회원)
-	private String nmemCode;			// 비회원 코드(비회원)
+	private String memId;			// 아이디(회원)
+	private String nmemCode;		// 비회원 코드(비회원)
 	private int sccoCode;			// 상영 단가 코드
 	private int dcinfCode;			// 할인 코드
 	private int pmtTicketNum;		// 인원
@@ -31,11 +31,11 @@ public class Payment {
 	public void setPmtCode(String pmtCode) {
 		this.pmtCode = pmtCode;
 	}
-	public String getMemIdd() {
-		return memIdd;
+	public String getMemId() {
+		return memId;
 	}
-	public void setMemIdd(String memIdd) {
-		this.memIdd = memIdd;
+	public void setMemId(String memId) {
+		this.memId = memId;
 	}
 	public int getSccoCode() {
 		return sccoCode;
@@ -70,7 +70,7 @@ public class Payment {
 	
 	@Override
 	public String toString() {
-		return "Payment [pmtCode=" + pmtCode + ", scsCode=" + scsCode + ", memIdd=" + memIdd + ", nmemCode=" + nmemCode
+		return "Payment [pmtCode=" + pmtCode + ", scsCode=" + scsCode + ", memId=" + memId + ", nmemCode=" + nmemCode
 				+ ", sccoCode=" + sccoCode + ", dcinfCode=" + dcinfCode + ", pmtTicketNum=" + pmtTicketNum
 				+ ", pmtPrice=" + pmtPrice + ", pmtDate=" + pmtDate + "]";
 	}

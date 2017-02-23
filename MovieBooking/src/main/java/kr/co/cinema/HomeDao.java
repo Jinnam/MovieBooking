@@ -16,13 +16,13 @@ public class HomeDao {
 	private SqlSessionTemplate sqlSession;
 	private final String NS="kr.co.cinema.HomeMapper.";
 	
-	// 코드 생성을 위해 기존 코드 가져오는 메서드
+	// 코드 생성을 위해 기존 코드 가져오는 메서드(String)
 	public String selectOneCode(Map<String, String> map){
 		logger.debug("			selectOneCode() 진입 map : "+map);
 		return sqlSession.selectOne(NS+"selectCode",map);
 	}
 	
-	// 코드 생성을 위해 기존 코드 가져오는 메서드
+	// 코드 생성을 위해 기존 코드 가져오는 메서드(Object)
 	public String selectObjectCode(Map<String, String> map){
 		logger.debug("			selectObjectCode() 진입 map : "+map);
 		return sqlSession.selectOne(NS+"selectObjectCode",map);

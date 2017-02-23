@@ -23,6 +23,7 @@ public class HomeController {
 
 	@Autowired
 	private HomeService homeService;
+	
 	//진남이가 쓰는 테이스 페이지 사용 ㄴㄴ
 	@RequestMapping(value="/codeTest", method=RequestMethod.GET)
 	public String codeTest(){
