@@ -24,9 +24,10 @@
 
 	<div class="container">
 		<p><h3>결제 선택</h3><h5>할인수단 적용 후 결제수단을 선택해 주세요.</h5></p>
+
 		<div>
-			<c:forEach var="ScreenCost" items="${ScreenCost}">
-				<input type="radio" value="${ScreenCost.sccoCode }"/><p>${ScreenCost.sccoScreen}</p>
+			<c:forEach var="DiscountInfo" items="${DiscountInfo}">
+				<input type="radio" name = "discountInfo" value="${DiscountInfo.dcinfCode }"/>${DiscountInfo.dcinfInfo}  
 			</c:forEach>
 		</div>
 	

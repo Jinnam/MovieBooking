@@ -5,6 +5,34 @@
   
 <mapper namespace="kr.co.cinema.payment.PaymentMapper">
 	
+	<!-- 결제페이지 영화정보 보여주기 -->
+	<select id="">
+		SELECT 
+			SCREEN_SCHEDULE.scs_code,
+			MOVIE.mov_korName,
+			MOVIE.mov_grade,
+			MOVIE.mov_runningTime,
+			MOVIE.mov_imgPath,
+			SCREEN_SCHEDULE.scs_startTime,
+			SCREEN_SCHEDULE.scs_date,
+			SCREEN_SCHEDULE.scs_timeDiscount,
+			BRANCH.brc_local,
+			BRANCH.brc_name
+		FROM
+			SCREEN_SCHEDULE
+		JOIN
+			MOVIE
+		ON
+			SCREEN_SCHEDULE.mov_code = MOVIE.mov_code
+		JOIN
+			BRANCH
+		ON
+			SCREEN_SCHEDULE.brc_code = BRANCH.brc_code
+		WHERE
+			scs_code="43170221101101114"
+	</select>
+	
+	<!-- 결제페이지 할인정보 가져오기 -->
 	<select id="selectDiscountInfo" resultType="kr.co.cinema.dto.DiscountInfo">
 		SELECT 
 			dcinf_code AS dcinfCode,
@@ -18,7 +46,7 @@
 			dcinf_status="적용"
 	</select>
 
-
+	<!-- 결제 등록 -->
 	<insert id="insertPayment" parameterType="kr.co.cinema.dto.Payment">
 		INSERT INTO PAYMENT(
 			pmt_code,

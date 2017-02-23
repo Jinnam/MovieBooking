@@ -19,6 +19,7 @@
 			<option value="seats">seats</option>
 		</select>
 		<input type="submit" value="코드생성"/>
+		<input type="radio" value="${DiscountInfo.dcinfCode }"/>
 		</form>
 		<label>생성된 코드@ : </label>
 		<span>${resultCode}</span><br/>
