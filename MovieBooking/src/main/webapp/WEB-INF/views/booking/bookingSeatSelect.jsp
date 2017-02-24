@@ -20,26 +20,55 @@
 
 <script>
     $(document).ready(function(){
+    	
+    	$('#personNum').val($('#ticketNum').val()); //초기 선택가능 좌석 값
+    	var maxSeatCount=$('#ticketNum').val(); //선택가능한 좌석 수
+		var currentSeatCount = 0; //현재 선택 좌석 수    	
+    	
+    	//예매 인원 변경시 
+    	$('#ticketNum').change(function(){
+    		console.log('예매인원 변경');
+    		$('#personNum').val($('#ticketNum').val());
+    	});
+    	
+    	//시트 선택시
 		$(".seat").click(function(){
 			
+			//현재선택된 좌석인경우
 			if($(this).hasClass('currentSelect')){
 				alert('현재 선택된 좌석입니다.');
 			}				
 			
+			//사용가능 좌석인 경우
 			if($(this).hasClass('able')){
-				console.log('사용가능');
-				$(this).attr('class','seat currentSelect');
+				
+				//선택가능 좌석수가 현재 선택 좌석 수보다 작은 경우
+				if(currentSeatCount<maxSeatCount){
+					$(this).attr('class','seat currentSelect');
+					currentSeatCount=currentSeatCount*1+1;
+					console.log(currentSeatCount);					
+				} else {
+					alert('선택 좌석 수를 초과하였습니다.');
+				}
+
 			}
 
+			//사용중 좌석인경우
 			if($(this).hasClass('use')){
 				alert('이미 예매된 좌석입니다.');
 			}
-
+			
+			//선택불가능 좌석인경우
 			if($(this).hasClass('unable')){
 				alert('선택불가 좌석입니다..');
 			}
 			
 		});
+    	
+    	//좌석 초기화 함수
+    	var seatReset = function() {
+    		
+    	}
     });
 </script>
 
@@ -51,11 +80,11 @@
 			<div>
 			
 				<div style="display:inline-block; width:200px;">
-					상영코드 <input type="text" class="" name="" id="scsCode">				
+					상영코드 <input type="text" class="" name="" id="scsCode" value="${scsCode}">				
 				</div>
 				
 				<div style="display:inline-block; width:200px;">
-					인원정보 <input type="text" class="" name="" id="scsCode">				
+					인원정보 <input type="text" class="" name="" id="personNum">				
 				</div>	
 				
 				<div>
@@ -94,7 +123,7 @@
 				<div style="width:100px" style="display:inline-block;"> 
 					<br>
 					<div style="display:inline-block;">인원</div>
-				     <select class="ui fluid dropdown" style="width:50px;display:inline-block !important;">
+				     <select class="ui fluid dropdown" style="width:50px;display:inline-block;" id="ticketNum">
 				        <option value="1">1</option>
 				        <option value="2">2</option>
 				        <option value="3">3</option>
@@ -201,9 +230,9 @@
 				<!-- 상영정보 -->
 				<div>
 					<div>15 공조 디지털</div>
+					<div>전주 금암점</div>
 					<div>2017.03.10</div>
 					<div>17:00</div>
-					<div>5명</div>
 				</div>
 			
 				<!-- 결제버튼 -->

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.Movie;
 import kr.co.cinema.dto.ScreenSchedule;
+import kr.co.cinema.dto.Seat;
 
 @Repository
 public class BookingDao {
@@ -20,7 +21,26 @@ public class BookingDao {
 	private SqlSessionTemplate session;
 	
 	private final String mapperNS="kr.co.cinema.booking.BookingMapper.";
+
+	//상영일정코드에 맞는 사용중인 좌석 수 가져오기
+	public List<Seat> countUseSeat(String scsCode){
+		return session.selectList(mapperNS+"selectListSeat",scsCode);		
+	}	
 	
+	//상영일정코드에 맞는 좌석 수 가져오기
+	public List<Seat> countTotalSeat(String scsCode){
+		return session.selectList(mapperNS+"selectListSeat",scsCode);		
+	}	
+	
+	//상영일정코드에 맞는 좌석 정보 가져오기
+	public List<Seat> selectListSeat(String scsCode){
+		return session.selectList(mapperNS+"selectListSeat",scsCode);		
+	}
+	
+	//상영일정코드에 맞는 상영일정 가져오기
+	public ScreenSchedule selectOneScreenSchedule(String scsCode){
+		return session.selectOne(mapperNS+"selectOneScreenSchedule",scsCode);		
+	}	
 	
 	//ajax 영화+지점+날짜에 맞는 상영일정 가져오기
 	public List<ScreenSchedule> SelectListScreenInfo(BookingSelectDto bookingSelect){

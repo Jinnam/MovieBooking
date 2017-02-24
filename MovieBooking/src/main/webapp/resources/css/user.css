@@ -41,7 +41,7 @@
 	.use{
 		background-color: #D5D5D5;
 		color:white;
-		background-image: url('resources/module-img/seat_use.png');
+		background-image: url('../module-img/seat_use.png');
 	}
 	/* 사용불가능 좌석 */
 	.unable{
@@ -84,7 +84,58 @@
 		margin:3px;
 		text-align:center;
 	}
-	
+		
+		/* 등급 아이콘 */
+		
+		/*16*16 전체*/
+		.grade16_All{
+			max-width:16px !important;
+			max-hight:16px !important;
+			width:16px;
+			height:16px;
+			background-image:url('../module-img/grade_icon/All.png');
+			background-size: 16px 16px; 
+			display:inline-block;
+		
+		}
+		
+		/*16*16 12세*/
+		.grade16_12{
+			max-width:16px !important;
+			max-hight:16px !important;
+			width:16px;
+			height:16px;
+			background-image:url('../module-img/grade_icon/12.png');
+			background-size: 16px 16px; 
+			background-position: center;
+			display:inline-block;
+			postion:absolute;
+			top:10px;
+			
+		}
+		
+		/*16*16 15세*/
+		.grade16_15{
+			max-width:16px !important;
+			max-hight:16px !important;
+			width:16px;
+			height:16px;
+			background-image:url('../module-img/grade_icon/15.png');
+			background-size: 16px 16px; 
+			display:inline-block;
+		
+		}
+		
+		/*16*16 19세*/
+		.grade16_19{
+			max-width:16px !important;
+			max-hight:16px !important;
+			width:16px;
+			height:16px;
+			background-image:url('../module-img/grade_icon/19.png');
+			background-size: 16px 16px; 
+			display:inline-block;
+		}	
 	
 	
 /*

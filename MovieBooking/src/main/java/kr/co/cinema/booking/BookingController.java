@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.co.cinema.dto.Movie;
 import kr.co.cinema.dto.ScreenSchedule;
+import kr.co.cinema.dto.Seat;
 
 
 @Controller
@@ -23,29 +23,39 @@ public class BookingController {
 	
 	@Autowired
 	BookingService bookingService;
-	
+	@Autowired
+	BookingDao bookingDao;
 	
 	//AJAX 영화 상영 일정 가져오기
 	@RequestMapping(value = "/searchListScreenInfo", method = RequestMethod.POST)
 	public @ResponseBody List<ScreenSchedule> searchListScreenInfo(BookingSelectDto bookingSelect) {	
 		logger.debug("searchListScreenInfo 영화 상영일정 가져오기");
-		return bookingService.searchListScreenInfo(bookingSelect);
+		return bookingDao.SelectListScreenInfo(bookingSelect);
 	}	
 	
 	//영화 예매 선택페이지
 	@RequestMapping(value = "/bookingSelect", method = RequestMethod.GET)
 	public String bookingSelect(Model model) {	
 		logger.debug("bookingSelect 영화 예매 선택페이지");			
-		model.addAttribute("date",bookingService.searchListDate());			//상영날짜 가져오기
-		model.addAttribute("movie",bookingService.searchListMovie());		//상영 영화 가져오기
-		model.addAttribute("branch",bookingService.searchListBranch());		//상영 지점 가져오기
+		model.addAttribute("date",bookingDao.selectListDate());			//상영날짜 가져오기
+		model.addAttribute("movie",bookingDao.selectListMovie());		//상영 영화 가져오기
+		model.addAttribute("branch",bookingDao.selectListBranch());		//상영 지점 가져오기
 		return "booking/bookingSelect";
 	}
 	
 	//영화 좌석 선택페이지
 	@RequestMapping(value = "/bookingSeatSelect", method = RequestMethod.POST)
-	public String bookingSeatSelect(@RequestParam(value="scsCode") String scsCode) {	
+	public String bookingSeatSelect(@RequestParam(value="scsCode") String scsCode,Model model) {	
 		logger.debug("bookingSeatSelect 영화 좌석 선택페이지");
+		
+		ScreenSchedule screenSchedule = bookingDao.selectOneScreenSchedule(scsCode); //상영코드일치하는 좌석 정보 가져오기
+		List<Seat> seat = bookingDao.countTotalSeat(scsCode); //상영코드 일치하는 좌석 정보 가져오기
+		
+		String brcName ;	//지점 이름 가져오기
+		
+		model.addAttribute("scsCode",scsCode);//상영일정코드
+		model.addAttribute("screenSchedule",screenSchedule); //상영일정
+		model.addAttribute("seat",seat); //좌석
 		
 		return "booking/bookingSeatSelect";
 	}	

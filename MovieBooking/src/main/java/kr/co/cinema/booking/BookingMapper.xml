@@ -5,6 +5,73 @@
   
 <mapper namespace="kr.co.cinema.booking.BookingMapper">
 
+  <!-- //상영일정코드에 맞는 사용중인 좌석 수-->
+  <select id="countUseSeat" resultType="int" parameterType="String">
+	SELECT
+		count(*)
+	FROM
+		SEAT
+	WHERE
+		SEAT.scs_code='43170221101101101' &amp;&amp;
+		SEAT.seat_useStatus="able"
+  </select>
+
+  <!-- //상영일정코드에 맞는 좌석 수 -->
+  <select id="countTotalSeat" resultType="int" parameterType="String">
+	SELECT
+		count(*)
+	FROM
+		SEAT
+	WHERE
+		SEAT.scs_code='43170221101101101' &amp;&amp;
+		SEAT.seat_useStatus="use"
+  </select>
+  
+  <!-- //상영일정코드에 맞는 좌석 정보 가져오기 -->
+  <select id="selectListSeat" resultType="kr.co.cinema.dto.Seat" parameterType="String">
+	SELECT
+		seat_code as seatCode,
+		scs_code as scsCode,
+		scr_code as scrCode,
+		seat_row as seatRow,
+		seat_col as seatCol,
+		seat_useStatus as seatUseStatus
+	FROM
+		SEAT
+	WHERE
+		SEAT.scs_code=#{scsCode};
+  </select>
+
+  <!-- 상영일정코드에 맞는 상영정보 및 지점정보 영화정보 가져오기 -->
+  <select id="selectOneScreenSchedule" resultType="kr.co.cinema.dto.ScreenSchedule" parameterType="String">
+	SELECT
+		SCREEN_SCHEDULE.mov_code,
+		SCREEN_SCHEDULE.brc_code,
+		SCREEN_SCHEDULE.scr_code,
+		SCREEN_SCHEDULE.scs_date,
+		SCREEN_SCHEDULE.scs_startTime,
+		SCREEN_SCHEDULE.scs_screen,
+		SCREEN_SCHEDULE.scs_timeDiscount,
+		BRANCH.brc_name,
+		MOVIE.mov_korName,
+		MOVIE.mov_grade,
+		MOVIE.mov_imgPath
+		
+	FROM
+		SCREEN_SCHEDULE  
+	JOIN 
+		BRANCH 
+	ON 
+		BRANCH.brc_code = SCREEN_SCHEDULE.brc_code 
+	JOIN 
+		MOVIE
+	ON
+		MOVIE.mov_code = SCREEN_SCHEDULE.mov_code
+		
+	WHERE
+		SCREEN_SCHEDULE.scs_code='43170221101101101';
+  </select>
+
   <!-- ajax 영화+지점+날짜에 맞는 상영일정 가져오기 -->
   <select id="SelectListScreenInfo" resultType="kr.co.cinema.dto.ScreenSchedule" parameterType="kr.co.cinema.dto.Movie">
 	SELECT 
