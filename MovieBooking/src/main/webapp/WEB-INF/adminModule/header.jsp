@@ -9,7 +9,7 @@
 		</div>
 		<!-- 사이드 바 숨기기 -->
 		<!--메가박스 상단 로고-->
-		<a href="main.html" class="logo">
+		<a href="adminMain" class="logo">
 			<b>Mega Box System</b>
 		</a>
 		<!--메가박스 상단 로고-->

@@ -40,13 +40,13 @@
 		<div id="sidebar" class="nav-collapse ">
 			<ul class="sidebar-menu" id="nav-accordion">
 				<p class="centered">
-					<a href="admin/adminMain">
+					<a href="adminMain">
 						<img src="resources/assets/img/megaboxlogo.JPG" class="img-circle" width="60">
 					</a>
 				</p>
 				<h5 class="centered">Mega Box Admin Page</h5>
 				<li class="mt">
-					<a class="active" href="main.html">
+					<a class="active" href="adminMain">
 						<i class="fa fa-home"></i>
 						<!-- 아이콘 수정 -->
 						<span>H O M E</span>
@@ -59,7 +59,7 @@
 						<span>지점/관리자 관리</span>
 					</a>
 					<ul class="sub">
-						<li><a href="branchList.html">지점 목록</a></li>
+						<li><a href="branchList">지점 목록</a></li>
 						<li><a href="branchInsert.html">지점 등록</a></li>
 						<li><a href="branchModify.html">지점 수정</a></li>
 						<li><a href="branchDelete.html">지점 탈퇴</a></li>
@@ -184,7 +184,8 @@
 							data-line-color="#fff" data-spot-color="#fff"
 							data-fill-color="" data-highlight-line-color="#fff"
 							data-spot-radius="4"
-							data-data="[200,135,667,333,526,996,564,123,890,464,655,555]"></div>
+							data-data="[200,135,667,333,526,996,564,123,890,464,655,555]">
+						</div>
 					</div>
 					<p class="mt">
 						<b>&#8361; 17,980</b><br />월 매출액(천원)

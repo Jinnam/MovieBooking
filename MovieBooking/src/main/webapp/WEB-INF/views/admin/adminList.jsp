@@ -256,6 +256,7 @@
 							</tr>
 						</tbody>
 					</table>
+					<!-- 페이징 -->
 					<div align="center">
 						<ul class="pagination">
 							<li class="disabled"><a href="#">&laquo;</a></li>
@@ -267,6 +268,7 @@
 							<li><a href="#">&raquo;</a></li>
 						</ul>
 					</div>
+					<!-- 페이징 -->
 				</div>
 			</div>
 		</section>
