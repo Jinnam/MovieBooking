@@ -1,6 +1,7 @@
 package kr.co.cinema.booking;
 
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,15 +49,14 @@ public class BookingController {
 	public String bookingSeatSelect(@RequestParam(value="scsCode") String scsCode,Model model) {	
 		logger.debug("bookingSeatSelect 영화 좌석 선택페이지");
 		
-		ScreenSchedule screenSchedule = bookingDao.selectOneScreenSchedule(scsCode); //상영코드일치하는 좌석 정보 가져오기
-		List<Seat> seat = bookingDao.countTotalSeat(scsCode); //상영코드 일치하는 좌석 정보 가져오기
+		Map<String,String> map = bookingDao.mapTest();
+		System.out.println(map.toString());
 		
-		String brcName ;	//지점 이름 가져오기
 		
+/*		List<Seat> seat = bookingDao.countTotalSeat(scsCode); //상영코드 일치하는 좌석 정보 가져오기	
 		model.addAttribute("scsCode",scsCode);//상영일정코드
-		model.addAttribute("screenSchedule",screenSchedule); //상영일정
 		model.addAttribute("seat",seat); //좌석
-		
+*/		
 		return "booking/bookingSeatSelect";
 	}	
 	

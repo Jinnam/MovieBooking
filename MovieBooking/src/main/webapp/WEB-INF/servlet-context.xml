@@ -11,10 +11,10 @@
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://better4307.cafe24.com/better4307"/>
-        <property name="username" value="better4307"/>
-        <property name="password" value="rladnqls!@"/>
-    </bean>
+        <property name="url" value="jdbc:mysql://127.0.0.1/movie"/>
+        <property name="username" value="root"/>
+        <property name="password" value="java0000"/>
+    </bean>  
     
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!-- mybatis 세션생성시 사용할 dataSource주입 -->
@@ -22,7 +22,7 @@
         <!-- mybatis 세션생성후 쿼리를 실행시킬때 사용할 쿼리위치(메퍼)설정 -->
         <property name="mapperLocations">
             <list>
-                <value>classpath:kr/co/cinema/admin/AdminMapper.xml</value>
+                <!-- <value>classpath:kr/co/cinema/admin/AdminMapper.xml</value> -->
 				<value>classpath:kr/co/cinema/analisys/AnalisysMapper.xml</value>
 				<value>classpath:kr/co/cinema/booking/BookingMapper.xml</value>
 				<value>classpath:kr/co/cinema/management/ManagementMapper.xml</value>

@@ -1,6 +1,7 @@
 package kr.co.cinema.booking;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -22,6 +23,11 @@ public class BookingDao {
 	
 	private final String mapperNS="kr.co.cinema.booking.BookingMapper.";
 
+	//맵 테스트
+	public Map<String, String> mapTest(){
+		return session.selectOne(mapperNS+"mapTest");
+	}
+	
 	//상영일정코드에 맞는 사용중인 좌석 수 가져오기
 	public List<Seat> countUseSeat(String scsCode){
 		return session.selectList(mapperNS+"selectListSeat",scsCode);		

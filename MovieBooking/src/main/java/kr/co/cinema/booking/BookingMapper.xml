@@ -5,6 +5,17 @@
   
 <mapper namespace="kr.co.cinema.booking.BookingMapper">
 
+  <select id="mapTest" resultType="map">
+	SELECT
+		admin.adm_id as admID,
+		admin.brc_code as brcCode,
+		admin.adm_pw as admPw,
+		admin.adm_auth as admAuth
+	FROM
+		admin
+	WHERE
+		adm_id='admin07'
+  </select>
   <!-- //상영일정코드에 맞는 사용중인 좌석 수-->
   <select id="countUseSeat" resultType="int" parameterType="String">
 	SELECT
