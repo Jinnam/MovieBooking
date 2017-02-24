@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.co.cinema.dto.BookingSelect;
 import kr.co.cinema.dto.Movie;
 import kr.co.cinema.dto.ScreenSchedule;
 
@@ -28,7 +27,7 @@ public class BookingController {
 	
 	//AJAX 영화 상영 일정 가져오기
 	@RequestMapping(value = "/searchListScreenInfo", method = RequestMethod.POST)
-	public @ResponseBody List<ScreenSchedule> searchListScreenInfo(BookingSelect bookingSelect) {	
+	public @ResponseBody List<ScreenSchedule> searchListScreenInfo(BookingSelectDto bookingSelect) {	
 		logger.debug("searchListScreenInfo 영화 상영일정 가져오기");
 		return bookingService.searchListScreenInfo(bookingSelect);
 	}	

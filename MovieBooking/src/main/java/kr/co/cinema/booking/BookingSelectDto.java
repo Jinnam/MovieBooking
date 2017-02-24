@@ -1,7 +1,7 @@
-package kr.co.cinema.dto;
+package kr.co.cinema.booking;
 
 //예매시 조건을 입력하는 dto
-public class BookingSelect {
+public class BookingSelectDto {
 	int brcCode;		//지점코드
 	int movCode;		//영화코드
 	String Date;		//날짜

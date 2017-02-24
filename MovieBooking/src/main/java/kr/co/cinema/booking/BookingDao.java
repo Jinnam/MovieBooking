@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.cinema.dto.BookingSelect;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.Movie;
 import kr.co.cinema.dto.ScreenSchedule;
@@ -24,7 +23,7 @@ public class BookingDao {
 	
 	
 	//ajax 영화+지점+날짜에 맞는 상영일정 가져오기
-	public List<ScreenSchedule> SelectListScreenInfo(BookingSelect bookingSelect){
+	public List<ScreenSchedule> SelectListScreenInfo(BookingSelectDto bookingSelect){
 		logger.debug("SelectListScreenInfo 영화+지점+날짜에 맞는 상영일정 가져오기");
 		return session.selectList(mapperNS+"SelectListScreenInfo",bookingSelect);		
 	}

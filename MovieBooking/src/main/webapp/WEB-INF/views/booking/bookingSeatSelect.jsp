@@ -6,6 +6,8 @@
 <title>좌석 선택</title>
 <link rel="SHORTCUT ICON" href="resources/module-img/titleIcon.png">
 <style>
+	
+	/* 좌석 기본 사각 */
 	.seat{
 		font-size:11px;
 		cursor:pointer;
@@ -15,23 +17,28 @@
 		text-align:center;
 		line-height:14px;
 	}
+	/* 사용 가능 좌석 */
 	.able{
 		background-color: #686868;
 		color:white;
 	}
+	/* 사용중 좌석  */
 	.use{
 		background-color: #D5D5D5;
 		color:white;
 		background-image: url('resources/module-img/seat_use.png');
 	}
+	/* 사용불가능 좌석 */
 	.unable{
 		background-color: #D5D5D5;
 		color:white;
 	}
+	/* 현재선택좌석 */
 	.currentSelect{
 		background-color: #24468A;
 		color:white;
 	}	
+	/* 시트 행 */
 	.seat-Row{
 		font-size:11px;
 		cursor:pointer;
@@ -43,14 +50,24 @@
 		text-align:center;
 		line-height:14px;
 	}
+	/* 좌석영역 수직정렬 랩핑 */
 	.seatWrapper{
 		width:600px;
 		height:200px;
 		display:table;
 	}
+	/* 수직정렬 */
 	.seatCell{
 	  display: table-cell; 
 	  vertical-align: middle;
+	}
+	/* 선택한 좌석 행열 정보 */
+	.seatInfo{
+		color:white;
+		background-color:#01579b ;
+		width:30px; 
+		margin:3px;
+		text-align:center;
 	}	
 
 </style>
@@ -94,26 +111,35 @@
 
 
 	<!-- 좌석정보 -->
-	<div class="container"> <!-- 좌석정보 div 열기-->
+	<div class="container" style="width:970px;"> <!-- 좌석정보 div 열기-->
 		<form><!-- 좌석정보 폼 열기-->
 			<div>
 			
-				<div style="width:200px;">
+				<div style="display:inline-block; width:200px;">
 					상영코드 <input type="text" class="" name="" id="scsCode">				
 				</div>
+				
 				<div style="display:inline-block; width:200px;">
-					좌석코드1<input type="text" class="" name="" id=""> 			
-				</div>
-				<div style="display:inline-block; width:200px;">
-					좌석코드2<input type="text" class="" name="" id=""> 				
-				</div>
-				<div style="display:inline-block; width:200px;">
-					좌석코드3<input type="text" class="" name="" id=""> 				
-				</div>
-				<div style="display:inline-block; width:200px;">
-					좌석코드4<input type="text" class="" name="" id=""> 			
+					인원정보 <input type="text" class="" name="" id="scsCode">				
 				</div>	
-																			
+				
+				<div>
+					<div style="display:inline-block; width:200px;">
+						좌석코드1<input type="text" class="" name="" id=""> 			
+					</div>
+					
+					<div style="display:inline-block; width:200px;">
+						좌석코드2<input type="text" class="" name="" id=""> 				
+					</div>
+					
+					<div style="display:inline-block; width:200px;">
+						좌석코드3<input type="text" class="" name="" id=""> 				
+					</div>
+					
+					<div style="display:inline-block; width:200px;">
+						좌석코드4<input type="text" class="" name="" id=""> 			
+					</div>	
+				</div>														
 			</div>
 		</form><!-- 좌석정보 폼 닫기-->
 	</div> <!-- 좌석정보 div 닫기-->
@@ -128,6 +154,7 @@
 		
 		<div class="col s12 grey lighten-3">
 			<div class="col s2">
+			
 				<!-- 인원 -->
 				<div style="width:100px" style="display:inline-block;"> 
 					<br>
@@ -139,20 +166,25 @@
 				        <option value="4">4</option>
 				     </select>
 				</div>	
+				
 				<!-- 좌석정보 -->	
-				<div>
-					<div>a1</div>
-					<div>a1</div>
-					<div>a1</div>
-					<div>a1</div>
+				<div style="margin-top:10px;">
+					<div>선택한 좌석 정보</div>
+					<div class="seatInfo">A1</div>
+					<div class="seatInfo">D1</div>
+					<div class="seatInfo">B3</div>
+					<div class="seatInfo">F2</div>
 				</div>
+				
 				<!-- 리셋버튼 -->
-				<div>
-					<input type="button">
+				<div style="margin-top:10px;">
+					<a class="waves-effect waves-light btn">좌석 재선택</a>
 				</div>		
 			</div>
+			
 			<div class="col s8 grey lighten-5" style="height:400px;text-align:center;">
 				<div class="grey lighten-2"><img src="resources/module-img/booking_menu_screen.png"></div>
+				
 				<!-- 좌석  -->
 				<div class="seatWrapper"> <!-- 좌석 div 열기 -->
 					<div class="seatCell">
@@ -217,12 +249,16 @@
 				</div> <!-- 좌석 div 닫기  -->
 				<img src="resources/module-img/seat_info.png" style="position:relative;left:250px;bottom:180px;">	
 			</div>
+				<!-- 결제버튼 -->
+				<div style="margin-top:10px;">
+					<a class="waves-effect waves-light large-btn">결제하기</a>
+				</div>	
+							
 			<div class="col s2">
 			
 			</div>
+			
 		</div>
-							
-		
 	</div> <!-- 좌석선택 div 닫기-->
 
 
