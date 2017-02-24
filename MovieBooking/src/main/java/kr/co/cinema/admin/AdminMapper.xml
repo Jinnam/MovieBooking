@@ -4,5 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="kr.co.cinema.admin.AdminMapper">
-
+	<select id="selectBranchList"
+			resultType="kr.co.cinema.dto.Branch">
+			SELECT
+				BRANCH.brc_name AS brcName,
+				BRANCH.brc_local AS brcLocal,
+				BRANCH.brc_addr AS brcAddr,
+				BRANCH.brc_infoDetail AS brcInfoDetail
+			FROM
+				BRANCH
+	</select>
 </mapper>
