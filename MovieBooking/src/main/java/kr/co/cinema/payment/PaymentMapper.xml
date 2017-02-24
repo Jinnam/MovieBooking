@@ -6,18 +6,18 @@
 <mapper namespace="kr.co.cinema.payment.PaymentMapper">
 	
 	<!-- 결제페이지 영화정보 보여주기 -->
-	<select id="">
+	<select id="selectMovieInfo" parameterType="String" resultType="kr.co.cinema.payment.BookingInfo">
 		SELECT 
-			SCREEN_SCHEDULE.scs_code,
-			MOVIE.mov_korName,
-			MOVIE.mov_grade,
-			MOVIE.mov_runningTime,
-			MOVIE.mov_imgPath,
-			SCREEN_SCHEDULE.scs_startTime,
-			SCREEN_SCHEDULE.scs_date,
-			SCREEN_SCHEDULE.scs_timeDiscount,
-			BRANCH.brc_local,
-			BRANCH.brc_name
+			SCREEN_SCHEDULE.scs_code AS scsCode,
+			MOVIE.mov_korName AS movKorName,
+			MOVIE.mov_grade AS movGrade,
+			MOVIE.mov_runningTime AS movRunningTime,
+			MOVIE.mov_imgPath AS movImgPath,
+			SCREEN_SCHEDULE.scs_startTime AS scsStartTime,
+			SCREEN_SCHEDULE.scs_date AS scsDate,
+			SCREEN_SCHEDULE.scs_timeDiscount AS scsTimeDiscount,
+			BRANCH.brc_local AS brcLocal,
+			BRANCH.brc_name AS brcName
 		FROM
 			SCREEN_SCHEDULE
 		JOIN
@@ -29,7 +29,7 @@
 		ON
 			SCREEN_SCHEDULE.brc_code = BRANCH.brc_code
 		WHERE
-			scs_code="43170221101101114"
+			scs_code=#{scsCode}
 	</select>
 	
 	<!-- 결제페이지 할인정보 가져오기 -->

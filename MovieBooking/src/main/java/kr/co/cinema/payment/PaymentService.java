@@ -21,4 +21,10 @@ public class PaymentService {
 		
 		return paymentDao.selectListDiscountInfo();
 	}
+	
+	// 결제시 영화 정보 가져오기
+	public BookingInfo searchBookingInfo(String scsCode){
+	
+		return paymentDao.selectBookingInfo(scsCode);
+	}
 }

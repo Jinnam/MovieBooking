@@ -23,5 +23,11 @@ public class PaymentDao {
 		
 		return sqlSession.selectList(NS+"selectDiscountInfo");
 	}
+	
+	// 결제시 영화 정보 가져오기
+	public BookingInfo selectBookingInfo(String scsCode){
+		
+		return sqlSession.selectOne(NS+"selectMovieInfo", scsCode);
+	}
 
 }
