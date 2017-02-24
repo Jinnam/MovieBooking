@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -200,37 +201,21 @@
 						<table class="table table-striped table-hover ">
 							<thead>
 								<tr>
-									<th>순위</th>
+									<!-- <th>순위</th> -->
 									<th>제목</th>
 									<th>개봉일</th>
 									<th>누적관객수(천명)</th>
 								</tr>
 							</thead>
 							<tbody>
+								<c:forEach var="clientCount" items="${selectClientCount}">
 								<tr>
-									<td>1</td>
-									<td>조작된도시</td>
-									<td>2017/01/19</td>
-									<td>2,000</td>
+									<!-- <td></td> -->
+									<td>${clientCount.movKorName}</td>
+									<td>${clientCount.movOpenDate}</td>
+									<td>${clientCount.brcCntClientCount}</td>
 								</tr>
-								<tr>
-									<td>2</td>
-									<td>공조</td>
-									<td>2017/02/19</td>
-									<td>3,000</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>재심</td>
-									<td>2017/01/11</td>
-									<td>3,200</td>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>싱글 라이더</td>
-									<td>2017/02/21</td>
-									<td>3,400</td>
-								</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>

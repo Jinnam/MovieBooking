@@ -4,6 +4,25 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="kr.co.cinema.admin.AdminMapper">
+	<select id="selectClientCount"
+			resultType="kr.co.cinema.dto.??">
+			SELECT 
+				mov_korName AS movKorName, 
+				mov_openDate AS movOpenDate, 
+				brcCnt_clientCount AS brcCntClientCount
+			FROM 
+				MOVIE 
+			INNER JOIN 
+				BRANCH_DAY_COUNT 
+			ON 
+				MOVIE.mov_code = BRANCH_DAY_COUNT.mov_code 
+			GROUP BY 
+				MOVIE.mov_korName 
+			ORDER BY 
+				BRANCH_DAY_COUNT .brcCnt_clientCount 
+			DESC LIMIT 4
+	</select>
+	<!-- 지점리스트 조회 -->
 	<select id="selectBranchList"
 			resultType="kr.co.cinema.dto.Branch">
 			SELECT
@@ -14,4 +33,5 @@
 			FROM
 				BRANCH
 	</select>
+	
 </mapper>

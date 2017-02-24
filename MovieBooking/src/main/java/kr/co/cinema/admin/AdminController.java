@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.co.cinema.dto.Branch;
+import kr.co.cinema.dto.Movie;
 
 @Controller
 public class AdminController {
@@ -19,8 +20,10 @@ public class AdminController {
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	//관리자 메인 페이지 : 메인으로 이동
 	@RequestMapping(value="adminMain", method=RequestMethod.GET)
-	public String adminMain() {
+	public String adminMain(Model model) {
 		logger.debug(" Controller 관리자 메인 페이지 get실행");
+		List<Movie> selectClientCount = adminService.selectClientCount();
+		model.addAttribute("selectClientCount", selectClientCount);
 		return "admin/adminMain";
 	}
 	//지점리스트 조회
