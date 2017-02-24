@@ -147,7 +147,7 @@
 			line-height:30px;
 		}
 		
-		/* 정빈 추가 */
+		/* 등급 아이콘 */
 		
 		.grade16_All{
 			max-width:16px !important;

@@ -5,72 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>좌석 선택</title>
 <link rel="SHORTCUT ICON" href="resources/module-img/titleIcon.png">
-<style>
-	
-	/* 좌석 기본 사각 */
-	.seat{
-		font-size:11px;
-		cursor:pointer;
-		width:16px;
-		height:16px;
-		display:inline-block;
-		text-align:center;
-		line-height:14px;
-	}
-	/* 사용 가능 좌석 */
-	.able{
-		background-color: #686868;
-		color:white;
-	}
-	/* 사용중 좌석  */
-	.use{
-		background-color: #D5D5D5;
-		color:white;
-		background-image: url('resources/module-img/seat_use.png');
-	}
-	/* 사용불가능 좌석 */
-	.unable{
-		background-color: #D5D5D5;
-		color:white;
-	}
-	/* 현재선택좌석 */
-	.currentSelect{
-		background-color: #24468A;
-		color:white;
-	}	
-	/* 시트 행 */
-	.seat-Row{
-		font-size:11px;
-		cursor:pointer;
-		width:16px;
-		height:16px;
-    	border-top: 1px solid gray;
-		margin: 0 5 0 0;
-		display:inline-block;
-		text-align:center;
-		line-height:14px;
-	}
-	/* 좌석영역 수직정렬 랩핑 */
-	.seatWrapper{
-		width:600px;
-		height:200px;
-		display:table;
-	}
-	/* 수직정렬 */
-	.seatCell{
-	  display: table-cell; 
-	  vertical-align: middle;
-	}
-	/* 선택한 좌석 행열 정보 */
-	.seatInfo{
-		color:white;
-		background-color:#01579b ;
-		width:30px; 
-		margin:3px;
-		text-align:center;
-	}	
 
-</style>
 </head>
 <body>
 
@@ -153,8 +88,8 @@
 		
 		
 		<div class="col s12 grey lighten-3">
-			<div class="col s2">
-			
+		
+			<div class="col s2"> <!-- 인원및좌석정보 div 열기 -->			
 				<!-- 인원 -->
 				<div style="width:100px" style="display:inline-block;"> 
 					<br>
@@ -180,10 +115,14 @@
 				<div style="margin-top:10px;">
 					<a class="waves-effect waves-light btn">좌석 재선택</a>
 				</div>		
-			</div>
+			</div> <!-- 인원및좌석정보 div 닫기 -->		
 			
 			<div class="col s8 grey lighten-5" style="height:400px;text-align:center;">
-				<div class="grey lighten-2"><img src="resources/module-img/booking_menu_screen.png"></div>
+				
+				<!-- 스크린 이미지 -->
+				<div class="grey lighten-2">
+					<img src="resources/module-img/booking_menu_screen.png">
+				</div>
 				
 				<!-- 좌석  -->
 				<div class="seatWrapper"> <!-- 좌석 div 열기 -->
@@ -247,16 +186,31 @@
 																	
 					</div>									
 				</div> <!-- 좌석 div 닫기  -->
+				
 				<img src="resources/module-img/seat_info.png" style="position:relative;left:250px;bottom:180px;">	
+				
 			</div>
+
+							
+			<div class="col s2"> <!-- 상영정보 및 결제버튼 div 열기 -->
+				<!-- 이미지 -->
+				<div style="width:155px;">
+					<img class="responsive-img" src="http://image2.megabox.co.kr/mop/poster/2017/AF/71961E-4237-49AF-8AA0-C8E67FEC2E6E.medium.jpg">
+				</div>
+			
+				<!-- 상영정보 -->
+				<div>
+					<div>15 공조 디지털</div>
+					<div>2017.03.10</div>
+					<div>17:00</div>
+					<div>5명</div>
+				</div>
+			
 				<!-- 결제버튼 -->
 				<div style="margin-top:10px;">
-					<a class="waves-effect waves-light large-btn">결제하기</a>
-				</div>	
-							
-			<div class="col s2">
-			
-			</div>
+					<a class="waves-effect waves-light btn-large">결제하기</a>
+				</div>				
+			</div> <!-- 상영정보 및 결제버튼 div 닫기 -->
 			
 		</div>
 	</div> <!-- 좌석선택 div 닫기-->

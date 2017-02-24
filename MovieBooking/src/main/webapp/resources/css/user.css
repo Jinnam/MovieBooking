@@ -1,0 +1,92 @@
+/*
+---------------------------- 정빈 추가 ---------------------------------
+*/
+	
+	
+	/* 현재 선택된 블럭 */
+	.selectBlock {
+		background-color : #01579b ;
+		color:white;
+	}
+	
+	/* 영화 지점 영화 상영일정 버튼 */
+	.scDate , .scBranch , .scMovie , .scTime{
+		cursor:pointer;
+		width:210px;max-width:auto;
+	}
+	
+	/* 영화 지점 영화 상영일정 버튼 크기*/
+	.selectorDiv{
+		height:30px;
+		margin-left:10px;
+		line-height:30px;
+	}
+	
+	/* 좌석 기본 사각 */
+	.seat{
+		font-size:11px;
+		cursor:pointer;
+		width:16px;
+		height:16px;
+		display:inline-block;
+		text-align:center;
+		line-height:14px;
+	}
+	/* 사용 가능 좌석 */
+	.able{
+		background-color: #686868;
+		color:white;
+	}
+	/* 사용중 좌석  */
+	.use{
+		background-color: #D5D5D5;
+		color:white;
+		background-image: url('resources/module-img/seat_use.png');
+	}
+	/* 사용불가능 좌석 */
+	.unable{
+		background-color: #D5D5D5;
+		color:white;
+	}
+	/* 현재선택좌석 */
+	.currentSelect{
+		background-color: #24468A;
+		color:white;
+	}	
+	/* 시트 행 */
+	.seat-Row{
+		font-size:11px;
+		cursor:pointer;
+		width:16px;
+		height:16px;
+    	border-top: 1px solid gray;
+		margin: 0 5 0 0;
+		display:inline-block;
+		text-align:center;
+		line-height:14px;
+	}
+	/* 좌석영역 수직정렬 랩핑 */
+	.seatWrapper{
+		width:600px;
+		height:200px;
+		display:table;
+	}
+	/* 수직정렬 */
+	.seatCell{
+	  display: table-cell; 
+	  vertical-align: middle;
+	}
+	/* 선택한 좌석 행열 정보 */
+	.seatInfo{
+		color:white;
+		background-color:#01579b ;
+		width:30px; 
+		margin:3px;
+		text-align:center;
+	}
+	
+	
+	
+/*
+---------------------------- 정빈 추가 ---------------------------------
+*/		
