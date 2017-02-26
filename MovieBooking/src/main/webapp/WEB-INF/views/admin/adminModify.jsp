@@ -112,7 +112,7 @@
 					</a>
 					<ul class="sub">
 						<li>
-							<a href="adminMovieLlist">영화 목록</a>
+							<a href="adminMovieList">영화 목록</a>
 						</li>
 						<li>
 							<a href="movieInsert">영화 등록</a>

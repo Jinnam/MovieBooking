@@ -59,7 +59,7 @@
 				</li>
 				<!-- 지점, 지점관리자 사이드 메뉴-->
 				<li class="sub-menu">
-					<a class="active" href="javascript:;">
+					<a href="javascript:;">
 						<i class="fa fa-desktop"></i>
 						<span>지점/관리자 관리</span>
 					</a>
@@ -87,7 +87,7 @@
 						<!-- <li>
 							<a href="adminModify">지점 관리자 수정</a>
 						</li> -->
-						<li class="active">
+						<li>
 							<a href="adminDelete">지점 관리자 삭제</a>
 						</li>
 					</ul>
@@ -106,12 +106,12 @@
 				</li>
 				<!-- 영화 사이드 메뉴 -->
 				<li class="sub-menu">
-					<a href="javascript:;">
+					<a class="active" href="javascript:;">
 						<i class="fa fa-tasks"></i>
 						<span>영화 관리</span>
 					</a>
 					<ul class="sub">
-						<li>
+						<li class="active">
 							<a href="adminMovieList">영화 목록</a>
 						</li>
 						<li>

@@ -18,6 +18,11 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
+	
+	/************************************************************************************************************
+	메인페이지 메서드
+	************************************************************************************************************/
+	
 	//관리자 메인 페이지 : 메인으로 이동
 	@RequestMapping(value="adminMain", method=RequestMethod.GET)
 	public String adminMain(Model model) {
@@ -26,6 +31,10 @@ public class AdminController {
 		model.addAttribute("selectClientCount", selectClientCount);
 		return "admin/adminMain";
 	}
+	
+	/************************************************************************************************************
+	지점관리 메서드 : 지점등록/지점조회/지점수정/지점탈퇴
+	************************************************************************************************************/
 	
 	//***지점 등록 페이지 연결만 해놓음
 	@RequestMapping(value="branchInsert", method=RequestMethod.GET)
@@ -43,6 +52,12 @@ public class AdminController {
 		logger.debug(" Controller selectBranchList"+selectBranchList.toString());
 		return "admin/branchList";
 	}
+	//***지점 수정 페이지 연결만 해놓음
+	@RequestMapping(value="branchModify", method=RequestMethod.GET)
+	public String updateBranchList() {
+		logger.debug(" Controller updateBranchList get실행");
+		return "admin/branchModify";
+	}
 	
 	//***지점 탈퇴 페이지 연결만 해놓음
 	@RequestMapping(value="branchDelete", method=RequestMethod.GET)
@@ -50,6 +65,10 @@ public class AdminController {
 		logger.debug(" Controller deleteBranch get실행");
 		return "admin/branchDelete";
 	}
+	
+	/************************************************************************************************************
+	지점관리자 메서드 : 지점관리자등록/지점관리자조회/지점관리자수정/지점관리자삭제
+	************************************************************************************************************/	
 	
 	//***지점관리자 등록 페이지 연결만 해놓음
 	@RequestMapping(value="adminInsert", method=RequestMethod.GET)
@@ -64,6 +83,12 @@ public class AdminController {
 		logger.debug(" Controller adminList get실행");
 		return "admin/adminList";
 	}
+	//***지점관리자 수정 페이지 연결만 해놓음
+	@RequestMapping(value="adminModify", method=RequestMethod.GET)
+	public String updateAdmin() {
+		logger.debug(" Controller updateAdmin get실행");
+		return "admin/adminModify";
+	}
 	
 	//***지점관리자 삭제 페이지 연결만 해놓음
 	@RequestMapping(value="adminDelete", method=RequestMethod.GET)
@@ -72,10 +97,176 @@ public class AdminController {
 		return "admin/adminDelete";
 	}
 	
+	/************************************************************************************************************
+	회원 관리 메서드 : 회원리스트조회
+	************************************************************************************************************/
+	
 	//***관리자 회원조회 페이지 연결만 해놓음
 	@RequestMapping(value="memberList", method=RequestMethod.GET)
 	public String selectMemberList() {
 		logger.debug(" Controller selectMemberList get실행");
 		return "admin/memberList";
+	}
+	
+	/************************************************************************************************************
+	영화 관리 메서드 : 영화등록/영화리스트/영화상세/영화수정
+	************************************************************************************************************/	
+
+	//***관리자 영화등록 페이지 연결만 해놓음
+	@RequestMapping(value="movieInsert", method=RequestMethod.GET)
+	public String insertMovie() {
+		logger.debug(" Controller insertMovie get실행");
+		return "management/movieInsert";
+	}
+	
+	//***관리자 영화조회 페이지 연결만 해놓음
+	@RequestMapping(value="adminMovieList", method=RequestMethod.GET)
+	public String selectMovieList() {
+		logger.debug(" Controller selectMovieList get실행");
+		return "management/adminMovieList";
+	}
+	
+	//***관리자 영화상세조회 페이지 연결만 해놓음
+	@RequestMapping(value="movieDetail", method=RequestMethod.GET)
+	public String selectDetailMovie() {
+		logger.debug(" Controller selectDetailMovie get실행");
+		return "management/movieDetail";
+	}
+	//***관리자 영화상세조회 페이지 연결만 해놓음
+	@RequestMapping(value="movieModify", method=RequestMethod.GET)
+	public String updateMovie() {
+		logger.debug(" Controller updateMovie get실행");
+		return "management/movieModify";
+	}
+	
+	/************************************************************************************************************
+	인물 관리 메서드 : 인물등록/인물리스트/인물상세/인물수정
+	************************************************************************************************************/	
+
+	//***관리자 인물등록 페이지 연결만 해놓음
+	@RequestMapping(value="characterInsert", method=RequestMethod.GET)
+	public String insertCharacter() {
+		logger.debug(" Controller insertCharacter get실행");
+		return "management/characterInsert";
+	}
+	
+	//***관리자 인물조회리스트 페이지 연결만 해놓음
+	@RequestMapping(value="characterList", method=RequestMethod.GET)
+	public String selectCharacterList() {
+		logger.debug(" Controller selectCharacterList get실행");
+		return "management/characterList";
+	}
+	
+	//***관리자 인물상세조회 페이지 연결만 해놓음
+	@RequestMapping(value="characterDetail", method=RequestMethod.GET)
+	public String selectCharacterDetail() {
+		logger.debug(" Controller selectCharacterDetail get실행");
+		return "management/characterDetail";
+	}
+	
+	//***관리자 인물수정 페이지 연결만 해놓음
+	@RequestMapping(value="characterModify", method=RequestMethod.GET)
+	public String updateCharacter() {
+		logger.debug(" Controller updateCharacter get실행");
+		return "management/characterModify";
+	}
+	
+	/************************************************************************************************************
+	상영관 관리 메서드 : 상영관등록/상영관리스트/상영관수정/상영관삭제
+	************************************************************************************************************/	
+	
+	//***관리자 상영관등록 페이지 연결만 해놓음
+	@RequestMapping(value="screenInsert", method=RequestMethod.GET)
+	public String insertScreen() {
+		logger.debug(" Controller insertScreen get실행");
+		return "screen/screenInsert";
+	}
+	
+	//***관리자 상영관리스트 페이지 연결만 해놓음
+	@RequestMapping(value="screenList", method=RequestMethod.GET)
+	public String selectScreenList() {
+		logger.debug(" Controller selectScreenList get실행");
+		return "screen/screenList";
+	}
+	
+	//***관리자 상영관수정 페이지 연결만 해놓음
+	@RequestMapping(value="screenModify", method=RequestMethod.GET)
+	public String updateScreen() {
+		logger.debug(" Controller updateScreen get실행");
+		return "screen/screenModify";
+	}
+	
+	//***관리자 상영관삭제 페이지 연결만 해놓음
+	@RequestMapping(value="screenDelete", method=RequestMethod.GET)
+	public String deleteScreen() {
+		logger.debug(" Controller deleteScreen get실행");
+		return "screen/screenDelete";
+	}
+	
+	/************************************************************************************************************
+	상영일정 관리 메서드 : 상영일정등록/상영일정리스트/상영일정수정
+	************************************************************************************************************/	
+	
+	//***관리자 상영일정등록 페이지 연결만 해놓음
+	@RequestMapping(value="screenScheduleInsert", method=RequestMethod.GET)
+	public String insertScreenSchedule() {
+		logger.debug(" Controller insertScreenSchedule get실행");
+		return "screen/screenScheduleInsert";
+	}
+	
+	//***관리자 상영일정리스트 페이지 연결만 해놓음
+	@RequestMapping(value="screenScheduleList", method=RequestMethod.GET)
+	public String selectScreenScheduleList() {
+		logger.debug(" Controller selectScreenScheduleList get실행");
+		return "screen/screenScheduleList";
+	}
+	
+	//***관리자 상영일정리스트 페이지 연결만 해놓음
+	@RequestMapping(value="screenScheduleModify", method=RequestMethod.GET)
+	public String updateScreenScheduleList() {
+		logger.debug(" Controller updateScreenScheduleList get실행");
+		return "screen/screenScheduleModify";
+	}
+	
+	/************************************************************************************************************
+	단가 관리 메서드 : 단가등록/단가수정
+	************************************************************************************************************/	
+	
+	//***관리자 단가등록 페이지 연결만 해놓음
+	@RequestMapping(value="costInsert", method=RequestMethod.GET)
+	public String insertCost() {
+		logger.debug(" Controller insertCost get실행");
+		return "management/costInsert";
+	}
+	
+	//***관리자 단가수정 페이지 연결만 해놓음
+	@RequestMapping(value="costModify", method=RequestMethod.GET)
+	public String updateCost() {
+		logger.debug(" Controller updateCost get실행");
+		return "management/costModify";
+	}
+	/************************************************************************************************************
+	통계 관리 메서드 : 영화별 예매,매출/지점별 예매,매출/날짜별 예매,매출
+	************************************************************************************************************/	
+	
+	//***관리자 영화별 예매,매출 페이지 연결만 해놓음
+	@RequestMapping(value="analisysByMovie", method=RequestMethod.GET)
+	public String selectAnalisysByMovie() {
+		logger.debug(" Controller selectAnalisysByMovie get실행");
+		return "analisys/analisysByMovie";
+	}
+	
+	//***관리자 지점별 예매,매출 페이지 연결만 해놓음
+	@RequestMapping(value="analisysByBranch", method=RequestMethod.GET)
+	public String selectAnalisysByBranch() {
+		logger.debug(" Controller selectAnalisysByMovie get실행");
+		return "analisys/analisysByBranch";
+	}
+	
+	//***관리자 날짜별 예매,매출 페이지 연결만 해놓음
+	@RequestMapping(value="analisysByDate", method=RequestMethod.GET)
+	public String selectAnalisysByDate() {
+		logger.debug(" Controller selectAnalisysByDate get실행");
+		return "analisys/analisysByDate";
 	}
 }
