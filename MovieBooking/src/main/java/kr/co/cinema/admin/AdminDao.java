@@ -28,5 +28,4 @@ public class AdminDao {
 		logger.debug(" Dao selectBranchList");
 		return sqlSession.selectList(NS+"selectBranchList");
 	}
-	
 }

@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="Dashboard">
 	<meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-	<title>Mega Box Admin - Admin Main</title>
+	<title>Mega Box Admin - 관리자 등록</title>
 	
 	<!-- Bootstrap core CSS -->
 	<link href="resources/assets/css/bootstrap.css" rel="stylesheet">
@@ -37,6 +37,7 @@
 <body>
 	<!-- 상단부분 import -->
 	<%@include file="/WEB-INF/adminModule/header.jsp"%>
+	
 	<!--여기부터 사이드 바 -->
 	<aside>
 		<div id="sidebar" class="nav-collapse ">
@@ -266,8 +267,11 @@
 		</section>
 	</section>
 	<!-- 여기까지 메인 -->
+	
+	<!-- 하단 -->
 	<%@include file="/WEB-INF/adminModule/footer.jsp" %>
 	
+	<!-- 스크립트 -->
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="resources/assets/js/jquery.js"></script>
 	<script src="resources/assets/js/jquery-1.8.3.min.js"></script>

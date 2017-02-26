@@ -26,6 +26,14 @@ public class AdminController {
 		model.addAttribute("selectClientCount", selectClientCount);
 		return "admin/adminMain";
 	}
+	
+	//***지점 등록 페이지 연결만 해놓음
+	@RequestMapping(value="branchInsert", method=RequestMethod.GET)
+	public String insertBranch() {
+		logger.debug(" Controller insertBranch get실행");
+		return "admin/branchInsert";
+	}
+	
 	//지점리스트 조회
 	@RequestMapping(value="branchList", method=RequestMethod.GET)
 	public String selectBranchList(Model model) {
@@ -36,17 +44,38 @@ public class AdminController {
 		return "admin/branchList";
 	}
 	
-	//지점관리자 등록 페이지 연결만 해놓음
+	//***지점 탈퇴 페이지 연결만 해놓음
+	@RequestMapping(value="branchDelete", method=RequestMethod.GET)
+	public String deleteBranch() {
+		logger.debug(" Controller deleteBranch get실행");
+		return "admin/branchDelete";
+	}
+	
+	//***지점관리자 등록 페이지 연결만 해놓음
 	@RequestMapping(value="adminInsert", method=RequestMethod.GET)
 	public String insertAdmin() {
-		logger.debug(" Controller adminInsert get실행");
+		logger.debug(" Controller insertAdmin get실행");
 		return "admin/adminInsert";
 	}
 	
-	//지점관리자 삭제 페이지 연결만 해놓음
+	//***지점관리자 리스트 페이지 연결만 해놓음
+	@RequestMapping(value="adminList", method=RequestMethod.GET)
+	public String selectAdminList() {
+		logger.debug(" Controller adminList get실행");
+		return "admin/adminList";
+	}
+	
+	//***지점관리자 삭제 페이지 연결만 해놓음
 	@RequestMapping(value="adminDelete", method=RequestMethod.GET)
 	public String deleteAdmin() {
-		logger.debug(" Controller adminDelete get실행");
+		logger.debug(" Controller deleteAdmin get실행");
 		return "admin/adminDelete";
+	}
+	
+	//***관리자 회원조회 페이지 연결만 해놓음
+	@RequestMapping(value="memberList", method=RequestMethod.GET)
+	public String selectMemberList() {
+		logger.debug(" Controller selectMemberList get실행");
+		return "admin/memberList";
 	}
 }

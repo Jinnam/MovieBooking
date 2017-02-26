@@ -35,42 +35,64 @@
 	<![endif]-->
 </head>
 <body>
+	<!-- 상단 -->
 	<%@include file="/WEB-INF/adminModule/header.jsp"%>
+	
 	<!--여기부터 사이드 바 -->
 	<aside>
 		<div id="sidebar" class="nav-collapse ">
 			<ul class="sidebar-menu" id="nav-accordion">
 				<p class="centered">
+					<!-- 상단원형로고 -->
 					<a href="adminMain">
 						<img src="resources/assets/img/megaboxlogo.JPG" class="img-circle" width="60">
 					</a>
 				</p>
+				<!-- 사이드 바 원형로고 아래 텍스트 -->
 				<h5 class="centered">Mega Box Admin Page</h5>
+				<!-- 사이드 바 메인 메뉴 -->
 				<li class="mt">
 					<a href="adminMain">
 						<i class="fa fa-home"></i>
-						<!-- 아이콘 수정 -->
 						<span>H O M E</span>
 					</a>
 				</li>
-				<!-- 지점 -->
+				<!-- 지점, 지점관리자 사이드 메뉴-->
 				<li class="sub-menu">
 					<a class="active" href="javascript:;">
 						<i class="fa fa-desktop"></i>
 						<span>지점/관리자 관리</span>
 					</a>
 					<ul class="sub">
-						<li><a href="branchList">지점 목록</a></li>
-						<li><a href="branchInsert">지점 등록</a></li>
-						<li><a href="branchModify">지점 수정</a></li>
-						<li><a href="branchDelete">지점 탈퇴</a></li>
-						<li><a href="adminList">지점 관리자 목록</a></li>
-						<li><a href="adminInsert">지점 관리자 등록</a></li>
-						<li><a href="adminModify">지점 관리자 수정</a></li>
-						<li class="active"><a href="adminDelete">지점 관리자 삭제</a></li>
+						<li>
+							<a href="branchList">지점 목록</a>
+						</li>
+						<li>
+							<a href="branchInsert">지점 등록</a>
+						</li>
+						<!-- 수정페이지는 목록에서 진입 -->
+						<!-- <li>
+							<a href="branchModify">지점 수정</a>
+						</li> -->
+						<li>
+							<a href="branchDelete">지점 탈퇴</a>
+						</li>
+						<li>
+							<a href="adminList">지점 관리자 목록</a>
+						</li>
+						<li>
+							<a href="adminInsert">지점 관리자 등록</a>
+						</li>
+						<!-- 수정페이지는 목록에서 진입 -->
+						<!-- <li>
+							<a href="adminModify">지점 관리자 수정</a>
+						</li> -->
+						<li class="active">
+							<a href="adminDelete">지점 관리자 삭제</a>
+						</li>
 					</ul>
 				</li>
-				<!-- 회원 -->
+				<!-- 회원 사이드 메뉴 -->
 				<li class="sub-menu">
 					<a href="javascript:;">
 						<i class="fa fa-list"></i>
@@ -82,7 +104,7 @@
 						</li>
 					</ul>
 				</li>
-				<!-- 영화 -->
+				<!-- 영화 사이드 메뉴 -->
 				<li class="sub-menu">
 					<a href="javascript:;">
 						<i class="fa fa-tasks"></i>
@@ -90,14 +112,18 @@
 					</a>
 					<ul class="sub">
 						<li>
-							<a href="movieInsert">영화 등록</a>
-						</li>
-						<li>
 							<a href="adminMovieLlist">영화 목록</a>
 						</li>
+						<li>
+							<a href="movieInsert">영화 등록</a>
+						</li>
+						<!-- 수정페이지는 목록에서 진입 -->
+						<!-- <li>
+							<a href="adminModify">영화 수정</a>
+						</li> -->
 					</ul>
 				</li>
-				<!-- 인물 -->
+				<!-- 인물 사이드 메뉴 -->
 				<li class="sub-menu">
 					<a href="javascript:;">
 						<i class="fa fa-user"></i>
@@ -105,14 +131,18 @@
 					</a>
 					<ul class="sub">
 						<li>
-							<a href="characterInsert">인물정보 등록</a>
-						</li>
-						<li>
 							<a href="characterList">인물 목록</a>
 						</li>
+						<li>
+							<a href="characterInsert">인물 등록</a>
+						</li>
+						<!-- 수정페이지는 목록에서 진입 -->
+						<!-- <li>
+							<a href="characterModify">인물 수정</a>
+						</li> -->
 					</ul>
 				</li>
-				<!-- 극장 -->
+				<!-- 극장 사이드 메뉴 -->
 				<li class="sub-menu">
 					<a href="javascript:;">
 						<i class="fa fa-film"></i>
@@ -120,14 +150,21 @@
 					</a>
 					<ul class="sub">
 						<li>
-							<a href="screenInsert">상영관 등록</a>
+							<a href="screenList">상영관 목록</a>
 						</li>
 						<li>
-							<a href="screenList">상영관 목록</a>
+							<a href="screenInsert">상영관 등록</a>
+						</li>
+						<!-- 수정페이지는 목록에서 진입 -->
+						<!-- <li>
+							<a href="screenModify">상영관 수정</a>
+						</li> -->
+						<li>
+							<a href="screenDelete">상영관 삭제</a>
 						</li>
 					</ul>
 				</li>
-				<!-- 상영일정 -->
+				<!-- 상영일정 사이드 메뉴 -->
 				<li class="sub-menu">
 					<a href="javascript:;">
 						<i class="fa fa-play-circle"></i>
@@ -135,34 +172,40 @@
 					</a>
 					<ul class="sub">
 						<li>
-							<a href="screenScheduleInsert">상영일정 등록</a>
+							<a href="screenScheduleList">상영일정 목록</a>
 						</li>
 						<li>
-							<a href="screenScheduleList">상영 목록</a>
+							<a href="screenScheduleInsert">상영일정 등록</a>
 						</li>
+						<!-- 수정페이지는 목록에서 진입 -->
+						<!-- <li>
+							<a href="screenScheduleModify">상영일정 수정</a>
+						</li> -->
 					</ul>
 				</li>
-				<!-- 통계 -->
+				<!-- 통계 사이드 메뉴 -->
 				<li class="sub-menu"><a href="javascript:;">
 					<i class=" fa fa-bar-chart-o"></i>
 					<span>통계 관리</span>
 				</a>
 					<ul class="sub">
 						<li>
-							<a href="#">영화별 예매/매출 </a>
+							<a href="analisysByMovie">영화별 예매/매출 </a>
 						</li>
 						<li>
-							<a href="#">지점별 예매/매출 </a>
+							<a href="analisysByBranch">지점별 예매/매출 </a>
 						</li>
 						<li>
-							<a href="#">날짜별 예매/매출 </a>
+							<a href="analisysByDate">날짜별 예매/매출 </a>
 						</li>
 					</ul>
 				</li>
 			</ul>
 		</div>
 	</aside>
-	<!--여기까지 사이드바-->
+	<!-- 여기까지 사이드바-->
+	
+	<!-- 여기부터 메인 -->
 	<section id="main-content">
 		<section class="wrapper">
 			<div class="row">
@@ -172,8 +215,11 @@
 		</section>
 	</section>
 	<!-- 여기까지 메인 -->
+	
+	<!-- 하단 -->
 	<%@include file="/WEB-INF/adminModule/footer.jsp" %>
 	
+	<!-- 스크립트 -->
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="resources/assets/js/jquery.js"></script>
 	<script src="resources/assets/js/jquery-1.8.3.min.js"></script>

@@ -58,14 +58,30 @@
 						<span>지점/관리자 관리</span>
 					</a>
 					<ul class="sub">
-						<li class="active"><a href="branchList">지점 목록</a></li>
-						<li><a href="branchInsert">지점 등록</a></li>
-						<li><a href="branchModify">지점 수정</a></li>
-						<li><a href="branchDelete">지점 탈퇴</a></li>
-						<li><a href="adminList">지점 관리자 목록</a></li>
-						<li><a href="adminInsert">지점 관리자 등록</a></li>
-						<li><a href="adminModify">지점 관리자 수정</a></li>
-						<li><a href="adminDelete">지점 관리자 삭제</a></li>
+						<li class="active">
+							<a href="branchList">지점 목록</a>
+						</li>
+						<li>
+							<a href="branchInsert">지점 등록</a>
+						</li>
+						<li>
+							<a href="branchModify">지점 수정</a>
+						</li>
+						<li>
+							<a href="branchDelete">지점 탈퇴</a>
+						</li>
+						<li>
+							<a href="adminList">지점 관리자 목록</a>
+						</li>
+						<li>
+							<a href="adminInsert">지점 관리자 등록</a>
+						</li>
+						<li>
+							<a href="adminModify">지점 관리자 수정</a>
+						</li>
+						<li>
+							<a href="adminDelete">지점 관리자 삭제</a>
+						</li>
 					</ul>
 				</li>
 				<!-- 회원 -->
