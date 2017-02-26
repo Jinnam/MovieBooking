@@ -21,7 +21,7 @@ public class AdminController {
 	//관리자 메인 페이지 : 메인으로 이동
 	@RequestMapping(value="adminMain", method=RequestMethod.GET)
 	public String adminMain(Model model) {
-		logger.debug(" Controller 관리자 메인 페이지 get실행");
+		logger.debug(" Controller adminMain get실행");
 		List<Movie> selectClientCount = adminService.selectClientCount();
 		model.addAttribute("selectClientCount", selectClientCount);
 		return "admin/adminMain";
@@ -29,10 +29,24 @@ public class AdminController {
 	//지점리스트 조회
 	@RequestMapping(value="branchList", method=RequestMethod.GET)
 	public String selectBranchList(Model model) {
-		logger.debug(" Controller selectBranchList");
+		logger.debug(" Controller selectBranchList get실행");
 		List<Branch> selectBranchList = adminService.selectBranchList();
 		model.addAttribute("selectBranchList", selectBranchList);
 		logger.debug(" Controller selectBranchList"+selectBranchList.toString());
 		return "admin/branchList";
+	}
+	
+	//지점관리자 등록 페이지 연결만 해놓음
+	@RequestMapping(value="adminInsert", method=RequestMethod.GET)
+	public String insertAdmin() {
+		logger.debug(" Controller adminInsert get실행");
+		return "admin/adminInsert";
+	}
+	
+	//지점관리자 삭제 페이지 연결만 해놓음
+	@RequestMapping(value="adminDelete", method=RequestMethod.GET)
+	public String deleteAdmin() {
+		logger.debug(" Controller adminDelete get실행");
+		return "admin/adminDelete";
 	}
 }
