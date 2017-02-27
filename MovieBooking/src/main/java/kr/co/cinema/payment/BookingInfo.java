@@ -10,11 +10,26 @@ public class BookingInfo {
 	private String movImgPath;			// 섬네일 경로
 	private String scsStartTime;		// 상영 시작시간
 	private String scsDate;				// 상영 날짜
-	private String scsTimeDiscount;		// 할인 정보
+	private String scsScreen;			// 스크린 정보(2d,3d,imax,일반)
+	private String scsTimeDiscount;		// 시간별 할인(조조, 심야, 일반)
 	private String brcLocal;			// 지점위치
 	private String brcName;				// 지점 이름
 	private String personNum;			// 예매 인원 수
+	private int finalCost;				// 최종 금액
 	
+
+	public int getFinalCost() {
+		return finalCost;
+	}
+	public void setFinalCost(int finalCost) {
+		this.finalCost = finalCost;
+	}
+	public String getScsScreen() {
+		return scsScreen;
+	}
+	public void setScsScreen(String scsScreen) {
+		this.scsScreen = scsScreen;
+	}
 	public String getPersonNum() {
 		return personNum;
 	}
@@ -81,12 +96,14 @@ public class BookingInfo {
 	public void setBrcName(String brcName) {
 		this.brcName = brcName;
 	}
-	
 	@Override
 	public String toString() {
 		return "BookingInfo [scsCode=" + scsCode + ", movKorName=" + movKorName + ", movGrade=" + movGrade
 				+ ", movRunningTime=" + movRunningTime + ", movImgPath=" + movImgPath + ", scsStartTime=" + scsStartTime
-				+ ", scsDate=" + scsDate + ", scsTimeDiscount=" + scsTimeDiscount + ", brcLocal=" + brcLocal
-				+ ", brcName=" + brcName + ", personNum=" + personNum + "]";
+				+ ", scsDate=" + scsDate + ", scsScreen=" + scsScreen + ", scsTimeDiscount=" + scsTimeDiscount
+				+ ", brcLocal=" + brcLocal + ", brcName=" + brcName + ", personNum=" + personNum + ", finalCost="
+				+ finalCost + "]";
 	}
+	
+	
 }

@@ -8,8 +8,15 @@ public class DiscountInfo {
 	private int dcinfPrice;			// 할인 가격
 	private int dcinfApplyYear;		// 적용 년도
 	private String dcinfStatus;		// 현재 적용 유무
+	private String dcinfSeparation;	// 할인 구분(사람/시간)
 	private String dcinfDate;		// 시스템 등록일자
 	
+	public String getDcinfSeparation() {
+		return dcinfSeparation;
+	}
+	public void setDcinfSeparation(String dcinfSeparation) {
+		this.dcinfSeparation = dcinfSeparation;
+	}
 	public int getDcinfCode() {
 		return dcinfCode;
 	}
@@ -50,8 +57,8 @@ public class DiscountInfo {
 	@Override
 	public String toString() {
 		return "DiscountInfo [dcinfCode=" + dcinfCode + ", dcinfInfo=" + dcinfInfo + ", dcinfPrice=" + dcinfPrice
-				+ ", dcinfApplyYear=" + dcinfApplyYear + ", dcinfStatus=" + dcinfStatus + ", dcinfDate=" + dcinfDate
-				+ "]";
+				+ ", dcinfApplyYear=" + dcinfApplyYear + ", dcinfStatus=" + dcinfStatus + ", dcinfSeparation="
+				+ dcinfSeparation + ", dcinfDate=" + dcinfDate + "]";
 	}
 	
 	
