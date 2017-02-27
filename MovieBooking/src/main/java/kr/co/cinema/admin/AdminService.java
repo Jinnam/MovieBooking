@@ -46,7 +46,13 @@ public class AdminService {
 
 	//지점 수정
 	public int updateBranch(Branch branch) {
-		logger.debug(" Service selectBranchForUpdate post실행");
+		logger.debug(" Service updateBranch post실행");
 		return adminDao.updateBranch(branch);	
+	}
+	
+	//지점 탈퇴
+	public int deleteBranch(int brcCode) {
+		logger.debug(" Service deleteBranch post실행");
+		return adminDao.deleteBranch(brcCode);
 	}
 }

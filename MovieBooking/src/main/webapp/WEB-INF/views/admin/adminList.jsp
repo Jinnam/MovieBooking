@@ -204,6 +204,7 @@
 		</div>
 	</aside>
 	<!--여기까지 사이드바-->
+	
 	<!-- 여기부터 메인 -->
 	<section id="main-content">
 		<section class="wrapper">

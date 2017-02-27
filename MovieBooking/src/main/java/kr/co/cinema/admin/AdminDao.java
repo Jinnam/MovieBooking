@@ -48,4 +48,10 @@ public class AdminDao {
 		logger.debug(" Dao updateBranch");
 		return sqlSession.update(NS+"updateBranch", branch);
 	}
+
+	//지점탈퇴
+	public int deleteBranch(int brcCode) {
+		logger.debug(" Dao deleteBranch");
+		return sqlSession.delete(NS+"deleteBranch", brcCode);
+	}
 }

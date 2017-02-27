@@ -177,6 +177,7 @@
 		</div>
 	</aside>
 	<!--여기까지 사이드바-->
+	
 	<!--여기부터 메인-->
 	<section id="main-content">
 		<section class="wrapper">
@@ -200,6 +201,7 @@
 								<th class="col-lg-3">주소</th>
 								<th class="col-lg-4">상세설명</th>
 								<th class="col-lg-2">수정</th>
+								<th class="col-lg-2">삭제</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -213,6 +215,11 @@
 									<td>
 										<a href="branchModify?brcCode=${branchList.brcCode}">
 											<input class="btn btn-button" type="button" value="수정">
+										</a>
+									</td>
+									<td>
+										<a href="branchDelete?brcCode=${branchList.brcCode}">
+											<input class="btn btn-button" type="button" value="삭제">
 										</a>
 									</td>
 								</tr>

@@ -80,9 +80,10 @@ public class AdminController {
 	
 	//***지점 탈퇴 페이지 연결만 해놓음
 	@RequestMapping(value="branchDelete", method=RequestMethod.GET)
-	public String deleteBranch() {
+	public String deleteBranch(Model model, int brcCode) {
 		logger.debug(" Controller deleteBranch get실행");
-		return "admin/branchDelete";
+		adminService.deleteBranch(brcCode);
+		return "redirect:branchList";
 	}
 	
 	/************************************************************************************************************

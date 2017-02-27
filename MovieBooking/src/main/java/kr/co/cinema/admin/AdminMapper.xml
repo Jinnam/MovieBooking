@@ -90,4 +90,13 @@
 			WHERE 
 				BRANCH.brc_code = #{brcCode}
 	</update>
+	
+	<!-- 지점탈퇴 -->
+	<delete id="deleteBranch"
+			parameterType="kr.co.cinema.dto.Branch">
+			DELETE FROM 
+				BRANCH 
+			WHERE 
+				BRANCH.brc_code = #{brcCode}
+	</delete>
 </mapper>
