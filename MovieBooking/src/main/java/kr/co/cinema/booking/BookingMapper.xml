@@ -5,17 +5,7 @@
   
 <mapper namespace="kr.co.cinema.booking.BookingMapper">
 
-  <select id="mapTest" resultType="map">
-	SELECT
-		admin.adm_id as admID,
-		admin.brc_code as brcCode,
-		admin.adm_pw as admPw,
-		admin.adm_auth as admAuth
-	FROM
-		admin
-	WHERE
-		adm_id='admin07'
-  </select>
+
   <!-- //상영일정코드에 맞는 사용중인 좌석 수-->
   <select id="countUseSeat" resultType="int" parameterType="String">
 	SELECT
@@ -54,19 +44,21 @@
   </select>
 
   <!-- 상영일정코드에 맞는 상영정보 및 지점정보 영화정보 가져오기 -->
-  <select id="selectOneScreenSchedule" resultType="kr.co.cinema.dto.ScreenSchedule" parameterType="String">
+  <select id="selectOneScreenSchedule" resultType="map" parameterType="String">
 	SELECT
-		SCREEN_SCHEDULE.mov_code,
-		SCREEN_SCHEDULE.brc_code,
-		SCREEN_SCHEDULE.scr_code,
-		SCREEN_SCHEDULE.scs_date,
-		SCREEN_SCHEDULE.scs_startTime,
-		SCREEN_SCHEDULE.scs_screen,
-		SCREEN_SCHEDULE.scs_timeDiscount,
-		BRANCH.brc_name,
-		MOVIE.mov_korName,
-		MOVIE.mov_grade,
-		MOVIE.mov_imgPath
+		SCREEN_SCHEDULE.mov_code as movCode,
+		SCREEN_SCHEDULE.brc_code as brcCode,
+		SCREEN_SCHEDULE.scr_code as scrCode,
+		SCREEN_SCHEDULE.scs_date as scsDate,
+		SCREEN_SCHEDULE.scs_startTime as scsStartTime,
+		SCREEN_SCHEDULE.scs_screen as scsScreen,
+		SCREEN_SCHEDULE.scs_timeDiscount as scsTimeDiscount,
+		BRANCH.brc_name as brcName,
+		MOVIE.mov_korName as movKorName,
+		MOVIE.mov_grade as movGrade,
+		MOVIE.mov_imgPath movImgPath,
+		SCREEN.scr_rowSize as scrRowSize,
+		SCREEN.scr_colSize as scrColSize
 		
 	FROM
 		SCREEN_SCHEDULE  
@@ -78,9 +70,12 @@
 		MOVIE
 	ON
 		MOVIE.mov_code = SCREEN_SCHEDULE.mov_code
-		
+	JOIN
+		SCREEN
+	ON
+		SCREEN.scr_code = SCREEN_SCHEDULE.scr_code
 	WHERE
-		SCREEN_SCHEDULE.scs_code='43170221101101101';
+		SCREEN_SCHEDULE.scs_code=#{scsCode};
   </select>
 
   <!-- ajax 영화+지점+날짜에 맞는 상영일정 가져오기 -->

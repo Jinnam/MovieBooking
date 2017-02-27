@@ -23,11 +23,7 @@ public class BookingDao {
 	
 	private final String mapperNS="kr.co.cinema.booking.BookingMapper.";
 
-	//맵 테스트
-	public Map<String, String> mapTest(){
-		return session.selectOne(mapperNS+"mapTest");
-	}
-	
+
 	//상영일정코드에 맞는 사용중인 좌석 수 가져오기
 	public List<Seat> countUseSeat(String scsCode){
 		return session.selectList(mapperNS+"selectListSeat",scsCode);		
@@ -43,8 +39,8 @@ public class BookingDao {
 		return session.selectList(mapperNS+"selectListSeat",scsCode);		
 	}
 	
-	//상영일정코드에 맞는 상영일정 가져오기
-	public ScreenSchedule selectOneScreenSchedule(String scsCode){
+	//상영일정코드에 맞는 상영일정및 영화정보  가져오기
+	public Map<String,String> selectOneScreenSchedule(String scsCode){
 		return session.selectOne(mapperNS+"selectOneScreenSchedule",scsCode);		
 	}	
 	

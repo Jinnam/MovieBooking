@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"  %>       
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -71,7 +72,6 @@
     	}
     });
 </script>
-
 
 
 	<!-- 좌석정보 -->
@@ -156,63 +156,15 @@
 				<!-- 좌석  -->
 				<div class="seatWrapper"> <!-- 좌석 div 열기 -->
 					<div class="seatCell">
-						<!-- 좌석 행 1 -->
-						<div>
-							<div class="seat-Row">A</div>
-							<div class="seat currentSelect">1</div>
-							<div class="seat able">2</div>
-							<div class="seat able">3</div>
-							<div class="seat able">4</div>
-							<div class="seat able">5</div>	
-							<div class="seat able">6</div>
-							<div class="seat able">7</div>
-							<div class="seat able">8</div>
-							<div class="seat able">9</div>
-							<div class="seat able">10</div>										
-						</div>
-						<!-- 좌석 행 1 -->
-						<div>
-							<div class="seat-Row">A</div>
-							<div class="seat able" id="seat">1</div>
-							<div class="seat use" id="seat">2</div>
-							<div class="seat use" id="seat">3</div>
-							<div class="seat use" id="seat">4</div>
-							<div class="seat use" id="seat">5</div>	
-							<div class="seat use" id="seat">6</div>
-							<div class="seat use" id="seat">7</div>
-							<div class="seat use" id="seat">8</div>
-							<div class="seat use" id="seat">9</div>
-							<div class="seat use" id="seat">10</div>										
-						</div>
-						<!-- 좌석 행 1 -->
-						<div>
-							<div class="seat-Row">A</div>
-							<div class="seat use" id="seat">1</div>
-							<div class="seat unable" id="seat">2</div>
-							<div class="seat unable" id="seat">3</div>
-							<div class="seat unable" id="seat">4</div>
-							<div class="seat unable" id="seat">5</div>	
-							<div class="seat unable" id="seat">6</div>
-							<div class="seat unable" id="seat">7</div>
-							<div class="seat unable" id="seat">8</div>
-							<div class="seat unable" id="seat">9</div>
-							<div class="seat unable" id="seat">10</div>										
-						</div>
-						<!-- 좌석 행 1 -->
-						<div>
-							<div class="seat-Row">A</div>
-							<div class="seat unable" id="seat">1</div>
-							<div class="seat currentSelect" id="seat">2</div>
-							<div class="seat currentSelect" id="seat">3</div>
-							<div class="seat currentSelect" id="seat">4</div>
-							<div class="seat currentSelect" id="seat">5</div>	
-							<div class="seat currentSelect" id="seat">6</div>
-							<div class="seat currentSelect" id="seat">7</div>
-							<div class="seat currentSelect" id="seat">8</div>
-							<div class="seat currentSelect" id="seat">9</div>
-							<div class="seat currentSelect" id="seat">10</div>										
-						</div>	
-																	
+							<c:forEach var="cnt" begin="${map.scrColSize-1}" end="${map.scrRowSize*map.scrColSize-map.scrColSize}" step="${map.scrColSize}">
+								<div>현재:${cnt}  마지막:${map.scrRowSize*map.scrColSize-map.scrColSize}</div>
+								<div>
+									<div class="seat-Row">${seat[cnt].seatRow}</div>
+									<c:forEach var="num" begin="0" end="${map.scrColSize-1}">
+									    <div class="seat ${seat[num].seatUseStatus}">${seat[num].seatCol}</div>
+									</c:forEach>																
+								</div>	
+							</c:forEach>														
 					</div>									
 				</div> <!-- 좌석 div 닫기  -->
 				

@@ -49,14 +49,11 @@ public class BookingController {
 	public String bookingSeatSelect(@RequestParam(value="scsCode") String scsCode,Model model) {	
 		logger.debug("bookingSeatSelect 영화 좌석 선택페이지");
 		
-		Map<String,String> map = bookingDao.mapTest();
-		System.out.println(map.toString());
-		
-		
-/*		List<Seat> seat = bookingDao.countTotalSeat(scsCode); //상영코드 일치하는 좌석 정보 가져오기	
-		model.addAttribute("scsCode",scsCode);//상영일정코드
-		model.addAttribute("seat",seat); //좌석
-*/		
+		Map<String,String> map = bookingDao.selectOneScreenSchedule(scsCode); // 상영일정코드에 맞는 상영정보 및영화정보 가져오기
+		List<Seat> seat = bookingDao.countTotalSeat(scsCode); //상영코드 일치하는 좌석 정보 가져오기
+		model.addAttribute("map",map);
+		model.addAttribute("seat",seat);
+		System.out.println(seat);
 		return "booking/bookingSeatSelect";
 	}	
 	

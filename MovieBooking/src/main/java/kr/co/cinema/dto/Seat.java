@@ -6,11 +6,9 @@ public class Seat {
 	private String seatCode;			// 좌석 코드
 	private String scsCode;			// 상영 코드
 	private String scrCode;			// 상영관 코드
-	private String setaRow;			// 행
+	private String seatRow;			// 행
 	private int seatCol;			// 열
 	private String seatUseStatus;	// 사용 여부
-	
-	
 	public String getSeatCode() {
 		return seatCode;
 	}
@@ -29,11 +27,11 @@ public class Seat {
 	public void setScrCode(String scrCode) {
 		this.scrCode = scrCode;
 	}
-	public String getSetaRow() {
-		return setaRow;
+	public String getSeatRow() {
+		return seatRow;
 	}
-	public void setSetaRow(String setaRow) {
-		this.setaRow = setaRow;
+	public void setSeatRow(String seatRow) {
+		this.seatRow = seatRow;
 	}
 	public int getSeatCol() {
 		return seatCol;
@@ -47,12 +45,13 @@ public class Seat {
 	public void setSeatUseStatus(String seatUseStatus) {
 		this.seatUseStatus = seatUseStatus;
 	}
-	
 	@Override
 	public String toString() {
-		return "Seat [seatCode=" + seatCode + ", scsCode=" + scsCode + ", scrCode=" + scrCode + ", setaRow=" + setaRow
+		return "Seat [seatCode=" + seatCode + ", scsCode=" + scsCode + ", scrCode=" + scrCode + ", seatRow=" + seatRow
 				+ ", seatCol=" + seatCol + ", seatUseStatus=" + seatUseStatus + "]";
 	}
+	
+
 	
 	
 }
