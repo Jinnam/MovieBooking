@@ -112,7 +112,7 @@
 
 	<!-- 좌석정보 -->
 	<div class="container" style="width:970px; display:none;"> <!-- 좌석정보 div 열기-->
-		<form action="#진남이형여기" method="post" id="realForm"><!-- 좌석정보 폼 열기-->
+		<form action="payment" method="post" id="realForm"><!-- 좌석정보 폼 열기-->
 			<div>
 			
 				<div style="display:inline-block; width:200px;">
