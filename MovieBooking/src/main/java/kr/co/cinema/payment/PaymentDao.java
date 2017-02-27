@@ -1,6 +1,7 @@
 package kr.co.cinema.payment;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -18,6 +19,12 @@ public class PaymentDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	private final String NS="kr.co.cinema.payment.PaymentMapper.";
+	
+	// 마일리지 정보 가져오기
+	public Map<String, Integer> selectOneMileage(String memId){
+		logger.debug("		selectOneMileage() 진입 memId : "+memId);
+		return sqlSession.selectOne(NS+"selectMileage",memId);
+	}
 	
 	// 할인 정보 가져오기
 	public List<DiscountInfo> selectListDiscountInfo(){

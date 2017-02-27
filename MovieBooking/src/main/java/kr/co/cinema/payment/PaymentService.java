@@ -2,6 +2,7 @@ package kr.co.cinema.payment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,12 @@ public class PaymentService {
 	
 	@Autowired
 	private PaymentDao paymentDao;
+	
+	// 마일리지 정보 가져오기
+	public Map<String, Integer> searchOneMileage(String memId){
+		logger.debug("		selectOneMileage() 진입 memId : "+memId);
+		return paymentDao.selectOneMileage(memId);
+	}
 	
 	// 할인 정보(전체) 가져오기
 	public List<DiscountInfo> searchListDiscountInfo(){

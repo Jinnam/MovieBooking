@@ -32,28 +32,31 @@
 				<!-- 결제 선택 시작 -->
 				<div class="col s3 card" style="height:520px">
 						<h3 align="center">결제</h3>
-						<div style="cursor: pointer;" onclick="location.href='#';">휴대폰 결제</div>
-						<div style="cursor: pointer;" onclick="location.href='#';">신용/체크</div>
-						<div style="cursor: pointer;" onclick="location.href='#';">카카오페이</div>
-						<div style="cursor: pointer;" onclick="location.href='#';">무통장입금</div>
+						<div style="cursor: pointer;" onclick="location.href='#';">휴대폰 결제</div><br/>
+						<div style="cursor: pointer;" onclick="location.href='#';">신용/체크</div><br/>
+						<div style="cursor: pointer;" onclick="location.href='#';">카카오페이</div><br/>
+						<div style="cursor: pointer;" onclick="location.href='#';">무통장입금</div><br/>
 				</div>
 				<!-- 결제 선택 끝-->
 			
 				<!-- 할인 선택 시작 -->
 				<div class="col s3 card" style="height:520px">
 					<h3 align="center">할인</h3>
-					<div>
-						<c:forEach var="DiscountInfo" items="${DiscountInfo}">
-							<input type="radio" name = "discountInfo" value="${DiscountInfo.dcinfCode }"/>
-							&nbsp;${DiscountInfo.dcinfInfo}&emsp;
-						</c:forEach>
-					</div>
-					<div></div>
-					<div>
-						<h4>마일리지</h4>
-						보유 마일리지 : <br/>
-						사용 : <input type="text"/>
-					</div>
+					<c:if test="${bookingInfo.scsTimeDiscount=='일반'}">
+						<div>
+							<c:forEach var="DiscountInfo" items="${DiscountInfo}">
+								<input type="radio" name = "discountInfo" value="${DiscountInfo.dcinfCode }"/>
+								&nbsp;${DiscountInfo.dcinfInfo}&emsp;
+							</c:forEach><br/><br/><br/>
+						</div>
+					</c:if>
+					<c:if test="${memMileage.memMileage != null}">
+						<div>
+							<h4>마일리지</h4>
+							<h5>보유 마일리지 :</h5> ${memMileage.memMileage}<br/>
+							<h5>사용 : </h5><input type="text"/>
+						</div>
+					</c:if>
 				</div>
 				<!-- 할인 선택 끝 -->
 				
@@ -63,9 +66,9 @@
 					<div>
 						총 결제 금액<br>
 						${bookingInfo.finalCost }
-					</div>
-					<div>할인</div>
-					<div>남은 결제 금액</div>
+					</div><br/>
+					<div>할인</div><br>
+					<div>남은 결제 금액</div><br>
 				</div>
 				<!-- 금액 선택 끝 -->
 				

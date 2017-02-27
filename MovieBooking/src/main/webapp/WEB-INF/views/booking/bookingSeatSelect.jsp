@@ -112,15 +112,15 @@
 
 	<!-- 좌석정보 -->
 	<div class="container" style="width:970px; display:none;"> <!-- 좌석정보 div 열기-->
-		<form action="payment" method="post" id="realForm"><!-- 좌석정보 폼 열기-->
+		<form action="payment" method="get" id="realForm"><!-- 좌석정보 폼 열기-->
 			<div>
 			
 				<div style="display:inline-block; width:200px;">
-					상영코드 <input type="text" class="" name="" id="scsCode" value="${scsCode}">				
+					상영코드 <input type="text" class="" name="scsCode" id="scsCode" value="${scsCode}">				
 				</div>
 				
 				<div style="display:inline-block; width:200px;">
-					인원정보 <input type="text" class="" name="" id="personNum">				
+					인원정보 <input type="text" class="" name="personNum" id="personNum">				
 				</div>	
 				
 				<div>
