@@ -4,7 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="kr.co.cinema.admin.AdminMapper">
-
+<!--****************************************************************************************
+	메인화면쿼리! 
+	*************************************************************************************-->
 	<!-- 메인화면 하단 영화별 매출표 -->
 	<select id="selectClientCount"
 			resultType="kr.co.cinema.dto.MovieAndBranchDayCount">
@@ -24,7 +26,9 @@
 				BRANCH_DAY_COUNT .brcCnt_clientCount 
 			DESC LIMIT 4
 	</select>
-	
+<!--****************************************************************************************
+	지점관리쿼리  : 지점등록/지점조회/지점수정/지점탈퇴
+	*************************************************************************************-->
 	<!-- 지점리스트 조회 -->
 	<select id="selectBranchList"
 			resultType="kr.co.cinema.dto.Branch">
@@ -99,4 +103,46 @@
 			WHERE 
 				BRANCH.brc_code = #{brcCode}
 	</delete>
+	
+<!--****************************************************************************************
+	지점관리자쿼리  : 지점관리자등록/지점관리자조회/지점관리자수정/지점관리자삭제
+	*************************************************************************************-->
+	
+	<!-- 지점관리자 등록하기위한 지점 조회 -->
+	<select id="selectAdminList"
+			resultType="kr.co.cinema.dto.AdminAndBranch">
+		select 
+			ADMIN.adm_id AS admId,
+			ADMIN.adm_date AS admDate,
+		 	BRANCH.brc_name AS brcName,
+		 	BRANCH.brc_local AS brcLocal,
+		 	BRANCH.brc_code AS brcCode
+		from
+			ADMIN
+		inner join
+			BRANCH
+		on
+			ADMIN.brc_code = BRANCH.brc_code
+	</select>
+	
+	<insert id="insertAdmin"
+			parameterType="kr.co.cinema.dto.Admin">
+		insert into 
+			ADMIN
+			( 
+			adm_id,
+			brc_code,
+			adm_pw,
+			adm_auth,
+			adm_date
+			)
+		 values 
+			(
+			#{admId}, 
+			#{brcCode}, 
+			#{admPw}, 
+			'지점관리자', 
+			now() 
+			); 
+	</insert>
 </mapper>

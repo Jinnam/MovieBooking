@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.Movie;
 
@@ -53,5 +54,17 @@ public class AdminDao {
 	public int deleteBranch(int brcCode) {
 		logger.debug(" Dao deleteBranch");
 		return sqlSession.delete(NS+"deleteBranch", brcCode);
+	}
+
+	//지점 관리자 리스트 조회
+	public List<Admin> selectAdminList() {
+		logger.debug(" Dao selectAdminList");
+		return sqlSession.selectList(NS+"selectAdminList");
+	}
+
+	//지점 관리자 등록
+	public int insertAdmin(Admin admin) {
+		logger.debug(" Dao insertAdmin");
+		return sqlSession.insert(NS+"insertAdmin", admin);
 	}
 }

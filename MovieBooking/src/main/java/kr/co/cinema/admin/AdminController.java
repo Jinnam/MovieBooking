@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.Movie;
 
@@ -57,7 +58,6 @@ public class AdminController {
 		logger.debug(" Controller selectBranchList get실행");
 		List<Branch> selectBranchList = adminService.selectBranchList();
 		model.addAttribute("selectBranchList", selectBranchList);
-		logger.debug(" Controller selectBranchList"+selectBranchList.toString());
 		return "admin/branchList";
 	}
 	
@@ -78,7 +78,7 @@ public class AdminController {
 		return "redirect:branchList";
 	}
 	
-	//***지점 탈퇴 페이지 연결만 해놓음
+	//지점 탈퇴 페이지
 	@RequestMapping(value="branchDelete", method=RequestMethod.GET)
 	public String deleteBranch(Model model, int brcCode) {
 		logger.debug(" Controller deleteBranch get실행");
@@ -90,17 +90,28 @@ public class AdminController {
 	지점관리자 메서드 : 지점관리자등록/지점관리자조회/지점관리자수정/지점관리자삭제
 	************************************************************************************************************/	
 	
-	//***지점관리자 등록 페이지 연결만 해놓음
+	//지점관리자 등록 페이지 등록 전 지점조회
 	@RequestMapping(value="adminInsert", method=RequestMethod.GET)
-	public String insertAdmin() {
-		logger.debug(" Controller insertAdmin get실행");
+	public String selectBranchForAdminInsert(Model model) {
+		logger.debug(" Controller selectBranchForAdminInsert get실행");
+		List<Branch> selectBranchList = adminService.selectBranchList();
+		model.addAttribute("selectBranchList", selectBranchList);
 		return "admin/adminInsert";
 	}
 	
-	//***지점관리자 리스트 페이지 연결만 해놓음
+	//지점관리자 등록 페이지
+	@RequestMapping(value="adminInsert", method=RequestMethod.POST)
+	public String insertAdmin(Admin admin) {
+		logger.debug(" Controller selectBranchForAdminInsert post실행");
+		adminService.insertAdmin(admin);
+		return "redirect:adminList";
+	}
+	//지점관리자 리스트 페이지 조회
 	@RequestMapping(value="adminList", method=RequestMethod.GET)
-	public String selectAdminList() {
+	public String selectAdminList(Model model) {
 		logger.debug(" Controller adminList get실행");
+		List<Admin> selectAdminList = adminService.selectAdminList();
+		model.addAttribute("selectAdminList", selectAdminList);
 		return "admin/adminList";
 	}
 	//***지점관리자 수정 페이지 연결만 해놓음

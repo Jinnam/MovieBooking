@@ -205,6 +205,7 @@
 		</div>
 	</aside>
 	<!--여기까지 사이드바-->
+	
 	<!-- 여기부터 메인 -->
 	<section id="main-content">
 		<section class="wrapper">
@@ -218,14 +219,14 @@
 				</div>
 				<div class="col-lg-3"></div>
 				<div class="col-lg-6" style="float: left: ;">
-					<form class="form-horizontal">
+					<form class="form-horizontal" method="post">
 						<fieldset>
 							<legend>기입사항</legend>
 							<!-- 아이디 -->
 							<div class="row form-group">
 								<label for="adminId" class="col-lg-2 control-label">ID</label>
 								<div class="col-lg-8">
-									<input type="text" class="form-control" id="adminId" placeholder="관리자 ID를 입력하세요" required="required">
+									<input type="text" class="form-control" name="admId" placeholder="관리자 ID를 입력하세요" required="required">
 								</div>
 								<!-- ID중복조회 -->
 								<div class="col-lg-2">
@@ -236,19 +237,19 @@
 							<div class="form-group">
 								<label class="col-lg-2 control-label">Password</label>
 								<div class="col-lg-8">
-									<input type="password" class="form-control" id="adminPw" placeholder="관리자 Password를 입력하세요" required="required">
+									<input type="password" class="form-control" name="admPw" placeholder="관리자 Password를 입력하세요" required="required">
 								</div>
 							</div>
 							<!-- 지점명 -->
 							<div class="form-group">
 								<label for="select" class="col-lg-2 control-label">지점명</label>
 								<div class="col-lg-10">
-									<select class="form-control" id="select">
-										<option>센트럴시티점</option>
-										<option>강남점</option>
-										<option>서면점</option>
-										<option>수성점</option>
-										<option>효자점</option>
+									<select name="brcCode" class="form-control">
+										<c:forEach var="selectBranchList" items="${selectBranchList}">
+											<option value="${selectBranchList.brcCode}">
+												${selectBranchList.brcName}
+											</option>
+										</c:forEach>
 									</select>
 								</div>
 							</div>

@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.Movie;
 
@@ -52,7 +53,19 @@ public class AdminService {
 	
 	//지점 탈퇴
 	public int deleteBranch(int brcCode) {
-		logger.debug(" Service deleteBranch post실행");
+		logger.debug(" Service deleteBranch get실행");
 		return adminDao.deleteBranch(brcCode);
+	}
+	
+	//지점관리자 리스트
+	public List<Admin> selectAdminList() {
+		logger.debug(" Service selectAdminList get실행");
+		return adminDao.selectAdminList();
+	}
+
+	//지점관리자 등록
+	public int insertAdmin(Admin admin) {
+		logger.debug(" Service insertAdmin post실행");
+		return adminDao.insertAdmin(admin);
 	}
 }

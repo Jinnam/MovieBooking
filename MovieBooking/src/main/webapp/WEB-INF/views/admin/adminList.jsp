@@ -57,7 +57,7 @@
 						<span>H O M E</span>
 					</a>
 				</li>
-				<!-- 지점, 지점관리자 사이드 메뉴-->
+				<!-- 지점 -->
 				<li class="sub-menu">
 					<a class="active" href="javascript:;">
 						<i class="fa fa-desktop"></i>
@@ -223,83 +223,34 @@
 						<thead>
 							<tr>
 								<th></th>
-								<th>지점</th>
-								<th>아이디</th>
-								<th>지역</th>
-								<th>승인일</th>
+								<th class="col-lg-2">지점</th>
+								<th class="col-lg-3">아이디</th>
+								<th class="col-lg-3">지역</th>
+								<th class="col-lg-4">승인일</th>
+								<th class="col-lg-2">수정</th>
+								<th class="col-lg-2">삭제</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1</td>
-								<td>센트럴시티점</td>
-								<td>branch01</td>
-								<td>서울</td>
-								<td>2017/02/19</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>강남점</td>
-								<td>branch02</td>
-								<td>서울</td>
-								<td>2017/02/19</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>청량리점</td>
-								<td>branch03</td>
-								<td>서울</td>
-								<td>2017/02/19</td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>강서점</td>
-								<td>branch04</td>
-								<td>서울</td>
-								<td>2017/02/19</td>
-							</tr>
-							<tr>
-								<td>5</td>
-								<td>서면점</td>
-								<td>branch05</td>
-								<td>부산</td>
-								<td>2017/02/19</td>
-							</tr>
-							<tr>
-								<td>6</td>
-								<td>대전터미널점</td>
-								<td>branch06</td>
-								<td>대전</td>
-								<td>2017/02/19</td>
-							</tr>
-							<tr>
-								<td>7</td>
-								<td>수성점</td>
-								<td>branch07</td>
-								<td>대구</td>
-								<td>2017/02/19</td>
-							</tr>
-							<tr>
-								<td>8</td>
-								<td>효자점</td>
-								<td>branch08</td>
-								<td>전주</td>
-								<td>2017/02/19</td>
-							</tr>
-							<tr>
-								<td>9</td>
-								<td>서귀포점</td>
-								<td>branch09</td>
-								<td>제주</td>
-								<td>2017/02/19</td>
-							</tr>
-							<tr>
-								<td>10</td>
-								<td>제주점</td>
-								<td>branch10</td>
-								<td>제주</td>
-								<td>2017/02/19</td>
-							</tr>
+							<c:forEach var="selectAdminList" items="${selectAdminList}">
+								<tr>
+									<td></td>
+									<td>${selectAdminList.brcName}</td>
+									<td>${selectAdminList.admId}</td>
+									<td>${selectAdminList.brcLocal}</td>
+									<td>${selectAdminList.admDate}</td>
+									<td>
+										<a href="adminModify">
+											<input class="btn btn-button" type="button" value="수정">
+										</a>
+									</td>
+									<td>
+										<a href="adminDelete">
+											<input class="btn btn-button" type="button" value="삭제">
+										</a>
+									</td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 					<!-- 페이징 -->
@@ -341,123 +292,6 @@
 	<!--script for this page-->
 	<script src="assets/js/sparkline-chart.js"></script>
 	<script src="assets/js/zabuto_calendar.js"></script>
-	
-	<script type="application/javascript">
-		$(document).ready(function () {
-			$("#date-popover").popover({html: true, trigger: "manual"});
-			$("#date-popover").hide();
-			$("#date-popover").click(function (e) {
-				$(this).hide();
-			});
 
-            $("#my-calendar").zabuto_calendar({
-				action: function () {
-					return myDateFunction(this.id, false);
-				},
-				action_nav: function () {
-					return myNavFunction(this.id);
-				},
-				ajax: {
-					url: "show_data.php?action=1",
-					modal: true
-				},
-				legend: [
-					{type: "text", label: "Special event", badge: "00"},
-					{type: "block", label: "Regular event", }
-				]
-			});
-		});
-
-
-		function myNavFunction(id) {
-			$("#date-popover").hide();
-			var nav = $("#" + id).data("navigation");
-			var to = $("#" + id).data("to");
-			console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-		}
-    </script>
-    <!-- 원그래프  -->
-    <script type="text/javascript">
-		Highcharts
-			.chart(
-				'branchGraph',
-				{
-					title : {
-						text : '지점별 영화 매출(단위 월)'	//상단 타이틀
-					},
-					xAxis : {
-						categories : [ '강남점', '부산서면점', '창원점', '전주송천점', '전주효자점' ] //하단 지점 이름
-					},
-					labels : {
-						items : [ {
-							html : '총 영화 매출순위(단위 월)', //원 그래프 타이틀
-							style : {
-								left : '50px',
-								top : '18px',
-								color : (Highcharts.theme && Highcharts.theme.textColor)
-										|| 'black'
-							}
-						} ]
-					},
-					series : [
-							{
-								type : 'column', //첫번째 바 내용
-								name : '조작된도시',
-								data : [ 3, 2, 1, 3, 4 ]
-							},
-							{
-								type : 'column', //두번째 바 내용
-								name : '공조',
-								data : [ 2, 3, 5, 7, 6 ]
-							},
-							{
-								type : 'column', //세번째 바 내용
-								name : '재심',
-								data : [ 4, 3, 3, 9, 1 ]
-							},
-							{
-								type : 'spline', //평균치 곡선 그래프 내용
-								name : 'Average',
-								data : [ 3, 2.67, 3, 6.33, 3.33 ],
-								marker : {
-									lineWidth : 2,
-									lineColor : Highcharts.getOptions().colors[3],
-									fillColor : 'white'
-								}
-							},
-							{
-								type : 'pie', //원그래프 내용
-								name : 'Total consumption',
-								data : [
-										{
-											name : '조작된도시',
-											y : 13,
-											color : Highcharts
-													.getOptions().colors[0]
-										// 조작된도시 색상 하늘색
-										},
-										{
-											name : '공조',
-											y : 23,
-											color : Highcharts
-													.getOptions().colors[1]
-										// 공조 색상 검은색
-										},
-										{
-											name : '재심',
-											y : 19,
-											color : Highcharts
-													.getOptions().colors[2]
-										// 재심 색상 녹색
-										} ],
-								center : [ 100, 80 ],
-								size : 100,
-								showInLegend : false,
-								dataLabels : {
-									enabled : false
-								}
-							} ]
-				});
-	</script>
 </body>
 </html>
