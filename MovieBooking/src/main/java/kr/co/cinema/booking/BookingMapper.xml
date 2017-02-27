@@ -40,7 +40,9 @@
 	FROM
 		SEAT
 	WHERE
-		SEAT.scs_code=#{scsCode};
+		SEAT.scs_code=#{scsCode}
+	ORDER BY 
+		`seat_code` ASC	;	
   </select>
 
   <!-- 상영일정코드에 맞는 상영정보 및 지점정보 영화정보 가져오기 -->

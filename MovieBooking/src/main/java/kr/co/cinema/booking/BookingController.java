@@ -53,7 +53,8 @@ public class BookingController {
 		List<Seat> seat = bookingDao.countTotalSeat(scsCode); //상영코드 일치하는 좌석 정보 가져오기
 		model.addAttribute("map",map);
 		model.addAttribute("seat",seat);
-		System.out.println(seat);
+		model.addAttribute("scsCode",scsCode);
+
 		return "booking/bookingSeatSelect";
 	}	
 	

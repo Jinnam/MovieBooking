@@ -41,7 +41,7 @@
 	          <div class="col s6">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/portfolio_index/img/portfolio_img/1team_movieMain.jpg" style="height:350px">
+	                <img src="resources/index_img/1team_movieMain.jpg" style="height:350px">
 	              </div>
 	              <div class="card-content">
 	                <p>클라이언트 페이지</p>
@@ -50,11 +50,11 @@
 	          </div>
 	        </a>
 	
-	        <a href="#modal2" style=" text-decoration:none; color:#000000">
+	        <a href="adminMain" style=" text-decoration:none; color:#000000">
 	          <div class="col s6">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="./img/portfolio_img/lib_main.png" style="height:350px">
+	                <img src="resources/index_img/1team_adminMain.png" style="height:350px">
 	              </div>
 	              <div class="card-content">
 	                <p>관리자 페이지</p>
