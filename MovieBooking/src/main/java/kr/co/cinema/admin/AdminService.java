@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
+import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
 
 @Service
@@ -67,5 +68,11 @@ public class AdminService {
 	public int insertAdmin(Admin admin) {
 		logger.debug(" Service insertAdmin post실행");
 		return adminDao.insertAdmin(admin);
+	}
+	
+	//회원리스트 조회
+	public List<Member> selectMemberList() {
+		logger.debug(" Service selectMemberList get실행");
+		return adminDao.selectMemberList();
 	}
 }

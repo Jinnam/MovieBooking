@@ -145,4 +145,28 @@
 			now() 
 			); 
 	</insert>
+	
+	<!--****************************************************************************************
+	회원조회쿼리  : 회원목록조회/조건검색(아이디, 전화번호, 회원이름)
+	******************************************************************************************-->
+	<select id="selectMemberList"
+			resultType="kr.co.cinema.dto.Member">
+		SELECT 
+			mem_id AS memId, 
+			mem_pw AS memPw,
+			mem_phone AS memPhone,
+		 	mem_name AS memName,
+		 	mem_gender AS memGender,
+		 	mem_birth AS memBirth,
+		 	mem_postNo AS memPostNo,
+		 	mem_addr AS memAddr,
+		 	mem_mail AS memMail,
+		 	mem_mileage AS memMileage,
+		 	mem_joinDay AS memJoinDay,
+		 	mem_status AS memStatus,
+		 	mem_leaveDay AS memLeaveDay
+		FROM 
+			MEMBER
+	</select>
+	
 </mapper>

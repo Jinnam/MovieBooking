@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
+import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
 
 @Controller
@@ -135,8 +136,10 @@ public class AdminController {
 	
 	//***관리자 회원조회 페이지 연결만 해놓음
 	@RequestMapping(value="memberList", method=RequestMethod.GET)
-	public String selectMemberList() {
+	public String selectMemberList(Model model) {
 		logger.debug(" Controller selectMemberList get실행");
+		List<Member> selectMemberList = adminService.selectMemberList();
+		model.addAttribute("selectMemberList", selectMemberList);
 		return "admin/memberList";
 	}
 	

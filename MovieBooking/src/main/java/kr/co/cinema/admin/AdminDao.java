@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
+import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
 
 @Repository
@@ -66,5 +67,11 @@ public class AdminDao {
 	public int insertAdmin(Admin admin) {
 		logger.debug(" Dao insertAdmin");
 		return sqlSession.insert(NS+"insertAdmin", admin);
+	}
+
+	//회원리스트 조회
+	public List<Member> selectMemberList() {
+		logger.debug(" Dao selectMemberList");
+		return sqlSession.selectList(NS+"selectMemberList");
 	}
 }

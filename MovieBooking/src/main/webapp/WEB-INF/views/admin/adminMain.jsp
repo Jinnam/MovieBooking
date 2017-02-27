@@ -266,12 +266,12 @@
 							</thead>
 							<tbody>
 								<c:forEach var="clientCount" items="${selectClientCount}">
-								<tr>
-									<!-- <td></td> -->
-									<td>${clientCount.movKorName}</td>
-									<td>${clientCount.movOpenDate}</td>
-									<td>${clientCount.brcCntClientCount}</td>
-								</tr>
+									<tr>
+										<!-- <td></td> -->
+										<td>${clientCount.movKorName}</td>
+										<td>${clientCount.movOpenDate}</td>
+										<td>${clientCount.brcCntClientCount}</td>
+									</tr>
 								</c:forEach>
 							</tbody>
 						</table>

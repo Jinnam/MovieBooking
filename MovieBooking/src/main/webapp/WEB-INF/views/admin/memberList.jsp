@@ -274,136 +274,21 @@
 					</tr>						
 				</thead>
 				<tbody>
+					<c:forEach var="MemberList" items="${selectMemberList}">
 					<tr>
-						<td>1</td>
-						<td>beast4307</td>
-						<td>123</td>
-						<td>01011111111</td>
-						<td>김진남</td>
-						<td>남</td>
-						<td>전주시 덕진구 덕진동</td>
-						<td>30000</td>
-						<td>beast4307@naver.com</td>
-						<td>880101</td>
-						<td>05/02/2017</td>
+						<td></td>
+						<td>${MemberList.memId}</td>
+						<td>${MemberList.memPw}</td>
+						<td>${MemberList.memPhone}</td>
+						<td>${MemberList.memName}</td>
+						<td>${MemberList.memGender}</td>
+						<td>${MemberList.memAddr}</td>
+						<td>${MemberList.memMileage}</td>
+						<td>${MemberList.memMail}</td>
+						<td>${MemberList.memBirth}</td>
+						<td>${MemberList.memJoinDay}</td>
 					</tr>
-					<tr>
-						<td>2</td>
-						<td>kjb7907</td>
-						<td>asd</td>
-						<td>01022222222</td>
-						<td>김정빈</td>
-						<td>남</td>
-						<td>전주시 덕진구 덕진동</td>
-						<td>40000</td>
-						<td>kjb7907@naver.com</td>
-						<td>930101</td>
-						<td>05/02/2017</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>beast4307</td>
-						<td>123</td>
-						<td>01011111111</td>
-						<td>김진남</td>
-						<td>남</td>
-						<td>전주시 덕진구 덕진동</td>
-						<td>30000</td>
-						<td>beast4307@naver.com</td>
-						<td>880101</td>
-						<td>05/02/2017</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>kjb7907</td>
-						<td>asd</td>
-						<td>01022222222</td>
-						<td>김정빈</td>
-						<td>남</td>
-						<td>전주시 덕진구 덕진동</td>
-						<td>40000</td>
-						<td>kjb7907@naver.com</td>
-						<td>930101</td>
-						<td>05/02/2017</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>kjb7907</td>
-						<td>asd</td>
-						<td>01022222222</td>
-						<td>김정빈</td>
-						<td>남</td>
-						<td>전주시 덕진구 덕진동</td>
-						<td>40000</td>
-						<td>kjb7907@naver.com</td>
-						<td>930101</td>
-						<td>05/02/2017</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>kjb7907</td>
-						<td>asd</td>
-						<td>01022222222</td>
-						<td>김정빈</td>
-						<td>남</td>
-						<td>전주시 덕진구 덕진동</td>
-						<td>40000</td>
-						<td>kjb7907@naver.com</td>
-						<td>930101</td>
-						<td>05/02/2017</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>kjb7907</td>
-						<td>asd</td>
-						<td>01022222222</td>
-						<td>김정빈</td>
-						<td>남</td>
-						<td>전주시 덕진구 덕진동</td>
-						<td>40000</td>
-						<td>kjb7907@naver.com</td>
-						<td>930101</td>
-						<td>05/02/2017</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>kjb7907</td>
-						<td>asd</td>
-						<td>01022222222</td>
-						<td>김정빈</td>
-						<td>남</td>
-						<td>전주시 덕진구 덕진동</td>
-						<td>40000</td>
-						<td>kjb7907@naver.com</td>
-						<td>930101</td>
-						<td>05/02/2017</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>kjb7907</td>
-						<td>asd</td>
-						<td>01022222222</td>
-						<td>김정빈</td>
-						<td>남</td>
-						<td>전주시 덕진구 덕진동</td>
-						<td>40000</td>
-						<td>kjb7907@naver.com</td>
-						<td>930101</td>
-						<td>05/02/2017</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>kjb7907</td>
-						<td>asd</td>
-						<td>01022222222</td>
-						<td>김정빈</td>
-						<td>남</td>
-						<td>전주시 덕진구 덕진동</td>
-						<td>40000</td>
-						<td>kjb7907@naver.com</td>
-						<td>930101</td>
-						<td>05/02/2017</td>
-					</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 			<!-- 페이징 -->
