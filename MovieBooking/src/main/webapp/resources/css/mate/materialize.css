@@ -1,17 +1,8 @@
-select  --> /*select */
-input--> /*input */
-type="라디오수정"
-type="체크박스수정"
-type=text >> /* type=text */
-type=password >> /* type=text */
-
-
-
-------------------------------------------------------------
-
-
-
-
+/*type=text*/
+/*type=checkbox*/
+/*type="checkbox"*/
+/*type="radio"*/
+-------------------------------------------------------------------------------------------------------
 /*!
  * Materialize v0.98.0 (http://materializecss.com)
  * Copyright 2014-2015 Materialize
@@ -2406,7 +2397,7 @@ button {
  * Correct `select` style inheritance in Firefox.
  */
 button,
-/*select */{
+select {
   text-transform: none;
 }
 
@@ -2448,7 +2439,7 @@ input::-moz-focus-inner {
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
-/*input */{
+input {
   line-height: normal;
 }
 
@@ -2459,8 +2450,8 @@ input::-moz-focus-inner {
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
-input[type="체크박스수정"],
-input[type="라디오수정"] {
+input[/*type="checkbox"*/],
+input[/*type="radio"*/] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -2490,7 +2481,7 @@ input[type="search"] {
 
 /**
  * Remove inner padding and search cancel button in Safari and Chrome on OS X.
- * Safari (but not Chrome) clips the cancel button when the search /*input */has
+ * Safari (but not Chrome) clips the cancel button when the search input has
  * padding (and `textfield` appearance).
  */
 input[type="search"]::-webkit-search-cancel-button,
@@ -4179,14 +4170,14 @@ nav .input-field {
   height: 100%;
 }
 
-nav .input-field /*input */{
+nav .input-field input {
   height: 100%;
   font-size: 1.2rem;
   border: none;
   padding-left: 2rem;
 }
 
-nav .input-field input:focus, nav .input-field input[/* type=text */]:valid, nav .input-field input[/* type=password */]:valid, nav .input-field input[type=email]:valid, nav .input-field input[type=url]:valid, nav .input-field input[type=date]:valid {
+nav .input-field input:focus, nav .input-field input[/*type=text*/]:valid, nav .input-field input[type=password]:valid, nav .input-field input[type=email]:valid, nav .input-field input[type=url]:valid, nav .input-field input[type=date]:valid {
   border: none;
   box-shadow: none;
 }
@@ -5276,7 +5267,7 @@ button.btn-floating {
   line-height: inherit;
 }
 
-.input-field.col .dropdown-content [type="체크박스수정"] + label {
+.input-field.col .dropdown-content [/*type="checkbox"*/] + label {
   top: 1px;
   left: 0;
   height: 18px;
@@ -5379,7 +5370,7 @@ button.btn-floating {
   vertical-align: bottom;
 }
 
-.waves-input-wrapper .waves-button-/*input */{
+.waves-input-wrapper .waves-button-input {
   position: relative;
   top: 0;
   left: 0;
@@ -5638,7 +5629,7 @@ button.btn-floating {
   color: #fff;
 }
 
-.chips ./*input */{
+.chips .input {
   background: none;
   border: 0;
   color: rgba(0, 0, 0, 0.6);
@@ -5750,8 +5741,8 @@ label {
 
 /* Text inputs */
 input:not([type]),
-input[/* type=text */],
-input[/* type=password */],
+input[/*type=text*/],
+input[type=password],
 input[type=email],
 input[type=url],
 input[type=time],
@@ -5778,10 +5769,10 @@ textarea.materialize-textarea {
 }
 
 input:not([type]):disabled, input:not([type])[readonly="readonly"],
-input[/* type=text */]:disabled,
-input[/* type=text */][readonly="readonly"],
-input[/* type=password */]:disabled,
-input[/* type=password */][readonly="readonly"],
+input[/*type=text*/]:disabled,
+input[/*type=text*/][readonly="readonly"],
+input[type=password]:disabled,
+input[type=password][readonly="readonly"],
 input[type=email]:disabled,
 input[type=email][readonly="readonly"],
 input[type=url]:disabled,
@@ -5808,10 +5799,10 @@ textarea.materialize-textarea[readonly="readonly"] {
 
 input:not([type]):disabled + label,
 input:not([type])[readonly="readonly"] + label,
-input[/* type=text */]:disabled + label,
-input[/* type=text */][readonly="readonly"] + label,
-input[/* type=password */]:disabled + label,
-input[/* type=password */][readonly="readonly"] + label,
+input[/*type=text*/]:disabled + label,
+input[/*type=text*/][readonly="readonly"] + label,
+input[type=password]:disabled + label,
+input[type=password][readonly="readonly"] + label,
 input[type=email]:disabled + label,
 input[type=email][readonly="readonly"] + label,
 input[type=url]:disabled + label,
@@ -5836,8 +5827,8 @@ textarea.materialize-textarea[readonly="readonly"] + label {
 }
 
 input:not([type]):focus:not([readonly]),
-input[/* type=text */]:focus:not([readonly]),
-input[/* type=password */]:focus:not([readonly]),
+input[/*type=text*/]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
 input[type=email]:focus:not([readonly]),
 input[type=url]:focus:not([readonly]),
 input[type=time]:focus:not([readonly]),
@@ -5853,8 +5844,8 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 input:not([type]):focus:not([readonly]) + label,
-input[/* type=text */]:focus:not([readonly]) + label,
-input[/* type=password */]:focus:not([readonly]) + label,
+input[/*type=text*/]:focus:not([readonly]) + label,
+input[type=password]:focus:not([readonly]) + label,
 input[type=email]:focus:not([readonly]) + label,
 input[type=url]:focus:not([readonly]) + label,
 input[type=time]:focus:not([readonly]) + label,
@@ -5869,10 +5860,10 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 }
 
 input:not([type]).valid, input:not([type]):focus.valid,
-input[/* type=text */].valid,
-input[/* type=text */]:focus.valid,
-input[/* type=password */].valid,
-input[/* type=password */]:focus.valid,
+input[/*type=text*/].valid,
+input[/*type=text*/]:focus.valid,
+input[type=password].valid,
+input[type=password]:focus.valid,
 input[type=email].valid,
 input[type=email]:focus.valid,
 input[type=url].valid,
@@ -5899,10 +5890,10 @@ textarea.materialize-textarea:focus.valid {
 
 input:not([type]).valid + label:after,
 input:not([type]):focus.valid + label:after,
-input[/* type=text */].valid + label:after,
-input[/* type=text */]:focus.valid + label:after,
-input[/* type=password */].valid + label:after,
-input[/* type=password */]:focus.valid + label:after,
+input[/*type=text*/].valid + label:after,
+input[/*type=text*/]:focus.valid + label:after,
+input[type=password].valid + label:after,
+input[type=password]:focus.valid + label:after,
 input[type=email].valid + label:after,
 input[type=email]:focus.valid + label:after,
 input[type=url].valid + label:after,
@@ -5929,10 +5920,10 @@ textarea.materialize-textarea:focus.valid + label:after {
 }
 
 input:not([type]).invalid, input:not([type]):focus.invalid,
-input[/* type=text */].invalid,
-input[/* type=text */]:focus.invalid,
-input[/* type=password */].invalid,
-input[/* type=password */]:focus.invalid,
+input[/*type=text*/].invalid,
+input[/*type=text*/]:focus.invalid,
+input[type=password].invalid,
+input[type=password]:focus.invalid,
 input[type=email].invalid,
 input[type=email]:focus.invalid,
 input[type=url].invalid,
@@ -5959,10 +5950,10 @@ textarea.materialize-textarea:focus.invalid {
 
 input:not([type]).invalid + label:after,
 input:not([type]):focus.invalid + label:after,
-input[/* type=text */].invalid + label:after,
-input[/* type=text */]:focus.invalid + label:after,
-input[/* type=password */].invalid + label:after,
-input[/* type=password */]:focus.invalid + label:after,
+input[/*type=text*/].invalid + label:after,
+input[/*type=text*/]:focus.invalid + label:after,
+input[type=password].invalid + label:after,
+input[type=password]:focus.invalid + label:after,
 input[type=email].invalid + label:after,
 input[type=email]:focus.invalid + label:after,
 input[type=url].invalid + label:after,
@@ -5989,8 +5980,8 @@ textarea.materialize-textarea:focus.invalid + label:after {
 }
 
 input:not([type]).validate + label,
-input[/* type=text */].validate + label,
-input[/* type=password */].validate + label,
+input[/*type=text*/].validate + label,
+input[type=password].validate + label,
 input[type=email].validate + label,
 input[type=url].validate + label,
 input[type=time].validate + label,
@@ -6006,8 +5997,8 @@ textarea.materialize-textarea.validate + label {
 }
 
 input:not([type]) + label:after,
-input[/* type=text */] + label:after,
-input[/* type=password */] + label:after,
+input[/*type=text*/] + label:after,
+input[type=password] + label:after,
 input[type=email] + label:after,
 input[type=url] + label:after,
 input[type=time] + label:after,
@@ -6093,14 +6084,14 @@ textarea.materialize-textarea + label:after {
 }
 
 @media only screen and (max-width: 992px) {
-  .input-field .prefix ~ /*input */{
+  .input-field .prefix ~ input {
     width: 86%;
     width: calc(100% - 3rem);
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .input-field .prefix ~ /*input */{
+  .input-field .prefix ~ input {
     width: 80%;
     width: calc(100% - 3rem);
   }
@@ -6188,15 +6179,15 @@ textarea.materialize-textarea {
 
 /* Radio Buttons
    ========================================================================== */
-[type="라디오수정"]:not(:checked),
-[type="라디오수정"]:checked {
+[/*type="radio"*/]:not(:checked),
+[/*type="radio"*/]:checked {
   position: absolute;
   left: -9999px;
   opacity: 0;
 }
 
-[type="라디오수정"]:not(:checked) + label,
-[type="라디오수정"]:checked + label {
+[/*type="radio"*/]:not(:checked) + label,
+[/*type="radio"*/]:checked + label {
   position: relative;
   padding-left: 35px;
   cursor: pointer;
@@ -6212,8 +6203,8 @@ textarea.materialize-textarea {
           user-select: none;
 }
 
-[type="라디오수정"] + label:before,
-[type="라디오수정"] + label:after {
+[/*type="radio"*/] + label:before,
+[/*type="radio"*/] + label:after {
   content: '';
   position: absolute;
   left: 0;
@@ -6226,83 +6217,83 @@ textarea.materialize-textarea {
 }
 
 /* Unchecked styles */
-[type="라디오수정"]:not(:checked) + label:before,
-[type="라디오수정"]:not(:checked) + label:after,
-[type="라디오수정"]:checked + label:before,
-[type="라디오수정"]:checked + label:after,
-[type="라디오수정"].with-gap:checked + label:before,
-[type="라디오수정"].with-gap:checked + label:after {
+[/*type="radio"*/]:not(:checked) + label:before,
+[/*type="radio"*/]:not(:checked) + label:after,
+[/*type="radio"*/]:checked + label:before,
+[/*type="radio"*/]:checked + label:after,
+[/*type="radio"*/].with-gap:checked + label:before,
+[/*type="radio"*/].with-gap:checked + label:after {
   border-radius: 50%;
 }
 
-[type="라디오수정"]:not(:checked) + label:before,
-[type="라디오수정"]:not(:checked) + label:after {
+[/*type="radio"*/]:not(:checked) + label:before,
+[/*type="radio"*/]:not(:checked) + label:after {
   border: 2px solid #5a5a5a;
 }
 
-[type="라디오수정"]:not(:checked) + label:after {
+[/*type="radio"*/]:not(:checked) + label:after {
   -webkit-transform: scale(0);
           transform: scale(0);
 }
 
 /* Checked styles */
-[type="라디오수정"]:checked + label:before {
+[/*type="radio"*/]:checked + label:before {
   border: 2px solid transparent;
 }
 
-[type="라디오수정"]:checked + label:after,
-[type="라디오수정"].with-gap:checked + label:before,
-[type="라디오수정"].with-gap:checked + label:after {
+[/*type="radio"*/]:checked + label:after,
+[/*type="radio"*/].with-gap:checked + label:before,
+[/*type="radio"*/].with-gap:checked + label:after {
   border: 2px solid #26a69a;
 }
 
-[type="라디오수정"]:checked + label:after,
-[type="라디오수정"].with-gap:checked + label:after {
+[/*type="radio"*/]:checked + label:after,
+[/*type="radio"*/].with-gap:checked + label:after {
   background-color: #26a69a;
 }
 
-[type="라디오수정"]:checked + label:after {
+[/*type="radio"*/]:checked + label:after {
   -webkit-transform: scale(1.02);
           transform: scale(1.02);
 }
 
 /* Radio With gap */
-[type="라디오수정"].with-gap:checked + label:after {
+[/*type="radio"*/].with-gap:checked + label:after {
   -webkit-transform: scale(0.5);
           transform: scale(0.5);
 }
 
 /* Focused styles */
-[type="라디오수정"].tabbed:focus + label:before {
+[/*type="radio"*/].tabbed:focus + label:before {
   box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Disabled Radio With gap */
-[type="라디오수정"].with-gap:disabled:checked + label:before {
+[/*type="radio"*/].with-gap:disabled:checked + label:before {
   border: 2px solid rgba(0, 0, 0, 0.26);
 }
 
-[type="라디오수정"].with-gap:disabled:checked + label:after {
+[/*type="radio"*/].with-gap:disabled:checked + label:after {
   border: none;
   background-color: rgba(0, 0, 0, 0.26);
 }
 
 /* Disabled style */
-[type="라디오수정"]:disabled:not(:checked) + label:before,
-[type="라디오수정"]:disabled:checked + label:before {
+[/*type="radio"*/]:disabled:not(:checked) + label:before,
+[/*type="radio"*/]:disabled:checked + label:before {
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.26);
 }
 
-[type="라디오수정"]:disabled + label {
+[/*type="radio"*/]:disabled + label {
   color: rgba(0, 0, 0, 0.26);
 }
 
-[type="라디오수정"]:disabled:not(:checked) + label:before {
+[/*type="radio"*/]:disabled:not(:checked) + label:before {
   border-color: rgba(0, 0, 0, 0.26);
 }
 
-[type="라디오수정"]:disabled:checked + label:after {
+[/*type="radio"*/]:disabled:checked + label:after {
   background-color: rgba(0, 0, 0, 0.26);
   border-color: #BDBDBD;
 }
@@ -6320,18 +6311,18 @@ form p:last-child {
 }
 
 /* Remove default checkbox */
-[type="체크박스수정"]:not(:checked),
-[type="체크박스수정"]:checked {
+[/*type="checkbox"*/]:not(:checked),
+[/*type="checkbox"*/]:checked {
   position: absolute;
   left: -9999px;
   opacity: 0;
 }
 
-[type="체크박스수정"] {
+[/*type="checkbox"*/] {
   /* checkbox aspect */
 }
 
-[type="체크박스수정"] + label {
+[/*type="checkbox"*/] + label {
   position: relative;
   padding-left: 35px;
   cursor: pointer;
@@ -6349,8 +6340,8 @@ form p:last-child {
   /* IE10+ */
 }
 
-[type="체크박스수정"] + label:before,
-[type="체크박스수정"]:not(.filled-in) + label:after {
+[/*type="checkbox"*/] + label:before,
+[/*type="checkbox"*/]:not(.filled-in) + label:after {
   content: '';
   position: absolute;
   top: 0;
@@ -6364,18 +6355,18 @@ form p:last-child {
   transition: .2s;
 }
 
-[type="체크박스수정"]:not(.filled-in) + label:after {
+[/*type="checkbox"*/]:not(.filled-in) + label:after {
   border: 0;
   -webkit-transform: scale(0);
           transform: scale(0);
 }
 
-[type="체크박스수정"]:not(:checked):disabled + label:before {
+[/*type="checkbox"*/]:not(:checked):disabled + label:before {
   border: none;
   background-color: rgba(0, 0, 0, 0.26);
 }
 
-[type="체크박스수정"].tabbed:focus + label:after {
+[/*type="checkbox"*/].tabbed:focus + label:after {
   -webkit-transform: scale(1);
           transform: scale(1);
   border: 0;
@@ -6384,7 +6375,7 @@ form p:last-child {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-[type="체크박스수정"]:checked + label:before {
+[/*type="checkbox"*/]:checked + label:before {
   top: -4px;
   left: -5px;
   width: 12px;
@@ -6401,13 +6392,13 @@ form p:last-child {
           transform-origin: 100% 100%;
 }
 
-[type="체크박스수정"]:checked:disabled + label:before {
+[/*type="checkbox"*/]:checked:disabled + label:before {
   border-right: 2px solid rgba(0, 0, 0, 0.26);
   border-bottom: 2px solid rgba(0, 0, 0, 0.26);
 }
 
 /* Indeterminate checkbox */
-[type="체크박스수정"]:indeterminate + label:before {
+[/*type="checkbox"*/]:indeterminate + label:before {
   top: -11px;
   left: -12px;
   width: 10px;
@@ -6424,17 +6415,17 @@ form p:last-child {
           transform-origin: 100% 100%;
 }
 
-[type="체크박스수정"]:indeterminate:disabled + label:before {
+[/*type="checkbox"*/]:indeterminate:disabled + label:before {
   border-right: 2px solid rgba(0, 0, 0, 0.26);
   background-color: transparent;
 }
 
-[type="체크박스수정"].filled-in + label:after {
+[/*type="checkbox"*/].filled-in + label:after {
   border-radius: 2px;
 }
 
-[type="체크박스수정"].filled-in + label:before,
-[type="체크박스수정"].filled-in + label:after {
+[/*type="checkbox"*/].filled-in + label:before,
+[/*type="checkbox"*/].filled-in + label:after {
   content: '';
   left: 0;
   position: absolute;
@@ -6443,7 +6434,7 @@ form p:last-child {
   z-index: 1;
 }
 
-[type="체크박스수정"].filled-in:not(:checked) + label:before {
+[/*type="checkbox"*/].filled-in:not(:checked) + label:before {
   width: 0;
   height: 0;
   border: 3px solid transparent;
@@ -6455,7 +6446,7 @@ form p:last-child {
   transform-origin: 100% 100%;
 }
 
-[type="체크박스수정"].filled-in:not(:checked) + label:after {
+[/*type="checkbox"*/].filled-in:not(:checked) + label:after {
   height: 20px;
   width: 20px;
   background-color: transparent;
@@ -6464,7 +6455,7 @@ form p:last-child {
   z-index: 0;
 }
 
-[type="체크박스수정"].filled-in:checked + label:before {
+[/*type="checkbox"*/].filled-in:checked + label:before {
   top: 0;
   left: 1px;
   width: 8px;
@@ -6479,7 +6470,7 @@ form p:last-child {
   transform-origin: 100% 100%;
 }
 
-[type="체크박스수정"].filled-in:checked + label:after {
+[/*type="checkbox"*/].filled-in:checked + label:after {
   top: 0;
   width: 20px;
   height: 20px;
@@ -6488,33 +6479,33 @@ form p:last-child {
   z-index: 0;
 }
 
-[type="체크박스수정"].filled-in.tabbed:focus + label:after {
+[/*type="checkbox"*/].filled-in.tabbed:focus + label:after {
   border-radius: 2px;
   border-color: #5a5a5a;
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-[type="체크박스수정"].filled-in.tabbed:checked:focus + label:after {
+[/*type="checkbox"*/].filled-in.tabbed:checked:focus + label:after {
   border-radius: 2px;
   background-color: #26a69a;
   border-color: #26a69a;
 }
 
-[type="체크박스수정"].filled-in:disabled:not(:checked) + label:before {
+[/*type="checkbox"*/].filled-in:disabled:not(:checked) + label:before {
   background-color: transparent;
   border: 2px solid transparent;
 }
 
-[type="체크박스수정"].filled-in:disabled:not(:checked) + label:after {
+[/*type="checkbox"*/].filled-in:disabled:not(:checked) + label:after {
   border-color: transparent;
   background-color: #BDBDBD;
 }
 
-[type="체크박스수정"].filled-in:disabled:checked + label:before {
+[/*type="checkbox"*/].filled-in:disabled:checked + label:before {
   background-color: transparent;
 }
 
-[type="체크박스수정"].filled-in:disabled:checked + label:after {
+[/*type="checkbox"*/].filled-in:disabled:checked + label:after {
   background-color: #BDBDBD;
   border-color: #BDBDBD;
 }
@@ -6533,17 +6524,17 @@ form p:last-child {
   cursor: pointer;
 }
 
-.switch label input[type=checkbox] {
+.switch label input[/*type=checkbox*/] {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-.switch label input[type=checkbox]:checked + .lever {
+.switch label input[/*type=checkbox*/]:checked + .lever {
   background-color: #84c7c1;
 }
 
-.switch label input[type=checkbox]:checked + .lever:after {
+.switch label input[/*type=checkbox*/]:checked + .lever:after {
   background-color: #26a69a;
   left: 24px;
 }
@@ -6576,28 +6567,28 @@ form p:last-child {
   transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease;
 }
 
-input[type=checkbox]:checked:not(:disabled) ~ .lever:active::after,
-input[type=checkbox]:checked:not(:disabled).tabbed:focus ~ .lever::after {
+input[/*type=checkbox*/]:checked:not(:disabled) ~ .lever:active::after,
+input[/*type=checkbox*/]:checked:not(:disabled).tabbed:focus ~ .lever::after {
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(38, 166, 154, 0.1);
 }
 
-input[type=checkbox]:not(:disabled) ~ .lever:active:after,
-input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
+input[/*type=checkbox*/]:not(:disabled) ~ .lever:active:after,
+input[/*type=checkbox*/]:not(:disabled).tabbed:focus ~ .lever::after {
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.08);
 }
 
-.switch input[type=checkbox][disabled] + .lever {
+.switch input[/*type=checkbox*/][disabled] + .lever {
   cursor: default;
 }
 
-.switch label input[type=checkbox][disabled] + .lever:after,
-.switch label input[type=checkbox][disabled]:checked + .lever:after {
+.switch label input[/*type=checkbox*/][disabled] + .lever:after,
+.switch label input[/*type=checkbox*/][disabled]:checked + .lever:after {
   background-color: #BDBDBD;
 }
 
-/* /*select */Field
+/* Select Field
    ========================================================================== */
-/*select */{
+select {
   display: none;
 }
 
@@ -6605,7 +6596,7 @@ select.browser-default {
   display: block;
 }
 
-/*select */{
+select {
   background-color: rgba(255, 255, 255, 0.9);
   width: 100%;
   padding: 5px;
@@ -7872,14 +7863,14 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 /**
- * The picker /*input */element.
+ * The picker input element.
  */
-.picker__/*input */{
+.picker__input {
   cursor: default;
 }
 
 /**
- * When the picker is opened, the /*input */element is "activated".
+ * When the picker is opened, the input element is "activated".
  */
 .picker__input.picker__input--active {
   border-color: #0089ec;

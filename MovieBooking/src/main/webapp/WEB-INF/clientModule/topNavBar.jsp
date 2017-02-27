@@ -45,7 +45,7 @@
           <div id="loginDropDown" style="width:100%; padding:15px 0;">
             <img src="resources/module-img/menu_login.png" style="width:100px;height:40px">
           </div>
-          <div class="menu" style="width:350px">
+          <div class="menu" style="width:350px ; position:absolute; left:-200px;">
             <form style="width:300px;margin: 10px 10px 10px 10px;" action="/memberLogin" method="post">
               <!-- 로그인 폼시작 -->
               <div class="item" data-value="drop">
