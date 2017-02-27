@@ -116,11 +116,24 @@ public class AdminController {
 		model.addAttribute("selectAdminList", selectAdminList);
 		return "admin/adminList";
 	}
-	//***지점관리자 수정 페이지 연결만 해놓음
+	
+	//지점관리자 수정 전 페이지 권한, 지점이름 및 지점코드조회
 	@RequestMapping(value="adminModify", method=RequestMethod.GET)
+	public String selectBranchForUpdateAdmin(Model model, int brcCode) {
+		logger.debug(" Controller selectBranchForUpdateAdmin get실행");
+		List<Branch> selectBranchList = adminService.selectBranchList();
+		String selectAdminAuthAndId = adminService.selectAdminAuthAndId(brcCode);
+		model.addAttribute("selectBranchList", selectBranchList);					//두개값이 겹쳐서 에러나는듯
+		model.addAttribute("selectAdminAuthAndId", selectAdminAuthAndId);
+		return "admin/adminModify";
+	}
+	
+	//지점관리자 수정 페이지
+	@RequestMapping(value="adminModify", method=RequestMethod.POST)
 	public String updateAdmin() {
 		logger.debug(" Controller updateAdmin get실행");
-		return "admin/adminModify";
+		adminService.updateAdmin();
+		return "redirect:adminList";
 	}
 	
 	//***지점관리자 삭제 페이지 연결만 해놓음
@@ -134,7 +147,7 @@ public class AdminController {
 	회원 관리 메서드 : 회원리스트조회
 	************************************************************************************************************/
 	
-	//***관리자 회원조회 페이지 연결만 해놓음
+	//관리자 회원조회 페이지 조건부 조회 아직안됨
 	@RequestMapping(value="memberList", method=RequestMethod.GET)
 	public String selectMemberList(Model model) {
 		logger.debug(" Controller selectMemberList get실행");

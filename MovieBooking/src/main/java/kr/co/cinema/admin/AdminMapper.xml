@@ -124,7 +124,7 @@
 		on
 			ADMIN.brc_code = BRANCH.brc_code
 	</select>
-	
+	<!-- 관리자 등록 -->
 	<insert id="insertAdmin"
 			parameterType="kr.co.cinema.dto.Admin">
 		insert into 
@@ -146,6 +146,29 @@
 			); 
 	</insert>
 	
+	<!-- 관리자 수정 전 관리자 권한 및 아이디 조회 -->
+	<select id="selectAdminAuthAndId"
+			resultType="kr.co.cinema.dto.Admin">
+			SELECT
+				Admin.adm_id AS	admId,
+				Admin.adm_auth AS admAuth
+			FROM
+				Admin
+			WHERE
+				Admin.brc_code = #{brcCode}
+	</select>
+	<!-- 관리자 수정 -->
+	<update id="">
+		UPDATE 
+			ADMIN 
+		SET 
+			ADMIN.brc_code = #{brcCode},
+			ADMIN.adm_pw = #{admPw},
+			ADMIN.adm_auth = #{admAuth}
+		WHERE 
+			ADMIN.adm_id = #{admId};
+		
+	</update>
 	<!--****************************************************************************************
 	회원조회쿼리  : 회원목록조회/조건검색(아이디, 전화번호, 회원이름)
 	******************************************************************************************-->

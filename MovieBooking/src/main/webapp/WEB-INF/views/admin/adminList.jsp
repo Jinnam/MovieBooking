@@ -233,7 +233,7 @@
 					<table class="table table-striped table-hover">
 						<thead>
 							<tr>
-								<th></th>
+								<th class="col-lg-2">지점코드</th>
 								<th class="col-lg-2">지점</th>
 								<th class="col-lg-3">아이디</th>
 								<th class="col-lg-3">지역</th>
@@ -245,13 +245,13 @@
 						<tbody>
 							<c:forEach var="selectAdminList" items="${selectAdminList}">
 								<tr>
-									<td></td>
+									<td id="brcCode">${selectAdminList.brcCode}</td>
 									<td>${selectAdminList.brcName}</td>
 									<td>${selectAdminList.admId}</td>
 									<td>${selectAdminList.brcLocal}</td>
 									<td>${selectAdminList.admDate}</td>
 									<td>
-										<a href="adminModify">
+										<a href="adminModify?brcCode=${selectAdminList.brcCode}">
 											<input class="btn btn-button" type="button" value="수정">
 										</a>
 									</td>

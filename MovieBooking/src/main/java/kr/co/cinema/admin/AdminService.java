@@ -69,10 +69,24 @@ public class AdminService {
 		logger.debug(" Service insertAdmin post실행");
 		return adminDao.insertAdmin(admin);
 	}
+	//지점관리자 수정 전 권한과 아이디 조회
+	public String selectAdminAuthAndId(int brcCode) {			//에러수정요망
+		logger.debug(" Service selectAdminAuthAndId get실행");
+		return adminDao.selectAdminAuthAndId(brcCode);
+	}
+	//지점관리자 수정
+	public int updateAdmin() {
+		logger.debug(" Service updateAdmin post실행");
+		return adminDao.updateAdmin();
+	}
 	
 	//회원리스트 조회
 	public List<Member> selectMemberList() {
 		logger.debug(" Service selectMemberList get실행");
 		return adminDao.selectMemberList();
 	}
+
+	
+
+
 }

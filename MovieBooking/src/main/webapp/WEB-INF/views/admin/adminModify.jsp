@@ -227,6 +227,65 @@
 				<!-- 페이지 강제 줄임 -->
 				<div class="col-lg-9 main-chart" align="center"></div>
 			</div>
+			<div class="container" style="margin: 0 auto;">
+				<div class="jumbotron">
+					<h2 class="logo">지점 관리자 수정</h2>
+				</div>
+				<div class="col-lg-3"></div>
+				<div class="col-lg-6" style="float: left: ;">
+					<form class="form-horizontal" method="post">
+						<fieldset>
+							<legend>수정사항</legend>
+							<!-- 아이디 -->
+							<div class="row form-group">
+								<label for="adminId" class="col-lg-2 control-label">ID</label>
+								<div class="col-lg-8">
+									<input type="text" class="form-control" name="admId" value="${selectAdminAuthAndId.admId }" placeholder="관리자 ID를 입력하세요" required="required">
+								</div>
+								<!-- ID중복조회 -->
+								<div class="col-lg-2">
+									<input type="button" class="btn btn-primary" value="ID조회">
+								</div>
+							</div>
+							<!-- 권한 -->
+							<div class="form-group">
+								<label class="col-lg-2 control-label">권한</label>
+								<div class="col-lg-8">
+									<input type="text" class="form-control" name="admAuth" value="${selectAdminAuthAndId.admAuth }" placeholder="관리자 권한을 입력하세요" required="required">
+								</div>
+							</div>
+							<!-- 비밀번호 -->
+							<div class="form-group">
+								<label class="col-lg-2 control-label">Password</label>
+								<div class="col-lg-8">
+									<input type="password" class="form-control" name="admPw" placeholder="관리자 Password를 입력하세요" required="required">
+								</div>
+							</div>
+							<!-- 지점명 -->
+							<div class="form-group">
+								<label for="select" class="col-lg-2 control-label">지점명</label>
+								<div class="col-lg-10">
+									<select name="brcCode" class="form-control">
+										<c:forEach var="selectBranchList" items="${selectBranchList}">
+											<option value="${selectBranchList.brcCode}">
+												${selectBranchList.brcName}
+											</option>
+										</c:forEach>
+									</select>
+								</div>
+							</div>
+							<!-- 등록버튼 -->
+							<div class="form-group">
+								<label class="col-lg-2 control-label"></label>
+								<div class="col-lg-8"></div>
+								<div>
+									<input type="submit" class="btn btn-primary" value="수정">
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
 		</section>
 	</section>
 	<!-- 여기까지 메인 -->

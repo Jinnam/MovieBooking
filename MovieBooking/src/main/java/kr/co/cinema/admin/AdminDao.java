@@ -69,9 +69,25 @@ public class AdminDao {
 		return sqlSession.insert(NS+"insertAdmin", admin);
 	}
 
+	//지점관리자 수정 전 관리자 아이디 & 권한조회
+	public String selectAdminAuthAndId(int brcCode) {
+		logger.debug(" Dao selectAdminAuthAndId");
+		return sqlSession.selectOne(NS+"selectAdminAuthAndId", brcCode);//여기 에러
+	}
+	
+	//지점 관리자 수정
+	public int updateAdmin() {
+		logger.debug(" Dao updateAdmin");
+		return sqlSession.update(NS+"updateAdmin");
+	}
+	
 	//회원리스트 조회
 	public List<Member> selectMemberList() {
 		logger.debug(" Dao selectMemberList");
 		return sqlSession.selectList(NS+"selectMemberList");
 	}
+
+	
+
+	
 }
