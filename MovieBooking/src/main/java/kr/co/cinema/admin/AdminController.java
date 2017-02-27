@@ -90,7 +90,7 @@ public class AdminController {
 	지점관리자 메서드 : 지점관리자등록/지점관리자조회/지점관리자수정/지점관리자삭제
 	************************************************************************************************************/	
 	
-	//지점관리자 등록 페이지 등록 전 지점조회
+	//지점관리자 등록 페이지 등록 전 지점이름 및 지점코드조회
 	@RequestMapping(value="adminInsert", method=RequestMethod.GET)
 	public String selectBranchForAdminInsert(Model model) {
 		logger.debug(" Controller selectBranchForAdminInsert get실행");
@@ -106,6 +106,7 @@ public class AdminController {
 		adminService.insertAdmin(admin);
 		return "redirect:adminList";
 	}
+	
 	//지점관리자 리스트 페이지 조회
 	@RequestMapping(value="adminList", method=RequestMethod.GET)
 	public String selectAdminList(Model model) {

@@ -3,8 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -76,9 +74,9 @@
 						<li>
 							<a href="adminInsert">지점 관리자 등록</a>
 						</li>
-						<li>
+						<!-- <li>
 							<a href="adminModify">지점 관리자 수정</a>
-						</li>
+						</li> -->
 						<li>
 							<a href="adminDelete">지점 관리자 삭제</a>
 						</li>
@@ -244,7 +242,10 @@
 		</section>
 	</section>
 	<!-- 여기까지 메인 -->
+	
+	<!-- 하단 -->
 	<%@include file="/WEB-INF/adminModule/footer.jsp" %>
+	
 	<!-- 자바스크립트 -->
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="resources/assets/js/jquery.js"></script>

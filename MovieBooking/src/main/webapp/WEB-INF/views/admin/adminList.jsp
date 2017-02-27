@@ -23,10 +23,6 @@
 	<link href="resources/assets/css/style.css" rel="stylesheet">
 	<link href="resources/assets/css/style-responsive.css" rel="stylesheet">
 	
-	<script src="resources/assets/js/chart-master/Chart.js"></script>
-	<!-- 지점별 영화매출 통계 -->
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -272,26 +268,26 @@
 	</section>
 	<!-- 여기까지 메인 -->
 	<%@include file="/WEB-INF/adminModule/footer.jsp" %>
-	<!-- 스크립트/제이쿼리 -->
+	<!-- 자바스크립트 -->
 	<!-- js placed at the end of the document so the pages load faster -->
-	<script src="assets/js/jquery.js"></script>
-	<script src="assets/js/jquery-1.8.3.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-	<script src="assets/js/jquery.scrollTo.min.js"></script>
-	<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-	<script src="assets/js/jquery.sparkline.js"></script>
-
+	<script src="resources/assets/js/jquery.js"></script>
+	<script src="resources/assets/js/jquery-1.8.3.min.js"></script>
+	<script src="resources/assets/js/bootstrap.min.js"></script>
+	<script class="include" type="text/javascript" src="resources/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="resources/assets/js/jquery.scrollTo.min.js"></script>
+	<script src="resources/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+	<script src="resources/assets/js/jquery.sparkline.js"></script>
 
 	<!--common script for all pages-->
-	<script src="assets/js/common-scripts.js"></script>
-
-	<script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
-	<script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+	<script src="resources/assets/js/common-scripts.js"></script>
+	<script type="text/javascript" src="resources/assets/js/gritter/js/jquery.gritter.js"></script>
+	<script type="text/javascript" src="resources/assets/js/gritter-conf.js"></script>
 
 	<!--script for this page-->
-	<script src="assets/js/sparkline-chart.js"></script>
-	<script src="assets/js/zabuto_calendar.js"></script>
-
+	<script src="resources/assets/js/sparkline-chart.js"></script>
+	<script src="resources/assets/js/zabuto_calendar.js"></script>
+	
+	<script src="resources/assets/js/chart-master/Chart.js"></script>
+	
 </body>
 </html>
