@@ -62,7 +62,7 @@
 					<h3 align="center">금액</h3>
 					<div>
 						총 결제 금액<br>
-						dcinfPrice
+						${bookingInfo.finalCost }
 					</div>
 					<div>할인</div>
 					<div>남은 결제 금액</div>

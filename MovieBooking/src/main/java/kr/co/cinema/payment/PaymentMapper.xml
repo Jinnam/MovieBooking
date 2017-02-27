@@ -16,6 +16,7 @@
 			SCREEN_SCHEDULE.scs_startTime AS scsStartTime,
 			SCREEN_SCHEDULE.scs_date AS scsDate,
 			SCREEN_SCHEDULE.scs_timeDiscount AS scsTimeDiscount,
+			SCREEN_SCHEDULE.scs_screen AS scsScreen,
 			BRANCH.brc_local AS brcLocal,
 			BRANCH.brc_name AS brcName
 		FROM
@@ -32,18 +33,32 @@
 			scs_code=#{scsCode}
 	</select>
 	
-	<!-- 결제페이지 할인정보 가져오기 -->
+	<!-- 할인정보 가져오기 -->
 	<select id="selectDiscountInfo" resultType="kr.co.cinema.dto.DiscountInfo">
 		SELECT 
 			dcinf_code AS dcinfCode,
 			dcinf_info AS dcinfInfo,
 			dcinf_price AS dcinfPrice,
 			dcinf_applyYear AS dcinfApplyYear,
-			dcinf_status AS dcinfStatus
+			dcinf_status AS dcinfStatus,
+			dcinf_separation AS dcinfSeparation
 		FROM 
 			DISCOUNT_INFO
 		WHERE 
 			dcinf_status="적용"
+	</select>
+	
+	<!-- 상영 단가 가져오기 -->
+	<select id="selectScreenCost" resultType="kr.co.cinema.dto.ScreenCost">
+		SELECT
+			scco_code AS sccoCode,
+			scco_screen AS sccoScreen,
+			scco_price AS sccoPrice,
+			scco_applyYear AS sccoApplyYear
+		FROM
+			SCREEN_COST
+		WHERE
+			scco_status="적용"
 	</select>
 
 	<!-- 결제 등록 -->

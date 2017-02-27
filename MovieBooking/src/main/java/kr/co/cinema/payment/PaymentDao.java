@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.cinema.dto.DiscountInfo;
+import kr.co.cinema.dto.ScreenCost;
 
 @Repository
 public class PaymentDao {
@@ -18,15 +19,21 @@ public class PaymentDao {
 	private SqlSessionTemplate sqlSession;
 	private final String NS="kr.co.cinema.payment.PaymentMapper.";
 	
-	// 상영 단가 가져오기
+	// 할인 정보 가져오기
 	public List<DiscountInfo> selectListDiscountInfo(){
-		
+		logger.debug("		selectListDiscountInfo() 진입");
 		return sqlSession.selectList(NS+"selectDiscountInfo");
+	}
+	
+	// 상영 단가 가져오기
+	public List<ScreenCost> selectListScreenCost(){
+		logger.debug("		selectListScreenCost() 진입");
+		return sqlSession.selectList(NS+"selectScreenCost");
 	}
 	
 	// 결제시 영화 정보 가져오기
 	public BookingInfo selectBookingInfo(String scsCode){
-		
+		logger.debug("		selectBookingInfo() 진입");
 		return sqlSession.selectOne(NS+"selectMovieInfo", scsCode);
 	}
 
