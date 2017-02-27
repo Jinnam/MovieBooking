@@ -35,6 +35,7 @@
 	<![endif]-->
 </head>
 <body>
+
 	<!-- 상단부분 import -->
 	<%@include file="/WEB-INF/adminModule/header.jsp"%>
 	

@@ -10,246 +10,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
--- information_schema 의 데이터베이스 구조 덤핑
-DROP DATABASE IF EXISTS `information_schema`;
-
-
 -- better4307 의 데이터베이스 구조 덤핑
 DROP DATABASE IF EXISTS `better4307`;
 CREATE DATABASE IF NOT EXISTS `better4307` /*!40100 DEFAULT CHARACTER SET utf8 */;
@@ -271,13 +31,18 @@ CREATE TABLE IF NOT EXISTS `ADMIN` (
 -- Dumping data for table better4307.ADMIN: 7 rows
 /*!40000 ALTER TABLE `ADMIN` DISABLE KEYS */;
 INSERT INTO `ADMIN` (`adm_id`, `brc_code`, `adm_pw`, `adm_auth`, `adm_date`) VALUES
-	('admin07', 41101, '123', '지점관리자', '2017-02-22 09:17:26'),
-	('admin01', 41111, '123', '중앙관리자', '2017-02-22 09:17:57'),
+	('admin07', 41103, '123', '지점관리자', '2017-02-22 09:17:26'),
+	('admin01', 41101, '123', '중앙관리자', '2017-02-22 09:17:57'),
 	('admin02', 41102, '123', '지점관리자', '2017-02-23 09:28:35'),
-	('admin03', 41111, 'PW123', '중앙관리자', '2017-02-23 09:28:50'),
-	('admin04', 41104, '123', '지점관리자', '2017-02-23 09:29:17'),
-	('admin05', 41105, '123', '지점관리자', '2017-02-23 09:29:33'),
-	('admin06', 41106, '123', '지점관리자', '2017-02-23 09:33:24');
+	('admin03', 41102, 'PW123', '중앙관리자', '2017-02-23 09:28:50'),
+	('admin04', 41102, '123', '지점관리자', '2017-02-23 09:29:17'),
+	('admin05', 41103, '123', '지점관리자', '2017-02-23 09:29:33'),
+	('admin06', 41103, '123', '지점관리자', '2017-02-23 09:33:24'),
+	('admin10', 41104, '123', '지점관리자', '2017-02-27 16:26:23'),
+	('admin08', 41101, '123', '지점관리자', '2017-02-27 16:34:03'),
+	('admin09', 41101, '123', '지점관리자', '2017-02-27 16:34:41'),
+	('admin0013', 41103, '123', '지점관리자', '2017-02-27 17:00:51'),
+	('123', 41111, '123', '지점관리자', '2017-02-27 17:01:21');
 /*!40000 ALTER TABLE `ADMIN` ENABLE KEYS */;
 
 
@@ -311,24 +76,18 @@ CREATE TABLE IF NOT EXISTS `BRANCH` (
   `brc_name` varchar(20) NOT NULL COMMENT '지점명',
   `brc_local` varchar(20) NOT NULL COMMENT '지역',
   `brc_addr` varchar(50) NOT NULL COMMENT '주소',
-  `brc_infoDetail` varchar(100) NOT NULL COMMENT '소개',
+  `brc_infoDetail` varchar(200) NOT NULL COMMENT '소개',
   `brc_imgPath` varchar(100) NOT NULL COMMENT '이미지 경로',
   PRIMARY KEY (`brc_code`)
-) ENGINE=MyISAM AUTO_INCREMENT=41112 DEFAULT CHARSET=utf8 COMMENT='지점';
+) ENGINE=MyISAM AUTO_INCREMENT=41123 DEFAULT CHARSET=utf8 COMMENT='지점';
 
--- Dumping data for table better4307.BRANCH: 11 rows
+-- Dumping data for table better4307.BRANCH: 12 rows
 /*!40000 ALTER TABLE `BRANCH` DISABLE KEYS */;
 INSERT INTO `BRANCH` (`brc_code`, `brc_name`, `brc_local`, `brc_addr`, `brc_infoDetail`, `brc_imgPath`) VALUES
-	(41101, '전주 금암점', '전라북도', '금암동', '영화관 설명', '이미지주소'),
-	(41102, '전주 송천점', '전라북도', '금암동', '영화관 설명', '이미지주소'),
-	(41103, '전주 고사점', '전라북도', '금암동', '영화관 설명', '이미지주소'),
+	(41101, '전주 송천점', '전라북도', '송천동', '전주 송천동에 위치한 지점', '이미지 주소'),
+	(41102, '전주 롯데점', '전라북도', '금암동', '김진남바보', '이미지주소'),
+	(41103, '전주 고사점', '전라북도', '고사동', '너무 어렵구나..', '이미지주소'),
 	(41104, '전주 효자점', '전라북도', '효자동', '영화관 설명', '이미지주소'),
-	(41105, '전주 서신점', '전라북도', '서신동', '영화관 설명', '이미지주소'),
-	(41106, '서울 센트럴시티점', '서울특별시', '반포4동', '영화관 설명', '이미지주소'),
-	(41107, '대구 수성점', '대구광역시', '수성동', '영화관설명', '이미지주소'),
-	(41108, '김포 사우점', '경기도', '사우동', '영화관설명', '이미지주소'),
-	(41109, '고양 화정점', '경기도', '화정동', '영화관설명', '이미지주소'),
-	(41110, '서울 구로점', '서울특별시', '구로5동', '영화관설명', '이미지주소'),
 	(41111, '본사', '서울특별시', '삼성동', '영화관설명', '이미지주소');
 /*!40000 ALTER TABLE `BRANCH` ENABLE KEYS */;
 
@@ -427,17 +186,21 @@ CREATE TABLE IF NOT EXISTS `DISCOUNT_INFO` (
   `dcinf_price` int(11) NOT NULL COMMENT '할인가',
   `dcinf_applyYear` int(11) NOT NULL COMMENT '적용년',
   `dcinf_status` varchar(10) NOT NULL COMMENT '현재적용유무',
+  `dcinf_separation` varchar(10) NOT NULL COMMENT '할인구분(사람/시간)',
   `dcinf_date` datetime NOT NULL COMMENT '시스템등록일자',
   PRIMARY KEY (`dcinf_code`)
-) ENGINE=MyISAM AUTO_INCREMENT=53004 DEFAULT CHARSET=utf8 COMMENT='할인정보 (조조/심야/청소년)';
+) ENGINE=MyISAM AUTO_INCREMENT=53007 DEFAULT CHARSET=utf8 COMMENT='할인정보 (조조/심야/청소년)';
 
--- Dumping data for table better4307.DISCOUNT_INFO: 4 rows
+-- Dumping data for table better4307.DISCOUNT_INFO: 6 rows
 /*!40000 ALTER TABLE `DISCOUNT_INFO` DISABLE KEYS */;
-INSERT INTO `DISCOUNT_INFO` (`dcinf_code`, `dcinf_info`, `dcinf_price`, `dcinf_applyYear`, `dcinf_status`, `dcinf_date`) VALUES
-	(53000, '일반', 0, 2000, '적용', '2000-01-01 14:11:09'),
-	(53001, '청소년', 1000, 2017, '적용', '2017-02-22 14:25:06'),
-	(53002, '장애인', 2000, 2017, '적용', '2017-02-22 14:17:37'),
-	(53003, '국가유공자', 3000, 2012, '미적용', '2012-02-22 14:22:30');
+INSERT INTO `DISCOUNT_INFO` (`dcinf_code`, `dcinf_info`, `dcinf_price`, `dcinf_applyYear`, `dcinf_status`, `dcinf_separation`, `dcinf_date`) VALUES
+	(53000, '일반', 0, 2000, '적용', '사람', '2000-01-01 14:11:09'),
+	(53001, '청소년', 1000, 2017, '적용', '사람', '2017-02-22 14:25:06'),
+	(53002, '장애인', 2000, 2017, '적용', '사람', '2017-02-22 14:17:37'),
+	(53003, '국가유공자', 3000, 2012, '미적용', '사람', '2012-02-22 14:22:30'),
+	(53004, '조조', 2000, 2017, '적용', '시간', '2017-02-27 09:49:12'),
+	(53005, '심야', 1000, 2017, '적용', '시간', '0000-00-00 00:00:00'),
+	(53006, '일반', 0, 2000, '적용', '시간', '2000-01-01 14:11:09');
 /*!40000 ALTER TABLE `DISCOUNT_INFO` ENABLE KEYS */;
 
 
@@ -482,8 +245,9 @@ CREATE TABLE IF NOT EXISTS `MEMBER` (
 /*!40000 ALTER TABLE `MEMBER` DISABLE KEYS */;
 INSERT INTO `MEMBER` (`mem_id`, `mem_pw`, `mem_phone`, `mem_name`, `mem_gender`, `mem_birth`, `mem_postNo`, `mem_addr`, `mem_mail`, `mem_mileage`, `mem_joinDay`, `mem_status`, `mem_leaveDay`) VALUES
 	('kim123', 'kim123', '01053531212', '김우빈', '남', '1990-03-23', 54907, '전북 전주시 덕진구 금암1동 1542-3', 'better4307@naver.com', 0, '2017-02-22 10:06:45', NULL, NULL),
-	('id001', 'pw001', '01053531213', '조민국', '남', '1990-03-23', 54907, '전북 전주시 덕진구 금암1동 1542-3', 'better4307@naver.com', 0, '2017-02-22 10:06:45', NULL, NULL),
-	('id002', 'pw002', '01053531214', '정우성', '남', '1990-03-23', 54907, '전북 전주시 덕진구 금암1동 1542-3', 'better4307@naver.com', 0, '2017-02-22 10:06:45', NULL, NULL);
+	('id001', 'pw001', '01053531213', '조민국', '남', '1990-03-23', 54907, '전북 전주시 덕진구 금암1동 1542-3', 'better4307@naver.com', 1000, '2017-02-22 10:06:45', NULL, NULL),
+	('id002', 'pw002', '01053531214', '정우성', '남', '1990-03-23', 54907, '전북 전주시 덕진구 금암1동 1542-3', 'better4307@naver.com', 0, '2017-02-22 10:06:45', NULL, NULL),
+	('id004', 'pw004', '01097638764', '조민국', '남', '1909-01-09', 61631, '광주 남구 월산동 308-4', 'alsrnr222@naver.com', 0, '2017-02-27 00:00:00', '일반', NULL);
 /*!40000 ALTER TABLE `MEMBER` ENABLE KEYS */;
 
 
@@ -533,7 +297,7 @@ CREATE TABLE IF NOT EXISTS `MOVIE` (
 /*!40000 ALTER TABLE `MOVIE` DISABLE KEYS */;
 INSERT INTO `MOVIE` (`mov_code`, `mov_korName`, `mov_engName`, `char_code`, `mov_nation`, `mov_grade`, `mov_genre`, `mov_maker`, `mov_runningTime`, `mov_openDate`, `mov_infoDetail`, `mov_imgPath`, `mov_videoPath`, `mov_status`, `mov_date`, `mov_finalModifyDate`) VALUES
 	(2100001, '공조', ' Confidential Assignment', 2300003, '한국', '15', '액션', 'JK필름', '00:02:00', '2017-02-17', '남한으로 숨어든 탈북범죄조직을 쫓기 위해 북한 형사와 남한 형사가 극비리에 공조수사에 나서며 펼쳐지는 이야기를 그린 영화다.', 'http://movie.phinf.naver.net/20170118_143/1484714583493K148x_JPEG/movie_image.jpg', '유튜브주소', '상영중', '0000-00-00 00:00:00', '2017-02-17 20:47:30'),
-	(2100002, '인셉션', 'Inception', 2300004, '미국', '12', 'SF', '레전더리 픽쳐스', '02:00:00', '2010-07-21', '인셉션', 'http://movie.naver.com/movie/bi/mi/basic.nhn?code=52515', 'https://www.youtube.com/watch?v=hx1fqhNoH8A', '상영중', '2010-07-01 00:00:00', '2017-02-22 00:00:00'),
+	(2100002, '인셉션', 'Inception', 2300004, '미국', '12', 'SF', '레전더리 픽쳐스', '02:00:00', '2010-07-21', '인셉션', 'http://cafefiles.naver.net/20140918_225/pay210_1410998920543P8UCa_JPEG/Na1410998907827.jpg', 'https://www.youtube.com/watch?v=hx1fqhNoH8A', '상영중', '2010-07-01 00:00:00', '2017-02-22 00:00:00'),
 	(2100003, '인터스텔라', 'Interstellar', 2300004, '미국', '12', 'SF', '레전더리 픽쳐스', '02:09:00', '2014-11-06', '가까운 미래, 전 지구적 규모의 식량난과 환경 변화에 의해서 인류가 멸망하는 카운트다운이 진행되고 있었다.\r\n	그런 상황에서, 어느 중요임무의 수행자로 과거 우주선 조종사 겸 엔지니어였던 남자가 발탁된다. \r\n	그 중요임무란, 우주에서 새롭게 발견된 미개지로 여행을 떠나는 것이었다. \r\n	지구에 남지 않으면 안 되는 가족과 인류 멸망으로부터의 구원,\r\n	둘', 'http://movie.phinf.naver.net/20160106_138/1452044846608eaFcJ_JPEG/movie_image.jpg', 'https://www.youtube.com/watch?v=nyc6RJEEe0U', '종영', '2017-02-22 10:29:27', '2017-02-22 10:29:27'),
 	(2100004, '다크나이트라이즈', 'The Dark Knight Rises', 2300004, '미국', '15', '액션', '레전더리픽쳐스', '02:04:00', '2012-07-19', '배트맨’ vs. ‘베인’, 운명을 건 최후의 전투', 'http://movie.naver.com/movie/bi/mi/photoViewPopup.nhn?movieCode=72054', 'https://www.youtube.com/watch?v=lPSYDCRliFA', '종영', '2012-07-01 00:00:00', '0000-00-00 00:00:00'),
 	(2100005, '올드보이', 'oldboy', 6, '한국', '19', '스릴러', 'CJ', '02:02:02', '2000-03-03', '최민식대표작', '../../...jpg', '../../..mp4', '종영', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -650,14 +414,14 @@ CREATE TABLE IF NOT EXISTS `SCREEN` (
 -- Dumping data for table better4307.SCREEN: 8 rows
 /*!40000 ALTER TABLE `SCREEN` DISABLE KEYS */;
 INSERT INTO `SCREEN` (`scr_code`, `brc_code`, `scr_name`, `scr_rowSize`, `scr_colSize`) VALUES
-	('42103101', 41103, '1관', 10, 10),
-	('42101101', 41101, '1관', 10, 12),
-	('42102101', 41102, '1관', 12, 8),
-	('42101102', 41101, '2관', 8, 8),
-	('42102102', 41102, '2관', 10, 10),
-	('42103102', 41103, '2관', 8, 8),
-	('42104101', 41104, '1관', 12, 12),
-	('42104102', 41104, '2관', 12, 8);
+	('42103101', 41103, '1관', 4, 10),
+	('42101101', 41101, '1관', 4, 10),
+	('42102101', 41102, '1관', 4, 10),
+	('42101102', 41101, '2관', 4, 10),
+	('42102102', 41102, '2관', 4, 10),
+	('42103102', 41103, '2관', 4, 10),
+	('42104101', 41104, '1관', 4, 10),
+	('42104102', 41104, '2관', 4, 10);
 /*!40000 ALTER TABLE `SCREEN` ENABLE KEYS */;
 
 
@@ -676,10 +440,10 @@ CREATE TABLE IF NOT EXISTS `SCREEN_COST` (
 -- Dumping data for table better4307.SCREEN_COST: 4 rows
 /*!40000 ALTER TABLE `SCREEN_COST` DISABLE KEYS */;
 INSERT INTO `SCREEN_COST` (`scco_code`, `scco_screen`, `scco_price`, `scco_applyYear`, `scco_status`, `scco_date`) VALUES
-	(52000, '2D', 9000, 2017, '적용', '2017-02-22 13:57:50'),
+	(52000, '디지털', 9000, 2017, '적용', '2017-02-22 13:57:50'),
 	(52001, '3D', 10000, 2017, '적용', '2017-02-22 13:59:08'),
 	(52002, 'IMAX', 13000, 2017, '적용', '2017-02-22 14:01:25'),
-	(52003, '2D', 7000, 2012, '미적용', '2017-02-22 14:21:25');
+	(52003, '디지털', 7000, 2012, '미적용', '2017-02-22 14:21:25');
 /*!40000 ALTER TABLE `SCREEN_COST` ENABLE KEYS */;
 
 
@@ -695,8 +459,6 @@ CREATE TABLE IF NOT EXISTS `SCREEN_SCHEDULE` (
   `scs_finishTime` time NOT NULL COMMENT '상영종료시간',
   `scs_screen` varchar(20) NOT NULL COMMENT '2d/3d/imax',
   `scs_timeDiscount` varchar(20) NOT NULL COMMENT '조조/일반/심야',
-  `scs_totalSeatCnt` int(11) NOT NULL COMMENT '총 좌석 수',
-  `scs_remainSeatCnt` int(11) NOT NULL COMMENT '남은 좌석 수',
   `scs_insertDate` datetime NOT NULL COMMENT '등록일',
   `scs_status` varchar(50) DEFAULT NULL COMMENT '상영일정상태',
   PRIMARY KEY (`scs_code`),
@@ -707,31 +469,31 @@ CREATE TABLE IF NOT EXISTS `SCREEN_SCHEDULE` (
 
 -- Dumping data for table better4307.SCREEN_SCHEDULE: 14 rows
 /*!40000 ALTER TABLE `SCREEN_SCHEDULE` DISABLE KEYS */;
-INSERT INTO `SCREEN_SCHEDULE` (`scs_code`, `mov_code`, `brc_code`, `scr_code`, `scs_date`, `scs_startTime`, `scs_finishTime`, `scs_screen`, `scs_timeDiscount`, `scs_totalSeatCnt`, `scs_remainSeatCnt`, `scs_insertDate`, `scs_status`) VALUES
-	('43170221101101104', 2100001, 41101, '42101102', '2017-02-02', '20:51:37', '20:51:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '종영'),
-	('43170221101101103', 2100001, 41103, '42101102', '2017-03-01', '07:52:22', '07:52:22', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
-	('43170221101101101', 2100001, 41101, '42101101', '2017-03-01', '10:51:37', '10:51:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
-	('43170221101101102', 2100001, 41102, '42101102', '2017-03-06', '13:22:37', '13:22:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
-	('43170221101101105', 2100001, 41102, '42101102', '2017-03-01', '14:51:37', '14:51:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
-	('43170221101101106', 2100001, 41103, '42101102', '2017-03-02', '09:51:37', '09:51:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
-	('43170221101101107', 2100001, 41102, '42101102', '2017-03-01', '13:22:37', '13:22:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
-	('43170221101101108', 2100001, 41102, '42101102', '2017-03-03', '13:22:37', '13:22:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
-	('43170221101101109', 2100001, 41102, '42101102', '2017-03-04', '13:22:37', '13:22:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
-	('43170221101101110', 2100001, 41102, '42101102', '2017-03-05', '13:22:37', '13:22:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
-	('43170221101101111', 2100001, 41102, '42101102', '2017-03-06', '13:22:37', '13:22:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
-	('43170221101101112', 2100001, 41102, '42101102', '2017-04-01', '13:22:37', '13:22:37', '3D', '디지털', 0, 0, '2017-02-17 20:53:53', '상영전'),
-	('43170221101101113', 2100002, 41104, '42104101', '2016-12-23', '13:00:00', '15:00:00', '2D', '일반', 0, 0, '2017-02-23 00:00:00', '종영'),
-	('43170221101101114', 2100002, 41104, '42104101', '2016-02-23', '16:30:10', '18:30:14', '2D', '일반', 0, 0, '2017-02-23 16:30:33', '종영');
+INSERT INTO `SCREEN_SCHEDULE` (`scs_code`, `mov_code`, `brc_code`, `scr_code`, `scs_date`, `scs_startTime`, `scs_finishTime`, `scs_screen`, `scs_timeDiscount`, `scs_insertDate`, `scs_status`) VALUES
+	('43170221101101112', 2100001, 41102, '42101102', '2017-04-01', '13:22:37', '13:22:37', '디지털', '일반', '2017-02-17 20:53:53', '상영전'),
+	('43170221101101113', 2100002, 41104, '42104101', '2016-12-23', '13:00:00', '15:00:00', '디지털', '일반', '2017-02-23 00:00:00', '종영'),
+	('43170221101101114', 2100002, 41104, '42104101', '2016-02-23', '16:30:10', '18:30:14', '디지털', '일반', '2017-02-23 16:30:33', '종영'),
+	('43170221101101111', 2100001, 41102, '42101102', '2017-03-06', '13:22:37', '13:22:37', '디지털', '일반', '2017-02-17 20:53:53', '상영전'),
+	('43170221101101110', 2100001, 41102, '42101102', '2017-03-05', '13:22:37', '13:22:37', '디지털', '일반', '2017-02-17 20:53:53', '상영전'),
+	('43170221101101109', 2100001, 41102, '42101102', '2017-03-04', '13:22:37', '13:22:37', '디지털', '일반', '2017-02-17 20:53:53', '상영전'),
+	('43170221101101106', 2100001, 41103, '42101102', '2017-03-02', '09:51:37', '09:51:37', '디지털', '일반', '2017-02-17 20:53:53', '상영전'),
+	('43170221101101105', 2100001, 41102, '42101102', '2017-03-01', '14:51:37', '14:51:37', '디지털', '일반', '2017-02-17 20:53:53', '상영전'),
+	('43170221101101102', 2100001, 41102, '42101102', '2017-03-06', '13:22:37', '13:22:37', '디지털', '일반', '2017-02-17 20:53:53', '상영전'),
+	('43170221101101101', 2100001, 41101, '42101101', '2017-03-01', '10:51:37', '10:51:37', '디지털', '일반', '2017-02-17 20:53:53', '상영전'),
+	('43170221101101107', 2100001, 41102, '42101102', '2017-03-01', '13:22:37', '13:22:37', '디지털', '일반', '2017-02-17 20:53:53', '상영전'),
+	('43170221101101108', 2100001, 41102, '42101102', '2017-03-03', '13:22:37', '13:22:37', '디지털', '일반', '2017-02-17 20:53:53', '상영전'),
+	('43170221101101103', 2100001, 41103, '42101102', '2017-03-01', '07:52:22', '07:52:22', '디지털', '일반', '2017-02-17 20:53:53', '상영전'),
+	('43170221101101104', 2100001, 41101, '42101102', '2017-02-02', '20:51:37', '20:51:37', '디지털', '일반', '2017-02-17 20:53:53', '종영');
 /*!40000 ALTER TABLE `SCREEN_SCHEDULE` ENABLE KEYS */;
 
 
 -- 테이블 better4307의 구조를 덤프합니다. SEAT
 DROP TABLE IF EXISTS `SEAT`;
 CREATE TABLE IF NOT EXISTS `SEAT` (
-  `seat_code` varchar(25) NOT NULL COMMENT '좌석코드',
+  `seat_code` varchar(50) NOT NULL COMMENT '좌석코드',
   `scs_code` varchar(20) NOT NULL COMMENT '상영코드',
   `scr_code` varchar(20) NOT NULL COMMENT '상영관코드',
-  `seta_row` char(1) NOT NULL COMMENT '행',
+  `seat_row` char(1) NOT NULL COMMENT '행',
   `seat_col` int(11) NOT NULL COMMENT '열',
   `seat_useStatus` varchar(20) NOT NULL COMMENT '사용여부',
   PRIMARY KEY (`seat_code`),
@@ -741,37 +503,47 @@ CREATE TABLE IF NOT EXISTS `SEAT` (
 
 -- Dumping data for table better4307.SEAT: 30 rows
 /*!40000 ALTER TABLE `SEAT` DISABLE KEYS */;
-INSERT INTO `SEAT` (`seat_code`, `scs_code`, `scr_code`, `seta_row`, `seat_col`, `seat_useStatus`) VALUES
-	('1', '1', '1', 'a', 1, '미사용'),
-	('2', '1', '1', 'a', 2, '미사용'),
-	('3', '1', '1', 'a', 3, '미사용'),
-	('4', '1', '1', 'a', 4, '미사용'),
-	('5', '1', '1', 'a', 5, '미사용'),
-	('6', '1', '1', 'a', 6, '미사용'),
-	('7', '1', '1', 'a', 7, '미사용'),
-	('8', '1', '1', 'a', 8, '미사용'),
-	('9', '1', '1', 'a', 9, '미사용'),
-	('10', '1', '1', 'a', 10, '미사용'),
-	('11', '1', '1', 'b', 1, '미사용'),
-	('12', '1', '1', 'b', 2, '미사용'),
-	('13', '1', '1', 'b', 3, '미사용'),
-	('14', '1', '1', 'b', 4, '미사용'),
-	('15', '1', '1', 'b', 5, '미사용'),
-	('16', '1', '1', 'b', 6, '미사용'),
-	('17', '1', '1', 'b', 7, '미사용'),
-	('18', '1', '1', 'b', 8, '미사용'),
-	('19', '1', '1', 'b', 9, '미사용'),
-	('20', '1', '1', 'b', 10, '미사용'),
-	('21', '1', '1', 'c', 1, '미사용'),
-	('23', '1', '1', 'c', 3, '미사용'),
-	('24', '1', '1', 'c', 4, '미사용'),
-	('25', '1', '1', 'c', 5, '미사용'),
-	('26', '1', '1', 'c', 6, '미사용'),
-	('27', '1', '1', 'c', 7, '미사용'),
-	('28', '1', '1', 'c', 8, '미사용'),
-	('29', '1', '1', 'c', 9, '미사용'),
-	('30', '1', '1', 'c', 10, '미사용'),
-	('22', '1', '1', 'c', 2, '미사용');
+INSERT INTO `SEAT` (`seat_code`, `scs_code`, `scr_code`, `seat_row`, `seat_col`, `seat_useStatus`) VALUES
+	('441702271011011011001', '43170221101101101', '1', 'A', 1, 'use'),
+	('441702271011011011002', '43170221101101101', '1', 'A', 2, 'use'),
+	('441702271011011011003', '43170221101101101', '1', 'A', 3, 'use'),
+	('441702271011011011004', '43170221101101101', '1', 'A', 4, 'able'),
+	('441702271011011011005', '43170221101101101', '1', 'A', 5, 'able'),
+	('441702271011011011006', '43170221101101101', '1', 'A', 6, 'able'),
+	('441702271011011011007', '43170221101101101', '1', 'A', 7, 'able'),
+	('441702271011011011008', '43170221101101101', '1', 'A', 8, 'able'),
+	('441702271011011011009', '43170221101101101', '1', 'A', 9, 'able'),
+	('441702271011011011010', '43170221101101101', '1', 'A', 10, 'able'),
+	('441702271011011011011', '43170221101101101', '1', 'B', 1, 'able'),
+	('441702271011011011012', '43170221101101101', '1', 'B', 2, 'able'),
+	('441702271011011011013', '43170221101101101', '1', 'B', 3, 'able'),
+	('441702271011011011014', '43170221101101101', '1', 'B', 4, 'able'),
+	('441702271011011011015', '43170221101101101', '1', 'B', 5, 'able'),
+	('441702271011011011016', '43170221101101101', '1', 'B', 6, 'able'),
+	('441702271011011011017', '43170221101101101', '1', 'B', 7, 'able'),
+	('441702271011011011018', '43170221101101101', '1', 'B', 8, 'able'),
+	('441702271011011011019', '43170221101101101', '1', 'B', 9, 'able'),
+	('441702271011011011020', '43170221101101101', '1', 'B', 10, 'able'),
+	('441702271011011011021', '43170221101101101', '1', 'C', 1, 'able'),
+	('441702271011011011023', '43170221101101101', '1', 'C', 3, 'able'),
+	('441702271011011011024', '43170221101101101', '1', 'C', 4, 'able'),
+	('441702271011011011025', '43170221101101101', '1', 'C', 5, 'able'),
+	('441702271011011011026', '43170221101101101', '1', 'C', 6, 'able'),
+	('441702271011011011027', '43170221101101101', '1', 'C', 7, 'able'),
+	('441702271011011011028', '43170221101101101', '1', 'C', 8, 'able'),
+	('441702271011011011029', '43170221101101101', '1', 'C', 9, 'able'),
+	('441702271011011011030', '43170221101101101', '1', 'C', 10, 'able'),
+	('441702271011011011022', '43170221101101101', '1', 'C', 2, 'able'),
+	('441702271011011011031', '43170221101101101', '1', 'D', 1, 'able'),
+	('441702271011011011032', '43170221101101101', '1', 'D', 2, 'able'),
+	('441702271011011011033', '43170221101101101', '1', 'D', 3, 'able'),
+	('441702271011011011034', '43170221101101101', '1', 'D', 4, 'able'),
+	('441702271011011011035', '43170221101101101', '1', 'D', 5, 'able'),
+	('441702271011011011036', '43170221101101101', '1', 'D', 6, 'able'),
+	('441702271011011011037', '43170221101101101', '1', 'D', 7, 'able'),
+	('441702271011011011038', '43170221101101101', '1', 'D', 8, 'able'),
+	('441702271011011011039', '43170221101101101', '1', 'D', 9, 'able'),
+	('441702271011011011040', '43170221101101101', '1', 'D', 10, 'use');
 /*!40000 ALTER TABLE `SEAT` ENABLE KEYS */;
 
 
