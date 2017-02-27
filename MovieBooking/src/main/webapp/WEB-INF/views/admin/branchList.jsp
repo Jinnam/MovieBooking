@@ -64,9 +64,9 @@
 						<li>
 							<a href="branchInsert">지점 등록</a>
 						</li>
-						<li>
+						<!-- <li>
 							<a href="branchModify">지점 수정</a>
-						</li>
+						</li> -->
 						<li>
 							<a href="branchDelete">지점 탈퇴</a>
 						</li>
@@ -194,21 +194,27 @@
 					<table class="table table-striped table-hover">
 						<thead>
 							<tr>
-								<th></th>
-								<th>지점명</th>
-								<th>지역</th>
-								<th>주소</th>
-								<th>상세설명</th>
+								<th class="col-lg-1">지점코드</th>
+								<th class="col-lg-2">지점명</th>
+								<th class="col-lg-2">지역</th>
+								<th class="col-lg-3">주소</th>
+								<th class="col-lg-4">상세설명</th>
+								<th class="col-lg-2">수정</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach var="branchList" items="${selectBranchList}">
 								<tr>
-									<td></td>
+									<td id="brcCode">${branchList.brcCode}</td>
 									<td>${branchList.brcName}</td>
 									<td>${branchList.brcLocal}</td>
 									<td>${branchList.brcAddr}</td>
 									<td>${branchList.brcInfoDetail}</td>
+									<td>
+										<a href="branchModify?brcCode=${branchList.brcCode}">
+											<input class="btn btn-button" type="button" value="수정">
+										</a>
+									</td>
 								</tr>
 							</c:forEach>
 						</tbody>

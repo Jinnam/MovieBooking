@@ -36,11 +36,19 @@ public class AdminController {
 	지점관리 메서드 : 지점등록/지점조회/지점수정/지점탈퇴
 	************************************************************************************************************/
 	
-	//***지점 등록 페이지 연결만 해놓음
+	//지점 등록 페이지(페이지이동)
 	@RequestMapping(value="branchInsert", method=RequestMethod.GET)
-	public String insertBranch() {
+	public String insertBranchView() {
 		logger.debug(" Controller insertBranch get실행");
 		return "admin/branchInsert";
+	}
+	
+	//지점 등록 페이지(폼이동)
+	@RequestMapping(value="branchInsert", method=RequestMethod.POST)
+	public String insertBranch(Branch branch) {
+		logger.debug(" Controller insertBranch post실행");
+		adminService.insertBranch(branch);
+		return "redirect:branchList";
 	}
 	
 	//지점리스트 조회
@@ -52,11 +60,22 @@ public class AdminController {
 		logger.debug(" Controller selectBranchList"+selectBranchList.toString());
 		return "admin/branchList";
 	}
-	//***지점 수정 페이지 연결만 해놓음
+	
+	//지점 수정하기 위한 조회 페이지 하나의 지점 코드 값으로 지점의 내용을 조회
 	@RequestMapping(value="branchModify", method=RequestMethod.GET)
-	public String updateBranchList() {
+	public String updateBranchList(Model model, int brcCode) {
 		logger.debug(" Controller updateBranchList get실행");
+		Branch selectBranchForUpdate = adminService.selectBranchForUpdate(brcCode);
+		model.addAttribute("selectBranchForUpdate", selectBranchForUpdate);
 		return "admin/branchModify";
+	}
+	
+	//지점 수정 페이지
+	@RequestMapping(value="branchModify", method=RequestMethod.POST)
+	public String updateBranch(Branch branch) {
+		logger.debug(" Controller updateBranch post실행");
+		adminService.updateBranch(branch);
+		return "redirect:branchList";
 	}
 	
 	//***지점 탈퇴 페이지 연결만 해놓음

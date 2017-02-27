@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="kr.co.cinema.admin.AdminMapper">
+
 	<!-- 메인화면 하단 영화별 매출표 -->
 	<select id="selectClientCount"
 			resultType="kr.co.cinema.dto.MovieAndBranchDayCount">
@@ -23,10 +24,12 @@
 				BRANCH_DAY_COUNT .brcCnt_clientCount 
 			DESC LIMIT 4
 	</select>
+	
 	<!-- 지점리스트 조회 -->
 	<select id="selectBranchList"
 			resultType="kr.co.cinema.dto.Branch">
 			SELECT
+				BRANCH.brc_code AS brcCode,
 				BRANCH.brc_name AS brcName,
 				BRANCH.brc_local AS brcLocal,
 				BRANCH.brc_addr AS brcAddr,
@@ -35,4 +38,56 @@
 				BRANCH
 	</select>
 	
+	<!-- 지점등록 -->
+	<insert id="insertBranch"
+			parameterType="kr.co.cinema.dto.Branch">
+			INSERT INTO 
+				BRANCH 
+				( 
+				brc_name, 
+				brc_local, 
+				brc_addr, 
+				brc_infoDetail, 
+				brc_imgPath
+				) 
+			VALUES 
+				( 
+				#{brcName}, 
+				#{brcLocal}, 
+				#{brcAddr}, 
+				#{brcInfoDetail}, 
+				#{brcImgPath} 
+				); 
+	</insert>
+	
+	<!-- 수정 전 지점코드로 지점데이터 조회 -->
+	<select id="selectBranchForUpdate"
+			resultType="kr.co.cinema.dto.Branch">
+			SELECT
+				BRANCH.brc_code AS brcCode,
+				BRANCH.brc_name AS brcName,
+				BRANCH.brc_local AS brcLocal,
+				BRANCH.brc_addr AS brcAddr,
+				BRANCH.brc_infoDetail AS brcInfoDetail,
+				BRANCH.brc_imgPath AS brcImgPath
+			FROM
+				BRANCH
+			WHERE
+				BRANCH.brc_code = #{brcCode}
+	</select>
+	
+	<!-- 지점수정 -->
+	<update id="updateBranch"
+			parameterType="kr.co.cinema.dto.Branch">
+			UPDATE 
+				BRANCH 
+			SET 
+				BRANCH.brc_name = #{brcName},
+				BRANCH.brc_local = #{brcLocal},
+				BRANCH.brc_addr = #{brcAddr},
+				BRANCH.brc_infoDetail = #{brcInfoDetail},
+				BRANCH.brc_imgPath = #{brcImgPath} 
+			WHERE 
+				BRANCH.brc_code = #{brcCode}
+	</update>
 </mapper>

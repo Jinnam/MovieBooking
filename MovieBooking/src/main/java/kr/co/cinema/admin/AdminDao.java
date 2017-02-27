@@ -18,14 +18,34 @@ public class AdminDao {
 	private SqlSessionTemplate sqlSession;
 	
 	private final String NS = "kr.co.cinema.admin.AdminMapper.";
+	
 	//메인페이지 하단우측 영화별 예매율 순위
 	public List<Movie> selectClientCount() {
 		logger.debug(" Dao selectClientCount");
 		return sqlSession.selectList(NS+"selectClientCount");
 	}
+	
 	//지점리스트 조회
 	public List<Branch> selectBranchList() {
 		logger.debug(" Dao selectBranchList");
 		return sqlSession.selectList(NS+"selectBranchList");
+	}
+	
+	//지점등록
+	public int insertBranch(Branch branch) {
+		logger.debug(" Dao insertBranch");
+		return sqlSession.insert(NS+"insertBranch", branch);
+	}
+	
+	//지점 수정하기 위한 조회
+	public Branch selectBranchForUpdate(int brcCode) {
+		logger.debug(" Dao selectBranchForUpdate");
+		return sqlSession.selectOne(NS+"selectBranchForUpdate", brcCode);
+	}
+	
+	//지점수정
+	public int updateBranch(Branch branch) {
+		logger.debug(" Dao updateBranch");
+		return sqlSession.update(NS+"updateBranch", branch);
 	}
 }

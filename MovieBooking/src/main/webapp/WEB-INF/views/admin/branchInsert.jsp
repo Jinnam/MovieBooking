@@ -212,6 +212,55 @@
 				<!-- 페이지 강제 줄임 -->
 				<div class="col-lg-9 main-chart" align="center"></div>
 			</div>
+			<!-- 지점등록 폼 이름/지역/주소/상세설명/이미지경로-->
+			<div class="container" style="margin: 0 auto;">
+				<div class="jumbotron">
+					<h2 class="logo">지점 등록</h2>
+				</div>
+				<div class="col-lg-3"></div>
+				<div class="col-lg-6" style="float: left: ;">
+					<form class="form-horizontal" method="post">
+						<fieldset>
+							<legend>기입사항</legend>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">지점이름</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="brcName" name="brcName" placeholder="지점이름을 입력하세요" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">지역</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="brcLocal" name="brcLocal" placeholder="지역을 입력하세요" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">주소</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="brcAddr" name="brcAddr" placeholder="주소를 입력하세요" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">상세설명</label>
+								<div class="col-lg-10">
+									<textarea class="form-control" rows="3" id="brcInfoDetail" name="brcInfoDetail" required="required"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">이미지경로</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="brcImgPath" name="brcImgPath" placeholder="이미지 경로를 입력하세요" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-10 col-lg-offset-2">
+									<input type="submit" class="btn btn-button" value="입력">
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
 		</section>
 	</section>
 	<!-- 여기까지 메인 -->
