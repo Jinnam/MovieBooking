@@ -46,22 +46,22 @@
             <img src="resources/module-img/menu_login.png" style="width:100px;height:40px">
           </div>
           <div class="menu" style="width:350px">
-            <form style="width:300px;margin: 10px 10px 10px 10px;" action="" method="post">
+            <form style="width:300px;margin: 10px 10px 10px 10px;" action="/memberLogin" method="post">
               <!-- 로그인 폼시작 -->
               <div class="item" data-value="drop">
                 <table>
                   <tr>
-                    <td><input type="text" placeholder="id001" style ="width:200px"></td>
+                    <td><input type="text" name="memId" value="id001" style ="width:200px"></td>
                   </tr>
                   <tr>
-                    <td><input type="text" placeholder="pw001" style ="width:200px"></td>
+                    <td><input type="text" name="memPw" value="pw001" style ="width:200px"></td>
                   </tr>
                   <tr>
                   	<td><input type="submit" value="로그인"></td> 
                   </tr>
                 </table>
                 <div>
-                  <a href="#">ID/PW찾기</a>
+                  <a href="memberFind">ID/PW찾기</a>
                 </div>
                 <div class="item">
                   <a href="memberProvision">회원가입</a>

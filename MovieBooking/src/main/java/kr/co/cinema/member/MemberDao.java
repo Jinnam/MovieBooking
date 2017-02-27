@@ -1,6 +1,8 @@
 package kr.co.cinema.member;
 
 
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,10 +20,14 @@ public class MemberDao {
 	private SqlSessionTemplate sqlSessionTemplate;
 	private final String Member_NS = "kr.co.cinema.member.MemberMapper.";
 	
+	public Member selectMemberLogin(Map<String, String> map){
+		logger.debug("로그인 select dao" + map);
+		return sqlSessionTemplate.selectOne(Member_NS + "selectMemberLogin", map);
+	}
 	
 	//회원가입 insert 시작
 	public int insertMember(Member member){
-		logger.debug("memberDao확인" + member);
+		logger.info("회원가입 insert" + member);
 		return sqlSessionTemplate.insert(Member_NS + "insertMember", member);
 	}
 	//회원가입 insert 종료

@@ -1,9 +1,15 @@
 package kr.co.cinema.member;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -12,17 +18,36 @@ import kr.co.cinema.dto.Member;
 @Controller
 public class MemberController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(MemberDao.class);
+	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	@Autowired
 	private MemberService memberService;
+	
+	@RequestMapping(value="/memberLogin", method=RequestMethod.POST)
+	public String memberLogin(Member member, HttpSession session){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("memId", member.getMemId());
+		map.put("memPw", member.getMemPw());
+		Member members = memberService.findOneMmemberLogin(map);
+		logger.debug(members.toString());
+		session.setAttribute("id", members.getMemId());
+		session.setAttribute("pw", members.getMemPw());
+		return "movieMain";
+		
+	}
+	
+	//회원 ID / PW 찾기 form
+	@RequestMapping(value="/memberFind", method=RequestMethod.GET)
+	public String memberFind(){
+		return "login/memberFind";
+	}
 	
 	//회원가입 insert Controller Action
 	@RequestMapping(value="/memberInsert", method=RequestMethod.POST)
 	public String insertMember(Member member){
 		memberService.addMember(member);
-		logger.debug(member + "member확인");
-		return "redirect:movieMain";
+		logger.info(member + "member확인");
+		return "movieMain";
 	}
 	
 	//회원가입 insert Controller form

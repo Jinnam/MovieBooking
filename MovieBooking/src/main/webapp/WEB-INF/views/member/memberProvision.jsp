@@ -7,7 +7,7 @@
 <link rel="SHORTCUT ICON" href="resources/module-img/titleIcon.png">
  <style type="text/css">
                     div, input, label { font-size:12px; }															/* 폰트크기 조절 */
-                    #div1, #div2, #div3, #div4, #div5, #div6, #div7, #div8, #div9{ width:815px; margin:12px; }		/* text틀 가로조정 */
+                    #div1, #div2, #div3, #div4, #div5, #div6, #div7, #div8, #div9{ width:970px; margin:12px; }		/* text틀 가로조정 */
                     #div1 {
                            height:150px;											/* 화면에 보여지는 text틀 세로조정 */
                            overflow:auto;											/* text 틀 스크롤바 */
@@ -47,9 +47,10 @@
 
  <!-- 회원약관시작 -->
  <div class="container" style="width:970px">
+ <br>
        <h3>약관동의</h3>
        <p>이용약관</p>
-     	  <form action="" method="post" id="form1">
+     	  <form action="memberInsert" method="get" id="form1">
 			<div id="div1" >
 			
 			<!-- 첫번째약관 시작-->
@@ -236,11 +237,11 @@
 			</div>
 			
              <!-- 동의 취소 submit -->
-             <div id="#div7">
-                    <input  type="submit" class="waves-effect waves-light btn  blue darken-4" style=" height:40px; border:1px solid #0d47a1 ;
-					box-shadow:none ; margin-top:20px ; margin-right:20px ; margin-left:10px ; border-radius: 0em ;" value="약관동의">
-                    <a href="#"><input type = "button" value="취소"></input></a>
-             </div>
+            <div align="right">
+				<input class="btn blue darken-4" type="submit" value="확인"/>
+				<a href="movieMain">
+				<input class="btn white" style="color:black" type="button" value="취소"/></a>
+			</div>
       	 </form>
 	</div>
 	

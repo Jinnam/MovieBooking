@@ -5,8 +5,23 @@
   
 <mapper namespace="kr.co.cinema.member.MemberMapper">
 
+	<!-- 회원 로그인 select 시작 -->
+	<select id="selectMemberLogin" parameterType="Map" resultType="kr.co.cinema.dto.Member">
+		select
+			mem_id AS memId,
+			mem_pw AS memPw
+		from 
+			MEMBER
+		where 
+			mem_id=#{memId}
+		and 
+			mem_pw=#{memPw}
+	</select>
+	<!-- 회원 로그인 select 종료 -->
+
 	<!-- 회원 가입 insert 시작 -->
 	<insert id="insertMember" parameterType="kr.co.cinema.dto.Member">
+		insert into MEMBER(
 			mem_id,		
 			mem_pw,
 			mem_phone,
@@ -29,7 +44,7 @@
 			#{memPostNo},
 			#{memAddr},
 			#{memMail},
-			'0',
+			0,
 			now(),
 			'일반')
 	</insert>
@@ -37,9 +52,10 @@
 	
 	<!-- 회원 비밀번호 찾기 select 시작 -->
 	<select id="selectOnePasswordFindMember" parameterType="String" resultType="kr.co.cinema.dto.Member">
+		select
 			mem_pw
 		from 
-			member 
+			MEMBER 
 		where	
 			mem_id=#{memId} and
 			mem_name=#{memName} and
@@ -49,9 +65,10 @@
 	
 	<!-- 회원 아이디 찾기 select 시작 -->
 	<select id="selectOneIdFindMember" parameterType="String" resultType="kr.co.cinema.dto.Member">
+		select
 			mem_id AS memId
 		from 
-			member 
+			MEMBER 
 		where 
 			mem_name=#{memName} and 
 			mem_birth=#{memBirth} and
@@ -59,13 +76,4 @@
 	</select>
 	<!-- 회원 아이디 찾기 select 종료 -->
 	
-	<!-- 회원 로그인 select 시작 -->
-	<select id="selectOneLoginMember" parameterType="String" resultType="kr.co.cinema.dto.Member">
-			mem_id AS memId,
-			mem_pw AS memPw
-		from 
-			member 
-		where mem_id=#{memId}
-	</select>
-	<!-- 회원 로그인 select 종료 -->
 </mapper>
