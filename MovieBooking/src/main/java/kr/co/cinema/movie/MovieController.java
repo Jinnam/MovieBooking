@@ -13,19 +13,19 @@ public class MovieController {
 	private static final Logger logger = LoggerFactory.getLogger(MovieController.class);
 	
 	//클라이언트측 영화 리스트페이지 박스오피스
-	@RequestMapping(value = "/clientMovieListBoxoffice", method = RequestMethod.GET)
+	@RequestMapping(value = "/clientMovieListBoxoffice1", method = RequestMethod.GET)
 	public String clientMovieListBoxoffice() {
 		return "movie/clientMovieListBoxoffice";
 	}	
 
-	//클라이언트측 영화 리스트페이지 박스오피스
-	@RequestMapping(value = "/clientMovieListNewMovie", method = RequestMethod.GET)
+	//클라이언트측 영화 리스트페이지 최신개봉작
+	@RequestMapping(value = "/clientMovieListNewMovie2", method = RequestMethod.GET)
 	public String clientMovieListNewMovie() {
 		return "movie/clientMovieListNewMovie";
 	}	
 	
-	//클라이언트측 영화 리스트페이지 박스오피스
-	@RequestMapping(value = "/clientMovieListExpected", method = RequestMethod.GET)
+	//클라이언트측 영화 리스트페이지 상영예정작
+	@RequestMapping(value = "/clientMovieListExpected3", method = RequestMethod.GET)
 	public String clientMovieListExpected() {
 		return "movie/clientMovieListExpected";
 	}		

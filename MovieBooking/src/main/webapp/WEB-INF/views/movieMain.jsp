@@ -23,10 +23,10 @@
 
 
     <!-- 간격 -->
-    <div style="height:80px"></div>
+    <div style="height:20px"></div>
 
     <!-- 메인 -->
-    <div class="container"> <!-- 메인컨테이너 시작 -->
+    <div class="container" style="width:970px;"> <!-- 메인컨테이너 시작 -->
 
 
       <!-- 메인메뉴바 -->
@@ -41,10 +41,6 @@
       </div> <!-- 메인메뉴바 끝 -->
 
 
-
-
-      <!-- 간격 -->
-      <div style="height:80px"></div>
 
       <!-- 메인 영화이미지 -->
       <div class="row blue-grey lighten-5"> <!-- 메인이미지 시작 -->
@@ -146,9 +142,6 @@
       </div> <!-- row 끝 -->
     </div> <!-- container 끝 -->
 
-
-    <!-- 간격 -->
-    <div style="height:80px"></div>
 
 
     <!-- parallax 이미지 -->
