@@ -13,21 +13,21 @@ public class MovieController {
 	private static final Logger logger = LoggerFactory.getLogger(MovieController.class);
 	
 	//클라이언트측 영화 리스트페이지
-	@RequestMapping(value = "/memberMovieList", method = RequestMethod.GET)
+	@RequestMapping(value = "/clientMovieList", method = RequestMethod.GET)
 	public String memberMovieList() {
-		return "movie/memberMovieList";
+		return "movie/clientMovieList";
 	}	
 
 	//클라이언트측 영화 상세페이지
-	@RequestMapping(value = "/memberMovieDetail", method = RequestMethod.GET)
+	@RequestMapping(value = "/clientMovieDetail", method = RequestMethod.GET)
 	public String memberMovieDetail() {
-		return "movie/memberMovieDetail";
+		return "movie/clientMovieDetail";
 	}
 	
 	//클라이언트측 인물 상세페이지
-	@RequestMapping(value = "/memberCharacterDetail", method = RequestMethod.GET)
+	@RequestMapping(value = "/clientCharacterDetail", method = RequestMethod.GET)
 	public String memberCharacterDetail() {
-		return "movie/memberCharacterDetail";
+		return "movie/clientCharacterDetail";
 	}
 	
 	
