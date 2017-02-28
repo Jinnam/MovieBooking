@@ -70,23 +70,32 @@ public class AdminService {
 		return adminDao.insertAdmin(admin);
 	}
 	//지점관리자 수정 전 권한과 아이디 조회
-	public String selectAdminAuthAndId(int brcCode) {			//에러수정요망
+	public Admin selectAdminAuthAndId(Admin admin) {
 		logger.debug(" Service selectAdminAuthAndId get실행");
-		return adminDao.selectAdminAuthAndId(brcCode);
+		return adminDao.selectAdminAuthAndId(admin);
 	}
 	//지점관리자 수정
-	public int updateAdmin() {
+	public int updateAdmin(Admin admin) {
 		logger.debug(" Service updateAdmin post실행");
-		return adminDao.updateAdmin();
+		return adminDao.updateAdmin(admin);
 	}
 	
+	//관리자 삭제
+	public int deleteAdmin(Admin admId) {
+		logger.debug(" Service deleteAdmin get실행");
+		return adminDao.deleteAdmin(admId);
+	}
+		
 	//회원리스트 조회
 	public List<Member> selectMemberList() {
 		logger.debug(" Service selectMemberList get실행");
 		return adminDao.selectMemberList();
 	}
 
-	
-
+	//영화등록
+	public int insertMovie(Movie movie) {
+		logger.debug(" Service insertMovie post실행");
+		return adminDao.insertMovie(movie);
+	}
 
 }

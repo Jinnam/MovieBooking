@@ -119,28 +119,30 @@ public class AdminController {
 	
 	//지점관리자 수정 전 페이지 권한, 지점이름 및 지점코드조회
 	@RequestMapping(value="adminModify", method=RequestMethod.GET)
-	public String selectBranchForUpdateAdmin(Model model, int brcCode) {
+	public String selectBranchForUpdateAdmin(Model model, Admin admin) {
 		logger.debug(" Controller selectBranchForUpdateAdmin get실행");
 		List<Branch> selectBranchList = adminService.selectBranchList();
-		String selectAdminAuthAndId = adminService.selectAdminAuthAndId(brcCode);
-		model.addAttribute("selectBranchList", selectBranchList);					//두개값이 겹쳐서 에러나는듯
+		Admin selectAdminAuthAndId = adminService.selectAdminAuthAndId(admin);
+		model.addAttribute("selectBranchList", selectBranchList);
 		model.addAttribute("selectAdminAuthAndId", selectAdminAuthAndId);
 		return "admin/adminModify";
 	}
 	
 	//지점관리자 수정 페이지
 	@RequestMapping(value="adminModify", method=RequestMethod.POST)
-	public String updateAdmin() {
-		logger.debug(" Controller updateAdmin get실행");
-		adminService.updateAdmin();
+	public String updateAdmin(Admin admin) {
+		logger.debug(" Controller updateAdmin post실행");
+		adminService.updateAdmin(admin);
+		logger.debug(admin.toString());
 		return "redirect:adminList";
 	}
 	
-	//***지점관리자 삭제 페이지 연결만 해놓음
+	//지점관리자 삭제 페이지 연결만 해놓음
 	@RequestMapping(value="adminDelete", method=RequestMethod.GET)
-	public String deleteAdmin() {
+	public String deleteAdmin(Admin admId) {
 		logger.debug(" Controller deleteAdmin get실행");
-		return "admin/adminDelete";
+		adminService.deleteAdmin(admId);
+		return "redirect:adminList";
 	}
 	
 	/************************************************************************************************************
@@ -160,11 +162,19 @@ public class AdminController {
 	영화 관리 메서드 : 영화등록/영화리스트/영화상세/영화수정
 	************************************************************************************************************/	
 
-	//***관리자 영화등록 페이지 연결만 해놓음
+	//관리자 영화등록 페이지
 	@RequestMapping(value="movieInsert", method=RequestMethod.GET)
-	public String insertMovie() {
-		logger.debug(" Controller insertMovie get실행");
+	public String insertMovieView() {
+		logger.debug(" Controller insertMovieView get실행");
 		return "management/movieInsert";
+	}
+	
+	//관리자 영화등록 페이지
+	@RequestMapping(value="movieInsert", method=RequestMethod.POST)
+	public String insertMovie(Movie movie) {
+		logger.debug(" Controller insertMovie post실행");
+		adminService.insertMovie(movie);
+		return "redirect:adminMovieList";
 	}
 	
 	//***관리자 영화조회 페이지 연결만 해놓음
@@ -180,6 +190,7 @@ public class AdminController {
 		logger.debug(" Controller selectDetailMovie get실행");
 		return "management/movieDetail";
 	}
+	
 	//***관리자 영화상세조회 페이지 연결만 해놓음
 	@RequestMapping(value="movieModify", method=RequestMethod.GET)
 	public String updateMovie() {

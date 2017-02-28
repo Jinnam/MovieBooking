@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="resources/assets/css/zabuto_calendar.css">
 	<link rel="stylesheet" type="text/css" href="resources/assets/js/gritter/css/jquery.gritter.css" />
 	<link rel="stylesheet" type="text/css" href="resources/assets/lineicons/style.css">
-	
+
 	<!-- Custom styles for this template -->
 	<link href="resources/assets/css/style.css" rel="stylesheet">
 	<link href="resources/assets/css/style-responsive.css" rel="stylesheet">
@@ -28,6 +28,7 @@
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	
+
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -227,6 +228,115 @@
 				<!-- 페이지 강제 줄임 -->
 				<div class="col-lg-9 main-chart" align="center"></div>
 			</div>
+			<!-- 지점등록 폼 이름/지역/주소/상세설명/이미지경로-->
+			<div class="container" style="margin: 0 auto;">
+				<div class="jumbotron">
+					<h2 class="logo">영화 등록</h2>
+				</div>
+				<div style="margin:0 auto;">
+					<form action="movieInsert"  class="col-lg-12 form-horizontal" method="post">
+						<fieldset class="col-lg-5" style="float:left;">
+							<legend>add</legend>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">영화한글이름</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="movKorName" placeholder="영화이름을 입력하세요" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">영화영문이름</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="movEngName" placeholder="영화이름을 입력하세요" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">감독</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="charCode" placeholder="감독이름을 입력하세요" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">주연배우</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="" placeholder="주연배우를 입력하세요" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">국가</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="movNation" placeholder="국가를 입력하세요" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">등급</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="movGrade" placeholder="영화등급을 입력하세요" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">장르</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="movGenre" placeholder="영화장르를 입력하세요" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">상세설명</label>
+								<div class="col-lg-10">
+									<textarea class="form-control" rows="3" name="movInfoDetail" required="required"></textarea>
+								</div>
+							</div>
+						</fieldset>
+						<fieldset class="col-lg-5" style="float:left;">
+							<legend>&nbsp;</legend>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">제작사</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="movMaker" placeholder="제작사를 입력하세요" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">상영시간</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" name="movRunningTime" placeholder="00:00:00 형식으로 입력해주세요" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">개봉일</label>
+								<div class="col-lg-10">
+									<input type="date" class="form-control" name="movOpenDate" placeholder="개봉일을 입력하세요" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">상영상태</label>
+								<div class="col-lg-10">
+									<select name="movStatus" class="form-control">
+										<option>개봉전</option>
+										<option>상영</option>
+										<option>종영</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">이미지경로</label>
+								<div class="col-lg-10">
+									<input type="text" name="movImgPath" class="form-control" placeholder="이미지 경로를 입력하세요" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">영상경로</label>
+								<div class="col-lg-10">
+									<input type="text" name="movVideoPath" class="form-control" placeholder="영상 경로를 입력하세요" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-10 col-lg-offset-10">
+									<input type="submit" class="btn btn-button" value="입력">
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
 		</section>
 	</section>
 	<!-- 여기까지 메인 -->
@@ -252,5 +362,6 @@
 	<!--script for this page-->
 	<script src="resources/assets/js/sparkline-chart.js"></script>
 	<script src="resources/assets/js/zabuto_calendar.js"></script>
+
 </body>
 </html>

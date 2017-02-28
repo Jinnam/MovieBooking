@@ -7,6 +7,7 @@ public class Movie {
 	private String movKorName;			// 영화 한글 제목
 	private String movEngName;			// 영화 영문 제목
 	private String movNation;			// 국가
+	private int charCode;				// 인물코드 0228봉연추가
 	private String movGrade;			// 등급
 	private String movGenre;			// 장르
 	private String movMaker;			// 제작사
@@ -41,6 +42,12 @@ public class Movie {
 	}
 	public void setMovNation(String movNation) {
 		this.movNation = movNation;
+	}
+	public int getCharCode() {
+		return charCode;
+	}
+	public void setCharCode(int charCode) {
+		this.charCode = charCode;
 	}
 	public String getMovGrade() {
 		return movGrade;
@@ -111,6 +118,7 @@ public class Movie {
 				+ movInfoDetail + ", movImgPath=" + movImgPath + ", movVideoPath=" + movVideoPath + ", movStatus="
 				+ movStatus + ", movFinalModifyDate=" + movFinalModifyDate + "]";
 	}
+	
 	
 	
 }

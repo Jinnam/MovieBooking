@@ -251,12 +251,12 @@
 									<td>${selectAdminList.brcLocal}</td>
 									<td>${selectAdminList.admDate}</td>
 									<td>
-										<a href="adminModify?brcCode=${selectAdminList.brcCode}">
+										<a href="adminModify?admId=${selectAdminList.admId}">
 											<input class="btn btn-button" type="button" value="수정">
 										</a>
 									</td>
 									<td>
-										<a href="adminDelete">
+										<a href="adminDelete?admId=${selectAdminList.admId}">
 											<input class="btn btn-button" type="button" value="삭제">
 										</a>
 									</td>
@@ -282,7 +282,10 @@
 		</section>
 	</section>
 	<!-- 여기까지 메인 -->
+	
+	<!-- 하단 -->
 	<%@include file="/WEB-INF/adminModule/footer.jsp" %>
+	
 	<!-- 자바스크립트 -->
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="resources/assets/js/jquery.js"></script>

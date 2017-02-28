@@ -233,14 +233,14 @@
 				</div>
 				<div class="col-lg-3"></div>
 				<div class="col-lg-6" style="float: left: ;">
-					<form class="form-horizontal" method="post">
+					<form action="adminModify" class="form-horizontal" method="post">
 						<fieldset>
 							<legend>수정사항</legend>
 							<!-- 아이디 -->
 							<div class="row form-group">
 								<label for="adminId" class="col-lg-2 control-label">ID</label>
 								<div class="col-lg-8">
-									<input type="text" class="form-control" name="admId" value="${selectAdminAuthAndId.admId }" placeholder="관리자 ID를 입력하세요" required="required">
+									<input type="text" class="form-control" name="admId" value="${selectAdminAuthAndId.admId }" placeholder="관리자 ID를 입력하세요" required="required" readonly="readonly">
 								</div>
 								<!-- ID중복조회 -->
 								<div class="col-lg-2">

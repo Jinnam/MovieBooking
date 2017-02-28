@@ -70,24 +70,33 @@ public class AdminDao {
 	}
 
 	//지점관리자 수정 전 관리자 아이디 & 권한조회
-	public String selectAdminAuthAndId(int brcCode) {
+	public Admin selectAdminAuthAndId(Admin admin) {
 		logger.debug(" Dao selectAdminAuthAndId");
-		return sqlSession.selectOne(NS+"selectAdminAuthAndId", brcCode);//여기 에러
+		return sqlSession.selectOne(NS+"selectAdminAuthAndId", admin);
 	}
 	
 	//지점 관리자 수정
-	public int updateAdmin() {
+	public int updateAdmin(Admin admin) {
 		logger.debug(" Dao updateAdmin");
-		return sqlSession.update(NS+"updateAdmin");
+		return sqlSession.update(NS+"updateAdmin", admin);
 	}
 	
+	//지점 관리자 삭제
+	public int deleteAdmin(Admin admId) {
+		logger.debug(" Dao deleteAdmin");
+		return sqlSession.delete(NS+"deleteAdmin", admId);
+	}
+
 	//회원리스트 조회
 	public List<Member> selectMemberList() {
 		logger.debug(" Dao selectMemberList");
 		return sqlSession.selectList(NS+"selectMemberList");
 	}
 
-	
+	//영화등록
+	public int insertMovie(Movie movie) {
+		logger.debug(" Dao insertMovie");
+		return sqlSession.insert(NS+"insertMovie", movie);
+	}
 
-	
 }
