@@ -12,12 +12,24 @@ public class MovieController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MovieController.class);
 	
-	//클라이언트측 영화 리스트페이지
-	@RequestMapping(value = "/clientMovieList", method = RequestMethod.GET)
-	public String memberMovieList() {
-		return "movie/clientMovieList";
+	//클라이언트측 영화 리스트페이지 박스오피스
+	@RequestMapping(value = "/clientMovieListBoxoffice", method = RequestMethod.GET)
+	public String clientMovieListBoxoffice() {
+		return "movie/clientMovieListBoxoffice";
 	}	
 
+	//클라이언트측 영화 리스트페이지 박스오피스
+	@RequestMapping(value = "/clientMovieListNewMovie", method = RequestMethod.GET)
+	public String clientMovieListNewMovie() {
+		return "movie/clientMovieListNewMovie";
+	}	
+	
+	//클라이언트측 영화 리스트페이지 박스오피스
+	@RequestMapping(value = "/clientMovieListExpected", method = RequestMethod.GET)
+	public String clientMovieListExpected() {
+		return "movie/clientMovieListExpected";
+	}		
+	
 	//클라이언트측 영화 상세페이지
 	@RequestMapping(value = "/clientMovieDetail", method = RequestMethod.GET)
 	public String memberMovieDetail() {
@@ -25,9 +37,9 @@ public class MovieController {
 	}
 	
 	//클라이언트측 인물 상세페이지
-	@RequestMapping(value = "/clientCharacterDetail", method = RequestMethod.GET)
+	@RequestMapping(value = "/clientCharDetail", method = RequestMethod.GET)
 	public String memberCharacterDetail() {
-		return "movie/clientCharacterDetail";
+		return "movie/clientCharDetail";
 	}
 	
 	

@@ -36,7 +36,8 @@
 
 
     <div class="container">
-      <div class="row">
+    
+      <div class="row"> <!-- row 열기 -->
       
 	        <a href="movieMain" style=" text-decoration:none; color:#000000 ">
 	        
@@ -68,34 +69,78 @@
 	          
 	        </a>
 	        
-	      </div>
+	      </div> <!-- row 닫기 -->
+	      
+	      <div class="row"> <!-- row 열기 -->
+	      
+	        <a href="movieMain" style=" text-decoration:none; color:#000000 ">
+	        
+	          <div class="col s3">
+	            <div class="card">
+	              <div class="card-image">
+	                <img src="resources/index_img/1team_movieMain.jpg" style="height:auto;">
+	              </div>
+	              <div class="card-content">
+	                <p>클라이언트</p>
+	              </div>
+	            </div>
+	          </div>
+	          
+	        </a>	
+	        	      
+	        <a href="movieMain" style=" text-decoration:none; color:#000000 ">
+	        
+	          <div class="col s3">
+	            <div class="card">
+	              <div class="card-image">
+	                <img src="resources/index_img/1team_movieMain.jpg" style="height:auto;">
+	              </div>
+	              <div class="card-content">
+	                <p>클라이언트</p>
+	              </div>
+	            </div>
+	          </div>
+	          
+	        </a>	
+	        
+	        <a href="movieMain" style=" text-decoration:none; color:#000000 ">
+	        
+	          <div class="col s3">
+	            <div class="card">
+	              <div class="card-image">
+	                <img src="resources/index_img/1team_movieMain.jpg" style="height:auto;">
+	              </div>
+	              <div class="card-content">
+	                <p>클라이언트</p>
+	              </div>
+	            </div>
+	          </div>
+	          
+	        </a>	
+	        
+	        <a href="movieMain" style=" text-decoration:none; color:#000000 ">
+	        
+	          <div class="col s3">
+	            <div class="card">
+	              <div class="card-image">
+	                <img src="resources/index_img/1team_movieMain.jpg" style="height:auto;">
+	              </div>
+	              <div class="card-content">
+	                <p>클라이언트</p>
+	              </div>
+	            </div>
+	          </div>
+	          
+	        </a>		        	        	        	      
+	      
+	      </div> <!-- row 닫기 -->
+	      
       </div>
   
 
 
 
-    <!-- 영화관리 modal -->
-    <div id="modal1" class="modal">
-      <div class="modal-content">
-        <h4>Modal 1</h4>
-        <p>A bunch of text</p>
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-      </div>
-    </div>
 
-
-    <!-- 도서관리 modal -->
-    <div id="modal2" class="modal">
-      <div class="modal-content">
-        <h4>Modal 2</h4>
-        <p>A bunch of text</p>
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-      </div>
-    </div>
 
 
     <!-- 여백 -->

@@ -20,10 +20,12 @@
 
 
    <!-- 메인 -->
-  </br>
+  <br>
 
     <div class="container" style="width:970px"> <!-- 메인컨테이너 시작 -->
-
+		
+	<h3 style="text-align:center;">박스오피스</h3>
+	
       <div class="row"> <!-- 메인이미지 시작 -->
         <div class="col s3">
           <div class="card">
