@@ -38,17 +38,15 @@
     <div class="container">
       <div class="row">
       
-      		<div class="col s2"></div><!-- 간격 -->
-      
 	        <a href="movieMain" style=" text-decoration:none; color:#000000 ">
 	        
-	          <div class="col s4">
+	          <div class="col s6">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/1team_movieMain.jpg" style="height:250px">
+	                <img src="resources/index_img/1team_movieMain.jpg" style="height:auto;">
 	              </div>
 	              <div class="card-content">
-	                <p>클라이언트 페이지</p>
+	                <p>클라이언트</p>
 	              </div>
 	            </div>
 	          </div>
@@ -57,13 +55,13 @@
 	
 	        <a href="adminMain" style=" text-decoration:none; color:#000000">
 	        
-	          <div class="col s4">
+	          <div class="col s6">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/1team_adminMain.png" style="height:250px">
+	                <img src="resources/index_img/1team_adminMain.jpg" style="height:auto;">
 	              </div>
 	              <div class="card-content">
-	                <p>관리자 페이지</p>
+	                <p>관리자</p>
 	              </div>
 	            </div>
 	          </div>
