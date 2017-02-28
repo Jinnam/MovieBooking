@@ -47,6 +47,7 @@ public class PaymentController {
 			
 			// 할인 정보 가져오기.
 			List<DiscountInfo> discountInfo = paymentService.searchListDcPersonInfo();
+			logger.debug(		"할인정보 가져온값 : "+discountInfo.toString());
 			model.addAttribute("DiscountInfo", discountInfo);
 			
 			// 영화 정보 가져오기.

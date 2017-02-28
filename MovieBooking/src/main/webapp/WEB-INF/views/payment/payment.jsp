@@ -7,9 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="SHORTCUT ICON" href="resources/module-img/titleIcon.png">
-<script>
-
-</script>
 </head>
 <body>
 
@@ -42,21 +39,31 @@
 				<!-- 할인 선택 시작 -->
 				<div class="col s3 card" style="height:520px">
 					<h3 align="center">할인</h3>
-					<c:if test="${bookingInfo.scsTimeDiscount=='일반'}">
+					
+					<!-- <시작> 예매 시간대가 '일반' 일때만 할인정보 나타냄 -->
+					<c:if test="${bookingInfo.scsTimeDiscount=='일반'}">				
 						<div>
 							<c:forEach var="DiscountInfo" items="${DiscountInfo}">
-								<input type="radio" name = "discountInfo" value="${DiscountInfo.dcinfCode }"/>
+								<input type="radio" id="discountInfo" class="discountInfo"
+									name = "discountInfo" value="${DiscountInfo.dcinfPrice}"/>
 								&nbsp;${DiscountInfo.dcinfInfo}&emsp;
 							</c:forEach><br/><br/><br/>
 						</div>
 					</c:if>
+					<!-- <끝> 예매 시간대가 '일반' 일때만 할인정보 나타냄 -->
+					
+					<!-- <시작> 회원만 마일리지 나타냄--세션 아이디로 마일리지 정보 가져옴 -->
 					<c:if test="${memMileage.memMileage != null}">
 						<div>
 							<h4>마일리지</h4>
 							<h5>보유 마일리지 :</h5> ${memMileage.memMileage}<br/>
-							<h5>사용 : </h5><input type="text"/>
+							<input id="mileage" maxlength="5" size="5" type="text" value="0"/>
+							<input id="mileageBtn" type="button" value="사용"/>
+							
 						</div>
 					</c:if>
+					<!-- <끝> 회원만 마일리지 나타냄--세션 아이디로 마일리지 정보 가져옴 -->
+					
 				</div>
 				<!-- 할인 선택 끝 -->
 				
@@ -65,10 +72,23 @@
 					<h3 align="center">금액</h3>
 					<div>
 						총 결제 금액<br>
-						${bookingInfo.finalCost }
+						<p id="totalCost">${bookingInfo.finalCost }</p>
 					</div><br/>
-					<div>할인</div><br>
-					<div>남은 결제 금액</div><br>
+					<div>할인
+						<p id="discountCost">0</p><br>
+					</div>
+					
+					<!-- <시작> 회원만 마일리지 나타냄--세션 아이디로 마일리지 정보 가져옴 -->
+					<c:if test="${memMileage.memMileage != null}">
+						<div>마일리지 사용
+							<p id="useMileage">0</p><br/>
+						</div>
+					</c:if>
+					<!-- <끝> 회원만 마일리지 나타냄--세션 아이디로 마일리지 정보 가져옴 -->
+					
+					<div>남은 결제 금액
+						<p id="finalCost">${bookingInfo.finalCost}</p>
+					</div><br>
 				</div>
 				<!-- 금액 선택 끝 -->
 				
@@ -81,7 +101,7 @@
 						<div>${bookingInfo.brcLocal} ${bookingInfo.brcName}</div>			<!-- 지역, 지점이름-->
 						<div>${bookingInfo.scsDate} ${bookingInfo.scsStartTime}</div>		<!-- 상영 날짜, 영화 시작시간 -->
 						<div>${bookingInfo.personNum}&nbsp;명</div>
-						<div></div>	<!-- 남은 결제 금액 -->
+						<div id="finalCost"></div>	<!-- 남은 결제 금액 -->
 					</div>
 				</div>
 				<!-- 예매 정보 끝 -->
@@ -94,6 +114,53 @@
 		</form>
 	</div>
 
+<script>
+	$(document).ready(function(){
+		var finalCost = '${bookingInfo.finalCost}';
+		var discountCost = $('#discountInfo').val();
+		console.log(discountCost);
+		var mileageCost = $('#mileage').val();
+		console.log(mileageCost);
+		var returnDcCost=0;
+		
+		/* <할인>에서 일반/청소년/장애인 클릭시 <금액>에 할인 값을 집어넣는 스크립트 */
+		$('.discountInfo').click(function(){
+	    	switch (discountCost){
+	    		case "0" :
+	    			console.log('val 0 들어옴');
+	    			$('#discountCost').text($(this).val());
+	    			$('#finalCost').text(finalCost-$(this).val()-mileageCost);
+	    			returnDcCost=$(this).val();
+	    			console.log("returnDcCost"+returnDcCost);
+	    			break;
+	    		case "1000" :
+	    			console.log('val 1000 들어옴');
+		    		$('#discountCost').text($(this).val());
+		    		$('#finalCost').text(finalCost-$(this).val()-mileageCost);
+		    		returnDcCost=$(this).val();
+		    		console.log("returnDcCost"+returnDcCost);
+		    		break;
+	    		case "2000" :
+	    			console.log('val 2000 들어옴');
+		    		$('#discountCost').text($(this).val());
+		    		$('#finalCost').text(finalCost-$(this).val()-mileageCost);
+		    		returnDcCost=$(this).val();
+		    		console.log("returnDcCost"+returnDcCost);
+		    		break;
+		    	default :
+		    		break;	
+	    	}
+	    });
+		
+		/* <할인>에서 입력한 마일리지 값을 <금액>의 마일리지사용에 넣는 스크립트  */
+		
+	    $('#mileageBtn').click(function(){
+	    	console.log("returnDcCost"+returnDcCost);
+	    	$('#useMileage').text($('#mileage').val());
+	    	$('#finalCost').text(finalCost-returnDcCost-$('#mileage').val());
+	    }) 	
+	});
+</script>
 
 
 
