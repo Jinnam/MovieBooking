@@ -1,7 +1,14 @@
 /*
 ---------------------------- 정빈 추가 ---------------------------------
 */
+	@font-face {
+		font-family: 'nanum'; /* 폰트 패밀리 이름 주기*/
+		src: url('./NanumGothic.ttf'); /*폰트 파일 주소*/
+	}
 	
+	body{
+		font-family:'nanum' !important;
+	}
 	
 	/* 현재 선택된 블럭 */
 	.selectBlock {

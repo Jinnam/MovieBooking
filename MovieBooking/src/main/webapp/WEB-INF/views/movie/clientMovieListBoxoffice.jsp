@@ -41,7 +41,6 @@
 
     <div class="container" style="width:970px"> <!-- 메인컨테이너 시작 -->
 		
-	<h3 style="text-align:center;">박스오피스</h3>
 	
       <div class="row"> <!-- 메인이미지 시작 -->
       
@@ -58,7 +57,6 @@
                   <!-- 카드 앞면 -->
                   <div class="active side">
                     <img src="http://dimg.donga.com/wps/SPORTS/IMAGE/2016/12/08/81730614.1.jpg">
-                    <span class="card-title">공조</span>
                   </div>
                   
                   <!-- 카드 뒷면 -->
@@ -81,7 +79,10 @@
             
             <!-- 카드 컨텐츠 영역 -->
             <div class="card-content">
-              	테스트
+              	<div style="color:#424242;font-size:18px;">
+              		<i class="grade16_15" style="position:relative;top:2px;"></i>
+              		<b>공조</b>
+              	</div>
             </div>
             
           </div>

@@ -33,7 +33,7 @@
     <footer class="grey darken-4 page-footer">
       <div class="container" style="width:1000px;">
         <div class="row">
-          <div class="col l6 s12">
+          <div class="col l8 s12">
             <h5 class="white-text"><img src="http://image2.megabox.co.kr/mop/home/logo_footer_new.png"></h5>
             <span class="grey-text text-lighten-2" style="font-size:12px;">
               회사소개 | 채용정보 | 제휴/광고/부대사업 | 문의 | 이용약관 | 개인정보 | 처리방침 | 고객센터
