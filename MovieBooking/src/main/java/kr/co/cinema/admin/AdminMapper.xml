@@ -219,6 +219,26 @@
 	</select>
 	
 	
+	<insert id="insertCost"
+			parameterType="kr.co.cinema.dto.ScreenCost">
+			INSERT INTO 
+				SCREEN_COST
+				( 
+				scco_screen, 
+				scco_price, 
+				scco_applyYear, 
+				scco_status, 
+				scco_date
+				)
+			VALUES 
+				(
+				#{sccoScreen}, 
+				#{sccoPrice}, 
+				#{sccoApplyYear}, 
+				#{sccoStatus}, 
+				NOW()
+				); 
+	</insert>
 	
 	
 	<insert id="insertMovie"

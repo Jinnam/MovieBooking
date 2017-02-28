@@ -12,6 +12,7 @@ import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
+import kr.co.cinema.dto.ScreenCost;
 
 @Repository
 public class AdminDao {
@@ -102,6 +103,12 @@ public class AdminDao {
 	public int insertMovie(Movie movie) {
 		logger.debug(" Dao insertMovie");
 		return sqlSession.insert(NS+"insertMovie", movie);
+	}
+
+	//단가등록
+	public int insertCost(ScreenCost screenCost) {
+		logger.debug(" Dao insertCost");
+		return sqlSession.insert(NS+"insertCost", screenCost);
 	}
 
 }

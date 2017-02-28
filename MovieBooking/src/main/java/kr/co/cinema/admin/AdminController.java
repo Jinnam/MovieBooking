@@ -14,6 +14,7 @@ import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
+import kr.co.cinema.dto.ScreenCost;
 
 @Controller
 public class AdminController {
@@ -293,11 +294,18 @@ public class AdminController {
 	단가 관리 메서드 : 단가등록/단가수정
 	************************************************************************************************************/	
 	
-	//***관리자 단가등록 페이지 연결만 해놓음
+	//관리자 단가등록 페이지
 	@RequestMapping(value="costInsert", method=RequestMethod.GET)
-	public String insertCost() {
-		logger.debug(" Controller insertCost get실행");
+	public String insertCostView() {
+		logger.debug(" Controller insertCostView get실행");
 		return "management/costInsert";
+	}
+	
+	@RequestMapping(value="costInsert", method=RequestMethod.POST)
+	public String insertCost(ScreenCost screenCost) {
+		logger.debug(" Controller insertCost post실행");
+		adminService.insertCost(screenCost);
+		return "redirect:costInsert";
 	}
 	
 	//***관리자 단가수정 페이지 연결만 해놓음

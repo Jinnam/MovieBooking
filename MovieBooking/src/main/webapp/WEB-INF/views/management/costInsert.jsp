@@ -227,6 +227,62 @@
 				<!-- 페이지 강제 줄임 -->
 				<div class="col-lg-9 main-chart" align="center"></div>
 			</div>
+			<div class="container" style="margin: 0 auto;">
+				<div class="jumbotron">
+					<h2 class="logo">단가 등록</h2>
+				</div>
+				<div class="col-lg-3"></div>
+				<div class="col-lg-6" style="float: left: ;">
+					<form action="costInsert" class="form-horizontal" method="post">
+						<fieldset>
+							<legend>add</legend>
+							<!-- 상영종류 -->
+							<div class="form-group">
+								<label class="col-lg-2 control-label">상영종류</label>
+								<div class="col-lg-8">
+									<select name="sccoScreen" class="form-control">
+										<option>2D</option>
+										<option>3D</option>
+										<option>IMAX</option>
+									</select>
+								</div>
+							</div>
+							<!-- 가격 -->
+							<div class="row form-group">
+								<label class="col-lg-2 control-label">가격</label>
+								<div class="col-lg-8">
+									<input type="text" name="sccoPrice" class="form-control" placeholder="가격을 입력하세요" required="required">
+								</div>
+							</div>
+							<!-- 적용연도 -->
+							<div class="form-group">
+								<label class="col-lg-2 control-label">적용연도</label>
+								<div class="col-lg-8">
+									<input type="text" name="sccoApplyYear" class="form-control" placeholder="적용연도를 입력하세요" required="required">
+								</div>
+							</div>
+							<!-- 적용상태 -->
+							<div class="form-group">
+								<label class="col-lg-2 control-label">적용상태</label>
+								<div class="col-lg-8">
+									<select name="sccoStatus" class="form-control">
+										<option>적용</option>
+										<option>미적용</option>
+									</select>
+								</div>
+							</div>
+							<!-- 등록버튼 -->
+							<div class="form-group">
+								<label class="col-lg-2 control-label"></label>
+								<div class="col-lg-8"></div>
+								<div>
+									<input type="submit" class="btn btn-primary" value="등록">
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
 		</section>
 	</section>
 	<!-- 여기까지 메인 -->
