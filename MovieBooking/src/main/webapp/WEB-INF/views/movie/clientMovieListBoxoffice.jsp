@@ -20,11 +20,9 @@
         <!-- 플립 스크립트 -->
         <script>
         
-        var setting={duration:'300'}
-        
           $(document).ready(function(){
               $('.test1').hover(function(){               
-              	$(this).shape('flip over');                       
+              	$(this).shape({duration:500}).shape('flip over');                       
               },function(){               
               	$(this).shape('flip back');           
               });
@@ -60,12 +58,7 @@
                     <img style="opacity: 0.3;" src="http://dimg.donga.com/wps/SPORTS/IMAGE/2016/12/08/81730614.1.jpg">
   
                     <span class="card-title">
-                      <div class="ui star rating" data-rating="5" data-max-rating="5"></div>
-                      <script>
-                        $('.ui.rating')
-                        .rating()
-                        ;
-                      </script>
+
                     </span>
                   </div>
                   
@@ -74,6 +67,17 @@
             </div>
             
             <!-- 카드 컨텐츠 영역 -->
+            <div>
+              	<div style="text-align:center; position:relative;top:10px;right:10px;">
+              		  <div style="color:#757575; display:inline-block">평점 9.5</div>
+                      <div class="ui star rating" data-rating="5" data-max-rating="5"></div>
+                      <script>
+                        $('.ui.rating')
+                        .rating()
+                        ;
+                      </script>
+              	</div>
+            </div>            
             <div class="card-content">
               	<div style="color:#424242;font-size:18px;">
               		<i class="grade16_15" style="position:relative;top:2px;"></i>

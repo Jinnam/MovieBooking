@@ -91,7 +91,7 @@
       </div> <!--전체메뉴 목록 div 끝-->
 
       <!-- 전체메뉴 modal  -->
-      <div id="modal1" class="modal bottom-sheet">
+      <div id="modal1" class="modal">
         <div class="modal-content">
           <h4>Modal Header</h4>
           <p>A bunch of text</p>
