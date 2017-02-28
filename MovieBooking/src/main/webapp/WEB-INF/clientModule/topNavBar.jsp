@@ -31,7 +31,7 @@
         <a href="movieMain" style="margin-top:8px"><img src="resources/module-img/logo2.png"></a>
         <a class="item" style ="width:20px"></a> <!-- 시작선 -->
         <!-- 영화 -->
-        <a href="memberMovieList" class="item" style ="width:130px"><img src="resources/module-img/menu_movie.png" style="width:100px;height:40px"></a>	
+        <a href="clientMovieListBoxoffice1" class="item" style ="width:130px"><img src="resources/module-img/menu_movie.png" style="width:100px;height:40px"></a>	
         <!-- 극장 -->		
         <a href="beforeReady" class="item" style ="width:130px"><img src="resources/module-img/menu_theater.png" style="width:100px;height:40px"></a>			
         <!-- 예매 -->				
