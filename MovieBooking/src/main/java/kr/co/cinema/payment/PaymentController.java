@@ -32,7 +32,8 @@ public class PaymentController {
 		logger.debug("	payment() get방식 진입");
 		logger.debug("	bookingSeatSelectDto : "+bookingSeatSelectDto);
 		
-		String resultPage=null;													// session 확인 후 반환할 페이지 초기화
+		// session 확인 후 반환할 페이지 초기화
+		String resultPage=null;
 		
 	 	session.setAttribute("phone", "01011112222");				//가라 세션
 		// 세션 있는지 없는지 확인 후 결제페이지or 비회원 확인 페이지 이동
@@ -43,7 +44,7 @@ public class PaymentController {
 			String memId = "id001";
 			Map<String, Integer> map = paymentService.searchOneMileage(memId);
 			System.out.println("map : "+map);
-			model.addAttribute("memMileage", map);
+			model.addAttribute("memMap", map);
 			
 			// 할인 정보 가져오기.
 			List<DiscountInfo> discountInfo = paymentService.searchListDcPersonInfo();
@@ -69,8 +70,8 @@ public class PaymentController {
 	// 결제 페이지 POST
 	@RequestMapping(value="/payment", method=RequestMethod.POST)
 	public String payment(Payment payment){
+		logger.debug("payment post:"+payment.toString());
 		
-		
-		return "payment/payment";
+		return "redirect:movieMain";
 	}
 }

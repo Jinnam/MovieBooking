@@ -8,6 +8,7 @@
 	<!-- 마일리지 정보 가져오기 -->
 	<select id="selectMileage" parameterType="String" resultType="Map">
 		SELECT
+			mem_id AS memId,
 			mem_mileage AS memMileage
 		FROM
 			MEMBER
