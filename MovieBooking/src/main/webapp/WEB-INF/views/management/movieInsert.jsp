@@ -252,7 +252,7 @@
 							<div class="form-group">
 								<label class="col-lg-2 control-label">감독</label>
 								<div class="col-lg-10">
-									<input type="text" class="form-control" name="charCode" placeholder="감독이름을 입력하세요" required="required">
+									<input type="text" class="form-control" value="${selectCharCodeForInsertMovie.charCode}" name="charCode" placeholder="감독이름을 입력하세요" required="required">
 								</div>
 							</div>
 							<div class="form-group">

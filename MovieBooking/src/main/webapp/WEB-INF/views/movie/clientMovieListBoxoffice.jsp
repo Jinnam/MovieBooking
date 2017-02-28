@@ -19,18 +19,14 @@
 
         <!-- 플립 스크립트 -->
         <script>
-          var count= 0;
+        
+        var setting={duration:'300'}
+        
           $(document).ready(function(){
-              $('.test1').hover(function(){
-                if(count == 0){
-                      $(this).shape('flip over');
-                      count++;
-                }
-              },function(){
-                if(count > 0){
-                    $(this).shape('flip over');
-                    count = 0;
-                }
+              $('.test1').hover(function(){               
+              	$(this).shape('flip over');                       
+              },function(){               
+              	$(this).shape('flip back');           
               });
           });
 

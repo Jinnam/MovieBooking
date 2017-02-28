@@ -20,7 +20,6 @@ public class MemberDao {
 	private SqlSessionTemplate sqlSessionTemplate;
 	private final String Member_NS = "kr.co.cinema.member.MemberMapper.";
 	
-	
 	//회원 아이디 찾기 select 시작
 	public String selectOneIdFindMember(Member member){
 		logger.debug("아이디찾기 dao" + member);

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%--  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -38,6 +39,7 @@
         <a href="bookingSelect" class="item" style ="width:130px"><img src="resources/module-img/menu_ticket.png" style="width:100px;height:40px"></a>		
         <!-- 이벤트 -->					
         <a href="beforeReady" class="item" style ="width:130px"><img src="resources/module-img/menu_store.png" style="width:100px;height:40px"></a>
+        
         <!-- 로그인 -->							
         <a href="beforeReady" class="item" style ="width:130px"><img src="resources/module-img/menu_event.png" style="width:100px;height:40px"></a> 								
         <!-- 로그인 드랍다운 -->
@@ -47,12 +49,10 @@
           </div>
           <div class="menu" style="width:350px ; position:absolute; left:-200px;">
             <form style="width:300px;margin: 10px 10px 10px 10px;" action="memberLogin" method="post">
+            	<%-- <c:if test="sessionScope.id ne null"> --%>
               <!-- 로그인 폼시작 -->
               <div class="item" data-value="drop">
                 <table>
-                  <tr>
-                  <td>&nbsp;</td>
-                  </tr>
                   <tr>
                 	<td><p style="text-align: center;"><img src="resources/module-img/loginLogo.PNG"><p></td>
                   </tr>
@@ -76,6 +76,7 @@
                 </div>
               </div>
               <!-- 로그인 폼 끝 -->
+              <%-- </c:if> --%>
             </form>
           </div>
         </div>

@@ -12,6 +12,7 @@ import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
+import kr.co.cinema.dto.ScreenCost;
 
 @Repository
 public class AdminDao {
@@ -92,11 +93,22 @@ public class AdminDao {
 		logger.debug(" Dao selectMemberList");
 		return sqlSession.selectList(NS+"selectMemberList");
 	}
-
+	
+	//영화등록전 인물이름으로 인물코드조회
+	public String selectCharCodeForInsertMovie() {
+		logger.debug(" Dao selectCharCodeForInsertMovie");
+		return sqlSession.selectOne(NS+"selectCharCodeForInsertMovie");
+	}
 	//영화등록
 	public int insertMovie(Movie movie) {
 		logger.debug(" Dao insertMovie");
 		return sqlSession.insert(NS+"insertMovie", movie);
+	}
+
+	//단가등록
+	public int insertCost(ScreenCost screenCost) {
+		logger.debug(" Dao insertCost");
+		return sqlSession.insert(NS+"insertCost", screenCost);
 	}
 
 }

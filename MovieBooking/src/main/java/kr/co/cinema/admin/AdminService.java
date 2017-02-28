@@ -11,6 +11,7 @@ import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
+import kr.co.cinema.dto.ScreenCost;
 
 @Service
 public class AdminService {
@@ -91,11 +92,25 @@ public class AdminService {
 		logger.debug(" Service selectMemberList get실행");
 		return adminDao.selectMemberList();
 	}
-
+	
+	//영화등록 전 인물이름으로 인물코드조회
+	public String selectCharCodeForInsertMovie() {
+		logger.debug(" Service selectCharCodeForInsertMovie post실행");
+		return adminDao.selectCharCodeForInsertMovie();
+	}
+	
 	//영화등록
 	public int insertMovie(Movie movie) {
 		logger.debug(" Service insertMovie post실행");
 		return adminDao.insertMovie(movie);
 	}
+
+	//단가등록
+	public int insertCost(ScreenCost screenCost) {
+		logger.debug(" Service insertCost post실행");
+		return adminDao.insertCost(screenCost);
+	}
+
+	
 
 }
