@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -23,6 +22,13 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	//비회원 가입 form
+	@RequestMapping(value="/nonMemberInsert", method=RequestMethod.GET)
+	public String insertNonMember(){
+		return "login/nonMemberInsert";
+	}
+	
+	//회원 로그인 action
 	@RequestMapping(value="/memberLogin", method=RequestMethod.POST)
 	public String memberLogin(Member member, HttpSession session){
 		Map<String, String> map = new HashMap<String, String>();

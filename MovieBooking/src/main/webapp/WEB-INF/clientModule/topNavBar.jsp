@@ -31,7 +31,7 @@
         <a href="movieMain" style="margin-top:8px"><img src="resources/module-img/logo2.png"></a>
         <a class="item" style ="width:20px"></a> <!-- 시작선 -->
         <!-- 영화 -->
-        <a href="clientMovieListBoxoffice1" class="item" style ="width:130px"><img src="resources/module-img/menu_movie.png" style="width:100px;height:40px"></a>	
+        <a href="memberMovieList" class="item" style ="width:130px"><img src="resources/module-img/menu_movie.png" style="width:100px;height:40px"></a>	
         <!-- 극장 -->		
         <a href="beforeReady" class="item" style ="width:130px"><img src="resources/module-img/menu_theater.png" style="width:100px;height:40px"></a>			
         <!-- 예매 -->				
@@ -51,20 +51,28 @@
               <div class="item" data-value="drop">
                 <table>
                   <tr>
-                    <td><input type="text" name="memId" value="id001" style ="width:200px"></td>
+                  <td>&nbsp;</td>
                   </tr>
+                  <tr>
+                	<td><p style="text-align: center;"><img src="resources/module-img/loginLogo.PNG"><p></td>
+                  </tr>
+                  <tr>
+                  <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" name="memId" value="id001" style ="width:200px"><input type="submit" value="로그인"></td>
+                  </tr>
+                 <br>
                   <tr>
                     <td><input type="text" name="memPw" value="pw001" style ="width:200px"></td>
                   </tr>
-                  <tr>
-                  	<td><input type="submit" value="로그인"></td> 
-                  </tr>
+                  
                 </table>
+                <br><br>
                 <div>
-                  <a href="memberFind">ID/PW찾기</a>
-                </div>
-                <div class="item">
-                  <a href="memberProvision">회원가입</a>
+                  <a href="memberFind"><img src="resources/module-img/memberFinds.PNG"></a>
+                  <a href="memberProvision"><img src="resources/module-img/memberInserts.PNG"></a>
+                  <a href="nonMemberInsert"><img src="resources/module-img/nonmemberInsert.PNG"></a>
                 </div>
               </div>
               <!-- 로그인 폼 끝 -->

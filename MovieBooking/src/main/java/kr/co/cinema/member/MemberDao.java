@@ -20,14 +20,24 @@ public class MemberDao {
 	private SqlSessionTemplate sqlSessionTemplate;
 	private final String Member_NS = "kr.co.cinema.member.MemberMapper.";
 	
+	
+	//회원 아이디 찾기 select 시작
+	public String selectOneIdFindMember(Member member){
+		logger.debug("아이디찾기 dao" + member);
+		return sqlSessionTemplate.selectOne(Member_NS + "selectOneIdFindMember", member);
+	}
+	//회원 아이디 찾기 select 종료	
+	
+	//회원 로그인 select 시작
 	public Member selectMemberLogin(Map<String, String> map){
 		logger.debug("로그인 select dao" + map);
 		return sqlSessionTemplate.selectOne(Member_NS + "selectMemberLogin", map);
 	}
+	//회원 로그인 select 종료
 	
 	//회원가입 insert 시작
 	public int insertMember(Member member){
-		logger.info("회원가입 insert" + member);
+		logger.debug("회원가입 insert" + member);
 		return sqlSessionTemplate.insert(Member_NS + "insertMember", member);
 	}
 	//회원가입 insert 종료

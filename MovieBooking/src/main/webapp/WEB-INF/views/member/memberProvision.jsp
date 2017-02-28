@@ -290,6 +290,13 @@
 		
 	form1.onsubmit = function(e) {
 		e.preventDefault(); 
+		if ( !form1_data['c1'] ) {
+			alert('네이버 이용약관 동의를 하지 않았습니다'); 
+			c1.parentNode.style.color = 'red'; 
+			return false; 
+		}
+
+	
 		if ( !form1_data['c2'] ) {
 			alert('개인정보 수집 및 이용에 대한 안내를 선택하지 않았습니다.'); 
 				return false; 

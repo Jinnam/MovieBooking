@@ -8,7 +8,7 @@
 <link rel="SHORTCUT ICON" href="resources/module-img/titleIcon.png">
 			<style type="text/css">
                     div, input, label { font-size:12px; }	/* 폰트크기 조절 */
-                    #div1 { width:815px; margin:12px; }		/* text틀 가로조정 */
+                    #div1 { width:970px; margin:12px; }		/* text틀 가로조정 */
                     #div1 {
                            height:150px;					/* 화면에 보여지는 text틀 세로조정 */
                            overflow:auto;					/* text 틀 스크롤바 */
@@ -27,10 +27,12 @@
 <!-- 영화 메뉴 바-->
 <%@ include file="/WEB-INF/clientModule/topMovieBar.jsp" %>
 
+<br><br>
 
+		<!-- 아이디 비밀번호 찾기 약관 시작 -->
 		<div class="container" style="width:970px">
 			<h3>아이디 / 비밀번호 찾기</h3>
-			<form action="" method="post">
+			
 					<div id="div1">
 					<br>
 					<p>
@@ -40,45 +42,48 @@
 					<p>
 						* 이용안내 고객센터 > 1:1문의 또는 ARS 1544-0070 (09:00~21:00)
 					</p>
-					</div>
-					<div class="ui top attached tabular menu">
-  <a class="active item">
-    Bio
-  </a>
-  
-</div>
+		</div>
+		<br><br>
+		<!-- 아이디 비밀번호 찾기 약관 종료 -->			
+		
+		</div>
+		
+		<div class="container" style="width:485px; text-align: left;">
+		<!-- 아이디찾기 비밀번호찾기 시멘틱 ui 시작 -->			
+		<div class="ui top attached tabular menu">
+			<a class="active item" style="size: 1px"> 아이디 찾기 </a> 
+			<a class="active item" style="size: 1px"> 비밀번호 찾기 </a>
+		</div>
+		<br>
+		<!-- 아이디찾기 비밀번호찾기 시멘틱 ui 종료 -->	
+		
+		<!-- 아이디 비밀번호 찾기 table 시작 -->
+		<form action="" method="post">
 				<table>
                   <tr>
-                    <td><input type="text" placeholder="id001" style ="width:200px"></td>
+                   	<td><p>이름<p><input type="text" style ="width:200px"></td>
                   </tr>
                   <tr>
-                    <td><input type="text" placeholder="pw001" style ="width:200px"></td>
-                  </tr>
-                    <tr>
-                    <td><input type="text" placeholder="pw001" style ="width:200px"></td>
-                  </tr>
-					</table>
-					
-					<table>
-                  <tr>
-                    <td><input type="text" placeholder="id001" style ="width:200px"></td>
+                    <td><p>생년 월일<p><input type="text" style ="width:200px"></td>
                   </tr>
                   <tr>
-                    <td><input type="text" placeholder="pw001" style ="width:200px"></td>
+                    <td><p>휴대폰 번호<p><input type="text" style ="width:200px"></td>
                   </tr>
-                    <tr>
-                    <td><input type="text" placeholder="pw001" style ="width:200px"></td>
+                  <tr>
+                  	<td>&nbsp;</td>
                   </tr>
-					</table>
-	
-					
-					
-					
-					
-</form>
-</div>
-
-
+                  <tr>
+					<td>
+                  		<div>
+							<input class="btn blue darken-4" type="submit" value="아이디찾기" onclick=""/>
+						</div>
+					</td>
+                  </tr>
+                </table>  
+		</form>
+		</div>
+		<!-- 아이디 비밀번호 찾기 table 종료 -->
+<br><br>
 <!-- 하단바 -->
 <%@ include file="/WEB-INF/clientModule/footer.jsp" %>
 </body>

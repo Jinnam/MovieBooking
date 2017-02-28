@@ -46,13 +46,14 @@
                 document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새우편번호 사용
                 document.getElementById('sample6_address').value = fullAddr;
 
-                // 커서를 상세주소 필드로 이동한다.
-                document.getElementById('sample6_address2').focus();
+                // 커서를 주소 필드로 이동한다.
+                document.getElementById('sample6_address').focus();
             }
         }).open();
     }
 </script>
 <!-- 주소 api script 종료 -->
+
 
 <script type="text/javascript">
 function checkfield(){
@@ -62,7 +63,7 @@ function checkfield(){
 		document.addjoin.memId.focus();
 		exit;
 	/* 아이디 alert 종료 */
-		
+			
 	/* 비밀번호 alert 시작 */
 	}else if(document.addjoin.memPw.value==""){
 		alert("비밀번호를 입력하세요");
@@ -113,11 +114,12 @@ function checkfield(){
 	/* 이메일 alert 종료 */
 	}
 	
+	/* 버튼을 sumbit 하게하는 script */
+	document.addjoin.action="memberInsert";
+	document.addjoin.method="post";
+	document.addjoin.submit();
+	
 }
-
-
-
-
 </script>
 </head>
 
@@ -134,7 +136,7 @@ function checkfield(){
 <!-- 회원가입 폼 시작 -->
 <div class="container" style="width:800px">
 <br><br>
-	<form action="memberInsert" method="post" name="addjoin">
+	<form action="memberInsert" method="post" name="addjoin" id="checkForm">
 		<h3>가입정보입력</h3>
 		<table>
 			<tr>
@@ -144,7 +146,8 @@ function checkfield(){
 						<tr>
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*아이디</td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
-								<input type="text" style="width: 200xp" name="memId" id="memId"/>&nbsp;<input type="button" value="중복확인" />&nbsp;
+								<input type="text" style="width: 200xp" name="memId" id="memId" placeholder="아이디" />&nbsp;
+								<input type="button" value="중복확인" />&nbsp;
 									<label>영문이나 숫자 혹은 그 조합 8~12자리</label></td>
 						</tr>
 						<!-- 아이디 입력 및 중복 종료-->
@@ -152,7 +155,7 @@ function checkfield(){
 						<!-- 비밀번호 작성 시작 -->
 						<tr bgcolor="ffffff">
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*비밀번호</td>
-							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;&nbsp;
+							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
 								<input type="password" style="width: 200xp" name="memPw"/></td>
 						</tr>
 						<!-- 비밀번호 작성 종료 -->
@@ -169,7 +172,7 @@ function checkfield(){
 						<tr bgcolor="ffffff">
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*이름</td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
-								<input type="text" name="memName"/></td>
+								<input type="text" name="memName" placeholder="이름"/></td>
 						</tr>
 						<!-- 이름 작성 종료-->
 						
@@ -196,7 +199,6 @@ function checkfield(){
 								<input type="text" name="memPostNo" id="sample6_postcode" placeholder="우편번호" readonly="readonly"/>&nbsp;
 								<input type="button" onclick="getDaumPostcode()" value="우편번호 찾기"/><br/>&nbsp;
 								<input type="text" name="memAddr" id="sample6_address" placeholder="주소" readonly="readonly"/>&nbsp;
-								<input type="text" id="sample6_address2" placeholder="상세주소">
 							</td>
 						</tr>
 						<!-- 주소 api 입력 종료-->
@@ -208,7 +210,6 @@ function checkfield(){
 							<input type="text" name="memMail"/></td>
 						</tr>
 						<!-- 이메일 작성 종료-->
-						
 					</table>
 				</td>
 			</tr>
@@ -226,7 +227,6 @@ function checkfield(){
 						<!-- 회원가입 신청버튼 및 취소 종료 -->
 				</td>
 			</tr>
-						
 		</table>
 	</form>
 	<!-- 회원가입 폼 종료 -->

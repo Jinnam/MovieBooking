@@ -5,6 +5,23 @@
   
 <mapper namespace="kr.co.cinema.member.MemberMapper">
 
+
+	<!-- 비회원 가입 insert 시작 -->
+	<insert id="">
+		insert into non_member(
+			nmem_phone,
+			nmem_name,
+			nmem_birth,
+			nmem_pw)
+		values(
+			'01030448764'
+			'홍진호',
+			'20000109'
+			'pw001')	
+	
+	</insert>
+	<!-- 비회원 가입 insert 종료 -->
+
 	<!-- 회원 로그인 select 시작 -->
 	<select id="selectMemberLogin" parameterType="Map" resultType="kr.co.cinema.dto.Member">
 		select
@@ -51,7 +68,7 @@
 	<!-- 회원 가입 insert 종료 -->
 	
 	<!-- 회원 비밀번호 찾기 select 시작 -->
-	<select id="selectOnePasswordFindMember" parameterType="String" resultType="kr.co.cinema.dto.Member">
+	<select id="selectOnePwFindMember" parameterType="String" resultType="kr.co.cinema.dto.Member">
 		select
 			mem_pw
 		from 
