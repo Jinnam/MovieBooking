@@ -234,7 +234,7 @@
 				</div>
 				<div class="col-lg-3"></div>
 				<div class="col-lg-6" style="float: left: ;">
-					<form class="form-horizontal" method="post">
+					<form action="branchModify" class="form-horizontal" method="post">
 						<fieldset>
 							<legend>기입사항</legend>
 							<div class="form-group">

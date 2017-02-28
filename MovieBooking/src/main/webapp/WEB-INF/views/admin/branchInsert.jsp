@@ -232,9 +232,8 @@
 				<div class="jumbotron">
 					<h2 class="logo">지점 등록</h2>
 				</div>
-				<div class="col-lg-3"></div>
-				<div class="col-lg-6" style="float: left: ;">
-					<form class="form-horizontal" method="post">
+				<div style="margin:0 auto;">
+					<form action="branchInsert" class="col-lg-12 form-horizontal" method="post">
 						<fieldset>
 							<legend>기입사항</legend>
 							<div class="form-group">

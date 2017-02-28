@@ -124,6 +124,7 @@
 		on
 			ADMIN.brc_code = BRANCH.brc_code
 	</select>
+	
 	<!-- 관리자 등록 -->
 	<insert id="insertAdmin"
 			parameterType="kr.co.cinema.dto.Admin">
@@ -150,25 +151,35 @@
 	<select id="selectAdminAuthAndId"
 			resultType="kr.co.cinema.dto.Admin">
 			SELECT
-				Admin.adm_id AS	admId,
-				Admin.adm_auth AS admAuth
+				ADMIN.adm_id AS	admId,
+				ADMIN.adm_auth AS admAuth
 			FROM
-				Admin
+				ADMIN
 			WHERE
-				Admin.brc_code = #{brcCode}
+				ADMIN.adm_id = #{admId}
 	</select>
+	
 	<!-- 관리자 수정 -->
-	<update id="">
-		UPDATE 
-			ADMIN 
-		SET 
-			ADMIN.brc_code = #{brcCode},
-			ADMIN.adm_pw = #{admPw},
-			ADMIN.adm_auth = #{admAuth}
-		WHERE 
-			ADMIN.adm_id = #{admId};
-		
+	<update id="updateAdmin"
+			parameterType="kr.co.cinema.dto.Admin">
+			UPDATE 
+				ADMIN 
+			SET 
+				ADMIN.brc_code = #{brcCode},
+				ADMIN.adm_pw = #{admPw},
+				ADMIN.adm_auth = #{admAuth}
+			WHERE 
+				ADMIN.adm_id = #{admId};
 	</update>
+	
+	<delete id="deleteAdmin"
+			parameterType="kr.co.cinema.dto.Admin">
+		DELETE FROM 
+			ADMIN
+		WHERE 
+			ADMIN.adm_id = #{admId}
+	</delete>
+	
 	<!--****************************************************************************************
 	회원조회쿼리  : 회원목록조회/조건검색(아이디, 전화번호, 회원이름)
 	******************************************************************************************-->
@@ -191,5 +202,50 @@
 		FROM 
 			MEMBER
 	</select>
+	
+	<!--****************************************************************************************
+	영화관리쿼리  : 영화등록/영화조회/영화수정
+	******************************************************************************************-->	
+	
+	<insert id="insertMovie"
+			parameterType="kr.co.cinema.dto.Movie">
+		INSERT INTO 
+			MOVIE
+			( 
+			mov_korName, 
+			mov_engName, 
+			char_code, 
+			mov_nation, 
+			mov_grade, 
+			mov_genre, 
+			mov_maker, 
+			mov_runningTime, 
+			mov_openDate, 
+			mov_infoDetail, 
+			mov_imgPath, 
+			mov_videoPath, 
+			mov_status, 
+			mov_date, 
+			mov_finalModifyDate
+			) 
+		VALUES 
+			(
+			#{movKorName}, 
+			#{movEngName},
+			#{charCode},
+			#{movNation}, 
+			#{movGrade}, 
+			#{movGenre}, 
+			#{movMaker}, 
+			#{movRunningTime}, 
+			#{movOpenDate}, 
+			#{movInfoDetail},
+			#{movImgPath},
+			#{movVideoPath}, 
+			#{movStatus}, 
+			now(), 
+			now()
+			); 
+	</insert>
 	
 </mapper>
