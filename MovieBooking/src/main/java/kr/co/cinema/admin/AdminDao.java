@@ -92,7 +92,12 @@ public class AdminDao {
 		logger.debug(" Dao selectMemberList");
 		return sqlSession.selectList(NS+"selectMemberList");
 	}
-
+	
+	//영화등록전 인물이름으로 인물코드조회
+	public String selectCharCodeForInsertMovie() {
+		logger.debug(" Dao selectCharCodeForInsertMovie");
+		return sqlSession.selectOne(NS+"selectCharCodeForInsertMovie");
+	}
 	//영화등록
 	public int insertMovie(Movie movie) {
 		logger.debug(" Dao insertMovie");

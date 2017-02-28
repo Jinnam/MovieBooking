@@ -207,6 +207,20 @@
 	영화관리쿼리  : 영화등록/영화조회/영화수정
 	******************************************************************************************-->	
 	
+	
+	<select id="selectCharCodeForInsertMovie"
+			resultType="kr.co.cinema.dto.Character">
+			SELECT 
+				`CHARACTER`.char_code 
+			FROM 
+				`CHARACTER` 
+			WHERE 
+				`CHARACTER`.char_korName = #{charKorName};
+	</select>
+	
+	
+	
+	
 	<insert id="insertMovie"
 			parameterType="kr.co.cinema.dto.Movie">
 		INSERT INTO 

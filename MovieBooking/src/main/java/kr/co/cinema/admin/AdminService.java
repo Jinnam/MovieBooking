@@ -91,11 +91,19 @@ public class AdminService {
 		logger.debug(" Service selectMemberList get실행");
 		return adminDao.selectMemberList();
 	}
-
+	
+	//영화등록 전 인물이름으로 인물코드조회
+	public String selectCharCodeForInsertMovie() {
+		logger.debug(" Service selectCharCodeForInsertMovie post실행");
+		return adminDao.selectCharCodeForInsertMovie();
+	}
+	
 	//영화등록
 	public int insertMovie(Movie movie) {
 		logger.debug(" Service insertMovie post실행");
 		return adminDao.insertMovie(movie);
 	}
+
+	
 
 }

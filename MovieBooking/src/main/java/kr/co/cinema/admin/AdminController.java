@@ -171,8 +171,10 @@ public class AdminController {
 	
 	//관리자 영화등록 페이지
 	@RequestMapping(value="movieInsert", method=RequestMethod.POST)
-	public String insertMovie(Movie movie) {
+	public String insertMovie(Model model, Movie movie) {
 		logger.debug(" Controller insertMovie post실행");
+		String selectCharCodeForInsertMovie = adminService.selectCharCodeForInsertMovie();
+		model.addAttribute("selectCharCodeForInsertMovie", selectCharCodeForInsertMovie);
 		adminService.insertMovie(movie);
 		return "redirect:adminMovieList";
 	}
