@@ -67,9 +67,9 @@
 			<div class="row card" style="height:600px;">
 			
 				<!-- 결제 선택 시작 -->
-				<div class="col s3 card" style="height:520px">
+				<div class="col s3 card" style="height:530px; align:center;">
 						<h3 align="center">결제</h3>
-						<div style="cursor: pointer;" class="paymentWay">휴대폰결제</div><br/>
+						<div style="cursor: pointer; height:30px; background-color:blue;" class="paymentWay">휴대폰결제</div><br/>
 						<div style="cursor: pointer;" class="paymentWay">신용/체크</div><br/>
 						<div style="cursor: pointer;" class="paymentWay">카카오페이</div><br/>
 						<div style="cursor: pointer;" class="paymentWay">무통장입금</div><br/>
@@ -77,7 +77,7 @@
 				<!-- 결제 선택 끝-->
 			
 				<!-- 할인 선택 시작 -->
-				<div class="col s3 card" style="height:520px">
+				<div class="col s3 card" style="height:530px">
 					<h3 align="center">할인</h3>
 					
 					<!-- <시작> 예매 시간대가 '일반' 일때만 할인정보 나타냄 -->
@@ -111,11 +111,11 @@
 				<!-- 할인 선택 끝 -->
 				
 				<!-- 금액 선택 시작 -->
-				<div class="col s3 card" style="height:520px">
+				<div class="col s3 card" style="height:530px">
 					<h3 align="center">금액</h3>
 					<div>
 						총 결제 금액<br>
-						<p id="totalCost">${bookingInfo.finalCost*bookingInfo.personNum}</p>
+						<span id="totalCost">${bookingInfo.finalCost*bookingInfo.personNum}</span>원
 					</div><br/>
 					<div>할인
 						<p id="discountCost">0</p><br>
@@ -129,14 +129,14 @@
 					</c:if>
 					<!-- <끝> 회원만 마일리지 나타냄--세션 아이디로 마일리지 정보 가져옴 -->
 					
-					<div>남은 결제 금액
-						<p class="finalCost">${bookingInfo.finalCost*bookingInfo.personNum}</p>
+					<div>남은 결제 금액<br/>
+						<span class="finalCost">${bookingInfo.finalCost*bookingInfo.personNum}</span> 원
 					</div><br>
 				</div>
 				<!-- 금액 선택 끝 -->
 				
 				<!-- 예매 정보 시작 -->
-				<div class="col s3 card" style="height:520px">
+				<div class="col s3 card" style="height:530px">
 					<h3 align="center">예매정보</h3>
 					<div>
 						<img src="${bookingInfo.movImgPath}" width="250px" height="350"/>	<!-- 영화 이미지 -->
@@ -151,8 +151,8 @@
 							${bookingInfo.seatCode1}&nbsp;${bookingInfo.seatCode2}
 							&nbsp;${bookingInfo.seatCode3}&nbsp;${bookingInfo.seatCode4}	<!-- 좌석 위치 표시 -->
 						</div>
-						<p id="finalCost" class="finalCost">
-							${bookingInfo.finalCost*bookingInfo.personNum}</p>				<!-- 남은 결제 금액 -->
+						<span id="finalCost" class="finalCost">
+							${bookingInfo.finalCost*bookingInfo.personNum}</span> 원			<!-- 남은 결제 금액 -->
 						
 					</div>
 				</div>

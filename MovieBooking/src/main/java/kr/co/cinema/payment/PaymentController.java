@@ -33,7 +33,7 @@ public class PaymentController {
 		logger.debug("	bookingSeatSelectDto : "+bookingSeatSelectDto);
 		
 		// session 확인 후 반환할 페이지 초기화
-		String resultPage=null;
+		String resultPage="movieMain";
 		
 		session.setAttribute("phone", "01011112222");							// ***가짜 세션***
 	 	String getSession = (String) session.getAttribute("phone");
@@ -83,16 +83,23 @@ public class PaymentController {
 	
 	// 결제 페이지 POST
 	@RequestMapping(value="/payment", method=RequestMethod.POST)
-	public String payment(Payment payment,HttpSession session){
+	public String payment(Model model, Payment payment, HttpSession session){
 		logger.debug("		payment post:"+payment.toString());
-		String id = (String) session.getAttribute("id");
-		String phone = (String) session.getAttribute("phone");
+		
+		session.setAttribute("phone", "01012344322");
+		
+		String id = (String) session.getAttribute("id");							// 세션에 있는 id값을 가져옴
+		String phone = (String) session.getAttribute("phone");						// 세션에 있는 전화번호를 가져옴
 		if(id != null){
 			payment.setMemId(id);
+			payment.setNmemCode("회원");
 		}else{
 			String nmemCode = paymentService.searchOneNmemCode(phone);
 			payment.setNmemCode(nmemCode);
+			payment.setMemId("비회원");
 		}
-		return "redirect:movieMain";
+		paymentService.insertPayment(payment);										// db에 결제 등록
+		model.addAttribute("payment",payment);										// 결제 결과 보여주기 위한 정보를 model에 올림
+		return "payment/paymentResult";
 	}
 }

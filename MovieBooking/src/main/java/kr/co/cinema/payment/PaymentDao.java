@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.cinema.dto.DiscountInfo;
+import kr.co.cinema.dto.Payment;
 import kr.co.cinema.dto.ScreenCost;
 import kr.co.cinema.dto.Seat;
 
@@ -21,8 +22,13 @@ public class PaymentDao {
 	private SqlSessionTemplate sqlSession;
 	private final String NS="kr.co.cinema.payment.PaymentMapper.";
 	
-	// 비회원 코드 가져오기
+	// 결제 정보 등록
+	public int insertPayment(Payment payment){
+		logger.debug("		insertPayment() 진입 payment : "+payment);
+		return sqlSession.insert(NS+"insertPayment",payment);
+	}
 	
+	// 비회원 코드 가져오기
 	public String selectOneNmemCode(String phone){
 		logger.debug("		selectOneNmemCode() 진입 phone : "+phone);
 		return sqlSession.selectOne(NS+"selectNmemCode", phone);

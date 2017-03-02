@@ -9,7 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.co.cinema.HomeService;
 import kr.co.cinema.dto.DiscountInfo;
+import kr.co.cinema.dto.Payment;
 import kr.co.cinema.dto.ScreenCost;
 import kr.co.cinema.dto.Seat;
 
@@ -19,6 +21,19 @@ public class PaymentService {
 	
 	@Autowired
 	private PaymentDao paymentDao;
+	@Autowired
+	private HomeService homeService;
+	
+	// 결제 정보 등록
+		public int insertPayment(Payment payment){
+			logger.debug("		insertPayment() 진입 payment : "+payment);
+			
+			String pmtCode = homeService.madeCode(payment);							// 결제코드 생성
+			System.out.println("pmtCode : "+pmtCode);
+			payment.setPmtCode(pmtCode);
+			
+			return paymentDao.insertPayment(payment);
+		}
 	
 	// 비회원 코드 가져오기
 	public String searchOneNmemCode(String phone){

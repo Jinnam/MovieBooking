@@ -130,14 +130,14 @@
 			pmt_price,
 			pmt_date
 		) VALUES (
-			pmtCode,
-			scsCode,
-			memId,
-			nmemCode,
-			sccoCode,
-			dcinfCode,
-			pmtTicketNum
-			pmtPrice,
+			#{pmtCode},
+			#{scsCode},
+			#{memId},
+			#{nmemCode},
+			#{sccoCode},
+			#{dcinfCode},
+			#{pmtTicketNum},
+			#{pmtPrice},
 			now()
 			)
 	</insert>
