@@ -26,21 +26,25 @@ public class BookingDao {
 
 	//상영일정코드에 맞는 사용중인 좌석 수 가져오기
 	public List<Seat> countUseSeat(String scsCode){
+		logger.debug("countUseSeat 상영일정코드에 맞는 사용중인 좌석 수 가져오기");
 		return session.selectList(mapperNS+"selectListSeat",scsCode);		
 	}	
 	
 	//상영일정코드에 맞는 좌석 수 가져오기
 	public List<Seat> countTotalSeat(String scsCode){
+		logger.debug("countTotalSeat 상영일정코드에 맞는 좌석 수 가져오기");
 		return session.selectList(mapperNS+"selectListSeat",scsCode);		
 	}	
 	
 	//상영일정코드에 맞는 좌석 정보 가져오기
 	public List<Seat> selectListSeat(String scsCode){
+		logger.debug("selectListSeat 상영일정코드에 맞는 좌석 정보 가져오기");
 		return session.selectList(mapperNS+"selectListSeat",scsCode);		
 	}
 	
 	//상영일정코드에 맞는 상영일정및 영화정보  가져오기
 	public Map<String,String> selectOneScreenSchedule(String scsCode){
+		logger.debug("selectOneScreenSchedule 상영일정코드에 맞는 상영일정및 영화정보  가져오기");
 		return session.selectOne(mapperNS+"selectOneScreenSchedule",scsCode);		
 	}	
 	
