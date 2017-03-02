@@ -7,20 +7,33 @@
 
 
 	<!-- 비회원 가입 insert 시작 -->
-	<insert id="">
+	<insert id="insertNonMember" parameterType="kr.co.cinema.dto.NonMember">
 		insert into non_member(
 			nmem_phone,
 			nmem_name,
 			nmem_birth,
 			nmem_pw)
 		values(
-			'01030448764'
-			'홍진호',
-			'20000109'
-			'pw001')	
+			#{nmemPhone},
+			#{nmemName},
+			#{nmemBirth},
+			#{nmemPw})	
 	
 	</insert>
 	<!-- 비회원 가입 insert 종료 -->
+
+	<select id="selectMemeberOverlap" parameterType="String" resultType="String">
+		select 
+			mem_id AS memId
+		from 
+			MEMBER 
+		where 
+			mem_id=#{memId}
+	</select>
+
+
+
+
 
 	<!-- 회원 로그인 select 시작 -->
 	<select id="selectMemberLogin" parameterType="Map" resultType="kr.co.cinema.dto.Member">

@@ -20,6 +20,14 @@ public class MemberDao {
 	private SqlSessionTemplate sqlSessionTemplate;
 	private final String Member_NS = "kr.co.cinema.member.MemberMapper.";
 	
+	public String selectMemeberOverlap(String memId){
+		logger.debug("중복확인 dao" + memId);
+		return sqlSessionTemplate.selectOne(Member_NS + "selectMemeberOverlap", memId);
+		
+	}
+	
+	
+	
 	//회원 아이디 찾기 select 시작
 	public String selectOneIdFindMember(Member member){
 		logger.debug("아이디찾기 dao" + member);

@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.cinema.dto.Member;
 
@@ -21,6 +23,17 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
+	
+	
+	//회원가입 중복확인 action
+	@RequestMapping(value="/memeberOverlap", method=RequestMethod.POST)
+	public @ResponseBody String overlapMember(@RequestParam(value="id")String memId){
+		
+		String returnMember = memberService.findOneMemberOverlap(memId);
+		logger.debug(memId.toString());
+		System.out.println(returnMember);
+		return returnMember;
+	}
 	
 	//비회원 가입 form
 	@RequestMapping(value="/nonMemberInsert", method=RequestMethod.GET)

@@ -17,6 +17,16 @@ public class MemberService {
 	@Autowired
 	private MemberDao memberdao;
 	
+	public String findOneMemberOverlap(String memId){
+		logger.debug("중복확인 service" + memId);
+		return memberdao.selectMemeberOverlap(memId);
+	}
+	
+	
+	
+	
+	
+	
 	//회원 아이디 찾기 select 시작
 	public String findOneMemberIdFind(Member member){
 		logger.debug("아이디 찾기 service" + member);
@@ -34,7 +44,7 @@ public class MemberService {
 	
 	//회원가입 insert(add) 시작
 	public int addMember(Member member){
-		logger.debug("member서비스확인" + member);
+		logger.debug("member insert service" + member);
 		return memberdao.insertMember(member);
 	}
 	//회원가입 insert(add) 종료
