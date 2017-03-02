@@ -146,18 +146,24 @@ public class HomeService {
 				map.put("srcCode",getScreenCode);
 				String getScreenScheduleCode = homeDao.selectObjectCode(map);				// scrCode에 해당하는 최신의 scs_code 가져오기 
 				
-				String getFirst = getScreenScheduleCode.substring(0,2);
-				String getDate= getScreenScheduleCode.substring(2,8);						// scs_code에서 날짜 추출
-				String getScreenNum = getScreenScheduleCode.substring(8,14);				// screen 번호 추출
-				String getNum = getScreenScheduleCode.substring(14,17);						// scs_code에서 누적번호 추출
-				if(dDay.equals(getDate)){
-					logger.debug("		makeCode() 날짜 값이 같음");
-					int intNum = Integer.parseInt(getNum);									// 코드에서 추출한 숫자를 int형으로 변환
-					resultCode =getFirst + getDate + getScreenNum
-							+ Integer.toString(intNum+1);									// 숫자 1 증가
+				if(getScreenScheduleCode==null){											// 기존 코드 없을 경우 새로운 코드 생성
+					String scrNum = screenSchedule.getScrCode().substring(2);
+					resultCode = "43"+dDay+scrNum+"101";
 				}else{
-					logger.debug("		makeCode() 날짜 값이 다름");
-					resultCode = getFirst+dDay+getScreenNum+"101";
+				
+					String getFirst = getScreenScheduleCode.substring(0,2);
+					String getDate= getScreenScheduleCode.substring(2,8);						// scs_code에서 날짜 추출
+					String getScreenNum = getScreenScheduleCode.substring(8,14);				// screen 번호 추출
+					String getNum = getScreenScheduleCode.substring(14,17);						// scs_code에서 누적번호 추출
+					if(dDay.equals(getDate)){
+						logger.debug("		makeCode() 날짜 값이 같음");
+						int intNum = Integer.parseInt(getNum);									// 코드에서 추출한 숫자를 int형으로 변환
+						resultCode =getFirst + getDate + getScreenNum
+								+ Integer.toString(intNum+1);									// 숫자 1 증가
+					}else{
+						logger.debug("		makeCode() 날짜 값이 다름");
+						resultCode = getFirst+dDay+getScreenNum+"101";
+					}
 				}
 			}
 
@@ -169,20 +175,25 @@ public class HomeService {
 				String getScsCode = seat.getScsCode();
 				map.put("SeatScsCode", getScsCode);
 				String getSeatCode = homeDao.selectObjectCode(map);
-				
-				String getFirst = getSeatCode.substring(0,2);
-				String getDate = getSeatCode.substring(2,8);
-				String getScsNum = getSeatCode.substring(8,17);
-				String getNum = getSeatCode.substring(17);
-				
-				if(dDay.equals(getDate)){
-					logger.debug("		makeCode() 날짜 값이 같음");
-					int intNum = Integer.parseInt(getNum);
-					resultCode = getFirst+getDate+getScsNum+Integer.toString(intNum+1);
-				}
-				else{
-					logger.debug("		makeCode() 날짜 값이 다름");
-					resultCode = getFirst+dDay+getScsNum+"1001";
+				if(getSeatCode==null){											// 기존 코드 없을 경우 새로운 코드 생성
+					String scsNum = seat.getScsCode().substring(8);
+					resultCode = "44"+dDay+scsNum+"1001";
+				}else{
+					
+					String getFirst = getSeatCode.substring(0,2);
+					String getDate = getSeatCode.substring(2,8);
+					String getScsNum = getSeatCode.substring(8,17);
+					String getNum = getSeatCode.substring(17);
+					
+					if(dDay.equals(getDate)){
+						logger.debug("		makeCode() 날짜 값이 같음");
+						int intNum = Integer.parseInt(getNum);
+						resultCode = getFirst+getDate+getScsNum+Integer.toString(intNum+1);
+					}
+					else{
+						logger.debug("		makeCode() 날짜 값이 다름");
+						resultCode = getFirst+dDay+getScsNum+"1001";
+					}
 				}
 			}
 			
@@ -194,21 +205,26 @@ public class HomeService {
 				map.put("PaymentScsCode", getScsCode);
 				String getPmtCode = homeDao.selectObjectCode(map);
 				
-				String getFirst = getPmtCode.substring(0, 2);
-				String getDate = getPmtCode.substring(2,8);
-				String getScsNum = getPmtCode.substring(8,17);
-				String getNum = getPmtCode.substring(17);
-				
-				if(dDay.equals(getDate)){
-					logger.debug("		makeCode() 날짜 값이 같음");
-					int intNum = Integer.parseInt(getNum);
-					resultCode = getFirst+getDate+getScsNum+Integer.toString(intNum+1);
+				if(getPmtCode == null){											// 기존 코드 없을 경우 새로운 코드 생성
+					String scsNum = payment.getScsCode().substring(8);
+					resultCode = "51"+dDay+scsNum+"1001";
+				}else{
+					
+					String getFirst = getPmtCode.substring(0, 2);
+					String getDate = getPmtCode.substring(2,8);
+					String getScsNum = getPmtCode.substring(8,17);
+					String getNum = getPmtCode.substring(17);
+					
+					if(dDay.equals(getDate)){
+						logger.debug("		makeCode() 날짜 값이 같음");
+						int intNum = Integer.parseInt(getNum);
+						resultCode = getFirst+getDate+getScsNum+Integer.toString(intNum+1);
+					}
+					else{
+						logger.debug("		makeCode() 날짜 값이 다름");
+						resultCode = getFirst+dDay+getScsNum+"1001";
+					}
 				}
-				else{
-					logger.debug("		makeCode() 날짜 값이 다름");
-					resultCode = getFirst+dDay+getScsNum+"1001";
-				}
-				
 			}
 			
 		logger.debug("		makeCode() resultCode : "+resultCode);

@@ -96,7 +96,7 @@
 				FROM
 					SEAT
 				WHERE
-					substr(scs_code,9)=#{substr(SeatScsCode,9)}
+					substr(scs_code,9)=substr(#{SeatScsCode},9)
 			</when>
 			
 			<!-- 마지막 결제 코드 가져오기 -->
@@ -106,7 +106,7 @@
 				FROM
 					PAYMENT
 				WHERE
-					substr(scs_code,9)=#{substr(PaymentScsCode,9)}		
+					substr(scs_code,9)=substr(#{PaymentScsCode},9)		
 			</when>
 			<otherwise>
 			</otherwise>
