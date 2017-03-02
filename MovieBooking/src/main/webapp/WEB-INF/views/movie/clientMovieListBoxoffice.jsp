@@ -50,15 +50,28 @@
 	                  <!-- 카드 앞면 -->
 	                  <div class="active side">
 	                    <img style="max-height:300px;"src="${map.movImgPath}">
+			              	<div style="display:inline-block;position:absolute;top:0px;left:-5px;">			              		
+			              		<div class="light-blue darken-4"style="text-align:center;color:#FFFFFF;width:30;height:30px;font-size:20;line-height:30px;opacity: 0.95;">${status.count}</div>
+			              	</div>		                    
 	                  </div>
 	                  
 	                  <!-- 카드 뒷면 -->
 	                  <div class="side black">
 	                    <img style="opacity: 0.3; max-height:300px;" src="${map.movImgPath}">
-	  
-	                    <span class="card-title">
-	
-	                    </span>
+	  						
+		              	<a href="clientMovieDetail?movCode="${map.movCode}">
+			              	<div style="display:inline-block;position:absolute;top:220px;left:40;">
+			              		<div style="color:#eeeeee ;"><i class="huge Film icon"></i></div>
+			              		<div style="color:#eeeeee;text-align:center;">상세보기</div>
+			              	</div>		              	
+
+		              	</a>
+		              	<a href="#">
+			              	<div style="display:inline-block;position:absolute;top:220px;left:120;">
+			              		<div style="color:#eeeeee;"><i class="huge heart icon"></i></div>
+			              		<div style="color:#eeeeee;text-align:center;">좋아요</div>
+			              	</div>		              	
+		              	</a>
 	                  </div>
 	                  
 	                </div>
@@ -82,7 +95,7 @@
 	              		<i class="grade16_${map.movGrade}" style="position:relative;top:2px;"></i>
 	              		<b>${map.movKorName}</b>
 	              	</div>
-	            </div>
+	            </div>            
 	            
 	          </div>
 	        </div>
