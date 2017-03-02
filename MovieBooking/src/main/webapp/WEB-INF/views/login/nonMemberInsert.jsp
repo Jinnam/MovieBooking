@@ -18,6 +18,7 @@
              </style>
 
 </head>
+
 <body>
 <!-- 네비게이션 바 -->
 <%@ include file="/WEB-INF/clientModule/topNavBar.jsp" %>
@@ -73,30 +74,37 @@
 		<br><br>
 
 
-		<form action="" method="post" >
+		<form action="nonMemberInsert" method="post" id="nmemForm">
 		<table style="width: 60px; margin: auto;">
           <tr>
-               <td><p>이름<p><input type="text" style ="width:200px"></td>
+               <td><p>이름<p><input type="text" id = "nmemName" name = "nmemName" style ="width:200px"></td>
           </tr>
           <tr>
-               <td><p>생년월일<p><input type="text" style ="width:200px"></td>
+               <td><p>생년월일<p><input type="text" id = "nmemBirth" name = "nmemBirth" style ="width:200px"></td>
           </tr>
           <tr>
-               <td><p>휴대폰번호<p><input type="text" style ="width:200px"></td>
+               <td><p>휴대폰번호<p><input type="text" id = "nmemPhone" name = "nmemPhone" style ="width:200px"></td>
           </tr>
           <tr>
-               <td><p>비밀번호(4자리)<p><input type="text" style ="width:200px"></td>
+               <td><p>비밀번호<p><input type="password" id = "nmemPw" name = "nmemPw" style ="width:200px"></td>
           </tr>
       </table>
       <br><br>
       <div align="right">
-			<input class="btn blue darken-4" type="button" value="확인" onclick=""/>
+			<input class="btn blue darken-4" type="button" value="확인" id="nmemBtn"/>
 			<a href="movieMain">
 				<input class="btn white" style="color:black" type="button" value="취소"/></a>
 			</div>
       <br><br>
 </form>
 </div>
+<script>
+	$(document).ready(function(){
+		$('#nmemBtn').click(function(){
+			$('#nmemForm').submit();
+		})
+	})
+</script>
 
 <!-- 하단바 -->
 <%@ include file="/WEB-INF/clientModule/footer.jsp" %>

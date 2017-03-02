@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.cinema.dto.Member;
+import kr.co.cinema.dto.NonMember;
 
 @Controller
 public class MemberController {
@@ -24,17 +25,14 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	
-	//회원가입 중복확인 action
-	@RequestMapping(value="/memeberOverlap", method=RequestMethod.POST)
-	public @ResponseBody String overlapMember(@RequestParam(value="id")String memId){
-		
-		String returnMember = memberService.findOneMemberOverlap(memId);
-		logger.debug(memId.toString());
-		System.out.println(returnMember);
-		return returnMember;
+	//비회원 가입 action
+	@RequestMapping(value="/nonMemberInsert", method=RequestMethod.POST)
+	public String insertNonMember(NonMember nonMember){
+		memberService.addNonMember(nonMember);
+		logger.debug(nonMember.toString());
+		return "login/nonMemberInsert";
 	}
-	
+
 	//비회원 가입 form
 	@RequestMapping(value="/nonMemberInsert", method=RequestMethod.GET)
 	public String insertNonMember(){
@@ -55,13 +53,44 @@ public class MemberController {
 		
 	}
 	
+	//회원 PW 찾기
+	@RequestMapping(value="/memberFindPw", method=RequestMethod.POST)
+	public @ResponseBody String memberFindPw(Member member){
+		
+		String returnPw = memberService.findOneMemberPwFind(member);
+		logger.debug(member.toString());
+		System.out.println(returnPw);
+		return returnPw;
+	}
+	
+	//회원 ID 찾기
+	@RequestMapping(value="/memberFindId", method=RequestMethod.POST)
+	public @ResponseBody String memberFindId(Member member){
+		
+		String returnId = memberService.findOneMemberIdFind(member);
+		logger.debug(member.toString());
+		System.out.println(returnId);
+		
+		return returnId;
+	}
+	
 	//회원 ID / PW 찾기 form
 	@RequestMapping(value="/memberFind", method=RequestMethod.GET)
 	public String memberFind(){
 		return "login/memberFind";
 	}
 	
-	//회원가입 insert Controller Action
+	//회원가입 중복확인 action
+	@RequestMapping(value = "/memeberOverlap", method = RequestMethod.POST)
+	public @ResponseBody String overlapMember(@RequestParam(value = "id") String memId) {
+
+		String returnMember = memberService.findOneMemberOverlap(memId);
+		logger.debug(memId.toString());
+		System.out.println(returnMember);
+		return returnMember;
+	}
+	
+	//회원가입 insert Action
 	@RequestMapping(value="/memberInsert", method=RequestMethod.POST)
 	public String insertMember(Member member){
 		memberService.addMember(member);
@@ -69,7 +98,7 @@ public class MemberController {
 		return "movieMain";
 	}
 	
-	//회원가입 insert Controller form
+	//회원가입 insert form
 	@RequestMapping(value="/memberInsert", method=RequestMethod.GET)
 	public String insertMember(){
 		return "member/memberInsert";

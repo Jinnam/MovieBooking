@@ -54,7 +54,7 @@
 		</script>
 		<!-- 주소 api script 종료 -->
 
-
+		
 		<script type="text/javascript">
 		function checkfield(){
 			/* 아이디 alert 시작 */
@@ -161,7 +161,7 @@
 				}) ;
 			});
 		</script>
-<!-- 중복확인 ajax 시작 -->
+		<!-- 중복확인 ajax 시작 -->
 
 	<form action="memberInsert" method="post" name="addjoin" id="checkForm">
 		<h3>가입정보입력</h3>

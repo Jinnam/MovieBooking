@@ -8,20 +8,22 @@
 
 	<!-- 비회원 가입 insert 시작 -->
 	<insert id="insertNonMember" parameterType="kr.co.cinema.dto.NonMember">
-		insert into non_member(
+		insert into NON_MEMBER(
+			nmem_code,
 			nmem_phone,
 			nmem_name,
 			nmem_birth,
 			nmem_pw)
 		values(
+			#{nmemCode},
 			#{nmemPhone},
 			#{nmemName},
 			#{nmemBirth},
 			#{nmemPw})	
-	
 	</insert>
 	<!-- 비회원 가입 insert 종료 -->
 
+	<!-- 회원가입 중복확인 select 시작 -->
 	<select id="selectMemeberOverlap" parameterType="String" resultType="String">
 		select 
 			mem_id AS memId
@@ -30,10 +32,7 @@
 		where 
 			mem_id=#{memId}
 	</select>
-
-
-
-
+	<!-- 회원가입 중복확인 select 종료 -->
 
 	<!-- 회원 로그인 select 시작 -->
 	<select id="selectMemberLogin" parameterType="Map" resultType="kr.co.cinema.dto.Member">
@@ -81,9 +80,9 @@
 	<!-- 회원 가입 insert 종료 -->
 	
 	<!-- 회원 비밀번호 찾기 select 시작 -->
-	<select id="selectOnePwFindMember" parameterType="String" resultType="kr.co.cinema.dto.Member">
+	<select id="selectOnePwFindMember" parameterType="kr.co.cinema.dto.Member" resultType="String">
 		select
-			mem_pw
+			mem_pw AS memPw
 		from 
 			MEMBER 
 		where	
@@ -94,9 +93,9 @@
 	<!-- 회원 비밀번호 찾기 select 종료 -->
 	
 	<!-- 회원 아이디 찾기 select 시작 -->
-	<select id="selectOneIdFindMember" parameterType="String" resultType="kr.co.cinema.dto.Member">
+	<select id="selectOneIdFindMember" parameterType="kr.co.cinema.dto.Member" resultType="String">
 		select
-			mem_id AS memId
+			mem_id AS memId 
 		from 
 			MEMBER 
 		where 
