@@ -52,7 +52,9 @@ public class MovieController {
 	
 	//클라이언트측 인물 상세페이지
 	@RequestMapping(value = "/clientCharDetail", method = RequestMethod.GET)
-	public String clientCharDetail() {
+	public String clientCharDetail(Model model,@RequestParam(value="charCode") String charCode) {
+		model.addAttribute("charInfo",movieDao.selectOneCharInfo(charCode)); //인물정보 세팅
+		model.addAttribute("filmoList",movieDao.selectListfilmography(charCode));
 		return "movie/clientCharDetail";
 	}
 	

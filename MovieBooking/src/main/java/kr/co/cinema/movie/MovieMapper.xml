@@ -5,6 +5,33 @@
   
 <mapper namespace="kr.co.cinema.movie.MovieMapper">
 
+	<!-- 인물코드로 필모그래피 가져오기 -->
+	<select id="selectListfilmography" parameterType="String" resultType="map">
+		SELECT
+			CHARACTERS.mov_code as movCode,
+			(SELECT MOVIE.mov_korName FROM MOVIE WHERE MOVIE.mov_code=CHARACTERS.mov_code) as movKorName,
+			(SELECT MOVIE.mov_imgPath FROM MOVIE WHERE MOVIE.mov_code=CHARACTERS.mov_code) as movImgPath
+		FROM
+			CHARACTERS
+		WHERE
+			CHARACTERS.char_code =#{charCode}	
+	</select>
+
+	<!-- 인물코드로 인물정보 가져오기 -->
+	<select id="selectOneCharInfo" parameterType="String" resultType="map">
+		SELECT
+			`CHARACTER`.char_korName as charKorName,
+			`CHARACTER`.char_engName as charEngName,
+			`CHARACTER`.char_birth as charBirth,
+			`CHARACTER`.char_profileImgPath as charImgPath,
+			`CHARACTER`.char_nation as charNation,
+			`CHARACTER`.char_bioGraphy as charBioGraphy
+		FROM
+			`CHARACTER`
+		WHERE
+			`CHARACTER`.char_code=#{charCode}
+	</select>
+
 	<!-- 영화코드로 스틸컷 이미지 주소 가져오기 -->
 	<select id="selectListStcImg" parameterType="String" resultType="String">
 		SELECT
