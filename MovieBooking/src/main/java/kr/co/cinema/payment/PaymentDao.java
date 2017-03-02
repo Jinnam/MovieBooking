@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.cinema.dto.DiscountInfo;
 import kr.co.cinema.dto.ScreenCost;
+import kr.co.cinema.dto.Seat;
 
 @Repository
 public class PaymentDao {
@@ -19,6 +20,12 @@ public class PaymentDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	private final String NS="kr.co.cinema.payment.PaymentMapper.";
+	
+	// 좌석 정보 가져오기
+	public Seat selectOneSeatInfo(String seatCode){
+		logger.debug("		selectOneSeatInfo() 진입 seatCode : "+seatCode);
+		return sqlSession.selectOne(NS+"selectSeatInfo", seatCode);
+	}
 	
 	// 마일리지 정보 가져오기
 	public Map<String, Integer> selectOneMileage(String memId){

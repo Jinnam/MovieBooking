@@ -35,9 +35,11 @@ public class PaymentController {
 		// session 확인 후 반환할 페이지 초기화
 		String resultPage=null;
 		
-	 	session.setAttribute("phone", "01011112222");				//가라 세션
+		session.setAttribute("phone", "01011112222");							// ***가짜 세션***
+	 	String getSession = (String) session.getAttribute("phone");
 		// 세션 있는지 없는지 확인 후 결제페이지or 비회원 확인 페이지 이동
-		if(session.getAttribute("phone") !=null){
+		if(getSession !=null){
+			model.addAttribute("bookingSeatSelectDto",bookingSeatSelectDto);	// 예매에서 넘어온 정보
 			
 			//session 정보 가져오기
 		//	String memId = (String) session.getAttribute("id");
@@ -53,9 +55,21 @@ public class PaymentController {
 			
 			// 영화 정보 가져오기.
 			String scsCode = bookingSeatSelectDto.getScsCode();
-			String personNum = bookingSeatSelectDto.getPersonNum();						// test를 위한 scsCode
-			BookingInfo bookingInfo = paymentService.searchBookingInfo(scsCode);		// 상영일정코드로 상영 정보 가져오기
-			bookingInfo.setPersonNum(personNum);										// bookingInfo에 인원 수 추가
+			String seatCode1 = 
+					paymentService.searchOneSeatInfo(bookingSeatSelectDto.getSeatCode1());	// 첫번째 좌석 이름
+			String seatCode2 = 
+					paymentService.searchOneSeatInfo(bookingSeatSelectDto.getSeatCode2());	// 두번째 좌석 이름
+			String seatCode3 = 
+					paymentService.searchOneSeatInfo(bookingSeatSelectDto.getSeatCode3());	// 세번째 좌석 이름
+			String seatCode4 = 
+					paymentService.searchOneSeatInfo(bookingSeatSelectDto.getSeatCode4());	// 네번째 좌석 이름
+			String personNum = bookingSeatSelectDto.getPersonNum();							// test를 위한 scsCode 추출
+			BookingInfo bookingInfo = paymentService.searchBookingInfo(scsCode);			// 상영일정코드로 상영 정보 가져오기
+			bookingInfo.setPersonNum(personNum);											// bookingInfo에 인원 수 추가
+			bookingInfo.setSeatCode1(seatCode1);											// 첫번째 좌석 이름 추가
+			bookingInfo.setSeatCode2(seatCode2);											// 두번째 좌석 이름 추가
+			bookingInfo.setSeatCode3(seatCode3);											// 세번째 좌석 이름 추가
+			bookingInfo.setSeatCode4(seatCode4);											// 네번째 좌석 이름 추가
 			logger.debug(		"payment() get방식 : "+bookingInfo.toString());
 			model.addAttribute("bookingInfo",bookingInfo);
 			
@@ -69,7 +83,7 @@ public class PaymentController {
 	
 	// 결제 페이지 POST
 	@RequestMapping(value="/payment", method=RequestMethod.POST)
-	public String payment(Payment payment){
+	public String payment(Payment payment, BookingSeatSelectDto bookingSeatSelectDto){
 		logger.debug("payment post:"+payment.toString());
 		
 		return "redirect:movieMain";

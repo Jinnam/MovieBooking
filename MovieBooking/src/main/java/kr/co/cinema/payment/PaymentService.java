@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.cinema.dto.DiscountInfo;
 import kr.co.cinema.dto.ScreenCost;
+import kr.co.cinema.dto.Seat;
 
 @Service
 public class PaymentService {
@@ -18,6 +19,21 @@ public class PaymentService {
 	
 	@Autowired
 	private PaymentDao paymentDao;
+	
+	// 좌석 정보 가져오기
+	public String searchOneSeatInfo(String seatCode){
+		logger.debug("		searchOneSeatInfo() 진입 seatCode : "+seatCode);
+		String returnSeatInfo = null;
+		Seat seatInfo = paymentDao.selectOneSeatInfo(seatCode);
+		if(seatInfo == null){
+			returnSeatInfo=null;
+		}else{
+			String seatRow = seatInfo.getSeatRow();
+			int seatCol = seatInfo.getSeatCol();
+			returnSeatInfo = seatRow+seatCol;
+		}
+		return returnSeatInfo;
+	}
 	
 	// 마일리지 정보 가져오기
 	public Map<String, Integer> searchOneMileage(String memId){

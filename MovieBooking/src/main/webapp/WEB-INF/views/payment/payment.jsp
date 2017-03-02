@@ -24,17 +24,37 @@
 	
 	<!-- 결제 폼  -->
 	<form id="submitForm" action="payment" method="post">
-		<input type="hidden" name="paymentWay" value="a"/>	<!-- 결제방법 -->
-		<input type="hidden" name="phone" value="a"/>		<!-- 비회원 전화번호 -->
-		<input type="hidden" name="memId" value="a"/>	<!-- 회원 아이디 -->
-		<input type="hidden" name="scsCode" value="b"/>						<!-- 상영일정 코드 -->
-		<input type="hidden" name="pmtTicketNum"/>						<!-- 예매 인원 수 -->
-		<input type="hidden" name="seatCode1"/>						<!-- 좌석번호1 -->
-		<input type="hidden" name="seatCode2"/>						<!-- 좌석번호2 -->
-		<input type="hidden" name="seatCode3"/>						<!-- 좌석번호3 -->
-		<input type="hidden" name="seatCode4"/>						<!-- 좌석번호4 -->
-		<input type="hidden" name="finalCost"/>						<!-- 결제금액 -->
-		<input type="hidden" name="useMileage"/>					<!-- 사용마일리지 -->
+		<input type="hidden" name="paymentWay" id="paymentWay" />	<!-- 결제방법 -->
+		<input type="hidden" name="phone" value="${phone}"/>		<!-- 비회원 전화번호 -->
+		<input type="hidden" name="memId" value="${memId}"/>		<!-- 회원 아이디 -->
+		<input type="hidden" name="scsCode" 
+				value="${bookingSeatSelectDto.scsCode }"/>			<!-- 상영일정 코드 -->
+		<input type="hidden" name="pmtTicketNum" 
+				value="${bookingSeatSelectDto.personNum}"/>			<!-- 예매 인원 수 -->
+		<input type="hidden" name="seatCode1" 
+				value="${bookingSeatSelectDto.seatCode1}"/>			<!-- 좌석번호1 -->
+		<input type="hidden" name="seatCode2" 
+				value="${bookingSeatSelectDto.seatCode2}"/>			<!-- 좌석번호2 -->
+		<input type="hidden" name="seatCode3" 
+				value="${bookingSeatSelectDto.seatCode3}"/>			<!-- 좌석번호3 -->
+		<input type="hidden" name="seatCode4" 
+				value="${bookingSeatSelectDto.seatCode4}"/>			<!-- 좌석번호4 -->
+		<input type="hidden" name="pmtPrice" id="pmtPrice"/>		<!-- 결제금액 -->
+		<input type="hidden" name="useMileage" id="finalMileage"/>	<!-- 사용마일리지 -->
+		<c:if test="${bookingInfo.scsTimeDiscount=='조조'}">			<!-- 할인코드 : 조조일때 -->
+			<input type="hidden" name="dcinfCode" 
+					value="${bookingInfo.dcinfCode}"/>
+		</c:if>
+		<c:if test="${bookingInfo.scsTimeDiscount=='심야'}">			<!-- 할인코드 : 심야일때 -->
+			<input type="hidden" name="dcinfCode" 
+					value="${bookingInfo.dcinfCode}"/>
+		</c:if>
+		<c:if test="${bookingInfo.scsTimeDiscount=='일반'}">			<!-- 할인코드 : 일반일때 -->
+			<input type="hidden" name="dcinfCode" id="dcinfCode"/>
+		</c:if>
+		<input type="hidden" name="sccoCode" 
+				value="${bookingInfo.sccoCode }"/>					<!-- 상영 단가 코드 -->
+		
 	</form>
 	<!-- 결제 폼 끝 -->
 	
@@ -49,11 +69,10 @@
 				<!-- 결제 선택 시작 -->
 				<div class="col s3 card" style="height:520px">
 						<h3 align="center">결제</h3>
-						<div style="cursor: pointer;" id="paymentPhone">휴대폰 결제</div><br/>
-						<div style="cursor: pointer;" id="paymentCredit">신용/체크</div><br/>
-						<div style="cursor: pointer;" id="paymentKakao">카카오페이</div><br/>
-						<div style="cursor: pointer;" id="paymentBank">무통장입금</div><br/>
-						
+						<div style="cursor: pointer;" class="paymentWay">휴대폰결제</div><br/>
+						<div style="cursor: pointer;" class="paymentWay">신용/체크</div><br/>
+						<div style="cursor: pointer;" class="paymentWay">카카오페이</div><br/>
+						<div style="cursor: pointer;" class="paymentWay">무통장입금</div><br/>
 				</div>
 				<!-- 결제 선택 끝-->
 			
@@ -63,13 +82,15 @@
 					
 					<!-- <시작> 예매 시간대가 '일반' 일때만 할인정보 나타냄 -->
 					<c:if test="${bookingInfo.scsTimeDiscount=='일반'}">				
-						<div>
-							<c:forEach var="DiscountInfo" items="${DiscountInfo}">
+							<c:forEach var="DiscountInfo" items="${DiscountInfo}" varStatus="status">
+							<div>
 								<input type="radio" id="discountInfo" class="discountInfo"
-									name = "discountInfo" value="${DiscountInfo.dcinfPrice}"/>
-								&nbsp;${DiscountInfo.dcinfInfo}&emsp;
+									name = "discountInfo" value="${DiscountInfo.dcinfPrice}"/>		<!-- 할인 가격 -->
+								<input id="getDcinfCode${status.count}" class="getDcinfCode"
+									type="hidden" value="${DiscountInfo.dcinfCode}"/>				<!-- 할인 코드 -->
+								&nbsp;${DiscountInfo.dcinfInfo}&emsp;								<!-- 할인 정보 일반/청소년/장애인-->
+							</div>
 							</c:forEach><br/><br/><br/>
-						</div>
 					</c:if>
 					<!-- <끝> 예매 시간대가 '일반' 일때만 할인정보 나타냄 -->
 					
@@ -94,7 +115,7 @@
 					<h3 align="center">금액</h3>
 					<div>
 						총 결제 금액<br>
-						<p id="totalCost">${bookingInfo.finalCost }</p>
+						<p id="totalCost">${bookingInfo.finalCost*bookingInfo.personNum}</p>
 					</div><br/>
 					<div>할인
 						<p id="discountCost">0</p><br>
@@ -109,7 +130,7 @@
 					<!-- <끝> 회원만 마일리지 나타냄--세션 아이디로 마일리지 정보 가져옴 -->
 					
 					<div>남은 결제 금액
-						<p class="finalCost">${bookingInfo.finalCost}</p>
+						<p class="finalCost">${bookingInfo.finalCost*bookingInfo.personNum}</p>
 					</div><br>
 				</div>
 				<!-- 금액 선택 끝 -->
@@ -119,11 +140,19 @@
 					<h3 align="center">예매정보</h3>
 					<div>
 						<img src="${bookingInfo.movImgPath}" width="250px" height="350"/>	<!-- 영화 이미지 -->
-						<div>${bookingInfo.movGrade} ${bookingInfo.movKorName}</div>		<!-- 등급, 한글이름 -->
+						<div>${bookingInfo.movGrade} 
+							${bookingInfo.movKorName}(${bookingInfo.scsScreen})</div>		<!-- 등급, 한글이름 -->
 						<div>${bookingInfo.brcLocal} ${bookingInfo.brcName}</div>			<!-- 지역, 지점이름-->
-						<div>${bookingInfo.scsDate} ${bookingInfo.scsStartTime}</div>		<!-- 상영 날짜, 영화 시작시간 -->
-						<div>${bookingInfo.personNum}&nbsp;명</div>
-						<p class="finalCost">${bookingInfo.finalCost}</p>	<!-- 남은 결제 금액 -->
+						<div>${bookingInfo.scsDate}</div>									<!-- 상영 날짜 -->
+						<div>${bookingInfo.scsStartTime} ~ 									<!-- 영화 시작시간 -->
+							${bookingInfo.scsFinishTime}</div>								<!-- 영화 종료시간 -->
+						<div>${bookingInfo.personNum}&nbsp;명</div>							<!-- 인원 -->
+						<div>
+							${bookingInfo.seatCode1}&nbsp;${bookingInfo.seatCode2}
+							&nbsp;${bookingInfo.seatCode3}&nbsp;${bookingInfo.seatCode4}	<!-- 좌석 위치 표시 -->
+						</div>
+						<p id="finalCost" class="finalCost">
+							${bookingInfo.finalCost*bookingInfo.personNum}</p>				<!-- 남은 결제 금액 -->
 						
 					</div>
 				</div>
@@ -140,57 +169,73 @@
 
 <script>
 	$(document).ready(function(){
-		var finalCost = '${bookingInfo.finalCost}';
-		var discountCost = $('#discountInfo').val();
-		console.log(discountCost);
-		var mileage= '${memMap.memMileage}';
-		console.log(mileage);
-		if(mileage != undefined){
+		var finalCost = ${bookingInfo.finalCost*bookingInfo.personNum};		/* 최종 결제 금액 */
+		var personNum = ${bookingInfo.personNum};							/* 인원 수 */
+		var mileage= ${memMap.memMileage};									/* 회원 마일리지 */
+		console.log("회원 마일리지 : "+mileage);
+		if(mileage != undefined){											/* 비회원이라서 마일리지 정보가 없으면 */
 			var mileageCost = $('#mileage').val();
 		}else{
-			var mileageCost =0;
+			var mileageCost = 0;
 		}
 		
-		console.log(mileageCost);
-		var returnDcCost=0;
+		console.log("사용 마일리지 cost : "+mileageCost);
+		var returnDcCost=0;													/* 할인 금액 */
 		
 		/* <할인>에서 일반/청소년/장애인 클릭시 <금액>에 할인 값을 집어넣는 스크립트 */
 		$('.discountInfo').click(function(){
-	    	switch (discountCost){
+	    	switch ($(this).val()){
 	    		case "0" :
-	    			console.log('val 0 들어옴');
-	    			$('#discountCost').text($(this).val());
-	    			$('.finalCost').text(finalCost-$(this).val()-mileageCost);
-	    			returnDcCost=$(this).val();
-	    			console.log("returnDcCost"+returnDcCost);
+	    			console.log('val 0 들어옴 ');
+	    			returnDcCost=$(this).val()*personNum;
+	    			$('#discountCost').text(returnDcCost);									/* 할인 금액 표시 */
+	    			console.log("할인 금액 : "+returnDcCost);
+	    			$('.finalCost').text(finalCost-$(this).val()*personNum-mileageCost);	/* 최종 금액 */
+	    			var getDcinfCode = $('#getDcinfCode1').val();
+	    			console.log("할인코드 : "+getDcinfCode);
+	    			$('#dcinfCode').val(getDcinfCode);										/* 할인 코드 셋팅 */
 	    			break;
 	    		case "1000" :
-	    			console.log('val 1000 들어옴');
-		    		$('#discountCost').text($(this).val());
-		    		$('.finalCost').text(finalCost-$(this).val()-mileageCost);
-		    		returnDcCost=$(this).val();
-		    		console.log("returnDcCost"+returnDcCost);
-		    		break;
+	    			console.log('val 1000 들어옴 ');
+	    			returnDcCost=$(this).val()*personNum;
+	    			$('#discountCost').text(returnDcCost);									/* 할인 금액 표시 */
+	    			console.log("할인 금액 : "+returnDcCost);
+	    			$('.finalCost').text(finalCost-$(this).val()*personNum-mileageCost);	/* 최종 금액 */
+	    			var getDcinfCode = $('#getDcinfCode2').val();
+	    			console.log("할인코드 : "+getDcinfCode);
+	    			$('#dcinfCode').val(getDcinfCode);										/* 할인 코드 셋팅 */
+	    			break;
 	    		case "2000" :
-	    			console.log('val 2000 들어옴');
-		    		$('#discountCost').text($(this).val());
-		    		$('.finalCost').text(finalCost-$(this).val()-mileageCost);
-		    		returnDcCost=$(this).val();
-		    		console.log("returnDcCost"+returnDcCost);
-		    		break;
+	    			console.log('val 2000 들어옴 ');
+	    			returnDcCost=$(this).val()*personNum;
+	    			$('#discountCost').text(returnDcCost);									/* 할인 금액 표시 */
+	    			console.log("할인 금액 : "+returnDcCost);
+	    			$('.finalCost').text(finalCost-$(this).val()*personNum-mileageCost);	/* 최종 금액 */
+	    			var getDcinfCode = $('#getDcinfCode3').val();
+	    			console.log("할인코드 : "+getDcinfCode);
+	    			$('#dcinfCode').val(getDcinfCode);										/* 할인 코드 셋팅 */
+	    			break;
 		    	default :
 		    		break;	
 	    	}
 	    });
 		
 		/* <할인>에서 입력한 마일리지 값을 <금액>의 마일리지사용에 넣는 스크립트  */
-		
 	    $('#mileageBtn').click(function(){
-	    	console.log("returnDcCost"+returnDcCost);
 	    	$('#useMileage').text($('#mileage').val());
 	    	$('.finalCost').text(finalCost-returnDcCost-$('#mileage').val());
 	    })
+	    
+	    /* 결제 방법 선택 */
+	     $('.paymentWay').click(function(){
+	    	$('#paymentWay').val($(this).text());
+	    	console.log($('#paymentWay').val())
+	    })
+	    
+	    /* submit : 최종 금액, 사용 마일리지 값 셋팅 후 제출 */
 	    $('#submitBtn').click(function(){
+	    	$('#pmtPrice').val($('#finalCost').text());
+	    	$('#finalMileage').val($('#useMileage').text());
 	    	alert("예매 하겠습니까?");
 	    	$('#submitForm').submit();
 	    })

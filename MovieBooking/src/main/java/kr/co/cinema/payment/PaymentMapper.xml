@@ -5,6 +5,18 @@
   
 <mapper namespace="kr.co.cinema.payment.PaymentMapper">
 	
+	<!-- 좌석 정보 가져오기 -->
+	<select id="selectSeatInfo" parameterType="String" resultType="kr.co.cinema.dto.Seat">
+		SELECT
+			seat_row AS seatRow,
+			seat_col AS seatCol
+		FROM
+			SEAT
+		WHERE
+			seat_code = #{seatCode}
+	</select>
+	
+	
 	<!-- 마일리지 정보 가져오기 -->
 	<select id="selectMileage" parameterType="String" resultType="Map">
 		SELECT
@@ -25,11 +37,34 @@
 			MOVIE.mov_runningTime AS movRunningTime,
 			MOVIE.mov_imgPath AS movImgPath,
 			SCREEN_SCHEDULE.scs_startTime AS scsStartTime,
+			SCREEN_SCHEDULE.scs_finishTime AS scsFinishTime,
 			SCREEN_SCHEDULE.scs_date AS scsDate,
 			SCREEN_SCHEDULE.scs_timeDiscount AS scsTimeDiscount,
 			SCREEN_SCHEDULE.scs_screen AS scsScreen,
 			BRANCH.brc_local AS brcLocal,
-			BRANCH.brc_name AS brcName
+			BRANCH.brc_name AS brcName,
+			(
+				SELECT 
+					scco_code
+				FROM
+					SCREEN_COST
+				WHERE
+					scco_screen=SCREEN_SCHEDULE.scs_screen
+				AND
+					scco_status="적용"
+			) AS sccoCode,
+			(
+				SELECT
+					dcinf_code
+				FROM
+					DISCOUNT_INFO
+				WHERE
+					dcinf_info=SCREEN_SCHEDULE.scs_timeDiscount
+				AND
+					dcinf_status="적용"
+				AND
+					dcinf_separation="시간"
+			)AS dcinfCode
 		FROM
 			SCREEN_SCHEDULE
 		JOIN
