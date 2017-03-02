@@ -5,6 +5,16 @@
   
 <mapper namespace="kr.co.cinema.payment.PaymentMapper">
 	
+	<!-- 비회원 코드 가져오기 -->
+	<select id="selectNmemCode" parameterType="String" resultType="String">
+		SELECT
+			max(nmem_code) AS nmemCode
+		FROM
+			NON_MEMBER
+		WHERE
+			nmem_phone=#{phone}
+	</select>
+	
 	<!-- 좌석 정보 가져오기 -->
 	<select id="selectSeatInfo" parameterType="String" resultType="kr.co.cinema.dto.Seat">
 		SELECT

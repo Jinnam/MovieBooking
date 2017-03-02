@@ -20,6 +20,12 @@ public class PaymentService {
 	@Autowired
 	private PaymentDao paymentDao;
 	
+	// 비회원 코드 가져오기
+	public String searchOneNmemCode(String phone){
+		logger.debug("		searchOneNmemCode() 진입 phone : "+phone);
+		return paymentDao.selectOneNmemCode(phone);
+	}
+	
 	// 좌석 정보 가져오기
 	public String searchOneSeatInfo(String seatCode){
 		logger.debug("		searchOneSeatInfo() 진입 seatCode : "+seatCode);

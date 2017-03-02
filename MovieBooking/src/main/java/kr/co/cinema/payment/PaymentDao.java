@@ -21,6 +21,13 @@ public class PaymentDao {
 	private SqlSessionTemplate sqlSession;
 	private final String NS="kr.co.cinema.payment.PaymentMapper.";
 	
+	// 비회원 코드 가져오기
+	
+	public String selectOneNmemCode(String phone){
+		logger.debug("		selectOneNmemCode() 진입 phone : "+phone);
+		return sqlSession.selectOne(NS+"selectNmemCode", phone);
+	}
+	
 	// 좌석 정보 가져오기
 	public Seat selectOneSeatInfo(String seatCode){
 		logger.debug("		selectOneSeatInfo() 진입 seatCode : "+seatCode);

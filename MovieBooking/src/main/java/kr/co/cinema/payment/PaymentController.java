@@ -83,9 +83,16 @@ public class PaymentController {
 	
 	// 결제 페이지 POST
 	@RequestMapping(value="/payment", method=RequestMethod.POST)
-	public String payment(Payment payment, BookingSeatSelectDto bookingSeatSelectDto){
-		logger.debug("payment post:"+payment.toString());
-		
+	public String payment(Payment payment,HttpSession session){
+		logger.debug("		payment post:"+payment.toString());
+		String id = (String) session.getAttribute("id");
+		String phone = (String) session.getAttribute("phone");
+		if(id != null){
+			payment.setMemId(id);
+		}else{
+			String nmemCode = paymentService.searchOneNmemCode(phone);
+			payment.setNmemCode(nmemCode);
+		}
 		return "redirect:movieMain";
 	}
 }
