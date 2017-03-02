@@ -42,16 +42,17 @@ public class MovieController {
 	
 	//클라이언트측 영화 상세페이지
 	@RequestMapping(value = "/clientMovieDetail", method = RequestMethod.GET)
-	public String memberMovieDetail(Model model,@RequestParam(value="movCode") String movCode) {
+	public String clientMovieDetail(Model model,@RequestParam(value="movCode") String movCode) {
 		model.addAttribute("movie",movieDao.selectOneMovieInfo(movCode)); //영화정보 세팅
 		model.addAttribute("charList",movieDao.selectListCharNameCode(movCode)); //인물정보 세팅
-		System.out.println(movieDao.selectListCharNameCode(movCode).toString());
+		model.addAttribute("stcImgList",movieDao.selectListStcImg(movCode)); //스틸컷 이미지 세팅
+		System.out.println(movieDao.selectListStcImg(movCode).toString());
 		return "movie/clientMovieDetail";
 	}
 	
 	//클라이언트측 인물 상세페이지
 	@RequestMapping(value = "/clientCharDetail", method = RequestMethod.GET)
-	public String memberCharacterDetail() {
+	public String clientCharDetail() {
 		return "movie/clientCharDetail";
 	}
 	

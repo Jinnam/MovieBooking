@@ -48,11 +48,11 @@
                 </span>
                 <div class="divider"></div>
                 <div><b>평점 : </b> <span>8.0</span></div>
-                <div><b>감독 : </b> <span><a href="${movie.charCode}">${movie.producer}</a></span></div>
+                <div><b>감독 : </b> <span><a href="clientCharDetail?charCode=${movie.charCode}">${movie.producer}</a></span></div>
                 <div><b>출연진 : </b> 
                 	<span>
 						<c:forEach var="charInfo" items="${charList}"> 
-							<a href="${charInfo.charCode}">${charInfo.charKorName}</a>
+							<a href="clientCharDetail?charCode=${charInfo.charCode}">${charInfo.charKorName}</a>
 						</c:forEach>
                 	</span>
                 </div>
@@ -77,13 +77,13 @@
               <div class="col s12">
                 <h3>스틸컷</h3>
                 <!-- 캐러셀 -->
-                <div class="carousel" style="z-index:1;">
-                  <a class="carousel-item " href="#one!"><img class="materialboxed" src="http://image2.megabox.co.kr/mop/still/2017/A0/530E53-D9D5-4E72-AB92-6D570FFAEB79.large.jpg"></a>
-                  <a class="carousel-item " href="#two!"><img class="materialboxed" src="http://image2.megabox.co.kr/mop/still/2017/79/A851FA-89A2-4F21-84FA-1145E1B5A923.large.jpg"></a>
-                  <a class="carousel-item " href="#three!"><img class="materialboxed" src="http://image2.megabox.co.kr/mop/still/2017/39/CE2549-9A79-4E6E-9194-30D5B9741FD9.large.jpg"></a>
-                  <a class="carousel-item " href="#four!"><img class="materialboxed" src="http://image2.megabox.co.kr/mop/still/2017/6E/00C691-D828-4768-9EB5-F64BF524F1F8.large.jpg"></a>
-                  <a class="carousel-item " href="#five!"><img class="materialboxed" src="http://image2.megabox.co.kr/mop/still/2017/BE/7FB7E8-D5CB-412C-98EA-DCD10C47D9FE.large.jpg"></a>
-                </div>
+                	<div class="carousel" style="z-index:1;">
+                		<c:forEach var="stcImg" items="${stcImgList}"> 		            
+		                  <a class="carousel-item " href="#one!">
+		                  	<img class="materialboxed" src="${stcImg}">
+		                  </a>         
+		            	</c:forEach>
+		            </div>
               </div>
               <!-- 캐러셀 스크립트 -->
               <script>
@@ -103,94 +103,6 @@
           <div class="card-action">
             <div class="ui comments">
               <h3 class="ui dividing header">댓글</h3>
-
-              <div class="comment">
-                <a class="avatar">
-                  <img src="./img/default-profile-img.jpg">
-                </a>
-                <div class="content">
-                  <a class="author">김진남</a>
-                  <div class="metadata">
-                    <span class="date">Today at 5:42PM</span>
-                  </div>
-                  <div class="text">
-                    쓰레기네
-                  </div>
-                  <div class="actions">
-                    <a class="reply">Reply</a>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="comment">
-                <a class="avatar">
-                  <img src="./img/default-profile-img.jpg">
-                </a>
-                <div class="content">
-                  <a class="author">조봉연</a>
-                  <div class="metadata">
-                    <span class="date">Yesterday at 12:30AM</span>
-                  </div>
-                  <div class="text">
-                    <p>↑????</p>
-                  </div>
-                  <div class="actions">
-                    <a class="reply">Reply</a>
-                  </div>
-                </div>
-
-
-                <div class="comments">
-                  <div class="comment">
-                    <a class="avatar">
-                      <img src="./img/default-profile-img.jpg">
-                    </a>
-                    <div class="content">
-                      <a class="author">조민국</a>
-                      <div class="metadata">
-                        <span class="date">Just now</span>
-                      </div>
-                      <div class="text">
-                        22
-                      </div>
-                      <div class="actions">
-                        <a class="reply">Reply</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="comment">
-                <a class="avatar">
-                  <img src="./img/default-profile-img.jpg">
-                </a>
-                <div class="content">
-                  <a class="author">김정빈</a>
-                  <div class="metadata">
-                    <span class="date">5 days ago</span>
-                  </div>
-                  <div class="text">
-                    ??
-                  </div>
-                  <div class="actions">
-                    <a class="reply">Reply</a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 댓글 쓰기 창 -->
-              <form class="ui reply form">
-                <div class="field">
-                  <textarea></textarea>
-                </div>
-                <div class="ui blue labeled submit icon button">
-                  <i class="icon edit"></i> Add Reply
-                </div>
-              </form>
-
             </div>
           </div>
 

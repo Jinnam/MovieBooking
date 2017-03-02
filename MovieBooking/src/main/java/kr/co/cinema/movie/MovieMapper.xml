@@ -5,6 +5,16 @@
   
 <mapper namespace="kr.co.cinema.movie.MovieMapper">
 
+	<!-- 영화코드로 스틸컷 이미지 주소 가져오기 -->
+	<select id="selectListStcImg" parameterType="String" resultType="String">
+		SELECT
+			STILLCUTIMG.stcImg_path as stcImgPath
+		FROM
+			STILLCUTIMG
+		WHERE
+			STILLCUTIMG.mov_code=#{movCode}	
+	</select>
+
 	<!-- 영화코드로 인물 코드,이름 가져오기 -->
 	<select id="selectListCharNameCode" parameterType="String" resultType="Map">
 		SELECT

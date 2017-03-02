@@ -18,6 +18,12 @@ public class MovieDao {
 	
 	private final String mapperNS="kr.co.cinema.movie.MovieMapper.";
 	
+	//영화코드로 스틸컷 이미지 가져오기
+	public List<String> selectListStcImg(String movCode){
+		logger.debug("selectListStcImg 영화코드로 스틸컷 이미지 가져오기");
+		return session.selectList(mapperNS+"selectListStcImg",movCode);		
+	}
+	
 	//영화코드로 인물 코드,이름 가져오기
 	public List<Map> selectListCharNameCode(String movCode){
 		logger.debug("selectListCharNameCode 영화코드로 인물 코드,이름 가져오기");
