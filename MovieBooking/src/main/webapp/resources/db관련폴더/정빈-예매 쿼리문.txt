@@ -1,14 +1,19 @@
 SELECT
 	MOVIE.mov_code as movCode,
 	MOVIE.mov_korName as movKorName,
+	MOVIE.mov_engName as movEngName,
+	MOVIE.char_code as charCode,
+	MOVIE.mov_nation as movNation,
 	MOVIE.mov_grade as movGrade,
-	ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum) as grade ,
-	ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum/2) as gradestar
-	
-	
+	MOVIE.mov_genre as movGenre,
+	MOVIE.mov_maker as movMaker,
+	MOVIE.mov_runningTime as movRunningTime,
+	MOVIE.mov_openDate as movOpenDate,
+	MOVIE.mov_infoDetail as movInfoDetail,
+	MOVIE.mov_imgPath as movImgPath,
+	MOVIE.mov_videoPath as movVideoPath,
+	MOVIE.mov_status as movStatus
 FROM
-	MOVIE JOIN ANALYSIS ON ANALYSIS.mov_code = MOVIE.mov_code
-			JOIN GRADE ON GRADE.mov_code = MOVIE.mov_code
-	
-ORDER BY 
-	ANALYSIS.anl_totalTicketCount DESC
+	MOVIE
+WHERE
+	MOVIE.mov_code=2100001

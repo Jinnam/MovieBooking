@@ -31,28 +31,38 @@
 
               <!-- 이미지 -->
               <div class="col s3">
-                <img class="materialboxed responsive-img" src="http://image2.megabox.co.kr/mop/poster/2017/68/341DCF-319C-4D74-9DDB-DAF0C5ACD838.medium.jpg">
+                <img class="materialboxed responsive-img" src="${movie.movImgPath}">
               </div>
 
               <!-- 상세설명 -->
               <div class="col s9">
-                <h2>조작된도시</h2>
+                <h2>
+                	<i class="grade24_${movie.movGrade}" style="position:relative;top:5px;"></i>
+                	 ${movie.movKorName}
+                </h2>
                 <span class="col s9" style="color:#8C8C8C;">
-                  <sapn style="position:relative ; top:10px;">Fabricated City ,</span>
+                  <sapn style="position:relative ; top:10px;">${movie.movEngName}</span>
+                  <span>${movie.movStatus} </span>
                   <span style="text-align:right;"><a class="waves-effect waves-light btn" style="border-radius:0em ;">예매하기</a></span>
                   <!-- 간격 --><div style="height:10px;"></div>
                 </span>
                 <div class="divider"></div>
                 <div><b>평점 : </b> <span>8.0</span></div>
-                <div><b>감독 : </b> <span>박광현</span></div>
-                <div><b>출연진 : </b> <span>지창욱, 심은경, 안재홍</span></div>
-                <div><b>장르 : </b> <span>액션,범죄 / 126분 /15세이상 / 한국</span></div>
-                <div><b>개봉일 : </b> <span>2017.02.09</span></div>
+                <div><b>감독 : </b> <span><a href="${movie.charCode}">${movie.producer}</a></span></div>
+                <div><b>출연진 : </b> 
+                	<span>
+						<c:forEach var="charInfo" items="${charList}"> 
+							<a href="${charInfo.charCode}">${charInfo.charKorName}</a>
+						</c:forEach>
+                	</span>
+                </div>
+                <div><b>장르 : </b> <span>${movie.movGenre} / ${movie.movRunningTime}분/${movie.movNation}</span></div>
+                <div><b>개봉일 : </b> <span>${movie.movOpenDate}</span></div>
                 <div style="height:40px;"></div>
                 <div>
                   <i class="medium material-icons">thumb_up</i>
                   <div class="ui large label" style="position:relative ; top:-15px;">
-                    6523
+                    ${movie.likeTotalCount}
                   </div>
                 </div>
               </div>
@@ -60,26 +70,7 @@
               <!-- 줄거리 -->
               <div class="col s12" style="font-size:11px ; color:#4C4C4C;">
                 <h3>줄거리</h3>
-                <pre>
-범죄액션의 신세계가 열린다!
-새롭게 즐겨라!
-
-게임 세계 속에서는 완벽한 리더지만 현실에서는 평범한 백수인 ‘권유’(지창욱).
-PC방에서 우연히 휴대폰을 찾아 달라는 낯선 여자의 전화를 받게 되고
-이후, 영문도 모른 채 그녀를 잔인하게 살해한 범인으로 몰리게 된다
-
-모든 증거는 짜맞춘 듯 권유를 범인이라 가리키고,
-아무도 그의 결백을 믿어주지 않는 가운데
-권유의 게임 멤버이자 초보 해커인 ‘여울’(심은경)은
-이 모든 것이 단 3분 16초 동안, 누군가에 의해 완벽하게 조작되었음을 알게 된다.
-
-특수효과 전문 ‘데몰리션’(안재홍)을 비롯 게임 멤버가 모두 모여
-자신들만의 새로운 방식으로 사건의 실체를 추적해나가기 시작하고,
-조작된 세상에 맞서기 위한 짜릿한 반격에 나서는데...!
-
-살인자로 조작된 시간, 단 3분 16초
-그들이 짜놓은 세상, 우리가 뒤집는다!
-                </pre>
+                <pre>${movie.movInfoDetail}</pre>
               </div>
 
               <!-- 스틸컷 이미지 -->

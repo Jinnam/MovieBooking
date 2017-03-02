@@ -143,8 +143,60 @@
 			background-image:url('../module-img/grade_icon/19.png');
 			background-size: 16px 16px; 
 			display:inline-block;
-		}	
-	
+		}
+		
+		
+		/*24*24*/
+			
+		/*24*24 전체*/
+		.grade24_All{
+			max-width:24px !important;
+			max-hight:24px !important;
+			width:24px;
+			height:24px;
+			background-image:url('../module-img/grade_icon/All.png');
+			background-size: 24px 24px; 
+			display:inline-block;
+		
+		}
+		
+		/*24*24 12세*/
+		.grade24_12{
+			max-width:24px !important;
+			max-hight:24px !important;
+			width:24px;
+			height:24px;
+			background-image:url('../module-img/grade_icon/12.png');
+			background-size: 24px 24px; 
+			background-position: center;
+			display:inline-block;
+			postion:absolute;
+			top:10px;
+			
+		}
+		
+		/*24*24 15세*/
+		.grade24_15{
+			max-width:24px !important;
+			max-hight:24px !important;
+			width:24px;
+			height:24px;
+			background-image:url('../module-img/grade_icon/15.png');
+			background-size: 24px 24px; 
+			display:inline-block;
+		
+		}
+		
+		/*24*24 19세*/
+		.grade24_19{
+			max-width:24px !important;
+			max-hight:24px !important;
+			width:24px;
+			height:24px;
+			background-image:url('../module-img/grade_icon/19.png');
+			background-size: 24px 24px; 
+			display:inline-block;
+		}		
 	
 /*
 ---------------------------- 정빈 추가 ---------------------------------

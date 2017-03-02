@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -23,8 +24,6 @@ public class MovieController {
 	//클라이언트측 영화 리스트페이지 박스오피스
 	@RequestMapping(value = "/clientMovieListBoxoffice1", method = RequestMethod.GET)
 	public String clientMovieListBoxoffice(Model model) {
-		List<Map> list = movieDao.selectListBoxOffice();
-		System.out.println(list.get(0).toString());
 		model.addAttribute("boxList",movieDao.selectListBoxOffice()); //박스오피스 리스트 가져오기
 		return "movie/clientMovieListBoxoffice";
 	}	
@@ -43,7 +42,10 @@ public class MovieController {
 	
 	//클라이언트측 영화 상세페이지
 	@RequestMapping(value = "/clientMovieDetail", method = RequestMethod.GET)
-	public String memberMovieDetail() {
+	public String memberMovieDetail(Model model,@RequestParam(value="movCode") String movCode) {
+		model.addAttribute("movie",movieDao.selectOneMovieInfo(movCode)); //영화정보 세팅
+		model.addAttribute("charList",movieDao.selectListCharNameCode(movCode)); //인물정보 세팅
+		System.out.println(movieDao.selectListCharNameCode(movCode).toString());
 		return "movie/clientMovieDetail";
 	}
 	

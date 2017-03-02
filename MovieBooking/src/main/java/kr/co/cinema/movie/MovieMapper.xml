@@ -5,6 +5,42 @@
   
 <mapper namespace="kr.co.cinema.movie.MovieMapper">
 
+	<!-- 영화코드로 인물 코드,이름 가져오기 -->
+	<select id="selectListCharNameCode" parameterType="String" resultType="Map">
+		SELECT
+			CHARACTERS.char_code as charCode,
+			`CHARACTER`.char_korName as charKorName
+		FROM
+			CHARACTERS JOIN `CHARACTER` ON `CHARACTER`.char_code=CHARACTERS.char_code
+		WHERE
+			CHARACTERS.mov_code=#{movCode}
+	</select>
+
+	<!-- 영화코드에 맞는 영화 가져오기 -->
+	<select id="selectOneMovieInfo" parameterType="String" resultType="Map">
+		SELECT
+			MOVIE.mov_code as movCode,
+			MOVIE.mov_korName as movKorName,
+			MOVIE.mov_engName as movEngName,
+			MOVIE.char_code as charCode,
+			(SELECT `CHARACTER`.char_korName FROM `CHARACTER`WHERE `CHARACTER`.char_code = MOVIE.char_code) as producer,
+			(SELECT ANALYSIS.anl_likeTotalCount FROM ANALYSIS WHERE ANALYSIS.mov_code=MOVIE.mov_code)as likeTotalCount,
+			MOVIE.mov_nation as movNation,
+			MOVIE.mov_grade as movGrade,
+			MOVIE.mov_genre as movGenre,
+			MOVIE.mov_maker as movMaker,
+			MOVIE.mov_runningTime as movRunningTime,
+			MOVIE.mov_openDate as movOpenDate,
+			MOVIE.mov_infoDetail as movInfoDetail,
+			MOVIE.mov_imgPath as movImgPath,
+			MOVIE.mov_videoPath as movVideoPath,
+			MOVIE.mov_status as movStatus
+		FROM
+			MOVIE
+		WHERE
+			MOVIE.mov_code = #{movCode}	
+	</select>
+
 	<!-- 박스오피스 리스트 가져오기 -->
 	<select id="selectListBoxOffice" resultType="map">
 		SELECT

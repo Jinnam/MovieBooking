@@ -34,12 +34,12 @@
    <!-- 메인 -->
   <br>
 
-    <div class="container" style="width:970px"> <!-- 메인컨테이너 시작 -->
+    <div class="container" style="max-width:90%; width:90%"> <!-- 메인컨테이너 시작 -->
       <div class="row"> <!-- 메인row 시작 -->
       
       
       	<c:forEach var="map" items="${boxList}" varStatus="status"> 
-	        <div class="col s3">
+	        <div class="col s2">
 	          <div class="card">
 	          
 	            <!-- 카드 이미지 영역 -->
@@ -59,7 +59,7 @@
 	                  <div class="side black">
 	                    <img style="opacity: 0.3; max-height:300px;" src="${map.movImgPath}">
 	  						
-		              	<a href="clientMovieDetail?movCode="${map.movCode}">
+		              	<a href="clientMovieDetail?movCode=${map.movCode}">
 			              	<div style="display:inline-block;position:absolute;top:220px;left:40;">
 			              		<div style="color:#eeeeee ;"><i class="huge Film icon"></i></div>
 			              		<div style="color:#eeeeee;text-align:center;">상세보기</div>
