@@ -23,13 +23,30 @@ public class PaymentDao {
 	private SqlSessionTemplate sqlSession;
 	private final String NS="kr.co.cinema.payment.PaymentMapper.";
 	
+	// 좌석정보 업데이트
+	public int updateSeat(String seatCode){
+		logger.debug("		updateSeat() 진입 seatCode : "+seatCode);
+		return sqlSession.update(NS+"updateSeat", seatCode);
+	}
+	
+	// 좌석(다:다) 등록
+	public int insertSeats(Map<String, String> map){
+		logger.debug("		insertSeats() 진입 map : "+map);
+		return sqlSession.insert(NS+"insertSeats", map);
+	}
+	
+	// 회원 마일리지 업데이트
+	public int updateMemMileage(String memId){
+		logger.debug("		updateMemMileage() 진입 memId : "+memId);
+		return sqlSession.update(NS+"updateMemMileage", memId);
+	}
 	
 	// 마일리지 정보 등록
 	public int insertMileage(Mileage mileage){
 		logger.debug("		insertMileage() 진입 map : "+mileage);
 		return sqlSession.insert(NS+"insertMileage", mileage);
-		
 	}
+	
 	// 결제 정보 등록
 	public int insertPayment(Payment payment){
 		logger.debug("		insertPayment() 진입 payment : "+payment);

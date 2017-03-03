@@ -86,7 +86,7 @@ public class PaymentController {
 	public String payment(Model model, Payment payment, HttpSession session){
 		logger.debug("		payment post:"+payment.toString());
 		
-		session.setAttribute("phone", "01012344322");
+		session.setAttribute("phone", "01012344322");			// 가짜 세션
 		
 		String id = (String) session.getAttribute("id");							// 세션에 있는 id값을 가져옴
 		String phone = (String) session.getAttribute("phone");						// 세션에 있는 전화번호를 가져옴
@@ -98,6 +98,13 @@ public class PaymentController {
 			payment.setNmemCode(nmemCode);
 			payment.setMemId("비회원");
 		}
+		String[] seatCode = new String[4];						// seatCode를 배열에 넣기 위해 4개의 배열 생성
+		seatCode[0] = payment.getSeatCode1();					// 첫번재 배열에 첫번째 좌석코드 셋팅
+		seatCode[1] = payment.getSeatCode2();					// 두번재 배열에 두번째 좌석코드 셋팅
+		seatCode[2] = payment.getSeatCode3();					// 세번재 배열에 세번째 좌석코드 셋팅
+		seatCode[3] = payment.getSeatCode4();					// 네번재 배열에 네번째 좌석코드 셋팅
+		payment.setSeatCode(seatCode);
+		
 		paymentService.insertPayment(payment);										// db에 결제 등록
 		
 		model.addAttribute("payment",payment);										// 결제 결과 보여주기 위한 정보를 model에 올림

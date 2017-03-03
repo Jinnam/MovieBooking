@@ -1,6 +1,7 @@
 package kr.co.cinema.payment;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,9 +32,10 @@ public class PaymentService {
 	public int insertPayment(Payment payment){
 		logger.debug("		insertPayment() 진입 payment : "+payment);
 		
-		int resultPayment = 0;			// 결제 등록 성공 여부 판단
-		int resultMileage = 0;			// 마일리지 등록 성공 여부 판단
-		int resultReturn = 0;			// 컨트롤러에 반환할 최종 결과
+		int resultPayment = 0;			// 결제 등록 성공 여부
+		int resultMileage = 0;			// 마일리지 등록 성공 여부
+		int resultReturn = 0;			// 컨트롤러에 반환할 최종 결과 성공 여부
+		int resultMemUpdate = 0;		// 회원 마일리지 업데이트 성공 여부
 		
 		// 결제 등록
 		String pmtCode = homeService.madeCode(payment);						// 결제코드 생성
@@ -54,8 +56,35 @@ public class PaymentService {
 			mileage.setMilUse(milUse);
 			mileage.setMemId(memId);
 			
-			resultMileage = paymentDao.insertMileage(mileage);
+			resultMileage = paymentDao.insertMileage(mileage);				// 마일리지 테이블에 등록
+			resultMemUpdate = paymentDao.updateMemMileage(memId);			// 회원 마일리지 정보 업데이트
 		}
+		
+		// 좌석 다:다 등록
+		Map<String, String> map = new HashMap<String, String>();
+		for(int i =0; i<payment.getSeatCode().length;i++){
+			if(payment.getSeatCode()[i]==""){
+				break;
+			}else{
+				String seatsCode = homeService.makeCode("seats");
+				map.put("seatsCode", seatsCode);
+				map.put("pmtCode",pmtCode);
+				map.put("seatCode", payment.getSeatCode()[i]);
+				paymentDao.insertSeats(map);	
+			}
+			
+		}
+		// 좌석 업데이트(able->use)
+		for(int i=0; i<payment.getSeatCode().length;i++){
+			if(payment.getSeatCode()[i]==""){
+				break;
+			}else{
+				paymentDao.updateSeat(payment.getSeatCode()[i]);
+			}
+		}
+		
+
+		
 		
 		if(memId != "비회원"){			// 회원 결제 시
 			if(resultPayment == 1 && resultMileage == 1){	// 결제 등록 & 마일리지 등록이 성공여부 판단
@@ -73,6 +102,9 @@ public class PaymentService {
 		
 		return resultReturn;
 	}
+	
+	
+	
 	
 	// 비회원 코드 가져오기
 	public String searchOneNmemCode(String phone){

@@ -1,5 +1,7 @@
 package kr.co.cinema.dto;
 
+import java.util.Arrays;
+
 // 결제 dto
 public class Payment {
 
@@ -15,11 +17,18 @@ public class Payment {
 	private String seatCode2;		// 두번째 좌석 코드
 	private String seatCode3;		// 세번째 좌석 코드
 	private String seatCode4;		// 네번째 좌석 코드
+	private String[] seatCode;		// 좌석 코드 배열
 	private int pmtTicketNum;		// 인원
 	private int pmtPrice;			// 결제 금액
 	private String pmtDate;			// 결제 날짜
 	
 	
+	public String[] getSeatCode() {
+		return seatCode;
+	}
+	public void setSeatCode(String[] seatCode) {
+		this.seatCode = seatCode;
+	}
 	public String getPaymentWay() {
 		return paymentWay;
 	}
@@ -116,8 +125,8 @@ public class Payment {
 		return "Payment [pmtCode=" + pmtCode + ", paymentWay=" + paymentWay + ", scsCode=" + scsCode + ", memId="
 				+ memId + ", nmemCode=" + nmemCode + ", sccoCode=" + sccoCode + ", dcinfCode=" + dcinfCode
 				+ ", useMileage=" + useMileage + ", seatCode1=" + seatCode1 + ", seatCode2=" + seatCode2
-				+ ", seatCode3=" + seatCode3 + ", seatCode4=" + seatCode4 + ", pmtTicketNum=" + pmtTicketNum
-				+ ", pmtPrice=" + pmtPrice + ", pmtDate=" + pmtDate + "]";
+				+ ", seatCode3=" + seatCode3 + ", seatCode4=" + seatCode4 + ", seatCode=" + Arrays.toString(seatCode)
+				+ ", pmtTicketNum=" + pmtTicketNum + ", pmtPrice=" + pmtPrice + ", pmtDate=" + pmtDate + "]";
 	}
 	
 	

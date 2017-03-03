@@ -4,6 +4,30 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="kr.co.cinema.payment.PaymentMapper">
+
+
+	<!-- 좌석 업데이트(able->use) -->
+	<update id="updateSeat" parameterType="String">
+		UPDATE 
+			SEAT
+		SET
+			seat_useStatus="use"
+		WHERE
+			seat_code=#{seatCode}
+	</update>
+
+	<!-- 좌석 다:다 등록 -->
+	<insert id="insertSeats" parameterType="Map">
+		INSERT INTO SEATS(
+			seats_code,
+			pmt_code,
+			seat_code
+		)VALUE (
+			#{seatsCode},
+			#{pmtCode},
+			#{seatCode}
+			)
+	</insert>
 	
 	<!-- 비회원 코드 가져오기 -->
 	<select id="selectNmemCode" parameterType="String" resultType="String">
@@ -160,6 +184,23 @@
 			now()
 		)
 	</insert>
+	
+	<!-- 멤버 마일리지 업데이트 -->
+	<update id="updateMemMileage" parameterType="String">
+	UPDATE 
+		MEMBER
+	SET
+		mem_mileage=(SELECT
+						(SUM(mil_save)-SUM(mil_use))
+					FROM
+						MILEAGE
+					WHERE
+						mem_id=mem_id=#{memId}
+						)
+	WHERE 
+		mem_id=#{memId}
+	</update>
+	
 	
 	
 </mapper>
