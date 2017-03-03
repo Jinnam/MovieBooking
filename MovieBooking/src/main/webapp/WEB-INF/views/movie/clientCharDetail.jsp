@@ -14,16 +14,12 @@
 <!-- 전체메뉴 white-->
 <%@ include file="/WEB-INF/clientModule/topTotalMenuBarWhite.jsp" %>
 
-<!-- 영화 메뉴 바-->
-<%@ include file="/WEB-INF/clientModule/topMovieBar.jsp" %>
-
-
 
     <!-- 메인 -->
 
     <div class="row container" style="width:970px ; text-align:center; ">
       <div class="col s12" style="text-align:left;">
-        <div class="card">
+        <div class="card grey lighten-4">
 
           <!-- 영화 상세 내용 영역 -->
           <div class="card-content">

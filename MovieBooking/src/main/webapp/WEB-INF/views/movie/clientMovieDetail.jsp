@@ -74,16 +74,13 @@
 <!-- 전체메뉴 white-->
 <%@ include file="/WEB-INF/clientModule/topTotalMenuBarWhite.jsp" %>
 
-<!-- 영화 메뉴 바-->
-<%@ include file="/WEB-INF/clientModule/topMovieBar.jsp" %>
-
 
 
     <!-- 메인 -->
 
     <div class="row container" style="width:970px ; text-align:center; ">
       <div class="col s12" style="text-align:left;">
-        <div class="card">
+        <div class="card grey lighten-4">
 
           <!-- 영화 상세 내용 영역 -->
           <div class="card-content">
@@ -103,7 +100,9 @@
                 <span class="col s9" style="color:#8C8C8C;">
                   <sapn style="position:relative ; top:10px;">${movie.movEngName}</span>
                   <span>${movie.movStatus} </span>
-                  <span style="text-align:right;"><a class="waves-effect waves-light btn" style="border-radius:0em ;">예매하기</a></span>
+                  <c:if test="${movie.movStatus == '상영중' || movie.movStatus == '상영예정'}">
+                 	 <span style="text-align:right;"><a class="waves-effect waves-light btn" style="border-radius:0em ;">예매하기</a></span>
+                  </c:if>
                   <!-- 간격 --><div style="height:10px;"></div>
                 </span>
                 <div class="divider"></div>
@@ -116,7 +115,7 @@
 						</c:forEach>
                 	</span>
                 </div>
-                <div><b>장르 : </b> <span>${movie.movGenre} / ${movie.movRunningTime}분/${movie.movNation}</span></div>
+                <div><b>장르 : </b> <span>${movie.movGenre} / 러닝타임 : ${movie.movRunningTime}/${movie.movNation}</span></div>
                 <div><b>개봉일 : </b> <span>${movie.movOpenDate}</span></div>
                 <div style="height:40px;"></div>
                 <div>
@@ -134,19 +133,19 @@
               </div>
 
 
-			 <div class="col s1"></div>
+			 
 			 <!-- 차트2  -->
-			 <div class="col s4" id="chart_div1"></div>
+			 <div class="col s6 card" id="chart_div1"></div>
 			 
 			 <!-- 차트1  -->
-			 <div class="col s4" id="chart_div2"></div>		 
+			 <div class="col s6 card" id="chart_div2"></div>		 
 			 
 			 
               <!-- 스틸컷 이미지 -->
               <div class="col s12">
                 <h3>스틸컷</h3>
                 <!-- 캐러셀 -->
-                	<div class="carousel" style="z-index:1;">
+                	<div class="carousel white" style="z-index:1;">
                 		<c:forEach var="stcImg" items="${stcImgList}"> 		            
 		                  <a class="carousel-item " href="#one!">
 		                  	<img class="materialboxed" src="${stcImg}">

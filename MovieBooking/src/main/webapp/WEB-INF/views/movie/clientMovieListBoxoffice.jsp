@@ -48,11 +48,15 @@
 	                <div class="sides">
 	                
 	                  <!-- 카드 앞면 -->
-	                  <div class="active side">
+	                  <div class="active side">	                  
+	                  	
 	                    <img style="max-height:300px;"src="${map.movImgPath}">
-			              	<div style="display:inline-block;position:absolute;top:0px;left:-5px;">			              		
-			              		<div class="light-blue darken-4"style="text-align:center;color:#FFFFFF;width:30;height:30px;font-size:20;line-height:30px;opacity: 0.95;">${status.count}</div>
-			              	</div>		                    
+	                    	<!-- 순위 -->
+	                    	<c:if test="${status.count < 6}">
+				              	<div style="display:inline-block;position:absolute;top:0px;left:-5px;">					                         		
+				              		<div class="light-blue darken-4"style="text-align:center;color:#FFFFFF;width:30;height:30px;font-size:20;line-height:30px;opacity: 0.95;">${status.count}</div>
+				              	</div>
+			              	</c:if>		                    
 	                  </div>
 	                  
 	                  <!-- 카드 뒷면 -->
