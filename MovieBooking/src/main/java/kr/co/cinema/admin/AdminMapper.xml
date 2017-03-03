@@ -282,4 +282,29 @@
 			); 
 	</insert>
 	
+	<!-- 인물등록쿼리 -->
+	<insert id="insertChar"
+			parameterType="kr.co.cinema.dto.Character">
+		INSERT INTO 
+			`CHARACTER`(
+			char_korName, 
+			char_engName, 
+			char_birth, 
+			char_gender, 
+			char_profileImgPath, 
+			char_nation, 
+			char_bioGraphy, 
+			char_finalModifyDate) 
+		VALUES 
+			(
+			#{charKorName}, 
+			#{charEngName}, 
+			#{charBirth}, 
+			#{charGender}, 
+			#{charFrofileImgPath}, 
+			#{charNation}, 
+			#{charBioGraphy}, 
+			NOW()
+			); 	
+	</insert>
 </mapper>

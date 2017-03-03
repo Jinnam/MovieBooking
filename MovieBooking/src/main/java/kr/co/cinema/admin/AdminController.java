@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
+import kr.co.cinema.dto.Character;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
 import kr.co.cinema.dto.ScreenCost;
@@ -204,11 +205,19 @@ public class AdminController {
 	/************************************************************************************************************
 	인물 관리 메서드 : 인물등록/인물리스트/인물상세/인물수정
 	************************************************************************************************************/	
-
-	//***관리자 인물등록 페이지 연결만 해놓음
+	
+	//관리자 인물등록 페이지
 	@RequestMapping(value="characterInsert", method=RequestMethod.GET)
-	public String insertCharacter() {
-		logger.debug(" Controller insertCharacter get실행");
+	public String insertCharacterView() {
+		logger.debug(" Controller insertCharacterView get실행");
+		return "management/characterInsert";
+	}
+	
+	//인물등록
+	@RequestMapping(value="characterInsert", method=RequestMethod.POST)
+	public String insertCharacter(Character character) {
+		logger.debug(" Controller insertCharacter post실행");
+		adminService.insertChar(character);
 		return "management/characterInsert";
 	}
 	

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
+import kr.co.cinema.dto.Character;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
 import kr.co.cinema.dto.ScreenCost;
@@ -109,6 +110,12 @@ public class AdminDao {
 	public int insertCost(ScreenCost screenCost) {
 		logger.debug(" Dao insertCost");
 		return sqlSession.insert(NS+"insertCost", screenCost);
+	}
+	
+	//인물등록
+	public int insertChar(Character character) {
+		logger.debug(" Dao insertChar");
+		return sqlSession.insert(NS+"insertChar", character);
 	}
 
 }

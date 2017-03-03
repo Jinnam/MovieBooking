@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
+import kr.co.cinema.dto.Character;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
 import kr.co.cinema.dto.ScreenCost;
@@ -26,7 +27,11 @@ public class AdminService {
 		logger.debug(" Service selectClientCount"+selectClientCount.toString());
 		return selectClientCount;
 	}
-	
+
+	/************************************************************************************************************
+	지점관리자 메서드 : 지점관리자등록/지점관리자조회/지점관리자수정/지점관리자삭제
+	************************************************************************************************************/	
+
 	//지점리스트 조회
 	public List<Branch> selectBranchList() {
 		logger.debug(" Service selectBranchList get실행");
@@ -86,12 +91,20 @@ public class AdminService {
 		logger.debug(" Service deleteAdmin get실행");
 		return adminDao.deleteAdmin(admId);
 	}
-		
+
+	/************************************************************************************************************
+	회원 관리 메서드 : 회원리스트조회
+	************************************************************************************************************/
+	
 	//회원리스트 조회
 	public List<Member> selectMemberList() {
 		logger.debug(" Service selectMemberList get실행");
 		return adminDao.selectMemberList();
 	}
+	
+	/************************************************************************************************************
+	영화 관리 메서드 : 영화등록/영화리스트/영화상세/영화수정
+	************************************************************************************************************/	
 	
 	//영화등록 전 인물이름으로 인물코드조회
 	public String selectCharCodeForInsertMovie() {
@@ -105,10 +118,24 @@ public class AdminService {
 		return adminDao.insertMovie(movie);
 	}
 
+	/************************************************************************************************************
+	단가 관리 메서드 : 단가등록/단가수정
+	************************************************************************************************************/		
+	
 	//단가등록
 	public int insertCost(ScreenCost screenCost) {
 		logger.debug(" Service insertCost post실행");
 		return adminDao.insertCost(screenCost);
+	}
+	
+	/************************************************************************************************************
+	인물 관리 메서드 : 인물등록/인물리스트/인물상세/인물수정
+	************************************************************************************************************/	
+	
+	//인물등록
+	public int insertChar(Character character) {
+		logger.debug(" Service insertChar post실행");
+		return adminDao.insertChar(character);
 	}
 
 	
