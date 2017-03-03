@@ -46,7 +46,7 @@ public class MovieController {
 		model.addAttribute("movie",movieDao.selectOneMovieInfo(movCode)); //영화정보 세팅
 		model.addAttribute("charList",movieDao.selectListCharNameCode(movCode)); //인물정보 세팅
 		model.addAttribute("stcImgList",movieDao.selectListStcImg(movCode)); //스틸컷 이미지 세팅
-		System.out.println(movieDao.selectListStcImg(movCode).toString());
+		model.addAttribute("ticketCount",movieDao.selectOneMovieCountInfo(movCode)); //통계정보 세팅
 		return "movie/clientMovieDetail";
 	}
 	

@@ -18,8 +18,15 @@ public class MovieDao {
 	
 	private final String mapperNS="kr.co.cinema.movie.MovieMapper.";
 	
+	//영화코드로 영화 통계정보 가져오기
+	public Map<String,String> selectOneMovieCountInfo(String movCode){
+		logger.debug("selectOneMovieCountInfo 영화코드로 영화 통계정보 가져오기");
+		return session.selectOne(mapperNS+"selectOneMovieCountInfo", movCode);		
+	}
+	
 	//인물코드로 필모그래피 가져오기
 	public List<Map> selectListfilmography(String charCode){
+		logger.debug("selectListfilmography 인물코드로 필모그래피 가져오기");
 		return session.selectList(mapperNS+"selectListfilmography",charCode);		
 	}
 	

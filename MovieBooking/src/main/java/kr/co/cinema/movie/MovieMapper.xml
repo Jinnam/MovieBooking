@@ -5,6 +5,22 @@
   
 <mapper namespace="kr.co.cinema.movie.MovieMapper">
 
+	<select id="selectOneMovieCountInfo" parameterType="String" resultType="map">
+		SELECT
+			ANALYSIS.anl_totalTicketCount as totalCnt,
+			ANALYSIS.anl_10sTicketCount as teenCnt,
+			ANALYSIS.anl_20sTicketCount as twentyCnt,
+			ANALYSIS.anl_30sTicketCount as thirtyCnt,
+			ANALYSIS.anl_40sTicketCount as fortyCnt,
+			ANALYSIS.anl_over50sTicketCount as overCnt,
+			ANALYSIS.anl_manTicketCount as manCnt,
+			ANALYSIS.anl_womanTicketCount as womanCnt
+		FROM
+			ANALYSIS
+		WHERE
+			ANALYSIS.mov_code=2100001	
+	</select>
+
 	<!-- 인물코드로 필모그래피 가져오기 -->
 	<select id="selectListfilmography" parameterType="String" resultType="map">
 		SELECT
