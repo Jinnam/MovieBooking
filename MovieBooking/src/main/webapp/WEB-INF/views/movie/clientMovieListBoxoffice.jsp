@@ -60,14 +60,14 @@
 	                    <img style="opacity: 0.3; max-height:300px;" src="${map.movImgPath}">
 	  						
 		              	<a href="clientMovieDetail?movCode=${map.movCode}">
-			              	<div style="display:inline-block;position:absolute;top:220px;left:40;">
+			              	<div style="display:inline-block;position:absolute;top:70%;left:20%;">
 			              		<div style="color:#eeeeee ;"><i class="huge Film icon"></i></div>
 			              		<div style="color:#eeeeee;text-align:center;">상세보기</div>
 			              	</div>		              	
 
 		              	</a>
 		              	<a href="#">
-			              	<div style="display:inline-block;position:absolute;top:220px;left:120;">
+			              	<div style="display:inline-block;position:absolute;top:70%;left:50%;">
 			              		<div style="color:#eeeeee;"><i class="huge heart icon"></i></div>
 			              		<div style="color:#eeeeee;text-align:center;">좋아요</div>
 			              	</div>		              	
@@ -104,6 +104,9 @@
 
       </div> <!-- row 끝 -->
     </div> <!-- container 끝 -->
+
+
+
 
 
 <!-- 하단바 -->

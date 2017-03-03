@@ -5,6 +5,74 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>영화 상세페이지</title>
 <link rel="SHORTCUT ICON" href="resources/module-img/titleIcon.png">
+
+
+
+	<!-- 차트 -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   
+    <!-- 파이차트 -->
+     
+     <script type="text/javascript">
+     
+ 	     google.charts.load('current', {'packages':['corechart']});
+	     google.charts.setOnLoadCallback(drawChart1);
+	     google.charts.setOnLoadCallback(drawChart2);	
+
+	        
+         function drawChart1() {
+
+          // Create the data table.
+          var data1 = new google.visualization.DataTable();
+          data1.addColumn('string', 'Topping');
+          data1.addColumn('number', 'Slices');
+          data1.addRows([
+            ['남성', 3],
+            ['여성', 1],
+          ]);
+
+          // Set chart options
+          var options1 = {'title':'성별 예매 분포',
+                         'width':400,
+                         'height':300};
+
+          // Instantiate and draw our chart, passing in some options.
+
+          var chart1 = new google.visualization.PieChart(document.getElementById('chart_div1'));
+          chart1.draw(data1, options1);
+        } 
+	         	
+		function drawChart2() {
+		
+		    // Create the data table.
+		    var data2 = new google.visualization.DataTable();
+		    data2.addColumn('string', 'Topping');
+		    data2.addColumn('number', 'Slices');
+		    data2.addRows([
+		      ['10대', 3],
+		      ['20대', 1],
+		      ['30대', 1],
+		      ['40대', 1],
+		      ['50대이상', 1],
+		    ]);
+		
+		    // Set chart options
+		    var options2 = {'title':'연령별 예매 분포',
+		                   'width':400,
+		                   'height':300,
+		                   'pieHole': 0.4,};
+		
+		    // Instantiate and draw our chart, passing in some options.
+		
+		    var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));
+		    chart2.draw(data2, options2);
+		}          
+	
+	    
+	    	         	     
+    </script>
+
+
 </head>
 <body>
 
@@ -73,6 +141,15 @@
                 <pre>${movie.movInfoDetail}</pre>
               </div>
 
+
+			 <div class="col s1"></div>
+			 <!-- 차트2  -->
+			 <div class="col s4" id="chart_div1"></div>
+			 
+			 <!-- 차트1  -->
+			 <div class="col s4" id="chart_div2"></div>		 
+			 
+			 
               <!-- 스틸컷 이미지 -->
               <div class="col s12">
                 <h3>스틸컷</h3>

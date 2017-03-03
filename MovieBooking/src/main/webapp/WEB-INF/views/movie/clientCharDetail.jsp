@@ -52,13 +52,11 @@
               <div class="col s12" style="font-size:12px ; color:#4C4C4C;">
                 <h3>바이오그래피</h3>
                 <pre>${charInfo.charBioGraphy}</pre>
-                  <!-- 간격 --><div style="height:50px"></div>
+                  <!-- 간격 --><div style="height:20px"></div>
               </div>
-
-
-
-
-
+	
+			<hr>
+		       <!-- 간격 --><div style="height:20px"></div>
               <!-- 필모그래피 -->
               <div class="col s12">
                 <h3>필모그래피</h3>
