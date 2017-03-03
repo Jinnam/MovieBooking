@@ -105,9 +105,10 @@ public class PaymentController {
 		seatCode[3] = payment.getSeatCode4();					// 네번재 배열에 네번째 좌석코드 셋팅
 		payment.setSeatCode(seatCode);
 		
-		paymentService.insertPayment(payment);										// db에 결제 등록
+		paymentService.insertPayment(payment);					// db에 결제 등록
 		
-		model.addAttribute("payment",payment);										// 결제 결과 보여주기 위한 정보를 model에 올림
+		
+		model.addAttribute("payment",payment);					// 결제 결과 보여주기 위한 정보를 model에 올림
 		return "payment/paymentResult";
 	}
 }
