@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
+import kr.co.cinema.dto.BranchAndScreen;
 import kr.co.cinema.dto.Character;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
@@ -304,6 +305,21 @@ public class AdminController {
 	/************************************************************************************************************
 	상영일정 관리 메서드 : 상영일정등록/상영일정리스트/상영일정수정
 	************************************************************************************************************/	
+
+	//상영일정 등록 : 영화한글이름으로 영화 코드조회하기 AJAX
+	@RequestMapping(value="selectMovieCode", method=RequestMethod.POST)
+	public @ResponseBody String selectMovieCodeforInsertScrSchedule(@RequestParam("movKorName")String movKorName) {
+		logger.debug(" Controller selectMovieCodeforInsertScrSchedule post실행");
+		String selectMovieCode = adminService.selectMovieCode(movKorName);
+		return selectMovieCode;
+	}
+	
+	@RequestMapping(value="selectmovieAndScreens", method=RequestMethod.POST)
+	public @ResponseBody List<BranchAndScreen> selectMovCodeAndScrNameList(@RequestParam("brcName")List<BranchAndScreen> movieAndScreens) {
+		logger.debug(" Controller selectMovCodeAndScrNameList post실행");
+		List<BranchAndScreen> selectmovieAndScreens = adminService.selectmovieAndScreens(movieAndScreens);
+		return selectmovieAndScreens;
+	}
 	
 	//***관리자 상영일정등록 페이지 연결만 해놓음
 	@RequestMapping(value="screenScheduleInsert", method=RequestMethod.GET)

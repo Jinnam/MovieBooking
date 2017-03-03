@@ -351,4 +351,33 @@
 	</insert>
 	
 	
+	<!-- 상영일정등록전 영화이름으로 영화코드 조회 -->
+	<select id="selectMovieCode"
+			resultType="String"
+			parameterType="String">
+			SELECT 
+				MOVIE.mov_code 
+			FROM 
+				MOVIE 
+			WHERE 
+				MOVIE.mov_korName = #{movKorName}; 
+	</select>
+	
+	<!-- 상영일정등록전 지점이름으로 지점코드, 스크린코드, 스크린이름조회 -->
+	<select id="movieAndScreens"
+			resultType="kr.co.cinema.dto.BranchAndScreen"
+			parameterType="kr.co.cinema.dto.BranchAndScreen">
+			SELECT
+				BRANCH.brc_code,
+				SCREEN.scr_name,
+				SCREEN.scr_code
+			FROM
+				BRANCH
+			INNER JOIN
+				SCREEN
+			ON
+				BRANCH.brc_code = SCREEN.brc_code
+			WHERE
+				BRANCH.brc_name = #{brcName}
+	</select>
 </mapper>

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import kr.co.cinema.HomeService;
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
+import kr.co.cinema.dto.BranchAndScreen;
 import kr.co.cinema.dto.Character;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
@@ -159,7 +160,17 @@ public class AdminService {
 		logger.debug(" Service selectBrcCode post실행");
 		String ScrCode = homeService.madeCode(screen);
 		screen.setScrCode(ScrCode);
-		logger.debug("test ScrCode"+ScrCode);
 		return adminDao.insertScreen(screen);
+	}
+
+	//상영일정 등록전 영화이름으로 영화 코드조회 ajax
+	public String selectMovieCode(String movKorName) {
+		logger.debug(" Service selectMovieCode post실행");
+		return adminDao.selectMovieCode(movKorName);
+	}
+
+	public List<BranchAndScreen> selectmovieAndScreens(List<BranchAndScreen> movieAndScreens) {
+		logger.debug(" Service selectmovieAndScreens post실행");
+		return adminDao.selectmovieAndScreens(movieAndScreens);
 	}
 }

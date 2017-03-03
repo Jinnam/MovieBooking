@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
+import kr.co.cinema.dto.BranchAndScreen;
 import kr.co.cinema.dto.Character;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
@@ -125,9 +126,21 @@ public class AdminDao {
 		return sqlSession.selectOne(NS+"selectBrcCode", brcName);
 	}
 
+	//상영관 등록
 	public int insertScreen(Screen screen) {
 		logger.debug(" Dao insertScreen");
 		return sqlSession.insert(NS+"insertScreen", screen);
+	}
+
+	//상영일정 등록전 영화이름으로 영화코드 조회
+	public String selectMovieCode(String movKorName) {
+		logger.debug(" Dao selectMovieCode");
+		return sqlSession.selectOne(NS+"selectMovieCode", movKorName);
+	}
+
+	public List<BranchAndScreen> selectmovieAndScreens(List<BranchAndScreen> movieAndScreens) {
+		logger.debug(" Dao selectmovieAndScreens");
+		return sqlSession.selectList(NS+"selectmovieAndScreens", movieAndScreens);
 	}
 
 }

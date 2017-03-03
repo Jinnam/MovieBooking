@@ -24,9 +24,9 @@
 	<link href="resources/assets/css/style-responsive.css" rel="stylesheet">
 	
 	<script src="resources/assets/js/chart-master/Chart.js"></script>
-	<!-- 지점별 영화매출 통계 -->
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 	
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -227,6 +227,123 @@
 				<!-- 페이지 강제 줄임 -->
 				<div class="col-lg-9 main-chart" align="center"></div>
 			</div>
+			
+			<!-- 지점등록 폼 이름/지역/주소/상세설명/이미지경로-->
+			<div class="container" style="margin: 0 auto;">
+				<div class="jumbotron">
+					<h2 class="logo">상영일정 등록</h2>
+				</div>
+				<div class="col-lg-3"></div>
+				<div style="margin:0 auto;">
+					<form action="movieInsert"  class="col-lg-12 form-horizontal" method="post">
+						<fieldset class="col-lg-5" style="float:left;">
+							<legend>add</legend>
+							<!-- 영화한글이름 -->
+							<div class="form-group">
+								<label class="col-lg-3 control-label">영화한글이름</label>
+								<div class="col-lg-7">
+									<input type="text" id="movKorName" name="movKorName" class="form-control" placeholder="영화이름을 입력하세요" required="required">
+								</div>
+								<div>
+									<input id="selectMovieCode" type="button" class="btn btn-button" value="조회">
+								</div>
+							</div>
+							<!-- 영화코드출력 -->
+							<div class="form-group">
+								<label class="col-lg-3 control-label">영화코드</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" id="selectViewMovCode" name="movCode" required="required">
+								</div>
+							</div>
+							<!-- 지점이름(한글) -->
+							<div class="form-group"> 
+								<label class="col-lg-3 control-label">지점이름</label>
+								<div class="col-lg-7">
+									<input type="text" class="form-control" id="brcName" name="brcName" placeholder="지점이름을 입력하세요" required="required">
+								</div>
+								<!-- 감독이름으로 인물코드를 인물테이블에서 조회 ajax-->
+								<div>
+									<input id="selectBrcCodeAndScrCode" type="button" class="btn btn-button" value="조회">
+								</div>
+							</div>
+							<!-- 지점코드 출력 -->
+							<div class="form-group">
+								<label class="col-lg-3 control-label">지점코드</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" id="brcCode" name="charCode" required="required">
+								</div>
+							</div>
+							<!-- 상영관리스트 출력 -->
+							<div class="form-group">
+								<label class="col-lg-3 control-label">상영관리스트</label>
+								<div class="col-lg-9">
+									<%-- <select class="form-control">
+										<c:forEach var="" items="${}">
+											<option>
+											 
+											</option>
+										</c:forEach>
+									</select> --%>
+								</div>
+							</div>
+							<!-- 국가이름 -->
+							<div class="form-group">
+								<label class="col-lg-3 control-label">상영날짜</label>
+								<div class="col-lg-9">
+									<input type="date" class="form-control" placeholder="국가를 입력하세요" required="required">
+								</div>
+							</div>							
+						</fieldset>
+						<fieldset class="col-lg-5" style="float:left;">
+							<legend>&nbsp;</legend>
+							<!-- 상영시작시간 -->
+							<div class="form-group">
+								<label class="col-lg-3 control-label">상영시작시간</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" placeholder="상영시작시간을 입력하세요" required="required">
+								</div>
+							</div>
+							<!-- 상영종료시간 -->
+							<div class="form-group">
+								<label class="col-lg-3 control-label">상영종료시간</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" placeholder="상영종료시간을 입력하세요" required="required">
+								</div>
+							</div>
+							<!-- 상영종류 -->
+							<div class="form-group">
+								<label class="col-lg-3 control-label">상영종류</label>
+								<div class="col-lg-9">
+									<select class="form-control">
+										<option></option>
+										<option></option>
+										<option></option>
+									</select>
+								</div>
+							</div>
+							<!-- 할인종류 -->
+							<div class="form-group">
+								<label class="col-lg-3 control-label">할인종류</label>
+								<div class="col-lg-9">
+									<select class="form-control">
+										<option></option>
+										<option></option>
+										<option></option>
+									</select>
+								</div>
+							</div>
+							<!-- 등록버튼 -->
+							<div class="form-group">
+								<label class="col-lg-2 control-label"></label>
+								<div class="col-lg-8"></div>
+								<div>
+									<input type="submit" class="btn btn-button" value="등록">
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
 		</section>
 	</section>
 	<!-- 여기까지 메인 -->
@@ -235,6 +352,39 @@
 	<%@include file="/WEB-INF/adminModule/footer.jsp" %>
 	
 	<!-- 스크립트 -->
+	<!-- 지점이름으로 지점코드,상영코드 조회하기 -->
+	<script>
+		$(document).ready(function() {
+			$("#selectBrcCodeAndScrCode").click(function() {
+				$.ajax({
+					url 	: "selectmovieAndScreens",
+					data 	: {"brcName" : $("#brcName").val()},
+					type 	: "post",
+					success : function(data) {
+						console.log(data)
+						$("#selectViewScrNameAndScrCode").val(data)
+					}
+				});
+			});
+		});
+	</script>
+	
+	
+	<script>
+		$(document).ready(function() {
+			$("#selectMovieCode").click(function() {
+				$.ajax({
+					url 	: "selectMovieCode",
+					data 	: {"movKorName" : $("#movKorName").val()},
+					type 	: "post",
+					success : function(data) {
+						console.log(data)
+						$("#selectViewMovCode").val(data)
+					}
+				});
+			});
+		});
+	</script>
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="resources/assets/js/jquery.js"></script>
 	<script src="resources/assets/js/jquery-1.8.3.min.js"></script>
