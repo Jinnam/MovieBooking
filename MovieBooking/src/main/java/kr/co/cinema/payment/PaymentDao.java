@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.cinema.dto.DiscountInfo;
+import kr.co.cinema.dto.Mileage;
 import kr.co.cinema.dto.Payment;
 import kr.co.cinema.dto.ScreenCost;
 import kr.co.cinema.dto.Seat;
@@ -22,6 +23,13 @@ public class PaymentDao {
 	private SqlSessionTemplate sqlSession;
 	private final String NS="kr.co.cinema.payment.PaymentMapper.";
 	
+	
+	// 마일리지 정보 등록
+	public int insertMileage(Mileage mileage){
+		logger.debug("		insertMileage() 진입 map : "+mileage);
+		return sqlSession.insert(NS+"insertMileage", mileage);
+		
+	}
 	// 결제 정보 등록
 	public int insertPayment(Payment payment){
 		logger.debug("		insertPayment() 진입 payment : "+payment);

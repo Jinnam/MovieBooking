@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.cinema.HomeService;
 import kr.co.cinema.dto.DiscountInfo;
+import kr.co.cinema.dto.Mileage;
 import kr.co.cinema.dto.Payment;
 import kr.co.cinema.dto.ScreenCost;
 import kr.co.cinema.dto.Seat;
@@ -25,15 +26,53 @@ public class PaymentService {
 	private HomeService homeService;
 	
 	// 결제 정보 등록
-		public int insertPayment(Payment payment){
-			logger.debug("		insertPayment() 진입 payment : "+payment);
+	final double MILEAGE_RATE=0.3;		// 마일리지 적립율 변수 선언
+	
+	public int insertPayment(Payment payment){
+		logger.debug("		insertPayment() 진입 payment : "+payment);
+		
+		int resultPayment = 0;			// 결제 등록 성공 여부 판단
+		int resultMileage = 0;			// 마일리지 등록 성공 여부 판단
+		int resultReturn = 0;			// 컨트롤러에 반환할 최종 결과
+		
+		// 결제 등록
+		String pmtCode = homeService.madeCode(payment);						// 결제코드 생성
+		System.out.println("pmtCode : "+pmtCode);
+		payment.setPmtCode(pmtCode);
+		resultPayment = paymentDao.insertPayment(payment);
+		
+		// 마일리지 등록
+		String memId = payment.getMemId();									// payment에서 회원 아이디 가져오기
+		int milUse = payment.getUseMileage();
+		int milSave = (int) ((payment.getPmtPrice())*MILEAGE_RATE);			// 0.3% 적립
+		if(memId != "비회원"){
+			String milCode = homeService.madeCode("mileage");				// 마일리지 코드 생성
+			Mileage mileage = new Mileage();								// 마일리지 객체 생성
+			mileage.setMilCode(milCode);									// 마일리지 객체에 데이터 셋팅
+			mileage.setPmtCode(pmtCode);
+			mileage.setMilSave(milSave);
+			mileage.setMilUse(milUse);
+			mileage.setMemId(memId);
 			
-			String pmtCode = homeService.madeCode(payment);							// 결제코드 생성
-			System.out.println("pmtCode : "+pmtCode);
-			payment.setPmtCode(pmtCode);
-			
-			return paymentDao.insertPayment(payment);
+			resultMileage = paymentDao.insertMileage(mileage);
 		}
+		
+		if(memId != "비회원"){			// 회원 결제 시
+			if(resultPayment == 1 && resultMileage == 1){	// 결제 등록 & 마일리지 등록이 성공여부 판단
+				resultReturn = 1;
+			}else{
+				resultReturn = 0;
+			}
+		}else{								// 비회원 결제 시
+			if(resultPayment == 1){			// 결제 등록 성공여부 판단
+				resultReturn = 1;
+			}else{
+				resultReturn = 0;
+			}
+		}
+		
+		return resultReturn;
+	}
 	
 	// 비회원 코드 가져오기
 	public String searchOneNmemCode(String phone){

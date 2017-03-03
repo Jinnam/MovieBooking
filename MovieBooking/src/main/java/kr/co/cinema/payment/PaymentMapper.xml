@@ -142,5 +142,24 @@
 			)
 	</insert>
 	
+	<!-- 마일리지 등록 -->
+	<insert id="insertMileage" parameterType="kr.co.cinema.dto.Mileage">
+		INSERT INTO MILEAGE(
+			mil_code,
+			pmt_code,
+			mem_id,
+			mil_use,
+			mil_save,
+			mil_date
+		) VALUES(
+			#{milCode},
+			#{pmtCode},
+			#{memId},
+			#{milUse},
+			#{milSave},
+			now()
+		)
+	</insert>
+	
 	
 </mapper>

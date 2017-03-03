@@ -99,6 +99,7 @@ public class PaymentController {
 			payment.setMemId("비회원");
 		}
 		paymentService.insertPayment(payment);										// db에 결제 등록
+		
 		model.addAttribute("payment",payment);										// 결제 결과 보여주기 위한 정보를 model에 올림
 		return "payment/paymentResult";
 	}
