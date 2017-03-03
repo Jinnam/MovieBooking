@@ -27,7 +27,7 @@
 	<!-- 지점별 영화매출 통계 -->
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -237,48 +237,78 @@
 					<form action="movieInsert"  class="col-lg-12 form-horizontal" method="post">
 						<fieldset class="col-lg-5" style="float:left;">
 							<legend>add</legend>
+							<!-- 영화한글이름 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label">영화한글이름</label>
 								<div class="col-lg-10">
 									<input type="text" class="form-control" name="movKorName" placeholder="영화이름을 입력하세요" required="required">
 								</div>
 							</div>
+							<!-- 영화영문이름 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label">영화영문이름</label>
 								<div class="col-lg-10">
 									<input type="text" class="form-control" name="movEngName" placeholder="영화이름을 입력하세요" required="required">
 								</div>
 							</div>
-							<div class="form-group">
+							<!-- 감독이름(한글) -->
+							<div class="form-group"> 
 								<label class="col-lg-2 control-label">감독</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control" value="${selectCharCodeForInsertMovie.charCode}" name="charCode" placeholder="감독이름을 입력하세요" required="required">
+								<div class="col-lg-8">
+									<input type="text" class="form-control" id="charKorName" name="charKorName" placeholder="감독이름을 입력하세요" required="required">
+								</div>
+								<!-- 감독이름으로 인물코드를 인물테이블에서 조회 ajax-->
+								<div>
+									<input id="selectCharcode" type="button" class="btn btn-button" value="조회">
 								</div>
 							</div>
+							<!-- 감독코드 출력 -->
+							<div class="form-group">
+								<label class="col-lg-2 control-label">감독코드</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="charCode" name="charCode" required="required">
+								</div>
+							</div>
+							<!-- 주연배우이름(한글) -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label">주연배우</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control" name="" placeholder="주연배우를 입력하세요" required="required">
+								<div class="col-lg-8">
+									<input type="text" class="form-control" id="ActorKorName" name="charKorName" placeholder="주연배우를 입력하세요" required="required">
+								</div>
+								<!-- 주연배우이름으로 인물코드를 인물테이블에서 조회 ajax-->
+								<div>
+									<input id="selectCharcodeActor" type="button" class="btn btn-button" value="조회">
 								</div>
 							</div>
+							<!-- 배우코드 출력 -->
+							<div class="form-group">
+								<label class="col-lg-2 control-label">배우코드</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="charCodeActor" name="charCode" required="required">
+								</div>
+							</div>
+							<!-- 국가이름 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label">국가</label>
 								<div class="col-lg-10">
 									<input type="text" class="form-control" name="movNation" placeholder="국가를 입력하세요" required="required">
 								</div>
 							</div>
+							<!-- 등급 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label">등급</label>
 								<div class="col-lg-10">
 									<input type="text" class="form-control" name="movGrade" placeholder="영화등급을 입력하세요" required="required">
 								</div>
 							</div>
+							<!-- 장르 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label">장르</label>
 								<div class="col-lg-10">
 									<input type="text" class="form-control" name="movGenre" placeholder="영화장르를 입력하세요" required="required">
 								</div>
 							</div>
+							<!-- 상세설명 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label">상세설명</label>
 								<div class="col-lg-10">
@@ -288,24 +318,28 @@
 						</fieldset>
 						<fieldset class="col-lg-5" style="float:left;">
 							<legend>&nbsp;</legend>
+							<!-- 제작사 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label">제작사</label>
 								<div class="col-lg-10">
 									<input type="text" class="form-control" name="movMaker" placeholder="제작사를 입력하세요" required="required">
 								</div>
 							</div>
+							<!-- 상영시간 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label">상영시간</label>
 								<div class="col-lg-10">
 									<input type="text" class="form-control" name="movRunningTime" placeholder="00:00:00 형식으로 입력해주세요" required="required">
 								</div>
 							</div>
+							<!-- 개봉일 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label">개봉일</label>
 								<div class="col-lg-10">
 									<input type="date" class="form-control" name="movOpenDate" placeholder="개봉일을 입력하세요" required="required">
 								</div>
 							</div>
+							<!-- 상영상태 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label">상영상태</label>
 								<div class="col-lg-10">
@@ -316,12 +350,14 @@
 									</select>
 								</div>
 							</div>
+							<!-- 이미지경로 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label">이미지경로</label>
 								<div class="col-lg-10">
 									<input type="text" name="movImgPath" class="form-control" placeholder="이미지 경로를 입력하세요" required="required">
 								</div>
 							</div>
+							<!-- 영상경로 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label">영상경로</label>
 								<div class="col-lg-10">
@@ -345,6 +381,40 @@
 	<%@include file="/WEB-INF/adminModule/footer.jsp" %>
 	
 	<!-- 스크립트 -->
+	
+	<!-- 인물(감독)코드 조회하기 -->
+	<script>
+		$(document).ready(function() {
+			$("#selectCharcode").click(function() {
+				$.ajax({
+					url : "selectCharcode",
+					data : {"charKorName" : $("#charKorName").val()},
+					type : "post",
+					success : function(data) {
+						console.log(data)
+						$("#charCode").val(data)
+					}
+				});
+			});
+		});
+	</script>
+	<!-- 인물(배우)코드 조회하기 -->
+	<script>
+		$(document).ready(function() {
+			$("#selectCharcodeActor").click(function() {
+				$.ajax({
+					url : "selectCharcode",
+					data : {"charKorName" : $("#ActorKorName").val()},
+					type : "post",
+					success : function(data) {
+						console.log(data)
+						$("#charCodeActor").val(data)
+					}
+				});
+			});
+		});
+	</script>
+	
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="resources/assets/js/jquery.js"></script>
 	<script src="resources/assets/js/jquery-1.8.3.min.js"></script>

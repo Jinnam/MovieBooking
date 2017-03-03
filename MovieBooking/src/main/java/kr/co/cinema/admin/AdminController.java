@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
@@ -171,12 +173,21 @@ public class AdminController {
 		return "management/movieInsert";
 	}
 	
+	//관리자 영화 등록전 감독이름으로 감독 코드 조회하기 리스트형식아니라 하나의 코드만 조회
+	@RequestMapping(value="selectCharcode", method=RequestMethod.POST)
+	public @ResponseBody String selectCharcodeForInsertMovie(@RequestParam("charKorName")String charKorName) {
+		logger.debug(" Controller selectCharcodeForInsertMovie post실행");
+		String selectCharCodeForInsertMovie = adminService.selectCharCodeForInsertMovie(charKorName);
+		logger.debug(selectCharCodeForInsertMovie.toString());
+		return selectCharCodeForInsertMovie;
+	}
+
+	
+	
 	//관리자 영화등록 페이지
 	@RequestMapping(value="movieInsert", method=RequestMethod.POST)
 	public String insertMovie(Model model, Movie movie) {
 		logger.debug(" Controller insertMovie post실행");
-		String selectCharCodeForInsertMovie = adminService.selectCharCodeForInsertMovie();
-		model.addAttribute("selectCharCodeForInsertMovie", selectCharCodeForInsertMovie);
 		adminService.insertMovie(movie);
 		return "redirect:adminMovieList";
 	}
@@ -218,7 +229,7 @@ public class AdminController {
 	public String insertCharacter(Character character) {
 		logger.debug(" Controller insertCharacter post실행");
 		adminService.insertChar(character);
-		return "management/characterInsert";
+		return "redirect:characterList";
 	}
 	
 	//***관리자 인물조회리스트 페이지 연결만 해놓음

@@ -104,12 +104,13 @@ public class AdminService {
 	
 	/************************************************************************************************************
 	영화 관리 메서드 : 영화등록/영화리스트/영화상세/영화수정
+	 * @param charKorName 
 	************************************************************************************************************/	
 	
 	//영화등록 전 인물이름으로 인물코드조회
-	public String selectCharCodeForInsertMovie() {
+	public String selectCharCodeForInsertMovie(String charKorName) {
 		logger.debug(" Service selectCharCodeForInsertMovie post실행");
-		return adminDao.selectCharCodeForInsertMovie();
+		return adminDao.selectCharCodeForInsertMovie(charKorName);
 	}
 	
 	//영화등록

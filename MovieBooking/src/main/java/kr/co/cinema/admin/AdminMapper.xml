@@ -207,9 +207,10 @@
 	영화관리쿼리  : 영화등록/영화조회/영화수정
 	******************************************************************************************-->	
 	
-	
+	<!-- 영화등록전 감독이름으로 감독코드 조회 -->
 	<select id="selectCharCodeForInsertMovie"
-			resultType="kr.co.cinema.dto.Character">
+			resultType="String"
+			parameterType="String">
 			SELECT 
 				`CHARACTER`.char_code 
 			FROM 
@@ -218,29 +219,7 @@
 				`CHARACTER`.char_korName = #{charKorName};
 	</select>
 	
-	
-	<insert id="insertCost"
-			parameterType="kr.co.cinema.dto.ScreenCost">
-			INSERT INTO 
-				SCREEN_COST
-				( 
-				scco_screen, 
-				scco_price, 
-				scco_applyYear, 
-				scco_status, 
-				scco_date
-				)
-			VALUES 
-				(
-				#{sccoScreen}, 
-				#{sccoPrice}, 
-				#{sccoApplyYear}, 
-				#{sccoStatus}, 
-				NOW()
-				); 
-	</insert>
-	
-	
+	<!-- 영화등록 쿼리 -->
 	<insert id="insertMovie"
 			parameterType="kr.co.cinema.dto.Movie">
 		INSERT INTO 
@@ -281,6 +260,30 @@
 			now()
 			); 
 	</insert>
+	
+	<insert id="insertCost"
+			parameterType="kr.co.cinema.dto.ScreenCost">
+			INSERT INTO 
+				SCREEN_COST
+				( 
+				scco_screen, 
+				scco_price, 
+				scco_applyYear, 
+				scco_status, 
+				scco_date
+				)
+			VALUES 
+				(
+				#{sccoScreen}, 
+				#{sccoPrice}, 
+				#{sccoApplyYear}, 
+				#{sccoStatus}, 
+				NOW()
+				); 
+	</insert>
+	
+	
+	
 	
 	<!-- 인물등록쿼리 -->
 	<insert id="insertChar"

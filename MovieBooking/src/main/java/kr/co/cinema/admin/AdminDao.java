@@ -96,9 +96,9 @@ public class AdminDao {
 	}
 	
 	//영화등록전 인물이름으로 인물코드조회
-	public String selectCharCodeForInsertMovie() {
+	public String selectCharCodeForInsertMovie(String charKorName) {
 		logger.debug(" Dao selectCharCodeForInsertMovie");
-		return sqlSession.selectOne(NS+"selectCharCodeForInsertMovie");
+		return sqlSession.selectOne(NS+"selectCharCodeForInsertMovie", charKorName);
 	}
 	//영화등록
 	public int insertMovie(Movie movie) {
