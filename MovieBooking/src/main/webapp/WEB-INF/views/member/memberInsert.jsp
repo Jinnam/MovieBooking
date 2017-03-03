@@ -163,13 +163,10 @@
 		</script>
 		<!-- 중복확인 ajax 시작 -->
 
-	<form action="memberInsert" method="post" name="addjoin" id="checkForm">
-		<h3>가입정보입력</h3>
-		<table>
-			<tr>
-				<td>
+		<form action="memberInsert" method="post" name="addjoin" id="checkForm">
+			<h3>가입정보입력</h3>
 					<!-- 아이디 입력 및 중복 시작-->
-					<table style="text-align: center;">
+					<table style="border-top: 2px solid blue; border-bottom: 2px solid blue;">
 						<tr>
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*아이디</td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
@@ -238,13 +235,10 @@
 						</tr>
 						<!-- 이메일 작성 종료-->
 					</table>
-				</td>
-			</tr>
-		</table>
-		
-		<table>
-			<tr>
-				<td>
+					<br><br>
+				<table>
+					<tr>
+						<td>
 						<!-- 회원가입 신청버튼 및 취소 시작 -->
 						<div align="right">
 							<input class="btn blue darken-4" type="button" value="회원가입" onclick="checkfield()"/>
@@ -252,10 +246,10 @@
 							<input class="btn white" style="color:black" type="button" value="이전" /></a>
 						</div>
 						<!-- 회원가입 신청버튼 및 취소 종료 -->
-				</td>
-			</tr>
-		</table>
-	</form>
+						</td>
+					</tr>
+				</table>
+		</form>
 	<!-- 회원가입 폼 종료 -->
 </div>
 <br>

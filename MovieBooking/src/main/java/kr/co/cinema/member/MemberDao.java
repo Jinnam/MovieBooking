@@ -21,6 +21,13 @@ public class MemberDao {
 	private SqlSessionTemplate sqlSessionTemplate;
 	private final String Member_NS = "kr.co.cinema.member.MemberMapper.";
 	
+	//한 회원 개인정보 가져오기 select 시작
+	public String selectOneMemberModify(String memId){
+		logger.debug("한 회원 개인정보 가져오기 dao" + memId);
+		return sqlSessionTemplate.selectOne(Member_NS + "selectOneMemberModify", memId);
+	}
+	//한 회원 개인정보 가져오기 select 종료
+	
 	//비회원 가입 insert 시작
 	public int insertNonMember(NonMember nonMember){
 		logger.debug("비회원 가입 dao" + nonMember);
@@ -50,7 +57,7 @@ public class MemberDao {
 	//회원 아이디 찾기 select 종료	
 	
 	//회원 로그인 select 시작
-	public Member selectMemberLogin(Map<String, String> map){
+	public Map<String, String> selectMemberLogin(Map<String, String> map){
 		logger.debug("로그인 select dao" + map);
 		return sqlSessionTemplate.selectOne(Member_NS + "selectMemberLogin", map);
 	}
