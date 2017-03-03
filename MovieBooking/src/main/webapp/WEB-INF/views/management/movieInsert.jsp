@@ -233,6 +233,7 @@
 				<div class="jumbotron">
 					<h2 class="logo">영화 등록</h2>
 				</div>
+				<div class="col-lg-3"></div>
 				<div style="margin:0 auto;">
 					<form action="movieInsert"  class="col-lg-12 form-horizontal" method="post">
 						<fieldset class="col-lg-5" style="float:left;">

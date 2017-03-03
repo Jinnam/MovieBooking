@@ -17,6 +17,7 @@ import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.Character;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
+import kr.co.cinema.dto.Screen;
 import kr.co.cinema.dto.ScreenCost;
 
 @Controller
@@ -173,7 +174,7 @@ public class AdminController {
 		return "management/movieInsert";
 	}
 	
-	//관리자 영화 등록전 감독이름으로 감독 코드 조회하기 리스트형식아니라 하나의 코드만 조회
+	//관리자 영화 등록전 감독이름으로 감독 코드 조회하기 리스트형식 아니라 하나의 코드만 조회
 	@RequestMapping(value="selectCharcode", method=RequestMethod.POST)
 	public @ResponseBody String selectCharcodeForInsertMovie(@RequestParam("charKorName")String charKorName) {
 		logger.debug(" Controller selectCharcodeForInsertMovie post실행");
@@ -181,8 +182,6 @@ public class AdminController {
 		logger.debug(selectCharCodeForInsertMovie.toString());
 		return selectCharCodeForInsertMovie;
 	}
-
-	
 	
 	//관리자 영화등록 페이지
 	@RequestMapping(value="movieInsert", method=RequestMethod.POST)
@@ -257,11 +256,28 @@ public class AdminController {
 	상영관 관리 메서드 : 상영관등록/상영관리스트/상영관수정/상영관삭제
 	************************************************************************************************************/	
 	
-	//***관리자 상영관등록 페이지 연결만 해놓음
+	//관리자 상영관등록 페이지
 	@RequestMapping(value="screenInsert", method=RequestMethod.GET)
-	public String insertScreen() {
+	public String insertScreenView() {
 		logger.debug(" Controller insertScreen get실행");
 		return "screen/screenInsert";
+	}
+	
+	//상영관 등록 전 상영관 등록에 필요한 지점 코드 조회하기
+	@RequestMapping(value="selectBrcCode", method=RequestMethod.POST)
+	public @ResponseBody String selectBrcCodeForInsertScreen(@RequestParam("brcName")String brcName) {
+		logger.debug(" Controller selectBrcCodeForInsertScreen post실행");
+		String selectBrcCode = adminService.selectBrcCode(brcName);
+		return selectBrcCode;
+	}
+	
+	//상영관등록
+	@RequestMapping(value="screenInsert", method=RequestMethod.POST)
+	public String insertScreen(Screen screen) {
+		logger.debug(" Controller insertScreen post실행");
+		adminService.insertScreen(screen);
+		logger.debug(screen.toString());
+		return "redirect:screenList";
 	}
 	
 	//***관리자 상영관리스트 페이지 연결만 해놓음

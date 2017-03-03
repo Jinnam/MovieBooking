@@ -13,6 +13,7 @@ import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.Character;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
+import kr.co.cinema.dto.Screen;
 import kr.co.cinema.dto.ScreenCost;
 
 @Repository
@@ -116,6 +117,17 @@ public class AdminDao {
 	public int insertChar(Character character) {
 		logger.debug(" Dao insertChar");
 		return sqlSession.insert(NS+"insertChar", character);
+	}
+
+	//스크린등록전 지점이름으로 지점코드조회
+	public String selectBrcCode(String brcName) {
+		logger.debug(" Dao selectBrcCode");
+		return sqlSession.selectOne(NS+"selectBrcCode", brcName);
+	}
+
+	public int insertScreen(Screen screen) {
+		logger.debug(" Dao insertScreen");
+		return sqlSession.insert(NS+"insertScreen", screen);
 	}
 
 }

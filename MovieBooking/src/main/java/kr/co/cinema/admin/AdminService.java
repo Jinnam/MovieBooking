@@ -7,17 +7,22 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.co.cinema.HomeService;
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.Character;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
+import kr.co.cinema.dto.Screen;
 import kr.co.cinema.dto.ScreenCost;
 
 @Service
 public class AdminService {
 	@Autowired
 	private AdminDao adminDao;
+	@Autowired
+	private HomeService homeService;
+	
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	
 	//메인페이지 하단우측 영화별 예매율 순위
@@ -139,6 +144,22 @@ public class AdminService {
 		return adminDao.insertChar(character);
 	}
 
-	
+	/************************************************************************************************************
+	상영관 관리 메서드 : 상영관등록/상영관리스트/상영관수정/상영관삭제
+	************************************************************************************************************/	
 
+	//상영관등록전 지점이름으로 지점 코드 조회하기 
+	public String selectBrcCode(String brcName) {
+		logger.debug(" Service selectBrcCode post실행");
+		return adminDao.selectBrcCode(brcName);
+	}
+
+	//상영관등록
+	public int insertScreen(Screen screen) {
+		logger.debug(" Service selectBrcCode post실행");
+		String ScrCode = homeService.madeCode(screen);
+		screen.setScrCode(ScrCode);
+		logger.debug("test ScrCode"+ScrCode);
+		return adminDao.insertScreen(screen);
+	}
 }
