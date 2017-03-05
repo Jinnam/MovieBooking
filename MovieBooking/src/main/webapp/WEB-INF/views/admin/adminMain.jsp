@@ -75,9 +75,9 @@
 						<!-- <li>
 							<a href="branchModify">지점 수정</a>
 						</li> -->
-						<li>
+						<!-- <li>
 							<a href="branchDelete">지점 탈퇴</a>
-						</li>
+						</li> -->
 						<li>
 							<a href="adminList">지점 관리자 목록</a>
 						</li>
@@ -88,9 +88,9 @@
 						<!-- <li>
 							<a href="adminModify">지점 관리자 수정</a>
 						</li> -->
-						<li>
+						<!-- <li>
 							<a href="adminDelete">지점 관리자 삭제</a>
-						</li>
+						</li> -->
 					</ul>
 				</li>
 				<!-- 회원 사이드 메뉴 -->
@@ -154,7 +154,7 @@
 							<a href="costInsert">단가 등록</a>
 						</li>
 						<li>
-							<a href="costModify">단가 수정</a>
+							<a href="costModify">단가 조회</a>
 						</li>
 					</ul>
 				</li>
@@ -175,9 +175,9 @@
 						<!-- <li>
 							<a href="screenModify">상영관 수정</a>
 						</li> -->
-						<li>
+						<!-- <li>
 							<a href="screenDelete">상영관 삭제</a>
-						</li>
+						</li> -->
 					</ul>
 				</li>
 				<!-- 상영일정 사이드 메뉴 -->
@@ -242,15 +242,20 @@
 							data-line-color="#fff" data-spot-color="#fff"
 							data-fill-color="" data-highlight-line-color="#fff"
 							data-spot-radius="4"
-							data-data="[200,135,667,333,526,996,564,123,890,464,655,555]">
+							data-data="[200,135,667,333,526,996,564,123,890,464,655,555
+								<%-- <c:forEach var="selectMonthBranchCount" items="${selectMonthBranchCount}">
+									${selectMonthBranchCount.brcCntSaleTotal},
+								</c:forEach> --%>]">
+							<!-- [200,135,667,333,526,996,564,123,890,464,655,555] -->
 						</div>
 					</div>
-					<p class="mt">
-						<b>&#8361; 17,980</b><br />월 매출액(천원)
-					</p>
+					<div class="mt">
+						<b>&#8361; ${selectBranchCount}</b>
+						<br />월 매출액
+					</div>
 				</div>
 			</div>
-			<!-- 예매율 순위 차트 -->
+			<!-- 예매율 순위 차트 하단 우측-->
 			<div class="col-lg-6">
 				<div class="panel panel-default">
 					<div class="panel-heading">예매율 순위</div>
@@ -280,6 +285,7 @@
 			</div>
 		</section>
 	</section>
+	
 	<!-- 여기까지 메인 -->
 	
 	<!-- 하단 -->
@@ -334,20 +340,24 @@
 			console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
 		}
 	</script>
+	
 	<!-- 메인화면 상단 바 그래프 자바 스크립트 -->
 	<script type="text/javascript">
+	//표에 어떻게 뿌리는지 모르겠다..
 	Highcharts
 	.chart(
 		'branchGraph', {
 			title: {
-				text: '지점별 영화 매출(단위 월)' //상단 타이틀
+				text: '지점별 영화 매출(단위 월)'			//상단 타이틀
 			},
 			xAxis: {
-				categories: ['강남점', '부산서면점', '창원점', '전주송천점', '전주효자점'] //하단 지점 이름
+				categories: [<c:forEach var="selectBranchForBarGraph" items="${selectBranchForBarGraph}">
+								'${selectBranchForBarGraph.brcName}',
+							</c:forEach>]			//하단 지점 이름
 			},
 			labels: {
 				items: [{
-					html: '총 영화 매출순위(단위 월)', //원 그래프 타이틀
+					html: '총 영화 매출순위(단위 월)', 	//원 그래프 타이틀
 					style: {
 						left: '50px',
 						top: '18px',

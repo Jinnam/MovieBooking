@@ -74,9 +74,9 @@
 						<!-- <li>
 							<a href="branchModify">지점 수정</a>
 						</li> -->
-						<li>
+						<!-- <li>
 							<a href="branchDelete">지점 탈퇴</a>
-						</li>
+						</li> -->
 						<li>
 							<a href="adminList">지점 관리자 목록</a>
 						</li>
@@ -87,9 +87,9 @@
 						<!-- <li>
 							<a href="adminModify">지점 관리자 수정</a>
 						</li> -->
-						<li>
+						<!-- <li>
 							<a href="adminDelete">지점 관리자 삭제</a>
-						</li>
+						</li> -->
 					</ul>
 				</li>
 				<!-- 회원 사이드 메뉴 -->
@@ -106,7 +106,7 @@
 				</li>
 				<!-- 영화 사이드 메뉴 -->
 				<li class="sub-menu">
-					<ahref="javascript:;">
+					<a href="javascript:;">
 						<i class="fa fa-tasks"></i>
 						<span>영화 관리</span>
 					</a>
@@ -153,7 +153,7 @@
 							<a href="costInsert">단가 등록</a>
 						</li>
 						<li>
-							<a href="costModify">단가 수정</a>
+							<a href="costModify">단가 조회</a>
 						</li>
 					</ul>
 				</li>
@@ -174,9 +174,9 @@
 						<!-- <li>
 							<a href="screenModify">상영관 수정</a>
 						</li> -->
-						<li>
+						<!-- <li>
 							<a href="screenDelete">상영관 삭제</a>
-						</li>
+						</li> -->
 					</ul>
 				</li>
 				<!-- 상영일정 사이드 메뉴 -->

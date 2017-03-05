@@ -74,9 +74,9 @@
 						<!-- <li>
 							<a href="branchModify">지점 수정</a>
 						</li> -->
-						<li>
+						<!-- <li>
 							<a href="branchDelete">지점 탈퇴</a>
-						</li>
+						</li> -->
 						<li>
 							<a href="adminList">지점 관리자 목록</a>
 						</li>
@@ -87,9 +87,9 @@
 						<!-- <li>
 							<a href="adminModify">지점 관리자 수정</a>
 						</li> -->
-						<li>
+						<!-- <li>
 							<a href="adminDelete">지점 관리자 삭제</a>
-						</li>
+						</li> -->
 					</ul>
 				</li>
 				<!-- 회원 사이드 메뉴 -->
@@ -153,7 +153,7 @@
 							<a href="costInsert">단가 등록</a>
 						</li>
 						<li>
-							<a href="costModify">단가 수정</a>
+							<a href="costModify">단가 조회</a>
 						</li>
 					</ul>
 				</li>
@@ -174,9 +174,9 @@
 						<!-- <li>
 							<a href="screenModify">상영관 수정</a>
 						</li> -->
-						<li>
+						<!-- <li>
 							<a href="screenDelete">상영관 삭제</a>
-						</li>
+						</li> -->
 					</ul>
 				</li>
 				<!-- 상영일정 사이드 메뉴 -->
@@ -249,10 +249,13 @@
 									<option>이름</option>
 							</select>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="검색사항을 입력하세요">
+								<input type="text" class="form-control" placeholder="특수문자는 사용할 수 없습니다.">
 							</div>
 							<input type="submit" class="btn btn-default" value="검색" />
-							<input type="submit" class="btn btn-default" value="전체회원목록" />
+							<!-- 상단 바 전체 회원 목록 버튼 -->
+							<a href="memberList">
+								<input type="button" class="btn btn-default" value="전체회원목록" />
+							</a>
 						</div>
 					</div>
 				</div>
@@ -271,7 +274,7 @@
 						<th>이메일</th>
 						<th>생년월일</th>
 						<th>가입일</th>
-					</tr>						
+					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="MemberList" items="${selectMemberList}">
