@@ -41,12 +41,12 @@ public class PaymentController {
 		if(getSession !=null){
 			model.addAttribute("bookingSeatSelectDto",bookingSeatSelectDto);	// 예매에서 넘어온 정보
 			
-			//session 정보 가져오기
-		//	String memId = (String) session.getAttribute("id");
+			// session 정보 가져오기
+		//	String memId = (String) session.getAttribute("id");					// 세션에서 회원 아이디 가져오기
 			String memId = "id001";
-			Map<String, Integer> map = paymentService.searchOneMileage(memId);
+			Map<String, String> map = paymentService.searchOneMemInfo(memId);	// 아이디로 회원 정보(마일리지) 가져오기
 			System.out.println("map : "+map);
-			model.addAttribute("memMap", map);
+			model.addAttribute("memMap", map);									// 회원정보(마일리지) 모델에 올리기
 			
 			// 할인 정보 가져오기.
 			List<DiscountInfo> discountInfo = paymentService.searchListDcPersonInfo();
@@ -63,13 +63,14 @@ public class PaymentController {
 					paymentService.searchOneSeatInfo(bookingSeatSelectDto.getSeatCode3());	// 세번째 좌석 이름
 			String seatCode4 = 
 					paymentService.searchOneSeatInfo(bookingSeatSelectDto.getSeatCode4());	// 네번째 좌석 이름
-			String personNum = bookingSeatSelectDto.getPersonNum();							// test를 위한 scsCode 추출
-			BookingInfo bookingInfo = paymentService.searchBookingInfo(scsCode);			// 상영일정코드로 상영 정보 가져오기
-			bookingInfo.setPersonNum(personNum);											// bookingInfo에 인원 수 추가
-			bookingInfo.setSeatCode1(seatCode1);											// 첫번째 좌석 이름 추가
-			bookingInfo.setSeatCode2(seatCode2);											// 두번째 좌석 이름 추가
-			bookingInfo.setSeatCode3(seatCode3);											// 세번째 좌석 이름 추가
-			bookingInfo.setSeatCode4(seatCode4);											// 네번째 좌석 이름 추가
+			String personNum = bookingSeatSelectDto.getPersonNum();							// 예매 인원
+			
+			Map<String, String> bookingInfo = paymentService.searchBookingInfo(scsCode);	// 상영일정코드로 상영 정보 가져오기
+			bookingInfo.put("personNum", personNum);										// bookingInfo에 인원 수 추가
+			bookingInfo.put("seatCode1",seatCode1);											// 첫번째 좌석 이름 추가
+			bookingInfo.put("seatCode2",seatCode2);											// 두번째 좌석 이름 추가
+			bookingInfo.put("seatCode3",seatCode3);											// 세번째 좌석 이름 추가
+			bookingInfo.put("seatCode4",seatCode4);											// 네번째 좌석 이름 추가
 			logger.debug(		"payment() get방식 : "+bookingInfo.toString());
 			model.addAttribute("bookingInfo",bookingInfo);
 			
@@ -105,7 +106,8 @@ public class PaymentController {
 		seatCode[3] = payment.getSeatCode4();					// 네번재 배열에 네번째 좌석코드 셋팅
 		payment.setSeatCode(seatCode);
 		
-		paymentService.insertPayment(payment);					// db에 결제 등록
+		paymentService.insertPayment(payment);					// 결제 등록
+		paymentService.updateAnalysis(payment);					// analysis 등록
 		
 		
 		model.addAttribute("payment",payment);					// 결제 결과 보여주기 위한 정보를 model에 올림
