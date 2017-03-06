@@ -27,6 +27,8 @@ public class BookingController {
 	@Autowired
 	BookingDao bookingDao;
 	
+
+	
 	//AJAX 영화 상영 일정 가져오기
 	@RequestMapping(value = "/searchListScreenInfo", method = RequestMethod.POST)
 	public @ResponseBody List<ScreenSchedule> searchListScreenInfo(BookingSelectDto bookingSelect) {	
