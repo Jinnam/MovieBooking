@@ -12,83 +12,59 @@
 	<!-- 메인화면 하단 영화별 매출표 -->
 	<select id="selectClientCount"
 			resultType="kr.co.cinema.dto.MovieAndBranchDayCount">
-			SELECT 
-				mov_korName AS movKorName, 
-				mov_openDate AS movOpenDate, 
-				brcCnt_clientCount AS brcCntClientCount
-			FROM 
-				MOVIE 
-			INNER JOIN 
-				BRANCH_DAY_COUNT 
-			ON 
-				MOVIE.mov_code = BRANCH_DAY_COUNT.mov_code 
-			GROUP BY 
-				MOVIE.mov_korName 
-			ORDER BY 
-				BRANCH_DAY_COUNT .brcCnt_clientCount 
-			DESC LIMIT 4
+			SELECT 	mov_korName 		AS movKorName, 
+					mov_openDate		AS movOpenDate, 
+					brcCnt_clientCount 	AS brcCntClientCount
+			FROM 	MOVIE 
+					INNER JOIN BRANCH_DAY_COUNT 
+							ON MOVIE.mov_code = BRANCH_DAY_COUNT.mov_code 
+			GROUP 	BY MOVIE.mov_korName 
+			ORDER 	BY BRANCH_DAY_COUNT .brcCnt_clientCount DESC
+			LIMIT 4
 	</select>
 	
 	<!-- 바 그래프 상위5지점 조회 -->
 	<select id="selectBranchForBarGraph"
 			resultType="kr.co.cinema.dto.BranchAndBranchDayCount">
-			SELECT 
-				BRANCH.brc_name AS brcName, 	
-				BRANCH.brc_code AS brcCode, 
-				SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) AS brcCntSaleTotal
-			FROM 
-				BRANCH 
-			INNER JOIN 
-				BRANCH_DAY_COUNT 
-			ON 
-				BRANCH.brc_code = BRANCH_DAY_COUNT.brc_code 
-			GROUP BY 
-				BRANCH.brc_name 
-			ORDER BY 
-				BRANCH_DAY_COUNT.brcCnt_saleTotal 
-			DESC LIMIT 5;
+			SELECT 	BRANCH.brc_name 						AS brcName, 	
+					BRANCH.brc_code 						AS brcCode, 
+					SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) 	AS brcCntSaleTotal
+			FROM 	BRANCH 
+					INNER JOIN BRANCH_DAY_COUNT 
+							ON BRANCH.brc_code = BRANCH_DAY_COUNT.brc_code 
+			GROUP 	BY BRANCH.brc_name 
+			ORDER 	BY BRANCH_DAY_COUNT.brcCnt_saleTotal DESC
+			LIMIT 	5;
 	</select>
 	
 	<!-- 선 그래프 상위3지점 조회 -->
 	<select id="selectMovieCodeForCircleGraph"
 			resultType="kr.co.cinema.dto.MovieAndBranchDayCount">
-		SELECT
-			BRANCH_DAY_COUNT.mov_code AS movCode,
-			MOVIE.mov_korName AS movKorName
-		FROM
-			BRANCH_DAY_COUNT
-		INNER JOIN
-			MOVIE
-		ON
-			BRANCH_DAY_COUNT.mov_code = MOVIE.mov_code
-		GROUP BY
-			BRANCH_DAY_COUNT.mov_code
-		ORDER BY
-			SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal)
-		DESC LIMIT 3;
+		SELECT 	BRANCH_DAY_COUNT.mov_code AS movCode,
+				MOVIE.mov_korName AS movKorName
+		FROM	BRANCH_DAY_COUNT
+				INNER JOIN MOVIE
+						ON BRANCH_DAY_COUNT.mov_code = MOVIE.mov_code
+		GROUP 	BY BRANCH_DAY_COUNT.mov_code
+		ORDER 	BY SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) DESC
+		LIMIT 	3;
 	</select>
 	
 	<!-- 선그래프 총매출액 -->
 	<select id="selectBranchCount"
 			resultType="int">
-			SELECT
-				SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) AS brcCntSaleTotal
-			FROM
-				BRANCH_DAY_COUNT
+			SELECT	SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) AS brcCntSaleTotal
+			FROM	BRANCH_DAY_COUNT
 	</select>
 	
 	<!-- 선그래프 월매출액 -->
 	<select id="selectMonthBranchCount"
 			resultType="kr.co.cinema.dto.BranchDayCount">
-			SELECT 
-				sum( brcCnt_saleTotal) AS brcCntSaleTotal
-			FROM 
-				BRANCH_DAY_COUNT 
-			GROUP BY 
-				DATE_FORMAT( brcCnt_date, '%Y-%m' ) 
-			ORDER BY 
-				DATE_FORMAT( brcCnt_date, '%Y-%m' ) 
-			LIMIT 0 , 30;
+			SELECT	sum( brcCnt_saleTotal) AS brcCntSaleTotal
+			FROM	BRANCH_DAY_COUNT 
+			GROUP 	BY DATE_FORMAT( brcCnt_date, '%Y-%m' ) 
+			ORDER 	BY DATE_FORMAT( brcCnt_date, '%Y-%m' ) 
+			LIMIT 	0 , 30;
 	</select>
 	
 	<!--****************************************************************************************
@@ -98,36 +74,29 @@
 	<!-- 지점리스트 조회 -->
 	<select id="selectBranchList"
 			resultType="kr.co.cinema.dto.Branch">
-			SELECT
-				BRANCH.brc_code AS brcCode,
-				BRANCH.brc_name AS brcName,
-				BRANCH.brc_local AS brcLocal,
-				BRANCH.brc_addr AS brcAddr,
-				BRANCH.brc_infoDetail AS brcInfoDetail
-			FROM
-				BRANCH
+			SELECT	BRANCH.brc_code			AS brcCode,
+					BRANCH.brc_name			AS brcName,
+					BRANCH.brc_local		AS brcLocal,
+					BRANCH.brc_addr			AS brcAddr,
+					BRANCH.brc_infoDetail	AS brcInfoDetail
+			FROM	BRANCH
 	</select>
 	
 	<!-- 지점등록 -->
 	<insert id="insertBranch"
 			parameterType="kr.co.cinema.dto.Branch">
-			INSERT INTO 
-				BRANCH 
-				( 
-				brc_name, 
-				brc_local, 
-				brc_addr, 
-				brc_infoDetail, 
-				brc_imgPath
-				) 
+			INSERT INTO BRANCH 
+						(brc_name, 
+						 brc_local, 
+						 brc_addr, 
+						 brc_infoDetail, 
+						 brc_imgPath) 
 			VALUES 
-				( 
-				#{brcName}, 
-				#{brcLocal}, 
-				#{brcAddr}, 
-				#{brcInfoDetail}, 
-				#{brcImgPath} 
-				); 
+						(#{brcName}, 
+						 #{brcLocal}, 
+						 #{brcAddr}, 
+						 #{brcInfoDetail}, 
+						 #{brcImgPath}	); 
 	</insert>
 	
 	<!-- 수정 전 지점코드로 지점데이터 조회 -->

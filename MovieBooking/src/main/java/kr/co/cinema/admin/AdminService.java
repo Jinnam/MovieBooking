@@ -40,7 +40,7 @@ public class AdminService {
 		return selectClientCount;
 	}
 
-	//원그래프 지점 이름, 지점 코드, 매출합계 조회
+	//바그래프 지점 이름, 지점 코드, 매출합계 조회
 	public List<Branch> selectBranchForBarGraph() {
 		logger.debug(" Service selectBranchForBarGraph get실행");
 		List<Branch> selectBranchForBarGraph = adminDao.selectBranchForBarGraph();

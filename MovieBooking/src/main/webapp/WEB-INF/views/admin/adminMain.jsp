@@ -353,7 +353,7 @@
 			xAxis: {
 				categories: [<c:forEach var="selectBranchForBarGraph" items="${selectBranchForBarGraph}">
 								'${selectBranchForBarGraph.brcName}',
-							</c:forEach>]			//하단 지점 이름
+							</c:forEach>]			//하단 지점 이름 상위 5개점
 			},
 			labels: {
 				items: [{
@@ -367,7 +367,14 @@
 				}]
 			},
 			series: [
-				{
+				<c:forEach var="MovieCodeForCircleGraph" items="${MovieCodeForCircleGraph}">
+					{
+						type: 'column', //첫번째 바 내용
+						name: '${MovieCodeForCircleGraph.movKorName}', //매출 탑 3영화
+						data: [3, 2, 1, 3, 4]
+					},
+				</c:forEach>
+				/* {
 					type: 'column', //첫번째 바 내용
 					name: '조작된도시',
 					data: [3, 2, 1, 3, 4]
@@ -381,7 +388,7 @@
 					type: 'column', //세번째 바 내용
 					name: '재심',
 					data: [4, 3, 3, 9, 1]
-				},
+				}, */
 				{
 					type: 'spline', //평균치 곡선 그래프 내용
 					name: 'Average',
