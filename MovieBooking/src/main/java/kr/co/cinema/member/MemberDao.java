@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Mileage;
 import kr.co.cinema.dto.NonMember;
+import kr.co.cinema.dto.ScreenSchedule;
 
 @Repository
 public class MemberDao {
@@ -23,9 +24,15 @@ public class MemberDao {
 	private SqlSessionTemplate sqlSessionTemplate;
 	private final String Member_NS = "kr.co.cinema.member.MemberMapper.";
 	
+	public List<ScreenSchedule> selectPayment(String memId){
+		logger.debug("상영일자 dao" + memId);
+		return sqlSessionTemplate.selectList(Member_NS + "selectPayment", memId);
+	}
+	
+	
 	//마이페이지 회원의 마일리지 가져오기 시작
 	public List<Mileage> selectMemberMileage(String memId){
-		logger.debug("마이페이지 마일리지 가져오기 dao");
+		logger.debug("마이페이지 마일리지 가져오기 dao" + memId);
 		return sqlSessionTemplate.selectList(Member_NS + "selectMemberMileage", memId);
 	}
 	//마이페이지 회원의 마일리지 가져오기 종료

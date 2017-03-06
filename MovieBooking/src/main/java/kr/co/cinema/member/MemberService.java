@@ -12,6 +12,7 @@ import kr.co.cinema.HomeService;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Mileage;
 import kr.co.cinema.dto.NonMember;
+import kr.co.cinema.dto.ScreenSchedule;
 @Service
 public class MemberService {
 
@@ -23,10 +24,15 @@ public class MemberService {
 	//비회원 코드를 불러오기 위한 autowired
 	@Autowired
 	private HomeService homeService;
+		
+	public List<ScreenSchedule> findListMemberPayment(String memId){
+		logger.debug("상영일자 service" + memId);
+		return memberdao.selectPayment(memId);
+	}
 	
 	//마이페이지 회원의 마일리지 가져오기 시작
 	public List<Mileage> findListMemberMileage(String memId){
-		logger.debug("마이페이지 마일리지 가져오기 service");
+		logger.debug("마이페이지 마일리지 가져오기 service" + memId);
 		return memberdao.selectMemberMileage(memId);
 	}
 	//마이페이지 회원의 마일리지 가져오기 종료

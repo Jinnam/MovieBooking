@@ -46,16 +46,19 @@
 				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">예매취소</td>
 			</tr>
 			</thead>
-			
 			<tbody>	
+			<c:forEach items="${datePayment}" var="b">
+			
 			<tr>
+			
 				<td></td>
 				<td>2</td>
 				<td>3</td>
-				<td></td>
+				<td>${b.scsDate}</td>
 				<td>2</td>
 				<td><a href="">취소</a></td>
 			</tr>
+			</c:forEach>
 			</tbody>
 			
 		

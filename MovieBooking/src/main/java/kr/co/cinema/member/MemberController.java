@@ -35,24 +35,15 @@ public class MemberController {
 		return "member/memberModify";
 	}
 	
-	//회원 개인정보 영화 본영화 / 보고싶어 나누기 리스트 form
-	@RequestMapping(value="/memberMovieStory", method=RequestMethod.GET)
-	public String selectMemberMovieStory(){
-		return "member/memberMovieStory";
-	}
-	
-	
-	
-	
-	//회원 개인정보 영화 예매/취소 리스트 form
+	//회원 개인정보 영화 예매 form
 	@RequestMapping(value="/bookedMovieList", method=RequestMethod.GET)
-	public String selectBookedMovieList(){
+	public String selectBookedMovieList(Model model, HttpSession session){
+		String memId = (String) session.getAttribute("id");
+		model.addAttribute("datePayment", memberService.findListMemberPayment(memId));
+		logger.debug(model.toString());
+		
 		return "member/bookedMovieList";
 	}
-	
-	
-	
-	
 	
 	//회원 개인정보 마일리지 페이지 
 	@RequestMapping(value="/mileageList", method=RequestMethod.GET)
