@@ -39,32 +39,28 @@
       <div class="item active">
         <img src="http://image2.megabox.co.kr/mop/home/ad/1600x600/170112_cinemareplay_1600x600.jpg" alt="Chania" style="height:600px;width:100%">
         <div class="carousel-caption">
-          <h3>Chania</h3>
-          <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+
         </div>
       </div>
 
       <div class="item">
         <img src="http://image2.megabox.co.kr/mop/home/ad/1600x600/170209_trol_1600x600.jpg" alt="Chania" style="height:600px;width:100%">
         <div class="carousel-caption">
-          <h3>Chania</h3>
-          <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+
         </div>
       </div>
 
       <div class="item">
         <img src="http://image2.megabox.co.kr/mop/home/ad/1600x600/170207_bal_1600x600.jpg" alt="Flower" style="height:600px;width:100%">
         <div class="carousel-caption">
-          <h3>Flowers</h3>
-          <p>Beatiful flowers in Kolymbari, Crete.</p>
+
         </div>
       </div>
 
       <div class="item">
         <img src="http://image2.megabox.co.kr/mop/home/ad/1600x600/170207_lego_1600x600.jpg" alt="Flower" style="height:600px;width:100%">
         <div class="carousel-caption">
-          <h3>Flowers</h3>
-          <p>Beatiful flowers in Kolymbari, Crete.</p>
+
         </div>
       </div>
 
