@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,7 @@
 <link rel="SHORTCUT ICON" href="resources/module-img/titleIcon.png">
 </head>
 <body>
+<!-- 네비게이션 바 -->
 <%@ include file="/WEB-INF/clientModule/topNavBar.jsp" %>
 
 <!-- 전체메뉴 white-->
@@ -16,6 +18,9 @@
 <!-- 영화 메뉴 바-->
 <%@ include file="/WEB-INF/clientModule/topMovieBar.jsp" %>
 <br><br>
+
+
+
 		<div class = "container" style="width: 970px">
 			<form action="">
 				<div style="width: 900px;" align="center">
@@ -28,25 +33,31 @@
 		
 
 
-
-<h3>마일리지 내역 조회</h3>
-
-<table style="border-top: 2px solid blue;">
-	<tr >
-		<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">사용 마일리지</td>
-		<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">적립 마일리지</td>
-		<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">날짜</td>
-	</tr>
-	<tr>
-		<td>1</td>
-		<td>2</td>
-		<td>3</td>
-	</tr>
-
-
-
-</table>
-
+		
+		<h3>마일리지 내역 조회</h3>
+		
+		<h5 align="right" style="color: blue;">${name}<label>님의 사용내역입니다.</label></h5>
+		
+		<table style="border-top: 2px solid blue; text-align: center;" >
+		<thead>
+			<tr >
+				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">사용 마일리지</td>
+				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">적립 마일리지</td>
+				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">날짜</td>
+			</tr>
+			</thead>
+			
+			<tbody>	
+			<c:forEach items="${mlieagelist}" var="memberMil">
+			<tr>
+				<td>${memberMil.milUse}</td>
+				<td>${memberMil.milSave}</td>
+				<td>${memberMil.milDate}</td>
+			</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		<br><br>
 
 
 </div>

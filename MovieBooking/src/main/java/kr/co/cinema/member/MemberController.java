@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,15 +41,24 @@ public class MemberController {
 		return "member/memberMovieStory";
 	}
 	
+	
+	
+	
 	//회원 개인정보 영화 예매/취소 리스트 form
 	@RequestMapping(value="/bookedMovieList", method=RequestMethod.GET)
 	public String selectBookedMovieList(){
 		return "member/bookedMovieList";
 	}
 	
-	//회원 개인정보 마일리지 페이지 form
+	
+	
+	
+	
+	//회원 개인정보 마일리지 페이지 
 	@RequestMapping(value="/mileageList", method=RequestMethod.GET)
-	public String selectMileageList(){
+	public String selectMileageList(Model model,HttpSession session){
+		String memId = (String) session.getAttribute("id");
+		model.addAttribute("mlieagelist", memberService.findListMemberMileage(memId));
 		return "member/mileageList";
 	}
 	
@@ -78,14 +88,15 @@ public class MemberController {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("memId", member.getMemId());
 		map.put("memPw", member.getMemPw());
-		Map<String,String> members = memberService.findOneMmemberLogin(map);
-		System.out.println("members"+members);
-		session.setAttribute("id", members.get("memId"));
-		session.setAttribute("pw", members.get("memPw"));
-		session.setAttribute("name", members.get("memName"));
+		Map<String,String> membersLogin = memberService.findOneMmemberLogin(map);
+		System.out.println("membersLogin나오면찍힌거"+membersLogin);
+		session.setAttribute("id", membersLogin.get("memId"));
+		session.setAttribute("pw", membersLogin.get("memPw"));
+		session.setAttribute("name", membersLogin.get("memName"));
+		session.setAttribute("phone", membersLogin.get("memPhone"));
 	//	logger.debug("return 값 : "+members.toString());
 		
-		return members;
+		return membersLogin;
 	}
 	
 	//회원 로그아웃 action

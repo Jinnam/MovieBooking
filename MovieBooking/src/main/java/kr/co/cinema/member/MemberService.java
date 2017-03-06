@@ -1,5 +1,6 @@
 package kr.co.cinema.member;
 
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.cinema.HomeService;
 import kr.co.cinema.dto.Member;
+import kr.co.cinema.dto.Mileage;
 import kr.co.cinema.dto.NonMember;
 @Service
 public class MemberService {
@@ -22,6 +24,12 @@ public class MemberService {
 	@Autowired
 	private HomeService homeService;
 	
+	//마이페이지 회원의 마일리지 가져오기 시작
+	public List<Mileage> findListMemberMileage(String memId){
+		logger.debug("마이페이지 마일리지 가져오기 service");
+		return memberdao.selectMemberMileage(memId);
+	}
+	//마이페이지 회원의 마일리지 가져오기 종료
 	
 	//한 회원 개인정보 가져오기 select 시작
 	public String findOneMemberModify(String memId){

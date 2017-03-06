@@ -1,6 +1,7 @@
 package kr.co.cinema.member;
 
 
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.cinema.dto.Member;
+import kr.co.cinema.dto.Mileage;
 import kr.co.cinema.dto.NonMember;
 
 @Repository
@@ -21,12 +23,19 @@ public class MemberDao {
 	private SqlSessionTemplate sqlSessionTemplate;
 	private final String Member_NS = "kr.co.cinema.member.MemberMapper.";
 	
-	//한 회원 개인정보 가져오기 select 시작
+	//마이페이지 회원의 마일리지 가져오기 시작
+	public List<Mileage> selectMemberMileage(String memId){
+		logger.debug("마이페이지 마일리지 가져오기 dao");
+		return sqlSessionTemplate.selectList(Member_NS + "selectMemberMileage", memId);
+	}
+	//마이페이지 회원의 마일리지 가져오기 종료
+	
+	//한 회원 개인정보 가져오기  시작 미완성ㄴ
 	public String selectOneMemberModify(String memId){
 		logger.debug("한 회원 개인정보 가져오기 dao" + memId);
 		return sqlSessionTemplate.selectOne(Member_NS + "selectOneMemberModify", memId);
 	}
-	//한 회원 개인정보 가져오기 select 종료
+	//한 회원 개인정보 가져오기  종료
 	
 	//비회원 가입 insert 시작
 	public int insertNonMember(NonMember nonMember){
