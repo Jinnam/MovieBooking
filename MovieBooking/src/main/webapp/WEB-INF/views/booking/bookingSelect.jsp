@@ -164,14 +164,14 @@
 
 
 	<!-- 선택조건 view div -->
-	<div class="grey darken-3" style="height:100px ; margin-top:10px ; color:white ;"><!-- 선택조건 view div 열기 -->
+	<div class="grey darken-3 container" style="height:60px ; width:970px; margin-top:10px ; color:white ;"><!-- 선택조건 view div 열기 -->
 		<div class="container row" ></div>
 		
 		<!-- 선택조건 div -->
 		<div class="container row" style="width:970px;" >
 
 				<!-- 영화 선택 div -->
-				<div class="col s3">
+				<div class="col s3" style="margin-left:20px;">
 					<div id="selectMovie"> </div>
 				</div>			
 				<!-- 지점 선택 div -->
@@ -187,8 +187,8 @@
 					<div id="selectScreen"> </div>
 				</div>		
 				<!-- 선택 버튼 -->
-				<div class="col s2">
-					<a class="waves-effect waves-light btn" id="seatSelectBtn">좌석 선택</a>					  
+				<div class="col s2" style="float:right;">
+					<a class="waves-effect waves-light btn blue darken-3" id="seatSelectBtn" style="position:relative;top:-10px;">좌석 선택</a>					  
 				</div>											
 		</div>	
 			

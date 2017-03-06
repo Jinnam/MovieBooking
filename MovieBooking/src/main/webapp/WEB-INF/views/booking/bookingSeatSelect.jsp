@@ -176,7 +176,7 @@
 				
 				<!-- 리셋버튼 -->
 				<div style="margin-top:10px;">
-					<a class="waves-effect waves-light btn" id="reset">좌석 재선택</a>
+					<a class="waves-effect waves-light btn blue darken-3" id="reset">좌석 재선택</a>
 				</div>		
 			</div> <!-- 인원및좌석정보 div 닫기 -->		
 			
@@ -248,7 +248,7 @@
 			
 				<!-- 결제버튼 -->
 				<div style="margin-top:10px;">
-					<a class="waves-effect waves-light btn-large" id="submit">결제하기</a>
+					<a class="waves-effect waves-light btn-large blue darken-3" id="submit">결제하기</a>
 				</div>				
 			</div> <!-- 상영정보 및 결제버튼 div 닫기 -->
 			

@@ -50,7 +50,7 @@
       <div class="footer-copyright">
         <div class="container" style="width:1000px;">
         Copyright 2014 by MEGABOX. All rights reserved
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        <a class="grey-text text-lighten-4 right" href="#!"></a>
         </div>
       </div>
     </footer>
