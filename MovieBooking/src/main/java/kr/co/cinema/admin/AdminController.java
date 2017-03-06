@@ -180,7 +180,6 @@ public class AdminController {
 	public @ResponseBody String selectCharcodeForInsertMovie(@RequestParam("charKorName")String charKorName) {
 		logger.debug(" Controller selectCharcodeForInsertMovie post실행");
 		String selectCharCodeForInsertMovie = adminService.selectCharCodeForInsertMovie(charKorName);
-		logger.debug(selectCharCodeForInsertMovie.toString());
 		return selectCharCodeForInsertMovie;
 	}
 	
