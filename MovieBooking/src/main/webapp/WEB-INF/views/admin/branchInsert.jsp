@@ -238,37 +238,37 @@
 						<fieldset>
 							<legend>기입사항</legend>
 							<div class="form-group">
-								<label class="col-lg-2 control-label">지점이름</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">지점이름</label>
+								<div class="col-lg-9">
 									<input type="text" class="form-control" id="brcName" name="brcName" placeholder="지점이름을 입력하세요" required="required">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-lg-2 control-label">지역</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">지역</label>
+								<div class="col-lg-9">
 									<input type="text" class="form-control" id="brcLocal" name="brcLocal" placeholder="지역을 입력하세요" required="required">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-lg-2 control-label">주소</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">주소</label>
+								<div class="col-lg-9">
 									<input type="text" class="form-control" id="brcAddr" name="brcAddr" placeholder="주소를 입력하세요" required="required">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-lg-2 control-label">상세설명</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">상세설명</label>
+								<div class="col-lg-9">
 									<textarea class="form-control" rows="3" id="brcInfoDetail" name="brcInfoDetail" required="required"></textarea>
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-lg-2 control-label">이미지경로</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">이미지경로</label>
+								<div class="col-lg-9">
 									<input type="text" class="form-control" id="brcImgPath" name="brcImgPath" placeholder="이미지 경로를 입력하세요" required="required">
 								</div>
 							</div>
 							<div class="form-group">
-								<div class="col-lg-10 col-lg-offset-2">
+								<div class="col-lg-10 col-lg-offset-10">
 									<input type="submit" class="btn btn-button" value="입력">
 								</div>
 							</div>

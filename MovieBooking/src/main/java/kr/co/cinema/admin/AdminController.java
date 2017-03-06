@@ -19,6 +19,7 @@ import kr.co.cinema.dto.BranchDayCount;
 import kr.co.cinema.dto.Character;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
+import kr.co.cinema.dto.MovieAndBranchDayCount;
 import kr.co.cinema.dto.Screen;
 import kr.co.cinema.dto.ScreenCost;
 
@@ -39,9 +40,12 @@ public class AdminController {
 		//하단우측 표 데이터
 		List<Movie> selectClientCount = adminService.selectClientCount();
 		model.addAttribute("selectClientCount", selectClientCount);
-		//바 그래프 데이터 아직안됨
+		//바 그래프 데이터 상위5지점조회
 		List<Branch> selectBranchForBarGraph = adminService.selectBranchForBarGraph();
 		model.addAttribute("selectBranchForBarGraph", selectBranchForBarGraph);
+		//원 그래프 데이터 상위3지점조회
+		List<MovieAndBranchDayCount> MovieCodeForCircleGraph = adminService.selectMovieCodeForCircleGraph();
+		model.addAttribute("MovieCodeForCircleGraph", MovieCodeForCircleGraph);
 		//선그래프 매출 총 합계
 		int selectBranchCount = adminService.selectBranchCount();
 		model.addAttribute("selectBranchCount", selectBranchCount);
@@ -53,6 +57,7 @@ public class AdminController {
 		logger.debug("컨트롤러 우측하단표 : " + selectClientCount);
 		logger.debug("컨트롤러 선그래프 매출 총 합계 : "+selectBranchCount);
 		logger.debug("컨트롤러 선그래프 매출 월 합계 : "+selectMonthBranchCount);
+		logger.debug("컨트롤러 원그래프 매출 월 합계 : "+MovieCodeForCircleGraph);
 		return "admin/adminMain";
 	}
 	
@@ -207,12 +212,14 @@ public class AdminController {
 		return "redirect:adminMovieList";
 	}
 	
-	//***관리자 영화조회 페이지 연결만 해놓음
+	//관리자 영화조회 페이지 연결만 해놓음
 	@RequestMapping(value="adminMovieList", method=RequestMethod.GET)
 	public String selectMovieList(Model model) {
 		logger.debug(" Controller selectMovieList get실행");
+		//영화리스트 조회
 		List<Movie> selectMovieList =  adminService.selectMovieList();
 		model.addAttribute("selectMovieList", selectMovieList);
+		logger.debug(selectMovieList.toString());
 		return "management/adminMovieList";
 	}
 	
@@ -322,7 +329,14 @@ public class AdminController {
 	/************************************************************************************************************
 	상영일정 관리 메서드 : 상영일정등록/상영일정리스트/상영일정수정
 	************************************************************************************************************/	
-
+	
+	//***관리자 상영일정등록 페이지 연결만 해놓음
+	@RequestMapping(value="screenScheduleInsert", method=RequestMethod.GET)
+	public String insertScreenSchedule() {
+		logger.debug(" Controller insertScreenSchedule get실행");
+		return "screen/screenScheduleInsert";
+	}
+	
 	//상영일정 등록 : 영화한글이름으로 영화 코드조회하기 AJAX
 	@RequestMapping(value="selectMovieCode", method=RequestMethod.POST)
 	public @ResponseBody String selectMovieCodeforInsertScrSchedule(@RequestParam("movKorName")String movKorName) {
@@ -331,19 +345,13 @@ public class AdminController {
 		return selectMovieCode;
 	}
 	
-	//상영일정 등록 : 
+	//상영일정 등록 : 지점이름으로 지점코드, 상영관리스트 조회하기
 	@RequestMapping(value="selectmovieAndScreens", method=RequestMethod.POST)
 	public @ResponseBody List<BranchAndScreen> selectMovCodeAndScrNameList(@RequestParam("brcName")List<BranchAndScreen> movieAndScreens) {
 		logger.debug(" Controller selectMovCodeAndScrNameList post실행");
 		List<BranchAndScreen> selectmovieAndScreens = adminService.selectmovieAndScreens(movieAndScreens);
+		logger.debug(selectmovieAndScreens.toString());
 		return selectmovieAndScreens;
-	}
-	
-	//***관리자 상영일정등록 페이지 연결만 해놓음
-	@RequestMapping(value="screenScheduleInsert", method=RequestMethod.GET)
-	public String insertScreenSchedule() {
-		logger.debug(" Controller insertScreenSchedule get실행");
-		return "screen/screenScheduleInsert";
 	}
 	
 	//***관리자 상영일정리스트 페이지 연결만 해놓음

@@ -15,6 +15,7 @@ import kr.co.cinema.dto.BranchDayCount;
 import kr.co.cinema.dto.Character;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
+import kr.co.cinema.dto.MovieAndBranchDayCount;
 import kr.co.cinema.dto.Screen;
 import kr.co.cinema.dto.ScreenCost;
 
@@ -199,7 +200,8 @@ public class AdminService {
 		logger.debug(" Service selectMovieCode post실행");
 		return adminDao.selectMovieCode(movKorName);
 	}
-
+	
+	//상영일정 등록 : 지점이름으로 지점코드, 상영관리스트 조회하기
 	public List<BranchAndScreen> selectmovieAndScreens(List<BranchAndScreen> movieAndScreens) {
 		logger.debug(" Service selectmovieAndScreens post실행");
 		return adminDao.selectmovieAndScreens(movieAndScreens);
@@ -210,8 +212,10 @@ public class AdminService {
 		return adminDao.selectMovieList();
 	}
 
+	public List<MovieAndBranchDayCount> selectMovieCodeForCircleGraph() {
+		logger.debug(" Service selectMovieCodeForCircleGraph get실행");
+		return adminDao.selectMovieCodeForCircleGraph();
+	}
 
-	
 
-	
 }

@@ -29,7 +29,7 @@
 			DESC LIMIT 4
 	</select>
 	
-	<!-- 메인화면 바 그래프  -->
+	<!-- 바 그래프 상위5지점 조회 -->
 	<select id="selectBranchForBarGraph"
 			resultType="kr.co.cinema.dto.BranchAndBranchDayCount">
 			SELECT 
@@ -47,6 +47,25 @@
 			ORDER BY 
 				BRANCH_DAY_COUNT.brcCnt_saleTotal 
 			DESC LIMIT 5;
+	</select>
+	
+	<!-- 선 그래프 상위3지점 조회 -->
+	<select id="selectMovieCodeForCircleGraph"
+			resultType="kr.co.cinema.dto.MovieAndBranchDayCount">
+		SELECT
+			BRANCH_DAY_COUNT.mov_code AS movCode,
+			MOVIE.mov_korName AS movKorName
+		FROM
+			BRANCH_DAY_COUNT
+		INNER JOIN
+			MOVIE
+		ON
+			BRANCH_DAY_COUNT.mov_code = MOVIE.mov_code
+		GROUP BY
+			BRANCH_DAY_COUNT.mov_code
+		ORDER BY
+			SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal)
+		DESC LIMIT 3;
 	</select>
 	
 	<!-- 선그래프 총매출액 -->
@@ -272,59 +291,59 @@
 	<!-- 영화등록 쿼리 -->
 	<insert id="insertMovie"
 			parameterType="kr.co.cinema.dto.Movie">
-		INSERT INTO 
-			MOVIE
-			( 
-			mov_korName, 
-			mov_engName, 
-			char_code, 
-			mov_nation, 
-			mov_grade, 
-			mov_genre, 
-			mov_maker, 
-			mov_runningTime, 
-			mov_openDate, 
-			mov_infoDetail, 
-			mov_imgPath, 
-			mov_videoPath, 
-			mov_status, 
-			mov_date, 
-			mov_finalModifyDate
-			) 
-		VALUES 
-			(
-			#{movKorName}, 
-			#{movEngName},
-			#{charCode},
-			#{movNation}, 
-			#{movGrade}, 
-			#{movGenre}, 
-			#{movMaker}, 
-			#{movRunningTime}, 
-			#{movOpenDate}, 
-			#{movInfoDetail},
-			#{movImgPath},
-			#{movVideoPath}, 
-			#{movStatus}, 
-			now(), 
-			now()
-			); 
+			INSERT INTO 
+				MOVIE
+				( 
+				mov_korName, 
+				mov_engName, 
+				char_code, 
+				mov_nation, 
+				mov_grade, 
+				mov_genre, 
+				mov_maker, 
+				mov_runningTime, 
+				mov_openDate, 
+				mov_infoDetail, 
+				mov_imgPath, 
+				mov_videoPath, 
+				mov_status, 
+				mov_date, 
+				mov_finalModifyDate
+				) 
+			VALUES 
+				(
+				#{movKorName}, 
+				#{movEngName},
+				#{charCode},
+				#{movNation}, 
+				#{movGrade}, 
+				#{movGenre}, 
+				#{movMaker}, 
+				#{movRunningTime}, 
+				#{movOpenDate}, 
+				#{movInfoDetail},
+				#{movImgPath},
+				#{movVideoPath}, 
+				#{movStatus}, 
+				now(), 
+				now()
+				); 
 	</insert>
 	
 	<!-- 영화조회 -->
 	<select id="selectMovieList"
 			resultType="kr.co.cinema.dto.Movie">
 		select 
-			mov_korName, 
-			mov_nation, 
-			mov_grade, 
-			mov_genre, 
-			mov_maker, 
-			mov_runningTime, 
-			mov_openDate, 
-			mov_imgPath, 
-			mov_status, 
-			char_korName 
+			mov_korName AS movKorName, 
+			mov_nation AS movNation, 
+			mov_grade AS movGrade, 
+			mov_genre AS movGenre, 
+			mov_maker AS movMaker, 
+			mov_runningTime AS movRunningTime, 
+			mov_openDate AS movOpenDate, 
+			mov_imgPath AS movImgPath, 
+			mov_status AS movStatus, 
+			char_korName AS charKorName
 		from 
 			MOVIE 
 		inner join 
@@ -450,7 +469,7 @@
 	</select>
 	
 	<!-- 상영일정등록전 지점이름으로 지점코드, 스크린코드, 스크린이름조회 -->
-	<select id="movieAndScreens"
+	<select id="selectmovieAndScreens"
 			resultType="kr.co.cinema.dto.BranchAndScreen"
 			parameterType="kr.co.cinema.dto.BranchAndScreen">
 			SELECT

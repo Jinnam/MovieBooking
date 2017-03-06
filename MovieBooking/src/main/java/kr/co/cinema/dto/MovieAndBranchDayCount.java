@@ -6,6 +6,8 @@ public class MovieAndBranchDayCount {
 	private String movKorName;
 	private String movOpenDate;
 	private int brcCntClientCount;
+	private int movCode;
+	
 	public String getMovKorName() {
 		return movKorName;
 	}
@@ -28,6 +30,12 @@ public class MovieAndBranchDayCount {
 	public String toString() {
 		return "MovieAndBranchDayCount [movKorName=" + movKorName + ", movOpenDate=" + movOpenDate
 				+ ", brcCntClientCount=" + brcCntClientCount + "]";
+	}
+	public int getMovCode() {
+		return movCode;
+	}
+	public void setMovCode(int movCode) {
+		this.movCode = movCode;
 	}
 
 }

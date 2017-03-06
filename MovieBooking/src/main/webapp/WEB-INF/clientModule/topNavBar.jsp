@@ -97,14 +97,14 @@
             
               <!-- 로그인 후 폼시작 -->
               <div class="item" data-value="drop">
-                <table>
+                <table style="border-bottom: 2px solid #E5E5E5">
                   <tr style="border-bottom: 2px solid #E5E5E5">
                 	<td><p style="text-align: center;"><img src="resources/module-img/loginLogo.PNG"><p></td>
                 	<td>${id}님.</td>
                   </tr>
                   <tr>
                     <td>총 마일리지  :</td>
-                    <td align="right" style="width: 80px">${mileage}p</td>
+                    <td align="right">${mileages}P</td>
                   </tr>
                    <tr>
                     <td>가입일  : </td>

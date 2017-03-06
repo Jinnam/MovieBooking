@@ -240,22 +240,22 @@
 							<legend>add</legend>
 							<!-- 영화한글이름 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">영화한글이름</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">영화한글이름</label>
+								<div class="col-lg-9">
 									<input type="text" class="form-control" name="movKorName" placeholder="영화이름을 입력하세요" required="required">
 								</div>
 							</div>
 							<!-- 영화영문이름 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">영화영문이름</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">영화영문이름</label>
+								<div class="col-lg-9">
 									<input type="text" class="form-control" name="movEngName" placeholder="영화이름을 입력하세요" required="required">
 								</div>
 							</div>
 							<!-- 감독이름(한글) -->
 							<div class="form-group"> 
-								<label class="col-lg-2 control-label">감독</label>
-								<div class="col-lg-8">
+								<label class="col-lg-3 control-label">감독</label>
+								<div class="col-lg-7">
 									<input type="text" class="form-control" id="charKorName" name="charKorName" placeholder="감독이름을 입력하세요" required="required">
 								</div>
 								<!-- 감독이름으로 인물코드를 인물테이블에서 조회 ajax-->
@@ -265,15 +265,15 @@
 							</div>
 							<!-- 감독코드 출력 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">감독코드</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">감독코드</label>
+								<div class="col-lg-9">
 									<input type="text" class="form-control" id="charCode" name="charCode" required="required">
 								</div>
 							</div>
 							<!-- 주연배우이름(한글) -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">주연배우</label>
-								<div class="col-lg-8">
+								<label class="col-lg-3 control-label">주연배우</label>
+								<div class="col-lg-7">
 									<input type="text" class="form-control" id="ActorKorName" name="charKorName" placeholder="주연배우를 입력하세요" required="required">
 								</div>
 								<!-- 주연배우이름으로 인물코드를 인물테이블에서 조회 ajax-->
@@ -283,36 +283,36 @@
 							</div>
 							<!-- 배우코드 출력 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">배우코드</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">배우코드</label>
+								<div class="col-lg-9">
 									<input type="text" class="form-control" id="charCodeActor" name="charCode" required="required">
 								</div>
 							</div>
 							<!-- 국가이름 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">국가</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">국가</label>
+								<div class="col-lg-9">
 									<input type="text" class="form-control" name="movNation" placeholder="국가를 입력하세요" required="required">
 								</div>
 							</div>
 							<!-- 등급 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">등급</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">등급</label>
+								<div class="col-lg-9">
 									<input type="text" class="form-control" name="movGrade" placeholder="영화등급을 입력하세요" required="required">
 								</div>
 							</div>
 							<!-- 장르 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">장르</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">장르</label>
+								<div class="col-lg-9">
 									<input type="text" class="form-control" name="movGenre" placeholder="영화장르를 입력하세요" required="required">
 								</div>
 							</div>
 							<!-- 상세설명 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">상세설명</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">상세설명</label>
+								<div class="col-lg-9">
 									<textarea class="form-control" rows="3" name="movInfoDetail" required="required"></textarea>
 								</div>
 							</div>
@@ -321,29 +321,29 @@
 							<legend>&nbsp;</legend>
 							<!-- 제작사 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">제작사</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">제작사</label>
+								<div class="col-lg-9">
 									<input type="text" class="form-control" name="movMaker" placeholder="제작사를 입력하세요" required="required">
 								</div>
 							</div>
 							<!-- 상영시간 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">상영시간</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">상영시간</label>
+								<div class="col-lg-9">
 									<input type="text" class="form-control" name="movRunningTime" placeholder="00:00:00 형식으로 입력해주세요" required="required">
 								</div>
 							</div>
 							<!-- 개봉일 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">개봉일</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">개봉일</label>
+								<div class="col-lg-9">
 									<input type="date" class="form-control" name="movOpenDate" placeholder="개봉일을 입력하세요" required="required">
 								</div>
 							</div>
 							<!-- 상영상태 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">상영상태</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">상영상태</label>
+								<div class="col-lg-9">
 									<select name="movStatus" class="form-control">
 										<option>개봉전</option>
 										<option>상영</option>
@@ -353,15 +353,18 @@
 							</div>
 							<!-- 이미지경로 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">이미지경로</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">이미지경로</label>
+								<div class="col-lg-7">
 									<input type="text" name="movImgPath" class="form-control" placeholder="이미지 경로를 입력하세요" required="required">
+								</div>
+								<div>
+									<input type="button" class="btn btn-button" value="조회">
 								</div>
 							</div>
 							<!-- 영상경로 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">영상경로</label>
-								<div class="col-lg-10">
+								<label class="col-lg-3 control-label">영상경로</label>
+								<div class="col-lg-9">
 									<input type="text" name="movVideoPath" class="form-control" placeholder="영상 경로를 입력하세요" required="required">
 								</div>
 							</div>

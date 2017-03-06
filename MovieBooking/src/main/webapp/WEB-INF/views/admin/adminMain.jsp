@@ -242,11 +242,11 @@
 							data-line-color="#fff" data-spot-color="#fff"
 							data-fill-color="" data-highlight-line-color="#fff"
 							data-spot-radius="4"
-							data-data="[200,135,667,333,526,996,564,123,890,464,655,555
-								<%-- <c:forEach var="selectMonthBranchCount" items="${selectMonthBranchCount}">
-									${selectMonthBranchCount.brcCntSaleTotal},
-								</c:forEach> --%>]">
-							<!-- [200,135,667,333,526,996,564,123,890,464,655,555] -->
+							data-data="[
+								<c:forEach var="selectMonthBranchCount" items="${selectMonthBranchCount}" varStatus="status">
+									${selectMonthBranchCount.brcCntSaleTotal}
+									<c:if test="${not status.last}">,</c:if>
+								</c:forEach>]">
 						</div>
 					</div>
 					<div class="mt">

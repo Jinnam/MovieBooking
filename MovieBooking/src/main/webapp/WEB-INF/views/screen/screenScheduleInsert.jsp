@@ -264,7 +264,7 @@
 								</div>
 								<!-- 감독이름으로 인물코드를 인물테이블에서 조회 ajax-->
 								<div>
-									<input id="selectBrcCodeAndScrCode" type="button" class="btn btn-button" value="조회">
+									<input id="selectmovieAndScreens" type="button" class="btn btn-button" value="조회">
 								</div>
 							</div>
 							<!-- 지점코드 출력 -->
@@ -353,22 +353,7 @@
 	<%@include file="/WEB-INF/adminModule/footer.jsp" %>
 	
 	<!-- 스크립트 -->
-	<!-- 지점이름으로 지점코드,상영코드 조회하기 -->
-	<script>
-		$(document).ready(function() {
-			$("#selectBrcCodeAndScrCode").click(function() {
-				$.ajax({
-					url 	: "selectmovieAndScreens",
-					data 	: {"brcName" : $("#brcName").val()},
-					type 	: "post",
-					success : function(data) {
-						console.log(data)
-						$("#selectViewScrNameAndScrCode").val(data)
-					}
-				});
-			});
-		});
-	</script>
+
 	<!-- 영화이름으로 영화 코드 조회하기 -->
 	<script>
 		$(document).ready(function() {
@@ -385,6 +370,24 @@
 			});
 		});
 	</script>
+	
+	<!-- 지점이름으로 지점코드,상영코드 조회하기 -->
+	<script>
+		$(document).ready(function() {
+			$("#selectmovieAndScreens").click(function() {
+				$.ajax({
+					url 	: "selectmovieAndScreens",
+					data 	: {"brcName" : $("#brcName").val()},
+					type 	: "post",
+					success : function(data) {
+						console.log(data)
+						$("#selectViewScrNameAndScrCode").val(data)
+					}
+				});
+			});
+		});
+	</script>
+	
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="resources/assets/js/jquery.js"></script>
 	<script src="resources/assets/js/jquery-1.8.3.min.js"></script>
