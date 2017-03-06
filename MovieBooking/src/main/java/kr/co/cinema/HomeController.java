@@ -53,7 +53,7 @@ public class HomeController {
 		model.addAttribute("returnBDCCode",returnBDCCode);
 
 		// 일반 코드 생성테스트
-		String resultCode = homeService.makeCode(kind);
+		String resultCode = homeService.madeCode(kind);
 		model.addAttribute("resultCode",resultCode);
 		return "payment/codeTest";
 	}

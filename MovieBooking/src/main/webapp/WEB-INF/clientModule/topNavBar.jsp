@@ -92,32 +92,36 @@
           <label>${name}님 환영합니다</label>
             <!-- <img src="resources/module-img/menu_login.png" style="width:100px;height:40px"> -->
           </div>
-          <div class="menu" style="width:350px ; position:absolute; left:-200px;">
+          <div class="menu" style="position:absolute; left:-200px;">
             <form style="width:300px;margin: 10px 10px 10px 10px;" action="memberLogin" method="post" id="loginForm">
             
-              <!-- 로그인 폼시작 -->
+              <!-- 로그인 후 폼시작 -->
               <div class="item" data-value="drop">
                 <table>
-                  <tr>
+                  <tr style="border-bottom: 2px solid #E5E5E5">
                 	<td><p style="text-align: center;"><img src="resources/module-img/loginLogo.PNG"><p></td>
+                	<td>${id}님.</td>
                   </tr>
                   <tr>
-                  <td>&nbsp;</td>
+                    <td>총 마일리지  :</td>
+                    <td align="right" style="width: 80px">${mileage}p</td>
                   </tr>
-                  <tr>
-                    <td>마일리지 넣어야함</td>
+                   <tr>
+                    <td>가입일  : </td>
+                    <td > ${joinday}</td>
                   </tr>
+                  
                 </table>
                 <br><br>
                 <div>
-                  <a href="memberDetail"><img src="resources/module-img/mypage.PNG"></a>
+                  <a href="memberDetail"><img src="resources/module-img/mypage.PNG" align="left"></a>
                 </div>
                 <br>
                 <div>
                   <a href="logout"><img src="resources/module-img/logout.PNG" align="right"></a>
                 </div>
               </div>
-              <!-- 로그인 폼 끝 -->
+              <!-- 로그인 후 폼 끝 -->
             </form>
           </div>
         </div>

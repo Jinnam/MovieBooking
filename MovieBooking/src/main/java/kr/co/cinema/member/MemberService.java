@@ -41,7 +41,7 @@ public class MemberService {
 	//비회원 가입 insert 시작
 	public int addNonMember(NonMember nonMember){
 		//homeService 에서 코드값 불러오기
-		String nonMemberCode=homeService.makeCode("nonMember");
+		String nonMemberCode=homeService.madeCode("nonMember");
 		nonMember.setNmemCode(nonMemberCode);
 		return memberdao.insertNonMember(nonMember);
 	}

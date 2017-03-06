@@ -94,6 +94,8 @@ public class MemberController {
 		session.setAttribute("pw", membersLogin.get("memPw"));
 		session.setAttribute("name", membersLogin.get("memName"));
 		session.setAttribute("phone", membersLogin.get("memPhone"));
+		session.setAttribute("mileage", membersLogin.get("memMileage"));
+		session.setAttribute("joinday", membersLogin.get("memJoinDay"));
 	//	logger.debug("return 값 : "+members.toString());
 		
 		return membersLogin;

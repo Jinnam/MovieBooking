@@ -38,7 +38,7 @@
 		
 		<h5 align="right" style="color: blue;">${name}<label>님의 사용내역입니다.</label></h5>
 		
-		<table style="border-top: 2px solid blue; text-align: center;" >
+		<table style="border-top: 2px solid blue; text-align: center; border-bottom: 2px solid blue" >
 		<thead>
 			<tr >
 				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">사용 마일리지</td>
