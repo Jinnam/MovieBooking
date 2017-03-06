@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import kr.co.cinema.dto.BranchDayCount;
 import kr.co.cinema.dto.Screen;
 import kr.co.cinema.dto.ScreenSchedule;
+import kr.co.cinema.movie.MovieDao;
 
 
 @Controller
@@ -23,6 +24,8 @@ public class HomeController {
 
 	@Autowired
 	private HomeService homeService;
+	@Autowired
+	private MovieDao movieDao;
 	
 	//진남이가 쓰는 테이스 페이지 사용 ㄴㄴ
 	@RequestMapping(value="/codeTest", method=RequestMethod.GET)
@@ -72,7 +75,8 @@ public class HomeController {
 	
 	//메인 페이지
 	@RequestMapping(value = "/movieMain", method = RequestMethod.GET)
-	public String movieMain() {	
+	public String movieMain(Model model) {	
+		model.addAttribute("boxList",movieDao.selectListBoxOfficeHome()); //박스오피스 리스트 가져오기		
 		return "movieMain";
 	}
 	
