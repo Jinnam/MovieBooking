@@ -112,4 +112,14 @@ public class PaymentController {
 		model.addAttribute("payment",payment);					// 결제 결과 보여주기 위한 정보를 model에 올림
 		return "payment/paymentResult";
 	}
+	
+	// 예매 취소
+	
+	@RequestMapping(value="cancelpayment")
+	public String cancelPayment(String pmtCode){
+		logger.debug("		cancelPayment :"+pmtCode);
+		
+		
+		return null;
+	}
 }

@@ -62,12 +62,12 @@
 			nmem_code=#{nmemCode}
 	</select>
 
-	<!-- 좌석 업데이트(able->use) -->
-	<update id="updateSeat" parameterType="String">
+	<!-- 좌석 사용여부 업데이트 -->
+	<update id="updateSeat" parameterType="Map">
 		UPDATE 
 			SEAT
 		SET
-			seat_useStatus="use"
+			seat_useStatus=#{seatUseStatus}
 		WHERE
 			seat_code=#{seatCode}
 	</update>
@@ -212,6 +212,7 @@
 			dcinf_code,
 			pmt_ticketNum,
 			pmt_price,
+			pmt_status,
 			pmt_date
 		) VALUES (
 			#{pmtCode},
@@ -222,6 +223,7 @@
 			#{dcinfCode},
 			#{pmtTicketNum},
 			#{pmtPrice},
+			'결제완료',
 			now()
 			)
 	</insert>
@@ -261,6 +263,30 @@
 		mem_id=#{memId}
 	</update>
 	
+	<!-- 결제 코드로 결제 정보 가져오기 -->
+	<select id="selectPaymentInfo" parameterType="String" resultType="Map">
+		SELECT
+			scs_code AS scsCode,
+			mem_id AS memId,
+			nmem_code AS nmemCode,
+			pmt_ticketNum AS pmtTicketNum,
+			pmt_price AS pmtPrice,
+			pmt_status AS pmtStatus
+		FROM
+			PAYMENT
+		WHERE
+			pmt_code=#{pmtCode}
+	</select>
+	
+	<!-- 좌석 다:다 에서 결제코드로 좌석정보 가져오기 -->
+	<select id="selectSeatInfo" parameterType="String" resultType="String">
+		SELECT
+			seat_code AS seatCode
+		FROM
+			SEATS
+		WHERE
+			pmt_code=#{pmtCode}
+	</select>
 	
 	
 </mapper>

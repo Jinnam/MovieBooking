@@ -84,11 +84,14 @@ public class PaymentService {
 			
 		}
 		// 좌석 업데이트(able->use)
+		Map<String, String> seatMap = new HashMap<String, String>();
 		for(int i=0; i<payment.getSeatCode().length;i++){
 			if(payment.getSeatCode()[i]==""){
 				break;
 			}else{
-				paymentDao.updateSeat(payment.getSeatCode()[i]);
+				seatMap.put("seatUseStatus", "use");
+				seatMap.put("seatCode", payment.getSeatCode()[i]);
+				paymentDao.updateSeat(seatMap);
 			}
 		}
 		
@@ -377,6 +380,8 @@ public class PaymentService {
 	 
 	 // 지점별 분석
 	 public int updateBranchDayCount(Payment payment){
+		 logger.debug("	updateBranchDayCount 진입 payment : "+payment);
+		 
 		 String scsCode = payment.getScsCode();				// payment에서 scsCode 코드 가져오기
 		 int pmtTicketNum = payment.getPmtTicketNum();		// payment에서 pmtTicketNum 가져오기
 		 int pmtPrice = payment.getPmtPrice();				// payment에서 pmtPrice 가져오기
@@ -399,7 +404,46 @@ public class PaymentService {
 		 
 		 branchDayCount.setBrcCntDate(today);			// branchDayCount에 현재 날짜 셋팅
 		 
+		 logger.debug("	updateBranchDayCount branchDayCount : "+branchDayCount);
 		 return paymentDao.updateBrcDayCount(branchDayCount);
 	 }
 	 
+	 
+	 //**************************************
+	 // 결제 취소
+	 public int updateCancelPayment(String pmtCode){
+		 logger.debug("	updateCancelPayment 진입 pmtCode : "+pmtCode);
+		 
+		 Map<String, Object> payment = paymentDao.selectOnePaymentInfo(pmtCode);
+		 String memId = (String) payment.get("memId");	// 결제 한 회원 아이디
+		 int pmtPrice = (int) payment.get("pmtPrice");	// 결제 한 금액
+		
+		 // 마일리지 내역 등록(취소)
+		 Mileage mileage = new Mileage();						// 마일리지 객체 생성
+		 mileage.setMemId(memId);								// 마일리지 객체에 memId 셋팅
+		 mileage.setMilCode(homeService.madeCode("mileage"));	// 마일리지 코드 생성 & 셋팅
+		 int saveMileage = (int) -(pmtPrice*MILEAGE_RATE);		// 결제 금액에 대한 (-)마일리지
+		 mileage.setMilSave(saveMileage);						// 마일리지 셋팅
+		 mileage.setMilUse(0);									// 사용 마일리지 0으로 셋팅
+		 mileage.setPmtCode(pmtCode);							// 결제 코드 셋팅
+		 logger.debug("	updateCancelPayment mileage : "+mileage);
+		 paymentDao.insertMileage(mileage);						// 취소 : 회원 마일리지 내역 추가
+	 
+		 // 회원 마일리지 업데이트
+		 logger.debug("	updateCancelPayment memId : "+memId);
+		 paymentDao.updateMemMileage(memId);					// 회원 마일리지 정보 업데이트
+		 
+		 // 좌석 정보 업데이트
+		 List<String> seatCode = paymentDao.selectSeatInfo(pmtCode);	// 결제 한 좌석정보 가져오기
+		 logger.debug("	updateCancelPayment seatInfo : "+seatCode);
+		 Map<String, String> seatMap = new HashMap<String, String>();	// mapper로 보낼 map 생성
+		 
+		 for(int i=0;i<seatCode.size();i++){							// 가져온 좌석정보 크기만큼 for문 실행
+			 seatMap.put("seatUseStatus", "able");
+			 seatMap.put("seatCode", seatCode.get(i));
+			 paymentDao.insertSeats(seatMap);
+		 }
+		 
+		 return 0;
+	 }
 }

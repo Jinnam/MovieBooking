@@ -26,6 +26,22 @@ public class PaymentDao {
 	private final String NS="kr.co.cinema.payment.PaymentMapper.";
 	
 	
+	//************** 결제 취소  **************
+	
+	// 결제정보 가져오기
+	public Map<String, Object> selectOnePaymentInfo(String pmtCode){
+		logger.debug("		selectOnePaymentInfo() 진입 pmtCode : "+pmtCode);
+		return sqlSession.selectOne(NS+"selectPaymentInfo",pmtCode);
+	}
+	
+	// 좌석 (다:다)에서 좌석정보 가져오기
+	public List<String> selectSeatInfo(String pmtCode){
+		logger.debug("		selectSeatInfo() 진입 pmtCode : "+pmtCode);
+		return sqlSession.selectList(NS+"selectSeatInfo", pmtCode);
+	}
+	
+	//************** 결제 후 등록 **************
+	
 	// 지점별 일일예매,매출 업데이트
 	public int updateBrcDayCount(BranchDayCount branchDayCount){
 		logger.debug("		updateBrcDayCount() 진입 branchDayCount : "+branchDayCount);
@@ -51,9 +67,9 @@ public class PaymentDao {
 	}
 	
 	// 좌석정보 업데이트
-	public int updateSeat(String seatCode){
-		logger.debug("		updateSeat() 진입 seatCode : "+seatCode);
-		return sqlSession.update(NS+"updateSeat", seatCode);
+	public int updateSeat(Map<String, String> map){
+		logger.debug("		updateSeat() 진입 seatCode : "+map);
+		return sqlSession.update(NS+"updateSeat", map);
 	}
 	
 	// 좌석(다:다) 등록
@@ -79,6 +95,9 @@ public class PaymentDao {
 		logger.debug("		insertPayment() 진입 payment : "+payment);
 		return sqlSession.insert(NS+"insertPayment",payment);
 	}
+	
+	
+	//************** 결제 화면 **************
 	
 	// 비회원 코드 가져오기
 	public String selectOneNmemCode(String phone){
