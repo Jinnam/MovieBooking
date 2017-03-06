@@ -84,17 +84,17 @@ public class MemberController {
 	
 	//회원 로그인 action
 	@RequestMapping(value="/memberLogin", method=RequestMethod.POST)
-	public @ResponseBody Map<String, String> memberLogin(Member member, HttpSession session){
+	public @ResponseBody Map<String, Object> memberLogin(Member member, HttpSession session){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("memId", member.getMemId());
 		map.put("memPw", member.getMemPw());
-		Map<String,String> membersLogin = memberService.findOneMmemberLogin(map);
+		Map<String,Object> membersLogin = memberService.findOneMmemberLogin(map);
 		System.out.println("membersLogin나오면찍힌거"+membersLogin);
 		session.setAttribute("id", membersLogin.get("memId"));
 		session.setAttribute("pw", membersLogin.get("memPw"));
 		session.setAttribute("name", membersLogin.get("memName"));
 		session.setAttribute("phone", membersLogin.get("memPhone"));
-		session.setAttribute("mileage", membersLogin.get("memMileage"));
+		session.setAttribute("mileages", membersLogin.get("memMileage"));
 		session.setAttribute("joinday", membersLogin.get("memJoinDay"));
 	//	logger.debug("return 값 : "+members.toString());
 		

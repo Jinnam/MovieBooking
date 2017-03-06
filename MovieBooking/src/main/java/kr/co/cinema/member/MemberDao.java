@@ -66,7 +66,7 @@ public class MemberDao {
 	//회원 아이디 찾기 select 종료	
 	
 	//회원 로그인 select 시작
-	public Map<String, String> selectMemberLogin(Map<String, String> map){
+	public Map<String, Object> selectMemberLogin(Map<String, String> map){
 		logger.debug("로그인 select dao" + map);
 		return sqlSessionTemplate.selectOne(Member_NS + "selectMemberLogin", map);
 	}

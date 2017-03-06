@@ -69,7 +69,7 @@ public class MemberService {
 	//회원 아이디 찾기 select 종료	
 	
 	//회원 로그인 select 시작
-	public Map<String, String> findOneMmemberLogin(Map<String, String> map){
+	public Map<String, Object> findOneMmemberLogin(Map<String, String> map){
 		logger.debug("login select service" + map);
 		return memberdao.selectMemberLogin(map);
 		

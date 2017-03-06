@@ -38,9 +38,12 @@
 		<table style="border-top: 2px solid blue;">
 		<thead>
 			<tr >
-				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;"></td>
-				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;"></td>
-				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;"></td>
+				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">예매번호</td>
+				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">영화명</td>
+				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">영화관</td>
+				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">상영일자</td>
+				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">예매일</td>
+				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">예매취소</td>
 			</tr>
 			</thead>
 			
@@ -49,6 +52,9 @@
 				<td></td>
 				<td>2</td>
 				<td>3</td>
+				<td></td>
+				<td>2</td>
+				<td><a href="">취소</a></td>
 			</tr>
 			</tbody>
 			
