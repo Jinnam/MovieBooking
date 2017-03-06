@@ -236,16 +236,17 @@
 				<div class="col-lg-6" style="float: left: ;">
 					<form class="form-horizontal" method="post">
 						<fieldset>
-							<legend>기입사항</legend>
+							<legend>add</legend>
 							<!-- 아이디 -->
 							<div class="row form-group">
 								<label for="adminId" class="col-lg-2 control-label">ID</label>
 								<div class="col-lg-8">
 									<input type="text" class="form-control" name="admId" placeholder="관리자 ID를 입력하세요" required="required">
 								</div>
+								<!-- 아직 미구현 -->
 								<!-- ID중복조회 -->
 								<div class="col-lg-2">
-									<input type="button" class="btn btn-primary" value="ID조회">
+									<input type="button" class="btn btn-button" value="ID조회">
 								</div>
 							</div>
 							<!-- 비밀번호 -->
@@ -258,7 +259,7 @@
 							<!-- 지점명 -->
 							<div class="form-group">
 								<label for="select" class="col-lg-2 control-label">지점명</label>
-								<div class="col-lg-10">
+								<div class="col-lg-8">
 									<select name="brcCode" class="form-control">
 										<c:forEach var="selectBranchList" items="${selectBranchList}">
 											<option value="${selectBranchList.brcCode}">
@@ -271,9 +272,9 @@
 							<!-- 등록버튼 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label"></label>
-								<div class="col-lg-8"></div>
+								<div class="col-lg-7"></div>
 								<div>
-									<input type="submit" class="btn btn-primary" value="등록">
+									<input type="submit" class="btn btn-button" value="등록">
 								</div>
 							</div>
 						</fieldset>

@@ -147,6 +147,12 @@ public class AdminService {
 		return adminDao.selectCharCodeForInsertMovie(charKorName);
 	}
 	
+	//관리자 영화 등록 : 모달을 사용해서 인물이름으로 등록할 감독코드와 감독이름 조회
+	public List<Character> selectCharCodeForAddMovie() {
+		logger.debug(" Service selectCharCodeForAddMovie get실행");
+		return adminDao.selectCharCodeForAddMovie();
+	}
+	
 	//영화등록
 	public int insertMovie(Movie movie) {
 		logger.debug(" Service insertMovie post실행");
@@ -216,6 +222,8 @@ public class AdminService {
 		logger.debug(" Service selectMovieCodeForCircleGraph get실행");
 		return adminDao.selectMovieCodeForCircleGraph();
 	}
+
+
 
 
 }

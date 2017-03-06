@@ -263,32 +263,32 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>영화한글이름</th>
-						<th>국가</th>
-						<th>등급</th>
-						<th>장르</th>
-						<th>제작사</th>
-						<th>상영시간</th>
-						<th>개봉일</th>
-						<th>이미지경로</th>
-						<th>상영상태</th>
-						<th>감독</th>
+						<th class="col-lg-1">영화한글이름</th>
+						<th class="col-lg-1">국가</th>
+						<th class="col-lg-1">감독</th>
+						<th class="col-lg-1">등급</th>
+						<th class="col-lg-1">장르</th>
+						<th class="col-lg-1">제작사</th>
+						<th class="col-lg-1">상영시간</th>
+						<th class="col-lg-1">개봉일</th>
+						<th class="col-lg-1">이미지경로</th>
+						<th class="col-lg-1">상영상태</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="selectMovieList" items="${selectMovieList}">
 						<tr>
 							<td></td>
-							<td>${selectMovieList.movKorName}</td>
-							<td>${selectMovieList.movNation}</td>
-							<td>${selectMovieList.movGrade}</td>
-							<td>${selectMovieList.movGenre}</td>
-							<td>${selectMovieList.movMaker}</td>
-							<td>${selectMovieList.movRunningTime}</td>
-							<td>${selectMovieList.movOpenDate}</td>
-							<td>${selectMovieList.movImgPath}</td>
-							<td>${selectMovieList.movStatus}</td>
-							<td>${selectMovieList.charKorName}</td>
+							<td class="col-lg-1">${selectMovieList.movKorName}</td>
+							<td class="col-lg-1">${selectMovieList.movNation}</td>
+							<td class="col-lg-1">${selectMovieList.charKorName}</td>
+							<td class="col-lg-1">${selectMovieList.movGrade}</td>
+							<td class="col-lg-1">${selectMovieList.movGenre}</td>
+							<td class="col-lg-1">${selectMovieList.movMaker}</td>
+							<td class="col-lg-1">${selectMovieList.movRunningTime}</td>
+							<td class="col-lg-1">${selectMovieList.movOpenDate}</td>
+							<td class="col-lg-1">${selectMovieList.movImgPath}</td>
+							<td class="col-lg-1">${selectMovieList.movStatus}</td>
 						</tr>
 					</c:forEach>
 				</tbody>

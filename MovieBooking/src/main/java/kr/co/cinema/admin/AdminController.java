@@ -52,93 +52,101 @@ public class AdminController {
 		//선그래프 월별 합계
 		List<BranchDayCount> selectMonthBranchCount = adminService.selectMonthBranchCount();
 		model.addAttribute("selectMonthBranchCount", selectMonthBranchCount);
-		//집에서 log4j안됨 일단 이렇게 출력 log4j바꿀것
-		logger.debug("컨트롤러 바그래프 :"+selectBranchForBarGraph);
-		logger.debug("컨트롤러 우측하단표 : " + selectClientCount);
-		logger.debug("컨트롤러 선그래프 매출 총 합계 : "+selectBranchCount);
-		logger.debug("컨트롤러 선그래프 매출 월 합계 : "+selectMonthBranchCount);
-		logger.debug("컨트롤러 원그래프 매출 월 합계 : "+MovieCodeForCircleGraph);
+		//집에서 log4j안됨 일단 이렇게 출력 log4j바꿀것 //System.out.println //logger.debug
+		System.out.println("컨트롤러 바그래프 :"+selectBranchForBarGraph);
+		System.out.println("컨트롤러 우측하단표 : " + selectClientCount);
+		System.out.println("컨트롤러 선그래프 매출 총 합계 : "+selectBranchCount);
+		System.out.println("컨트롤러 선그래프 매출 월 합계 : "+selectMonthBranchCount);
+		System.out.println("컨트롤러 원그래프 매출 월 합계 : "+MovieCodeForCircleGraph);
 		return "admin/adminMain";
 	}
 	
 	/************************************************************************************************************
-	지점관리 메서드 : 지점등록/지점조회/지점수정/지점탈퇴
+	지점관리 메서드
 	************************************************************************************************************/
 	
-	//지점 등록 페이지(페이지이동)
+	//지점 등록 페이지이동
 	@RequestMapping(value="branchInsert", method=RequestMethod.GET)
 	public String insertBranchView() {
 		logger.debug(" Controller insertBranch get실행");
 		return "admin/branchInsert";
 	}
 	
-	//지점 등록 페이지(폼이동)
+	//지점 등록
 	@RequestMapping(value="branchInsert", method=RequestMethod.POST)
 	public String insertBranch(Branch branch) {
 		logger.debug(" Controller insertBranch post실행");
+		//지점 등록
 		adminService.insertBranch(branch);
 		return "redirect:branchList";
 	}
 	
-	//지점리스트 조회
+	//지점 리스트 페이지이동
 	@RequestMapping(value="branchList", method=RequestMethod.GET)
 	public String selectBranchList(Model model) {
 		logger.debug(" Controller selectBranchList get실행");
+		//지점 리스트 조회
 		List<Branch> selectBranchList = adminService.selectBranchList();
 		model.addAttribute("selectBranchList", selectBranchList);
 		return "admin/branchList";
 	}
 	
-	//지점 수정하기 위한 조회 페이지 하나의 지점 코드 값으로 지점의 내용을 조회
+	//지점 수정하기 위한 조회 페이지이동
 	@RequestMapping(value="branchModify", method=RequestMethod.GET)
 	public String updateBranchList(Model model, int brcCode) {
 		logger.debug(" Controller updateBranchList get실행");
+		//하나의 지점 코드 값으로 지점의 내용을 조회
 		Branch selectBranchForUpdate = adminService.selectBranchForUpdate(brcCode);
 		model.addAttribute("selectBranchForUpdate", selectBranchForUpdate);
 		return "admin/branchModify";
 	}
 	
-	//지점 수정 페이지
+	//지점 수정
 	@RequestMapping(value="branchModify", method=RequestMethod.POST)
 	public String updateBranch(Branch branch) {
 		logger.debug(" Controller updateBranch post실행");
+		//지점 수정
 		adminService.updateBranch(branch);
 		return "redirect:branchList";
 	}
 	
-	//지점 탈퇴 페이지
+	//지점 탈퇴 페이지이동
 	@RequestMapping(value="branchDelete", method=RequestMethod.GET)
 	public String deleteBranch(Model model, int brcCode) {
 		logger.debug(" Controller deleteBranch get실행");
+		//지점 삭제 목록에서 지점 코드로 해당 행 삭제
 		adminService.deleteBranch(brcCode);
 		return "redirect:branchList";
 	}
 	
 	/************************************************************************************************************
-	지점관리자 메서드 : 지점관리자등록/지점관리자조회/지점관리자수정/지점관리자삭제
+	지점관리자 메서드
 	************************************************************************************************************/	
 	
-	//지점관리자 등록 페이지 등록 전 지점이름 및 지점코드조회
+	//지점관리자 등록 페이지이동
 	@RequestMapping(value="adminInsert", method=RequestMethod.GET)
 	public String selectBranchForAdminInsert(Model model) {
 		logger.debug(" Controller selectBranchForAdminInsert get실행");
+		//등록 전 지점이름 및 지점코드조회 지점관리자 아이디 중복조회 아직 미구현
 		List<Branch> selectBranchList = adminService.selectBranchList();
 		model.addAttribute("selectBranchList", selectBranchList);
 		return "admin/adminInsert";
 	}
 	
-	//지점관리자 등록 페이지
+	//지점관리자 등록
 	@RequestMapping(value="adminInsert", method=RequestMethod.POST)
 	public String insertAdmin(Admin admin) {
 		logger.debug(" Controller selectBranchForAdminInsert post실행");
+		//지점관리자 등록
 		adminService.insertAdmin(admin);
 		return "redirect:adminList";
 	}
 	
-	//지점관리자 리스트 페이지 조회
+	//지점관리자 리스트 페이지이동
 	@RequestMapping(value="adminList", method=RequestMethod.GET)
 	public String selectAdminList(Model model) {
 		logger.debug(" Controller adminList get실행");
+		//지점관리자 리스트조회
 		List<Admin> selectAdminList = adminService.selectAdminList();
 		model.addAttribute("selectAdminList", selectAdminList);
 		return "admin/adminList";
@@ -148,52 +156,67 @@ public class AdminController {
 	@RequestMapping(value="adminModify", method=RequestMethod.GET)
 	public String selectBranchForUpdateAdmin(Model model, Admin admin) {
 		logger.debug(" Controller selectBranchForUpdateAdmin get실행");
+		//선택수정하기 위한 전체지점의 리스트조회
 		List<Branch> selectBranchList = adminService.selectBranchList();
-		Admin selectAdminAuthAndId = adminService.selectAdminAuthAndId(admin);
 		model.addAttribute("selectBranchList", selectBranchList);
+		//리스트에서 가져온 관리자 아이디값으로 관리자의 권한과 아이디조회
+		Admin selectAdminAuthAndId = adminService.selectAdminAuthAndId(admin);
 		model.addAttribute("selectAdminAuthAndId", selectAdminAuthAndId);
 		return "admin/adminModify";
 	}
 	
-	//지점관리자 수정 페이지
+	//지점관리자 수정
 	@RequestMapping(value="adminModify", method=RequestMethod.POST)
 	public String updateAdmin(Admin admin) {
 		logger.debug(" Controller updateAdmin post실행");
+		//지점관리자 수정
 		adminService.updateAdmin(admin);
-		logger.debug(admin.toString());
 		return "redirect:adminList";
 	}
 	
-	//지점관리자 삭제 페이지 연결만 해놓음
+	//지점관리자 삭제
 	@RequestMapping(value="adminDelete", method=RequestMethod.GET)
 	public String deleteAdmin(Admin admId) {
 		logger.debug(" Controller deleteAdmin get실행");
+		//지점관리자 삭제
 		adminService.deleteAdmin(admId);
 		return "redirect:adminList";
 	}
 	
 	/************************************************************************************************************
-	회원 관리 메서드 : 회원리스트조회
+	회원 관리 메서드
 	************************************************************************************************************/
 	
 	//관리자 회원조회 페이지 조건부 조회 아직안됨
 	@RequestMapping(value="memberList", method=RequestMethod.GET)
 	public String selectMemberList(Model model) {
 		logger.debug(" Controller selectMemberList get실행");
+		//관리자 회원조회
 		List<Member> selectMemberList = adminService.selectMemberList();
 		model.addAttribute("selectMemberList", selectMemberList);
 		return "admin/memberList";
 	}
 	
 	/************************************************************************************************************
-	영화 관리 메서드 : 영화등록/영화리스트/영화상세/영화수정
+	영화 관리 메서드
 	************************************************************************************************************/	
 
-	//관리자 영화등록 페이지
+	//영화등록 페이지이동
 	@RequestMapping(value="movieInsert", method=RequestMethod.GET)
 	public String insertMovieView() {
 		logger.debug(" Controller insertMovieView get실행");
 		return "management/movieInsert";
+	}
+	
+	//영화 등록 : 모달을 사용해서 인물이름으로 등록할 감독코드와 감독이름 조회 아직 미구현
+	@RequestMapping(value="selectCharcodeUseModal", method=RequestMethod.POST)
+	public List<Character> selectCharCodeForAddMovie() {
+		logger.debug(" Controller selectCharCodeForAddMovie post실행");
+		List<Character> selectCharCodeForAddMovie = adminService.selectCharCodeForAddMovie();
+		//꼭지울것 확인용!
+		System.out.println(selectCharCodeForAddMovie);
+		//꼭지울것 확인용!
+		return selectCharCodeForAddMovie;
 	}
 	
 	//관리자 영화 등록전 감독이름으로 감독 코드 조회하기 리스트형식 아니라 하나의 코드만 조회

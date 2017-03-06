@@ -124,17 +124,32 @@ public class AdminDao {
 		logger.debug(" Dao selectMemberList");
 		return sqlSession.selectList(NS+"selectMemberList");
 	}
+
+	/************************************************************************************************************
+	영화 관리 메서드 : 영화등록/영화리스트/영화상세/영화수정
+	************************************************************************************************************/	
 	
 	//영화등록전 인물이름으로 인물코드조회
 	public String selectCharCodeForInsertMovie(String charKorName) {
 		logger.debug(" Dao selectCharCodeForInsertMovie");
 		return sqlSession.selectOne(NS+"selectCharCodeForInsertMovie", charKorName);
 	}
+	
+	//관리자 영화 등록 : 모달을 사용해서 인물이름으로 등록할 감독코드와 감독이름 조회
+	public List<Character> selectCharCodeForAddMovie() {
+		logger.debug(" Dao selectCharCodeForAddMovie");
+		return sqlSession.selectList(NS+"selectCharCodeForAddMovie");
+	}
+	
 	//영화등록
 	public int insertMovie(Movie movie) {
 		logger.debug(" Dao insertMovie");
 		return sqlSession.insert(NS+"insertMovie", movie);
 	}
+
+	/************************************************************************************************************
+	단가 관리 메서드 : 단가등록/단가수정
+	************************************************************************************************************/		
 
 	//단가등록
 	public int insertCost(ScreenCost screenCost) {
@@ -181,6 +196,8 @@ public class AdminDao {
 		logger.debug(" Dao selectMovieCodeForCircleGraph");
 		return sqlSession.selectList(NS+"selectMovieCodeForCircleGraph");
 	}
+
+	
 
 
 }

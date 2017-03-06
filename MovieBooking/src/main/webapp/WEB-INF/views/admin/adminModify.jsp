@@ -244,7 +244,7 @@
 								</div>
 								<!-- ID중복조회 -->
 								<div class="col-lg-2">
-									<input type="button" class="btn btn-primary" value="ID조회">
+									<input type="button" class="btn btn-button" value="ID조회">
 								</div>
 							</div>
 							<!-- 권한 -->
@@ -264,7 +264,7 @@
 							<!-- 지점명 -->
 							<div class="form-group">
 								<label for="select" class="col-lg-2 control-label">지점명</label>
-								<div class="col-lg-10">
+								<div class="col-lg-8">
 									<select name="brcCode" class="form-control">
 										<c:forEach var="selectBranchList" items="${selectBranchList}">
 											<option value="${selectBranchList.brcCode}">
@@ -277,9 +277,9 @@
 							<!-- 등록버튼 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label"></label>
-								<div class="col-lg-8"></div>
+								<div class="col-lg-7"></div>
 								<div>
-									<input type="submit" class="btn btn-primary" value="수정">
+									<input type="submit" class="btn btn-button" value="수정">
 								</div>
 							</div>
 						</fieldset>

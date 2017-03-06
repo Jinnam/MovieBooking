@@ -270,6 +270,46 @@
 									<input type="text" class="form-control" id="charCode" name="charCode" required="required">
 								</div>
 							</div>
+							<!-- 테스트중 ******************************************-->
+							<!-- 테스트중 ******************************************-->
+							<!-- 감독이름(한글) -->
+							<!-- <div class="form-group"> 
+								<label class="col-lg-3 control-label">감독 모달 테스트</label>
+								<div class="col-lg-7">
+									<input type="text" class="form-control" id="charKorNameUseModal" name="charKorName" placeholder="감독이름을 입력하세요" required="required">
+								</div>
+								감독이름으로 인물코드를 인물테이블에서 조회 ajax
+								<div>
+									<input type="button" id="selectCharcodeUseModal" class="btn btn-button" data-toggle="modal" data-target="#DirModal" value="조회">
+								</div>
+							</div>
+							감독코드 출력
+							<div class="form-group">
+								<label class="col-lg-3 control-label">감독코드 모달 테스트</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" id="charCode" name="charCode" required="required">
+								</div>
+							</div>
+							Modal
+							<div class="modal fade" id="DirModal" role="dialog">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title">감독 검색</h4>
+										</div>
+										<div class="modal-body">
+											<p>감독을 선택하세요</p>
+											<div class="form-control" id="charCodeUseModal"></div>
+										</div>
+										<div class="modal-footer">
+											<input type="button" class="btn btn-default" data-dismiss="modal" value="Close">
+										</div>
+									</div>
+								</div>
+							</div> -->
+							<!-- 테스트중 ******************************************-->
+							<!-- 테스트중 ******************************************-->
 							<!-- 주연배우이름(한글) -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">주연배우</label>
@@ -358,7 +398,25 @@
 									<input type="text" name="movImgPath" class="form-control" placeholder="이미지 경로를 입력하세요" required="required">
 								</div>
 								<div>
-									<input type="button" class="btn btn-button" value="조회">
+									<input type="button" class="btn btn-button" data-toggle="modal" data-target="#myModal" value="조회">
+								</div>
+							</div>
+							<!-- Modal -->
+							<div class="modal fade" id="myModal" role="dialog">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title">이미지 검색</h4>
+										</div>
+										<div class="modal-body">
+											<p>이미지를 검색하세요.</p>
+											<input type="text" class="form-control">
+										</div>
+										<div class="modal-footer">
+											<input type="button" class="btn btn-default" data-dismiss="modal" value="Close">
+										</div>
+									</div>
 								</div>
 							</div>
 							<!-- 영상경로 -->
@@ -385,6 +443,23 @@
 	<%@include file="/WEB-INF/adminModule/footer.jsp" %>
 	
 	<!-- 스크립트 -->
+	
+	<!-- 인물(감독)코드 조회하기 modal-->
+<!-- 	<script>
+		$(document).ready(function() {
+			$("#selectCharcodeUseModal").click(function() {
+				$.ajax({
+					url : "selectCharCodeForAddMovie",
+					data : {"charKorName" : $("#charKorNameUseModal").val()},
+					type : "post",
+					success : function(data) {
+						console.log(data)
+						$("#charCodeUseModal").val(data)
+					}
+				});
+			});
+		});
+	</script> -->
 	
 	<!-- 인물(감독)코드 조회하기 -->
 	<script>

@@ -6,7 +6,7 @@
 <mapper namespace="kr.co.cinema.admin.AdminMapper">
 
 	<!--****************************************************************************************
-	메인화면쿼리! 
+	메인화면쿼리!
 	*************************************************************************************-->
 	
 	<!-- 메인화면 하단 영화별 매출표 -->
@@ -26,22 +26,23 @@
 	<!-- 바 그래프 상위5지점 조회 -->
 	<select id="selectBranchForBarGraph"
 			resultType="kr.co.cinema.dto.BranchAndBranchDayCount">
-			SELECT 	BRANCH.brc_name 						AS brcName, 	
-					BRANCH.brc_code 						AS brcCode, 
+			SELECT 	BRANCH.brc_name 						AS brcName,
+					BRANCH.brc_code 						AS brcCode,
 					SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) 	AS brcCntSaleTotal
-			FROM 	BRANCH 
-					INNER JOIN BRANCH_DAY_COUNT 
-							ON BRANCH.brc_code = BRANCH_DAY_COUNT.brc_code 
-			GROUP 	BY BRANCH.brc_name 
-			ORDER 	BY BRANCH_DAY_COUNT.brcCnt_saleTotal DESC
+			FROM 	BRANCH
+					INNER JOIN BRANCH_DAY_COUNT
+							ON BRANCH.brc_code = BRANCH_DAY_COUNT.brc_code
+			GROUP 	BY BRANCH.brc_name
+			ORDER 	BY SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) DESC
 			LIMIT 	5;
 	</select>
 	
-	<!-- 선 그래프 상위3지점 조회 -->
+	<!-- 바 그래프 상위3지점 조회 -->
 	<select id="selectMovieCodeForCircleGraph"
 			resultType="kr.co.cinema.dto.MovieAndBranchDayCount">
-		SELECT 	BRANCH_DAY_COUNT.mov_code AS movCode,
-				MOVIE.mov_korName AS movKorName
+		SELECT 	BRANCH_DAY_COUNT.mov_code 				AS movCode,
+				MOVIE.mov_korName 						AS movKorName,
+				SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal)	AS brcCntSaleTotal
 		FROM	BRANCH_DAY_COUNT
 				INNER JOIN MOVIE
 						ON BRANCH_DAY_COUNT.mov_code = MOVIE.mov_code
@@ -68,7 +69,7 @@
 	</select>
 	
 	<!--****************************************************************************************
-	지점관리쿼리  : 지점등록/지점조회/지점수정/지점탈퇴
+	지점관리쿼리
 	*************************************************************************************-->
 	
 	<!-- 지점리스트 조회 -->
@@ -102,356 +103,299 @@
 	<!-- 수정 전 지점코드로 지점데이터 조회 -->
 	<select id="selectBranchForUpdate"
 			resultType="kr.co.cinema.dto.Branch">
-			SELECT
-				BRANCH.brc_code AS brcCode,
-				BRANCH.brc_name AS brcName,
-				BRANCH.brc_local AS brcLocal,
-				BRANCH.brc_addr AS brcAddr,
-				BRANCH.brc_infoDetail AS brcInfoDetail,
-				BRANCH.brc_imgPath AS brcImgPath
-			FROM
-				BRANCH
-			WHERE
-				BRANCH.brc_code = #{brcCode}
+			SELECT	BRANCH.brc_code			AS brcCode,
+					BRANCH.brc_name			AS brcName,
+					BRANCH.brc_local		AS brcLocal,
+					BRANCH.brc_addr			AS brcAddr,
+					BRANCH.brc_infoDetail	AS brcInfoDetail,
+					BRANCH.brc_imgPath		AS brcImgPath
+			FROM	BRANCH
+			WHERE	BRANCH.brc_code = #{brcCode}
 	</select>
 	
 	<!-- 지점수정 -->
 	<update id="updateBranch"
 			parameterType="kr.co.cinema.dto.Branch">
-			UPDATE 
-				BRANCH 
-			SET 
-				BRANCH.brc_name = #{brcName},
-				BRANCH.brc_local = #{brcLocal},
-				BRANCH.brc_addr = #{brcAddr},
-				BRANCH.brc_infoDetail = #{brcInfoDetail},
-				BRANCH.brc_imgPath = #{brcImgPath} 
-			WHERE 
-				BRANCH.brc_code = #{brcCode}
+			UPDATE	BRANCH 
+			SET		BRANCH.brc_name = #{brcName},
+					BRANCH.brc_local = #{brcLocal},
+					BRANCH.brc_addr = #{brcAddr},
+					BRANCH.brc_infoDetail = #{brcInfoDetail},
+					BRANCH.brc_imgPath = #{brcImgPath} 
+			WHERE	BRANCH.brc_code = #{brcCode}
 	</update>
 	
 	<!-- 지점탈퇴 -->
 	<delete id="deleteBranch"
 			parameterType="kr.co.cinema.dto.Branch">
-			DELETE FROM 
-				BRANCH 
-			WHERE 
-				BRANCH.brc_code = #{brcCode}
+			DELETE	FROM BRANCH 
+			WHERE	BRANCH.brc_code = #{brcCode}
 	</delete>
 	
 	<!--****************************************************************************************
-	지점관리자쿼리  : 지점관리자등록/지점관리자조회/지점관리자수정/지점관리자삭제
+	지점관리자쿼리
 	*************************************************************************************-->
 	
 	<!-- 지점관리자 등록하기위한 지점 조회 -->
 	<select id="selectAdminList"
 			resultType="kr.co.cinema.dto.AdminAndBranch">
-		select 
-			ADMIN.adm_id AS admId,
-			ADMIN.adm_date AS admDate,
-		 	BRANCH.brc_name AS brcName,
-		 	BRANCH.brc_local AS brcLocal,
-		 	BRANCH.brc_code AS brcCode
-		from
-			ADMIN
-		inner join
-			BRANCH
-		on
-			ADMIN.brc_code = BRANCH.brc_code
+			SELECT	ADMIN.adm_id		AS admId,
+					ADMIN.adm_date		AS admDate,
+			 		BRANCH.brc_name		AS brcName,
+			 		BRANCH.brc_local	AS brcLocal,
+			 		BRANCH.brc_code		AS brcCode
+			FROM	ADMIN
+					INNER JOIN	BRANCH
+							ON	ADMIN.brc_code = BRANCH.brc_code
 	</select>
 	
 	<!-- 관리자 등록 -->
 	<insert id="insertAdmin"
 			parameterType="kr.co.cinema.dto.Admin">
-		insert into 
-			ADMIN
-			( 
-			adm_id,
-			brc_code,
-			adm_pw,
-			adm_auth,
-			adm_date
-			)
-		 values 
-			(
-			#{admId}, 
-			#{brcCode}, 
-			#{admPw}, 
-			'지점관리자', 
-			now() 
-			); 
+			INSERT INTO	ADMIN
+						(adm_id,
+						 brc_code,
+						 adm_pw,
+						 adm_auth,
+						 adm_date)
+			VALUES 
+						(#{admId}, 
+						 #{brcCode}, 
+						 #{admPw}, 
+						 '지점관리자', 
+						 now()); 
 	</insert>
 	
 	<!-- 관리자 수정 전 관리자 권한 및 아이디 조회 -->
 	<select id="selectAdminAuthAndId"
 			resultType="kr.co.cinema.dto.Admin">
-			SELECT
-				ADMIN.adm_id AS	admId,
-				ADMIN.adm_auth AS admAuth
-			FROM
-				ADMIN
-			WHERE
-				ADMIN.adm_id = #{admId}
+			SELECT	ADMIN.adm_id	AS	admId,
+					ADMIN.adm_auth	AS	admAuth
+			FROM	ADMIN
+			WHERE	ADMIN.adm_id = #{admId}
 	</select>
 	
 	<!-- 관리자 수정 -->
 	<update id="updateAdmin"
 			parameterType="kr.co.cinema.dto.Admin">
-			UPDATE 
-				ADMIN 
-			SET 
-				ADMIN.brc_code = #{brcCode},
-				ADMIN.adm_pw = #{admPw},
-				ADMIN.adm_auth = #{admAuth}
-			WHERE 
-				ADMIN.adm_id = #{admId};
+			UPDATE	ADMIN 
+			SET		ADMIN.brc_code = #{brcCode},
+					ADMIN.adm_pw = #{admPw},
+					ADMIN.adm_auth = #{admAuth}
+			WHERE	ADMIN.adm_id = #{admId};
 	</update>
 	
 	<!-- 관리자 삭제 -->
 	<delete id="deleteAdmin"
 			parameterType="kr.co.cinema.dto.Admin">
-		DELETE FROM 
-			ADMIN
-		WHERE 
-			ADMIN.adm_id = #{admId}
+			DELETE	FROM ADMIN
+			WHERE	ADMIN.adm_id = #{admId};
 	</delete>
 	
 	<!--****************************************************************************************
-	회원조회쿼리  : 회원목록조회/조건검색(아이디, 전화번호, 회원이름)
+	회원조회쿼리
 	******************************************************************************************-->
 	
 	<!-- 회원검색 -->
 	<select id="selectMemberList"
 			resultType="kr.co.cinema.dto.Member">
-		SELECT 
-			mem_id AS memId, 
-			mem_pw AS memPw,
-			mem_phone AS memPhone,
-		 	mem_name AS memName,
-		 	mem_gender AS memGender,
-		 	mem_birth AS memBirth,
-		 	mem_postNo AS memPostNo,
-		 	mem_addr AS memAddr,
-		 	mem_mail AS memMail,
-		 	mem_mileage AS memMileage,
-		 	mem_joinDay AS memJoinDay,
-		 	mem_status AS memStatus,
-		 	mem_leaveDay AS memLeaveDay
-		FROM 
-			MEMBER
+			SELECT	mem_id			AS memId, 
+					mem_pw			AS memPw,
+					mem_phone		AS memPhone,
+			 		mem_name		AS memName,
+			 		mem_gender		AS memGender,
+			 		mem_birth		AS memBirth,
+			 		mem_postNo		AS memPostNo,
+			 		mem_addr		AS memAddr,
+			 		mem_mail		AS memMail,
+			 		mem_mileage		AS memMileage,
+			 		mem_joinDay		AS memJoinDay,
+			 		mem_status		AS memStatus,
+			 		mem_leaveDay	AS memLeaveDay
+			FROM	MEMBER
 	</select>
 	
 	<!--****************************************************************************************
-	영화관리쿼리  : 영화등록/영화조회/영화수정
+	영화관리쿼리
 	******************************************************************************************-->	
 	
 	<!-- 영화등록전 감독이름으로 감독코드 조회 -->
 	<select id="selectCharCodeForInsertMovie"
 			resultType="String"
 			parameterType="String">
-			SELECT 
-				`CHARACTER`.char_code 
-			FROM 
-				`CHARACTER` 
-			WHERE 
-				`CHARACTER`.char_korName = #{charKorName};
+			SELECT	`CHARACTER`.char_code 
+			FROM	`CHARACTER` 
+			WHERE	`CHARACTER`.char_korName = #{charKorName};
 	</select>
+	
+	<!-- 관리자 영화 등록 : 모달을 사용해서 인물이름으로 등록할 감독코드와 감독이름 조회 -->
+	<select id="selectCharCodeForAddMovie"
+			resultType="kr.co.cinema.dto.Character">
+			SELECT	`CHARACTER`.char_korName AS charKorName,
+					`CHARACTER`.char_code AS charCode
+			FROM	`CHARACTER`
+			WHERE	`CHARACTER`.char_korName = #{charKorName};
+	</select>
+	
 	
 	<!-- 영화등록 쿼리 -->
 	<insert id="insertMovie"
 			parameterType="kr.co.cinema.dto.Movie">
-			INSERT INTO 
-				MOVIE
-				( 
-				mov_korName, 
-				mov_engName, 
-				char_code, 
-				mov_nation, 
-				mov_grade, 
-				mov_genre, 
-				mov_maker, 
-				mov_runningTime, 
-				mov_openDate, 
-				mov_infoDetail, 
-				mov_imgPath, 
-				mov_videoPath, 
-				mov_status, 
-				mov_date, 
-				mov_finalModifyDate
-				) 
-			VALUES 
-				(
-				#{movKorName}, 
-				#{movEngName},
-				#{charCode},
-				#{movNation}, 
-				#{movGrade}, 
-				#{movGenre}, 
-				#{movMaker}, 
-				#{movRunningTime}, 
-				#{movOpenDate}, 
-				#{movInfoDetail},
-				#{movImgPath},
-				#{movVideoPath}, 
-				#{movStatus}, 
-				now(), 
-				now()
-				); 
+			INSERT INTO MOVIE
+						(mov_korName, 
+						 mov_engName, 
+						 char_code, 
+						 mov_nation, 
+						 mov_grade, 
+						 mov_genre, 
+						 mov_maker, 
+						 mov_runningTime, 
+						 mov_openDate, 
+						 mov_infoDetail, 
+						 mov_imgPath, 
+						 mov_videoPath, 
+						 mov_status, 
+						 mov_date, 
+						 mov_finalModifyDate) 
+			VALUES
+						(#{movKorName}, 
+						 #{movEngName},
+						 #{charCode},
+						 #{movNation}, 
+						 #{movGrade}, 
+						 #{movGenre}, 
+						 #{movMaker}, 
+						 #{movRunningTime}, 
+						 #{movOpenDate}, 
+						 #{movInfoDetail},
+						 #{movImgPath},
+						 #{movVideoPath}, 
+						 #{movStatus}, 
+						 now(), 
+						 now()); 
 	</insert>
 	
 	<!-- 영화조회 -->
 	<select id="selectMovieList"
 			resultType="kr.co.cinema.dto.Movie">
-		select 
-			mov_korName AS movKorName, 
-			mov_nation AS movNation, 
-			mov_grade AS movGrade, 
-			mov_genre AS movGenre, 
-			mov_maker AS movMaker, 
-			mov_runningTime AS movRunningTime, 
-			mov_openDate AS movOpenDate, 
-			mov_imgPath AS movImgPath, 
-			mov_status AS movStatus, 
-			char_korName AS charKorName
-		from 
-			MOVIE 
-		inner join 
-			`CHARACTER` 
-		on 
-			MOVIE.char_code = `CHARACTER`.char_code 
-		order by 
-			MOVIE.mov_date 
+			SELECT	mov_korName			AS movKorName, 
+					mov_nation			AS movNation, 
+					mov_grade			AS movGrade, 
+					mov_genre			AS movGenre, 
+					mov_maker			AS movMaker, 
+					mov_runningTime		AS movRunningTime, 
+					mov_openDate		AS movOpenDate, 
+					mov_imgPath			AS movImgPath, 
+					mov_status			AS movStatus, 
+					char_korName		AS charKorName
+			FROM	MOVIE 
+					INNER JOIN	`CHARACTER` 
+							ON	MOVIE.char_code = `CHARACTER`.char_code 
+			ORDER BY	MOVIE.mov_date 
 	</select>
 	
 	<!--****************************************************************************************
-	단가관리쿼리  : 단가 등록, 단가조회, 단가 수정
+	단가관리쿼리
 	******************************************************************************************-->
 	
 	<!-- 단가등록 -->
 	<insert id="insertCost"
 			parameterType="kr.co.cinema.dto.ScreenCost">
-			INSERT INTO 
-				SCREEN_COST
-				( 
-				scco_screen, 
-				scco_price, 
-				scco_applyYear, 
-				scco_status, 
-				scco_date
-				)
+			INSERT INTO	SCREEN_COST
+						(scco_screen, 
+						 scco_price, 
+						 scco_applyYear, 
+						 scco_status, 
+						 scco_date)
 			VALUES 
-				(
-				#{sccoScreen}, 
-				#{sccoPrice}, 
-				#{sccoApplyYear}, 
-				#{sccoStatus}, 
-				NOW()
-				); 
+						(#{sccoScreen}, 
+						 #{sccoPrice}, 
+						 #{sccoApplyYear}, 
+						 #{sccoStatus}, 
+						 NOW());
 	</insert>
 	
 	<!--****************************************************************************************
-	인물관리쿼리  : 인물 등록
+	인물관리쿼리
 	******************************************************************************************-->
 
 	<!-- 인물등록쿼리 -->
 	<insert id="insertChar"
 			parameterType="kr.co.cinema.dto.Character">
-			INSERT INTO 
-				`CHARACTER`(
-				char_korName, 
-				char_engName, 
-				char_birth, 
-				char_gender, 
-				char_profileImgPath, 
-				char_nation, 
-				char_bioGraphy, 
-				char_finalModifyDate) 
+			INSERT INTO	`CHARACTER`
+						(char_korName, 
+						 char_engName, 
+						 char_birth, 
+						 char_gender, 
+						 char_profileImgPath, 
+						 char_nation, 
+						 char_bioGraphy, 
+						 char_finalModifyDate) 
 			VALUES 
-				(
-				#{charKorName}, 
-				#{charEngName}, 
-				#{charBirth}, 
-				#{charGender}, 
-				#{charFrofileImgPath}, 
-				#{charNation}, 
-				#{charBioGraphy}, 
-				NOW()
-				); 	
+						(#{charKorName}, 
+						 #{charEngName}, 
+						 #{charBirth}, 
+						 #{charGender}, 
+						 #{charFrofileImgPath}, 
+						 #{charNation}, 
+						 #{charBioGraphy}, 
+						 NOW()); 	
 	</insert>
 	
 	<!--****************************************************************************************
-	상영관관리쿼리  : 상영관등록
+	상영관관리쿼리
 	******************************************************************************************-->
 
 	<!-- 상영관등록전 지점이름으로 지점코드 조회하기 위한 쿼리 -->
 	<select id="selectBrcCode"
 			resultType="String"
 			parameterType="String">
-			SELECT 
-				BRANCH.brc_code 
-			FROM 
-				BRANCH 
-			WHERE 
-				BRANCH.brc_name = #{selectBrcCode};
+			SELECT	BRANCH.brc_code 
+			FROM	BRANCH 
+			WHERE	BRANCH.brc_name = #{selectBrcCode};
 	</select>
 
 	<!-- 상영관등록 -->
 	<insert id="insertScreen"
 			parameterType="kr.co.cinema.dto.Screen">
-			INSERT INTO 
-				SCREEN 
-				(
-				scr_code,
-				brc_code,
-			 	scr_name,
-			  	scr_rowSize,
-			   	scr_colSize 
-				) 
-			VALUES 
-				( 
-				#{scrCode},
-				#{brcCode}, 
-				#{scrName}, 
-				#{scrRowSize}, 
-				#{scrColSize} 
-				); 
+			INSERT INTO	SCREEN 
+						(scr_code,
+						 brc_code,
+						 scr_name,
+						 scr_rowSize,
+						 scr_colSize) 
+			VALUES		
+						(#{scrCode},
+						 #{brcCode},
+						 #{scrName},
+						 #{scrRowSize},
+						 #{scrColSize}); 
 			
 	</insert>
 	
 	<!--****************************************************************************************
-	상영일정관리쿼리  : 
+	상영일정관리쿼리
 	******************************************************************************************-->
-	
 
-	
-	
 	<!-- 상영일정등록전 영화이름으로 영화코드 조회 -->
 	<select id="selectMovieCode"
 			resultType="String"
 			parameterType="String">
-			SELECT 
-				MOVIE.mov_code 
-			FROM 
-				MOVIE 
-			WHERE 
-				MOVIE.mov_korName = #{movKorName}; 
+			SELECT	MOVIE.mov_code 
+			FROM	MOVIE 
+			WHERE	MOVIE.mov_korName = #{movKorName}; 
 	</select>
 	
 	<!-- 상영일정등록전 지점이름으로 지점코드, 스크린코드, 스크린이름조회 -->
 	<select id="selectmovieAndScreens"
 			resultType="kr.co.cinema.dto.BranchAndScreen"
 			parameterType="kr.co.cinema.dto.BranchAndScreen">
-			SELECT
-				BRANCH.brc_code,
-				SCREEN.scr_name,
-				SCREEN.scr_code
-			FROM
-				BRANCH
-			INNER JOIN
-				SCREEN
-			ON
-				BRANCH.brc_code = SCREEN.brc_code
-			WHERE
-				BRANCH.brc_name = #{brcName}
+			SELECT	BRANCH.brc_code,
+					SCREEN.scr_name,
+					SCREEN.scr_code
+			FROM	BRANCH
+					INNER JOIN	SCREEN
+							ON	BRANCH.brc_code = SCREEN.brc_code
+			WHERE	BRANCH.brc_name = #{brcName}
 	</select>
 </mapper>

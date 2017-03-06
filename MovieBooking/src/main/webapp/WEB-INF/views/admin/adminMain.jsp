@@ -227,11 +227,14 @@
 				<!-- 페이지 강제 줄임 -->
 				<div class="col-lg-9 main-chart" align="center"></div>
 			</div>
+			
 			<!-- 메인 그래프 지점별 영화 매출-->
 			<div id="branchGraph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+			<!-- 메인 그래프 지점별 영화 매출-->
 			<br/>
+			
+			<!-- 월 매출 라인그래프 -->
 			<div class="col-md-6 col-sm-4 mb">
-				<!-- 월 매출 그래프 -->
 				<div class="darkblue-panel pn">
 					<div class="darkblue-header">
 						<h5>월 매출</h5>
@@ -255,10 +258,12 @@
 					</div>
 				</div>
 			</div>
-			<!-- 예매율 순위 차트 하단 우측-->
+			<!-- 월 매출 라인그래프 -->
+			
+			<!-- 하단 우측 예매율 순위 차트 -->
 			<div class="col-lg-6">
 				<div class="panel panel-default">
-					<div class="panel-heading">예매율 순위</div>
+					<div class="panel-heading">예매율 순위 (1위부터 4위까지)</div>
 					<div class="panel-body">
 						<table class="table table-striped table-hover ">
 							<thead>
@@ -283,6 +288,7 @@
 					</div>
 				</div>
 			</div>
+			<!-- 하단 우측 예매율 순위 차트 -->
 		</section>
 	</section>
 	

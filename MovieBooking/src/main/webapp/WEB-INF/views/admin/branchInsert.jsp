@@ -236,7 +236,7 @@
 				<div class="col-lg-6" style="float: left;">
 					<form action="branchInsert" class="col-lg-12 form-horizontal" method="post">
 						<fieldset>
-							<legend>기입사항</legend>
+							<legend>add</legend>
 							<div class="form-group">
 								<label class="col-lg-3 control-label">지점이름</label>
 								<div class="col-lg-9">
