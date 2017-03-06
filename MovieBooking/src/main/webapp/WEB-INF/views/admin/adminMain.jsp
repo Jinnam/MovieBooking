@@ -366,7 +366,8 @@
 					}
 				}]
 			},
-			series: [{
+			series: [
+				{
 					type: 'column', //첫번째 바 내용
 					name: '조작된도시',
 					data: [3, 2, 1, 3, 4]
