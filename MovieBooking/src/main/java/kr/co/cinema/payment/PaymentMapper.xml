@@ -5,6 +5,22 @@
   
 <mapper namespace="kr.co.cinema.payment.PaymentMapper">
 
+
+	<!-- 지점별 일일예매 / 매출 등록 -->
+	<update id="updateBrcDayCount" parameterType="kr.co.cinema.dto.BranchAndBranchDayCount">
+		UPDATE
+			BRANCH_DAY_COUNT
+		SET
+			brcCnt_clientCount = brcCnt_clientCount + #{brcCntClientCount},
+			brcCnt_saleTotal = brcCnt_saleTotal + #{brcCntSaleTotal}
+		WHERE
+			brc_code=#{brcCode}
+		AND
+			mov_code=#{movCode}
+		AND
+			brcCnt_date = #{brcCntDate}
+	</update>
+	
 	<!-- 영화 코드 가져오기 -->
 	<select id="selectMovcode" parameterType="String" resultType="int">
 		SELECT
@@ -118,6 +134,7 @@
 			SCREEN_SCHEDULE.scs_date AS scsDate,
 			SCREEN_SCHEDULE.scs_timeDiscount AS scsTimeDiscount,
 			SCREEN_SCHEDULE.scs_screen AS scsScreen,
+			BRANCH.brc_code AS brcCode,
 			BRANCH.brc_local AS brcLocal,
 			BRANCH.brc_name AS brcName,
 			(

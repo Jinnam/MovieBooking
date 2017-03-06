@@ -65,8 +65,8 @@ public class PaymentController {
 					paymentService.searchOneSeatInfo(bookingSeatSelectDto.getSeatCode4());	// 네번째 좌석 이름
 			String personNum = bookingSeatSelectDto.getPersonNum();							// 예매 인원
 			
-			Map<String, String> bookingInfo = paymentService.searchBookingInfo(scsCode);	// 상영일정코드로 상영 정보 가져오기
-			bookingInfo.put("personNum", personNum);										// bookingInfo에 인원 수 추가
+			Map<String, Object> bookingInfo = paymentService.searchBookingInfo(scsCode);	// 상영일정코드로 상영 정보 가져오기
+			bookingInfo.put("personNum",personNum);											// bookingInfo에 인원 수 추가
 			bookingInfo.put("seatCode1",seatCode1);											// 첫번째 좌석 이름 추가
 			bookingInfo.put("seatCode2",seatCode2);											// 두번째 좌석 이름 추가
 			bookingInfo.put("seatCode3",seatCode3);											// 세번째 좌석 이름 추가
@@ -106,6 +106,7 @@ public class PaymentController {
 		
 		paymentService.insertPayment(payment);					// 결제 등록
 		paymentService.updateAnalysis(payment);					// analysis 등록
+		paymentService.updateBranchDayCount(payment);			// branchDayCount 등록
 		
 		
 		model.addAttribute("payment",payment);					// 결제 결과 보여주기 위한 정보를 model에 올림

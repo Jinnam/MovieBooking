@@ -171,25 +171,16 @@
 
 <script>
 	$(document).ready(function(){
-		var finalCost = ${bookingInfo.finalCost*bookingInfo.personNum};		/* 최종 결제 금액 */
-		var personNum = ${bookingInfo.personNum};							/* 인원 수 */
-		var mileage= ${memMap.memMileage};									/* 회원 마일리지 */
-		console.log("회원 마일리지 : "+mileage);
+		var finalCost = ${bookingInfo.finalCost*bookingInfo.personNum};		// 최종 결제 금액
+		var personNum = ${bookingInfo.personNum};							// 인원 수
+		var mileageCost = 0;
+		var returnDcCost=0;													// 할인 금액
 		
-		if(mileage != ""){													/* 회원일때 마일리지 사용금액 */
-			var mileageCost = $('#mileage').val();
-		}else{
-			var mileageCost = 0;
-		}
-		
-		console.log("사용 마일리지 cost : "+mileageCost);
-		var returnDcCost=0;													/* 할인 금액 */
-		
-		$("input[name=discountInfo]").eq(0).attr("checked", true);			/* 첫번째 라디오버튼 체크하기 */
-		$('#discountCost').text(0);											/* 초기 할인 값 0으로 설정 */
-		var getDcinfCode = $('.getDcinfCode').eq(0).val();					/* 첫번째 라디오버튼 의 값 */
+		$("input[name=discountInfo]").eq(0).attr("checked", true);			// 첫번째 라디오버튼 체크하기
+		$('#discountCost').text(0);											// 초기 할인 값 0으로 설정
+		var getDcinfCode = $('.getDcinfCode').eq(0).val();					// 첫번째 라디오버튼 의 값
 		console.log("할인코드 : "+getDcinfCode);						
-		$('#dcinfCode').val(getDcinfCode);									/* 할인 코드에 첫번째 라디오버튼의 값 셋팅 */
+		$('#dcinfCode').val(getDcinfCode);									// 할인 코드에 첫번째 라디오버튼의 값 셋팅
 		
 		/* <할인>에서 일반/청소년/장애인 클릭시 <금액>에 할인 값을 집어넣는 스크립트 */
 		$('.discountInfo').click(function(){
@@ -197,32 +188,32 @@
 	    		case "0" :
 	    			console.log('val 0 들어옴 ');
 	    			returnDcCost=$(this).val()*personNum;
-	    			$('#discountCost').text(returnDcCost);									/* 할인 금액 표시 */
+	    			$('#discountCost').text(returnDcCost);									// 할인 금액 표시
 	    			console.log("할인 금액 : "+returnDcCost);
-	    			$('.finalCost').text(finalCost-$(this).val()*personNum-mileageCost);	/* 최종 금액 */
+	    			$('.finalCost').text(finalCost-$(this).val()*personNum-mileageCost);	// 최종 금액
 	    			var getDcinfCode = $('.getDcinfCode').eq(0).val();
 	    			console.log("할인코드 : "+getDcinfCode);
-	    			$('#dcinfCode').val(getDcinfCode);										/* 할인 코드 셋팅 */
+	    			$('#dcinfCode').val(getDcinfCode);										// 할인 코드 셋팅
 	    			break;
 	    		case "1000" :
 	    			console.log('val 1000 들어옴 ');
 	    			returnDcCost=$(this).val()*personNum;
-	    			$('#discountCost').text(returnDcCost);									/* 할인 금액 표시 */
+	    			$('#discountCost').text(returnDcCost);									// 할인 금액 표시
 	    			console.log("할인 금액 : "+returnDcCost);
-	    			$('.finalCost').text(finalCost-$(this).val()*personNum-mileageCost);	/* 최종 금액 */
+	    			$('.finalCost').text(finalCost-$(this).val()*personNum-mileageCost);	// 최종 금액
 	    			var getDcinfCode = $('.getDcinfCode').eq(1).val();
 	    			console.log("할인코드 : "+getDcinfCode);
-	    			$('#dcinfCode').val(getDcinfCode);										/* 할인 코드 셋팅 */
+	    			$('#dcinfCode').val(getDcinfCode);										// 할인 코드 셋팅
 	    			break;
 	    		case "2000" :
 	    			console.log('val 2000 들어옴 ');
 	    			returnDcCost=$(this).val()*personNum;
-	    			$('#discountCost').text(returnDcCost);									/* 할인 금액 표시 */
+	    			$('#discountCost').text(returnDcCost);									// 할인 금액 표시
 	    			console.log("할인 금액 : "+returnDcCost);
-	    			$('.finalCost').text(finalCost-$(this).val()*personNum-mileageCost);	/* 최종 금액 */
+	    			$('.finalCost').text(finalCost-$(this).val()*personNum-mileageCost);	// 최종 금액
 	    			var getDcinfCode = $('.getDcinfCode').eq(2).val();
 	    			console.log("할인코드 : "+getDcinfCode);
-	    			$('#dcinfCode').val(getDcinfCode);										/* 할인 코드 셋팅 */
+	    			$('#dcinfCode').val(getDcinfCode);										// 할인 코드 셋팅
 	    			break;
 		    	default :
 		    		break;	

@@ -1,5 +1,6 @@
 package kr.co.cinema.payment;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.cinema.HomeService;
 import kr.co.cinema.dto.Analysis;
+import kr.co.cinema.dto.BranchDayCount;
 import kr.co.cinema.dto.DiscountInfo;
 import kr.co.cinema.dto.Mileage;
 import kr.co.cinema.dto.Payment;
@@ -169,7 +171,7 @@ public class PaymentService {
 	}
 	
 	// 결제시 영화 정보 가져오기
-	public Map<String, String> searchBookingInfo(String scsCode){
+	public Map<String, Object> searchBookingInfo(String scsCode){
 		logger.debug(		"searchBookingInfo() 진입");
 		
 		int digitalCost=0;			// 디지털 단가 변수 초기화
@@ -213,10 +215,10 @@ public class PaymentService {
 		}
 		
 		// 예매 정보로 가져온 상영정보에 해당하는 가격정보 대입하기
-		Map<String, String> bookingInfo = paymentDao.selectBookingInfo(scsCode);		// 상영 정보 가져오기
-		switch(bookingInfo.get("scsScreen")){
+		Map<String, Object> bookingInfo = paymentDao.selectBookingInfo(scsCode);		// 상영 정보 가져오기
+		switch((bookingInfo.get("scsScreen")).toString()){
 			case "디지털" :
-				switch(bookingInfo.get("scsTimeDiscount")){
+				switch((bookingInfo.get("scsTimeDiscount")).toString()){
 					case "일반" :													// 상영 단가가 "디지털"이고, 할인 정보가 "일반"일때
 						resultCost = Integer.toString(digitalCost);				// 결과 값 : 디지털 단가
 						bookingInfo.put("finalCost", resultCost);
@@ -232,7 +234,7 @@ public class PaymentService {
 				}
 				break;
 			case "3D" :
-				switch(bookingInfo.get("scsTimeDiscount")){
+				switch((bookingInfo.get("scsTimeDiscount")).toString()){
 					case "일반" :													// 상영 단가가 "3D"이고, 할인 정보가 "일반"일때
 						resultCost = Integer.toString(ThreeDCost);								// 결과 값 : 3D 단가
 						bookingInfo.put("finalCost", resultCost);
@@ -248,7 +250,7 @@ public class PaymentService {
 			}
 				break;
 			case "IMAX" :
-				switch(bookingInfo.get("scsTimeDiscount")){
+				switch((bookingInfo.get("scsTimeDiscount")).toString()){
 					case "일반" : 												// 상영 단가가 "IMAX"이고, 할인 정보가 "일반"일때
 						resultCost = Integer.toString(imaxCost);									// 결과 값 : IMAX 단가
 						bookingInfo.put("finalCost", resultCost);
@@ -372,4 +374,32 @@ public class PaymentService {
 	        
 	         return age;
 	 }
+	 
+	 // 지점별 분석
+	 public int updateBranchDayCount(Payment payment){
+		 String scsCode = payment.getScsCode();				// payment에서 scsCode 코드 가져오기
+		 int pmtTicketNum = payment.getPmtTicketNum();		// payment에서 pmtTicketNum 가져오기
+		 int pmtPrice = payment.getPmtPrice();				// payment에서 pmtPrice 가져오기
+		 
+		 Map<String, Object> movieInfo = 
+				 paymentDao.selectBookingInfo(scsCode);		// scsCode로 예매 정보 가져오기
+		 int movCode = (int) movieInfo.get("movCode");		// 예매 정보에서 영화코드movCode 가져오기
+		 int brcCode = (int) movieInfo.get("brcCode");		// 예매 정보에서 지점코드brcCode 가져오기
+		 
+		 BranchDayCount branchDayCount = new BranchDayCount();	// DB로 가져갈 branchDayCount 생성
+		 branchDayCount.setMovCode(movCode);					// branchDayCount에 영화 코드 셋팅
+		 branchDayCount.setBrcCode(brcCode);					// branchDayCount에 지점 코드 셋팅
+		 branchDayCount.setBrcCntClientCount(pmtTicketNum);		// branchDayCount에 티켓 수 셋팅
+		 branchDayCount.setBrcCntSaleTotal(pmtPrice);			// branchDayCount에 매출 액 셋팅
+		 
+		 Date date = new Date();						// 현재 날짜 생성
+		 SimpleDateFormat sdf = 
+				 new SimpleDateFormat("yyyy-MM-dd");	// 형식 변환
+		 String today = sdf.format(date);
+		 
+		 branchDayCount.setBrcCntDate(today);			// branchDayCount에 현재 날짜 셋팅
+		 
+		 return paymentDao.updateBrcDayCount(branchDayCount);
+	 }
+	 
 }

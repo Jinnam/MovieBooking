@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.cinema.dto.Analysis;
+import kr.co.cinema.dto.BranchDayCount;
 import kr.co.cinema.dto.DiscountInfo;
 import kr.co.cinema.dto.Mileage;
 import kr.co.cinema.dto.Payment;
@@ -24,6 +25,12 @@ public class PaymentDao {
 	private SqlSessionTemplate sqlSession;
 	private final String NS="kr.co.cinema.payment.PaymentMapper.";
 	
+	
+	// 지점별 일일예매,매출 업데이트
+	public int updateBrcDayCount(BranchDayCount branchDayCount){
+		logger.debug("		updateBrcDayCount() 진입 branchDayCount : "+branchDayCount);
+		return sqlSession.update(NS+"updateBrcDayCount", branchDayCount);
+	}
 	
 	// 영화 코드 가져오기
 	public int selectOneMovCode(String scsCode){
@@ -104,7 +111,7 @@ public class PaymentDao {
 	}
 	
 	// 결제시 영화 정보 가져오기
-	public Map<String, String> selectBookingInfo(String scsCode){
+	public Map<String, Object> selectBookingInfo(String scsCode){
 		logger.debug("		selectBookingInfo() 진입");
 		return sqlSession.selectOne(NS+"selectMovieInfo", scsCode);
 	}
