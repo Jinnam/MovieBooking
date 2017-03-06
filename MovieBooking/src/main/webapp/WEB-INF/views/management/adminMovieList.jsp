@@ -74,9 +74,9 @@
 						<!-- <li>
 							<a href="branchModify">지점 수정</a>
 						</li> -->
-						<li>
+						<!-- <li>
 							<a href="branchDelete">지점 탈퇴</a>
-						</li>
+						</li> -->
 						<li>
 							<a href="adminList">지점 관리자 목록</a>
 						</li>
@@ -87,9 +87,9 @@
 						<!-- <li>
 							<a href="adminModify">지점 관리자 수정</a>
 						</li> -->
-						<li>
+						<!-- <li>
 							<a href="adminDelete">지점 관리자 삭제</a>
-						</li>
+						</li> -->
 					</ul>
 				</li>
 				<!-- 회원 사이드 메뉴 -->
@@ -174,9 +174,9 @@
 						<!-- <li>
 							<a href="screenModify">상영관 수정</a>
 						</li> -->
-						<li>
+						<!-- <li>
 							<a href="screenDelete">상영관 삭제</a>
-						</li>
+						</li> -->
 					</ul>
 				</li>
 				<!-- 상영일정 사이드 메뉴 -->
@@ -239,7 +239,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">영화목록</a>
+						<a class="navbar-brand" href="adminMovieList">영화목록</a>
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<div class="navbar-form navbar-right">
@@ -252,7 +252,9 @@
 								<input type="text" class="form-control" placeholder="검색사항을 입력하세요">
 							</div>
 							<input type="submit" class="btn btn-default" value="검색" />
-							<input type="submit" class="btn btn-default" value="전체회원목록" />
+							<a href="adminMovieList">
+								<input type="submit" class="btn btn-default" value="전체영화목록" />
+							</a>
 						</div>
 					</div>
 				</div>
@@ -261,31 +263,33 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
-					</tr>						
+						<th>영화한글이름</th>
+						<th>국가</th>
+						<th>등급</th>
+						<th>장르</th>
+						<th>제작사</th>
+						<th>상영시간</th>
+						<th>개봉일</th>
+						<th>이미지경로</th>
+						<th>상영상태</th>
+						<th>감독</th>
+					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
+					<c:forEach var="adminMovieList" items="${adminMovieList}">
+						<tr>
+							<td>${adminMovieList.movKorName}</td>
+							<td>${adminMovieList.movNation}</td>
+							<td>${adminMovieList.movGrade}</td>
+							<td>${adminMovieList.movGenre}</td>
+							<td>${adminMovieList.movMaker}</td>
+							<td>${adminMovieList.movRunningTime}</td>
+							<td>${adminMovieList.movOpenDate}</td>
+							<td>${adminMovieList.movImgPath}</td>
+							<td>${adminMovieList.movStatus}</td>
+							<td>${adminMovieList.charCode}</td>
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 			<!-- 페이징 -->

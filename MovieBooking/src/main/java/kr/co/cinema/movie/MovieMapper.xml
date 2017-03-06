@@ -18,7 +18,7 @@
 		FROM
 			ANALYSIS
 		WHERE
-			ANALYSIS.mov_code=2100001	
+			ANALYSIS.mov_code=#{movCode}	
 	</select>
 
 	<!-- 인물코드로 필모그래피 가져오기 -->

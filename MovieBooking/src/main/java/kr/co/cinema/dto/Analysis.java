@@ -1,7 +1,7 @@
 package kr.co.cinema.dto;
 
 // 통계를 위한 dto
-public class Analisys {
+public class Analysis {
 	
 	private int movCode;					// 영화코드
 	private int anlTotalTicketCount;		// 전체 예매인원수
@@ -9,7 +9,6 @@ public class Analisys {
 	private int anl20sTicketCount;			// 20대 예매 인원수
 	private int anl30sTicketCount;			// 30대 예매 인원수
 	private int anl40sTicketCount;			// 40대 예매 인원수
-	private int anl50sTicketCount;			// 50대 예매 인원수
 	private int anlOver50sTicketCount;		// 50대 이상예매 인원수
 	private int anlManTicketCount;			// 남성 예매 인원수
 	private int anlWomanTicketCount;		// 여성 예매 인원수
@@ -52,12 +51,6 @@ public class Analisys {
 	public void setAnl40sTicketCount(int anl40sTicketCount) {
 		this.anl40sTicketCount = anl40sTicketCount;
 	}
-	public int getAnl50sTicketCount() {
-		return anl50sTicketCount;
-	}
-	public void setAnl50sTicketCount(int anl50sTicketCount) {
-		this.anl50sTicketCount = anl50sTicketCount;
-	}
 	public int getAnlOver50sTicketCount() {
 		return anlOver50sTicketCount;
 	}
@@ -90,12 +83,12 @@ public class Analisys {
 	}
 	@Override
 	public String toString() {
-		return "Analisys [movCode=" + movCode + ", anlTotalTicketCount=" + anlTotalTicketCount + ", anl10sTicketCount="
+		return "Analysis [movCode=" + movCode + ", anlTotalTicketCount=" + anlTotalTicketCount + ", anl10sTicketCount="
 				+ anl10sTicketCount + ", anl20sTicketCount=" + anl20sTicketCount + ", anl30sTicketCount="
-				+ anl30sTicketCount + ", anl40sTicketCount=" + anl40sTicketCount + ", anl50sTicketCount="
-				+ anl50sTicketCount + ", anlOver50sTicketCount=" + anlOver50sTicketCount + ", anlManTicketCount="
-				+ anlManTicketCount + ", anlWomanTicketCount=" + anlWomanTicketCount + ", anlAcSales=" + anlAcSales
-				+ ", anlFinalModifyDate=" + anlFinalModifyDate + "]";
+				+ anl30sTicketCount + ", anl40sTicketCount=" + anl40sTicketCount + ", anlOver50sTicketCount="
+				+ anlOver50sTicketCount + ", anlManTicketCount=" + anlManTicketCount + ", anlWomanTicketCount="
+				+ anlWomanTicketCount + ", anlAcSales=" + anlAcSales + ", anlFinalModifyDate=" + anlFinalModifyDate
+				+ "]";
 	}
 	
 	

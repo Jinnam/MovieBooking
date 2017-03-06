@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.BranchAndScreen;
+import kr.co.cinema.dto.BranchDayCount;
 import kr.co.cinema.dto.Character;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
@@ -35,8 +36,23 @@ public class AdminController {
 	@RequestMapping(value="adminMain", method=RequestMethod.GET)
 	public String adminMain(Model model) {
 		logger.debug(" Controller adminMain get실행");
+		//하단우측 표 데이터
 		List<Movie> selectClientCount = adminService.selectClientCount();
 		model.addAttribute("selectClientCount", selectClientCount);
+		//바 그래프 데이터 아직안됨
+		List<Branch> selectBranchForBarGraph = adminService.selectBranchForBarGraph();
+		model.addAttribute("selectBranchForBarGraph", selectBranchForBarGraph);
+		//선그래프 매출 총 합계
+		int selectBranchCount = adminService.selectBranchCount();
+		model.addAttribute("selectBranchCount", selectBranchCount);
+		//선그래프 월별 합계
+		List<BranchDayCount> selectMonthBranchCount = adminService.selectMonthBranchCount();
+		model.addAttribute("selectMonthBranchCount", selectMonthBranchCount);
+		//집에서 log4j안됨 일단 이렇게 출력 log4j바꿀것
+		logger.debug("컨트롤러 바그래프 :"+selectBranchForBarGraph);
+		logger.debug("컨트롤러 우측하단표 : " + selectClientCount);
+		logger.debug("컨트롤러 선그래프 매출 총 합계 : "+selectBranchCount);
+		logger.debug("컨트롤러 선그래프 매출 월 합계 : "+selectMonthBranchCount);
 		return "admin/adminMain";
 	}
 	
@@ -193,8 +209,10 @@ public class AdminController {
 	
 	//***관리자 영화조회 페이지 연결만 해놓음
 	@RequestMapping(value="adminMovieList", method=RequestMethod.GET)
-	public String selectMovieList() {
+	public String selectMovieList(Model model) {
 		logger.debug(" Controller selectMovieList get실행");
+		List<Movie> selectMovieList =  adminService.selectMovieList();
+		model.addAttribute("selectMovieList", selectMovieList);
 		return "management/adminMovieList";
 	}
 	
@@ -313,6 +331,7 @@ public class AdminController {
 		return selectMovieCode;
 	}
 	
+	//상영일정 등록 : 
 	@RequestMapping(value="selectmovieAndScreens", method=RequestMethod.POST)
 	public @ResponseBody List<BranchAndScreen> selectMovCodeAndScrNameList(@RequestParam("brcName")List<BranchAndScreen> movieAndScreens) {
 		logger.debug(" Controller selectMovCodeAndScrNameList post실행");
@@ -352,6 +371,7 @@ public class AdminController {
 		return "management/costInsert";
 	}
 	
+	//단가등록
 	@RequestMapping(value="costInsert", method=RequestMethod.POST)
 	public String insertCost(ScreenCost screenCost) {
 		logger.debug(" Controller insertCost post실행");

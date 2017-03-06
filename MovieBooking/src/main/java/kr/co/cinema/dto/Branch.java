@@ -9,6 +9,7 @@ public class Branch {
 	private String brcAddr;			// 지점 주소
 	private String brcInfoDetail;	// 지점소개
 	private String brcImgPath;		// 이미지 경로
+	private int brcCntSaleTotal;
 	
 	public int getBrcCode() {
 		return brcCode;
@@ -51,6 +52,12 @@ public class Branch {
 	public String toString() {
 		return "Branch [brcCode=" + brcCode + ", brcName=" + brcName + ", brcLocal=" + brcLocal + ", brcAddr=" + brcAddr
 				+ ", brcInfoDetail=" + brcInfoDetail + ", brcImgPath=" + brcImgPath + "]";
+	}
+	public int getBrcCntSaleTotal() {
+		return brcCntSaleTotal;
+	}
+	public void setBrcCntSaleTotal(int brcCntSaleTotal) {
+		this.brcCntSaleTotal = brcCntSaleTotal;
 	}
 	
 	

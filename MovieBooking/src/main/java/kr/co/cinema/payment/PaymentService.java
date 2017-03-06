@@ -1,6 +1,9 @@
 package kr.co.cinema.payment;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.cinema.HomeService;
+import kr.co.cinema.dto.Analysis;
 import kr.co.cinema.dto.DiscountInfo;
 import kr.co.cinema.dto.Mileage;
 import kr.co.cinema.dto.Payment;
@@ -127,10 +131,10 @@ public class PaymentService {
 		return returnSeatInfo;
 	}
 	
-	// 마일리지 정보 가져오기
-	public Map<String, Integer> searchOneMileage(String memId){
-		logger.debug("		selectOneMileage() 진입 memId : "+memId);
-		return paymentDao.selectOneMileage(memId);
+	// 회원정보 (마일리지, 생일) 정보 가져오기
+	public Map<String, String> searchOneMemInfo(String memId){
+		logger.debug("		searchOneMemInfo() 진입 memId : "+memId);
+		return paymentDao.selectOneMemInfo(memId);
 	}
 	
 	// 할인 정보(전체) 가져오기
@@ -162,7 +166,7 @@ public class PaymentService {
 	}
 	
 	// 결제시 영화 정보 가져오기
-	public BookingInfo searchBookingInfo(String scsCode){
+	public Map<String, String> searchBookingInfo(String scsCode){
 		logger.debug(		"searchBookingInfo() 진입");
 		
 		int digitalCost=0;			// 디지털 단가 변수 초기화
@@ -170,7 +174,7 @@ public class PaymentService {
 		int imaxCost=0;				// IMAX 단가 변수 초기화
 		int morningCost=0;			// 조조 할인 변수 초기화
 		int nightCost=0;			// 심야 할인 변수 초기화
-		int resultCost=0;			// 반환할 최종가격 변수 초기화
+		String resultCost="";		// 반환할 최종가격 변수 초기화
 		
 		
 		// DB에서 가져온 상영 단가 변수에 대입하기
@@ -206,53 +210,53 @@ public class PaymentService {
 		}
 		
 		// 예매 정보로 가져온 상영정보에 해당하는 가격정보 대입하기
-		BookingInfo bookingInfo = paymentDao.selectBookingInfo(scsCode);		// 상영 정보 가져오기
-		switch(bookingInfo.getScsScreen()){
+		Map<String, String> bookingInfo = paymentDao.selectBookingInfo(scsCode);		// 상영 정보 가져오기
+		switch(bookingInfo.get("scsScreen")){
 			case "디지털" :
-				switch(bookingInfo.getScsTimeDiscount()){
+				switch(bookingInfo.get("scsTimeDiscount")){
 					case "일반" :													// 상영 단가가 "디지털"이고, 할인 정보가 "일반"일때
-						resultCost = digitalCost;								// 결과 값 : 디지털 단가
-						bookingInfo.setFinalCost(resultCost);
+						resultCost = Integer.toString(digitalCost);				// 결과 값 : 디지털 단가
+						bookingInfo.put("finalCost", resultCost);
 						break;
 					case "조조" : 												// 상영 단가가 "디지털"이고, 할인 정보가 "조조"일때
-						resultCost = digitalCost-morningCost;					// 결과 값 : (디지털 단가)-(조조 할인가격)
-						bookingInfo.setFinalCost(resultCost);
+						resultCost = Integer.toString(digitalCost-morningCost);	// 결과 값 : (디지털 단가)-(조조 할인가격)
+						bookingInfo.put("finalCost", resultCost);
 						break;
 					case "심야" : 												// 상영 단가가 "디지털"이고, 할인 정보가 "심야"일때
-						resultCost = digitalCost-nightCost;						// 결과 값 : (디지털 단가)-(심야 할인가격)
-						bookingInfo.setFinalCost(resultCost);
+						resultCost = Integer.toString(digitalCost-nightCost);	// 결과 값 : (디지털 단가)-(심야 할인가격)
+						bookingInfo.put("finalCost", resultCost);
 						break;
 				}
 				break;
 			case "3D" :
-				switch(bookingInfo.getScsTimeDiscount()){
+				switch(bookingInfo.get("scsTimeDiscount")){
 					case "일반" :													// 상영 단가가 "3D"이고, 할인 정보가 "일반"일때
-						resultCost = ThreeDCost;								// 결과 값 : 3D 단가
-						bookingInfo.setFinalCost(resultCost);
+						resultCost = Integer.toString(ThreeDCost);								// 결과 값 : 3D 단가
+						bookingInfo.put("finalCost", resultCost);
 						break;
 					case "조조" : 												// 상영 단가가 "3D"이고, 할인 정보가 "조조"일때
-						resultCost = ThreeDCost-morningCost;					// 결과 값 : (3D 단가)-(조조 할인가격)
-						bookingInfo.setFinalCost(resultCost);
+						resultCost = Integer.toString(ThreeDCost-morningCost);					// 결과 값 : (3D 단가)-(조조 할인가격)
+						bookingInfo.put("finalCost", resultCost);
 						break;
 					case "심야" : 												// 상영 단가가 "3D"이고, 할인 정보가 "심야"일때
-						resultCost = ThreeDCost-nightCost;						// 결과 값 : (3D 단가)-(심야 할인가격)
-						bookingInfo.setFinalCost(resultCost);
+						resultCost = Integer.toString(ThreeDCost-nightCost);						// 결과 값 : (3D 단가)-(심야 할인가격)
+						bookingInfo.put("finalCost", resultCost);
 						break;
 			}
 				break;
 			case "IMAX" :
-				switch(bookingInfo.getScsTimeDiscount()){
+				switch(bookingInfo.get("scsTimeDiscount")){
 					case "일반" : 												// 상영 단가가 "IMAX"이고, 할인 정보가 "일반"일때
-						resultCost = imaxCost;									// 결과 값 : IMAX 단가
-						bookingInfo.setFinalCost(resultCost);
+						resultCost = Integer.toString(imaxCost);									// 결과 값 : IMAX 단가
+						bookingInfo.put("finalCost", resultCost);
 						break;
 					case "조조" :  												// 상영 단가가 "IMAX"이고, 할인 정보가 "조조"일때
-						resultCost = imaxCost-morningCost;						// 결과 값 : (IMAX 단가)-(조조 할인가격)
-						bookingInfo.setFinalCost(resultCost);
+						resultCost = Integer.toString(imaxCost-morningCost);						// 결과 값 : (IMAX 단가)-(조조 할인가격)
+						bookingInfo.put("finalCost", resultCost);
 						break;
 					case "심야" : 												// 상영 단가가 "IMAX"이고, 할인 정보가 "심야"일때
-						resultCost = imaxCost-nightCost;						// 결과 값 : (IMAX 단가)-(심야 할인가격)
-						bookingInfo.setFinalCost(resultCost);
+						resultCost = Integer.toString(imaxCost-nightCost);						// 결과 값 : (IMAX 단가)-(심야 할인가격)
+						bookingInfo.put("finalCost", resultCost);
 						break;
 			}
 				break;
@@ -260,4 +264,105 @@ public class PaymentService {
 		logger.debug("		bookingInfo : "+bookingInfo);
 		return bookingInfo;
 	}
+	
+	
+	// ANALYSIS 업데이트
+	public int updateAnalysis(Payment payment){
+		logger.debug(		"updateAnalysis() 진입");
+		
+		Analysis analysis = new Analysis();			// DB로 가져갈 정보를 담을 Analysis 객체 생성
+		
+		int getMovCode = paymentDao.selectOneMovCode(payment.getScsCode());		// 예매 정보에서 영화코드 가져오기
+		logger.debug("****updateAnalysis bookingInfo : "+getMovCode);
+		
+	//	int movCode =Integer.valueOf(getMovCode).intValue();						// 영화코드 객체에 셋팅
+	//	System.out.println("int movCode : "+movCode);
+		analysis.setMovCode(getMovCode);
+		
+		int pmtPrice = payment.getPmtPrice();		// 결제 금액 가져오기
+		int ticketNum = payment.getPmtTicketNum();	// 티켓 수 가져오기
+		String memId = payment.getMemId();			// 회원 아이디 가져오기
+		String nmemCode = payment.getNmemCode();	// 비회원 코드 가져오기
+		
+		String gender = "";		// 성별 변수 초기화
+		String birth="";		// 생년월일 변수 초기화
+		
+		if(nmemCode == "회원"){						// 회원 일때
+			Map<String, String> memberMap = paymentDao.selectOneMemInfo(memId);		// 회원 아이디로 회원정보 가져오기
+			
+			gender = memberMap.get("memGender");									// 회원 정보 : 회원 성별
+			birth = memberMap.get("memBirth");										// 회원 정보 : 생년월일
+			
+			// 성별,누적매출,예매누적 정보 담기
+			switch (gender){
+			case "남" :
+				analysis.setAnlManTicketCount(ticketNum);
+				analysis.setAnlTotalTicketCount(ticketNum);			// 전체 예매 수
+				analysis.setAnlAcSales(pmtPrice);					// 누적 매출액
+				break;
+			case "여" :
+				analysis.setAnlWomanTicketCount(ticketNum);
+				analysis.setAnlTotalTicketCount(ticketNum);			// 전체 예매 수
+				analysis.setAnlAcSales(pmtPrice);					// 누적 매출액
+				break;
+			default :
+				break;
+			
+			}
+			
+		}else{										// 비회원 일때	
+			Map<String, String> nmemInfo = paymentDao.selectOneNmemInfo(nmemCode);	// 비회원 코드로 비회원 정보 가져오기
+			logger.debug("++++++nmemInfo : "+nmemInfo);
+			System.out.println("nmemInfo : "+nmemInfo.get("nmemBirth"));
+			birth = nmemInfo.get("nmemBirth");										// 비회원 정보 : 생년월일
+			System.out.println("birth : "+birth);
+		}
+			
+			int birthYear =Integer.parseInt(birth.substring(0,4));			// 생년
+			int birthMonth = Integer.parseInt(birth.substring(5,7));		// 월
+			int birthDay = Integer.parseInt(birth.substring(8,10));			// 일
+			
+			int getAge = getAge(birthYear, birthMonth, birthDay);			// getAge 메서드(만 나이) 호출
+			
+			int ages = getAge/10;											// 나이/10으로 연령대 구분
+			
+			// 연령 정보 담기
+			switch (ages){
+			case (1) :
+				analysis.setAnl10sTicketCount(ticketNum);			// Analysis에 10대 예매 수 셋팅
+				break;
+			case (2) :
+				analysis.setAnl20sTicketCount(ticketNum);			// Analysis에 20대 예매 수 셋팅
+				break;
+			case (3) :
+				analysis.setAnl30sTicketCount(ticketNum);			// Analysis에 30대 예매 수 셋팅
+				break;
+			case (4) :
+				analysis.setAnl40sTicketCount(ticketNum);			// Analysis에 40대 예매 수 셋팅
+				break;
+			default :
+				analysis.setAnlOver50sTicketCount(ticketNum);		// Analysis에 50대 이상 예매 수 셋팅
+				break;
+			}
+			
+			
+			logger.debug("updateAnalysis db로 갈"+analysis);
+		return paymentDao.updateAnalysis(analysis);
+	}
+	
+	// 만 나이 구하기
+	 public int getAge(int birthYear, int birthMonth, int birthDay)
+	 {
+	         Calendar current = Calendar.getInstance();
+	         int currentYear  = current.get(Calendar.YEAR);
+	         int currentMonth = current.get(Calendar.MONTH) + 1;
+	         int currentDay   = current.get(Calendar.DAY_OF_MONTH);
+	        
+	         int age = currentYear - birthYear;
+	         // 생일 안 지난 경우 -1
+	         if (birthMonth * 100 + birthDay > currentMonth * 100 + currentDay)  
+	             age--;
+	        
+	         return age;
+	 }
 }

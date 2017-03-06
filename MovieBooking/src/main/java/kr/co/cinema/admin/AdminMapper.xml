@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="kr.co.cinema.admin.AdminMapper">
+
 	<!--****************************************************************************************
 	메인화면쿼리! 
 	*************************************************************************************-->
@@ -26,6 +27,49 @@
 			ORDER BY 
 				BRANCH_DAY_COUNT .brcCnt_clientCount 
 			DESC LIMIT 4
+	</select>
+	
+	<!-- 메인화면 바 그래프  -->
+	<select id="selectBranchForBarGraph"
+			resultType="kr.co.cinema.dto.BranchAndBranchDayCount">
+			SELECT 
+				BRANCH.brc_name AS brcName, 	
+				BRANCH.brc_code AS brcCode, 
+				SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) AS brcCntSaleTotal
+			FROM 
+				BRANCH 
+			INNER JOIN 
+				BRANCH_DAY_COUNT 
+			ON 
+				BRANCH.brc_code = BRANCH_DAY_COUNT.brc_code 
+			GROUP BY 
+				BRANCH.brc_name 
+			ORDER BY 
+				BRANCH_DAY_COUNT.brcCnt_saleTotal 
+			DESC LIMIT 5;
+	</select>
+	
+	<!-- 선그래프 총매출액 -->
+	<select id="selectBranchCount"
+			resultType="int">
+			SELECT
+				SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) AS brcCntSaleTotal
+			FROM
+				BRANCH_DAY_COUNT
+	</select>
+	
+	<!-- 선그래프 월매출액 -->
+	<select id="selectMonthBranchCount"
+			resultType="kr.co.cinema.dto.BranchDayCount">
+			SELECT 
+				sum( brcCnt_saleTotal) AS brcCntSaleTotal
+			FROM 
+				BRANCH_DAY_COUNT 
+			GROUP BY 
+				DATE_FORMAT( brcCnt_date, '%Y-%m' ) 
+			ORDER BY 
+				DATE_FORMAT( brcCnt_date, '%Y-%m' ) 
+			LIMIT 0 , 30;
 	</select>
 	
 	<!--****************************************************************************************
@@ -267,6 +311,34 @@
 			); 
 	</insert>
 	
+	<!-- 영화조회 -->
+	<select id="selectMovieList"
+			resultType="kr.co.cinema.dto.Movie">
+		select 
+			mov_korName, 
+			mov_nation, 
+			mov_grade, 
+			mov_genre, 
+			mov_maker, 
+			mov_runningTime, 
+			mov_openDate, 
+			mov_imgPath, 
+			mov_status, 
+			char_korName 
+		from 
+			MOVIE 
+		inner join 
+			`CHARACTER` 
+		on 
+			MOVIE.char_code = `CHARACTER`.char_code 
+		order by 
+			MOVIE.mov_date 
+	</select>
+	
+	<!--****************************************************************************************
+	단가관리쿼리  : 단가 등록, 단가조회, 단가 수정
+	******************************************************************************************-->
+	
 	<!-- 단가등록 -->
 	<insert id="insertCost"
 			parameterType="kr.co.cinema.dto.ScreenCost">
@@ -289,6 +361,10 @@
 				); 
 	</insert>
 	
+	<!--****************************************************************************************
+	인물관리쿼리  : 인물 등록
+	******************************************************************************************-->
+
 	<!-- 인물등록쿼리 -->
 	<insert id="insertChar"
 			parameterType="kr.co.cinema.dto.Character">
@@ -315,6 +391,10 @@
 				); 	
 	</insert>
 	
+	<!--****************************************************************************************
+	상영관관리쿼리  : 상영관등록
+	******************************************************************************************-->
+
 	<!-- 상영관등록전 지점이름으로 지점코드 조회하기 위한 쿼리 -->
 	<select id="selectBrcCode"
 			resultType="String"
@@ -326,8 +406,8 @@
 			WHERE 
 				BRANCH.brc_name = #{selectBrcCode};
 	</select>
-	
-	<!-- 지점등록 -->
+
+	<!-- 상영관등록 -->
 	<insert id="insertScreen"
 			parameterType="kr.co.cinema.dto.Screen">
 			INSERT INTO 
@@ -349,6 +429,12 @@
 				); 
 			
 	</insert>
+	
+	<!--****************************************************************************************
+	상영일정관리쿼리  : 
+	******************************************************************************************-->
+	
+
 	
 	
 	<!-- 상영일정등록전 영화이름으로 영화코드 조회 -->

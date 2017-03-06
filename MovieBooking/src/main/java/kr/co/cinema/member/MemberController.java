@@ -25,6 +25,39 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	
+	
+	
+	//회원 개인정보 수정 form
+	@RequestMapping(value="/memberModify", method=RequestMethod.GET)
+	public String selectMemberModify(){
+		return "member/memberModify";
+	}
+	
+	//회원 개인정보 영화 본영화 / 보고싶어 나누기 리스트 form
+	@RequestMapping(value="/memberMovieStory", method=RequestMethod.GET)
+	public String selectMemberMovieStory(){
+		return "member/memberMovieStory";
+	}
+	
+	//회원 개인정보 영화 예매/취소 리스트 form
+	@RequestMapping(value="/bookedMovieList", method=RequestMethod.GET)
+	public String selectBookedMovieList(){
+		return "member/bookedMovieList";
+	}
+	
+	//회원 개인정보 마일리지 페이지 form
+	@RequestMapping(value="/mileageList", method=RequestMethod.GET)
+	public String selectMileageList(){
+		return "member/mileageList";
+	}
+	
+	//회원 개인정보 페이지 index form
+	@RequestMapping(value="/memberDetail", method=RequestMethod.GET)
+	public String selectMemberDetail(){
+		return "member/memberDetail";
+	}
+	
 	//비회원 가입 action
 	@RequestMapping(value="/nonMemberInsert", method=RequestMethod.POST)
 	public String insertNonMember(NonMember nonMember){
@@ -41,18 +74,27 @@ public class MemberController {
 	
 	//회원 로그인 action
 	@RequestMapping(value="/memberLogin", method=RequestMethod.POST)
-	public String memberLogin(Member member, HttpSession session){
+	public @ResponseBody Map<String, String> memberLogin(Member member, HttpSession session){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("memId", member.getMemId());
 		map.put("memPw", member.getMemPw());
-		Member members = memberService.findOneMmemberLogin(map);
-		logger.debug(members.toString());
-		session.setAttribute("id", members.getMemId());
-		session.setAttribute("pw", members.getMemPw());
-		return "movieMain";
+		Map<String,String> members = memberService.findOneMmemberLogin(map);
+		System.out.println("members"+members);
+		session.setAttribute("id", members.get("memId"));
+		session.setAttribute("pw", members.get("memPw"));
+		session.setAttribute("name", members.get("memName"));
+	//	logger.debug("return 값 : "+members.toString());
 		
+		return members;
 	}
 	
+	//회원 로그아웃 action
+	@RequestMapping(value="/logout")
+	public String memberLogout(HttpSession session){
+		session.invalidate();
+		return "redirect:movieMain";
+	}
+		
 	//회원 PW 찾기
 	@RequestMapping(value="/memberFindPw", method=RequestMethod.POST)
 	public @ResponseBody String memberFindPw(Member member){

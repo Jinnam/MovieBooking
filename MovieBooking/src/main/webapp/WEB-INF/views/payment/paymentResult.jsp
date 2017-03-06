@@ -20,15 +20,19 @@
 <%@ include file="/WEB-INF/clientModule/topMovieBar.jsp" %>
 
 <div class="container">
-	<h2> 예매해 주셔서 감사합니다.</h2>
-	<div>
-		선택하신 결제 수단은 ${payment.paymentWay} 입니다.
+	<br/><br/><br/>
+	<div class="row">
+		<div class="col s2"></div>
+			<div class="col s8">
+				<h2> 예매해 주셔서 감사합니다.</h2><br/>
+				<h2>${payment.paymentWay} 결제 되었습니다.</h2><br/><br/><br/>
+			</div>
+			<div class="col s12" align="center">
+				<div class="btn indigo darken-3" onclick="location.href='movieMain'">홈으로 이동</div>
+			</div>
 	</div>
-	<div class="btn">홈으로 이동</div>
-
 
 </div>
-
 
 <!-- 하단바 -->
 <%@ include file="/WEB-INF/clientModule/footer.jsp" %>

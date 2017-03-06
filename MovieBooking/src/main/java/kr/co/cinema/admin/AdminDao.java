@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.BranchAndScreen;
+import kr.co.cinema.dto.BranchDayCount;
 import kr.co.cinema.dto.Character;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
@@ -24,13 +25,39 @@ public class AdminDao {
 	private SqlSessionTemplate sqlSession;
 	
 	private final String NS = "kr.co.cinema.admin.AdminMapper.";
-	
+
+	/************************************************************************************************************
+	메인페이지 메서드
+	************************************************************************************************************/
+
 	//메인페이지 하단우측 영화별 예매율 순위
 	public List<Movie> selectClientCount() {
 		logger.debug(" Dao selectClientCount");
 		return sqlSession.selectList(NS+"selectClientCount");
 	}
 	
+	//원그래프 지점 이름, 지점 코드, 매출합계 조회
+	public List<Branch> selectBranchForBarGraph() {
+		logger.debug(" Dao selectBranchForBarGraph");
+		return sqlSession.selectList(NS+"selectBranchForBarGraph");
+	}
+	
+	//선그래프 총 매출액
+	public int selectBranchCount() {
+		logger.debug(" Dao selectBranchCount");
+		return sqlSession.selectOne(NS+"selectBranchCount");
+	}
+	
+	//선그래프 월 매출액
+	public List<BranchDayCount> selectMonthBranchCount() {
+		logger.debug(" Dao selectMonthBranchCount");
+		return sqlSession.selectList(NS+"selectMonthBranchCount");
+	}
+	
+	/************************************************************************************************************
+	지점관리 메서드 : 지점등록/지점조회/지점수정/지점탈퇴
+	************************************************************************************************************/
+
 	//지점리스트 조회
 	public List<Branch> selectBranchList() {
 		logger.debug(" Dao selectBranchList");
@@ -142,5 +169,11 @@ public class AdminDao {
 		logger.debug(" Dao selectmovieAndScreens");
 		return sqlSession.selectList(NS+"selectmovieAndScreens", movieAndScreens);
 	}
+
+	public List<Movie> selectMovieList() {
+		logger.debug(" Dao selectMovieList");
+		return sqlSession.selectList(NS+"selectMovieList");
+	}
+
 
 }

@@ -19,12 +19,6 @@
         </style>
         <!-- 약관 스타일 종료 -->
         
-    <!-- 아이디 찾기 alert 시작 -->
-	<!-- 아이디 찾기 alert 종료 -->
-	
-	<!-- 비밀번호 찾기 alert 시작-->
-	
-	<!-- 비밀번호 찾기 alert 종료-->
 	
 </head>
 
@@ -45,25 +39,28 @@
 			$(document).ready(function(){
 				$('#btnId').click(function(){
 					console.log("아이디 찾기 체크");
-					$.ajax({
-							url : "memberFindId", 
-							type :"post", 
-							data : { "memName" : $('#memName').val(),
-									"memBirth" : $('#memBirth').val(),
-									"memPhone" : $('#memPhone').val(), }, 						
+					
+					if($('#memName').val()==null || $('#memName').val()==""){
+						alert("이름  입력하세요");
+					}else{
+						$.ajax({
+								url : "memberFindId", 
+								type :"post", 
+								data : { "memName" : $('#memName').val(),
+										"memBirth" : $('#memBirth').val(),
+										"memPhone" : $('#memPhone').val(), }, 						
+										
+						   		success : function(data){ 
+							    	console.log(data);
+							    	if(data==0){
+							    		alert("가입된 회원이 아닙니다.");
+							  	  }else{
+							    	alert("아이디는 "+data+" 입니다.");
 									
-					   		success : function(data){ 
-						    	console.log(data);
-						    	if(data == 0){
-						    		alert("가입된 회원이 아닙니다.");
-						  	  }else{
-						    	alert("아이디는 "+data+" 입니다.");
-								$('#memName').children().remove();
-								$('#memBirth').children().remove();
-								$('#memPhone').children().remove();
-						    }		
-						 }
-					});
+							    }		
+							 }
+						});
+					}
 				});
 			});
 		</script>
@@ -73,28 +70,31 @@
 			$(document).ready(function(){
 				$('#btnPw').click(function(){
 					console.log("비밀번호 체크");
+					
+					if($('#memId').val()==null || $('#memId').val()==""){
+						alert("아이디  입력하세요");
+					}else{
+					
 					$.ajax({
 							url : "memberFindPw", 
 							type :"post", 
-							data : { "memId" : $('#memId').val(),
-									"memName" : $('#memName').val(),
-									"memPhone" : $('#memPhone').val(),}, 						
-									
+							data : { "memId" : $('#memId').val(), 
+									"memName" : $('#memNamePw').val(),
+									"memPhone" : $('#memPhonePw').val(),},
+																 						
 					   		success : function(data){ 
 						    	console.log(data);
-						    	if(data == 0){
+						    	if(data==0){
 						    		alert("해당 정보로 가입된 사용자를 찾을 수 없습니다.");
 						  	 	}else{
 						    		alert("비밀번호는 "+data+" 입니다.");
-								
-						    }		
-						 }
-					});
+						    	}		
+							 }
+						});
+					}
 				});
 			});
 	</script>
-
-
 
 		<!-- 아이디 비밀번호 찾기 약관 시작 -->
 		<div class="container" style="width:970px">
@@ -142,7 +142,9 @@
                 </table>  
 			</form>
 		<!-- 아이디 찾기 table 종료-->
+		</div>
 		
+		<div class="container" style="width:485px; text-align: left;">
 		<!-- 비밀번호  찾기 table 시작 -->
 		<h3>비밀번호찾기</h3>
 			<form action="memberFind" method="post" name = "findPw">
@@ -151,10 +153,10 @@
                    	<td><p>아이디<p><input type="text" style ="width:200px" id="memId" name="memId"></td>
                   </tr>
                   <tr>
-                    <td><p>이름<p><input type="text" style ="width:200px" id="memName" name="memName"></td>
+                    <td><p>이름<p><input type="text" style ="width:200px" id="memNamePw" name="memName"></td>
                   </tr>
                   <tr>
-                    <td><p>휴대폰 번호<p><input type="text" style ="width:200px" id="memPhone" name="memPhone"></td>
+                    <td><p>휴대폰 번호<p><input type="text" style ="width:200px" id="memPhonePw" name="memPhone"></td>
                   </tr>
                   <tr>
                   	<td>&nbsp;</td>

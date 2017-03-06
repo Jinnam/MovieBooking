@@ -5,6 +5,45 @@
   
 <mapper namespace="kr.co.cinema.payment.PaymentMapper">
 
+	<!-- 영화 코드 가져오기 -->
+	<select id="selectMovcode" parameterType="String" resultType="int">
+		SELECT
+			mov_code AS movCode
+		FROM
+			SCREEN_SCHEDULE
+		WHERE
+			scs_code=#{scsCode}
+	</select>
+	
+	<!-- Analysis 업데이트 -->
+	<update id="updateAnalysis" parameterType="kr.co.cinema.dto.Analysis">
+		UPDATE 
+			ANALYSIS
+		SET 
+			anl_totalTicketCount = anl_totalTicketCount+#{anlTotalTicketCount},
+			anl_10sTicketCount = anl_10sTicketCount+#{anl10sTicketCount},
+			anl_20sTicketCount = anl_20sTicketCount+#{anl20sTicketCount},
+			anl_30sTicketCount = anl_30sTicketCount+#{anl30sTicketCount},
+			anl_40sTicketCount = anl_40sTicketCount+#{anl40sTicketCount},
+			anl_over50sTicketCount = anl_over50sTicketCount+#{anlOver50sTicketCount},
+			anl_manTicketCount = anl_manTicketCount+#{anlManTicketCount},
+			anl_womanTicketCount = anl_womanTicketCount+#{anlWomanTicketCount},
+			anl_acSales = anl_acSales+#{anlAcSales},
+			anl_finalModifyDate=now()
+		WHERE
+			mov_code=#{movCode}
+		
+	</update>
+
+	<!-- 비회원 정보 가져오기 -->
+	<select id="selectNmemInfo" parameterType="String" resultType="Map">
+		SELECT
+			nmem_birth AS nmemBirth
+		FROM
+			non_member
+		WHERE
+			nmem_code=#{nmemCode}
+	</select>
 
 	<!-- 좌석 업데이트(able->use) -->
 	<update id="updateSeat" parameterType="String">
@@ -51,11 +90,13 @@
 	</select>
 	
 	
-	<!-- 마일리지 정보 가져오기 -->
-	<select id="selectMileage" parameterType="String" resultType="Map">
+	<!-- 회원 정보 가져오기 -->
+	<select id="selectMemInfo" parameterType="String" resultType="Map">
 		SELECT
 			mem_id AS memId,
-			mem_mileage AS memMileage
+			mem_mileage AS memMileage,
+			mem_birth AS memBirth,
+			mem_gender AS memGender
 		FROM
 			MEMBER
 		WHERE
@@ -63,9 +104,10 @@
 	</select>
 	
 	<!-- 결제페이지 영화정보 보여주기 -->
-	<select id="selectMovieInfo" parameterType="String" resultType="kr.co.cinema.payment.BookingInfo">
+	<select id="selectMovieInfo" parameterType="String" resultType="Map">
 		SELECT 
 			SCREEN_SCHEDULE.scs_code AS scsCode,
+			MOVIE.mov_code AS movCode,
 			MOVIE.mov_korName AS movKorName,
 			MOVIE.mov_grade AS movGrade,
 			MOVIE.mov_runningTime AS movRunningTime,

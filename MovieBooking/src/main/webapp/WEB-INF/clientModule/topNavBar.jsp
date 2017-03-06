@@ -42,14 +42,59 @@
         
         <!-- 로그인 -->							
         <a href="beforeReady" class="item" style ="width:130px"><img src="resources/module-img/menu_event.png" style="width:100px;height:40px"></a> 								
-        <!-- 로그인 드랍다운 -->
+        
+        <!-- 로그인 전 -->
+        <c:if test="${id == null }">
+	        <!-- 로그인 드랍다운 -->
+	        <div class="item ui floating dropdown" style="width:130px">
+	          <div id="loginDropDown" style="width:100%; padding:15px 0;">
+	            <img src="resources/module-img/menu_login.png" style="width:100px;height:40px">
+	          </div>
+	          <div class="menu" style="width:350px ; position:absolute; left:-200px;">
+	            <form style="width:300px;margin: 10px 10px 10px 10px;" action="memberLogin" method="post" id="loginForm">
+	            	<%-- <c:if test="sessionScope.id ne null"> --%>
+	              <!-- 로그인 폼시작 -->
+	              <div class="item" data-value="drop">
+	                <table>
+	                  <tr>
+	                	<td><p style="text-align: center;"><img src="resources/module-img/loginLogo.PNG"><p></td>
+	                  </tr>
+	                  <tr>
+	                  <td>&nbsp;</td>
+	                  </tr>
+	                  <tr>
+	                    <td><input type="text" name="memId" id="memId" value="id001" style ="width:200px"><input type="button" id="btnLogin" value="로그인"></td>
+	                  </tr>
+	                  <tr>
+	                    <td><input type="text" name="memPw" id="memPw" value="pw001" style ="width:200px"></td>
+	                  </tr>
+	                  
+	                </table>
+	                <br><br>
+	                <div>
+	                  <a href="memberFind"><img src="resources/module-img/memberFinds.PNG"></a>
+	                  <a href="memberProvision"><img src="resources/module-img/memberInserts.PNG"></a>
+	                  <a href="nonMemberInsert"><img src="resources/module-img/nonmemberInsert.PNG"></a>
+	                </div>
+	              </div>
+	              <!-- 로그인 폼 끝 -->
+	              <%-- </c:if> --%>
+	            </form>
+	          </div>
+	        </div>
+        </c:if>
+        
+        <!-- 로그인 후 -->
+        
+        <c:if test="${id !=null }">
         <div class="item ui floating dropdown" style="width:130px">
           <div id="loginDropDown" style="width:100%; padding:15px 0;">
-            <img src="resources/module-img/menu_login.png" style="width:100px;height:40px">
+          <label>${name}님 환영합니다</label>
+            <!-- <img src="resources/module-img/menu_login.png" style="width:100px;height:40px"> -->
           </div>
           <div class="menu" style="width:350px ; position:absolute; left:-200px;">
-            <form style="width:300px;margin: 10px 10px 10px 10px;" action="memberLogin" method="post">
-            	<%-- <c:if test="sessionScope.id ne null"> --%>
+            <form style="width:300px;margin: 10px 10px 10px 10px;" action="memberLogin" method="post" id="loginForm">
+            
               <!-- 로그인 폼시작 -->
               <div class="item" data-value="drop">
                 <table>
@@ -60,26 +105,24 @@
                   <td>&nbsp;</td>
                   </tr>
                   <tr>
-                    <td><input type="text" name="memId" value="id001" style ="width:200px"><input type="submit" value="로그인"></td>
+                    <td>마일리지 넣어야함</td>
                   </tr>
-                 <br>
-                  <tr>
-                    <td><input type="text" name="memPw" value="pw001" style ="width:200px"></td>
-                  </tr>
-                  
                 </table>
                 <br><br>
                 <div>
-                  <a href="memberFind"><img src="resources/module-img/memberFinds.PNG"></a>
-                  <a href="memberProvision"><img src="resources/module-img/memberInserts.PNG"></a>
-                  <a href="nonMemberInsert"><img src="resources/module-img/nonmemberInsert.PNG"></a>
+                  <a href="memberDetail"><img src="resources/module-img/mypage.PNG"></a>
+                </div>
+                <br>
+                <div>
+                  <a href="logout"><img src="resources/module-img/logout.PNG" align="right"></a>
                 </div>
               </div>
               <!-- 로그인 폼 끝 -->
-              <%-- </c:if> --%>
             </form>
           </div>
         </div>
+        </c:if>
+        
         <!-- 드랍다운 스크립트 -->
         <script>
             $(document).ready(function(){
@@ -97,7 +140,6 @@
                 }
               });
             });
-
             /*
             $('.dropdown').dropdown({
                 // you can use any ui transition
@@ -105,6 +147,36 @@
             });
             */
         </script>
+        	<script>
+			$(document).ready(function(){
+				$("#btnLogin").click(function(){ 
+					console.log("아이디 비번 체크");
+				   $.ajax({ 
+				      url : "memberLogin", 
+				      type :"post", 
+				      data : { "memId" : $("#memId").val(),"memPw" : $("#memPw").val()}, 
+				      success : function(data){ 
+				    	  console.log(data);
+				         if(data.memId == null){ 
+				            alert("로그인 정보가 잘못되었습니다.") 
+				          }else{ 
+				            alert("로그인 성공") 	
+				            location.reload();
+				         } 
+				      },error:function(){
+				          alert("error");
+				       }
+				   }) ;
+				}) ;
+			});
+		</script>
+        <script>
+        
+        
+        
+        </script>
+        
+        
         <a class="item" style ="width:1px"></a>  <!-- 메뉴 끝선 -->
       </div> <!-- 상단바 container 끝 -->
     </div> <!-- 상단바 끝 -->

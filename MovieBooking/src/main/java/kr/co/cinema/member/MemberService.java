@@ -18,11 +18,21 @@ public class MemberService {
 	@Autowired
 	private MemberDao memberdao;
 	
+	//비회원 코드를 불러오기 위한 autowired
 	@Autowired
 	private HomeService homeService;
 	
+	
+	//한 회원 개인정보 가져오기 select 시작
+	public String findOneMemberModify(String memId){
+		logger.debug("한 회원 개인정보 service" + memId);
+		return memberdao.selectMemeberOverlap(memId);
+	}
+	//한 회원 개인정보 가져오기 select 종료
+	
 	//비회원 가입 insert 시작
 	public int addNonMember(NonMember nonMember){
+		//homeService 에서 코드값 불러오기
 		String nonMemberCode=homeService.makeCode("nonMember");
 		nonMember.setNmemCode(nonMemberCode);
 		return memberdao.insertNonMember(nonMember);
@@ -51,7 +61,7 @@ public class MemberService {
 	//회원 아이디 찾기 select 종료	
 	
 	//회원 로그인 select 시작
-	public Member findOneMmemberLogin(Map<String, String> map){
+	public Map<String, String> findOneMmemberLogin(Map<String, String> map){
 		logger.debug("login select service" + map);
 		return memberdao.selectMemberLogin(map);
 		

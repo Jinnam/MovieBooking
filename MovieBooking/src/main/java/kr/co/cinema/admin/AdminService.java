@@ -11,6 +11,7 @@ import kr.co.cinema.HomeService;
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.BranchAndScreen;
+import kr.co.cinema.dto.BranchDayCount;
 import kr.co.cinema.dto.Character;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
@@ -25,15 +26,41 @@ public class AdminService {
 	private HomeService homeService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
-	
+
+	/************************************************************************************************************
+	메인페이지 메서드
+	************************************************************************************************************/
+
 	//메인페이지 하단우측 영화별 예매율 순위
 	public List<Movie> selectClientCount() {
 		logger.debug(" Service selectClientCount get실행");
 		List<Movie> selectClientCount = adminDao.selectClientCount();
-		logger.debug(" Service selectClientCount"+selectClientCount.toString());
+		logger.debug("서비스 하단표 테스트 : "+selectClientCount);
 		return selectClientCount;
 	}
 
+	//원그래프 지점 이름, 지점 코드, 매출합계 조회
+	public List<Branch> selectBranchForBarGraph() {
+		logger.debug(" Service selectBranchForBarGraph get실행");
+		List<Branch> selectBranchForBarGraph = adminDao.selectBranchForBarGraph();
+		logger.debug("서비스 바그래프 테스트 : "+selectBranchForBarGraph);
+		return selectBranchForBarGraph;
+	}
+	
+	//선그래프 총 매출액
+	public int selectBranchCount() {
+		logger.debug(" Service selectBranchCount get실행");
+		return adminDao.selectBranchCount();
+	}
+	
+	//선그래프 월 매출액
+	public List<BranchDayCount> selectMonthBranchCount() {
+		logger.debug(" Service selectMonthBranchCount get실행");
+		List<BranchDayCount> selectMonthBranchCount = adminDao.selectMonthBranchCount();
+		logger.debug("서비스 바그래프 테스트 : "+selectMonthBranchCount);
+		return selectMonthBranchCount;
+	}
+	
 	/************************************************************************************************************
 	지점관리자 메서드 : 지점관리자등록/지점관리자조회/지점관리자수정/지점관리자삭제
 	************************************************************************************************************/	
@@ -105,12 +132,12 @@ public class AdminService {
 	//회원리스트 조회
 	public List<Member> selectMemberList() {
 		logger.debug(" Service selectMemberList get실행");
-		return adminDao.selectMemberList();
+		List<Member> selectMemberList = adminDao.selectMemberList();
+		return selectMemberList;
 	}
 	
 	/************************************************************************************************************
 	영화 관리 메서드 : 영화등록/영화리스트/영화상세/영화수정
-	 * @param charKorName 
 	************************************************************************************************************/	
 	
 	//영화등록 전 인물이름으로 인물코드조회
@@ -163,6 +190,10 @@ public class AdminService {
 		return adminDao.insertScreen(screen);
 	}
 
+	/************************************************************************************************************
+	상영일정 관리 메서드 : 상영일정등록/상영일정리스트/상영일정수정
+	************************************************************************************************************/	
+
 	//상영일정 등록전 영화이름으로 영화 코드조회 ajax
 	public String selectMovieCode(String movKorName) {
 		logger.debug(" Service selectMovieCode post실행");
@@ -173,4 +204,14 @@ public class AdminService {
 		logger.debug(" Service selectmovieAndScreens post실행");
 		return adminDao.selectmovieAndScreens(movieAndScreens);
 	}
+
+	public List<Movie> selectMovieList() {
+		logger.debug(" Service selectMovieList get실행");
+		return adminDao.selectMovieList();
+	}
+
+
+	
+
+	
 }
