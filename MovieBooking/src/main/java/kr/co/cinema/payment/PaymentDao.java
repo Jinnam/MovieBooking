@@ -1,6 +1,5 @@
 package kr.co.cinema.payment;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,11 +34,11 @@ public class PaymentDao {
 	// Analysis 업데이트
 	public int updateAnalysis(Analysis analysis){
 		logger.debug("		updateAnalysis() 진입 analysis : "+analysis);
-		return sqlSession.update(NS+"", analysis);
+		return sqlSession.update(NS+"updateAnalysis", analysis);
 	}
 	
 	// 비회원 정보 가져오기
-	public Map<String, String> selectOneNmemInfo(String nmemCode){
+	public Map<String, Object> selectOneNmemInfo(String nmemCode){
 		logger.debug("		selectOneNmemInfo() 진입 nmemCode : "+nmemCode);
 		return sqlSession.selectOne(NS+"selectNmemInfo",nmemCode);
 	}
@@ -87,7 +86,7 @@ public class PaymentDao {
 	}
 	
 	// 회원 정보 (마일리지, 생일) 정보 가져오기
-	public Map<String, String> selectOneMemInfo(String memId){
+	public Map<String, Object> selectOneMemInfo(String memId){
 		logger.debug("		selectOneMemInfo() 진입 memId : "+memId);
 		return sqlSession.selectOne(NS+"selectMemInfo",memId);
 	}

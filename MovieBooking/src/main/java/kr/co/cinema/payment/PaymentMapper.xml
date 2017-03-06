@@ -20,15 +20,15 @@
 		UPDATE 
 			ANALYSIS
 		SET 
-			anl_totalTicketCount = anl_totalTicketCount+#{anlTotalTicketCount},
-			anl_10sTicketCount = anl_10sTicketCount+#{anl10sTicketCount},
-			anl_20sTicketCount = anl_20sTicketCount+#{anl20sTicketCount},
-			anl_30sTicketCount = anl_30sTicketCount+#{anl30sTicketCount},
-			anl_40sTicketCount = anl_40sTicketCount+#{anl40sTicketCount},
-			anl_over50sTicketCount = anl_over50sTicketCount+#{anlOver50sTicketCount},
-			anl_manTicketCount = anl_manTicketCount+#{anlManTicketCount},
-			anl_womanTicketCount = anl_womanTicketCount+#{anlWomanTicketCount},
-			anl_acSales = anl_acSales+#{anlAcSales},
+			anl_totalTicketCount = anl_totalTicketCount + #{anlTotalTicketCount},
+			anl_10sTicketCount = anl_10sTicketCount + #{anl10sTicketCount},
+			anl_20sTicketCount = anl_20sTicketCount + #{anl20sTicketCount},
+			anl_30sTicketCount = anl_30sTicketCount + #{anl30sTicketCount},
+			anl_40sTicketCount = anl_40sTicketCount + #{anl40sTicketCount},
+			anl_over50sTicketCount = anl_over50sTicketCount + #{anlOver50sTicketCount},
+			anl_manTicketCount = anl_manTicketCount + #{anlManTicketCount},
+			anl_womanTicketCount = anl_womanTicketCount + #{anlWomanTicketCount},
+			anl_acSales = anl_acSales + #{anlAcSales},
 			anl_finalModifyDate=now()
 		WHERE
 			mov_code=#{movCode}
@@ -38,9 +38,10 @@
 	<!-- 비회원 정보 가져오기 -->
 	<select id="selectNmemInfo" parameterType="String" resultType="Map">
 		SELECT
-			nmem_birth AS nmemBirth
+			nmem_birth AS nmemBirth,
+			nmem_code AS nmemCode
 		FROM
-			non_member
+			NON_MEMBER
 		WHERE
 			nmem_code=#{nmemCode}
 	</select>
@@ -237,7 +238,7 @@
 					FROM
 						MILEAGE
 					WHERE
-						mem_id=mem_id=#{memId}
+						mem_id=#{memId}
 						)
 	WHERE 
 		mem_id=#{memId}

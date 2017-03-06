@@ -1,6 +1,5 @@
 package kr.co.cinema.payment;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -31,7 +30,7 @@ public class PaymentService {
 	private HomeService homeService;
 	
 	// 결제 정보 등록
-	final double MILEAGE_RATE=0.3;		// 마일리지 적립율 변수 선언
+	final double MILEAGE_RATE=0.03;		// 마일리지 적립율 변수 선언
 	
 	public int insertPayment(Payment payment){
 		logger.debug("		insertPayment() 진입 payment : "+payment);
@@ -49,10 +48,13 @@ public class PaymentService {
 		
 		// 마일리지 등록
 		String memId = payment.getMemId();									// payment에서 회원 아이디 가져오기
+		String nmemCode= payment.getNmemCode();								// payment에서 비회원 코드 가져오기
 		int milUse = payment.getUseMileage();
 		int milSave = (int) ((payment.getPmtPrice())*MILEAGE_RATE);			// 0.3% 적립
-		if(memId != "비회원"){
+		if(nmemCode == "회원"){
+			System.out.println("마일리지등록 : 회원 진입");
 			String milCode = homeService.madeCode("mileage");				// 마일리지 코드 생성
+			System.out.println("milCode : "+ milCode);
 			Mileage mileage = new Mileage();								// 마일리지 객체 생성
 			mileage.setMilCode(milCode);									// 마일리지 객체에 데이터 셋팅
 			mileage.setPmtCode(pmtCode);
@@ -60,6 +62,7 @@ public class PaymentService {
 			mileage.setMilUse(milUse);
 			mileage.setMemId(memId);
 			
+			logger.debug("마일리지 등록 최종 mileage : "+mileage);
 			resultMileage = paymentDao.insertMileage(mileage);				// 마일리지 테이블에 등록
 			resultMemUpdate = paymentDao.updateMemMileage(memId);			// 회원 마일리지 정보 업데이트
 		}
@@ -70,7 +73,7 @@ public class PaymentService {
 			if(payment.getSeatCode()[i]==""){
 				break;
 			}else{
-				String seatsCode = homeService.makeCode("seats");
+				String seatsCode = homeService.madeCode("seats");
 				map.put("seatsCode", seatsCode);
 				map.put("pmtCode",pmtCode);
 				map.put("seatCode", payment.getSeatCode()[i]);
@@ -132,7 +135,7 @@ public class PaymentService {
 	}
 	
 	// 회원정보 (마일리지, 생일) 정보 가져오기
-	public Map<String, String> searchOneMemInfo(String memId){
+	public Map<String, Object> searchOneMemInfo(String memId){
 		logger.debug("		searchOneMemInfo() 진입 memId : "+memId);
 		return paymentDao.selectOneMemInfo(memId);
 	}
@@ -265,7 +268,7 @@ public class PaymentService {
 		return bookingInfo;
 	}
 	
-	
+	/***************분석/통계 시작********************/
 	// ANALYSIS 업데이트
 	public int updateAnalysis(Payment payment){
 		logger.debug(		"updateAnalysis() 진입");
@@ -273,11 +276,9 @@ public class PaymentService {
 		Analysis analysis = new Analysis();			// DB로 가져갈 정보를 담을 Analysis 객체 생성
 		
 		int getMovCode = paymentDao.selectOneMovCode(payment.getScsCode());		// 예매 정보에서 영화코드 가져오기
-		logger.debug("****updateAnalysis bookingInfo : "+getMovCode);
-		
-	//	int movCode =Integer.valueOf(getMovCode).intValue();						// 영화코드 객체에 셋팅
-	//	System.out.println("int movCode : "+movCode);
-		analysis.setMovCode(getMovCode);
+		logger.debug("updateAnalysis bookingInfo : "+getMovCode);
+
+		analysis.setMovCode(getMovCode);			// Analysis에 영화 코드 셋팅
 		
 		int pmtPrice = payment.getPmtPrice();		// 결제 금액 가져오기
 		int ticketNum = payment.getPmtTicketNum();	// 티켓 수 가져오기
@@ -288,10 +289,14 @@ public class PaymentService {
 		String birth="";		// 생년월일 변수 초기화
 		
 		if(nmemCode == "회원"){						// 회원 일때
-			Map<String, String> memberMap = paymentDao.selectOneMemInfo(memId);		// 회원 아이디로 회원정보 가져오기
 			
-			gender = memberMap.get("memGender");									// 회원 정보 : 회원 성별
-			birth = memberMap.get("memBirth");										// 회원 정보 : 생년월일
+			Map<String, Object> memberMap = paymentDao.selectOneMemInfo(memId);		// 회원 아이디로 회원정보 가져오기
+			logger.debug("	updateAnalysis memberMap : "+memberMap);
+			
+			gender =  (String) memberMap.get("memGender");							// 회원 정보 : 회원 성별
+			Date memBirth = (Date) memberMap.get("memBirth");						// 회원 정보 : 생년월일
+			birth = memBirth.toString();											// 생년월일 String으로 변환
+			System.out.println("회원 birth : "+birth);
 			
 			// 성별,누적매출,예매누적 정보 담기
 			switch (gender){
@@ -311,11 +316,13 @@ public class PaymentService {
 			}
 			
 		}else{										// 비회원 일때	
-			Map<String, String> nmemInfo = paymentDao.selectOneNmemInfo(nmemCode);	// 비회원 코드로 비회원 정보 가져오기
-			logger.debug("++++++nmemInfo : "+nmemInfo);
-			System.out.println("nmemInfo : "+nmemInfo.get("nmemBirth"));
-			birth = nmemInfo.get("nmemBirth");										// 비회원 정보 : 생년월일
-			System.out.println("birth : "+birth);
+			Map<String, Object> nmemInfo = paymentDao.selectOneNmemInfo(nmemCode);	// 비회원 코드로 비회원 정보 가져오기
+			
+			logger.debug("	updateAnalysis nmemInfo : "+nmemInfo);
+
+			Date nmemBirthDate = (Date) nmemInfo.get("nmemBirth");			// 맵에 있는 nmemBirth 값 nmemBirthDate에 셋팅
+			birth =nmemBirthDate.toString();								// nmemBirthDate를  String으로 변환
+			System.out.println("비회원 birth : "+birth);
 		}
 			
 			int birthYear =Integer.parseInt(birth.substring(0,4));			// 생년

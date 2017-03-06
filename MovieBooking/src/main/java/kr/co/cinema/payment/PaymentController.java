@@ -35,16 +35,16 @@ public class PaymentController {
 		// session 확인 후 반환할 페이지 초기화
 		String resultPage="movieMain";
 		
-		session.setAttribute("phone", "01011112222");							// ***가짜 세션***
-	 	String getSession = (String) session.getAttribute("phone");
-		// 세션 있는지 없는지 확인 후 결제페이지or 비회원 확인 페이지 이동
-		if(getSession !=null){
+	 	String getSessionPhone = (String) session.getAttribute("phone");		// 세션에서 전화번호 가져오기
+	 	
+		// ***세션에 전화번호가 있는지 없는지 확인 후 결제페이지or 비회원 확인 페이지 이동***
+		if(getSessionPhone != ""){
 			model.addAttribute("bookingSeatSelectDto",bookingSeatSelectDto);	// 예매에서 넘어온 정보
 			
 			// session 정보 가져오기
-		//	String memId = (String) session.getAttribute("id");					// 세션에서 회원 아이디 가져오기
-			String memId = "id001";
-			Map<String, String> map = paymentService.searchOneMemInfo(memId);	// 아이디로 회원 정보(마일리지) 가져오기
+			String memId = (String) session.getAttribute("id");					// 세션에서 회원 아이디 가져오기
+
+			Map<String, Object> map = paymentService.searchOneMemInfo(memId);	// 아이디로 회원 정보(마일리지) 가져오기
 			System.out.println("map : "+map);
 			model.addAttribute("memMap", map);									// 회원정보(마일리지) 모델에 올리기
 			
@@ -86,8 +86,6 @@ public class PaymentController {
 	@RequestMapping(value="/payment", method=RequestMethod.POST)
 	public String payment(Model model, Payment payment, HttpSession session){
 		logger.debug("		payment post:"+payment.toString());
-		
-		session.setAttribute("phone", "01012344322");			// 가짜 세션
 		
 		String id = (String) session.getAttribute("id");							// 세션에 있는 id값을 가져옴
 		String phone = (String) session.getAttribute("phone");						// 세션에 있는 전화번호를 가져옴

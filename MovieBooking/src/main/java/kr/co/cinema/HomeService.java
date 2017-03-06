@@ -30,7 +30,7 @@ public class HomeService {
 	Map<String, String> map = new HashMap<String, String>();		// Mapper에 parameter값으로 들어갈 맵 생성
 	
 	// 코드 생성하는 메서드(비회원,마일리지,한줄평/평점,좌석(다:다))
-	public String makeCode(String kind){
+	public String madeCode(String kind){
 		logger.debug("		makeCode(String) 진입");
 		
 		map.put("kind", kind);										// 맵에 "kind"라는 이름으로 들어온 입력값을 put
