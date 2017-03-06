@@ -239,29 +239,29 @@
 							<legend>add</legend>
 							<!-- 인물한글이름 -->
 							<div class="row form-group">
-								<label class="col-lg-2 control-label">인물한글이름</label>
-								<div class="col-lg-8">
+								<label class="col-lg-3 control-label">인물한글이름</label>
+								<div class="col-lg-7">
 									<input type="text" name="charKorName" class="form-control" placeholder="인물이름을 입력하세요" required="required">
 								</div>
 							</div>
 							<!-- 인물영문이름 -->
 							<div class="row form-group">
-								<label class="col-lg-2 control-label">인물영문이름</label>
-								<div class="col-lg-8">
+								<label class="col-lg-3 control-label">인물영문이름</label>
+								<div class="col-lg-7">
 									<input type="text" name="charEngName" class="form-control" placeholder="인물이름을 입력하세요" required="required">
 								</div>
 							</div>
 							<!-- 생년월일 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">생년월일</label>
-								<div class="col-lg-8">
+								<label class="col-lg-3 control-label">생년월일</label>
+								<div class="col-lg-7">
 									<input type="date" name="charBirth" class="form-control" placeholder="생년월일을 입력하세요" required="required">
 								</div>
 							</div>
 							<!-- 성별 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">성별</label>
-								<div class="col-lg-8">
+								<label class="col-lg-3 control-label">성별</label>
+								<div class="col-lg-7">
 									<select name="charGender" class="form-control">
 										<option>남</option>
 										<option>여</option>
@@ -270,22 +270,22 @@
 							</div>
 							<!-- 이미지경로 -->
 							<div class="row form-group">
-								<label class="col-lg-2 control-label">이미지경로</label>
-								<div class="col-lg-8">
+								<label class="col-lg-3 control-label">이미지경로</label>
+								<div class="col-lg-7">
 									<input type="text" name="charFrofileImgPath" class="form-control" placeholder="이미지경로를 입력하세요" required="required">
 								</div>
 							</div>
 							<!-- 국가 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">국가</label>
-								<div class="col-lg-8">
+								<label class="col-lg-3 control-label">국가</label>
+								<div class="col-lg-7">
 									<input type="text" name="charNation" class="form-control" placeholder="국가를 입력하세요" required="required">
 								</div>
 							</div>
 							<!-- 바이오그래피 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">바이오그래피</label>
-								<div class="col-lg-8">
+								<label class="col-lg-3 control-label">바이오그래피</label>
+								<div class="col-lg-7">
 									<textarea class="form-control" name="charBioGraphy" rows="3" required="required"></textarea>
 								</div>
 							</div>

@@ -18,6 +18,8 @@ public class Movie {
 	private String movVideoPath;		// 영상(예고편) 경로
 	private String movStatus;			// 현재 상영 여부
 	private String movFinalModifyDate;	// 최총 수정 일자
+	private String movDate;				// 등록일자 0306봉연추가
+	private String charKorName;			// 인물이름 0306봉연추가
 	
 	public int getMovCode() {
 		return movCode;
@@ -117,6 +119,18 @@ public class Movie {
 				+ movMaker + ", movRunningTime=" + movRunningTime + ", movOpenDate=" + movOpenDate + ", movInfoDetail="
 				+ movInfoDetail + ", movImgPath=" + movImgPath + ", movVideoPath=" + movVideoPath + ", movStatus="
 				+ movStatus + ", movFinalModifyDate=" + movFinalModifyDate + "]";
+	}
+	public String getMovDate() {
+		return movDate;
+	}
+	public void setMovDate(String movDate) {
+		this.movDate = movDate;
+	}
+	public String getCharKorName() {
+		return charKorName;
+	}
+	public void setCharKorName(String charKorName) {
+		this.charKorName = charKorName;
 	}
 	
 	

@@ -237,8 +237,8 @@
 							<legend>add</legend>
 							<!-- 지점이름 -->
 							<div class="form-group"> 
-								<label class="col-lg-2 control-label">지점이름</label>
-								<div class="col-lg-8">
+								<label class="col-lg-3 control-label">지점이름</label>
+								<div class="col-lg-7">
 									<input type="text" id="brcName" name="brcName" class="form-control" placeholder="지점이름을 입력하세요" required="required">
 								</div>
 								<!-- 지점이름으로 지점코드를 지점테이블에서 조회 ajax-->
@@ -248,29 +248,29 @@
 							</div>
 							<!-- 지점코드 출력 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">지점코드</label>
-								<div class="col-lg-8">
+								<label class="col-lg-3 control-label">지점코드</label>
+								<div class="col-lg-7">
 									<input type="text" id="selectViewBrcCode" name="brcCode" class="form-control" required="required">
 								</div>
 							</div>
 							<!-- 상영관이름 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">상영관이름</label>
-								<div class="col-lg-8">
+								<label class="col-lg-3 control-label">상영관이름</label>
+								<div class="col-lg-7">
 									<input type="text" name="scrName" class="form-control" placeholder="상영관이름을 입력하세요 ex) 1관,2관,3관,4관" required="required">
 								</div>
 							</div>
 							<!-- 행수 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">행</label>
-								<div class="col-lg-8">
+								<label class="col-lg-3 control-label">행</label>
+								<div class="col-lg-7">
 									<input type="text" name="scrRowSize" class="form-control" placeholder="행을 입력하세요" required="required">
 								</div>
 							</div>
 							<!-- 열수 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">열</label>
-								<div class="col-lg-8">
+								<label class="col-lg-3 control-label">열</label>
+								<div class="col-lg-7">
 									<input type="text" name="scrColSize" class="form-control" placeholder="열을 입력하세요" required="required">
 								</div>
 							</div>

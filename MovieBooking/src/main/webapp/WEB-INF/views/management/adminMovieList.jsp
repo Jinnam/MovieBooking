@@ -276,18 +276,19 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="adminMovieList" items="${adminMovieList}">
+					<c:forEach var="selectMovieList" items="${selectMovieList}">
 						<tr>
-							<td>${adminMovieList.movKorName}</td>
-							<td>${adminMovieList.movNation}</td>
-							<td>${adminMovieList.movGrade}</td>
-							<td>${adminMovieList.movGenre}</td>
-							<td>${adminMovieList.movMaker}</td>
-							<td>${adminMovieList.movRunningTime}</td>
-							<td>${adminMovieList.movOpenDate}</td>
-							<td>${adminMovieList.movImgPath}</td>
-							<td>${adminMovieList.movStatus}</td>
-							<td>${adminMovieList.charCode}</td>
+							<td></td>
+							<td>${selectMovieList.movKorName}</td>
+							<td>${selectMovieList.movNation}</td>
+							<td>${selectMovieList.movGrade}</td>
+							<td>${selectMovieList.movGenre}</td>
+							<td>${selectMovieList.movMaker}</td>
+							<td>${selectMovieList.movRunningTime}</td>
+							<td>${selectMovieList.movOpenDate}</td>
+							<td>${selectMovieList.movImgPath}</td>
+							<td>${selectMovieList.movStatus}</td>
+							<td>${selectMovieList.charKorName}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
