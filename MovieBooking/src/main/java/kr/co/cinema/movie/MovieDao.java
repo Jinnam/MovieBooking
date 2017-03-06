@@ -71,5 +71,11 @@ public class MovieDao {
 		logger.debug("selectListBoxOffice 박스오피스 리스트 가져오기");
 		return session.selectList(mapperNS+"selectListBoxOffice");		
 	}
+	
+	//홈화면 박스오피스 리스트 가져오기
+	public List<Map> selectListBoxOfficeHome(){
+		logger.debug("selectListBoxOfficeHome 박스오피스 리스트 가져오기");
+		return session.selectList(mapperNS+"selectListBoxOfficeHome");		
+	}	
 
 }

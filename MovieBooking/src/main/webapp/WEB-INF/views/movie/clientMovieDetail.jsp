@@ -149,7 +149,7 @@
               <div class="col s12">
                 <h3>스틸컷</h3>
                 <!-- 캐러셀 -->
-                	<div class="carousel white" style="z-index:1;">
+                	<div class="carousel" style="z-index:1;">
                 		<c:forEach var="stcImg" items="${stcImgList}"> 		            
 		                  <a class="carousel-item " href="#one!">
 		                  	<img class="materialboxed" src="${stcImg}">

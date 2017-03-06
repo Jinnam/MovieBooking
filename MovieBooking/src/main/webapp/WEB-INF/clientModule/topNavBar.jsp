@@ -50,7 +50,7 @@
 	          <div id="loginDropDown" style="width:100%; padding:15px 0;">
 	            <img src="resources/module-img/menu_login.png" style="width:100px;height:40px">
 	          </div>
-	          <div class="menu" style="width:350px ; position:absolute; left:-200px;">
+	          <div class="menu" style="width:350px ; position:absolute; left:-220px;">
 	            <form style="width:300px;margin: 10px 10px 10px 10px;" action="memberLogin" method="post" id="loginForm">
 	            	<%-- <c:if test="sessionScope.id ne null"> --%>
 	              <!-- 로그인 폼시작 -->
