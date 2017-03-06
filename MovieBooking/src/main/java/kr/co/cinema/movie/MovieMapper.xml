@@ -94,6 +94,44 @@
 			MOVIE.mov_code = #{movCode}	
 	</select>
 
+	<!-- 상영예정작 가져오기 -->
+	<select id="selectListExpected" resultType="map">
+		SELECT
+			MOVIE.mov_code as movCode,
+			MOVIE.mov_korName as movKorName,
+			MOVIE.mov_grade as movGrade,
+			MOVIE.mov_imgPath as movImgPath,
+			MOVIE.mov_openDate as movOpenDate,
+			MOVIE.mov_status as movStatus,
+			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum,2) as grade ,
+			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum/2) as starGrade
+		FROM
+			MOVIE LEFT JOIN GRADE ON GRADE.mov_code = MOVIE.mov_code
+		WHERE
+			MOVIE.mov_status ='상영예정'
+		ORDER BY 
+			movOpenDate DESC	
+	</select>
+	
+	<!-- 최신개봉작 가져오기 -->
+	<select id="selectListNewMovie" resultType="map">
+		SELECT
+			MOVIE.mov_code as movCode,
+			MOVIE.mov_korName as movKorName,
+			MOVIE.mov_grade as movGrade,
+			MOVIE.mov_imgPath as movImgPath,
+			MOVIE.mov_openDate as movOpenDate,
+			MOVIE.mov_status as movStatus,
+			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum,2) as grade ,
+			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum/2) as starGrade
+		FROM
+			MOVIE LEFT JOIN GRADE ON GRADE.mov_code = MOVIE.mov_code
+		WHERE
+			MOVIE.mov_status='상영중'
+		ORDER BY 
+			movOpenDate DESC	
+	</select>
+
 	<!-- 박스오피스 리스트 가져오기 -->
 	<select id="selectListBoxOffice" resultType="map">
 		SELECT
@@ -101,14 +139,18 @@
 			MOVIE.mov_korName as movKorName,
 			MOVIE.mov_grade as movGrade,
 			MOVIE.mov_imgPath as movImgPath,
+			MOVIE.mov_status as movStatus,
 			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum,2) as grade ,
 			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum/2) as starGrade,
 			ANALYSIS.anl_totalTicketCount as totalTicketCount	
 		FROM
 			MOVIE LEFT JOIN ANALYSIS ON ANALYSIS.mov_code = MOVIE.mov_code
 					LEFT JOIN GRADE ON GRADE.mov_code = MOVIE.mov_code
+		WHERE
+			MOVIE.mov_status='상영중'
 		ORDER BY 
 			ANALYSIS.anl_totalTicketCount DESC
 	</select>
+	
 	
 </mapper>

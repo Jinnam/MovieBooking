@@ -54,6 +54,18 @@ public class MovieDao {
 		return session.selectOne(mapperNS+"selectOneMovieInfo",movCode);		
 	}
 	
+	//상영예정 리스트 가져오기
+	public List<Map> selectListExpected(){
+		logger.debug("selectListExpected 상영예정 리스트 가져오기");
+		return session.selectList(mapperNS+"selectListExpected");		
+	}
+	
+	//최신개봉 리스트 가져오기
+	public List<Map> selectListNewMovie(){
+		logger.debug("selectListNewMovie 최신개봉 리스트 가져오기");
+		return session.selectList(mapperNS+"selectListNewMovie");		
+	}
+	
 	//박스오피스 리스트 가져오기
 	public List<Map> selectListBoxOffice(){
 		logger.debug("selectListBoxOffice 박스오피스 리스트 가져오기");

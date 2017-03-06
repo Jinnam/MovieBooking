@@ -140,7 +140,11 @@
 			 <!-- 차트1  -->
 			 <div class="col s6 card" id="chart_div2"></div>		 
 			 
-			 
+			 <div class="col s2"><h3>예고편</h3></div>
+			 <div class="col s8" style="text-algin:center;">			
+			 	${movie.movVideoPath}
+			 </div>
+			 <div class="col s2"></div>
               <!-- 스틸컷 이미지 -->
               <div class="col s12">
                 <h3>스틸컷</h3>
