@@ -24,36 +24,39 @@
 	
 	<!-- 결제 폼  -->
 	<form id="submitForm" action="payment" method="post">
-		<input type="hidden" name="paymentWay" id="paymentWay" />	<!-- 결제방법 -->
-		<input type="hidden" name="phone" value="${phone}"/>		<!-- 비회원 전화번호 -->
-		<input type="hidden" name="memId" value="${memId}"/>		<!-- 회원 아이디 -->
+		<input type="hidden" name="paymentWay" id="paymentWay" />		<!-- 결제방법 -->
+		<c:if test="${memId !=null }">
+			<input type="hidden" name="memId" value="${memId}"/>		<!-- 회원 아이디 -->
+		</c:if>
 		<input type="hidden" name="scsCode" 
-				value="${bookingSeatSelectDto.scsCode }"/>			<!-- 상영일정 코드 -->
+				value="${bookingSeatSelectDto.scsCode }"/>				<!-- 상영일정 코드 -->
 		<input type="hidden" name="pmtTicketNum" 
-				value="${bookingSeatSelectDto.personNum}"/>			<!-- 예매 인원 수 -->
+				value="${bookingSeatSelectDto.personNum}"/>				<!-- 예매 인원 수 -->
 		<input type="hidden" name="seatCode1" 
-				value="${bookingSeatSelectDto.seatCode1}"/>			<!-- 좌석번호1 -->
+				value="${bookingSeatSelectDto.seatCode1}"/>				<!-- 좌석번호1 -->
 		<input type="hidden" name="seatCode2" 
-				value="${bookingSeatSelectDto.seatCode2}"/>			<!-- 좌석번호2 -->
+				value="${bookingSeatSelectDto.seatCode2}"/>				<!-- 좌석번호2 -->
 		<input type="hidden" name="seatCode3" 
-				value="${bookingSeatSelectDto.seatCode3}"/>			<!-- 좌석번호3 -->
+				value="${bookingSeatSelectDto.seatCode3}"/>				<!-- 좌석번호3 -->
 		<input type="hidden" name="seatCode4" 
-				value="${bookingSeatSelectDto.seatCode4}"/>			<!-- 좌석번호4 -->
-		<input type="hidden" name="pmtPrice" id="pmtPrice"/>		<!-- 결제금액 -->
-		<input type="hidden" name="useMileage" id="finalMileage"/>	<!-- 사용마일리지 -->
-		<c:if test="${bookingInfo.scsTimeDiscount=='조조'}">			<!-- 할인코드 : 조조일때 -->
+				value="${bookingSeatSelectDto.seatCode4}"/>				<!-- 좌석번호4 -->
+		<input type="hidden" name="pmtPrice" id="pmtPrice"/>			<!-- 결제금액 -->
+		<c:if test="${memId !=null }">
+			<input type="hidden" name="useMileage" id="finalMileage"/>	<!-- 사용마일리지 -->
+		</c:if>
+		<c:if test="${bookingInfo.scsTimeDiscount=='조조'}">				<!-- 할인코드 : 조조일때 -->
 			<input type="hidden" name="dcinfCode" 
 					value="${bookingInfo.dcinfCode}"/>
 		</c:if>
-		<c:if test="${bookingInfo.scsTimeDiscount=='심야'}">			<!-- 할인코드 : 심야일때 -->
-			<input type="hidden" name="dcinfCode" 
+		<c:if test="${bookingInfo.scsTimeDiscount=='심야'}">				<!-- 할인코드 : 심야일때 -->
+			<input type="hidden" name="dcinfCode" 	
 					value="${bookingInfo.dcinfCode}"/>
 		</c:if>
-		<c:if test="${bookingInfo.scsTimeDiscount=='일반'}">			<!-- 할인코드 : 일반일때 -->
+		<c:if test="${bookingInfo.scsTimeDiscount=='일반'}">				<!-- 할인코드 : 일반일때 -->
 			<input type="hidden" name="dcinfCode" id="dcinfCode"/>
 		</c:if>
 		<input type="hidden" name="sccoCode" 
-				value="${bookingInfo.sccoCode }"/>					<!-- 상영 단가 코드 -->
+				value="${bookingInfo.sccoCode }"/>						<!-- 상영 단가 코드 -->
 		
 	</form>
 	<!-- 결제 폼 끝 -->

@@ -205,20 +205,36 @@ public class PaymentService {
 		 int pmtTicketNum=-(int) payment.get("pmtTicketNum");	// 결제 한 인원
 		 int pmtPrice = -(int) payment.get("pmtPrice");			// 결제 한 금액
 		 
+		 // payment 상태 업데이트
+		 updatePaymentStatus(pmtCode);
+		 
 		 // 마일리지 정보 업데이트
 		 updateMileageInfo(memId, pmtPrice, pmtCode);
 		 
 		 // 회원 마일리지 업데이트
 		 updateMileage(memId);
 		 
+		// 좌석 정보 업데이트
+		 updateSeatInfo(pmtCode);
+				 
 		 // 통계 업데이트
 		 updateAnalysis(memId, nmemCode, pmtTicketNum, pmtPrice, scsCode);
 		 
-		 // 좌석 정보 업데이트
-		 updateSeatInfo(pmtCode);
+		 // 지점별 예매.매출 업데이트
+		 updateBranchDayCount(scsCode, pmtTicketNum, pmtPrice);
 		 return 0;
 	 }
 
+	 // payment 상태 업데이트
+	 public int updatePaymentStatus(String pmtCode){
+		 logger.debug("		updatePaymentStatus pmtCode : "+pmtCode);
+		 Map<String, String> map = new HashMap<String, String>();
+		 map.put("pmtStatus", "취소");
+		 map.put("pmtCode", pmtCode);
+		 
+		 return paymentDao.updatePaymentStatus(map);
+	 }
+	 
 	 // 마일리지 내역 등록(취소)
 	 public int updateMileageInfo(String memId, int pmtPrice, String pmtCode){
 		 logger.debug("		updateMileageInfo memId : "+memId
@@ -273,7 +289,7 @@ public class PaymentService {
 			String gender = "";		// 성별 변수 초기화
 			String birth="";		// 생년월일 변수 초기화
 			
-			if(nmemCode == "회원"){						// 회원 일때
+			if(nmemCode.equals("회원")){						// 회원 일때
 				System.out.println("회원쪽 진입");
 				Map<String, Object> memberMap = paymentDao.selectOneMemInfo(memId);		// 회원 아이디로 회원정보 가져오기
 				logger.debug("	updateAnalysis memberMap : "+memberMap);
@@ -288,12 +304,12 @@ public class PaymentService {
 				case "남" :
 					analysis.setAnlManTicketCount(pmtTicketNum);
 					analysis.setAnlTotalTicketCount(pmtTicketNum);			// 전체 예매 수
-					analysis.setAnlAcSales(pmtPrice);					// 누적 매출액
+					analysis.setAnlAcSales(pmtPrice);						// 누적 매출액
 					break;
 				case "여" :
 					analysis.setAnlWomanTicketCount(pmtTicketNum);
 					analysis.setAnlTotalTicketCount(pmtTicketNum);			// 전체 예매 수
-					analysis.setAnlAcSales(pmtPrice);					// 누적 매출액
+					analysis.setAnlAcSales(pmtPrice);						// 누적 매출액
 					break;
 				default :
 					break;
@@ -341,7 +357,6 @@ public class PaymentService {
 			logger.debug("updateAnalysis db로 갈"+analysis);
 			return paymentDao.updateAnalysis(analysis);
 	 }
-	 
 	 
 	 
 		// ************* 예매 -> 결제 화면*************

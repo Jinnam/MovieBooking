@@ -38,7 +38,8 @@ public class PaymentController {
 	 	String getSessionPhone = (String) session.getAttribute("phone");		// 세션에서 전화번호 가져오기
 	 	
 		// ***세션에 전화번호가 있는지 없는지 확인 후 결제페이지or 비회원 확인 페이지 이동***
-		if(getSessionPhone != ""){
+		if(getSessionPhone != null){	// 회원
+			logger.debug(" payment get 회원 진입");
 			model.addAttribute("bookingSeatSelectDto",bookingSeatSelectDto);	// 예매에서 넘어온 정보
 			
 			// session 정보 가져오기
@@ -75,8 +76,13 @@ public class PaymentController {
 			model.addAttribute("bookingInfo",bookingInfo);
 			
 			resultPage="payment/payment";
-		}else{
-			resultPage="movieMain";
+		}
+		
+		//비회원은 <로그인/비회원결제> 선택 페이지 이동
+		else{
+			logger.debug(" payment get 비회원 진입");
+			model.addAttribute("bookingSeatSelectDto",bookingSeatSelectDto);
+			resultPage="login/memberLogin";
 		}
 			
 		return resultPage;
@@ -89,6 +95,7 @@ public class PaymentController {
 		
 		String id = (String) session.getAttribute("id");							// 세션에 있는 id값을 가져옴
 		String phone = (String) session.getAttribute("phone");						// 세션에 있는 전화번호를 가져옴
+		System.out.println("세션 아이디 : "+id+"  세션 전화번호 : "+phone);
 		if(id != null){
 			payment.setMemId(id);
 			payment.setNmemCode("회원");
@@ -118,6 +125,6 @@ public class PaymentController {
 	
 		paymentService.updateCancelPayment(pmtCode);
 		
-		return "movieMain";
+		return "redirect:movieMain";
 	}
 }

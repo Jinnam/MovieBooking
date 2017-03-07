@@ -5,6 +5,15 @@
   
 <mapper namespace="kr.co.cinema.payment.PaymentMapper">
 
+	<!-- payment 상태 업데이트 -->
+	<update id="updatePaymentStatus" parameterType="Map">
+		UPDATE 
+			PAYMENT
+		SET
+			pmt_status=#{pmtStatus}
+		WHERE
+			pmt_code=#{pmtCode}
+	</update>
 
 	<!-- 지점별 일일예매 / 매출 등록 -->
 	<update id="updateBrcDayCount" parameterType="kr.co.cinema.dto.BranchAndBranchDayCount">

@@ -28,6 +28,12 @@ public class PaymentDao {
 	
 	//************** 결제 취소  **************
 	
+	// payment 상태 업데이트
+	public int updatePaymentStatus(Map<String, String> map){
+		logger.debug("		updatePaymentStatus() 진입 map : "+map);
+		return sqlSession.update(NS+"updatePaymentStatus",map);
+	}
+	
 	// 결제정보 가져오기
 	public Map<String, Object> selectOnePaymentInfo(String pmtCode){
 		logger.debug("		selectOnePaymentInfo() 진입 pmtCode : "+pmtCode);
