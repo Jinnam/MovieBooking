@@ -48,18 +48,6 @@ public class BookingDao {
 		return session.selectOne(mapperNS+"selectOneScreenSchedule",scsCode);		
 	}	
 	
-	//ajax 영화 선택시 지점 가져오기
-	public List<ScreenSchedule> SelectListBookingCheckMovie(BookingSelectDto bookingSelect){
-		logger.debug("SelectListBookingCheckMovie 영화 조건 가져오기");
-		return session.selectList(mapperNS+"SelectListBookingCheckMovie",bookingSelect);		
-	}	
-	
-	//ajax 영화+지점+날짜에 맞는 상영일정 가져오기
-	public List<ScreenSchedule> SelectListScreenInfo(BookingSelectDto bookingSelect){
-		logger.debug("SelectListScreenInfo 영화+지점+날짜에 맞는 상영일정 가져오기");
-		return session.selectList(mapperNS+"SelectListScreenInfo",bookingSelect);		
-	}
-	
 	//영화 예매페이지에서 나타낼 현재 상영중인 영화가 있는 날짜 조회
 	public List<String> selectListDate(){
 		logger.debug("selectListDate 상영중인날짜리스트조회");		
@@ -76,5 +64,28 @@ public class BookingDao {
 	public List<Branch> selectListBranch(){
 		logger.debug("selectListDate 상영중인지점리스트조회");		
 		return session.selectList(mapperNS+"selectListBranch");
-	}	
+	}
+	
+	//---------------------------------------- ajax -------------------------------------------------------
+	
+		//ajax 조건 1 영화 선택시 지점 가져오기
+		public List<Map> SelectListBranchCheckMovie(BookingSelectDto bookingSelect){
+			logger.debug("SelectListBranchCheckMovie 영화 조건 1 영화 선택시 지점 가져오기");
+			return session.selectList(mapperNS+"SelectListBranchCheckMovie",bookingSelect);		
+		}
+		
+		//ajax 조건 1 영화 선택시 날짜 가져오기
+		public List<Map> SelectListDateCheckMovie(BookingSelectDto bookingSelect){
+			logger.debug("SelectListDateCheckMovie 영화 조건 1 영화 선택시 지점 가져오기");
+			return session.selectList(mapperNS+"SelectListDateCheckMovie",bookingSelect);		
+		}		
+		
+		//ajax 영화+지점+날짜에 맞는 상영일정 가져오기
+		public List<ScreenSchedule> SelectListScreenInfo(BookingSelectDto bookingSelect){
+			logger.debug("SelectListScreenInfo 영화+지점+날짜에 맞는 상영일정 가져오기");
+			return session.selectList(mapperNS+"SelectListScreenInfo",bookingSelect);		
+		}
+		
+	//---------------------------------------- ajax -------------------------------------------------------	
+		
 }		

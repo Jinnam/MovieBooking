@@ -80,19 +80,30 @@
 		SCREEN_SCHEDULE.scs_code=#{scsCode};
   </select>
   
-    <!-- ajax 영화 조건 가져오기 -->
-  <select id="SelectListBookingInfo" resultType="kr.co.cinema.dto.ScreenSchedule" parameterType="kr.co.cinema.dto.Movie">
-	SELECT 
-		SCREEN_SCHEDULE.scs_code as scsCode,
-		SCREEN_SCHEDULE.scs_startTime as scsStartTime,
-		SCREEN_SCHEDULE.scs_timeDiscount as scsTimeDiscount
+  <!-- 조건 1 영화 선택시 지점 가져오기 -->
+  <select id="SelectListBranchCheckMovie" resultType="kr.co.cinema.dto.ScreenSchedule" parameterType="map">
+	SELECT
+		SCREEN_SCHEDULE.brc_code as brcCode,
+		(SELECT BRANCH.brc_name FROM BRANCH WHERE BRANCH.brc_code = SCREEN_SCHEDULE.brc_code) as brcName
 	FROM
 		SCREEN_SCHEDULE
 	WHERE
-		SCREEN_SCHEDULE.mov_code = #{movCode} &amp;&amp; 
-		SCREEN_SCHEDULE.brc_code = #{brcCode} &amp;&amp; 
-		SCREEN_SCHEDULE.scs_date = #{Date};
+		SCREEN_SCHEDULE.mov_code=2100001
+	GROUP BY
+		brcCode
   </select>
+  
+  <!-- ajax 조건 1 영화 선택시 날짜 가져오기 -->
+  <select id="SelectListDateCheckMovie" resultType="kr.co.cinema.dto.ScreenSchedule" parameterType="map">
+	SELECT
+		SCREEN_SCHEDULE.scs_date as scsDate
+	FROM
+		SCREEN_SCHEDULE
+	WHERE
+		SCREEN_SCHEDULE.mov_code=2100001
+	GROUP BY
+		scsDate
+  </select>  
 
   <!-- ajax 영화+지점+날짜에 맞는 상영일정 가져오기 -->
   <select id="SelectListScreenInfo" resultType="kr.co.cinema.dto.ScreenSchedule" parameterType="kr.co.cinema.dto.Movie">

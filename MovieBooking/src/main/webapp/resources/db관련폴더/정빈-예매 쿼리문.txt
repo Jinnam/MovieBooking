@@ -3,12 +3,10 @@
 
 // 조건 1 영화선택시 지점 + 날짜 가져오기
 
+지점
 SELECT
-	SCREEN_SCHEDULE.mov_code as movCode,
-	(SELECT MOVIE.mov_korName FROM MOVIE WHERE MOVIE.mov_code=SCREEN_SCHEDULE.mov_code) as movKorName,
 	SCREEN_SCHEDULE.brc_code as brcCode,
-	(SELECT BRANCH.brc_name FROM BRANCH WHERE BRANCH.brc_code = SCREEN_SCHEDULE.brc_code) as brcName,
-	SCREEN_SCHEDULE.scs_date as scsDate
+	(SELECT BRANCH.brc_name FROM BRANCH WHERE BRANCH.brc_code = SCREEN_SCHEDULE.brc_code) as brcName
 FROM
 	SCREEN_SCHEDULE
 WHERE
@@ -16,12 +14,8 @@ WHERE
 GROUP BY
 	brcCode
 
-	
+날짜	
 SELECT
-	SCREEN_SCHEDULE.mov_code as movCode,
-	(SELECT MOVIE.mov_korName FROM MOVIE WHERE MOVIE.mov_code=SCREEN_SCHEDULE.mov_code) as movKorName,
-	SCREEN_SCHEDULE.brc_code as brcCode,
-	(SELECT BRANCH.brc_name FROM BRANCH WHERE BRANCH.brc_code = SCREEN_SCHEDULE.brc_code) as brcName,
 	SCREEN_SCHEDULE.scs_date as scsDate
 FROM
 	SCREEN_SCHEDULE
