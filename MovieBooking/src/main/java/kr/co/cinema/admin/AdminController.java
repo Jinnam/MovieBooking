@@ -53,11 +53,11 @@ public class AdminController {
 		List<BranchDayCount> selectMonthBranchCount = adminService.selectMonthBranchCount();
 		model.addAttribute("selectMonthBranchCount", selectMonthBranchCount);
 		//집에서 log4j안됨 일단 이렇게 출력 log4j바꿀것 //System.out.println //logger.debug
-		System.out.println("컨트롤러 바그래프 :"+selectBranchForBarGraph);
-		System.out.println("컨트롤러 우측하단표 : " + selectClientCount);
-		System.out.println("컨트롤러 선그래프 매출 총 합계 : "+selectBranchCount);
-		System.out.println("컨트롤러 선그래프 매출 월 합계 : "+selectMonthBranchCount);
-		System.out.println("컨트롤러 원그래프 매출 월 합계 : "+MovieCodeForCircleGraph);
+		logger.debug("컨트롤러 바그래프 :"+selectBranchForBarGraph);
+		logger.debug("컨트롤러 우측하단표 : " + selectClientCount);
+		logger.debug("컨트롤러 선그래프 매출 총 합계 : "+selectBranchCount);
+		logger.debug("컨트롤러 선그래프 매출 월 합계 : "+selectMonthBranchCount);
+		logger.debug("컨트롤러 원그래프 매출 월 합계 : "+MovieCodeForCircleGraph);
 		return "admin/adminMain";
 	}
 	
@@ -201,26 +201,32 @@ public class AdminController {
 	영화 관리 메서드
 	************************************************************************************************************/	
 
-	//영화등록 페이지이동
+	//영화 등록 : 페이지이동
 	@RequestMapping(value="movieInsert", method=RequestMethod.GET)
 	public String insertMovieView() {
 		logger.debug(" Controller insertMovieView get실행");
 		return "management/movieInsert";
 	}
 	
-	//영화 등록 : 모달을 사용해서 인물이름으로 등록할 감독코드와 감독이름 조회 아직 미구현
+	//영화 등록 : 모달을 사용해서 인물이름으로 등록할 감독코드와 감독정보 조회
 	@RequestMapping(value="selectCharcodeUseModal", method=RequestMethod.POST)
-	public List<Character> selectCharCodeForAddMovie() {
+	public @ResponseBody List<Character> selectCharCodeForAddMovie(@RequestParam("charKorName")String charKorName) {
 		logger.debug(" Controller selectCharCodeForAddMovie post실행");
-		List<Character> selectCharCodeForAddMovie = adminService.selectCharCodeForAddMovie();
-		//꼭지울것 확인용!
-		System.out.println(selectCharCodeForAddMovie);
-		//꼭지울것 확인용!
+		List<Character> selectCharCodeForAddMovie = adminService.selectCharCodeForAddMovie(charKorName);
+		logger.debug(selectCharCodeForAddMovie.toString());
 		return selectCharCodeForAddMovie;
 	}
 	
+	//영화 등록 : 모달에서 조회한 인물정보중 인물 코드로 폼에 넣을 선택한 인물코드조회//수정중
+	@RequestMapping(value="choiceCharCode", method=RequestMethod.POST)
+	public @ResponseBody String choiceCharCode() {
+		logger.debug(" Controller choiceCharCode post실행");
+		String choiceCharCode = adminService.choiceCharCode();
+		return choiceCharCode;
+	}
+	
 	//관리자 영화 등록전 감독이름으로 감독 코드 조회하기 리스트형식 아니라 하나의 코드만 조회
-	@RequestMapping(value="selectCharcode", method=RequestMethod.POST)
+	@RequestMapping(value="selectCharCode", method=RequestMethod.POST)
 	public @ResponseBody String selectCharcodeForInsertMovie(@RequestParam("charKorName")String charKorName) {
 		logger.debug(" Controller selectCharcodeForInsertMovie post실행");
 		String selectCharCodeForInsertMovie = adminService.selectCharCodeForInsertMovie(charKorName);

@@ -136,9 +136,15 @@ public class AdminDao {
 	}
 	
 	//관리자 영화 등록 : 모달을 사용해서 인물이름으로 등록할 감독코드와 감독이름 조회
-	public List<Character> selectCharCodeForAddMovie() {
+	public List<Character> selectCharCodeForAddMovie(String charKorName) {
 		logger.debug(" Dao selectCharCodeForAddMovie");
-		return sqlSession.selectList(NS+"selectCharCodeForAddMovie");
+		return sqlSession.selectList(NS+"selectCharCodeForAddMovie", charKorName);
+	}
+	
+	//영화 등록 : 모달에서 조회한 인물정보중 인물 코드로 폼에 넣을 선택한 인물코드조회
+	public String choiceCharCode() {
+		logger.debug(" Dao choiceCharCode");
+		return sqlSession.selectOne(NS+"choiceCharCode");
 	}
 	
 	//영화등록
@@ -196,6 +202,7 @@ public class AdminDao {
 		logger.debug(" Dao selectMovieCodeForCircleGraph");
 		return sqlSession.selectList(NS+"selectMovieCodeForCircleGraph");
 	}
+	
 
 	
 

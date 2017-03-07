@@ -60,7 +60,7 @@
 			<tr>
 				<td colspan="2" align="right">
 					<input class="btn blue darken-4" type="button" value="로그인" id="btnLogin"/>
-					<a href="비회원 예매 페이지">비회원 예매</a>
+					<div class="btn" id="nmemBooking">비회원 예매</div> 
 				</td>
 			</tr>
 		</table>
@@ -68,6 +68,14 @@
 
 </div>
 <script>
+$(document).ready(function(){
+	$('#nmemBooking').click(function(){
+		console.log("클릭되나?");
+		$('#paymentForm').attr({action:'nonMemberInsert', method:'get'}).submit();
+	})
+})
+
+
 
 $(document).on('click','#btnLogin',function(){
 	console.log("아이디 비번 체크");
@@ -82,7 +90,7 @@ $(document).on('click','#btnLogin',function(){
 	          }else{ 
 	            alert("로그인 성공");	
 	            $('#paymentForm').submit();
-	         } 
+	         }
 	      },error:function(){
 	          alert("error");
 	       }

@@ -88,6 +88,16 @@
           <tr>
                <td><p>비밀번호<p><input type="password" id = "nmemPw" name = "nmemPw" style ="width:200px"></td>
           </tr>
+          <tr>
+          	<td>
+          		<input type="hidden" name="scsCode" value="${bookingSeatSelectDto.scsCode}"/>
+				<input type="hidden" name="personNum" value="${bookingSeatSelectDto.personNum}"/>
+				<input type="hidden" name="seatCode1" value="${bookingSeatSelectDto.seatCode1}"/>
+				<input type="hidden" name="seatCode2" value="${bookingSeatSelectDto.seatCode2}"/>
+				<input type="hidden" name="seatCode3" value="${bookingSeatSelectDto.seatCode3}"/>
+				<input type="hidden" name="seatCode4" value="${bookingSeatSelectDto.seatCode4}"/>
+          	</td>
+          </tr>
       </table>
       <br><br>
       <div align="right">

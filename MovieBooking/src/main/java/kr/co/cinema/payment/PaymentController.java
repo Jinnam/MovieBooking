@@ -103,6 +103,7 @@ public class PaymentController {
 			String nmemCode = paymentService.searchOneNmemCode(phone);
 			payment.setNmemCode(nmemCode);
 			payment.setMemId("비회원");
+			session.invalidate();								// 비회원 세션 만료
 		}
 		String[] seatCode = new String[4];						// seatCode를 배열에 넣기 위해 4개의 배열 생성
 		seatCode[0] = payment.getSeatCode1();					// 첫번재 배열에 첫번째 좌석코드 셋팅
@@ -114,6 +115,7 @@ public class PaymentController {
 		paymentService.insertPayment(payment);					// 결제 등록		
 		
 		model.addAttribute("payment",payment);					// 결제 결과 보여주기 위한 정보를 model에 올림
+		
 		return "payment/paymentResult";
 	}
 	
