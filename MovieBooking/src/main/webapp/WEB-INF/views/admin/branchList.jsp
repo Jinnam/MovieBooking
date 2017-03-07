@@ -132,11 +132,14 @@
 					</a>
 					<ul class="sub">
 						<li>
-							<a href="costInsert">단가 등록</a>
+							<a href="costList">단가 목록</a>
 						</li>
 						<li>
-							<a href="costModify">단가 조회</a>
+							<a href="costInsert">단가 등록</a>
 						</li>
+						<!-- <li>
+							<a href="costModify">단가 수정</a>
+						</li> -->
 					</ul>
 				</li>
 				<!-- 극장 -->

@@ -421,7 +421,12 @@ public class AdminController {
 		adminService.insertCost(screenCost);
 		return "redirect:costInsert";
 	}
-	
+	//단가등록 : 페이지이동
+	@RequestMapping(value="costList", method=RequestMethod.GET)
+	public String selectCostList() {
+		logger.debug(" Controller insertCost get실행");
+		return "management/costList";
+	}
 	//단가수정 : 페이지이동
 	@RequestMapping(value="costModify", method=RequestMethod.GET)
 	public String updateCost() {
