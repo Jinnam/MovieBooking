@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Mileage;
+import kr.co.cinema.dto.Movie;
 import kr.co.cinema.dto.NonMember;
 import kr.co.cinema.dto.ScreenSchedule;
 
@@ -24,6 +25,20 @@ public class MemberDao {
 	private SqlSessionTemplate sqlSessionTemplate;
 	private final String Member_NS = "kr.co.cinema.member.MemberMapper.";
 	
+	//회원 탈퇴 비밀번호 중복 체크
+	public String selectMemberOverLapDelete(String memId){
+		logger.debug("탈퇴 비밀번호 중복확인 dao : " + memId);
+		return sqlSessionTemplate.selectOne(Member_NS + "selectMemberDelete", memId);
+	}
+	
+	//공사중
+	public List<Movie> selectMovieName(String memId){
+		logger.debug("영화명 dao" + memId);
+		return sqlSessionTemplate.selectList(Member_NS + "selectMovieName", memId);
+		
+	}
+	
+	//마이페이지 회원의 예매(상영날짜) 가져오기 select
 	public List<ScreenSchedule> selectPayment(String memId){
 		logger.debug("상영일자 dao" + memId);
 		return sqlSessionTemplate.selectList(Member_NS + "selectPayment", memId);
@@ -37,9 +52,15 @@ public class MemberDao {
 	}
 	//마이페이지 회원의 마일리지 가져오기 종료
 	
-	//한 회원 개인정보 가져오기  시작 미완성ㄴ
-	public String selectOneMemberModify(String memId){
-		logger.debug("한 회원 개인정보 가져오기 dao" + memId);
+	//마이페이지 회원 개인정보 수정하기
+	public int modifyMemberUpdate(String memId){
+		logger.debug("회원 수정 dao : " + memId);
+		return sqlSessionTemplate.update(Member_NS + "modifyMemberUpdate", memId);
+	}
+	
+	//한 회원 개인정보 가져오기  시작 
+	public Member selectOneMemberModify(String memId){
+		logger.debug("한 회원 개인정보 가져오기 dao :" + memId);
 		return sqlSessionTemplate.selectOne(Member_NS + "selectOneMemberModify", memId);
 	}
 	//한 회원 개인정보 가져오기  종료

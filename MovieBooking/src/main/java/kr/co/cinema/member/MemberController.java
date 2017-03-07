@@ -29,15 +29,42 @@ public class MemberController {
 	
 	
 	
-	//회원 개인정보 수정 form
-	@RequestMapping(value="/memberModify", method=RequestMethod.GET)
-	public String selectMemberModify(){
-		return "member/memberModify";
+	
+	//마이페이지 회원 탈퇴 form
+	@RequestMapping(value="/memberDelete", method=RequestMethod.GET)
+	public String selectMemberDelete(){
+		return "member/memberDelete";
 	}
 	
-	//회원 개인정보 영화 예매 form
-	@RequestMapping(value="/bookedMovieList", method=RequestMethod.GET)
+	//회원 개인정보 수정 action 미완성
+	@RequestMapping(value="/memberModify", method=RequestMethod.POST)
+	public String uadatetMemberModify(Model model, HttpSession session){
+		String memId = (String) session.getAttribute("id");
+		model.addAttribute("updateMembers", memberService.removeMember(memId));
+		logger.debug(model.toString());
+		return "movieMain";
+	}
+	
+	//회원 개인정보 수정 form
+	@RequestMapping(value="/memberModify", method=RequestMethod.GET)
+	public String removeMember(Model model, HttpSession session){
+		String memId = (String) session.getAttribute("id");
+		model.addAttribute("memberModify", memberService.findOneMemberModify(memId));
+		logger.debug(model.toString());
+		return "member/memberModify";
+	}
+	//회원 영화 예매 리스트 미완성
+	@RequestMapping(value="/bookedMovieLists", method=RequestMethod.GET)
 	public String selectBookedMovieList(Model model, HttpSession session){
+		String memId = (String) session.getAttribute("id");
+		model.addAttribute("dayMovie", memberService.findListMemberMovieName(memId));
+		logger.debug(model.toString());
+		return "member/bookedMovieList";
+	}
+	
+	//회원 개인정보 영화 예매(상영날짜)
+	@RequestMapping(value="/bookedMovieList", method=RequestMethod.GET)
+	public String selectBookedDayList(Model model, HttpSession session){
 		String memId = (String) session.getAttribute("id");
 		model.addAttribute("datePayment", memberService.findListMemberPayment(memId));
 		logger.debug(model.toString());
@@ -53,7 +80,7 @@ public class MemberController {
 		return "member/mileageList";
 	}
 	
-	//회원 개인정보 페이지 index form
+	//회원 개인정보 페이지  form 할지 안할지 결정해야함
 	@RequestMapping(value="/memberDetail", method=RequestMethod.GET)
 	public String selectMemberDetail(){
 		return "member/memberDetail";

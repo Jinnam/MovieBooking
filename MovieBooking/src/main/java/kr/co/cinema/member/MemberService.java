@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import kr.co.cinema.HomeService;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Mileage;
+import kr.co.cinema.dto.Movie;
 import kr.co.cinema.dto.NonMember;
 import kr.co.cinema.dto.ScreenSchedule;
 @Service
@@ -25,6 +26,19 @@ public class MemberService {
 	@Autowired
 	private HomeService homeService;
 		
+	//회원 탈퇴 비밀번호 중복 체크
+		public String findOneSelectMemberDeleteOverLap(String memId){
+			logger.debug("회원탈퇴 중복확인 service : " + memId);
+			return memberdao.selectMemeberOverlap(memId);
+	}
+	
+	//공사중
+	public List<Movie> findListMemberMovieName(String memId){
+		logger.debug("영화명 service" + memId);
+		return memberdao.selectMovieName(memId);
+	}
+	
+	//마이페이지 회원의 예매(상영날짜) 가져오기 select
 	public List<ScreenSchedule> findListMemberPayment(String memId){
 		logger.debug("상영일자 service" + memId);
 		return memberdao.selectPayment(memId);
@@ -37,10 +51,16 @@ public class MemberService {
 	}
 	//마이페이지 회원의 마일리지 가져오기 종료
 	
+	//마이페이지 회원 개인정보 수정하기
+	public int removeMember(String memId){
+		logger.debug("회원 update service : " + memId);
+		return memberdao.modifyMemberUpdate(memId);
+	}
+	
 	//한 회원 개인정보 가져오기 select 시작
-	public String findOneMemberModify(String memId){
-		logger.debug("한 회원 개인정보 service" + memId);
-		return memberdao.selectMemeberOverlap(memId);
+	public Member findOneMemberModify(String memId){
+		logger.debug("한 회원 개인정보 service : " + memId);
+		return memberdao.selectOneMemberModify(memId);
 	}
 	//한 회원 개인정보 가져오기 select 종료
 	

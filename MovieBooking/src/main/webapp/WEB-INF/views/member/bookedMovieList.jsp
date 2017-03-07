@@ -47,18 +47,28 @@
 			</tr>
 			</thead>
 			<tbody>	
-			<c:forEach items="${datePayment}" var="b">
 			
+		<!-- 	//공사중 -->
 			<tr>
-			
 				<td></td>
-				<td>2</td>
+				
+				<c:forEach items="${dayMovie}" var="c">
+				<td>${c.dayMovie}</td>
+				</c:forEach>
+				
 				<td>3</td>
+				
+				<c:forEach items="${datePayment}" var="b">
 				<td>${b.scsDate}</td>
+				</c:forEach>
+				
 				<td>2</td>
+				
 				<td><a href="">취소</a></td>
+				
 			</tr>
-			</c:forEach>
+			
+			
 			</tbody>
 			
 		
