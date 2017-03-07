@@ -27,10 +27,16 @@ public class BookingController {
 	@Autowired
 	BookingDao bookingDao;
 	
-
+	//AJAX 영화 조건선택
+	@RequestMapping(value = "/searchListBookingSelect", method = RequestMethod.GET)
+	public @ResponseBody Map<String,Object> searchListBookingSelect(BookingSelectDto bookingSelect) {	
+		logger.debug("searchListBookingSelect 영화 조건선택 ");
+		bookingService.searchListBookingSelect(bookingSelect);
+		return null;
+	}	
 	
-	//AJAX 영화 상영 일정 가져오기
-	@RequestMapping(value = "/searchListScreenInfo", method = RequestMethod.POST)
+	//AJAX 영화 조건선택 3개 상영 일정 가져오기
+	@RequestMapping(value = "/searchListScreenInfo", method = RequestMethod.GET)
 	public @ResponseBody List<ScreenSchedule> searchListScreenInfo(BookingSelectDto bookingSelect) {	
 		logger.debug("searchListScreenInfo 영화 상영일정 가져오기");
 		return bookingDao.SelectListScreenInfo(bookingSelect);

@@ -26,22 +26,22 @@
 		
 			<!-- 영화코드 -->
 			<div class="col s3">
-				<input type="text" id="movCode" name="movCode">
+				<input type="text" id="movCode" name="movCode" value="0">
 			</div>
 			
 			<!-- 지점코드 -->
 			<div class="col s3">
-				<input type="text" id="brcCode" name="brcCode">
+				<input type="text" id="brcCode" name="brcCode" value="0">
 			</div>
 			
 			<!-- 날짜 -->
 			<div class="col s3">
-				<input type="text" id="Date" name="Date">
+				<input type="text" id="Date" name="Date" value="">
 			</div>
 			
 			<!-- 상영정보 코드 -->
 			<div class="col s3">
-				<input type="text" id="scsCode" name="scsCode">			
+				<input type="text" id="scsCode" name="scsCode" value="">			
 			</div>
 			
 		</form>
@@ -94,7 +94,7 @@
         <div style="height:450px ; overflow:auto;">
          
         	<c:forEach var="movie" items="${movie}">
-	        	<div class="scMovie selectorDiv waves-effect">
+	        	<div class="scSelector scMovie selectorDiv waves-effect">
 		        	<div value="${movie.movCode}" style="display:inline-block;" >
 		        		<i class="grade16_${movie.movGrade}" style="position:relative;top:2px;"></i>
 		        		<div style="display:inline-block">${movie.movKorName}</div>
@@ -111,7 +111,7 @@
         </div>
         <div style="height:450px ; overflow:auto;">
         	<c:forEach var="branch" items="${branch}">
-	        	<div class="scBranch selectorDiv waves-effect">
+	        	<div class="scSelector scBranch selectorDiv waves-effect">
 		        	<span value="${branch.brcCode}">${branch.brcName}</span>
 	        	</div>        	
         	</c:forEach>         
@@ -125,7 +125,7 @@
         </div>
         <div style="height:450px ; overflow:auto;">
         	<c:forEach var="date" items="${date}">
-	        	<div class="scDate selectorDiv waves-effect">
+	        	<div class="scSelector scDate selectorDiv waves-effect">
 		        	<span >${date}</span>
 	        	</div>        	
         	</c:forEach>       	

@@ -48,6 +48,12 @@ public class BookingDao {
 		return session.selectOne(mapperNS+"selectOneScreenSchedule",scsCode);		
 	}	
 	
+	//ajax 영화 선택시 지점 가져오기
+	public List<ScreenSchedule> SelectListBookingCheckMovie(BookingSelectDto bookingSelect){
+		logger.debug("SelectListBookingCheckMovie 영화 조건 가져오기");
+		return session.selectList(mapperNS+"SelectListBookingCheckMovie",bookingSelect);		
+	}	
+	
 	//ajax 영화+지점+날짜에 맞는 상영일정 가져오기
 	public List<ScreenSchedule> SelectListScreenInfo(BookingSelectDto bookingSelect){
 		logger.debug("SelectListScreenInfo 영화+지점+날짜에 맞는 상영일정 가져오기");

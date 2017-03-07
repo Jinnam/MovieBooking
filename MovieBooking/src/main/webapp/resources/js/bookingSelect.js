@@ -15,7 +15,7 @@
 			//모든 선택이 완료된 경우
 			if($('#movCode').val()!='' && $('#brcCode').val()!='' && $('#Date').val()!='')
 			{
-				importSC(); //상영 시간 가져오는 함수
+				selectAll(); //상영 시간 가져오는 함수
 				return;
 			}						
 		});		
@@ -31,7 +31,7 @@
 			//모든 선택이 완료된 경우
 			if($('#movCode').val()!='' && $('#brcCode').val()!='' && $('#Date').val()!='')
 			{
-				importSC(); //상영 시간 가져오는 함수
+				selectAll(); //상영 시간 가져오는 함수
 				return;
 			}				
 		});	
@@ -47,7 +47,7 @@
 			//모든 선택이 완료된 경우
 			if($('#movCode').val()!='' && $('#brcCode').val()!='' && $('#Date').val()!='')
 			{
-				importSC(); //상영 시간 가져오는 함수
+				selectAll(); //상영 시간 가져오는 함수
 				return;
 			}					
 		});	
@@ -62,52 +62,34 @@
 			$("#selectScreen").text($(this).children().text());						//값변경			
 			$("#scsCode").val($(this).children().attr('value'));
 		});			
+		
+		//선택 블록 선택시에 영화 / 지점 / 날짜 가져오기
+		$(document).on('click','.scSelector',function(){
+			selectOne();
+		});
 											
 
-	
-		// 영화 선택시 지점 / 시간 가져오는 함수
-		var importBranchTime = function(){
+		//선택조건 1개 선택시
+		var selectOne = function() {
+			console.log('selectOne');
 		    $.ajax({                               
-		        url:'searchListBranchTime',                                    
-		        type:'post',                                              
-		        data:$('#scsInfoForm').serialize(),                              
+		        url:'searchListBookingSelect',                                    
+		        type:'GET',                                              
+		        data:{brcCode:$('#brcCode').val() , movCode:$('#movCode').val() , Date:$('#Date').val()},                              
 		        dataType : "json",                                        
 		        success:function(data){
 		        	
-		        	console.log(data[0]);
-		        	
-		        	//조건에맞는상영일정 존재하지 않는경우
-		        	if(data[0]==undefined){
-		        		
-		        		console.log('데이터없음');
-		        		$("#movieSelector").html(''); //movieSelector 영역 초기화
-		        		$('#scHelper').text('해당조건 상영중인 영화 없음');  
-		        		
-		        	//상영일정 존재하는 경우
-		        	}else {
-		        		
-		            	$("#movieSelector").html(''); //movieSelector 영역 초기화
-		            	$('#scHelper').text('영화 선택'); //헬퍼 영역 초기화
-		            	
-		            	var list = data;
-		                $.each(list, function(i) {
-		                	$("#movieSelector").append('<div id=\"scsDiv'+i+'\" class=\"scTime selectorDiv waves-effect\">');
-		                	$("#scsDiv"+i).append(			'<span id=\"scsSpan'+i+'\" value=\"'+list[i].scsCode+'\">');
-		                	$("#scsSpan"+i).append(				list[i].scsStartTime+' '+list[i].scsTimeDiscount);
-		                	$("#scsDiv"+i).append(			'</span>');
-		                	$("#movieSelector").append("</div>");
-		                });		            		
-		        	}	    
 		        } //sucess 블럭 닫기
-		    });	//ajax 블럭 닫기	        					
+		    });	//ajax 블럭 닫기	        			
 		}
 		
+		
 		//선택조건 모두 선택시 상영시간 가져오는 함수
-		var importSC = function(){
+		var selectAll = function(){
 				
 		    $.ajax({                               
 		        url:'searchListScreenInfo',                                    
-		        type:'post',                                              
+		        type:'GET',                                              
 		        data:$('#scsInfoForm').serialize(),                              
 		        dataType : "json",                                        
 		        success:function(data){

@@ -79,6 +79,20 @@
 	WHERE
 		SCREEN_SCHEDULE.scs_code=#{scsCode};
   </select>
+  
+    <!-- ajax 영화 조건 가져오기 -->
+  <select id="SelectListBookingInfo" resultType="kr.co.cinema.dto.ScreenSchedule" parameterType="kr.co.cinema.dto.Movie">
+	SELECT 
+		SCREEN_SCHEDULE.scs_code as scsCode,
+		SCREEN_SCHEDULE.scs_startTime as scsStartTime,
+		SCREEN_SCHEDULE.scs_timeDiscount as scsTimeDiscount
+	FROM
+		SCREEN_SCHEDULE
+	WHERE
+		SCREEN_SCHEDULE.mov_code = #{movCode} &amp;&amp; 
+		SCREEN_SCHEDULE.brc_code = #{brcCode} &amp;&amp; 
+		SCREEN_SCHEDULE.scs_date = #{Date};
+  </select>
 
   <!-- ajax 영화+지점+날짜에 맞는 상영일정 가져오기 -->
   <select id="SelectListScreenInfo" resultType="kr.co.cinema.dto.ScreenSchedule" parameterType="kr.co.cinema.dto.Movie">
