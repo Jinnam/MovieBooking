@@ -148,9 +148,9 @@ public class AdminService {
 	}
 	
 	//관리자 영화 등록 : 모달을 사용해서 인물이름으로 등록할 감독코드와 감독이름 조회
-	public List<Character> selectCharCodeForAddMovie() {
+	public List<Character> selectCharCodeForAddMovie(String charKorName) {
 		logger.debug(" Service selectCharCodeForAddMovie get실행");
-		return adminDao.selectCharCodeForAddMovie();
+		return adminDao.selectCharCodeForAddMovie(charKorName);
 	}
 	
 	//영화등록

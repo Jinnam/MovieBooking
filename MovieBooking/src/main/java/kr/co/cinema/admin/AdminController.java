@@ -53,11 +53,11 @@ public class AdminController {
 		List<BranchDayCount> selectMonthBranchCount = adminService.selectMonthBranchCount();
 		model.addAttribute("selectMonthBranchCount", selectMonthBranchCount);
 		//집에서 log4j안됨 일단 이렇게 출력 log4j바꿀것 //System.out.println //logger.debug
-		System.out.println("컨트롤러 바그래프 :"+selectBranchForBarGraph);
-		System.out.println("컨트롤러 우측하단표 : " + selectClientCount);
-		System.out.println("컨트롤러 선그래프 매출 총 합계 : "+selectBranchCount);
-		System.out.println("컨트롤러 선그래프 매출 월 합계 : "+selectMonthBranchCount);
-		System.out.println("컨트롤러 원그래프 매출 월 합계 : "+MovieCodeForCircleGraph);
+		logger.debug("컨트롤러 바그래프 :"+selectBranchForBarGraph);
+		logger.debug("컨트롤러 우측하단표 : " + selectClientCount);
+		logger.debug("컨트롤러 선그래프 매출 총 합계 : "+selectBranchCount);
+		logger.debug("컨트롤러 선그래프 매출 월 합계 : "+selectMonthBranchCount);
+		logger.debug("컨트롤러 원그래프 매출 월 합계 : "+MovieCodeForCircleGraph);
 		return "admin/adminMain";
 	}
 	
@@ -210,12 +210,10 @@ public class AdminController {
 	
 	//영화 등록 : 모달을 사용해서 인물이름으로 등록할 감독코드와 감독이름 조회 아직 미구현
 	@RequestMapping(value="selectCharcodeUseModal", method=RequestMethod.POST)
-	public List<Character> selectCharCodeForAddMovie() {
+	public @ResponseBody List<Character> selectCharCodeForAddMovie(@RequestParam("charKorName")String charKorName) {
 		logger.debug(" Controller selectCharCodeForAddMovie post실행");
-		List<Character> selectCharCodeForAddMovie = adminService.selectCharCodeForAddMovie();
-		//꼭지울것 확인용!
-		System.out.println(selectCharCodeForAddMovie);
-		//꼭지울것 확인용!
+		List<Character> selectCharCodeForAddMovie = adminService.selectCharCodeForAddMovie(charKorName);
+		logger.debug(selectCharCodeForAddMovie.toString());
 		return selectCharCodeForAddMovie;
 	}
 	

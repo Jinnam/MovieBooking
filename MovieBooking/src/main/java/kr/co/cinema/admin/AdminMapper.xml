@@ -219,25 +219,18 @@
 	영화관리쿼리
 	******************************************************************************************-->	
 	
-	<!-- 영화등록전 감독이름으로 감독코드 조회 -->
-	<select id="selectCharCodeForInsertMovie"
-			resultType="String"
-			parameterType="String">
-			SELECT	`CHARACTER`.char_code 
-			FROM	`CHARACTER` 
-			WHERE	`CHARACTER`.char_korName = #{charKorName};
-	</select>
-	
-	<!-- 관리자 영화 등록 : 모달을 사용해서 인물이름으로 등록할 감독코드와 감독이름 조회 -->
+	<!-- 관리자 영화 등록 : 모달을 사용해서 인물이름으로 등록할 감독정보조회 -->
 	<select id="selectCharCodeForAddMovie"
 			resultType="kr.co.cinema.dto.Character">
-			SELECT	`CHARACTER`.char_korName AS charKorName,
-					`CHARACTER`.char_code AS charCode
+			SELECT	`CHARACTER`.char_korName	AS charKorName,
+					`CHARACTER`.char_code		AS charCode,
+					`CHARACTER`.char_nation		AS charNation,
+					`CHARACTER`.char_birth		AS charBirth,
+					`CHARACTER`.char_gender		AS charGender
 			FROM	`CHARACTER`
 			WHERE	`CHARACTER`.char_korName = #{charKorName};
 	</select>
-	
-	
+
 	<!-- 영화등록 쿼리 -->
 	<insert id="insertMovie"
 			parameterType="kr.co.cinema.dto.Movie">
