@@ -37,7 +37,7 @@ public class PaymentDao {
 	// 좌석 (다:다)에서 좌석정보 가져오기
 	public List<String> selectSeatInfo(String pmtCode){
 		logger.debug("		selectSeatInfo() 진입 pmtCode : "+pmtCode);
-		return sqlSession.selectList(NS+"selectSeatInfo", pmtCode);
+		return sqlSession.selectList(NS+"selectSeatsInfo", pmtCode);
 	}
 	
 	//************** 결제 후 등록 **************

@@ -29,6 +29,7 @@
 			</div>
 			<div class="col s12" align="center">
 				<div class="btn indigo darken-3" onclick="location.href='movieMain'">홈으로 이동</div>
+				<div class="btn indigo darken-3" onclick="location.href='cancelpayment?pmtCode=${payment.pmtCode}'">예매 취소 테스트</div>
 			</div>
 	</div>
 
