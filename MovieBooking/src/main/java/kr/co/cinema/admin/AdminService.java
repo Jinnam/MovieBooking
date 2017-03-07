@@ -61,7 +61,12 @@ public class AdminService {
 		logger.debug("서비스 바그래프 테스트 : "+selectMonthBranchCount);
 		return selectMonthBranchCount;
 	}
-	
+	//원 그래프 데이터 상위3지점조회
+	public List<MovieAndBranchDayCount> selectMovieCodeForCircleGraph() {
+		logger.debug(" Service selectMovieCodeForCircleGraph get실행");
+		return adminDao.selectMovieCodeForCircleGraph();
+	}
+
 	/************************************************************************************************************
 	지점관리자 메서드 : 지점관리자등록/지점관리자조회/지점관리자수정/지점관리자삭제
 	************************************************************************************************************/	
@@ -164,6 +169,12 @@ public class AdminService {
 		logger.debug(" Service insertMovie post실행");
 		return adminDao.insertMovie(movie);
 	}
+	
+	//관리자 영화조회
+	public List<Movie> selectMovieList() {
+		logger.debug(" Service selectMovieList get실행");
+		return adminDao.selectMovieList();
+	}
 
 	/************************************************************************************************************
 	단가 관리 메서드 : 단가등록/단가수정
@@ -176,7 +187,7 @@ public class AdminService {
 	}
 	
 	/************************************************************************************************************
-	인물 관리 메서드 : 인물등록/인물리스트/인물상세/인물수정
+	인물 관리 메서드
 	************************************************************************************************************/	
 	
 	//인물등록
@@ -184,9 +195,15 @@ public class AdminService {
 		logger.debug(" Service insertChar post실행");
 		return adminDao.insertChar(character);
 	}
-
+	
+	//인물리스트조회
+	public List<Character> selectCharacterList() {
+		logger.debug(" Service selectCharacterList get실행");
+		return adminDao.selectCharacterList();
+		
+	}
 	/************************************************************************************************************
-	상영관 관리 메서드 : 상영관등록/상영관리스트/상영관수정/상영관삭제
+	상영관 관리 메서드
 	************************************************************************************************************/	
 
 	//상영관등록전 지점이름으로 지점 코드 조회하기 
@@ -202,7 +219,13 @@ public class AdminService {
 		screen.setScrCode(ScrCode);
 		return adminDao.insertScreen(screen);
 	}
-
+	
+	//상영관리스트조회
+	public List<Screen> selectScreenList() {
+		logger.debug(" Service selectScreenList get실행");
+		return adminDao.selectScreenList();
+	}
+	
 	/************************************************************************************************************
 	상영일정 관리 메서드 : 상영일정등록/상영일정리스트/상영일정수정
 	************************************************************************************************************/	
@@ -218,18 +241,6 @@ public class AdminService {
 		logger.debug(" Service selectmovieAndScreens post실행");
 		return adminDao.selectmovieAndScreens(movieAndScreens);
 	}
-
-	public List<Movie> selectMovieList() {
-		logger.debug(" Service selectMovieList get실행");
-		return adminDao.selectMovieList();
-	}
-
-	public List<MovieAndBranchDayCount> selectMovieCodeForCircleGraph() {
-		logger.debug(" Service selectMovieCodeForCircleGraph get실행");
-		return adminDao.selectMovieCodeForCircleGraph();
-	}
-
-	
 
 
 

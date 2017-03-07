@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="Dashboard">
 	<meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-	<title>Mega Box Admin - Admin Main</title>
+	<title>Mega Box Admin - 회원조회</title>
 	
 	<!-- Bootstrap core CSS -->
 	<link href="resources/assets/css/bootstrap.css" rel="stylesheet">
@@ -150,11 +150,14 @@
 					</a>
 					<ul class="sub">
 						<li>
-							<a href="costInsert">단가 등록</a>
+							<a href="costList">단가 목록</a>
 						</li>
 						<li>
-							<a href="costModify">단가 조회</a>
+							<a href="costInsert">단가 등록</a>
 						</li>
+						<!-- <li>
+							<a href="costModify">단가 수정</a>
+						</li> -->
 					</ul>
 				</li>
 				<!-- 극장 사이드 메뉴 -->
@@ -227,7 +230,11 @@
 				<!-- 페이지 강제 줄임 -->
 				<div class="col-lg-9 main-chart" align="center"></div>
 			</div>
-			<nav class="navbar navbar-default">
+			<div class="jumbotron">
+				<h2 class="logo">회원목록</h2>
+			</div>
+			<!-- 상단 바 아직 미구현 -->
+			<!-- <nav class="navbar navbar-default">
 				<div class="container-fluid">
 					<div class="navbar-header">
 						<button type="button" 
@@ -239,7 +246,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">회원목록</a>
+						<a class="navbar-brand" href="memberList">회원목록</a>
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<div class="navbar-form navbar-right">
@@ -252,14 +259,15 @@
 								<input type="text" class="form-control" placeholder="특수문자는 사용할 수 없습니다.">
 							</div>
 							<input type="submit" class="btn btn-default" value="검색" />
-							<!-- 상단 바 전체 회원 목록 버튼 -->
+							상단 바 전체 회원 목록 버튼
 							<a href="memberList">
 								<input type="button" class="btn btn-default" value="전체회원목록" />
 							</a>
 						</div>
 					</div>
 				</div>
-			</nav>
+			</nav> -->
+			<!-- 회원테이블상단 -->
 			<table class="table table-striped table-hover ">
 				<thead>
 					<tr>
@@ -276,6 +284,7 @@
 						<th>가입일</th>
 					</tr>
 				</thead>
+				<!-- 테이블 내용 -->
 				<tbody>
 					<c:forEach var="MemberList" items="${selectMemberList}">
 					<tr>

@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="Dashboard">
 	<meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-	<title>Mega Box Admin - Admin Main</title>
+	<title>Mega Box Admin - 단가 등록</title>
 	
 	<!-- Bootstrap core CSS -->
 	<link href="resources/assets/css/bootstrap.css" rel="stylesheet">
@@ -149,13 +149,16 @@
 						<span>단가 관리</span>
 					</a>
 					<ul class="sub">
+						<li>
+							<a href="costList">단가 목록</a>
+						</li>
 						<li class="active">
 							<a href="costInsert">단가 등록</a>
 						</li>
-						<li>
-							<a href="costModify">단가 조회</a>
-						</li>
 					</ul>
+				<!-- <li>
+						<a href="costModify">단가 수정</a>
+					</li> -->
 				</li>
 				<!-- 극장 사이드 메뉴 -->
 				<li class="sub-menu">
@@ -274,9 +277,10 @@
 							<!-- 등록버튼 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label"></label>
-								<div class="col-lg-8"></div>
-								<div>
-									<input type="submit" class="btn btn-primary" value="등록">
+								<div class="col-lg-8 ">
+									<div class="col-lg-8 col-lg-offset-10 ">
+										<input type="submit" class="btn btn-button" value="등록">
+									</div>
 								</div>
 							</div>
 						</fieldset>

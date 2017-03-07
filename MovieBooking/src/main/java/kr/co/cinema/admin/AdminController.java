@@ -225,7 +225,7 @@ public class AdminController {
 		return choiceCharCode;
 	}
 	
-	//관리자 영화 등록전 감독이름으로 감독 코드 조회하기 리스트형식 아니라 하나의 코드만 조회
+	//영화등록 : 감독이름으로 감독 코드 조회하기 리스트형식 아니라 하나의 코드만 조회
 	@RequestMapping(value="selectCharCode", method=RequestMethod.POST)
 	public @ResponseBody String selectCharcodeForInsertMovie(@RequestParam("charKorName")String charKorName) {
 		logger.debug(" Controller selectCharcodeForInsertMovie post실행");
@@ -233,7 +233,7 @@ public class AdminController {
 		return selectCharCodeForInsertMovie;
 	}
 	
-	//관리자 영화등록 페이지
+	//영화등록
 	@RequestMapping(value="movieInsert", method=RequestMethod.POST)
 	public String insertMovie(Model model, Movie movie) {
 		logger.debug(" Controller insertMovie post실행");
@@ -241,7 +241,7 @@ public class AdminController {
 		return "redirect:adminMovieList";
 	}
 	
-	//관리자 영화조회 페이지 연결만 해놓음
+	//영화조회
 	@RequestMapping(value="adminMovieList", method=RequestMethod.GET)
 	public String selectMovieList(Model model) {
 		logger.debug(" Controller selectMovieList get실행");
@@ -252,14 +252,14 @@ public class AdminController {
 		return "management/adminMovieList";
 	}
 	
-	//***관리자 영화상세조회 페이지 연결만 해놓음
+	//***영화상세조회 페이지이동
 	@RequestMapping(value="movieDetail", method=RequestMethod.GET)
 	public String selectDetailMovie() {
 		logger.debug(" Controller selectDetailMovie get실행");
 		return "management/movieDetail";
 	}
 	
-	//***관리자 영화상세조회 페이지 연결만 해놓음
+	//***영화수정 페이지이동
 	@RequestMapping(value="movieModify", method=RequestMethod.GET)
 	public String updateMovie() {
 		logger.debug(" Controller updateMovie get실행");
@@ -267,10 +267,10 @@ public class AdminController {
 	}
 	
 	/************************************************************************************************************
-	인물 관리 메서드 : 인물등록/인물리스트/인물상세/인물수정
+	인물 관리 메서드
 	************************************************************************************************************/	
 	
-	//관리자 인물등록 페이지
+	//인물등록 : 페이지 이동
 	@RequestMapping(value="characterInsert", method=RequestMethod.GET)
 	public String insertCharacterView() {
 		logger.debug(" Controller insertCharacterView get실행");
@@ -285,21 +285,24 @@ public class AdminController {
 		return "redirect:characterList";
 	}
 	
-	//***관리자 인물조회리스트 페이지 연결만 해놓음
+	//인물리스트조회 : 페이지이동
 	@RequestMapping(value="characterList", method=RequestMethod.GET)
-	public String selectCharacterList() {
+	public String selectCharacterList(Model model) {
 		logger.debug(" Controller selectCharacterList get실행");
+		//인물리스트 조회
+		List<Character> selectCharacterList = adminService.selectCharacterList();
+		model.addAttribute("selectCharacterList", selectCharacterList);
 		return "management/characterList";
 	}
 	
-	//***관리자 인물상세조회 페이지 연결만 해놓음
+	//***인물상세조회 : 페이지이동
 	@RequestMapping(value="characterDetail", method=RequestMethod.GET)
 	public String selectCharacterDetail() {
 		logger.debug(" Controller selectCharacterDetail get실행");
 		return "management/characterDetail";
 	}
 	
-	//***관리자 인물수정 페이지 연결만 해놓음
+	//***인물수정 : 페이지이동
 	@RequestMapping(value="characterModify", method=RequestMethod.GET)
 	public String updateCharacter() {
 		logger.debug(" Controller updateCharacter get실행");
@@ -307,17 +310,17 @@ public class AdminController {
 	}
 	
 	/************************************************************************************************************
-	상영관 관리 메서드 : 상영관등록/상영관리스트/상영관수정/상영관삭제
+	상영관 관리 메서드
 	************************************************************************************************************/	
 	
-	//관리자 상영관등록 페이지
+	//상영관등록 : 페이지이동
 	@RequestMapping(value="screenInsert", method=RequestMethod.GET)
 	public String insertScreenView() {
 		logger.debug(" Controller insertScreen get실행");
 		return "screen/screenInsert";
 	}
 	
-	//상영관 등록 전 상영관 등록에 필요한 지점 코드 조회하기
+	//상영관 등록 : 상영관 등록에 필요한 지점 코드 조회하기
 	@RequestMapping(value="selectBrcCode", method=RequestMethod.POST)
 	public @ResponseBody String selectBrcCodeForInsertScreen(@RequestParam("brcName")String brcName) {
 		logger.debug(" Controller selectBrcCodeForInsertScreen post실행");
@@ -334,21 +337,24 @@ public class AdminController {
 		return "redirect:screenList";
 	}
 	
-	//***관리자 상영관리스트 페이지 연결만 해놓음
+	//상영관리스트조회 : 페이지이동
 	@RequestMapping(value="screenList", method=RequestMethod.GET)
-	public String selectScreenList() {
+	public String selectScreenList(Model model) {
 		logger.debug(" Controller selectScreenList get실행");
+		//상영관리스트 조회
+		List<Screen> selectScreenList = adminService.selectScreenList();
+		model.addAttribute("selectScreenList", selectScreenList);
 		return "screen/screenList";
 	}
 	
-	//***관리자 상영관수정 페이지 연결만 해놓음
+	//***상영관수정 : 페이지이동
 	@RequestMapping(value="screenModify", method=RequestMethod.GET)
 	public String updateScreen() {
 		logger.debug(" Controller updateScreen get실행");
 		return "screen/screenModify";
 	}
 	
-	//***관리자 상영관삭제 페이지 연결만 해놓음
+	//***상영관삭제 : 페이지이동
 	@RequestMapping(value="screenDelete", method=RequestMethod.GET)
 	public String deleteScreen() {
 		logger.debug(" Controller deleteScreen get실행");
@@ -356,10 +362,10 @@ public class AdminController {
 	}
 	
 	/************************************************************************************************************
-	상영일정 관리 메서드 : 상영일정등록/상영일정리스트/상영일정수정
+	상영일정 관리 메서드
 	************************************************************************************************************/	
 	
-	//***관리자 상영일정등록 페이지 연결만 해놓음
+	//상영일정등록 : 페이지이동
 	@RequestMapping(value="screenScheduleInsert", method=RequestMethod.GET)
 	public String insertScreenSchedule() {
 		logger.debug(" Controller insertScreenSchedule get실행");
@@ -383,14 +389,14 @@ public class AdminController {
 		return selectmovieAndScreens;
 	}
 	
-	//***관리자 상영일정리스트 페이지 연결만 해놓음
+	//***상영일정리스트조회 : 페이지이동
 	@RequestMapping(value="screenScheduleList", method=RequestMethod.GET)
 	public String selectScreenScheduleList() {
 		logger.debug(" Controller selectScreenScheduleList get실행");
 		return "screen/screenScheduleList";
 	}
 	
-	//***관리자 상영일정리스트 페이지 연결만 해놓음
+	//***상영일정수정 : 페이지이동
 	@RequestMapping(value="screenScheduleModify", method=RequestMethod.GET)
 	public String updateScreenScheduleList() {
 		logger.debug(" Controller updateScreenScheduleList get실행");
@@ -398,10 +404,10 @@ public class AdminController {
 	}
 	
 	/************************************************************************************************************
-	단가 관리 메서드 : 단가등록/단가수정
+	단가 관리 메서드
 	************************************************************************************************************/	
 	
-	//관리자 단가등록 페이지
+	//단가등록 : 페이지이동
 	@RequestMapping(value="costInsert", method=RequestMethod.GET)
 	public String insertCostView() {
 		logger.debug(" Controller insertCostView get실행");
@@ -416,31 +422,31 @@ public class AdminController {
 		return "redirect:costInsert";
 	}
 	
-	//***관리자 단가수정 페이지 연결만 해놓음
+	//단가수정 : 페이지이동
 	@RequestMapping(value="costModify", method=RequestMethod.GET)
 	public String updateCost() {
 		logger.debug(" Controller updateCost get실행");
 		return "management/costModify";
 	}
 	/************************************************************************************************************
-	통계 관리 메서드 : 영화별 예매,매출/지점별 예매,매출/날짜별 예매,매출
+	통계 관리 메서드
 	************************************************************************************************************/	
 	
-	//***관리자 영화별 예매,매출 페이지 연결만 해놓음
+	//***영화별 예매/매출조회 : 페이지이동
 	@RequestMapping(value="analisysByMovie", method=RequestMethod.GET)
 	public String selectAnalisysByMovie() {
 		logger.debug(" Controller selectAnalisysByMovie get실행");
 		return "analisys/analisysByMovie";
 	}
 	
-	//***관리자 지점별 예매,매출 페이지 연결만 해놓음
+	//***지점별 예매/매출 : 페이지이동
 	@RequestMapping(value="analisysByBranch", method=RequestMethod.GET)
 	public String selectAnalisysByBranch() {
 		logger.debug(" Controller selectAnalisysByMovie get실행");
 		return "analisys/analisysByBranch";
 	}
 	
-	//***관리자 날짜별 예매,매출 페이지 연결만 해놓음
+	//***날짜별 예매,매출 : 페이지이동
 	@RequestMapping(value="analisysByDate", method=RequestMethod.GET)
 	public String selectAnalisysByDate() {
 		logger.debug(" Controller selectAnalisysByDate get실행");

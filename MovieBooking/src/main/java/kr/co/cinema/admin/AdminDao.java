@@ -54,7 +54,12 @@ public class AdminDao {
 		logger.debug(" Dao selectMonthBranchCount");
 		return sqlSession.selectList(NS+"selectMonthBranchCount");
 	}
-	
+	//원 그래프 데이터 상위3지점조회
+	public List<MovieAndBranchDayCount> selectMovieCodeForCircleGraph() {
+		logger.debug(" Dao selectMovieCodeForCircleGraph");
+		return sqlSession.selectList(NS+"selectMovieCodeForCircleGraph");
+	}
+
 	/************************************************************************************************************
 	지점관리 메서드 : 지점등록/지점조회/지점수정/지점탈퇴
 	************************************************************************************************************/
@@ -89,6 +94,10 @@ public class AdminDao {
 		return sqlSession.delete(NS+"deleteBranch", brcCode);
 	}
 
+	/************************************************************************************************************
+	지점관리자 메서드 : 지점관리자등록/지점관리자조회/지점관리자수정/지점관리자삭제
+	************************************************************************************************************/	
+
 	//지점 관리자 리스트 조회
 	public List<Admin> selectAdminList() {
 		logger.debug(" Dao selectAdminList");
@@ -118,6 +127,10 @@ public class AdminDao {
 		logger.debug(" Dao deleteAdmin");
 		return sqlSession.delete(NS+"deleteAdmin", admId);
 	}
+
+	/************************************************************************************************************
+	회원 관리 메서드 : 회원리스트조회
+	************************************************************************************************************/
 
 	//회원리스트 조회
 	public List<Member> selectMemberList() {
@@ -152,6 +165,12 @@ public class AdminDao {
 		logger.debug(" Dao insertMovie");
 		return sqlSession.insert(NS+"insertMovie", movie);
 	}
+	
+	//관리자 영화조회
+	public List<Movie> selectMovieList() {
+		logger.debug(" Dao selectMovieList");
+		return sqlSession.selectList(NS+"selectMovieList");
+	}
 
 	/************************************************************************************************************
 	단가 관리 메서드 : 단가등록/단가수정
@@ -163,11 +182,25 @@ public class AdminDao {
 		return sqlSession.insert(NS+"insertCost", screenCost);
 	}
 	
+	/************************************************************************************************************
+	인물 관리 메서드 : 인물등록/인물리스트/인물상세/인물수정
+	************************************************************************************************************/	
+	
 	//인물등록
 	public int insertChar(Character character) {
 		logger.debug(" Dao insertChar");
 		return sqlSession.insert(NS+"insertChar", character);
 	}
+	
+	//인물리스트조회
+	public List<Character> selectCharacterList() {
+		logger.debug(" Dao selectCharacterList");
+		return sqlSession.selectList(NS+"selectCharacterList");
+	}
+	
+	/************************************************************************************************************
+	상영관 관리 메서드
+	************************************************************************************************************/	
 
 	//스크린등록전 지점이름으로 지점코드조회
 	public String selectBrcCode(String brcName) {
@@ -180,6 +213,16 @@ public class AdminDao {
 		logger.debug(" Dao insertScreen");
 		return sqlSession.insert(NS+"insertScreen", screen);
 	}
+	
+	//상영관리스트조회
+	public List<Screen> selectScreenList() {
+		logger.debug(" Dao selectScreenList");
+		return sqlSession.selectList(NS+"selectScreenList");
+	}
+
+	/************************************************************************************************************
+	상영일정 관리 메서드 : 상영일정등록/상영일정리스트/상영일정수정
+	************************************************************************************************************/	
 
 	//상영일정 등록전 영화이름으로 영화코드 조회
 	public String selectMovieCode(String movKorName) {
@@ -193,18 +236,6 @@ public class AdminDao {
 		return sqlSession.selectList(NS+"selectmovieAndScreens", movieAndScreens);
 	}
 
-	public List<Movie> selectMovieList() {
-		logger.debug(" Dao selectMovieList");
-		return sqlSession.selectList(NS+"selectMovieList");
-	}
-
-	public List<MovieAndBranchDayCount> selectMovieCodeForCircleGraph() {
-		logger.debug(" Dao selectMovieCodeForCircleGraph");
-		return sqlSession.selectList(NS+"selectMovieCodeForCircleGraph");
-	}
-	
-
-	
 
 
 }

@@ -151,11 +151,14 @@
 					</a>
 					<ul class="sub">
 						<li>
-							<a href="costInsert">단가 등록</a>
+							<a href="costList">단가 목록</a>
 						</li>
 						<li>
-							<a href="costModify">단가 조회</a>
+							<a href="costInsert">단가 등록</a>
 						</li>
+						<!-- <li>
+							<a href="costModify">단가 수정</a>
+						</li> -->
 					</ul>
 				</li>
 				<!-- 극장 사이드 메뉴 -->
@@ -240,7 +243,7 @@
 							<!-- 아이디 -->
 							<div class="row form-group">
 								<label for="adminId" class="col-lg-2 control-label">ID</label>
-								<div class="col-lg-8">
+								<div class="col-lg-6">
 									<input type="text" class="form-control" name="admId" placeholder="관리자 ID를 입력하세요" required="required">
 								</div>
 								<!-- 아직 미구현 -->
@@ -272,9 +275,11 @@
 							<!-- 등록버튼 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label"></label>
-								<div class="col-lg-7"></div>
-								<div>
-									<input type="submit" class="btn btn-button" value="등록">
+								<!-- 간격조정요망 -->
+								<div class="col-lg-8">
+									<div class="col-lg-offset-10">
+										<input type="submit" class="btn btn-button" value="등록">
+									</div>
 								</div>
 							</div>
 						</fieldset>

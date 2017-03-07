@@ -9,9 +9,12 @@
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
+	<!-- url property 0307봉연 (?zeroDateTimeBehavior=convertToNull)추가 
+        1970년전의 DATE타입의 데이터 조회시 null값으로 셋팅되는 오류발생 
+		정확하지 않지만 system time이 1970-01-01로 시작되는 문제-->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://better4307.cafe24.com/better4307"/>
+        <property name="url" value="jdbc:mysql://better4307.cafe24.com/better4307?zeroDateTimeBehavior=convertToNull"/>
         <property name="username" value="better4307"/>
         <property name="password" value="rladnqls!@"/>
     </bean>

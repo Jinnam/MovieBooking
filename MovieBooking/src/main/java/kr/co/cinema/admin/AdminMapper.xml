@@ -343,6 +343,16 @@
 						 NOW()); 	
 	</insert>
 	
+	<!-- 인물리스트조회 쿼라 -->
+	<select id="selectCharacterList"
+			resultType="kr.co.cinema.dto.Character">
+			SELECT	`CHARACTER`.char_korName	AS charKorName,
+					`CHARACTER`.char_engName	AS charEngName,
+					`CHARACTER`.char_birth		AS charBirth,
+					`CHARACTER`.char_gender		AS charGender,
+					`CHARACTER`.char_nation		AS charNation
+			FROM	`CHARACTER`
+	</select>
 	<!--****************************************************************************************
 	상영관관리쿼리
 	******************************************************************************************-->
@@ -374,6 +384,18 @@
 			
 	</insert>
 	
+	<!-- 상영관리스트조회 -->
+	<select id="selectScreenList"
+			resultType="kr.co.cinema.dto.Screen">
+			SELECT		BRANCH.brc_name		AS	brcName,
+						SCREEN.scr_name		AS	scrName,
+						SCREEN.scr_rowSize	AS	scrRowSize,
+						SCREEN.scr_colSize	AS	scrColSize
+			FROM		SCREEN
+						JOIN	BRANCH
+						ON		SCREEN.brc_code = BRANCH.brc_code
+			ORDER BY	BRANCH.brc_name	ASC;
+	</select>
 	<!--****************************************************************************************
 	상영일정관리쿼리
 	******************************************************************************************-->

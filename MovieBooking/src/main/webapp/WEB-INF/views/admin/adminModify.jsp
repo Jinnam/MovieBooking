@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="Dashboard">
 	<meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-	<title>Mega Box Admin - Admin Main</title>
+	<title>Mega Box Admin - 관리자 수정</title>
 	
 	<!-- Bootstrap core CSS -->
 	<link href="resources/assets/css/bootstrap.css" rel="stylesheet">
@@ -150,11 +150,14 @@
 					</a>
 					<ul class="sub">
 						<li>
-							<a href="costInsert">단가 등록</a>
+							<a href="costList">단가 목록</a>
 						</li>
 						<li>
-							<a href="costModify">단가 조회</a>
+							<a href="costInsert">단가 등록</a>
 						</li>
+						<!-- <li>
+							<a href="costModify">단가 수정</a>
+						</li> -->
 					</ul>
 				</li>
 				<!-- 극장 사이드 메뉴 -->
@@ -239,7 +242,7 @@
 							<!-- 아이디 -->
 							<div class="row form-group">
 								<label for="adminId" class="col-lg-2 control-label">ID</label>
-								<div class="col-lg-8">
+								<div class="col-lg-6">
 									<input type="text" class="form-control" name="admId" value="${selectAdminAuthAndId.admId }" placeholder="관리자 ID를 입력하세요" required="required" readonly="readonly">
 								</div>
 								<!-- ID중복조회 -->
@@ -277,6 +280,7 @@
 							<!-- 등록버튼 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label"></label>
+								<!-- 간격조정요망 -->
 								<div class="col-lg-7"></div>
 								<div>
 									<input type="submit" class="btn btn-button" value="수정">
