@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.cinema.booking.BookingSeatSelectDto;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.NonMember;
 
@@ -88,15 +89,28 @@ public class MemberController {
 	
 	//비회원 가입 action
 	@RequestMapping(value="/nonMemberInsert", method=RequestMethod.POST)
-	public String insertNonMember(NonMember nonMember){
-		memberService.addNonMember(nonMember);
+	public String insertNonMember(NonMember nonMember,
+			Model model, BookingSeatSelectDto bookingSeatSelectDto, HttpSession session){
+		
+		memberService.addNonMember(nonMember);								// 비회원 가입
+		session.setAttribute("phone", nonMember.getNmemPhone());			// 세션에 전화번호 셋팅
 		logger.debug(nonMember.toString());
-		return "login/nonMemberInsert";
+		String paymentResult="redirect:/payment?"+
+							"scsCode="+bookingSeatSelectDto.getScsCode()+
+							"&personNum="+bookingSeatSelectDto.getPersonNum()+
+							"&seatCode1="+bookingSeatSelectDto.getSeatCode1()+
+							"&seatCode2="+bookingSeatSelectDto.getSeatCode2()+
+							"&seatCode3="+bookingSeatSelectDto.getSeatCode3()+
+							"&seatCode4="+bookingSeatSelectDto.getSeatCode4();
+		return paymentResult;
 	}
 
 	//비회원 가입 form
 	@RequestMapping(value="/nonMemberInsert", method=RequestMethod.GET)
-	public String insertNonMember(){
+	public String insertNonMember(Model model,
+				BookingSeatSelectDto bookingSeatSelectDto){
+		model.addAttribute("bookingSeatSelectDto",bookingSeatSelectDto);
+		
 		return "login/nonMemberInsert";
 	}
 	
