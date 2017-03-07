@@ -230,7 +230,15 @@
 			FROM	`CHARACTER`
 			WHERE	`CHARACTER`.char_korName = #{charKorName};
 	</select>
-
+	
+	<!-- 관리자 영화 등록 : 모달에서 조회한 인물정보중 인물 코드로 폼에 넣을 선택한 인물코드조회 -->
+	<select id="choiceCharCode"
+			resultType="kr.co.cinema.dto.Character">
+			SELECT	`CHARACTER`.char_code
+			FROM	`CHARACTER`
+			WHERE	`CHARACTER`.char_code = #{charCode};
+	</select>
+	
 	<!-- 영화등록 쿼리 -->
 	<insert id="insertMovie"
 			parameterType="kr.co.cinema.dto.Movie">

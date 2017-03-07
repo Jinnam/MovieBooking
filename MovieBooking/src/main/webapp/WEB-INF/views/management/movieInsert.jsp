@@ -459,9 +459,8 @@
 				});
 			});
 		});
-		
 	</script>
-	
+	<!-- 조회한 감독정보 선택 -->
 	<script>
 	$(document).ready(function() {
 		$("#selectCharcodeUseModal").click(function() {
@@ -472,7 +471,7 @@
 				type 		: "post",
 				success 	: function(data) {
 					console.log(data)
-					$("#").val(data)
+					$("#charCode").val(data)
 				}
 			})
 		});

@@ -141,6 +141,12 @@ public class AdminDao {
 		return sqlSession.selectList(NS+"selectCharCodeForAddMovie", charKorName);
 	}
 	
+	//영화 등록 : 모달에서 조회한 인물정보중 인물 코드로 폼에 넣을 선택한 인물코드조회
+	public String choiceCharCode() {
+		logger.debug(" Dao choiceCharCode");
+		return sqlSession.selectOne(NS+"choiceCharCode");
+	}
+	
 	//영화등록
 	public int insertMovie(Movie movie) {
 		logger.debug(" Dao insertMovie");
@@ -196,6 +202,7 @@ public class AdminDao {
 		logger.debug(" Dao selectMovieCodeForCircleGraph");
 		return sqlSession.selectList(NS+"selectMovieCodeForCircleGraph");
 	}
+	
 
 	
 
