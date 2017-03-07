@@ -434,7 +434,7 @@ public class PaymentService {
 		 paymentDao.updateMemMileage(memId);					// 회원 마일리지 정보 업데이트
 		 
 		 // 좌석 정보 업데이트
-		 List<String> seatCode = paymentDao.selectSeatInfo(pmtCode);	// 결제 한 좌석정보 가져오기
+		/* List<String> seatCode = paymentDao.selectSeatInfo(pmtCode);	// 결제 한 좌석정보 가져오기
 		 logger.debug("	updateCancelPayment seatInfo : "+seatCode);
 		 Map<String, String> seatMap = new HashMap<String, String>();	// mapper로 보낼 map 생성
 		 
@@ -444,6 +444,13 @@ public class PaymentService {
 			 paymentDao.insertSeats(seatMap);
 		 }
 		 
+		 // Analysis에서 결제정보 빼기
+		 payment.get("");
+		 Analysis analysis = new Analysis();
+		
+		 
+		 paymentDao.updateAnalysis(analysis);
+		 */
 		 return 0;
 	 }
 }

@@ -279,7 +279,7 @@
 	</select>
 	
 	<!-- 좌석 다:다 에서 결제코드로 좌석정보 가져오기 -->
-	<select id="selectSeatInfo" parameterType="String" resultType="String">
+	<select id="selectSeatsInfo" parameterType="String" resultType="String">
 		SELECT
 			seat_code AS seatCode
 		FROM
