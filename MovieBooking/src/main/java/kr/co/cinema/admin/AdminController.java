@@ -213,15 +213,14 @@ public class AdminController {
 	public @ResponseBody List<Character> selectCharCodeForAddMovie(@RequestParam("charKorName")String charKorName) {
 		logger.debug(" Controller selectCharCodeForAddMovie post실행");
 		List<Character> selectCharCodeForAddMovie = adminService.selectCharCodeForAddMovie(charKorName);
-		logger.debug(selectCharCodeForAddMovie.toString());
 		return selectCharCodeForAddMovie;
 	}
 	
 	//영화 등록 : 모달에서 조회한 인물정보중 인물 코드로 폼에 넣을 선택한 인물코드조회//수정중
 	@RequestMapping(value="choiceCharCode", method=RequestMethod.POST)
-	public @ResponseBody String choiceCharCode() {
+	public @ResponseBody String choiceCharCode(@RequestParam("charKorName")String charKorName) {
 		logger.debug(" Controller choiceCharCode post실행");
-		String choiceCharCode = adminService.choiceCharCode();
+		String choiceCharCode = adminService.choiceCharCode(charKorName);
 		return choiceCharCode;
 	}
 	

@@ -159,9 +159,9 @@ public class AdminService {
 	}
 	
 	//영화 등록 : 모달에서 조회한 인물정보중 인물 코드로 폼에 넣을 선택한 인물코드조회
-	public String choiceCharCode() {
+	public String choiceCharCode(String charKorName) {
 		logger.debug(" Service choiceCharCode post실행");
-		return adminDao.choiceCharCode();
+		return adminDao.choiceCharCode(charKorName);
 	}
 	
 	//영화등록

@@ -267,11 +267,13 @@
 								</div>
 							</div>
 							<!-- 감독코드 출력 -->
-							<div class="form-group" style="display: none;">
+							<div class="form-group"><!--  style="display: none;" -->
 								<label class="col-lg-3 control-label">감독코드</label>
 								<!-- 여기에 감독 코드 조회됨 -->
-								<div class="col-lg-9" id="charCode">
+								<div class="col-lg-7">
+									<input type="text" class="form-control" id="charCode" name="charKorName" placeholder="감독이름을 입력하세요" required="required">
 								</div>
+								<!-- <div class="col-lg-9" id="charCode"></div> -->
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="DirModal" role="dialog">
@@ -301,7 +303,7 @@
 								</div>
 								<!-- 주연배우이름으로 인물코드를 인물테이블에서 조회 ajax-->
 								<div>
-									<input id="selectCharcodeActor" type="button" class="btn btn-button" value="조회">
+									<input id="selectCharcodeActor" type="button" class="btn btn-button"  data-toggle="modal" data-target="#ActModal" value="조회">
 								</div>
 							</div>
 							<!-- 배우코드 출력 -->
@@ -309,6 +311,26 @@
 								<label class="col-lg-3 control-label">배우코드</label>
 								<div class="col-lg-9">
 									<input type="text" class="form-control" id="charCodeActor" name="charCode" required="required">
+								</div>
+							</div>
+							<!-- Modal -->
+							<div class="modal fade" id="ActModal" role="dialog">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+										<div class="modal-header">
+											<!-- X버튼 -->
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title">배우 검색</h4>
+										</div>
+										<div class="modal-body" id="charName">
+											<p>배우를 선택하세요</p>
+											<!-- 여기에 조회한 배우의 정보가 들어감 -->
+										</div>
+										<!-- Modal하단 닫기버튼 -->
+										<div class="modal-footer">
+											<input type="button" class="btn btn-default" data-dismiss="modal" value="Close">
+										</div>
+									</div>
 								</div>
 							</div>
 							<!-- 국가이름 -->
@@ -455,6 +477,21 @@
 													'name="charCode"'+
 													'required="required"'+
 													'value="'+list[i].charCode+'" />')*/
+							$(document).ready(function() {
+								$("#selectCharcodeUseModal").click(function() {
+									$.ajax({
+										url 		: "choiceCharCode",
+										data 		: {"charKorName" : $("#choiceCharInfo").val(list[i].charCode)},
+										dataType 	: "json",
+										type 		: "post",
+										success 	: function(data) {
+											console.log(data)
+											$("#charCode").val(data)
+										}
+									})
+								});
+							});
+						
 						});
 					}
 				});
@@ -462,38 +499,22 @@
 		});
 	</script>
 	<!-- 조회한 감독정보 선택 -->
-	<script>
-	$(document).ready(function() {
-		$("#selectCharcodeUseModal").click(function() {
-			$.ajax({
-				url 		: "",
-				data 		: {"" : $("#choiceCharInfo").val()},
-				dataType 	: "json",
-				type 		: "post",
-				success 	: function(data) {
-					console.log(data)
-					$("#charCode").val(data)
-				}
-			})
-		});
-	});
-	</script>
-	<!-- 인물(배우)코드 조회하기 -->
-	<script>
+	<!-- <script>
 		$(document).ready(function() {
-			$("#selectCharcodeActor").click(function() {
+			$("#selectCharcodeUseModal").click(function() {
 				$.ajax({
-					url : "selectCharcode",
-					data : {"charKorName" : $("#ActorKorName").val()},
-					type : "post",
-					success : function(data) {
+					url 		: "choiceCharCode",
+					data 		: {"charKorName" : $("#choiceCharCode").val()},
+					dataType 	: "json",
+					type 		: "post",
+					success 	: function(data) {
 						console.log(data)
-						$("#charCodeActor").val(data)
+						$("#charCode").val(data)
 					}
-				});
+				})
 			});
 		});
-	</script>
+	</script> -->
 	
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="resources/assets/js/jquery.js"></script>
