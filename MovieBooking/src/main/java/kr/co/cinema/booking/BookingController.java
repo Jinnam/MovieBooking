@@ -31,7 +31,6 @@ public class BookingController {
 	@RequestMapping(value = "/searchListBookingSelect", method = RequestMethod.GET)
 	public @ResponseBody Map<String,Object> searchListBookingSelect(BookingSelectDto bookingSelect) {	
 		logger.debug("searchListBookingSelect 영화 조건선택 ");
-		System.out.println(bookingService.searchListBookingSelect(bookingSelect).toString());
 		return bookingService.searchListBookingSelect(bookingSelect);
 	}	
 	

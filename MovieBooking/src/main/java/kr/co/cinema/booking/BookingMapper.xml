@@ -205,14 +205,48 @@
   
   <!-- 조건 2 영화 지점 날짜 중 조건2가지 선택한경우 -->
   <select id="SelectListOptionCheckTwo" resultType="map" parameterType="kr.co.cinema.dto.ScreenSchedule">
-	SELECT
-		SCREEN_SCHEDULE.scs_date as scsDate
-	FROM
-		SCREEN_SCHEDULE
-	WHERE
-		SCREEN_SCHEDULE.mov_code=#{movCode} &amp;&amp; SCREEN_SCHEDULE.brc_code = #{brcCode}
-	ORDER BY
-		scsDate ASC
+  <choose>
+  
+	<!-- 영화 가져오기  -->
+	<when test="movCode==0">
+		SELECT
+			SCREEN_SCHEDULE.mov_code as movCode,
+			(SELECT MOVIE.mov_korName FROM MOVIE WHERE MOVIE.mov_code=SCREEN_SCHEDULE.mov_code) as movKorName,
+			(SELECT MOVIE.mov_grade FROM MOVIE WHERE MOVIE.mov_code=SCREEN_SCHEDULE.mov_code) as movGrade
+		FROM
+			SCREEN_SCHEDULE
+		WHERE
+			SCREEN_SCHEDULE.brc_code=#{brcCode} &amp;&amp; SCREEN_SCHEDULE.scs_date = #{date}
+		ORDER BY
+			movCode ASC	
+	</when>
+	
+	<when test="brcCode==0">
+		<!-- 지점 가져오기 -->
+		SELECT
+			SCREEN_SCHEDULE.brc_code as brcCode,
+			(SELECT BRANCH.brc_name FROM BRANCH WHERE BRANCH.brc_code = SCREEN_SCHEDULE.brc_code) as brcName
+		FROM
+			SCREEN_SCHEDULE
+		WHERE
+			SCREEN_SCHEDULE.mov_code=#{movCode} &amp;&amp; SCREEN_SCHEDULE.scs_date = #{date}
+		ORDER BY
+			brcCode ASC	
+	</when>
+
+	<when test="date.equals('')">
+		<!-- 날짜 가져오기 -->
+		SELECT
+			SCREEN_SCHEDULE.scs_date as scsDate
+		FROM
+			SCREEN_SCHEDULE
+		WHERE
+			SCREEN_SCHEDULE.mov_code=#{movCode} &amp;&amp; SCREEN_SCHEDULE.brc_code = #{brcCode}
+		ORDER BY
+			scsDate ASC		
+	</when>
+
+	</choose>	
   </select>
 
 
