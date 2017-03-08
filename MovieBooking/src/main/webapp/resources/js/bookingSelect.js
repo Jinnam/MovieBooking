@@ -80,7 +80,7 @@
 		        	console.log(data.movie);	
 		        	console.log(data.branch);	
 		        	console.log(data.date);	
-		        	if(data.branch && data.date){ //조건 선택 1개 영화만 선택해 지점 , 날짜 가져온경우
+		        	if(data.branch && data.date){ 		//조건 선택 1개 영화만 선택해 지점 , 날짜 가져온경우
 		        		
 		        		console.log('영화만선택');
 		        		
@@ -125,6 +125,26 @@
 		        		
 		        	}else if(data.movie && data.branch){		//조건 선택 1개 날짜만 선택해 영화 , 지점 가져온경우
 		        		console.log('날짜만선택');
+		        		
+		        		//영화 세팅
+		        		$('.scMovie').remove();
+		        		$.each(data.movie, function(i){
+			        		$('#movieSelector').append('<div class="scSelector scMovie selectorDiv waves-effect" id="scMovie'+i+'">');
+			        		$('#scMovie'+i).append('<span value="'+data.movie[i].movCode+'">');
+			        		$('#scMovie'+i).append('<i class="grade16_'+data.movie[i].movGrade+'" style="position:relative;top:2px;"></i>');
+			        		$('#scMovie'+i).append(data.movie[i].movKorName);
+			        		$('#scMovie'+i).append('</span>');
+			        		$('#movieSelector').append('</div>');			        			
+		        		});		     
+		        		//지점 세팅
+		        		$('.scBranch').remove();
+		        		$.each(data.branch, function(i){
+			        		$('#branchSelector').append('<div class="scSelector scBranch selectorDiv waves-effect" id="scBranch'+i+'">');
+			        		$('#scBranch'+i).append('<span value="'+data.branch[i].brcCode+'">');
+			        		$('#scBranch'+i).append(data.branch[i].brcName);
+			        		$('#scBranch'+i).append('</span>');
+			        		$('#branchSelector').append('</div>');		        			
+		        		});		        		
 		        	}else if(data.date){ //조건선택 2개 영화 지점 선택한경우 날짜 세팅
 		        		console.log('영화 지점 선택');
 		        		//초기화

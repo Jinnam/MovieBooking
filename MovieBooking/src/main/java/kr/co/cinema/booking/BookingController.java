@@ -39,7 +39,7 @@ public class BookingController {
 	@RequestMapping(value = "/searchListScreenInfo", method = RequestMethod.GET)
 	public @ResponseBody List<ScreenSchedule> searchListScreenInfo(BookingSelectDto bookingSelect) {	
 		logger.debug("searchListScreenInfo 영화 상영일정 가져오기");
-		return bookingDao.SelectListScreenInfo(bookingSelect);
+		return bookingDao.selectListScreenInfo(bookingSelect);
 	}	
 	
 	//영화 예매 선택페이지

@@ -91,7 +91,7 @@
         	<img src="resources/module-img/booking_menu_movie.png">
         </div>
 
-        <div style="height:450px ; overflow:auto;"id="movieSelector" >
+        <div style="height:450px ; overflow:auto;" id="movieSelector" >
          
         	<c:forEach var="movie" items="${movie}">
 	        	<div class="scSelector scMovie selectorDiv waves-effect">
