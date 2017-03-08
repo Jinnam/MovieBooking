@@ -80,45 +80,6 @@
 		SCREEN_SCHEDULE.scs_code=#{scsCode};
   </select>
   
-  <!-- 조건 1 영화 선택시 지점 가져오기 -->
-  <select id="SelectListBranchCheckMovie" resultType="kr.co.cinema.dto.ScreenSchedule" parameterType="map">
-	SELECT
-		SCREEN_SCHEDULE.brc_code as brcCode,
-		(SELECT BRANCH.brc_name FROM BRANCH WHERE BRANCH.brc_code = SCREEN_SCHEDULE.brc_code) as brcName
-	FROM
-		SCREEN_SCHEDULE
-	WHERE
-		SCREEN_SCHEDULE.mov_code=2100001
-	GROUP BY
-		brcCode
-  </select>
-  
-  <!-- ajax 조건 1 영화 선택시 날짜 가져오기 -->
-  <select id="SelectListDateCheckMovie" resultType="kr.co.cinema.dto.ScreenSchedule" parameterType="map">
-	SELECT
-		SCREEN_SCHEDULE.scs_date as scsDate
-	FROM
-		SCREEN_SCHEDULE
-	WHERE
-		SCREEN_SCHEDULE.mov_code=2100001
-	GROUP BY
-		scsDate
-  </select>  
-
-  <!-- ajax 영화+지점+날짜에 맞는 상영일정 가져오기 -->
-  <select id="SelectListScreenInfo" resultType="kr.co.cinema.dto.ScreenSchedule" parameterType="kr.co.cinema.dto.Movie">
-	SELECT 
-		SCREEN_SCHEDULE.scs_code as scsCode,
-		SCREEN_SCHEDULE.scs_startTime as scsStartTime,
-		SCREEN_SCHEDULE.scs_timeDiscount as scsTimeDiscount
-	FROM
-		SCREEN_SCHEDULE
-	WHERE
-		SCREEN_SCHEDULE.mov_code = #{movCode} &amp;&amp; 
-		SCREEN_SCHEDULE.brc_code = #{brcCode} &amp;&amp; 
-		SCREEN_SCHEDULE.scs_date = #{Date};
-  </select>
-  
   <!-- 영화 예매페이지에서 나타낼 현재 상영중인 영화가 있는 날짜 조회 -->
   <select id="selectListDate" resultType="String">
 	SELECT DISTINCT 
@@ -152,5 +113,70 @@
 	FROM
 		BRANCH  
   </select>    
+  
+  
+  
+  
+  
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ajax ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- 조건 1 영화 선택시 지점 가져오기 -->
+  <select id="SelectListBranchCheckMovie" resultType="map" parameterType="kr.co.cinema.dto.ScreenSchedule">
+	SELECT
+		SCREEN_SCHEDULE.brc_code as brcCode,
+		(SELECT BRANCH.brc_name FROM BRANCH WHERE BRANCH.brc_code = SCREEN_SCHEDULE.brc_code) as brcName
+	FROM
+		SCREEN_SCHEDULE
+	WHERE
+		SCREEN_SCHEDULE.mov_code=#{movCode}
+	GROUP BY
+		brcCode
+  </select>
+  
+  <!-- ajax 조건 1 영화 선택시 날짜 가져오기 -->
+  <select id="SelectListDateCheckMovie" resultType="map" parameterType="kr.co.cinema.dto.ScreenSchedule">
+	SELECT
+		SCREEN_SCHEDULE.scs_date as scsDate
+	FROM
+		SCREEN_SCHEDULE
+	WHERE
+		SCREEN_SCHEDULE.mov_code=#{movCode}
+	GROUP BY
+		scsDate
+  </select>  
+  
+  <!-- 조건 2 영화 지점 날짜 중 조건2가지 선택한경우 -->
+
+  <!-- ajax 영화+지점+날짜에 맞는 상영일정 가져오기 -->
+  <select id="SelectListScreenInfo" resultType="kr.co.cinema.dto.ScreenSchedule" parameterType="kr.co.cinema.dto.Movie">
+	SELECT 
+		SCREEN_SCHEDULE.scs_code as scsCode,
+		SCREEN_SCHEDULE.scs_startTime as scsStartTime,
+		SCREEN_SCHEDULE.scs_timeDiscount as scsTimeDiscount
+	FROM
+		SCREEN_SCHEDULE
+	WHERE
+		SCREEN_SCHEDULE.mov_code = #{movCode} &amp;&amp; 
+		SCREEN_SCHEDULE.brc_code = #{brcCode} &amp;&amp; 
+		SCREEN_SCHEDULE.scs_date = #{Date};
+  </select>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ajax ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
 </mapper>

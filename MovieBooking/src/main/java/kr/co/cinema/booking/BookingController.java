@@ -31,8 +31,7 @@ public class BookingController {
 	@RequestMapping(value = "/searchListBookingSelect", method = RequestMethod.GET)
 	public @ResponseBody Map<String,Object> searchListBookingSelect(BookingSelectDto bookingSelect) {	
 		logger.debug("searchListBookingSelect 영화 조건선택 ");
-		bookingService.searchListBookingSelect(bookingSelect);
-		return null;
+		return bookingService.searchListBookingSelect(bookingSelect);
 	}	
 	
 	//AJAX 영화 조건선택 3개 상영 일정 가져오기

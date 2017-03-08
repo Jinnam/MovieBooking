@@ -21,7 +21,7 @@
 <%@ include file="/WEB-INF/clientModule/topTotalMenuBarWhite.jsp" %>
 
 
-	<div class="container row" style="display:none;"> <!-- 실제 값이 전송될 폼 -->
+	<div class="container row" style=""> <!-- 실제 값이 전송될 폼 -->
 		<form action="bookingSeatSelect" method="post" id="scsInfoForm">
 		
 			<!-- 영화코드 -->
@@ -87,7 +87,7 @@
     
 	  <!-- 영화 선택자 -->
       <div class="col s3 card grey lighten-4" style="height:500px ; margin_bottom:10px;">
-      	<div class="grey darken-3" style="text-align:center;">
+      	<div class="grey darken-3" style="text-align:center;" id="movieSelector">
         	<img src="resources/module-img/booking_menu_movie.png">
         </div>
 
@@ -109,12 +109,12 @@
       	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_theater.png">
         </div>
-        <div style="height:450px ; overflow:auto;">
+        <div style="height:450px ; overflow:auto;" id="branchSelector">
         	<c:forEach var="branch" items="${branch}">
 	        	<div class="scSelector scBranch selectorDiv waves-effect">
 		        	<span value="${branch.brcCode}">${branch.brcName}</span>
 	        	</div>        	
-        	</c:forEach>         
+        	</c:forEach>          	
         </div>
       </div>
       
@@ -123,7 +123,7 @@
       	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_date.png">
         </div>
-        <div style="height:450px ; overflow:auto;">
+        <div style="height:450px ; overflow:auto;" id="dateSelector">
         	<c:forEach var="date" items="${date}">
 	        	<div class="scSelector scDate selectorDiv waves-effect">
 		        	<span >${date}</span>
@@ -145,7 +145,7 @@
        	</div>  
        	
   		<!-- ajax 데이터 들어올 영역 -->
-        <div style="height:450px ; overflow:auto;" id="movieSelector">
+        <div style="height:450px ; overflow:auto;" id="ScreenSchaduleSelector">
 		
         </div>    
             
