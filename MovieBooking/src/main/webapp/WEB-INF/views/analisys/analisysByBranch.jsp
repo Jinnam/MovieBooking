@@ -226,7 +226,9 @@
 		<section class="wrapper">
 			<div class="row">
 				<!-- 페이지 강제 줄임 -->
-				<div class="col-lg-9 main-chart" align="center"></div>
+				<div class="col-lg-9 main-chart" align="center">
+					<h1>test</h1>
+				</div>
 			</div>
 		</section>
 	</section>

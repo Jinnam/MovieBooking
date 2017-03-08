@@ -5,4 +5,24 @@
   
 <mapper namespace="kr.co.cinema.analisys.AnalisysMapper">
  
+	 <!-- 지점에서 영화 매출,예매수 확인 -->
+	 <select id="seleceBrcCntSale" parameterType="Map" resultType="Map">
+	 	SELECT
+			BRANCH.brc_name,
+			MOVIE.mov_korName,
+			BRANCH_DAY_COUNT.brcCnt_clientCount,
+			BRANCH_DAY_COUNT.brcCnt_saleTotal
+		FROM
+			BRANCH_DAY_COUNT
+		JOIN
+			BRANCH
+		ON
+			BRANCH_DAY_COUNT.brc_code=BRANCH.brc_code
+		JOIN
+			MOVIE
+		ON
+			BRANCH_DAY_COUNT.mov_code=MOVIE.mov_code
+		WHERE
+			brcCnt_date between #{brcCntDate1} and #{brcCntDate2}
+	 </select>
 </mapper>
