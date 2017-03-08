@@ -56,7 +56,7 @@
 							
 							<td>${b.pmtDate}</td>
 							
-							<td><a href="">취소</a></td>
+							<td><a href="cancelpayment?pmtCode=${b.pmtCode}">취소</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
