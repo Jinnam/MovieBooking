@@ -233,8 +233,8 @@
 	
 	<!-- 관리자 영화 등록 : 모달에서 조회한 인물정보중 인물 코드로 폼에 넣을 선택한 인물코드조회 -->
 	<select id="choiceCharCode"
-			resultType="kr.co.cinema.dto.Character">
-			SELECT	`CHARACTER`.char_code
+			resultType="int">
+			SELECT	`CHARACTER`.char_code	AS	charCode
 			FROM	`CHARACTER`
 			WHERE	`CHARACTER`.char_code = #{charCode};
 	</select>

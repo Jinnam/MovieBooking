@@ -23,7 +23,7 @@ public class AdminBranchController {
 	@Autowired
 	private AdminBranchService adminBranchService;
 	
-	//상영관등록 : 페이지이동
+		//상영관등록 : 페이지이동
 		@RequestMapping(value="screenInsert", method=RequestMethod.GET)
 		public String insertScreenView() {
 			logger.debug(" Controller insertScreen get실행");

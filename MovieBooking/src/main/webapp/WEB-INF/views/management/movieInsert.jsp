@@ -263,7 +263,7 @@
 								</div>
 								<!-- 감독이름으로 인물코드를 인물테이블에서 조회 ajax -->
 								<div>
-									<input type="button" id="selectCharcodeUseModal" class="btn btn-button" data-toggle="modal" data-target="#DirModal" value="조회">
+									<input type="button" id="selectCharcodeUseModalBtn" class="btn btn-button" data-toggle="modal" data-target="#DirModal" value="조회">
 								</div>
 							</div>
 							<!-- 감독코드 출력 -->
@@ -271,9 +271,8 @@
 								<label class="col-lg-3 control-label">감독코드</label>
 								<!-- 여기에 감독 코드 조회됨 -->
 								<div class="col-lg-7">
-									<input type="text" class="form-control" id="charCode" name="charKorName" placeholder="감독이름을 입력하세요" required="required">
+									<input type="text" class="form-control" id="charCode" name="charCode" placeholder="영화이름을 입력하세요" required="required">
 								</div>
-								<!-- <div class="col-lg-9" id="charCode"></div> -->
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="DirModal" role="dialog">
@@ -284,9 +283,21 @@
 											<button type="button" class="close" data-dismiss="modal">&times;</button>
 											<h4 class="modal-title">감독 검색</h4>
 										</div>
-										<div class="modal-body" id="charName">
+										<div class="modal-body">
 											<p>감독을 선택하세요</p>
-											<!-- 여기에 조회한 감독의 정보가 들어감 -->
+											<table class="table table-striped table-hover">
+												<tr>
+													<th class="col-lg-2">감독이름</th>
+													<th class="col-lg-2">감독코드</th>
+													<th class="col-lg-2">국적</th>
+													<th class="col-lg-2">생년월일</th>
+													<th class="col-lg-2">성별</th>
+													<th class="col-lg-2">선택</th>
+												</tr>
+												<tr id="charName">
+												<!-- 여기에 조회한 감독의 정보가 들어감 -->
+												</tr>
+											</table>
 										</div>
 										<!-- Modal하단 닫기버튼 -->
 										<div class="modal-footer">
@@ -322,9 +333,29 @@
 											<button type="button" class="close" data-dismiss="modal">&times;</button>
 											<h4 class="modal-title">배우 검색</h4>
 										</div>
-										<div class="modal-body" id="charName">
+										<div class="modal-body">
 											<p>배우를 선택하세요</p>
 											<!-- 여기에 조회한 배우의 정보가 들어감 -->
+											<table>
+												<tr>
+													<th></th>
+													<th>감독이름</th>
+													<th>감독코드</th>
+													<th>국적</th>
+													<th>생년월일</th>
+													<th>성별</th>
+													<th>선택</th>
+												</tr>
+												<tr>
+												<!-- 여기에 조회한 감독의 정보가 들어감 -->
+													<td>12</td>
+													<td>12</td>
+													<td>1</td>
+													<td>1</td>
+													<td>2</td>
+													<td>2</td>
+												</tr>
+											</table>
 										</div>
 										<!-- Modal하단 닫기버튼 -->
 										<div class="modal-footer">
@@ -451,8 +482,12 @@
 	
 	<!-- 인물(감독)코드 조회하기 modal-->
 	<script>
+		function BtnClick() {
+			console.log($("#choiceCharCode").text())
+			$("#charCode").val($("#choiceCharCode").val())
+		}
 		$(document).ready(function() {
-			$("#selectCharcodeUseModal").click(function() {
+			$("#selectCharcodeUseModalBtn").click(function() {
 				$.ajax({
 					url 		: "selectCharcodeUseModal",
 					data 		: {"charKorName" : $("#charKorNameUseModal").val()},
@@ -463,58 +498,24 @@
 						var list = data;
 						console.log(data);
 						$.each(list, function(i) {		//감독이름으로 감독정보 모달에 조회	
-							$("#charName").append(	'<div id="choiceCharInfo">'
-													+'<input type="button" id="choiceCharCode" class="btn btn-button" value="선택">'
-													+list[i].charKorName+	' : < 감독코드 : '
-													+list[i].charCode+		' >, < 국적 : '
-													+list[i].charNation+	' >, < 생년월일 : '
-													+list[i].charBirth+	' >, < 성별 : '
-													+list[i].charGender+	' >'
-													+'</div><br/>')
-							/*$("#charCode").append('<input'+
-													'type="text"'+
-													'class="form-control"'+
-													'name="charCode"'+
-													'required="required"'+
-													'value="'+list[i].charCode+'" />')*/
-							$(document).ready(function() {
-								$("#selectCharcodeUseModal").click(function() {
-									$.ajax({
-										url 		: "choiceCharCode",
-										data 		: {"charKorName" : $("#choiceCharInfo").val(list[i].charCode)},
-										dataType 	: "json",
-										type 		: "post",
-										success 	: function(data) {
-											console.log(data)
-											$("#charCode").val(data)
-										}
-									})
-								});
-							});
-						
+							$("#charName").append(
+									+'<td class="col-lg-2">'+list[i].charKorName+	'</td>'
+									+'<td class="col-lg-2" id="choiceCharCode'+i+'">'+list[i].charCode+'</td>'
+									+'<td class="col-lg-2">'+list[i].charNation+	'</td>'
+									+'<td class="col-lg-2">'+list[i].charBirth+		'</td>'
+									+'<td class="col-lg-2">'+list[i].charGender+	'</td>'
+									+'<td class="col-lg-2">'
+									+'	<input	type="button"'
+									+'			onClick="BtnClick('+i+')"'
+									+'			id="choiceCharCodeBtn"'
+									+'			class="btn btn-button" value="선택"></td>'
+									+'<br/>')
 						});
 					}
 				});
 			});
 		});
 	</script>
-	<!-- 조회한 감독정보 선택 -->
-	<!-- <script>
-		$(document).ready(function() {
-			$("#selectCharcodeUseModal").click(function() {
-				$.ajax({
-					url 		: "choiceCharCode",
-					data 		: {"charKorName" : $("#choiceCharCode").val()},
-					dataType 	: "json",
-					type 		: "post",
-					success 	: function(data) {
-						console.log(data)
-						$("#charCode").val(data)
-					}
-				})
-			});
-		});
-	</script> -->
 	
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="resources/assets/js/jquery.js"></script>

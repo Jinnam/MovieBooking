@@ -10,13 +10,11 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
-import kr.co.cinema.dto.BranchAndScreen;
 import kr.co.cinema.dto.BranchDayCount;
 import kr.co.cinema.dto.Character;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
 import kr.co.cinema.dto.MovieAndBranchDayCount;
-import kr.co.cinema.dto.Screen;
 import kr.co.cinema.dto.ScreenCost;
 
 @Repository
@@ -155,9 +153,9 @@ public class AdminDao {
 	}
 	
 	//영화 등록 : 모달에서 조회한 인물정보중 인물 코드로 폼에 넣을 선택한 인물코드조회
-	public String choiceCharCode(String charKorName) {
+	public int choiceCharCode(int charCode) {
 		logger.debug(" Dao choiceCharCode");
-		return sqlSession.selectOne(NS+"choiceCharCode", charKorName);
+		return sqlSession.selectOne(NS+"choiceCharCode", charCode);
 	}
 	
 	//영화등록

@@ -7,24 +7,19 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.cinema.HomeService;
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
-import kr.co.cinema.dto.BranchAndScreen;
 import kr.co.cinema.dto.BranchDayCount;
 import kr.co.cinema.dto.Character;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Movie;
 import kr.co.cinema.dto.MovieAndBranchDayCount;
-import kr.co.cinema.dto.Screen;
 import kr.co.cinema.dto.ScreenCost;
 
 @Service
 public class AdminService {
 	@Autowired
 	private AdminDao adminDao;
-	@Autowired
-	private HomeService homeService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 
@@ -159,9 +154,9 @@ public class AdminService {
 	}
 	
 	//영화 등록 : 모달에서 조회한 인물정보중 인물 코드로 폼에 넣을 선택한 인물코드조회
-	public String choiceCharCode(String charKorName) {
+	public int choiceCharCode(int charCode) {
 		logger.debug(" Service choiceCharCode post실행");
-		return adminDao.choiceCharCode(charKorName);
+		return adminDao.choiceCharCode(charCode);
 	}
 	
 	//영화등록

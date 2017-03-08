@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="Dashboard">
 	<meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-	<title>Mega Box Admin - Admin Main</title>
+	<title>Mega Box Admin - 단가 리스트</title>
 	
 	<!-- Bootstrap core CSS -->
 	<link href="resources/assets/css/bootstrap.css" rel="stylesheet">
@@ -229,6 +229,50 @@
 			<div class="row">
 				<!-- 페이지 강제 줄임 -->
 				<div class="col-lg-9 main-chart" align="center"></div>
+			</div>
+			<div class="container" style="margin: 0 auto;">
+				<div class="jumbotron">
+					<h2 class="logo">단가 목록</h2>
+				</div>
+				<!-- 본문 테이블 -->
+				<div class="col-lg-1"></div>
+				<div class="col-lg-10" style="float: left;">
+					<table class="table table-striped table-hover">
+						<thead>
+							<tr>
+								<th class="col-lg-2"></th>
+								<th class="col-lg-2"></th>
+								<th class="col-lg-3"></th>
+								<th class="col-lg-3"></th>
+								<th class="col-lg-4"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<%-- <c:forEach var="" items=""> --%>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							<%-- </c:forEach> --%>
+						</tbody>
+					</table>
+					<!-- 페이징 -->
+					<div align="center">
+						<ul class="pagination">
+							<li class="disabled"><a href="#">&laquo;</a></li>
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">&raquo;</a></li>
+						</ul>
+					</div>
+					<!-- 페이징 -->
+				</div>
 			</div>
 		</section>
 	</section>
