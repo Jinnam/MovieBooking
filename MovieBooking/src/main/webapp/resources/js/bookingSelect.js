@@ -71,7 +71,6 @@
 
 		//선택조건  선택시 조건에 따른  영화 지점 날짜 가져오는 함수
 		var selectOne = function() {
-			console.log('selectOne');
 		    $.ajax({                               
 		        url:'searchListBookingSelect',                                    
 		        type:'GET',                                              
@@ -79,8 +78,11 @@
 		        dataType : "json",                                        
 		        success:function(data){
 
-		        	if(data.branch && data.date){ //조건 선택1 영화만 선택해 지점 , 날짜 가져온경우
-
+		        	console.log(data.date);	
+		        	
+		        	if(data.branch && data.date){ //조건 선택 1개 영화만 선택해 지점 , 날짜 가져온경우
+		        		
+		        		console.log('영화만선택');
 		        		//초기화
 		        		$('.scDate').remove();
 		        		$('.scBranch').remove();
@@ -100,10 +102,22 @@
 			        		$('#dateSelector').append('</div>');		        			
 		        		});		        		
 		        		
-		        	}else if(data.movie && data.date){		//조건 선택2 지점만 선택해 영화 , 날짜 가져온경우
-		        		console.log('지점이없네');
-		        	}else if(data.movie && data.branch){		//조건 선택3 날짜만 선택해 영화 , 지점 가져온경우
-		        		console.log('날짜가없네');
+		        	}else if(data.movie && data.date){		//조건 선택 1개 지점만 선택해 영화 , 날짜 가져온경우
+		        		console.log('지점만선택');
+		        	}else if(data.movie && data.branch){		//조건 선택 1개 날짜만 선택해 영화 , 지점 가져온경우
+		        		console.log('날짜만선택');
+		        	}else if(data.date){ //조건선택 2개 영화 지점 선택한경우 날짜 세팅
+		        		console.log('영화 지점 선택');
+		        		//초기화
+		        		$('.scDate').remove();
+		        		//날짜 추가
+		        		$.each(data.date, function(i){
+			        		$('#dateSelector').append('<div class="scSelector scDate selectorDiv waves-effect" id="scDate'+i+'">');
+			        		$('#scDate'+i).append(data.date[i].scsDate);
+			        		$('#dateSelector').append('</div>');		        			
+		        		});			        		
+		        	}else{
+		        		console.log('예외')
 		        	}
 		        } //sucess 블럭 닫기
 		    });	//ajax 블럭 닫기	        			

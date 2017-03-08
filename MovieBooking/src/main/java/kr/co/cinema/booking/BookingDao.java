@@ -78,6 +78,12 @@ public class BookingDao {
 		public List<Map> SelectListDateCheckMovie(BookingSelectDto bookingSelect){
 			logger.debug("SelectListDateCheckMovie 영화 조건 1 영화 선택시 지점 가져오기");
 			return session.selectList(mapperNS+"SelectListDateCheckMovie",bookingSelect);		
+		}
+		
+		//ajax 조건 2 영화 지점 날짜 중 조건2가지 선택한경우
+		public List<Map> SelectListOptionCheckTwo(BookingSelectDto bookingSelect){
+			logger.debug("SelectListOptionCheckTwo 조건 2 영화 지점 날짜 중 조건2가지 선택한경우");
+			return session.selectList(mapperNS+"SelectListOptionCheckTwo",bookingSelect);		
 		}		
 		
 		//ajax 영화+지점+날짜에 맞는 상영일정 가져오기

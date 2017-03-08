@@ -120,7 +120,7 @@
   
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ajax ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-  <!-- 조건 1 영화 선택시 지점 가져오기 -->
+  <!-- 조건 1개 영화 선택시 지점 가져오기 -->
   <select id="SelectListBranchCheckMovie" resultType="map" parameterType="kr.co.cinema.dto.ScreenSchedule">
 	SELECT
 		SCREEN_SCHEDULE.brc_code as brcCode,
@@ -133,7 +133,7 @@
 		brcCode
   </select>
   
-  <!-- ajax 조건 1 영화 선택시 날짜 가져오기 -->
+  <!-- ajax 조건 1개  영화 선택시 날짜 가져오기 -->
   <select id="SelectListDateCheckMovie" resultType="map" parameterType="kr.co.cinema.dto.ScreenSchedule">
 	SELECT
 		SCREEN_SCHEDULE.scs_date as scsDate
@@ -146,6 +146,14 @@
   </select>  
   
   <!-- 조건 2 영화 지점 날짜 중 조건2가지 선택한경우 -->
+  <select id="SelectListOptionCheckTwo" resultType="map" parameterType="kr.co.cinema.dto.ScreenSchedule">
+	SELECT
+		SCREEN_SCHEDULE.scs_date as scsDate
+	FROM
+		SCREEN_SCHEDULE
+	WHERE
+		SCREEN_SCHEDULE.mov_code=#{movCode} &amp;&amp; SCREEN_SCHEDULE.brc_code = #{brcCode}
+  </select>
 
   <!-- ajax 영화+지점+날짜에 맞는 상영일정 가져오기 -->
   <select id="SelectListScreenInfo" resultType="kr.co.cinema.dto.ScreenSchedule" parameterType="kr.co.cinema.dto.Movie">
