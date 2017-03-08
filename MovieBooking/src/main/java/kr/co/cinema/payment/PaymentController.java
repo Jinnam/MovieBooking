@@ -127,6 +127,6 @@ public class PaymentController {
 	
 		paymentService.updateCancelPayment(pmtCode);
 		
-		return "redirect:movieMain";
+		return "redirect:bookingSelect";
 	}
 }
