@@ -87,11 +87,11 @@
     
 	  <!-- 영화 선택자 -->
       <div class="col s3 card grey lighten-4" style="height:500px ; margin_bottom:10px;">
-      	<div class="grey darken-3" style="text-align:center;" id="movieSelector">
+      	<div class="grey darken-3" style="text-align:center;">
         	<img src="resources/module-img/booking_menu_movie.png">
         </div>
 
-        <div style="height:450px ; overflow:auto;">
+        <div style="height:450px ; overflow:auto;"id="movieSelector" >
          
         	<c:forEach var="movie" items="${movie}">
 	        	<div class="scSelector scMovie selectorDiv waves-effect">

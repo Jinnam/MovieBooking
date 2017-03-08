@@ -80,6 +80,21 @@ public class BookingDao {
 			return session.selectList(mapperNS+"SelectListDateCheckMovie",bookingSelect);		
 		}
 		
+		//ajax 조건 1 지점 선택시 영화 가져오기
+		public List<Map> SelectListMovieCheckBranch(BookingSelectDto bookingSelect){
+			logger.debug("SelectListMovieCheckBranch 조건 1 지점 선택시 영화 가져오기");
+			return session.selectList(mapperNS+"SelectListMovieCheckBranch",bookingSelect);		
+		}		
+		
+		//ajax 조건 1 지점 선택시 날짜 가져오기
+		public List<Map> SelectListDateCheckBranch(BookingSelectDto bookingSelect){
+			logger.debug("SelectListDateCheckBranch 조건 1 지점 선택시 날짜 가져오기");
+			return session.selectList(mapperNS+"SelectListDateCheckBranch",bookingSelect);		
+		}				
+		
+		
+		
+		
 		//ajax 조건 2 영화 지점 날짜 중 조건2가지 선택한경우
 		public List<Map> SelectListOptionCheckTwo(BookingSelectDto bookingSelect){
 			logger.debug("SelectListOptionCheckTwo 조건 2 영화 지점 날짜 중 조건2가지 선택한경우");
