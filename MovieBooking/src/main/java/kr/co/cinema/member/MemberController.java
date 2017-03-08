@@ -28,8 +28,31 @@ public class MemberController {
 	private MemberService memberService;
 	
 	
+	//마이페이지 나의 무비 스토리 리스트 form
+		@RequestMapping(value="/memberMovieStory", method=RequestMethod.GET)
+		public String selectMovieStory(){
+			return "member/memberMovieStory";
+	}
 	
+	//마이페이지 회원탈퇴 처리
+	@RequestMapping(value="/memberDelete", method=RequestMethod.POST)
+	public String uadatetMemberDelete(String memId, HttpSession session){
+		logger.debug(memId.toString());
+		memberService.removeOneMember(memId);
+		session.invalidate();
+		
+		return "redirect:/movieMain";
+	}
+
+	//마이페이지 회원탈퇴 비밀번호 중복확인
+	@RequestMapping(value="/memberOverLapDelete", method=RequestMethod.POST)
+	public @ResponseBody String overlapMemberDelete(@RequestParam(value = "id") String memId){
 	
+	String returnMemberDelete = memberService.findOneSelectMemberDeleteOverLap(memId);
+	logger.debug("중복확인에서 찍힌거냐  : " + memId.toString());
+	System.out.println(returnMemberDelete);
+		return returnMemberDelete;
+	}
 	
 	//마이페이지 회원 탈퇴 form
 	@RequestMapping(value="/memberDelete", method=RequestMethod.GET)
@@ -37,16 +60,15 @@ public class MemberController {
 		return "member/memberDelete";
 	}
 	
-	//회원 개인정보 수정 action 미완성
+	//마이페이지 회원 개인정보 수정 action 
 	@RequestMapping(value="/memberModify", method=RequestMethod.POST)
-	public String uadatetMemberModify(Model model, HttpSession session){
-		String memId = (String) session.getAttribute("id");
-		model.addAttribute("updateMembers", memberService.removeMember(memId));
-		logger.debug(model.toString());
+	public String uadatetMemberModify(Member member, HttpSession session){
+		memberService.modifyMember(member);
+		logger.debug(member.toString());
 		return "movieMain";
 	}
 	
-	//회원 개인정보 수정 form
+	//마이페이지 회원 개인정보 수정 form
 	@RequestMapping(value="/memberModify", method=RequestMethod.GET)
 	public String removeMember(Model model, HttpSession session){
 		String memId = (String) session.getAttribute("id");
@@ -54,26 +76,18 @@ public class MemberController {
 		logger.debug(model.toString());
 		return "member/memberModify";
 	}
-	//회원 영화 예매 리스트 미완성
-	@RequestMapping(value="/bookedMovieLists", method=RequestMethod.GET)
-	public String selectBookedMovieList(Model model, HttpSession session){
-		String memId = (String) session.getAttribute("id");
-		model.addAttribute("dayMovie", memberService.findListMemberMovieName(memId));
-		logger.debug(model.toString());
-		return "member/bookedMovieList";
-	}
 	
-	//회원 개인정보 영화 예매(상영날짜)
+	//마이페이지 회원 개인정보 영화 예매 form
 	@RequestMapping(value="/bookedMovieList", method=RequestMethod.GET)
 	public String selectBookedDayList(Model model, HttpSession session){
 		String memId = (String) session.getAttribute("id");
-		model.addAttribute("datePayment", memberService.findListMemberPayment(memId));
+		model.addAttribute("reservePayment", memberService.findListMemberPayment(memId));
 		logger.debug(model.toString());
 		
 		return "member/bookedMovieList";
 	}
 	
-	//회원 개인정보 마일리지 페이지 
+	//마이페이지 회원 개인정보 마일리지 페이지 
 	@RequestMapping(value="/mileageList", method=RequestMethod.GET)
 	public String selectMileageList(Model model,HttpSession session){
 		String memId = (String) session.getAttribute("id");
@@ -128,7 +142,7 @@ public class MemberController {
 		session.setAttribute("phone", membersLogin.get("memPhone"));
 		session.setAttribute("mileages", membersLogin.get("memMileage"));
 		session.setAttribute("joinday", membersLogin.get("memJoinDay"));
-	//	logger.debug("return 값 : "+members.toString());
+		logger.debug("return 값 : "+ membersLogin.toString());
 		
 		return membersLogin;
 	}

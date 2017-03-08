@@ -5,6 +5,25 @@
   
 <mapper namespace="kr.co.cinema.member.MemberMapper">
 	
+	<!-- 회원탈퇴 처리 -->
+	<select id="updateMemberDelete" parameterType="kr.co.cinema.dto.Member">
+		update 
+			MEMBER 
+		set 
+			mem_pw='0',
+			mem_phone='0',
+			mem_name='0',
+			mem_gender='0',
+			mem_postNo='0',
+			mem_addr='0',
+			mem_mail='0',
+			mem_mileage='0',  
+			mem_status='탈퇴',
+			mem_leaveDay=now() 
+		where 
+			mem_id=#{memId};	
+	</select>
+	
 	<!-- 회원 탈퇴 비밀번호 중복 체크 -->
 	<select id="selectMemberOverLapDelete" parameterType="String" resultType="String">
 		select 
@@ -14,36 +33,29 @@
 		where 
 			mem_id=#{memId}
 	</select>
-
-	<!-- 공사중 -->
-	<select id="selectMovieName" parameterType="String" resultType="kr.co.cinema.dto.Movie">
-		select 
-			MOVIE.mov_korName AS movKorName
-		from 
-			PAYMENT
-		Join 
-			SCREEN_SCHEDULE
-		ON 
-			PAYMENT.scs_code = SCREEN_SCHEDULE.scs_code
-		JOIN
-			MOVIE
-		ON
-			SCREEN_SCHEDULE.mov_code = MOVIE.mov_code
-		where
-			PAYMENT.mem_id=#{memId}
-	</select>
 	
 	<!-- 마이페이지 회원의 예매(상영날짜) 가져오기 select 공사중-->
-	<select id="selectPayment" parameterType="String" resultType="kr.co.cinema.dto.ScreenSchedule">
+	<select id="selectPayment" parameterType="String" resultType="kr.co.cinema.dto.MypageMemberReserve">
 		SELECT
 			SCREEN_SCHEDULE.scs_date AS scsDate,
-			PAYMENT.pmt_code AS pmtCode
+			PAYMENT.pmt_code AS pmtCode,
+			MOVIE.mov_korName AS movKorName,
+			BRANCH.brc_name AS brcName,
+			PAYMENT.pmt_date AS pmtDate
 		FROM
 			PAYMENT
 		JOIN
 			SCREEN_SCHEDULE
 		ON
 			PAYMENT.scs_code = SCREEN_SCHEDULE.scs_code
+		JOIN
+			MOVIE
+		ON
+			MOVIE.mov_code = SCREEN_SCHEDULE.mov_code		
+		JOIN
+			BRANCH
+		ON
+			BRANCH.brc_code = SCREEN_SCHEDULE.brc_code		
 		WHERE
 			PAYMENT.mem_id=#{memId}
 	</select>
@@ -62,7 +74,7 @@
 	</select>
 	
 	<!-- 마이페이지 회원 개인정보 수정하기 -->
-	<update id="modifyMemberUpdate" parameterType="String">
+	<update id="modifyMemberUpdate" parameterType="kr.co.cinema.dto.Member" >
 		update 
 			MEMBER 
 		set 
@@ -133,13 +145,15 @@
 			mem_name AS memName,
 			mem_phone AS memPhone,
 			mem_mileage AS memMileage,
-			mem_joinDay AS	memJoinDay
+			mem_joinDay AS memJoinDay
 		from 
 			MEMBER
 		where 
 			mem_id=#{memId}
 		and 
 			mem_pw=#{memPw}
+		and
+			mem_status='일반'
 	</select>
 	<!-- 회원 로그인 select 종료 -->
 

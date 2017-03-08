@@ -83,13 +83,13 @@
 				<img src="resources/module-img/memberDelete.PNG" align="right"></a>
 			
 			<!-- 개인정보 수정 시작 -->
-			<form action="memberModify" method="post" name="addjoin" id="modifyForm">
+			<form action="memberModify" method="post" id="modifyForm">
 				<table style="border-top: 2px solid blue; border-bottom: 2px solid blue;">
 						<!-- 아이디 값을 불러온다(길이가 안늘어남)-->
 						<tr>
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*아이디</td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
-								<input type="text" style="width: 200xp"  name="${updateMembers.memId }" value="${memberModify.memId}" readonly="readonly" style ="width:400px"/>&nbsp;
+								<input type="text" style="width: 200xp"  name="memId" value="${memberModify.memId}" readonly="readonly" style ="width:400px"/>&nbsp;
 								<span id="spn"></span>
 						</tr>
 						
@@ -97,7 +97,7 @@
 						<tr bgcolor="ffffff">
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*비밀번호</td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
-								<input type="password" style="width: 200xp" name="${updateMembers.memPw }" 
+								<input type="password" style="width: 200xp" name="memPw" 
 															value="${memberModify.memPw}" style ="width:300px"/></td>
 						</tr>
 						<!-- 비밀번호 수정 종료 -->
@@ -106,7 +106,7 @@
 						<tr bgcolor="ffffff">
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*휴대폰번호</td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
-								<input type="text" name="${updateMembers.memPhone }" 
+								<input type="text" name="memPhone" 
 															value="${memberModify.memPhone}" style ="width:300px"/></td>
 						</tr>		
 						<!-- 휴대폰번호 수정 종료 -->		
@@ -177,6 +177,7 @@
 <script>
 	$(document).ready(function(){
 		$('#modifyBtn').click(function(){
+			alert("수정되었습니다.");
 			$('#modifyForm').submit();
 		})
 	})
