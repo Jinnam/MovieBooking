@@ -499,11 +499,11 @@
 						console.log(data);
 						$.each(list, function(i) {		//감독이름으로 감독정보 모달에 조회	
 							$("#charName").append(
-									+'<td class="col-lg-2">'+list[i].charKorName+	'</td>'
+									+'<td class="col-lg-2">'+list[i].charKorName	+'</td>'
 									+'<td class="col-lg-2" id="choiceCharCode'+i+'">'+list[i].charCode+'</td>'
-									+'<td class="col-lg-2">'+list[i].charNation+	'</td>'
-									+'<td class="col-lg-2">'+list[i].charBirth+		'</td>'
-									+'<td class="col-lg-2">'+list[i].charGender+	'</td>'
+									+'<td class="col-lg-2">'+list[i].charNation		+'</td>'
+									+'<td class="col-lg-2">'+list[i].charBirth		+'</td>'
+									+'<td class="col-lg-2">'+list[i].charGender		+'</td>'
 									+'<td class="col-lg-2">'
 									+'	<input	type="button"'
 									+'			onClick="BtnClick('+i+')"'
