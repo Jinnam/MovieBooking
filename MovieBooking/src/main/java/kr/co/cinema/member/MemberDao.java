@@ -25,10 +25,16 @@ public class MemberDao {
 	private SqlSessionTemplate sqlSessionTemplate;
 	private final String Member_NS = "kr.co.cinema.member.MemberMapper.";
 	
+	//회원탈퇴 처리
+	public int updateMemberDelete(String memId){
+		logger.debug("회원 탈퇴 처리 dao : " + memId);
+		return sqlSessionTemplate.update(Member_NS + "updateMemberDelete", memId);
+	}
+	
 	//회원 탈퇴 비밀번호 중복 체크
 	public String selectMemberOverLapDelete(String memId){
 		logger.debug("탈퇴 비밀번호 중복확인 dao : " + memId);
-		return sqlSessionTemplate.selectOne(Member_NS + "selectMemberDelete", memId);
+		return sqlSessionTemplate.selectOne(Member_NS + "selectMemberOverLapDelete", memId);
 	}
 	
 	//공사중
@@ -53,9 +59,9 @@ public class MemberDao {
 	//마이페이지 회원의 마일리지 가져오기 종료
 	
 	//마이페이지 회원 개인정보 수정하기
-	public int modifyMemberUpdate(String memId){
-		logger.debug("회원 수정 dao : " + memId);
-		return sqlSessionTemplate.update(Member_NS + "modifyMemberUpdate", memId);
+	public int modifyMemberUpdate(Member member){
+		logger.debug("회원 수정 dao : " + member);
+		return sqlSessionTemplate.update(Member_NS + "modifyMemberUpdate", member);
 	}
 	
 	//한 회원 개인정보 가져오기  시작 

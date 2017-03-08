@@ -161,7 +161,7 @@
 				      data : { "memId" : $("#memId").val(),"memPw" : $("#memPw").val()}, 
 				      success : function(data){ 
 				    	  console.log(data);
-				         if(data.memId == null){ 
+				         if(data.memId == 0){ 
 				            alert("로그인 정보가 잘못되었습니다.") 
 				          }else{ 
 				            alert("로그인 성공") 	

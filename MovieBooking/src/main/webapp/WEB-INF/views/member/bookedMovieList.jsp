@@ -18,70 +18,55 @@
 <!-- 영화 메뉴 바-->
 <%@ include file="/WEB-INF/clientModule/topMovieBar.jsp" %>
 
-<br><br>
+		<!-- 마이페이지 img 컨트롤러 -->
+		<br><br>
 		<div class = "container" style="width: 970px">
-			<form action="">
 				<div style="width: 900px;" align="center">
 					<a href="mileageList"><img src="resources/module-img/mileageList.PNG"></a>
 					<a href="bookedMovieList"><img src="resources/module-img/bookedMovieList.PNG"></a>
 					<a href="memberMovieStory"><img src="resources/module-img/memberMovieStory.PNG"></a>
 					<a href="memberModify"><img src="resources/module-img/memberModify.PNG"></a>
 				</div>
-			</form>
-	
-
-	<h3>예매 확인/취소  </h3>
-
-		
+				
+		<!-- 예매확인 취소 시작 -->
+		<h3>예매 확인/취소  </h3>
 		<h5 align="right" style="color: blue;">${name}<label>님의 예매내역입니다.</label></h5>
-		
-		<table style="border-top: 2px solid blue;">
-		<thead>
-			<tr >
-				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">예매번호</td>
-				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">영화명</td>
-				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">영화관</td>
-				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">상영일자</td>
-				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">예매일</td>
-				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">예매취소</td>
-			</tr>
-			</thead>
-			<tbody>	
+		<table style="border-top: 2px solid blue; border-bottom: 2px solid blue">
+			<thead>
+				<tr>
+					<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">예매번호</td>
+					<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">영화명</td>
+					<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">영화관</td>
+					<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">상영일자</td>
+					<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">예매일</td>
+					<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">예매취소</td>
+				</tr>
+				</thead>
 			
-		<!-- 	//공사중 -->
-			<tr>
-				<td></td>
-				
-				<c:forEach items="${dayMovie}" var="c">
-				<td>${c.dayMovie}</td>
-				</c:forEach>
-				
-				<td>3</td>
-				
-				<c:forEach items="${datePayment}" var="b">
-				<td>${b.scsDate}</td>
-				</c:forEach>
-				
-				<td>2</td>
-				
-				<td><a href="">취소</a></td>
-				
-			</tr>
-			
-			
-			</tbody>
-			
+				<tbody>	
+					<c:forEach items="${reservePayment}" var="b">
+						<tr>
+							<td>${b.pmtCode}</td>
+							
+							<td>${b.movKorName}</td>
+							
+							<td>${b.brcName}</td>
+							
+							<td>${b.scsDate}</td>
+							
+							<td>${b.pmtDate}</td>
+							
+							<td><a href="">취소</a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
 		
-		
-		
-		</table>
-		
-
-
-
-	</div>
+			<br><br>
+		</div>
+		<!-- 예매확인 취소 시작 -->
+	
 <!-- 하단바 -->
 <%@ include file="/WEB-INF/clientModule/footer.jsp" %>
-
 </body>
 </html>

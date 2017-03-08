@@ -25,11 +25,17 @@ public class MemberService {
 	//비회원 코드를 불러오기 위한 autowired
 	@Autowired
 	private HomeService homeService;
-		
+	
+	//회원탈퇴 처리
+	public int removeOneMember(String memId){
+		logger.debug("회원탈퇴 service : " + memId);
+		return memberdao.updateMemberDelete(memId);
+	}
+	
 	//회원 탈퇴 비밀번호 중복 체크
-		public String findOneSelectMemberDeleteOverLap(String memId){
-			logger.debug("회원탈퇴 중복확인 service : " + memId);
-			return memberdao.selectMemeberOverlap(memId);
+	public String findOneSelectMemberDeleteOverLap(String memId){
+		logger.debug("회원탈퇴 중복확인 service : " + memId);
+		return memberdao.selectMemberOverLapDelete(memId);
 	}
 	
 	//공사중
@@ -52,9 +58,9 @@ public class MemberService {
 	//마이페이지 회원의 마일리지 가져오기 종료
 	
 	//마이페이지 회원 개인정보 수정하기
-	public int removeMember(String memId){
-		logger.debug("회원 update service : " + memId);
-		return memberdao.modifyMemberUpdate(memId);
+	public int modifyMember(Member member){
+		logger.debug("회원 수정 update service : " + member);
+		return memberdao.modifyMemberUpdate(member);
 	}
 	
 	//한 회원 개인정보 가져오기 select 시작
