@@ -163,7 +163,7 @@
                 $(document).ready(function(){
                   $('.materialboxed').materialbox();
                   $('.carousel').carousel();
-                })
+                });
 
               </script>
 
@@ -175,8 +175,35 @@
 			<div class="card-action">
 				<h3>한줄평</h3>
 			    <ul class="collection">
-			      <li class="collection-item">Alvin</li>
-			      <li class="collection-item">Alvin</li>
+			      <li class="collection-item">
+				      <div class ="row">
+					      <form action="" method="post">
+						      	<!-- 작성자 / 평점 -->
+						      	<div class="col s2">
+								  <span style="margin-right:10px;">김정빈</span>
+								  <select class="browser-default" style="display:inline-block;width:50%">
+								    <option value="" disabled selected>평점</option>
+								    <option value="1">1</option>
+								    <option value="2">2</option>
+								    <option value="3">3</option>
+								  </select>
+						      	</div>
+						      	<!-- 코멘트 -->		      	
+						      	<div class= "col s8">
+									<textarea rows="1" cols="3"></textarea>				      	
+						      	</div>
+						      	<!-- 버튼 -->
+						      	<div class="col s2">
+						      		 <a class="waves-effect waves-light btn" style="max-width:100%">등록</a>
+						      	</div>					      
+					      </form>				      	
+				      </div>			    
+			      </li>
+			      <li class="collection-item">
+					<span>김정빈</span>
+					<span>9 / 10</span>
+					<span></span>
+			      </li>
 			      <li class="collection-item">Alvin</li>
 			      <li class="collection-item">Alvin</li>
 			    </ul>
