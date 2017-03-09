@@ -73,7 +73,7 @@
 	      
 	      <div class="row"> <!-- row 열기 -->
 	      
-	        <a href="movieMain" style=" text-decoration:none; color:#000000 ">
+	        <a href="movieMain" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
@@ -81,29 +81,29 @@
 	                <img src="resources/index_img/1team_movieMain.jpg" style="height:auto;">
 	              </div>
 	              <div class="card-content">
-	                <p>클라이언트</p>
+	                <p>1</p>
 	              </div>
 	            </div>
 	          </div>
 	          
 	        </a>	
 	        	      
-	        <a href="movieMain" style=" text-decoration:none; color:#000000 ">
+	        <a href="http://kjb7907.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/1team_movieMain.jpg" style="height:auto;">
+	                <img src="resources/index_img/jbin.png" style="height:auto;">
 	              </div>
 	              <div class="card-content">
-	                <p>클라이언트</p>
+	                <p>^오^</p>
 	              </div>
 	            </div>
 	          </div>
 	          
 	        </a>	
 	        
-	        <a href="movieMain" style=" text-decoration:none; color:#000000 ">
+	        <a href="movieMain" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
@@ -111,14 +111,14 @@
 	                <img src="resources/index_img/1team_movieMain.jpg" style="height:auto;">
 	              </div>
 	              <div class="card-content">
-	                <p>클라이언트</p>
+	                <p>3</p>
 	              </div>
 	            </div>
 	          </div>
 	          
 	        </a>	
 	        
-	        <a href="movieMain" style=" text-decoration:none; color:#000000 ">
+	        <a href="movieMain" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
@@ -126,7 +126,7 @@
 	                <img src="resources/index_img/1team_movieMain.jpg" style="height:auto;">
 	              </div>
 	              <div class="card-content">
-	                <p>클라이언트</p>
+	                <p>4</p>
 	              </div>
 	            </div>
 	          </div>

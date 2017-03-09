@@ -21,7 +21,7 @@
 <%@ include file="/WEB-INF/clientModule/topTotalMenuBarWhite.jsp" %>
 
 
-	<div class="container row" style=""> <!-- 실제 값이 전송될 폼 -->
+	<div class="container row" style="display:none;"> <!-- 실제 값이 전송될 폼 -->
 		<form action="bookingSeatSelect" method="post" id="scsInfoForm">
 		
 			<!-- 영화코드 -->

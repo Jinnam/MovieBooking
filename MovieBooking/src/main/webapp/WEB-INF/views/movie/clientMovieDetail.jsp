@@ -163,7 +163,7 @@
                 $(document).ready(function(){
                   $('.materialboxed').materialbox();
                   $('.carousel').carousel();
-                });
+                })
 
               </script>
 
@@ -172,11 +172,15 @@
 
           <!-- 리뷰 영역 -->
 
-          <div class="card-action">
-            <div class="ui comments">
-              <h3 class="ui dividing header">댓글</h3>
-            </div>
-          </div>
+			<div class="card-action">
+				<h3>한줄평</h3>
+			    <ul class="collection">
+			      <li class="collection-item">Alvin</li>
+			      <li class="collection-item">Alvin</li>
+			      <li class="collection-item">Alvin</li>
+			      <li class="collection-item">Alvin</li>
+			    </ul>
+			</div>
 
 
 
