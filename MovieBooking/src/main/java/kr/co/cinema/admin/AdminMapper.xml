@@ -12,15 +12,15 @@
 	<!-- 메인화면 하단 영화별 매출표 -->
 	<select id="selectClientCount"
 			resultType="kr.co.cinema.dto.MovieAndBranchDayCount">
-			SELECT 	mov_korName 		AS movKorName, 
-					mov_openDate		AS movOpenDate, 
+			SELECT 	mov_korName 		AS movKorName,
+					mov_openDate		AS movOpenDate,
 					brcCnt_clientCount 	AS brcCntClientCount
 			FROM 	MOVIE 
 					INNER JOIN BRANCH_DAY_COUNT 
 							ON MOVIE.mov_code = BRANCH_DAY_COUNT.mov_code 
 			GROUP 	BY MOVIE.mov_korName 
 			ORDER 	BY BRANCH_DAY_COUNT .brcCnt_clientCount DESC
-			LIMIT 4
+			LIMIT 	4
 	</select>
 	
 	<!-- 바 그래프 상위5지점 조회 -->

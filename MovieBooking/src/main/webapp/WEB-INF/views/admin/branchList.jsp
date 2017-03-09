@@ -217,7 +217,7 @@
 								<th class="col-lg-3">주소</th>
 								<th class="col-lg-4">상세설명</th>
 								<th class="col-lg-2">수정</th>
-								<th class="col-lg-2">삭제</th>
+								<!-- <th class="col-lg-2">삭제</th> -->
 							</tr>
 						</thead>
 						<tbody>
@@ -233,11 +233,11 @@
 											<input class="btn btn-button" type="button" value="수정">
 										</a>
 									</td>
-									<td>
+									<%-- <td>
 										<a href="branchDelete?brcCode=${branchList.brcCode}">
 											<input class="btn btn-button" type="button" value="삭제">
 										</a>
-									</td>
+									</td> --%>
 								</tr>
 							</c:forEach>
 						</tbody>

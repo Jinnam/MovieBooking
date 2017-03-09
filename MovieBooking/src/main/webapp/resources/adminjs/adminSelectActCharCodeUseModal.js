@@ -1,3 +1,4 @@
+//영화등록시 인물정보등록
 function ActBtnClick(i) {
 	//버튼클릭시 선택한 행의 인물코드와 인물이름 변수에 담음
 	var choiceActCharCode = $("#choiceActCharCode"+i);

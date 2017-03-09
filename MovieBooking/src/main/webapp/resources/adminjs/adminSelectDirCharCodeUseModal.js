@@ -1,3 +1,4 @@
+//영화등록시 감독정보등록
 function DirBtnClick(i) {
 	var choiceCharCode = $("#choiceCharCode"+i)
 	var charKorName = $("#charKorName"+i)

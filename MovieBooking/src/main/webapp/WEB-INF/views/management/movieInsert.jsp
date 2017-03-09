@@ -427,30 +427,9 @@
 							</div>
 							<!-- 이미지경로 -->
 							<div class="form-group">
-								<label class="col-lg-3 control-label">이미지경로</label>
-								<div class="col-lg-7">
-									<input type="text" name="movImgPath" class="form-control" placeholder="이미지 경로를 입력하세요" required="required">
-								</div>
-								<div>
-									<input type="button" class="btn btn-button" data-toggle="modal" data-target="#myModal" value="조회">
-								</div>
-							</div>
-							<!-- Modal -->
-							<div class="modal fade" id="myModal" role="dialog">
-								<div class="modal-dialog modal-lg">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-											<h4 class="modal-title">이미지 검색</h4>
-										</div>
-										<div class="modal-body">
-											<p>이미지를 검색하세요.</p>
-											<input type="text" class="form-control">
-										</div>
-										<div class="modal-footer">
-											<input type="button" class="btn btn-default" data-dismiss="modal" value="Close">
-										</div>
-									</div>
+								<label class="col-lg-3 control-label">포스터이미지</label>
+								<div class="col-lg-9">
+									<input type="file" name="movImgPath" class="btn btn-button" placeholder="이미지 경로를 입력하세요" required="required">
 								</div>
 							</div>
 							<!-- 영상경로 -->

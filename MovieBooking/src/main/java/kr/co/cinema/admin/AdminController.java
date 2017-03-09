@@ -223,7 +223,7 @@ public class AdminController {
 		return choiceCharCode;
 	}
 	
-	//영화등록 : 감독이름으로 감독 코드 조회하기 리스트형식 아니라 하나의 코드만 조회
+	//영화 등록 : 감독이름으로 감독 코드 조회하기 리스트형식 아니라 하나의 코드만 조회
 	@RequestMapping(value="selectCharCode", method=RequestMethod.POST)
 	public @ResponseBody String selectCharcodeForInsertMovie(@RequestParam("charKorName")String charKorName) {
 		logger.debug(" Controller selectCharcodeForInsertMovie post실행");
@@ -231,7 +231,7 @@ public class AdminController {
 		return selectCharCodeForInsertMovie;
 	}
 	
-	//영화등록
+	//영화 등록
 	@RequestMapping(value="movieInsert", method=RequestMethod.POST)
 	public String insertMovie(Model model, Movie movie) {
 		logger.debug(" Controller insertMovie post실행");

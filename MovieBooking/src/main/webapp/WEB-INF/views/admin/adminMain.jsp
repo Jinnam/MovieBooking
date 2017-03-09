@@ -366,7 +366,7 @@
 			},
 			labels: {
 				items: [{
-					html: '총 영화 매출순위(단위 월)', 	//원 그래프 타이틀
+					html: '총 영화 매출순위(단위 월)', 		//원 그래프 타이틀
 					style: {
 						left: '50px',
 						top: '18px',
@@ -378,7 +378,7 @@
 			series: [
 				<c:forEach var="MovieCodeForCircleGraph" items="${MovieCodeForCircleGraph}">
 					{
-						type: 'column', //첫번째 바 내용
+						type: 'column', 			//첫번째 바 내용
 						name: '${MovieCodeForCircleGraph.movKorName}', //매출 탑 3영화
 						data: [3, 2, 1, 3, 4]
 					},
