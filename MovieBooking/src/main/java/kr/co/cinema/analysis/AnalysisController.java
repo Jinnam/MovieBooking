@@ -1,5 +1,7 @@
 package kr.co.cinema.analysis;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,18 +21,19 @@ public class AnalysisController {
 	
 	// 영화별 예매/매출조회 : 페이지이동
 	@RequestMapping(value="analisysByMovie", method=RequestMethod.GET)
-	public String selectAnalisysByMovie(Model model) {
+	public String selectAnalisysByMovie() {
+		logger.debug(" selectAnalisysByMovie get실행");
 		
-		Branch branchInfo = analysisService.searchOneBranchInfo();
-		model.addAttribute("branchInfo",branchInfo);
-		logger.debug(" Controller selectAnalisysByMovie get실행");
 		return "analisys/analisysByMovie";
 	}
 	
 	// 지점별 예매/매출 : 페이지이동
 	@RequestMapping(value="analisysByBranch", method=RequestMethod.GET)
-	public String selectAnalisysByBranch() {
+	public String selectAnalisysByBranch(Model model) {
 		logger.debug(" Controller selectAnalisysByMovie get실행");
+		List<Branch> branchInfo = analysisService.searchOneBranchInfo();
+		logger.debug("branchInfo : "+branchInfo.toString());
+		model.addAttribute("branchInfo",branchInfo);
 		return "analisys/analisysByBranch";
 	}
 	
@@ -41,12 +44,4 @@ public class AnalysisController {
 		return "analisys/analisysByDate";
 	}
 	
-	@RequestMapping(value="/branchInfo")
-	public String selectOneBranchInfo(Model model){
-		logger.debug("		selectOneBranchInfo() 진입");
-		
-		Branch branchInfo = analysisService.searchOneBranchInfo();
-		model.addAttribute("branchInfo",branchInfo);
-		return "analisysByBranch";
-	}
 }

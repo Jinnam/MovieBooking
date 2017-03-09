@@ -11,6 +11,9 @@
 	<meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 	<title>Mega Box Admin - Admin Main</title>
 	
+	<!--jQuery  -->
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+	
 	<!-- Bootstrap core CSS -->
 	<link href="resources/assets/css/bootstrap.css" rel="stylesheet">
 	<!--external css-->
@@ -232,18 +235,44 @@
 				<div class="col-lg-9 main-chart" align="center">
 				
 				
-					지점을 선택하세요
-					<c:forEach items="${branchInfo}" var="branchInfo">
-						<div>
-							${branchInfo.brcName}
-						</div>
-					</c:forEach>
+					<p>지점을 선택하세요</p>
+					
+						<c:forEach items="${branchInfo}" var="branchInfo">
+							<input type="button" class="branchName btn" value="${branchInfo.brcName}"/>
+						</c:forEach>
 					
 				</div>
 			</div>
 		</section>
 	</section>
 	<!-- 여기까지 메인 -->
+	<script>
+	$(document).ready(function(){
+		 $('.branchName').click(function(){
+		    	$('.branchName').removeClass('btn-primary');						/* 속성제거 */
+				$(this).addClass('btn-primary');									/* 속성추가 */
+				
+				$.ajax({ 
+				      url : "memberLogin", 
+				      type :"post", 
+				      data : { "memId" : $("#memId").val(),"memPw" : $("#memPw").val()}, 
+				      success : function(data){ 
+				    	  console.log(data);
+				         if(data.memId == null){ 
+				            alert("로그인 정보가 잘못되었습니다.") 
+				          }else{ 
+				            alert("로그인 성공");	
+				            $('#paymentForm').submit();
+				         }
+				      },error:function(){
+				          alert("error");
+				       }
+				   }) ;	
+		})
+
+	})
+	
+	</script>
 	
 	<!-- 하단 -->
 	<%@include file="/WEB-INF/adminModule/footer.jsp" %>

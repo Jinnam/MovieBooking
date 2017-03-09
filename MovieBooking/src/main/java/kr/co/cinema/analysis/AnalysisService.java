@@ -1,5 +1,7 @@
 package kr.co.cinema.analysis;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,7 @@ public class AnalysisService {
 	private AnalysisDao analysisDao;
 	
 	// 지점 정보 가져오기
-	public Branch searchOneBranchInfo(){
+	public List<Branch> searchOneBranchInfo(){
 		logger.debug("		selectOneBranchInfo() 진입");
 		return analysisDao.selectOneBranchInfo();
 	}

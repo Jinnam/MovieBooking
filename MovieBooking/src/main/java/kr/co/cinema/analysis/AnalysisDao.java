@@ -1,5 +1,7 @@
 package kr.co.cinema.analysis;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +21,8 @@ private static final Logger logger = LoggerFactory.getLogger(PaymentDao.class);
 	private final String NS="kr.co.cinema.analisys.AnalisysMapper.";
 	
 	// 지점 지역 가져오기
-	public Branch selectOneBranchInfo(){
+	public List<Branch> selectOneBranchInfo(){
 		logger.debug("		selectOneBranchInfo() 진입");
-		return sqlSession.selectOne(NS+"selectBranchInfo");
+		return sqlSession.selectList(NS+"selectBranchInfo");
 	}
 }
