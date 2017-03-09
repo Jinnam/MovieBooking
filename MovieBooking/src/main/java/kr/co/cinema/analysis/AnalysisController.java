@@ -16,27 +16,25 @@ public class AnalysisController {
 
 	@Autowired
 	private AnalysisService analysisService;
-
 	
-	/************************************************************************************************************
-	통계 관리 메서드
-	************************************************************************************************************/	
-	
-	//***영화별 예매/매출조회 : 페이지이동
+	// 영화별 예매/매출조회 : 페이지이동
 	@RequestMapping(value="analisysByMovie", method=RequestMethod.GET)
-	public String selectAnalisysByMovie() {
+	public String selectAnalisysByMovie(Model model) {
+		
+		Branch branchInfo = analysisService.searchOneBranchInfo();
+		model.addAttribute("branchInfo",branchInfo);
 		logger.debug(" Controller selectAnalisysByMovie get실행");
 		return "analisys/analisysByMovie";
 	}
 	
-	//***지점별 예매/매출 : 페이지이동
+	// 지점별 예매/매출 : 페이지이동
 	@RequestMapping(value="analisysByBranch", method=RequestMethod.GET)
 	public String selectAnalisysByBranch() {
 		logger.debug(" Controller selectAnalisysByMovie get실행");
 		return "analisys/analisysByBranch";
 	}
 	
-	//***날짜별 예매,매출 : 페이지이동
+	// 날짜별 예매,매출 : 페이지이동
 	@RequestMapping(value="analisysByDate", method=RequestMethod.GET)
 	public String selectAnalisysByDate() {
 		logger.debug(" Controller selectAnalisysByDate get실행");
