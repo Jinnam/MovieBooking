@@ -5,7 +5,7 @@
   
 <mapper namespace="kr.co.cinema.analisys.AnalisysMapper">
  
- 	<!-- 지점 지역 가져오기-->
+ 	<!-- 지점 정보 가져오기-->
  	<select id="selectBranchInfo" resultType="kr.co.cinema.dto.Branch">
  		SELECT
  			brc_code AS brcCode,
@@ -21,10 +21,11 @@
 	 <!-- 지점에서 영화 매출,예매수 확인 -->
 	 <select id="seleceBrcCntSale" parameterType="Map" resultType="Map">
 	 	SELECT
-			BRANCH.brc_name,
-			MOVIE.mov_korName,
-			BRANCH_DAY_COUNT.brcCnt_clientCount,
-			BRANCH_DAY_COUNT.brcCnt_saleTotal
+			BRANCH.brc_name AS brcName,
+			MOVIE.mov_korName AS movKorName,
+			BRANCH_DAY_COUNT.brcCnt_clientCount AS brcCntClientCount,
+			BRANCH_DAY_COUNT.brcCnt_saleTotal AS brcCntSaleTotal,
+			BRANCH_DAY_COUNT.brcCnt_date AS brcCntDate
 		FROM
 			BRANCH_DAY_COUNT
 		JOIN
@@ -36,6 +37,11 @@
 		ON
 			BRANCH_DAY_COUNT.mov_code=MOVIE.mov_code
 		WHERE
-			brcCnt_date between #{brcCntDate1} and #{brcCntDate2}
+			BRANCH_DAY_COUNT.brcCnt_date between #{brcCntDate1} and #{brcCntDate2}
+			<if test="brcName != 'main'">
+		AND
+			BRANCH.brc_name=#{brcName}	
+			</if>
+			
 	 </select>
 </mapper>
