@@ -230,7 +230,15 @@
 			<div class="row">
 				<!-- 페이지 강제 줄임 -->
 				<div class="col-lg-9 main-chart" align="center">
-					<h1>test</h1>
+				
+				
+					지점을 선택하세요
+					<c:forEach items="${branchInfo}" var="branchInfo">
+						<div>
+							${branchInfo.brcName}
+						</div>
+					</c:forEach>
+					
 				</div>
 			</div>
 		</section>

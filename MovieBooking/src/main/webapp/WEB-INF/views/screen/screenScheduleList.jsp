@@ -38,7 +38,7 @@
 	<!-- 상단 -->
 	<%@include file="/WEB-INF/adminModule/header.jsp"%>
 	
-	<%@include file="/WEB-INF/views/analisys/left.jsp"%>
+	
 	
 	<!-- 여기부터 메인 -->
 	<section id="main-content">
