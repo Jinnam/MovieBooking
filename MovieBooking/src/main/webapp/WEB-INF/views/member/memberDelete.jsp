@@ -92,15 +92,15 @@
 				   $.ajax({ 
 				      url : "memberOverLapDelete", 
 				      type :"post", 
-				      data : { id : '${id}'}, 
+				      data : { id : '${id}', pw:$('#memPw').val()}, 
 				      
 				      success : function(data){ 
 				    	  console.log(data);
-				         if(data == 0){ 
-				        	alert("비밀번호가 일치하지 않습니다.") 
-				            }else{ 
-				            alert("탈퇴 하시겠습니까?") 
-				            $('#deleteMember').submit();
+				        if(data == 1){ 
+				        	alert("탈퇴 하시겠습니까?") 
+							$('#deleteMember').submit();
+						}else{ 
+							alert("비밀번호가 일치하지 않습니다.") 
 				         } 
 				      } 
 				   });

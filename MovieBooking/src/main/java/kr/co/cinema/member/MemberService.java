@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import kr.co.cinema.HomeService;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Mileage;
-import kr.co.cinema.dto.Movie;
 import kr.co.cinema.dto.NonMember;
 import kr.co.cinema.dto.ScreenSchedule;
 @Service
@@ -33,18 +32,20 @@ public class MemberService {
 	}
 	
 	//회원 탈퇴 비밀번호 중복 체크
-	public String findOneSelectMemberDeleteOverLap(String memId){
+	public int findOneSelectMemberDeleteOverLap(String memId,String memPw){
 		logger.debug("회원탈퇴 중복확인 service : " + memId);
-		return memberdao.selectMemberOverLapDelete(memId);
+		
+		int returnResult=-1;
+		String dbPW = memberdao.selectMemberOverLapDelete(memId);
+		if(memPw.equals(dbPW)){
+			returnResult=1;
+		}else{
+			returnResult=0;
+		}
+		return returnResult;
 	}
 	
-	//공사중
-	public List<Movie> findListMemberMovieName(String memId){
-		logger.debug("영화명 service" + memId);
-		return memberdao.selectMovieName(memId);
-	}
-	
-	//마이페이지 회원의 예매(상영날짜) 가져오기 select
+	//마이페이지 회원의 예매 가져오기 select
 	public List<ScreenSchedule> findListMemberPayment(String memId){
 		logger.debug("상영일자 service" + memId);
 		return memberdao.selectPayment(memId);
@@ -81,7 +82,7 @@ public class MemberService {
 	
 	//회원가입 중복확인 select 시작
 	public String findOneMemberOverlap(String memId){
-		logger.debug("중복확인 service" + memId);
+		logger.debug("중복확인 service : " + memId);
 		return memberdao.selectMemeberOverlap(memId);
 	}
 	//회원가입 중복확인 select 종료

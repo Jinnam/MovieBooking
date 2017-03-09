@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Mileage;
-import kr.co.cinema.dto.Movie;
 import kr.co.cinema.dto.NonMember;
 import kr.co.cinema.dto.ScreenSchedule;
 
@@ -37,14 +36,7 @@ public class MemberDao {
 		return sqlSessionTemplate.selectOne(Member_NS + "selectMemberOverLapDelete", memId);
 	}
 	
-	//공사중
-	public List<Movie> selectMovieName(String memId){
-		logger.debug("영화명 dao" + memId);
-		return sqlSessionTemplate.selectList(Member_NS + "selectMovieName", memId);
-		
-	}
-	
-	//마이페이지 회원의 예매(상영날짜) 가져오기 select
+	//마이페이지 회원의 예매 가져오기 select
 	public List<ScreenSchedule> selectPayment(String memId){
 		logger.debug("상영일자 dao" + memId);
 		return sqlSessionTemplate.selectList(Member_NS + "selectPayment", memId);
@@ -80,7 +72,7 @@ public class MemberDao {
 	
 	//회원가입 중복확인 select 시작
 	public String selectMemeberOverlap(String memId){
-		logger.debug("중복확인 dao" + memId);
+		logger.debug("중복확인 dao  : " + memId);
 		return sqlSessionTemplate.selectOne(Member_NS + "selectMemeberOverlap", memId);
 	}
 	//회원가입 중복확인 select 종료

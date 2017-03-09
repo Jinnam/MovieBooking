@@ -55,7 +55,7 @@
 		<!-- 주소 api script 종료 -->
 
 		
-		<script type="text/javascript">
+	<script type="text/javascript">
 		function checkfield(){
 			/* 아이디 alert 시작 */
 			if(document.addjoin.memId.value==""){
@@ -115,6 +115,7 @@
 			}
 			
 			/* 버튼을 sumbit 하게하는 script */
+			alert("가입하시겠습니까?")
 			document.addjoin.action="memberInsert";
 			document.addjoin.method="post";
 			document.addjoin.submit();
@@ -149,9 +150,9 @@
 				      
 				      success : function(data){ 
 				    	  console.log(data);
-				         if(data == 0){ 
+				         if(data.memId == null){ 
 				            $("#spn").text("사용가능한 아이디 입니다.") 
-				            }else{ 
+				        }else{ 
 				            $("#spn").text("사용불가능한 아이디 입니다."); 
 				            $("#memId").text(""); 
 				            $("#memId").focus(); 
@@ -166,9 +167,9 @@
 		<form action="memberInsert" method="post" name="addjoin" id="checkForm">
 			<h3>가입정보입력</h3>
 					<!-- 아이디 입력 및 중복 시작-->
-					<table style="border-top: 2px solid blue; border-bottom: 2px solid blue;">
+					<table style="border-top: 2px solid blue; border-bottom: 2px solid blue;" class="bordered">
 						<tr>
-							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*아이디</td>
+							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC; width: 200px">*아이디</td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
 								<input type="text" style="width: 200xp" name="memId" id="memId" placeholder="아이디" />&nbsp;
 								<span id="spn"></span>
@@ -180,15 +181,15 @@
 						<tr bgcolor="ffffff">
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*비밀번호</td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
-								<input type="password" style="width: 200xp" name="memPw"/></td>
+								<input type="password" style="width: 200xp" name="memPw" placeholder="비밀번호"/></td>
 						</tr>
 						<!-- 비밀번호 작성 종료 -->
 						
 						<!-- 휴대폰번호 작성 시작 -->
 						<tr bgcolor="ffffff">
-							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*휴대폰번호</td>
+							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;"><p style="text-align: center;">*휴대폰번호<p></td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
-								<input type="text" name="memPhone"/></td>
+								<input type="text" name="memPhone" style="width: 200xp" placeholder="휴대폰번호"/></td>
 						</tr>		
 						<!-- 휴대폰번호 작성 종료 -->		
 								
@@ -203,8 +204,15 @@
 						<!-- 성별 작성 시작-->
 						<tr bgcolor="ffffff">
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*성별</td>
-							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
-								<input type="text" name="memGender"/></td> <!-- select 가 안먹힘; -->
+							<td>&nbsp;	
+								<select class="browser-default" style="width: 180px" name="memGender">
+							    	<option value="" >성별을 선택하세요.</option>
+							    	<option value="남">남</option>
+							    	<option value="여">여</option>
+							  	</select>
+							</td>
+							<!-- <td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
+								<input type="text" name="memGender"/></td> select 가 안먹힘; -->
 						</tr>
 						<!-- 성별 작성 종료-->
 						
@@ -212,7 +220,7 @@
 						<tr bgcolor="ffffff">
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*생년월일</td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
-									<input type="text" name="memBirth"/></td>
+									<input type="text" name="memBirth" placeholder="생년월일"/></td>
 						</tr>
 						<!-- 생년월일 작성 종료-->
 						
@@ -226,12 +234,12 @@
 							</td>
 						</tr>
 						<!-- 주소 api 입력 종료-->
-
+						
 						<!-- 이메일 작성 시작-->
 						<tr bgcolor="ffffff">
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 2px solid #DCDCDC;">*이메일</td>
 							<td style="border-bottom: 2px solid #DCDCDC;">&nbsp;
-							<input type="text" name="memMail"/></td>
+							<input type="text" name="memMail" placeholder="이메일"/></td>
 						</tr>
 						<!-- 이메일 작성 종료-->
 					</table>

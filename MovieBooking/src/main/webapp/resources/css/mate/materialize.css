@@ -1,4 +1,4 @@
-/*type=text*/
+type=text
 /*type=checkbox*/
 /*type="checkbox"*/
 /*type="radio"*/
@@ -4177,7 +4177,7 @@ nav .input-field input {
   padding-left: 2rem;
 }
 
-nav .input-field input:focus, nav .input-field input[/*type=text*/]:valid, nav .input-field input[type=password]:valid, nav .input-field input[type=email]:valid, nav .input-field input[type=url]:valid, nav .input-field input[type=date]:valid {
+nav .input-field input:focus, nav .input-field input[type=text]:valid, nav .input-field input[type=password]:valid, nav .input-field input[type=email]:valid, nav .input-field input[type=url]:valid, nav .input-field input[type=date]:valid {
   border: none;
   box-shadow: none;
 }
@@ -5741,7 +5741,7 @@ label {
 
 /* Text inputs */
 input:not([type]),
-input[/*type=text*/],
+input[type=text],
 input[type=password],
 input[type=email],
 input[type=url],
@@ -5769,8 +5769,8 @@ textarea.materialize-textarea {
 }
 
 input:not([type]):disabled, input:not([type])[readonly="readonly"],
-input[/*type=text*/]:disabled,
-input[/*type=text*/][readonly="readonly"],
+input[type=text]:disabled,
+input[type=text][readonly="readonly"],
 input[type=password]:disabled,
 input[type=password][readonly="readonly"],
 input[type=email]:disabled,
@@ -5799,8 +5799,8 @@ textarea.materialize-textarea[readonly="readonly"] {
 
 input:not([type]):disabled + label,
 input:not([type])[readonly="readonly"] + label,
-input[/*type=text*/]:disabled + label,
-input[/*type=text*/][readonly="readonly"] + label,
+input[type=text]:disabled + label,
+input[type=text][readonly="readonly"] + label,
 input[type=password]:disabled + label,
 input[type=password][readonly="readonly"] + label,
 input[type=email]:disabled + label,
@@ -5827,7 +5827,7 @@ textarea.materialize-textarea[readonly="readonly"] + label {
 }
 
 input:not([type]):focus:not([readonly]),
-input[/*type=text*/]:focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
 input[type=password]:focus:not([readonly]),
 input[type=email]:focus:not([readonly]),
 input[type=url]:focus:not([readonly]),
@@ -5844,7 +5844,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 input:not([type]):focus:not([readonly]) + label,
-input[/*type=text*/]:focus:not([readonly]) + label,
+input[type=text]:focus:not([readonly]) + label,
 input[type=password]:focus:not([readonly]) + label,
 input[type=email]:focus:not([readonly]) + label,
 input[type=url]:focus:not([readonly]) + label,
@@ -5860,8 +5860,8 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 }
 
 input:not([type]).valid, input:not([type]):focus.valid,
-input[/*type=text*/].valid,
-input[/*type=text*/]:focus.valid,
+input[type=text].valid,
+input[type=text]:focus.valid,
 input[type=password].valid,
 input[type=password]:focus.valid,
 input[type=email].valid,
@@ -5890,8 +5890,8 @@ textarea.materialize-textarea:focus.valid {
 
 input:not([type]).valid + label:after,
 input:not([type]):focus.valid + label:after,
-input[/*type=text*/].valid + label:after,
-input[/*type=text*/]:focus.valid + label:after,
+input[type=text].valid + label:after,
+input[type=text]:focus.valid + label:after,
 input[type=password].valid + label:after,
 input[type=password]:focus.valid + label:after,
 input[type=email].valid + label:after,
@@ -5920,8 +5920,8 @@ textarea.materialize-textarea:focus.valid + label:after {
 }
 
 input:not([type]).invalid, input:not([type]):focus.invalid,
-input[/*type=text*/].invalid,
-input[/*type=text*/]:focus.invalid,
+input[type=text].invalid,
+input[type=text]:focus.invalid,
 input[type=password].invalid,
 input[type=password]:focus.invalid,
 input[type=email].invalid,
@@ -5950,8 +5950,8 @@ textarea.materialize-textarea:focus.invalid {
 
 input:not([type]).invalid + label:after,
 input:not([type]):focus.invalid + label:after,
-input[/*type=text*/].invalid + label:after,
-input[/*type=text*/]:focus.invalid + label:after,
+input[type=text].invalid + label:after,
+input[type=text]:focus.invalid + label:after,
 input[type=password].invalid + label:after,
 input[type=password]:focus.invalid + label:after,
 input[type=email].invalid + label:after,
@@ -5980,7 +5980,7 @@ textarea.materialize-textarea:focus.invalid + label:after {
 }
 
 input:not([type]).validate + label,
-input[/*type=text*/].validate + label,
+input[type=text].validate + label,
 input[type=password].validate + label,
 input[type=email].validate + label,
 input[type=url].validate + label,
@@ -5997,7 +5997,7 @@ textarea.materialize-textarea.validate + label {
 }
 
 input:not([type]) + label:after,
-input[/*type=text*/] + label:after,
+input[type=text] + label:after,
 input[type=password] + label:after,
 input[type=email] + label:after,
 input[type=url] + label:after,

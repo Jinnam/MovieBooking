@@ -49,7 +49,7 @@
  <div class="container" style="width:970px">
  <br>
        <h3>약관동의</h3>
-       <p>이용약관</p>
+		<h5>이용약관</h5>
      	  <form action="memberInsert" method="get" id="form1">
 			<div id="div1" >
 			
@@ -107,7 +107,7 @@
 			<!-- 첫번째 약관 종료 -->
 			
 			<!-- 두번째약관 시작-->
-			<p>개인정보수집 및 이용안내</p>
+			<h5>개인정보수집 및 이용안내</h5>
 			 <div id="div2">
 			 <p>메가박스(주)가 개인정보를 수집하는 목적은 보다 다양하고 원활한 고객서비스를 제공하기 위함입니다. 메가박스(주)는 최초 회원가입 시 개인정보의 수집항목 및 이용목적, 개인정보의 수집방법, 개인정보의 이용 및 보관기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.</p><br/>
 
@@ -160,30 +160,11 @@
 			<p>	
 			</div>
 			<!-- 두번째약관종료 -->
-				  
+			
 			<!-- 세번째약관 시작 -->
-			<p>제휴 모바일 멤버십 서비스 이용을 위한 제 3자 제공에 관한 안내</p>	  
+			<h5>제휴 모바일 멤버십 서비스 이용을 위한 제 3자 제공에 관한 안내</h5>	  
 			<div id="div3">
-			<p>1. 회사는 고객의 요청에 의하여 해당 고객의 개인정보를 제 3자에게 제공하는 경우, 그 제공하는 목적, 제공하는 개인정보의 항목, 개인정보를 제공받는 자 및 그 보유 • 이용기간은 다음 표와 같습니다.</p>
-				<table width="100%" cellpadding="5" cellspacing="0" border="1" align="center" style="border-collapse:collapse; border:1px gray solid;">
-					<thead>
-							<tr style="border:solid 1px #848484; border-bottom:none;">
-								<th scope="col" id="th_privacy_3rdparty_company" style="border-right:1px solid #848484; text-align:center; width:300px;">제공받는 업체</th>
-								<th scope="col" id="th_privacy_3rdparty_item" style="border-right:1px solid #848484; text-align:center">제공하는 항목</th>
-								<th scope="col" id="th_privacy_3rdparty_purpose" style="border-right:1px solid #848484; text-align:center">제공받는 자의 이용목적</th>
-								<th scope="col" id="th_privacy_3rdparty_term" style="border-right:1px solid #848484; text-align:center">보유 및 이용기간</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr style="border:solid 1px #848484">
-								<td headers="th_privacy_3rdparty_company" style="border:solid 1px #848484; padding-left:6px;">SK플래닛㈜, ㈜케이티, LG U+㈜, KB국민카드㈜, ㈜카카오, ㈜비엔에스웍스(SK플래닛㈜의 Syrup 모바일 서비스 대행사), ㈜쿠프마케팅(KB국민카드㈜의 KB와이즈월렛 모바일 서비스 대행사), ㈜오케이터치(LGU+ 스마트월렛 모바일 서비스 대행사)</td>
-								<td headers="th_privacy_3rdparty_item" style="border:solid 1px #848484; padding-left:6px;">메가박스 멤버십 카드번호, 포인트 내역, 휴대폰번호, 성명, 메가박스 WEB ID, 예매 정보, 본인확인기관을 통해 받는 결과값(CI)</td>
-								<td headers="th_privacy_3rdparty_purpose" style="border:solid 1px #848484; padding-left:6px;">메가박스 포인트 적립 및 사용, 포인트 내역 제공 등 제휴 서비스 제공, 예매 정보 제공 등 제휴 서비스 제공 활동</td>
-								<td headers="th_privacy_3rdparty_term" style="border:solid 1px #848484; padding-left:6px;">해당 제휴사 회원 가입 시 동의한 보유 및 이용기간까지</td>
-							</tr>
-						</tbody>
-				</table>
-				<br/>
+				<p>1. 회사는 고객의 요청에 의하여 해당 고객의 개인정보를 제 3자에게 제공하는 경우, 그 제공하는 목적, 제공하는 개인정보의 항목, 개인정보를 제공받는 자 및 그 보유 • 이용기간은 다음 표와 같습니다.</p>
 				<p>2. 메가박스와 관련한 제휴 계약 등을 신규 체결 또는 상기 기재된 개인정보 제공업체와의 기존 계약을 해지할 수 있으며, 그 경우 개인정보를 제공받는 업체에 변경이 생길 수 있습니다. 변경사항은 발생 시 홈페이지를 통해 고지하거나 동의를 구한 후 업체에게 제공됩니다.</p>
 				<p>3. 회원은 제휴업체에 대한 정보 제공 철회(제휴업체 이용약관 동의 철회)를 원하시는 경우 각 제휴업체에 방문하여 이용약관 철회 및 정보 제공 철회를 직접 진행해주셔야 합니다.</p>
 				<p>4. 제공받는 업체 모두에게 개인정보가 제공되지 않으며 회원님의 추가 동의 및 요청에 따라 정보가 해당 업체에 제공됩니다.</p>
@@ -192,47 +173,45 @@
 			<div id="div5">
 			<p>
 				<input type="checkbox" id="c3" />
-				<label for="c3">위의 '제휴 모바일 멤버십 서비스 이용을 위한 제3자 제공에 대한 안내'를 읽고 동의 합니다. (선택 동의)</label>
+				<label for="c3">위의 '제휴 모바일 멤버십 서비스 이용을 위한 제3자 제공에 대한 안내'를 읽고 동의 합니다. (필수 동의)</label>
 			<p>	
 			</div>
 			<!-- 세번째 약관 종료 -->
 			
-			
 			<!-- 네번째 약관 시작-->
-			<p>마케팅 활용을 위한 개인정보 수집 이용 안내</p>
+			<h5>마케팅 활용을 위한 개인정보 수집 이용 안내</h5>
 			<div id="div4">
-			<table style="border-collapse:collapse; border:1px gray solid;" >
-				<thead>
-					<tr style="border:solid 1px #848484; border-bottom:none;">
-						<th style="border-right:1px solid #848484; border text-align:center; width:400px;">수집 목적</th>
-						<th style="border-right:1px solid #848484; text-align:center">수집 항목</th>
-						<th style="border-right:1px solid #848484; text-align:center">보유 및 이용 기간</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr style="border:solid 1px #848484">
-						<td style="border:solid 1px #848484; padding-left:6px;">당사 신규 상품/서비스 안내 및 권유. 사은/할인 행사 등 각종 이벤트 정보 등의 안내 및 권유</td>
-						<td style="border:solid 1px #848484; padding-left:6px;">이메일, 휴대폰번호</td>
-						<td style="border:solid 1px #848484; padding-left:6px;">회원 탈퇴 시 혹은 이용 목적 달성 시까지</td>
-					</tr>
-				</tbody>
-			</table>
+				<P>개인정보취급방침<P>
+				
+				<P>디제로킹다이어트 (이하 “회사”)는 고객의 개인정보를 소중히 다루고 있으며, 『정보통신망이용 촉진 및 정보 보호 등에 관한 법률 』 상의 개인정보보호 규정 및 정보통신부가 제정한 『 개인정보보호 및 취급방침』을 준수하고 있습니다. 회사는 개인정보취급방침을 통해 아래와 같이 이벤트 참여시 제공해주시는 개인정보의 수집 및 이용목적과 개인정보보호를 위한 회사의 조치 사항을 고지합니다.<P>
+				
+				<P>1. 개인정보 수집·이용·제공 등 에 대한 동의<P>
+				<P>회사는 고객께서 회사가 제공하는 이벤트 참여시 이벤트 페이지에 개인정보취급방침 내용에 대하여 동의 여부를 선택할 수 있는 절차를 마련하였으며, 귀하가 제공한 정보는 개인정보취급방침에 명시된 내용 이외의 목적으로는 사용되지 아니합니다.<P>
+				
+				<P>2. 수집하는 개인정보의 범위 및 수집방법<P>
+				<P>회사에서는 귀하의 이벤트 참여와 경품수령 및 불편사항처리 등을 위한 필수적인 정보를 입력 받고 있습니다.<P>
+				<P>- 이벤트 참여시 받는 필수 정보 : <P>
+				<P>- 이벤트 참여시 선택적으로 받을 수 있는 정보 : <P>
+				<P>- 서비스 이용과정이나 처리 과정에서 자동으로 생성되어 수집될 수 있는 정보 : IP Address, 참여일시, 유입경로(참여매체)<P>
+				
+				<P>3. 개인정보의 수집 및 이용목적<P>
+				<P>이벤트 참여시 입력하신 정보는 이벤트 참여확인, 당첨자 발표 및 안내, 고지사항 전달, 불편사항처리 등을 위한 원활한 의사소통 경로의 확보, 이벤트 경품 제공, 개인별 맞춤 서비스 제공, 새로운 이벤트 안내(이메일, 전화, MMS 등) 아래 명기한 제3자에게 제공되어 상품안내를 위한 마케팅 자료(전화, 이메일, MMS 등)로 활용 됩니다.<P>
 			</div>
+			
 			<!-- 네번째 체크박스 -->
 			<div id="div5">
 			<p>
 				<input type="checkbox" id="c4" />
-				<label for="c4">위, 내용을 읽고 '마케팅 활용을 위한 개인정보 수집 이용 안내'에 동의합니다. (선택 동의)</label>
+				<label for="c4">위, 내용을 읽고 '마케팅 활용을 위한 개인정보 수집 이용 안내'에 동의합니다. (필수 동의)</label>
     		</p>
 			</div>
             <!-- 네번째 약관 종료 -->
-             
              
             <!--  약관전체동의 checkbox -->
             <div id="div6">
              <p>
 				<input type="checkbox" id="all" name="all"/>
-				<label for="all"> 위의 모든 약관을 읽고 동의 합니다. </label>
+				<label for="all" style="color: red"> 위의 모든 약관을 읽고 동의 합니다. (전체동의 체크 필수) </label>
     		</p>
 			</div>
 			
@@ -291,8 +270,7 @@
 	form1.onsubmit = function(e) {
 		e.preventDefault(); 
 		if ( !form1_data['c1'] ) {
-			alert('네이버 이용약관 동의를 하지 않았습니다'); 
-			c1.parentNode.style.color = 'red'; 
+			alert('아래 전체 동의 체크를 하셔야합니다.'); 
 			return false; 
 		}
 

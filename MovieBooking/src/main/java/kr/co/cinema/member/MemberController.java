@@ -46,12 +46,13 @@ public class MemberController {
 
 	//마이페이지 회원탈퇴 비밀번호 중복확인
 	@RequestMapping(value="/memberOverLapDelete", method=RequestMethod.POST)
-	public @ResponseBody String overlapMemberDelete(@RequestParam(value = "id") String memId){
+	public @ResponseBody int overlapMemberDelete(@RequestParam(value = "id") String memId,
+													@RequestParam(value = "pw") String memPw){
 	
-	String returnMemberDelete = memberService.findOneSelectMemberDeleteOverLap(memId);
+	int resultCheck = memberService.findOneSelectMemberDeleteOverLap(memId,memPw);
 	logger.debug("중복확인에서 찍힌거냐  : " + memId.toString());
-	System.out.println(returnMemberDelete);
-		return returnMemberDelete;
+	System.out.println(resultCheck);
+		return resultCheck;
 	}
 	
 	//마이페이지 회원 탈퇴 form
@@ -186,8 +187,8 @@ public class MemberController {
 	public @ResponseBody String overlapMember(@RequestParam(value = "id") String memId) {
 
 		String returnMember = memberService.findOneMemberOverlap(memId);
-		logger.debug(memId.toString());
-		System.out.println(returnMember);
+		logger.debug("컨트롤러 맞냐?" + memId.toString());
+		System.out.println("시스템임?"+returnMember);
 		return returnMember;
 	}
 	

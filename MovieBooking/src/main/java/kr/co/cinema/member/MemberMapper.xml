@@ -34,7 +34,7 @@
 			mem_id=#{memId}
 	</select>
 	
-	<!-- 마이페이지 회원의 예매(상영날짜) 가져오기 select 공사중-->
+	<!-- 마이페이지 회원의 예매 가져오기 select -->
 	<select id="selectPayment" parameterType="String" resultType="kr.co.cinema.dto.MypageMemberReserve">
 		SELECT
 			SCREEN_SCHEDULE.scs_date AS scsDate,

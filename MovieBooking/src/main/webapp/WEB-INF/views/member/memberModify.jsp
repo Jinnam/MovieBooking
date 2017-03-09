@@ -66,23 +66,24 @@
 <%@ include file="/WEB-INF/clientModule/topMovieBar.jsp" %>
 
 <br><br>
+
+		<!-- 마이페이지 img 컨트롤러 -->
 		<div class = "container" style="width: 970px">
-			<form action="">
 				<div style="width: 900px;" align="center">
 					<a href="mileageList"><img src="resources/module-img/mileageList.PNG"></a>
 					<a href="bookedMovieList"><img src="resources/module-img/bookedMovieList.PNG"></a>
 					<a href="memberMovieStory"><img src="resources/module-img/memberMovieStory.PNG"></a>
 					<a href="memberModify"><img src="resources/module-img/memberModify.PNG"></a>
 				</div>
-			</form>
 		
 <br><br>
-	
+		
+		<!-- 개인정보 수정 시작 -->
 		<h2>개인정보 수정</h2>
 			<a href="memberDelete">
 				<img src="resources/module-img/memberDelete.PNG" align="right"></a>
 			
-			<!-- 개인정보 수정 시작 -->
+			
 			<form action="memberModify" method="post" id="modifyForm">
 				<table style="border-top: 2px solid blue; border-bottom: 2px solid blue;">
 						<!-- 아이디 값을 불러온다(길이가 안늘어남)-->
@@ -157,6 +158,7 @@
 						<!-- 이메일 수정 종료-->
 					</table>
 					<br><br>
+					
 				<table>
 					<tr>
 						<td>
@@ -174,6 +176,8 @@
 	<!-- 개인정보 수정 종료 -->
 </div>
 <br>
+
+<!-- modifyBtn submit하는  스크립트 -->
 <script>
 	$(document).ready(function(){
 		$('#modifyBtn').click(function(){
