@@ -149,7 +149,7 @@
 				      
 				      success : function(data){ 
 				    	  console.log(data);
-				         if(data == 0){ 
+				         if(data == 2){ 
 				            $("#spn").text("사용 불가능한 아이디 입니다.") 
 				        }else{ 
 				            $("#spn").text("사용 가능한 아이디 입니다."); 

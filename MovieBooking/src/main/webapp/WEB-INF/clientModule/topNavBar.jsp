@@ -76,7 +76,6 @@
 	                <div>
 	                  <a href="memberFind"><img src="resources/module-img/memberFinds.PNG"></a>
 	                  <a href="memberProvision"><img src="resources/module-img/memberInserts.PNG"></a>
-	                  <a href="nonMemberInsert"><img src="resources/module-img/nonmemberInsert.PNG"></a>
 	                </div>
 	              </div>
 	              <!-- 로그인 폼 끝 -->
@@ -115,7 +114,7 @@
                 </table>
                 <br><br>
                 <div>
-                  <a href="memberDetail"><img src="resources/module-img/mypage.PNG" align="left"></a>
+                  <a href="mileageList"><img src="resources/module-img/mypage.PNG" align="left"></a>
                 </div>
                 <br>
                 <div>
@@ -153,27 +152,30 @@
             */
         </script>
         	<script>
-			$(document).ready(function(){
-				$("#btnLogin").click(function(){ 
+			$(document).on('click','#btnLogin',function(){
 					console.log("아이디 비번 체크");
+					if($('#memId').val()==null || $('#memId').val()==""){
+						alert("로그인정보를 입력하세요");
+					}else{
 				   $.ajax({ 
 				      url : "memberLogin", 
 				      type :"post", 
 				      data : { "memId" : $("#memId").val(),"memPw" : $("#memPw").val(),}, 
 				      success : function(data){ 
 				    	  console.log(data);
-				         if(data.memId == 0){ 
-				            alert("로그인 정보가 잘못되었습니다.") 
-				          }else{ 
-				            alert("어서오세요!") 	
-				            location.reload();
+				         if(data != null){ 
+				        	 alert("어서오세요!") 
+				        	 location.reload();
+				          }else if(date == null){ 
+				        	  alert("로그인 정보가 잘못되었습니다.") 
+				            
 				         } 
 				      },error:function(){
-				          alert("로그인 정보가 잘못되었습니다.");
+				          alert("에러임");
 				       }
 				   }) ;
-				}) ;
-			});
+					}
+				});
 		</script>
         <script>
         

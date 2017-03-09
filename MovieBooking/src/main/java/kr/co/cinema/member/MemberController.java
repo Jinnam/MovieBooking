@@ -136,7 +136,7 @@ public class MemberController {
 		map.put("memId", member.getMemId());
 		map.put("memPw", member.getMemPw());
 		Map<String,Object> membersLogin = memberService.findOneMmemberLogin(map);
-		System.out.println("membersLogin나오면찍힌거"+membersLogin);
+		System.out.println("membersLogin나오면찍힌거01"+membersLogin);
 		session.setAttribute("id", membersLogin.get("memId"));
 		session.setAttribute("pw", membersLogin.get("memPw"));
 		session.setAttribute("name", membersLogin.get("memName"));

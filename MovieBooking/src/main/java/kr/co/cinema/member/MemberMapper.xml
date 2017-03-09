@@ -60,7 +60,6 @@
 			PAYMENT.mem_id=#{memId}
 	</select>
 	
-	
 	<!-- 마이페이지 회원의 마일리지 가져오기 select-->
 	<select id="selectMemberMileage" parameterType="String"	resultType="kr.co.cinema.dto.Mileage">
 		select 

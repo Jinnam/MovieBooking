@@ -84,13 +84,13 @@ public class MemberService {
 	public int findOneMemberOverlap(String memId){
 		logger.debug("중복확인 service : " + memId);
 		
-		int returnResultMember=-1;
+		int returnResultMember=0;
 		String dbid = memberdao.selectMemeberOverlap(memId);
 		
 		if(memId.equals(dbid)){
-			returnResultMember=1;
+			returnResultMember=3;
 		}else{
-			returnResultMember=0;
+			returnResultMember=2;
 		}
 		System.out.println(memId + "이거랑" + dbid + "같음?");
 		return returnResultMember;
@@ -114,6 +114,10 @@ public class MemberService {
 	//회원 로그인 select 시작
 	public Map<String, Object> findOneMmemberLogin(Map<String, String> map){
 		logger.debug("login select service" + map);
+		
+		
+		
+		
 		return memberdao.selectMemberLogin(map);
 	}
 	//회원 로그인 select 종료
