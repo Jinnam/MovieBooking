@@ -41,7 +41,11 @@
 		<input type="hidden" name="seatCode3" value="${bookingSeatSelectDto.seatCode3}"/>
 		<input type="hidden" name="seatCode4" value="${bookingSeatSelectDto.seatCode4}"/>
 	</form>
-	<div align="center">
+	<div class="row">
+	<div class="col s4"></div>
+	<div class="col s8">
+		<h2>회원 로그인</h2>
+		<h3>아이디와 비밀번호를 입력하세요.</h3>
 		<table>
 			<tr>
 				<td>
@@ -57,15 +61,17 @@
 					<input type="text" name="memPw" id="memPw" value="pw001" style ="width:200px">
 				</td>
 			</tr>
-			<tr>
-				<td colspan="2" align="right">
-					<input class="btn blue darken-4" type="button" value="로그인" id="btnLogin"/>
-					<div class="btn" id="nmemBooking">비회원 예매</div> 
-				</td>
-			</tr>
 		</table>
+			<div class="col s1"></div>
+			<div class="col s11" align="left">
+				<br/><br/>
+				<div class="btn blue darken-4" id="btnLogin">로그인</div>
+				<div class="btn" id="nmemBooking">비회원 예매</div> 
+			</div>
+			
+		
 	</div>
-
+	</div>
 </div>
 <script>
 $(document).ready(function(){

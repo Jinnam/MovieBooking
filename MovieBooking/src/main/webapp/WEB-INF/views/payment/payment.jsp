@@ -72,6 +72,7 @@
 				<!-- 결제 방법 선택 시작 -->
 				<div class="col s3 card" style="height:530px;" align="center">
 						<h3 align="center">결제 수단</h3><br/><br/>
+						
 						<div style="cursor: pointer;" class="paymentWay">휴대폰결제</div><br/>
 						<div style="cursor: pointer;" class="paymentWay">신용/체크</div><br/>
 						<div style="cursor: pointer;" class="paymentWay">카카오페이</div><br/>
@@ -81,7 +82,7 @@
 			
 				<!-- 할인 선택 시작 -->
 				<div class="col s3 card" style="height:530px">
-					<h3 align="center">할인</h3>
+					<h3 align="center">할인</h3><br/><br/>
 					
 					<!-- <시작> 예매 시간대가 '일반' 일때만 할인정보 나타냄 -->
 					<c:if test="${bookingInfo.scsTimeDiscount=='일반'}">				
@@ -115,7 +116,7 @@
 				
 				<!-- 금액 선택 시작 -->
 				<div class="col s3 card" style="height:530px">
-					<h3 align="center">금액</h3>
+					<h3 align="center">금액</h3><br/><br/>
 					<div>
 						총 결제 금액<br>
 						<span id="totalCost">${bookingInfo.finalCost*bookingInfo.personNum}</span>원
