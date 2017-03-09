@@ -257,7 +257,7 @@
 							</div>
 							<!-- 감독이름(한글) -->
 							<div class="form-group"> 
-								<label class="col-lg-3 control-label">감독이름</label>
+								<label class="col-lg-3 control-label">감독이름조회</label>
 								<div class="col-lg-7">
 									<input type="text" class="form-control" id="charKorNameUseModal" name="charKorName" placeholder="감독이름을 입력하세요" required="required">
 								</div>
@@ -267,11 +267,15 @@
 								</div>
 							</div>
 							<!-- 감독코드 출력 -->
-							<div class="form-group"><!--  style="display: none;" -->
-								<label class="col-lg-3 control-label">감독코드</label>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">감독정보</label>
 								<!-- 여기에 감독 코드 조회됨 -->
-								<div class="col-lg-7">
-									<input type="text" class="form-control" id="charCode" name="charCode" placeholder="영화이름을 입력하세요" required="required">
+								<div class="col-lg-9">
+									<input type="text" class="form-control" id="charCodeDir" name="charCode" required="required" readonly="readonly">
+								</div>
+								<div class="col-lg-3"></div>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" id="charKorNameDir" required="required" readonly="readonly">
 								</div>
 							</div>
 							<!-- Modal -->
@@ -286,17 +290,20 @@
 										<div class="modal-body">
 											<p>감독을 선택하세요</p>
 											<table class="table table-striped table-hover">
-												<tr>
-													<th class="col-lg-2">감독이름</th>
-													<th class="col-lg-2">감독코드</th>
-													<th class="col-lg-2">국적</th>
-													<th class="col-lg-2">생년월일</th>
-													<th class="col-lg-2">성별</th>
-													<th class="col-lg-2">선택</th>
-												</tr>
-												<tr id="charName">
+												<thead>
+													<tr>
+														<th class="col-lg-2">&nbsp;</th>
+														<th class="col-lg-2">감독이름</th>
+														<th class="col-lg-2">감독코드</th>
+														<th class="col-lg-2">국적</th>
+														<th class="col-lg-2">생년월일</th>
+														<th class="col-lg-2">성별</th>
+														<th class="col-lg-2">선택</th>
+													</tr>
+												</thead>
+												<tbody id="charName">
 												<!-- 여기에 조회한 감독의 정보가 들어감 -->
-												</tr>
+												</tbody>
 											</table>
 										</div>
 										<!-- Modal하단 닫기버튼 -->
@@ -308,9 +315,9 @@
 							</div>
 							<!-- 주연배우이름(한글) -->
 							<div class="form-group">
-								<label class="col-lg-3 control-label">주연배우</label>
+								<label class="col-lg-3 control-label">배우이름조회</label>
 								<div class="col-lg-7">
-									<input type="text" class="form-control" id="ActorKorName" name="charKorName" placeholder="주연배우를 입력하세요" required="required">
+									<input type="text" class="form-control" id="ActKorNameUseModal" name="charKorName" placeholder="주연배우를 입력하세요" required="required">
 								</div>
 								<!-- 주연배우이름으로 인물코드를 인물테이블에서 조회 ajax-->
 								<div>
@@ -318,11 +325,7 @@
 								</div>
 							</div>
 							<!-- 배우코드 출력 -->
-							<div class="form-group">
-								<label class="col-lg-3 control-label">배우코드</label>
-								<div class="col-lg-9">
-									<input type="text" class="form-control" id="charCodeActor" name="charCode" required="required">
-								</div>
+							<div class="form-group" id="ActCharInfo">
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="ActModal" role="dialog">
@@ -335,26 +338,21 @@
 										</div>
 										<div class="modal-body">
 											<p>배우를 선택하세요</p>
-											<!-- 여기에 조회한 배우의 정보가 들어감 -->
-											<table>
-												<tr>
-													<th></th>
-													<th>감독이름</th>
-													<th>감독코드</th>
-													<th>국적</th>
-													<th>생년월일</th>
-													<th>성별</th>
-													<th>선택</th>
-												</tr>
-												<tr>
+											<table class="table table-striped table-hover">
+												<thead>
+													<tr>
+														<th class="col-lg-2">&nbsp;</th>
+														<th class="col-lg-2">배우이름</th>
+														<th class="col-lg-2">배우코드</th>
+														<th class="col-lg-2">국적</th>
+														<th class="col-lg-2">생년월일</th>
+														<th class="col-lg-2">성별</th>
+														<th class="col-lg-2">선택</th>
+													</tr>
+												</thead>
+												<tbody id="charNameActor">
 												<!-- 여기에 조회한 감독의 정보가 들어감 -->
-													<td>12</td>
-													<td>12</td>
-													<td>1</td>
-													<td>1</td>
-													<td>2</td>
-													<td>2</td>
-												</tr>
+												</tbody>
 											</table>
 										</div>
 										<!-- Modal하단 닫기버튼 -->
@@ -364,6 +362,9 @@
 									</div>
 								</div>
 							</div>
+						</fieldset>
+						<fieldset class="col-lg-5" style="float:left;">
+							<legend>&nbsp;</legend>
 							<!-- 국가이름 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">국가</label>
@@ -392,9 +393,6 @@
 									<textarea class="form-control" rows="3" name="movInfoDetail" required="required"></textarea>
 								</div>
 							</div>
-						</fieldset>
-						<fieldset class="col-lg-5" style="float:left;">
-							<legend>&nbsp;</legend>
 							<!-- 제작사 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">제작사</label>
@@ -481,42 +479,10 @@
 	<!-- 스크립트 -->
 	
 	<!-- 인물(감독)코드 조회하기 modal-->
-	<script>
-		function BtnClick() {
-			console.log($("#choiceCharCode").text())
-			$("#charCode").val($("#choiceCharCode").val())
-		}
-		$(document).ready(function() {
-			$("#selectCharcodeUseModalBtn").click(function() {
-				$.ajax({
-					url 		: "selectCharcodeUseModal",
-					data 		: {"charKorName" : $("#charKorNameUseModal").val()},
-					dataType 	: "json",
-					type 		: "post",
-					success 	: function(data) {
-						$("#charName").html('');		//감독이름 들어갈 태그안 초기화 안해주면 중복됨
-						var list = data;
-						console.log(data);
-						$.each(list, function(i) {		//감독이름으로 감독정보 모달에 조회	
-							$("#charName").append(
-									+'<td class="col-lg-2">'+list[i].charKorName	+'</td>'
-									+'<td class="col-lg-2" id="choiceCharCode'+i+'">'+list[i].charCode+'</td>'
-									+'<td class="col-lg-2">'+list[i].charNation		+'</td>'
-									+'<td class="col-lg-2">'+list[i].charBirth		+'</td>'
-									+'<td class="col-lg-2">'+list[i].charGender		+'</td>'
-									+'<td class="col-lg-2">'
-									+'	<input	type="button"'
-									+'			onClick="BtnClick('+i+')"'
-									+'			id="choiceCharCodeBtn"'
-									+'			class="btn btn-button" value="선택"></td>'
-									+'<br/>')
-						});
-					}
-				});
-			});
-		});
-	</script>
-	
+	<script src="resources/adminjs/adminSelectDirCharCodeUseModal.js"></script>
+	<!-- 인물(배우)코드 조회하기 modal-->
+	<script src="resources/adminjs/adminSelectActCharCodeUseModal.js"></script>
+
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="resources/assets/js/jquery.js"></script>
 	<script src="resources/assets/js/jquery-1.8.3.min.js"></script>
