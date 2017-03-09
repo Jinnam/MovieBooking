@@ -233,7 +233,7 @@
 			<!-- 지점수정 폼 이름/지역/주소/상세설명/이미지경로-->
 			<div class="container" style="margin: 0 auto;">
 				<div class="jumbotron">
-					<h2 class="logo">지점 등록</h2>
+					<h2 class="logo">지점 수정</h2>
 				</div>
 				<div class="col-lg-3"></div>
 				<div class="col-lg-6" style="float: left: ;">

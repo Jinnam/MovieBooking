@@ -136,7 +136,7 @@
 	지점관리자쿼리
 	*************************************************************************************-->
 	
-	<!-- 지점관리자 등록하기위한 지점 조회 -->
+	<!-- 관리자리스트조회 -->
 	<select id="selectAdminList"
 			resultType="kr.co.cinema.dto.AdminAndBranch">
 			SELECT	ADMIN.adm_id		AS admId,
