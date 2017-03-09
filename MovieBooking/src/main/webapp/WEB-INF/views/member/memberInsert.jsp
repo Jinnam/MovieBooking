@@ -140,8 +140,7 @@
 		
 		<!-- 중복확인 ajax 시작 -->
 		<script>
-			$(document).ready(function(){
-				$("#btn").click(function(){ 
+			$(document).on('click','#btn',function(){
 					console.log("중복확인 체크");
 				   $.ajax({ 
 				      url : "memeberOverlap", 
@@ -150,17 +149,14 @@
 				      
 				      success : function(data){ 
 				    	  console.log(data);
-				         if(data.memId == null){ 
-				            $("#spn").text("사용가능한 아이디 입니다.") 
+				         if(data == 0){ 
+				            $("#spn").text("사용 불가능한 아이디 입니다.") 
 				        }else{ 
-				            $("#spn").text("사용불가능한 아이디 입니다."); 
-				            $("#memId").text(""); 
-				            $("#memId").focus(); 
+				            $("#spn").text("사용 가능한 아이디 입니다."); 
 				         } 
 				      } 
 				   }) ;
-				}) ;
-			});
+				});
 		</script>
 		<!-- 중복확인 ajax 시작 -->
 
@@ -169,7 +165,7 @@
 					<!-- 아이디 입력 및 중복 시작-->
 					<table style="border-top: 2px solid blue; border-bottom: 2px solid blue;" class="bordered">
 						<tr>
-							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC; width: 200px">*아이디</td>
+							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;"><p style="text-align: center;">*아이디<p></td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
 								<input type="text" style="width: 200xp" name="memId" id="memId" placeholder="아이디" />&nbsp;
 								<span id="spn"></span>
@@ -179,7 +175,7 @@
 						
 						<!-- 비밀번호 작성 시작 -->
 						<tr bgcolor="ffffff">
-							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*비밀번호</td>
+							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;"><p style="text-align: center;">*비밀번호<p></td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
 								<input type="password" style="width: 200xp" name="memPw" placeholder="비밀번호"/></td>
 						</tr>
@@ -195,7 +191,7 @@
 								
 						<!-- 이름 작성 시작-->
 						<tr bgcolor="ffffff">
-							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*이름</td>
+							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;"><p style="text-align: center;">*이름<p></td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
 								<input type="text" name="memName" placeholder="이름"/></td>
 						</tr>
@@ -203,7 +199,7 @@
 						
 						<!-- 성별 작성 시작-->
 						<tr bgcolor="ffffff">
-							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*성별</td>
+							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;"><p style="text-align: center;">*성별<p></td>
 							<td>&nbsp;	
 								<select class="browser-default" style="width: 180px" name="memGender">
 							    	<option value="" >성별을 선택하세요.</option>
@@ -211,14 +207,12 @@
 							    	<option value="여">여</option>
 							  	</select>
 							</td>
-							<!-- <td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
-								<input type="text" name="memGender"/></td> select 가 안먹힘; -->
 						</tr>
 						<!-- 성별 작성 종료-->
 						
 						<!-- 생년월일 작성 시작-->
 						<tr bgcolor="ffffff">
-							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*생년월일</td>
+							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;"><p style="text-align: center;">*생년월일<p></td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
 									<input type="text" name="memBirth" placeholder="생년월일"/></td>
 						</tr>
@@ -226,7 +220,7 @@
 						
 						<!-- 주소 api 입력 시작-->
 						<tr bgcolor="ffffff">
-							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*주소</td>
+							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;"><p style="text-align: center;">*주소<p></td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
 								<input type="text" name="memPostNo" id="sample6_postcode" placeholder="우편번호" readonly="readonly"/>&nbsp;
 								<input type="button" onclick="getDaumPostcode()" value="우편번호 찾기"/><br/>&nbsp;
@@ -237,7 +231,7 @@
 						
 						<!-- 이메일 작성 시작-->
 						<tr bgcolor="ffffff">
-							<td bgcolor="f5f5f5" align="center" style="border-bottom: 2px solid #DCDCDC;">*이메일</td>
+							<td bgcolor="f5f5f5" align="center" style="border-bottom: 2px solid #DCDCDC;"><p style="text-align: center;">*이메일<p></td>
 							<td style="border-bottom: 2px solid #DCDCDC;">&nbsp;
 							<input type="text" name="memMail" placeholder="이메일"/></td>
 						</tr>

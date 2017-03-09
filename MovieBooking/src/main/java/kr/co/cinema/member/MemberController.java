@@ -184,11 +184,11 @@ public class MemberController {
 	
 	//회원가입 중복확인 action
 	@RequestMapping(value = "/memeberOverlap", method = RequestMethod.POST)
-	public @ResponseBody String overlapMember(@RequestParam(value = "id") String memId) {
+	public @ResponseBody int overlapMember(@RequestParam(value = "id") String memId) {
 
-		String returnMember = memberService.findOneMemberOverlap(memId);
+		int returnMember = memberService.findOneMemberOverlap(memId);
 		logger.debug("컨트롤러 맞냐?" + memId.toString());
-		System.out.println("시스템임?"+returnMember);
+		System.out.println("회원 중복 값 : "+returnMember);
 		return returnMember;
 	}
 	

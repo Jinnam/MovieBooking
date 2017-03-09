@@ -52,21 +52,23 @@
 	          </div>
 	          <div class="menu" style="width:350px ; position:absolute; left:-220px;">
 	            <form style="width:300px;margin: 10px 10px 10px 10px;" action="memberLogin" method="post" id="loginForm">
-	            	<%-- <c:if test="sessionScope.id ne null"> --%>
 	              <!-- 로그인 폼시작 -->
 	              <div class="item" data-value="drop">
 	                <table>
 	                  <tr>
-	                	<td><p style="text-align: center;"><img src="resources/module-img/loginLogo.PNG"><p></td>
+							<td><p style="text-align: center;"><img src="resources/module-img/loginLogo.PNG"><p></td>
 	                  </tr>
 	                  <tr>
-	                  <td>&nbsp;</td>
+	                  		<td>&nbsp;</td>
 	                  </tr>
 	                  <tr>
-	                    <td><input type="text" name="memId" id="memId" value="id001" style ="width:200px"><input type="button" id="btnLogin" value="로그인"></td>
+	                    	<td><input type="text" name="memId" id="memId" value="id001" style ="width:300px"></td>
 	                  </tr>
 	                  <tr>
-	                    <td><input type="text" name="memPw" id="memPw" value="pw001" style ="width:200px"></td>
+	                    	<td><input type="text" name="memPw" id="memPw" value="pw001" style ="width:300px"></td>
+	                  </tr>
+	                  <tr>
+	                  		<td><span style="float:right"><input class="btn blue darken-4" type="button" id="btnLogin" value="로그인"></span></td>
 	                  </tr>
 	                  
 	                </table>
@@ -78,7 +80,6 @@
 	                </div>
 	              </div>
 	              <!-- 로그인 폼 끝 -->
-	              <%-- </c:if> --%>
 	            </form>
 	          </div>
 	        </div>
@@ -158,17 +159,17 @@
 				   $.ajax({ 
 				      url : "memberLogin", 
 				      type :"post", 
-				      data : { "memId" : $("#memId").val(),"memPw" : $("#memPw").val()}, 
+				      data : { "memId" : $("#memId").val(),"memPw" : $("#memPw").val(),}, 
 				      success : function(data){ 
 				    	  console.log(data);
 				         if(data.memId == 0){ 
 				            alert("로그인 정보가 잘못되었습니다.") 
 				          }else{ 
-				            alert("로그인 성공") 	
+				            alert("어서오세요!") 	
 				            location.reload();
 				         } 
 				      },error:function(){
-				          alert("error");
+				          alert("로그인 정보가 잘못되었습니다.");
 				       }
 				   }) ;
 				}) ;

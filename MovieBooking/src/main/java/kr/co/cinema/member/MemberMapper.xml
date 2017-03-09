@@ -145,7 +145,8 @@
 			mem_name AS memName,
 			mem_phone AS memPhone,
 			mem_mileage AS memMileage,
-			mem_joinDay AS memJoinDay
+			mem_joinDay AS memJoinDay,
+			mem_status AS memStatus
 		from 
 			MEMBER
 		where 
