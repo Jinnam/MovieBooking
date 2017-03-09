@@ -281,9 +281,9 @@
 					</thead>
 					<!-- 테이블 내용 -->
 					<tbody>
-						<c:forEach var="characterList" items="${selectCharacterList}">
+						<c:forEach var="characterList" varStatus="status" items="${selectCharacterList}">
 							<tr>
-								<td class="col-lg-1"></td>
+								<td class="col-lg-1">${status.count}</td>
 								<td class="col-lg-2">${characterList.charKorName}</td>
 								<td class="col-lg-2">${characterList.charEngName}</td>
 								<td class="col-lg-2">${characterList.charBirth}</td>

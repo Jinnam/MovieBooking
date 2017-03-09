@@ -240,23 +240,23 @@
 					<table class="table table-striped table-hover">
 						<thead>
 							<tr>
-								<th class="col-lg-2"></th>
-								<th class="col-lg-2"></th>
-								<th class="col-lg-3"></th>
-								<th class="col-lg-3"></th>
-								<th class="col-lg-4"></th>
+								<th class="col-lg-2">&nbsp;</th>
+								<th class="col-lg-2">상영종류</th>
+								<th class="col-lg-2">상영단가</th>
+								<th class="col-lg-3">적용연도</th>
+								<th class="col-lg-3">적용상태</th>
 							</tr>
 						</thead>
 						<tbody>
-							<%-- <c:forEach var="" items=""> --%>
+							<c:forEach var="selectCostList" varStatus="status" items="${selectCostList}">
 								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
+									<td class="col-lg-2">${status.count}</td>
+									<td class="col-lg-2">${selectCostList.sccoScreen}</td>
+									<td class="col-lg-2">${selectCostList.sccoPrice}</td>
+									<td class="col-lg-3">${selectCostList.sccoApplyYear}</td>
+									<td class="col-lg-3">${selectCostList.sccoStatus}</td>
 								</tr>
-							<%-- </c:forEach> --%>
+							</c:forEach>
 						</tbody>
 					</table>
 					<!-- 페이징 -->

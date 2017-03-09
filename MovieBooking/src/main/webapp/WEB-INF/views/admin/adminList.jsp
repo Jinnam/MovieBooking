@@ -236,19 +236,21 @@
 					<table class="table table-striped table-hover">
 						<thead>
 							<tr>
-								<th class="col-lg-2">지점코드</th>
+								<th class="col-lg-2">&nbsp;</th>
+								<th class="col-lg-2" style="display: none;">지점코드</th>
 								<th class="col-lg-2">지점</th>
-								<th class="col-lg-3">아이디</th>
-								<th class="col-lg-3">지역</th>
+								<th class="col-lg-2">아이디</th>
+								<th class="col-lg-2">지역</th>
 								<th class="col-lg-4">승인일</th>
 								<th class="col-lg-2">수정</th>
 								<th class="col-lg-2">삭제</th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="selectAdminList" items="${selectAdminList}">
+							<c:forEach var="selectAdminList" varStatus="status" items="${selectAdminList}">
 								<tr>
-									<td id="brcCode">${selectAdminList.brcCode}</td>
+									<td>${status.count}</td>
+									<td id="brcCode" style="display: none;">${selectAdminList.brcCode}</td>
 									<td>${selectAdminList.brcName}</td>
 									<td>${selectAdminList.admId}</td>
 									<td>${selectAdminList.brcLocal}</td>

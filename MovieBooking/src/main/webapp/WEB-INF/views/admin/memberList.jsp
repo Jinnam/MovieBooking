@@ -286,9 +286,9 @@
 				</thead>
 				<!-- 테이블 내용 -->
 				<tbody>
-					<c:forEach var="MemberList" items="${selectMemberList}">
+					<c:forEach var="MemberList" varStatus="status" items="${selectMemberList}">
 					<tr>
-						<td></td>
+						<td>${status.count}</td>
 						<td>${MemberList.memId}</td>
 						<td>${MemberList.memPw}</td>
 						<td>${MemberList.memPhone}</td>

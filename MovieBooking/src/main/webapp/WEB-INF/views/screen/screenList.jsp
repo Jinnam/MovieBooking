@@ -277,10 +277,10 @@
 					</thead>
 					<!-- 테이블 내용 -->
 					<tbody>
-						<c:forEach var="screenList" items="${selectScreenList}">
+						<c:forEach var="screenList" varStatus="status" items="${selectScreenList}">
 							<tr>
-								<td class="col-lg-1"></td>
-								<td class="col-lg-1">${screenList.brcName}</td>
+								<td class="col-lg-1">${status.count}</td>
+								<td class="col-lg-2">${screenList.brcName}</td>
 								<td class="col-lg-1">${screenList.scrName}</td>
 								<td class="col-lg-1">${screenList.scrRowSize}</td>
 								<td class="col-lg-1">${screenList.scrColSize}</td>

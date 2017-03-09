@@ -285,9 +285,9 @@
 				</thead>
 				<!-- 테이블 내용 -->
 				<tbody>
-					<c:forEach var="selectMovieList" items="${selectMovieList}">
+					<c:forEach var="selectMovieList" varStatus="status" items="${selectMovieList}">
 						<tr>
-							<td></td>
+							<td>${status.count}</td>
 							<td class="col-lg-1">${selectMovieList.movKorName}</td>
 							<td class="col-lg-1">${selectMovieList.movNation}</td>
 							<td class="col-lg-1">${selectMovieList.charKorName}</td>

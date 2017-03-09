@@ -325,10 +325,12 @@ public class AdminController {
 		adminService.insertCost(screenCost);
 		return "redirect:costInsert";
 	}
-	//단가등록 : 페이지이동
+	//단가조회 : 페이지이동
 	@RequestMapping(value="costList", method=RequestMethod.GET)
-	public String selectCostList() {
+	public String selectCostList(Model model) {
 		logger.debug(" Controller insertCost get실행");
+		List<ScreenCost> selectCostList = adminService.selectCostList();
+		model.addAttribute("selectCostList", selectCostList);
 		return "management/costList";
 	}
 	//단가수정 : 페이지이동

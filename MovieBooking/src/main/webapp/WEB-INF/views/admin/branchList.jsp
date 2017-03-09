@@ -211,7 +211,8 @@
 					<table class="table table-striped table-hover">
 						<thead>
 							<tr>
-								<th class="col-lg-1">지점코드</th>
+								<th class="col-lg-1">&nbsp;</th>
+								<th class="col-lg-1" style="display: none;">지점코드</th>
 								<th class="col-lg-2">지점명</th>
 								<th class="col-lg-2">지역</th>
 								<th class="col-lg-3">주소</th>
@@ -221,9 +222,10 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="branchList" items="${selectBranchList}">
+							<c:forEach var="branchList" varStatus="status" items="${selectBranchList}">
 								<tr>
-									<td id="brcCode">${branchList.brcCode}</td>
+									<td>${status.count}</td>
+									<td id="brcCode" style="display: none;">${branchList.brcCode}</td>
 									<td>${branchList.brcName}</td>
 									<td>${branchList.brcLocal}</td>
 									<td>${branchList.brcAddr}</td>

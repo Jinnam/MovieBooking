@@ -271,16 +271,16 @@
 						<table class="table table-striped table-hover ">
 							<thead>
 								<tr>
-									<!-- <th>순위</th> -->
+									<th>순위</th>
 									<th>제목</th>
 									<th>개봉일</th>
 									<th>누적관객수(천명)</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="clientCount" items="${selectClientCount}">
+								<c:forEach var="clientCount" varStatus="status" items="${selectClientCount}">
 									<tr>
-										<!-- <td></td> -->
+										<td>${status.count}</td>
 										<td>${clientCount.movKorName}</td>
 										<td>${clientCount.movOpenDate}</td>
 										<td>${clientCount.brcCntClientCount}</td>

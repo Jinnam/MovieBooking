@@ -180,6 +180,12 @@ public class AdminDao {
 		return sqlSession.insert(NS+"insertCost", screenCost);
 	}
 	
+	//단가조회
+	public List<ScreenCost> selectCost() {
+		logger.debug(" Dao selectCost");
+		return sqlSession.selectList(NS+"selectCost");
+	}
+	
 	/************************************************************************************************************
 	인물 관리 메서드 : 인물등록/인물리스트/인물상세/인물수정
 	************************************************************************************************************/	
@@ -195,5 +201,6 @@ public class AdminDao {
 		logger.debug(" Dao selectCharacterList");
 		return sqlSession.selectList(NS+"selectCharacterList");
 	}
+
 
 }

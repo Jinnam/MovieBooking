@@ -316,6 +316,15 @@
 						 NOW());
 	</insert>
 	
+	<select id="selectCost"
+			resultType="kr.co.cinema.dto.ScreenCost">
+			SELECT	SCREEN_COST.scco_screen		AS	sccoScreen,
+					SCREEN_COST.scco_price		AS	sccoPrice,
+					SCREEN_COST.scco_applyYear	AS	sccoApplyYear,
+					SCREEN_COST.scco_status		AS	sccoStatus
+			FROM	SCREEN_COST
+	</select>
+	
 	<!--****************************************************************************************
 	인물관리쿼리
 	******************************************************************************************-->
