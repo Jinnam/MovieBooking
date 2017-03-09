@@ -316,6 +316,7 @@
 						 NOW());
 	</insert>
 	
+	<!-- 단가조회 -->
 	<select id="selectCost"
 			resultType="kr.co.cinema.dto.ScreenCost">
 			SELECT	SCREEN_COST.scco_screen		AS	sccoScreen,
