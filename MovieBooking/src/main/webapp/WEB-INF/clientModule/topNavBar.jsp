@@ -67,6 +67,7 @@
 	                  <tr>
 	                    	<td><input type="text" name="memPw" id="memPw" value="pw001" style ="width:300px"></td>
 	                  </tr>
+	                  
 	                  <tr>
 	                  		<td><span style="float:right"><input class="btn blue darken-4" type="button" id="btnLogin" value="로그인"></span></td>
 	                  </tr>
@@ -153,7 +154,7 @@
         </script>
         	<script>
 			$(document).on('click','#btnLogin',function(){
-					console.log("아이디 비번 체크");
+					console.log("로그인 체크");
 					if($('#memId').val()==null || $('#memId').val()==""){
 						alert("로그인정보를 입력하세요");
 					}else{
@@ -163,10 +164,10 @@
 				      data : { "memId" : $("#memId").val(),"memPw" : $("#memPw").val(),}, 
 				      success : function(data){ 
 				    	  console.log(data);
-				         if(data != null){ 
+				          if(data != ""){ 
 				        	 alert("어서오세요!") 
 				        	 location.reload();
-				          }else if(date == null){ 
+				          }else{ 
 				        	  alert("로그인 정보가 잘못되었습니다.") 
 				            
 				         } 

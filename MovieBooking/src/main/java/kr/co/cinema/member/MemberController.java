@@ -132,19 +132,22 @@ public class MemberController {
 	//회원 로그인 action
 	@RequestMapping(value="/memberLogin", method=RequestMethod.POST)
 	public @ResponseBody Map<String, Object> memberLogin(Member member, HttpSession session){
+	
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("memId", member.getMemId());
 		map.put("memPw", member.getMemPw());
 		Map<String,Object> membersLogin = memberService.findOneMmemberLogin(map);
-		System.out.println("membersLogin나오면찍힌거01"+membersLogin);
-		session.setAttribute("id", membersLogin.get("memId"));
-		session.setAttribute("pw", membersLogin.get("memPw"));
-		session.setAttribute("name", membersLogin.get("memName"));
-		session.setAttribute("phone", membersLogin.get("memPhone"));
-		session.setAttribute("mileages", membersLogin.get("memMileage"));
-		session.setAttribute("joinday", membersLogin.get("memJoinDay"));
-		logger.debug("return 값 : "+ membersLogin.toString());
-		
+		System.out.println("membersLogin 가져온값 : "+membersLogin);
+	
+		if(membersLogin !=null){
+			session.setAttribute("id", membersLogin.get("memId"));
+			session.setAttribute("pw", membersLogin.get("memPw"));
+			session.setAttribute("name", membersLogin.get("memName"));
+			session.setAttribute("phone", membersLogin.get("memPhone"));
+			session.setAttribute("mileages", membersLogin.get("memMileage"));
+			session.setAttribute("joinday", membersLogin.get("memJoinDay"));
+			logger.debug("return 값 : "+ membersLogin.toString());
+		}
 		return membersLogin;
 	}
 	
@@ -184,11 +187,15 @@ public class MemberController {
 	
 	//회원가입 중복확인 action
 	@RequestMapping(value = "/memeberOverlap", method = RequestMethod.POST)
-	public @ResponseBody int overlapMember(@RequestParam(value = "id") String memId) {
-
+	public @ResponseBody int overlapMember(@RequestParam("id") String memId) {
+		
+		System.out.println("memId : "+memId);
 		int returnMember = memberService.findOneMemberOverlap(memId);
-		logger.debug("컨트롤러 맞냐?" + memId.toString());
-		System.out.println("회원 중복 값 : "+returnMember);
+		
+		/*if(returnMember != null){*/
+			logger.debug("컨트롤러 맞냐?" + memId.toString());
+			System.out.println("회원 중복 값 01  : "+returnMember);
+		/*}*/
 		return returnMember;
 	}
 	

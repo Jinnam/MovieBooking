@@ -142,23 +142,48 @@
 		<script>
 			$(document).on('click','#btn',function(){
 					console.log("중복확인 체크");
+					var memId =$("#memId1").val()
 				   $.ajax({ 
 				      url : "memeberOverlap", 
 				      type :"post", 
-				      data : { id : $("#memId").val()}, 
-				      
+				      data : {  id : memId }, 
 				      success : function(data){ 
 				    	  console.log(data);
-				         if(data == 2){ 
-				            $("#spn").text("사용 불가능한 아이디 입니다.") 
+				        if(data == ""){ 
+				        	 $("#spn").text("사용 가능한 아이디 입니다."); 
 				        }else{ 
-				            $("#spn").text("사용 가능한 아이디 입니다."); 
-				         } 
+				            $("#spn").text("사용 불가능한 아이디 입니다.") 
+				        } 
 				      } 
 				   }) ;
 				});
 		</script>
-		<!-- 중복확인 ajax 시작 -->
+		<!-- 중복확인 ajax 종료 -->
+
+		<!-- 비밀번호 확인 시작 -->
+	   <script type="text/javascript">
+        $(document).ready(function() {
+            //[1] lblError 레이어 클리어
+            $('#memPw1').keyup(function() {
+                //$('#lblError').remove(); // 제거
+                $('#lblError').text(''); // 제거가 아니라 클리어
+            });
+            //[2] 암호 확인 기능 구현
+            $('#memPw2').keyup(function() {
+                if ($('#memPw1').val() != $('#memPw2').val()) {
+                    $('#lblError').text(''); // 클리어
+                    $('#lblError').html("<b>비밀번호 확인하십시오.</b>"); //레이어에 HTML 출력
+                }
+                else {
+                    $('#lblError').text(''); // 클리어
+                    $('#lblError').html("<b>비밀번호가 맞습니다.</b>");
+                }
+            });
+        });
+    </script>
+	<!-- 비밀번호 확인 종료 -->
+
+
 
 		<form action="memberInsert" method="post" name="addjoin" id="checkForm">
 			<h3>가입정보입력</h3>
@@ -167,9 +192,10 @@
 						<tr>
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;"><p style="text-align: center;">*아이디<p></td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
-								<input type="text" style="width: 200xp" name="memId" id="memId" placeholder="아이디" />&nbsp;
-								<span id="spn"></span>
-								<input type="button" value="중복확인" id="btn" name="btn"/>&nbsp;
+								<input type="text" id="memId1" placeholder="아이디" value="">&nbsp;
+								<input type="button" value="중복확인" id="btn"/>&nbsp;
+								<span id="spn"></span>		
+							</td>
 						</tr>
 						<!-- 아이디 입력 및 중복 종료-->
 						
@@ -177,7 +203,16 @@
 						<tr bgcolor="ffffff">
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;"><p style="text-align: center;">*비밀번호<p></td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
-								<input type="password" style="width: 200xp" name="memPw" placeholder="비밀번호"/></td>
+								<input type="password" style="width: 200xp" name="memPw" id="memPw1" placeholder="비밀번호"/></td>
+						</tr>
+						<!-- 비밀번호 작성 종료 -->
+						
+						<!-- 비밀번호확인 작성 시작 -->
+						<tr bgcolor="ffffff">
+							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;"><p style="text-align: center;">*비밀번호 확인<p></td>
+							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
+								<input type="password" style="width: 200xp" id="memPw2" placeholder="비밀번호확인"/><div id="lblError"></div></td>
+								
 						</tr>
 						<!-- 비밀번호 작성 종료 -->
 						
@@ -253,7 +288,7 @@
 				</table>
 		</form>
 	<!-- 회원가입 폼 종료 -->
-</div>
+	</div>
 <br>
 
 

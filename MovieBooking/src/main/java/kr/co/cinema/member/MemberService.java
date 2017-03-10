@@ -42,7 +42,9 @@ public class MemberService {
 		}else{
 			returnResult=0;
 		}
+		System.out.println(memPw + " : 1첫째" +dbPW + " : 2번째");
 		return returnResult;
+		
 	}
 	
 	//마이페이지 회원의 예매 가져오기 select
@@ -80,20 +82,19 @@ public class MemberService {
 	}
 	//비회원 가입 insert 종료
 	
-	//회원가입 중복확인 select 시작
+	//회원가입 중복확인 select 시작 문제
 	public int findOneMemberOverlap(String memId){
 		logger.debug("중복확인 service : " + memId);
 		
-		int returnResultMember=0;
-		String dbid = memberdao.selectMemeberOverlap(memId);
+		int returnResultMember=-1;
+		String dbID = memberdao.selectMemeberOverlap(memId);
 		
-		if(memId.equals(dbid)){
-			returnResultMember=3;
+		if(memId.equals(dbID)){
+			returnResultMember=1;
 		}else{
-			returnResultMember=2;
+			returnResultMember=0;
 		}
-		System.out.println(memId + "이거랑" + dbid + "같음?");
-		return returnResultMember;
+		return  returnResultMember;
 	}
 	//회원가입 중복확인 select 종료
 	
@@ -114,10 +115,6 @@ public class MemberService {
 	//회원 로그인 select 시작
 	public Map<String, Object> findOneMmemberLogin(Map<String, String> map){
 		logger.debug("login select service" + map);
-		
-		
-		
-		
 		return memberdao.selectMemberLogin(map);
 	}
 	//회원 로그인 select 종료
