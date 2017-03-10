@@ -401,7 +401,7 @@ public class AdminController {
 	@RequestMapping(value="adminLogout")
 	public String adminLogout(SessionStatus session){
 		session.setComplete();				// 세션 만료시키기
-		return "redirect:/adminLogin";
+		return "redirect:adminLogin";
 		
 	}
 }
