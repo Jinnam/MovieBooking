@@ -425,9 +425,16 @@
 									</select>
 								</div>
 							</div>
-							<!-- 이미지경로 -->
+							<!-- 포스터이미지 단일파일 업로드 구현해야함-->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">포스터이미지</label>
+								<div class="col-lg-9">
+									<input type="file" name="movImgPath" class="btn btn-button" placeholder="이미지 경로를 입력하세요" required="required">
+								</div>
+							</div>
+							<!-- 스틸컷이미지 다중파일 업로드 구현해야함-->
+							<div class="form-group">
+								<label class="col-lg-3 control-label">스틸컷이미지</label>
 								<div class="col-lg-9">
 									<input type="file" name="movImgPath" class="btn btn-button" placeholder="이미지 경로를 입력하세요" required="required">
 								</div>
