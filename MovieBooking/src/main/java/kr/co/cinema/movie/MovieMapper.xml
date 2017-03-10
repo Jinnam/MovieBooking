@@ -5,6 +5,7 @@
   
 <mapper namespace="kr.co.cinema.movie.MovieMapper">
 
+	<!-- 영화코드로 인원수 통계 가져오기 -->
 	<select id="selectOneMovieCountInfo" parameterType="String" resultType="map">
 		SELECT
 			ANALYSIS.anl_totalTicketCount as totalCnt,
@@ -87,9 +88,10 @@
 			MOVIE.mov_infoDetail as movInfoDetail,
 			MOVIE.mov_imgPath as movImgPath,
 			MOVIE.mov_videoPath as movVideoPath,
-			MOVIE.mov_status as movStatus
+			MOVIE.mov_status as movStatus,
+			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum,2) as grade
 		FROM
-			MOVIE
+			MOVIE JOIN GRADE ON MOVIE.mov_code = GRADE.mov_code
 		WHERE
 			MOVIE.mov_code = #{movCode}	
 	</select>
@@ -104,7 +106,7 @@
 			MOVIE.mov_openDate as movOpenDate,
 			MOVIE.mov_status as movStatus,
 			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum,2) as grade ,
-			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum/2) as starGrade
+			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum,0) as starGrade
 		FROM
 			MOVIE LEFT JOIN GRADE ON GRADE.mov_code = MOVIE.mov_code
 		WHERE
@@ -122,8 +124,8 @@
 			MOVIE.mov_imgPath as movImgPath,
 			MOVIE.mov_openDate as movOpenDate,
 			MOVIE.mov_status as movStatus,
-			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum,2) as grade ,
-			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum/2) as starGrade
+			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum,2) as grade,
+			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum,0) as starGrade 
 		FROM
 			MOVIE LEFT JOIN GRADE ON GRADE.mov_code = MOVIE.mov_code
 		WHERE
@@ -141,7 +143,7 @@
 			MOVIE.mov_imgPath as movImgPath,
 			MOVIE.mov_status as movStatus,
 			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum,2) as grade ,
-			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum/2) as starGrade,
+			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum,0) as starGrade,
 			ANALYSIS.anl_totalTicketCount as totalTicketCount	
 		FROM
 			MOVIE LEFT JOIN ANALYSIS ON ANALYSIS.mov_code = MOVIE.mov_code
@@ -161,7 +163,7 @@
 			MOVIE.mov_imgPath as movImgPath,
 			MOVIE.mov_status as movStatus,
 			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum,2) as grade ,
-			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum/2) as starGrade,
+			ROUND(GRADE.gra_acGrade/GRADE.gra_totalNum,0) as starGrade,
 			ANALYSIS.anl_totalTicketCount as totalTicketCount	
 		FROM
 			MOVIE LEFT JOIN ANALYSIS ON ANALYSIS.mov_code = MOVIE.mov_code

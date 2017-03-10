@@ -106,7 +106,7 @@
 	            <!-- 카드 컨텐츠 영역 -->
 	            <div>
 	              	<div style="text-align:center; position:relative;top:10px;right:10px;">
-	              		  <div style="color:#757575; display:inline-block">평점 ${map.grade}</div>
+	              		  <div style="color:#757575; display:inline-block">평점 ${map.grade*2}</div>
 	                      <div class="ui large star rating" data-rating="${map.starGrade}" data-max-rating="5"></div>
 	                      <script>
 	                        $('.ui.rating')

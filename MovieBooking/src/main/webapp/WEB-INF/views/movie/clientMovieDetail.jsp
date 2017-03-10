@@ -106,7 +106,7 @@
                   <!-- 간격 --><div style="height:10px;"></div>
                 </span>
                 <div class="divider"></div>
-                <div><b>평점 : </b> <span>8.0</span></div>
+                <div><b>평점 : </b> <span>${movie.grade*2} / 10</span></div>
                 <div><b>감독 : </b> <span><a href="clientCharDetail?charCode=${movie.charCode}">${movie.producer}</a></span></div>
                 <div><b>출연진 : </b> 
                 	<span>
@@ -200,16 +200,28 @@
 				      </div>			    
 			      </li>
 			      <li class="collection-item">
-					<span>김정빈</span>
-					<span>9 / 10</span>
-					<span></span>
+			      	<!-- 작성자 정보 -->
+					<div>
+						<span>kjb7907</span>
+						<span style="font-size:11px;">2017.3.11</span>
+						<span><div class="ui mini heart rating" data-rating="4" data-max-rating="5"></div></span>				
+					</div>
+					<!-- 댓글 본문 -->
+					<div style="font-size:12px;color:#323232;">
+						재미있어요
+					</div>
 			      </li>
-			      <li class="collection-item">Alvin</li>
-			      <li class="collection-item">Alvin</li>
+			      
+
 			    </ul>
 			</div>
 
-
+			<!-- 레이팅 스크립트 -->
+            <script>
+              $('.ui.rating')
+              .rating()
+              ;
+            </script>		
 
 
         </div>
