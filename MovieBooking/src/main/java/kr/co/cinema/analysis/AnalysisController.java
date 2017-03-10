@@ -44,10 +44,11 @@ public class AnalysisController {
 	
 	// 지점별 예매/매출 POST
 	@RequestMapping(value="analisysByBranch", method=RequestMethod.POST)
-	public @ResponseBody List<HashMap<String, Object>> selectAnalisysByBranch(@RequestParam("brcName") String brcName, 
-																			@RequestParam("brcCntDate1") String brcCntDate1,
-																			@RequestParam("brcCntDate2") String brcCntDate2){
-		logger.debug(" selectAnalisysByBranch post 진입 : brcName : "+brcName+" brcCntDate1 : "+brcCntDate1+" brcCntDate2 : "+brcCntDate2);
+	public @ResponseBody List<HashMap<String, Object>> selectAnalisysByBranch(@RequestParam String brcName, 
+																			@RequestParam String brcCntDate1,
+																			@RequestParam String brcCntDate2){
+		logger.debug(" selectAnalisysByBranch post 진입 : brcName : "+brcName+
+				" brcCntDate1 : "+brcCntDate1+" brcCntDate2 : "+brcCntDate2);
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("brcName", brcName);
 		map.put("brcCntDate1", brcCntDate1);
