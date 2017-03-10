@@ -149,6 +149,14 @@
 							ON	ADMIN.brc_code = BRANCH.brc_code
 	</select>
 	
+	<!-- 지점관리자 등록 전 중복 체크 -->
+	<select id="selectOverLapCheck"
+			resultType="String">
+			SELECT	ADMIN.adm_id	AS admId
+			FROM	ADMIN
+			WHERE	ADMIN.adm_id = #{admId}
+	</select>
+	
 	<!-- 관리자 등록 -->
 	<insert id="insertAdmin"
 			parameterType="kr.co.cinema.dto.Admin">

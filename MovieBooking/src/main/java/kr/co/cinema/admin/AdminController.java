@@ -1,7 +1,6 @@
 package kr.co.cinema.admin;
 
 import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.BranchDayCount;
@@ -131,6 +129,16 @@ public class AdminController {
 		return "admin/adminInsert";
 	}
 	
+	//지점관리자 등록 전 중복 체크
+	@RequestMapping(value="selectOverLapCheck", method=RequestMethod.POST)
+	public @ResponseBody String selectOverLapCheck(@RequestParam("admId")String admId) {
+		logger.debug(" Controller selectOverLapCheck post실행");
+		logger.debug(" 들어온 id값 : "+admId);
+		String selectOverLapCheck = adminService.selectOverLapCheck(admId);
+		logger.debug(" 나갈 id값 : "+selectOverLapCheck.toString());
+		return selectOverLapCheck;
+	}
+	
 	//지점관리자 등록
 	@RequestMapping(value="adminInsert", method=RequestMethod.POST)
 	public String insertAdmin(Admin admin) {
@@ -215,7 +223,7 @@ public class AdminController {
 		return selectCharCodeForAddMovie;
 	}
 	
-	//영화 등록 : 모달에서 조회한 인물정보중 인물 코드로 폼에 넣을 선택한 인물코드조회//수정중
+	//영화 등록 : 모달에서 조회한 인물정보 중 인물 코드로 폼에 넣을 선택한 인물코드조회//수정중
 	@RequestMapping(value="choiceCharCode", method=RequestMethod.POST)
 	public @ResponseBody int choiceCharCode(@RequestParam("charKorName")int charCode) {
 		logger.debug(" Controller choiceCharCode post실행");
@@ -233,8 +241,9 @@ public class AdminController {
 	
 	//영화 등록
 	@RequestMapping(value="movieInsert", method=RequestMethod.POST)
-	public String insertMovie(Model model, Movie movie) {
+	public String insertMovie(Movie movie) {
 		logger.debug(" Controller insertMovie post실행");
+		//영화등록
 		adminService.insertMovie(movie);
 		return "redirect:adminMovieList";
 	}
@@ -325,6 +334,7 @@ public class AdminController {
 		adminService.insertCost(screenCost);
 		return "redirect:costInsert";
 	}
+	
 	//단가조회 : 페이지이동
 	@RequestMapping(value="costList", method=RequestMethod.GET)
 	public String selectCostList(Model model) {
@@ -333,6 +343,7 @@ public class AdminController {
 		model.addAttribute("selectCostList", selectCostList);
 		return "management/costList";
 	}
+	
 	//단가수정 : 페이지이동
 	@RequestMapping(value="costModify", method=RequestMethod.GET)
 	public String updateCost() {

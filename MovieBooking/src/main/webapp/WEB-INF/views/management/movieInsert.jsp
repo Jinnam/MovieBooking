@@ -238,9 +238,11 @@
 				</div>
 				<div class="col-lg-3"></div>
 				<div style="margin:0 auto;">
-					<form action="movieInsert"  class="col-lg-12 form-horizontal" method="post">
+					<form action="movieInsert" enctype="multipart/form-data" class="col-lg-12 form-horizontal" method="post">
+						<!-- 첫번째 필드셋 -->
 						<fieldset class="col-lg-5" style="float:left;">
 							<legend>add</legend>
+							
 							<!-- 영화한글이름 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">영화한글이름</label>
@@ -248,6 +250,7 @@
 									<input type="text" class="form-control" name="movKorName" placeholder="영화이름을 입력하세요" required="required">
 								</div>
 							</div>
+							
 							<!-- 영화영문이름 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">영화영문이름</label>
@@ -255,6 +258,7 @@
 									<input type="text" class="form-control" name="movEngName" placeholder="영화이름을 입력하세요" required="required">
 								</div>
 							</div>
+							
 							<!-- 감독이름(한글) -->
 							<div class="form-group"> 
 								<label class="col-lg-3 control-label">감독이름조회</label>
@@ -266,6 +270,7 @@
 									<input type="button" id="selectCharcodeUseModalBtn" class="btn btn-button" data-toggle="modal" data-target="#DirModal" value="조회">
 								</div>
 							</div>
+							
 							<!-- 감독코드 출력 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">감독정보</label>
@@ -278,6 +283,7 @@
 									<input type="text" class="form-control" id="charKorNameDir" required="required" readonly="readonly">
 								</div>
 							</div>
+							
 							<!-- Modal -->
 							<div class="modal fade" id="DirModal" role="dialog">
 								<div class="modal-dialog modal-lg">
@@ -313,6 +319,7 @@
 									</div>
 								</div>
 							</div>
+							
 							<!-- 주연배우이름(한글) -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">배우이름조회</label>
@@ -324,9 +331,11 @@
 									<input id="selectCharcodeActor" type="button" class="btn btn-button"  data-toggle="modal" data-target="#ActModal" value="조회">
 								</div>
 							</div>
+							
 							<!-- 배우코드 출력 -->
 							<div class="form-group" id="ActCharInfo">
 							</div>
+							
 							<!-- Modal -->
 							<div class="modal fade" id="ActModal" role="dialog">
 								<div class="modal-dialog modal-lg">
@@ -363,8 +372,11 @@
 								</div>
 							</div>
 						</fieldset>
+						
+						<!-- 두번째 필드셋 -->
 						<fieldset class="col-lg-5" style="float:left;">
 							<legend>&nbsp;</legend>
+							
 							<!-- 국가이름 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">국가</label>
@@ -372,6 +384,7 @@
 									<input type="text" class="form-control" name="movNation" placeholder="국가를 입력하세요" required="required">
 								</div>
 							</div>
+							
 							<!-- 등급 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">등급</label>
@@ -379,6 +392,7 @@
 									<input type="text" class="form-control" name="movGrade" placeholder="영화등급을 입력하세요" required="required">
 								</div>
 							</div>
+							
 							<!-- 장르 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">장르</label>
@@ -386,6 +400,7 @@
 									<input type="text" class="form-control" name="movGenre" placeholder="영화장르를 입력하세요" required="required">
 								</div>
 							</div>
+							
 							<!-- 상세설명 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">상세설명</label>
@@ -393,6 +408,7 @@
 									<textarea class="form-control" rows="3" name="movInfoDetail" required="required"></textarea>
 								</div>
 							</div>
+							
 							<!-- 제작사 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">제작사</label>
@@ -400,6 +416,7 @@
 									<input type="text" class="form-control" name="movMaker" placeholder="제작사를 입력하세요" required="required">
 								</div>
 							</div>
+							
 							<!-- 상영시간 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">상영시간</label>
@@ -407,6 +424,7 @@
 									<input type="text" class="form-control" name="movRunningTime" placeholder="00:00:00 형식으로 입력해주세요" required="required">
 								</div>
 							</div>
+							
 							<!-- 개봉일 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">개봉일</label>
@@ -414,6 +432,7 @@
 									<input type="date" class="form-control" name="movOpenDate" placeholder="개봉일을 입력하세요" required="required">
 								</div>
 							</div>
+							
 							<!-- 상영상태 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">상영상태</label>
@@ -425,6 +444,7 @@
 									</select>
 								</div>
 							</div>
+							
 							<!-- 포스터이미지 단일파일 업로드 구현해야함-->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">포스터이미지</label>
@@ -432,20 +452,24 @@
 									<input type="file" name="movImgPath" class="btn btn-button" placeholder="이미지 경로를 입력하세요" required="required">
 								</div>
 							</div>
+							
 							<!-- 스틸컷이미지 다중파일 업로드 구현해야함-->
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label class="col-lg-3 control-label">스틸컷이미지</label>
 								<div class="col-lg-9">
 									<input type="file" name="movImgPath" class="btn btn-button" placeholder="이미지 경로를 입력하세요" required="required">
 								</div>
-							</div>
-							<!-- 영상경로 -->
+							</div> -->
+							
+							<!-- 영상경로 영상경로는 유투브-영상선택-공유-소스코드 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">영상경로</label>
 								<div class="col-lg-9">
 									<input type="text" name="movVideoPath" class="form-control" placeholder="영상 경로를 입력하세요" required="required">
 								</div>
 							</div>
+							
+							<!-- 등록버튼 -->
 							<div class="form-group">
 								<div class="col-lg-10 col-lg-offset-10">
 									<input type="submit" class="btn btn-button" value="입력">

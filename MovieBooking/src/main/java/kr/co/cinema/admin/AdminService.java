@@ -1,12 +1,10 @@
 package kr.co.cinema.admin;
 
 import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.BranchDayCount;
@@ -103,7 +101,13 @@ public class AdminService {
 		logger.debug(" Service selectAdminList get실행");
 		return adminDao.selectAdminList();
 	}
-
+	
+	//지점관리자 등록 전 중복 체크
+	public String selectOverLapCheck(String admId) {
+		logger.debug(" Service selectOverLapCheck post실행");
+		return adminDao.selectOverLapCheck(admId);
+	}
+	
 	//지점관리자 등록
 	public int insertAdmin(Admin admin) {
 		logger.debug(" Service insertAdmin post실행");
@@ -159,9 +163,18 @@ public class AdminService {
 		return adminDao.choiceCharCode(charCode);
 	}
 	
+	
 	//영화등록
 	public int insertMovie(Movie movie) {
 		logger.debug(" Service insertMovie post실행");
+/*		String realPath = request.getRealPath("resources/movie-poster-img/");				//프로젝트안에 저장될 경로
+		String originalFilename = imgFile.getOriginalFilename();							//전체 이미지파일이름
+		String extension = originalFilename.substring(originalFilename.indexOf("."));		//확장자추출
+		UUID uuid = UUID.randomUUID();														//랜덤아이디 만들기
+		String onlyFileName = uuid.toString().replace("-","");								//파일이름에 랜덤아이디추가
+		String rename = onlyFileName + extension;											//랜덤아이디에 확장자추가
+		String fullPath = realPath + "\\" + rename;											//전체경로에 새로만든 파일명추가
+*/		
 		return adminDao.insertMovie(movie);
 	}
 	
@@ -202,4 +215,6 @@ public class AdminService {
 		return adminDao.selectCharacterList();
 		
 	}
+
+
 }

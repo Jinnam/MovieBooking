@@ -27,6 +27,7 @@
 	<!-- 지점별 영화매출 통계 -->
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -244,12 +245,12 @@
 							<div class="row form-group">
 								<label for="adminId" class="col-lg-2 control-label">ID</label>
 								<div class="col-lg-6">
-									<input type="text" class="form-control" name="admId" placeholder="관리자 ID를 입력하세요" required="required">
+									<input type="text" class="form-control" id="admId" name="admId" value="admin02" placeholder="관리자 ID를 입력하세요" required="required">
 								</div>
 								<!-- 아직 미구현 -->
 								<!-- ID중복조회 -->
 								<div class="col-lg-2">
-									<input type="button" class="btn btn-button" value="ID조회">
+									<input type="button" id="overLapCheck" class="btn btn-button" value="ID조회">
 								</div>
 							</div>
 							<!-- 비밀번호 -->
@@ -294,6 +295,27 @@
 	<%@include file="/WEB-INF/adminModule/footer.jsp" %>
 	
 	<!-- 스크립트 -->
+	<script>
+	$(document).ready(function() {
+		$('#overLapCheck').click(function(){
+			console.log("test");
+			$.ajax({
+				url			: "selectOverLapCheck",
+				data		: {"admId" : $("#admId").val()},
+				dataType	: "json",
+				type		: "post",
+				success		: function(data) {
+					console.log(data);
+					
+				},
+				error		:function(request,status,error){
+					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				}
+			})
+		})
+	});
+	</script>
+	
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="resources/assets/js/jquery.js"></script>
 	<script src="resources/assets/js/jquery-1.8.3.min.js"></script>

@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.BranchDayCount;
@@ -101,6 +100,13 @@ public class AdminDao {
 		logger.debug(" Dao selectAdminList");
 		return sqlSession.selectList(NS+"selectAdminList");
 	}
+
+	//지점관리자 등록 전 중복 체크
+	public String selectOverLapCheck(String admId) {
+		logger.debug(" Dao selectOverLapCheck");
+		return sqlSession.selectOne(NS+"selectOverLapCheck", admId);
+	}
+
 
 	//지점 관리자 등록
 	public int insertAdmin(Admin admin) {
@@ -201,6 +207,5 @@ public class AdminDao {
 		logger.debug(" Dao selectCharacterList");
 		return sqlSession.selectList(NS+"selectCharacterList");
 	}
-
 
 }
