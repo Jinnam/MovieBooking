@@ -16,7 +16,7 @@
 		<!--  로그인/로그아웃 -->
 		<div class="top-menu">
 			<ul class="nav pull-right top-menu">
-				<li><a class="logout" href="login.html">Logout</a></li>
+				<li><a class="logout" href="adminLogout">${brcName} Logout</a></li>
 			</ul>
 		</div>
 	</header>

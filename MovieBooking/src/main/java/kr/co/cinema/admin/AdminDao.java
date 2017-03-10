@@ -1,12 +1,14 @@
 package kr.co.cinema.admin;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.BranchDayCount;
@@ -18,7 +20,7 @@ import kr.co.cinema.dto.ScreenCost;
 
 @Repository
 public class AdminDao {
-	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
+	private static final Logger logger = LoggerFactory.getLogger(AdminDao.class);
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
@@ -207,5 +209,16 @@ public class AdminDao {
 		logger.debug(" Dao selectCharacterList");
 		return sqlSession.selectList(NS+"selectCharacterList");
 	}
-
+	
+	/************************************************************************************************************
+	관리자 로그인 메서드
+	************************************************************************************************************/	
+	
+	// 관리자 가입여부 판단 후 세션 설정
+	public Map<String, Object> selectOneAmdinInfo(String adminId){
+		logger.debug("		selectOneAmdinInfo() 진입 adminId : "+adminId);
+		return sqlSession.selectOne(NS+"selectAdminInfo", adminId);
+				
+	}
+	
 }

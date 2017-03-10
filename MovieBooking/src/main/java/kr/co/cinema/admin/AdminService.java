@@ -1,10 +1,13 @@
 package kr.co.cinema.admin;
 
 import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.BranchDayCount;
@@ -19,7 +22,7 @@ public class AdminService {
 	@Autowired
 	private AdminDao adminDao;
 	
-	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
+	private static final Logger logger = LoggerFactory.getLogger(AdminService.class);
 
 	/************************************************************************************************************
 	메인페이지 메서드
@@ -216,5 +219,13 @@ public class AdminService {
 		
 	}
 
+	/************************************************************************************************************
+	관리자 로그인 메서드
+	************************************************************************************************************/	
 
+	// 관리자 가입여부 판단 후 세션 설정
+	public Map<String, Object> findOneAdminInfo(String adminId){
+		logger.debug("	findOneAdminInfo() 진입 adminId : "+adminId);
+		return adminDao.selectOneAmdinInfo(adminId);
+	}
 }

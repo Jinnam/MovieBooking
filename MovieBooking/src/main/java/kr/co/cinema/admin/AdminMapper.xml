@@ -371,4 +371,22 @@
 					`CHARACTER`.char_nation		AS charNation
 			FROM	`CHARACTER`
 	</select>
+	
+	<!-- *********로그인******** -->
+	<!-- 로그인 아이디 비번 가져오기 -->
+	<select id="selectAdminInfo" parameterType="String" resultType="Map">
+		SELECT
+			ADMIN.adm_id AS admId,
+			ADMIN.adm_pw AS admPw,
+			BRANCH.brc_name AS brcName
+		FROM
+			ADMIN
+		JOIN
+			BRANCH
+		ON
+			ADMIN.brc_code=BRANCH.brc_code
+		WHERE
+			adm_id=#{adminId}
+	</select>
+	
 </mapper>

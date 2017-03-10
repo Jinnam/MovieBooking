@@ -1,15 +1,21 @@
 package kr.co.cinema.admin;
 
 import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+
 import kr.co.cinema.dto.Admin;
 import kr.co.cinema.dto.Branch;
 import kr.co.cinema.dto.BranchDayCount;
@@ -19,6 +25,7 @@ import kr.co.cinema.dto.Movie;
 import kr.co.cinema.dto.MovieAndBranchDayCount;
 import kr.co.cinema.dto.ScreenCost;
 
+@SessionAttributes("brcName")
 @Controller
 public class AdminController {
 	@Autowired
@@ -353,5 +360,48 @@ public class AdminController {
 		logger.debug(" Controller updateCost get실행");
 		return "management/costModify";
 	}
-
+	
+	/************************************************************************************************************
+	로그인 관리 메서드
+	************************************************************************************************************/	
+	
+	// 로그인 페이지 이동
+	@RequestMapping(value="/adminLogin", method=RequestMethod.GET)
+	public String adminLogin(){
+		logger.debug("	adminLogin() get 진입");
+		return "login/adminLogin";
+	}
+	
+	// 로그인 가입 여부 판단
+	@RequestMapping(value="/adminLogin", method=RequestMethod.POST)
+	public @ResponseBody String adminLogin(Model model,@RequestParam String adminId, @RequestParam String adminPw){
+		logger.debug("	adminLogin() post 진입 adminId : "+adminId+" adminPw : "+adminPw);
+		
+		String loginResult = "";		// 로그인결과 반환할 변수선언 & 초기화
+		
+		Map<String, Object> adminInfo = adminService.findOneAdminInfo(adminId);		// 입력한 id 값으로 admin정보 가져오기
+		if(adminInfo != null){									// 아이디가 존재할 경우
+			logger.debug("adminInfo"+adminInfo.toString());
+			String dbPw = (String)adminInfo.get("admPw");		// 가져온 정보에서 비밀번호 가져오기
+			String brcName = (String)adminInfo.get("brcName");	// 가져온 정보에서 지점이름 가져오기
+			if(adminPw.equals(dbPw)){							// 비밀번호 비교
+				model.addAttribute("brcName",brcName);			// @SessionAttributes 이용하기 위해 모델에 값 셋팅
+				loginResult="success";							// 로그인 성공시 반환 값
+			}else{
+				loginResult="noPw";								// 비밀번호가 다를 경우 반환 할 값
+			}
+		}else{
+			loginResult="noId";									// 아이디가 다를 경우 반환 할 값
+		}
+		
+		return loginResult;
+	}
+	
+	// 로그아웃
+	@RequestMapping(value="adminLogout")
+	public String adminLogout(SessionStatus session){
+		session.setComplete();				// 세션 만료시키기
+		return "redirect:/adminLogin";
+		
+	}
 }
