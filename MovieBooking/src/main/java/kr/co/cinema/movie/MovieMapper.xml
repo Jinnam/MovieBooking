@@ -5,6 +5,44 @@
   
 <mapper namespace="kr.co.cinema.movie.MovieMapper">
 
+	<!-- 리플 평점 등록 reply 테이블 -->
+	<insert id="insertReplyToReply" parameterType="kr.co.cinema.movie.ReplyInputDto">
+		INSERT INTO 
+		REPLY(
+			REPLY.rp_code,
+			REPLY.mov_code,
+			REPLY.mem_id,
+			REPLY.rp_grade, 
+			REPLY.rp_detail,
+			REPLY.rp_insertDate) 
+		VALUES(
+			#{rpCode},
+			#{movCode},
+			#{memId},
+			#{rpGrade},
+			#{rpDetail},
+			now());	
+	</insert>
+	<!-- 평점누적 grade 테이블 -->
+	<insert id="insertReplyToGrade" parameterType="kr.co.cinema.movie.ReplyInputDto">
+		UPDATE GRADE 
+		SET
+			GRADE.gra_acGrade = GRADE.gra_acGrade+#{rpGrade},
+			GRADE.gra_totalNum = GRADE.gra_totalNum+1
+		WHERE
+			GRADE.mov_code = #{movCode}	
+	</insert>
+	
+	<!-- 리플 등록 전 중복검사  -->
+	<select id ="selectOneReply" parameterType="kr.co.cinema.movie.ReplyInputDto" resultType="Map">
+		SELECT
+			*
+		FROM
+			REPLY
+		WHERE
+			REPLY.mem_id=#{memId} &amp;&amp; REPLY.mov_code = #{movCode};	
+	</select>
+
 	<!-- 영화코드로 인원수 통계 가져오기 -->
 	<select id="selectOneMovieCountInfo" parameterType="String" resultType="map">
 		SELECT

@@ -1,6 +1,7 @@
 package kr.co.cinema.movie;
 
 public class ReplyInputDto {
+	String rpCode;
 	String movCode ;
 	String memId;
 	int rpGrade;
@@ -33,5 +34,11 @@ public class ReplyInputDto {
 	}
 	public void setRpDetail(String rpDetail) {
 		this.rpDetail = rpDetail;
+	}
+	public String getRpCode() {
+		return rpCode;
+	}
+	public void setRpCode(String rpCode) {
+		this.rpCode = rpCode;
 	}
 }

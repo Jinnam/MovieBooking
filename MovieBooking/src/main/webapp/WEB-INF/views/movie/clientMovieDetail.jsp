@@ -177,13 +177,15 @@
 			    <ul class="collection">
 			      <li class="collection-item">
 				      <div class ="row">
+						<!-- 로그인 상태 -->
+						<c:if test="${sessionScope.id != null}">
+						
 					      <form action="addReplyforMovie" method="post" id="replyForm">
 						      	<!-- 작성자 / 평점 -->
-						      	<div class="col s2">
-								  <span style="margin-right:10px;">김정빈</span>
+						      	<div class="col s2">									      	
 								  <input type="hidden" value ="${movie.movCode}" name="movCode">
-								  <input type="hidden" value="${sessionScope.memId}" name="memId">
-								  <select name = "rpGrade" class="browser-default" style="display:inline-block;width:50%">
+								  <input type="hidden" value="${sessionScope.id}" name="memId">
+								  <select name = "rpGrade" class="browser-default" style="display:inline-block;width:70%">
 								    <option value="" disabled selected>평점</option>
 								    <option value="1">1</option>
 								    <option value="2">2</option>
@@ -200,7 +202,14 @@
 						      	<div class="col s2">
 						      		 <a class="waves-effect waves-light btn" style="max-width:100%" id="replyButton">등록</a>
 						      	</div>					      
-					      </form>				      	
+					      </form>							
+						
+						</c:if>	
+																
+						<!-- 비로그인 상태 -->
+						<c:if test="${sessionScope.id == null}">
+							한줄평 및 평점 등록은 로그인 후 이용 가능합니다.
+						</c:if>					      			      	
 				      </div>			    
 			      </li>
 			      <li class="collection-item">

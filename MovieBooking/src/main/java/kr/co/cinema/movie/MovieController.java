@@ -17,12 +17,20 @@ public class MovieController {
 	
 	@Autowired
 	MovieDao movieDao;
+	@Autowired
+	MovieService movieService;
 	
 	//평점 & 리플등록
 	@RequestMapping(value = "/addReplyforMovie", method = RequestMethod.POST)
 	public String addReplyforMovie(ReplyInputDto replyInputDto) {
 		logger.debug("addReplyforMovie 평점 & 리플등록");
-		return "redirect:clientMovieDetail?movCode="+replyInputDto.getMovCode();
+		int result = movieService.addReplyforMovie(replyInputDto);
+		
+		if(result == 1){ //정상등록
+			return "redirect:clientMovieDetail?movCode="+replyInputDto.getMovCode();
+		}else{ //중복
+			return "redirect:clientMovieDetail?movCode="+replyInputDto.getMovCode();
+		}	
 	}		
 	
 	//클라이언트측 영화 리스트페이지 박스오피스

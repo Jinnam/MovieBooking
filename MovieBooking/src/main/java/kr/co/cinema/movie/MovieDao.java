@@ -18,6 +18,22 @@ public class MovieDao {
 	
 	private final String mapperNS="kr.co.cinema.movie.MovieMapper.";
 	
+	//리플 & 평점 등록 reply 테이블
+	public int insertReplyToReply(ReplyInputDto replyInputDto){
+		logger.debug("insertReplyToReply 리플 등록 (reply)");
+		return session.insert(mapperNS+"insertReplyToReply",replyInputDto);
+	}
+	//평점 누적 grade 테이블
+	public int insertReplyToGrade(ReplyInputDto replyInputDto){
+		logger.debug("insertReplyToGrade 평점누적 (grade테이블)");
+		return session.insert(mapperNS+"insertReplyToGrade",replyInputDto);
+	}	
+	
+	//평점 중복검사
+	public Map<String,Object> selectOneReply(ReplyInputDto replyInputDto){
+		return session.selectOne(mapperNS+"selectOneReply",replyInputDto);
+	}
+	
 	//영화코드로 영화 통계정보 가져오기
 	public Map<String,String> selectOneMovieCountInfo(String movCode){
 		logger.debug("selectOneMovieCountInfo 영화코드로 영화 통계정보 가져오기");
