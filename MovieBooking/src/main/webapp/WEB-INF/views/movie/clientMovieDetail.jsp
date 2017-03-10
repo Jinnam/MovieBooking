@@ -185,8 +185,8 @@
 						      	<div class="col s2">									      	
 								  <input type="hidden" value ="${movie.movCode}" name="movCode">
 								  <input type="hidden" value="${sessionScope.id}" name="memId">
-								  <select name = "rpGrade" class="browser-default" style="display:inline-block;width:70%">
-								    <option value="" disabled selected>평점</option>
+								  <select id = "rpGrade" name = "rpGrade" class="browser-default" style="display:inline-block;width:70%">
+								    <option value="0" disabled selected>평점</option>
 								    <option value="1">1</option>
 								    <option value="2">2</option>
 								    <option value="3">3</option>
@@ -233,9 +233,12 @@
 			</div>
 			
 			<script>
-				$(document).on('click','#replyButton',function(){
-					console.log('click');
-					$('#replyForm').submit();
+				$(document).on('click','#replyButton',function(){									
+					if($('#rpGrade').val()==null){
+						alert('평점을 선택해주세요');
+					}else{
+						$('#replyForm').submit();
+					}
 				});
 			</script>
 
