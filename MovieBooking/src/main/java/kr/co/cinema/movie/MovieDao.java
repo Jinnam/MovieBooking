@@ -52,6 +52,12 @@ public class MovieDao {
 		return session.selectOne(mapperNS+"selectOneCharInfo",charCode);		
 	}
 	
+	//영화코드로 리플 가져오기
+	public List<String> selectListReply(String movCode){
+		logger.debug("selectListReply 영화코드로 리플 가져오기");
+		return session.selectList(mapperNS+"selectListReply",movCode);
+	}
+	
 	//영화코드로 스틸컷 이미지 가져오기
 	public List<String> selectListStcImg(String movCode){
 		logger.debug("selectListStcImg 영화코드로 스틸컷 이미지 가져오기");

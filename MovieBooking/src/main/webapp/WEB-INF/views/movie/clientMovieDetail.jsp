@@ -212,20 +212,23 @@
 						</c:if>					      			      	
 				      </div>			    
 			      </li>
-			      <li class="collection-item">
-			      	<!-- 작성자 정보 -->
-					<div>
-						<span>kjb7907</span>
-						<span style="font-size:11px;">2017.3.11</span>
-						<span><div class="ui mini heart rating" data-rating="4" data-max-rating="5"></div></span>				
-					</div>
-					<!-- 댓글 본문 -->
-					<div style="font-size:12px;color:#323232;">
-						재미있어요
-					</div>
-			      </li>
-			      
-
+			      <li class="collection-item">	      
+					<c:forEach var="reply" items="${replyList}"> 
+					
+				      	<!-- 작성자 정보 -->
+						<div>
+							<span>${reply.memId}</span>
+							<span style="font-size:11px;">${reply.rpInsertDate}</span>
+							<span><div class="ui mini heart rating" data-rating="${reply.rpGrade}" data-max-rating="5"></div></span>				
+						</div>
+						
+						<!-- 댓글 본문 -->
+						<div style="font-size:12px;color:#323232;">
+							${reply.rpDetail}
+						</div>		
+									    
+					</c:forEach>			      			    
+			      </li>			      
 			    </ul>
 			</div>
 			

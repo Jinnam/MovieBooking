@@ -22,14 +22,15 @@ public class MovieController {
 	
 	//평점 & 리플등록
 	@RequestMapping(value = "/addReplyforMovie", method = RequestMethod.POST)
-	public String addReplyforMovie(ReplyInputDto replyInputDto) {
+	public String addReplyforMovie(Model model,ReplyInputDto replyInputDto) {
 		logger.debug("addReplyforMovie 평점 & 리플등록");
 		int result = movieService.addReplyforMovie(replyInputDto);
 		
 		if(result == 1){ //정상등록
 			return "redirect:clientMovieDetail?movCode="+replyInputDto.getMovCode();
 		}else{ //중복
-			return "redirect:clientMovieDetail?movCode="+replyInputDto.getMovCode();
+			model.addAttribute("url","clientMovieDetail?movCode="+replyInputDto.getMovCode());
+			return "movie/falseReply";
 		}	
 	}		
 	
@@ -65,6 +66,7 @@ public class MovieController {
 		model.addAttribute("charList",movieDao.selectListCharNameCode(movCode)); //인물정보 세팅
 		model.addAttribute("stcImgList",movieDao.selectListStcImg(movCode)); //스틸컷 이미지 세팅
 		model.addAttribute("ticketCount",movieDao.selectOneMovieCountInfo(movCode)); //통계정보 세팅
+		model.addAttribute("replyList",movieDao.selectListReply(movCode)); //리플및 유저 평점 세팅
 		return "movie/clientMovieDetail";
 	}
 	

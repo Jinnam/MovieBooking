@@ -86,6 +86,19 @@
 		WHERE
 			`CHARACTER`.char_code=#{charCode}
 	</select>
+	
+	<!-- 영화 코드로 리플 및 평점 가져오기 -->
+	<select id="selectListReply" parameterType="String" resultType="Map">
+		SELECT 
+			REPLY.mem_id as memId,
+			REPLY.rp_grade as rpGrade,
+			REPLY.rp_detail as rpDetail,
+			REPLY.rp_insertDate as rpInsertDate
+		FROM
+			REPLY
+		WHERE
+			REPLY.mov_code = #{movCode}		
+	</select>
 
 	<!-- 영화코드로 스틸컷 이미지 주소 가져오기 -->
 	<select id="selectListStcImg" parameterType="String" resultType="String">
