@@ -135,7 +135,10 @@ public class AdminController {
 		logger.debug(" Controller selectOverLapCheck post실행");
 		logger.debug(" 들어온 id값 : "+admId);
 		String selectOverLapCheck = adminService.selectOverLapCheck(admId);
-		logger.debug(" 나갈 id값 : "+selectOverLapCheck.toString());
+		if(selectOverLapCheck != null) {
+			logger.debug(" 나갈 id값 : "+selectOverLapCheck.toString());
+			//넘어갈때 공백
+		}
 		return selectOverLapCheck;
 	}
 	

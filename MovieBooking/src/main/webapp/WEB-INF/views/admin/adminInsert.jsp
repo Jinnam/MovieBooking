@@ -245,7 +245,7 @@
 							<div class="row form-group">
 								<label for="adminId" class="col-lg-2 control-label">ID</label>
 								<div class="col-lg-6">
-									<input type="text" class="form-control" id="admId" name="admId" value="admin02" placeholder="관리자 ID를 입력하세요" required="required">
+									<input type="text" class="form-control" id="admId" name="admId" placeholder="관리자 ID를 입력하세요" required="required">
 								</div>
 								<!-- 아직 미구현 -->
 								<!-- ID중복조회 -->
@@ -298,20 +298,32 @@
 	<script>
 	$(document).ready(function() {
 		$('#overLapCheck').click(function(){
-			console.log("test");
-			$.ajax({
-				url			: "selectOverLapCheck",
-				data		: {"admId" : $("#admId").val()},
-				dataType	: "json",
-				type		: "post",
-				success		: function(data) {
-					console.log(data);
-					
-				},
-				error		:function(request,status,error){
-					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-				}
-			})
+			if($("#admId").val() == ""){
+				alert("아이디를 입력해주세요")
+			}else{
+				console.log("test");
+				$.ajax({
+					url			: "selectOverLapCheck",
+					data		: {"admId" : $("#admId").val()},
+					//dataType	: "text",
+					type		: "post",
+					success		: function(data) {
+						console.log(data);
+						if(data == "") {
+							console.log("다를경우");
+							alert("사용가능한 아이디입니다.");
+						} else {
+							console.log("같을경우");
+							alert("중복된아이디 입니다.");
+							$("#admId").val('');
+							$("#admId").focus();
+						}
+					},
+					error		:function(request,status,error){
+						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+					}
+				})
+			}
 		})
 	});
 	</script>
