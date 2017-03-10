@@ -43,4 +43,26 @@
 	 </select>
 	 
 	 <!-- 영화 정보 가져오기 -->
+	 <select id="">
+	 	SELECT
+			MOVIE.mov_korName,
+			ANALYSIS.anl_totalTicketCount,
+			ANALYSIS.anl_totalTicketCount,
+			ANALYSIS.anl_10sTicketCount,
+			ANALYSIS.anl_20sTicketCount,
+			ANALYSIS.anl_30sTicketCount,
+			ANALYSIS.anl_40sTicketCount,
+			ANALYSIS.anl_over50sTicketCount,
+			ANALYSIS.anl_manTicketCount,
+			ANALYSIS.anl_womanTicketCount,
+			ANALYSIS.anl_acSales
+		FROM
+			ANALYSIS
+		JOIN
+			MOVIE
+		ON
+			ANALYSIS.mov_code=MOVIE.mov_code
+		WHERE
+			MOVIE.mov_code=#{movCode}
+	 </select>
 </mapper>
