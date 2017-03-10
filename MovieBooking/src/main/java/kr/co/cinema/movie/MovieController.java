@@ -1,8 +1,5 @@
 package kr.co.cinema.movie;
 
-import java.util.List;
-import java.util.Map;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +17,13 @@ public class MovieController {
 	
 	@Autowired
 	MovieDao movieDao;
+	
+	//평점 & 리플등록
+	@RequestMapping(value = "/addReplyforMovie", method = RequestMethod.POST)
+	public String addReplyforMovie(ReplyInputDto replyInputDto) {
+		logger.debug("addReplyforMovie 평점 & 리플등록");
+		return "redirect:clientMovieDetail?movCode="+replyInputDto.getMovCode();
+	}		
 	
 	//클라이언트측 영화 리스트페이지 박스오피스
 	@RequestMapping(value = "/clientMovieListBoxoffice1", method = RequestMethod.GET)

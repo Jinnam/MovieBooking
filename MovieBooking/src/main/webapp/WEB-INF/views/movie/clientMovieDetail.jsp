@@ -177,24 +177,28 @@
 			    <ul class="collection">
 			      <li class="collection-item">
 				      <div class ="row">
-					      <form action="" method="post">
+					      <form action="addReplyforMovie" method="post" id="replyForm">
 						      	<!-- 작성자 / 평점 -->
 						      	<div class="col s2">
 								  <span style="margin-right:10px;">김정빈</span>
-								  <select class="browser-default" style="display:inline-block;width:50%">
+								  <input type="hidden" value ="${movie.movCode}" name="movCode">
+								  <input type="hidden" value="${sessionScope.memId}" name="memId">
+								  <select name = "rpGrade" class="browser-default" style="display:inline-block;width:50%">
 								    <option value="" disabled selected>평점</option>
 								    <option value="1">1</option>
 								    <option value="2">2</option>
 								    <option value="3">3</option>
+								    <option value="4">4</option>
+								    <option value="5">5</option>
 								  </select>
 						      	</div>
 						      	<!-- 코멘트 -->		      	
 						      	<div class= "col s8">
-									<textarea rows="1" cols="3"></textarea>				      	
+									<textarea name = "rpDetail" rows="1" cols="3"></textarea>				      	
 						      	</div>
 						      	<!-- 버튼 -->
 						      	<div class="col s2">
-						      		 <a class="waves-effect waves-light btn" style="max-width:100%">등록</a>
+						      		 <a class="waves-effect waves-light btn" style="max-width:100%" id="replyButton">등록</a>
 						      	</div>					      
 					      </form>				      	
 				      </div>			    
@@ -215,6 +219,13 @@
 
 			    </ul>
 			</div>
+			
+			<script>
+				$(document).on('click','#replyButton',function(){
+					console.log('click');
+					$('#replyForm').submit();
+				});
+			</script>
 
 			<!-- 레이팅 스크립트 -->
             <script>
