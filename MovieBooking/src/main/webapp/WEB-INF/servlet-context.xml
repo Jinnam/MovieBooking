@@ -26,7 +26,6 @@
         <property name="mapperLocations">
             <list>
                 <value>classpath:kr/co/cinema/admin/AdminMapper.xml</value>
-                <value>classpath:kr/co/cinema/admin/branch/AdminBranchMapper.xml</value>
 				<value>classpath:kr/co/cinema/analysis/AnalysisMapper.xml</value>
 				<value>classpath:kr/co/cinema/booking/BookingMapper.xml</value>
 				<value>classpath:kr/co/cinema/management/ManagementMapper.xml</value>

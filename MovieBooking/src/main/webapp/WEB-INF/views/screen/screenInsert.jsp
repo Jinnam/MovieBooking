@@ -246,7 +246,7 @@
 								</div>
 								<!-- 지점이름으로 지점코드를 지점테이블에서 조회 ajax-->
 								<div class="col-lg-2">
-									<input id="selectBrcCode" type="button" class="btn btn-button" value="조회">
+									<input id="selectBrcCode" type="button" class="btn btn-button" value="조회"><span id="warningText"></span>
 								</div>
 							</div>
 							<!-- 지점코드 출력 -->
@@ -306,7 +306,14 @@
 					type : "post",
 					success : function(data) {
 						console.log(data)
-						$("#selectViewBrcCode").val(data)
+						$("#selectViewBrcCode").val("")
+						if(data==""){
+							$("#selectViewBrcCode").val("존재하지 않는 지점입니다.");
+							$("#brcName").val("").focus();
+						}else{
+							$("#selectViewBrcCode").val(data)	
+						}
+						
 					}
 				});
 			});

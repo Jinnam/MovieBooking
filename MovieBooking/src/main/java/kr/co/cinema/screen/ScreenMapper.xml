@@ -5,4 +5,72 @@
   
 <mapper namespace="kr.co.cinema.screen.ScreenMapper">
 
+<!--****************************************************************************************
+	상영관관리쿼리
+	******************************************************************************************-->
+
+	<!-- 상영관등록전 지점이름으로 지점코드 조회하기 위한 쿼리 -->
+	<select id="selectBrcCode"
+			resultType="String"
+			parameterType="String">
+			SELECT	BRANCH.brc_code 
+			FROM	BRANCH 
+			WHERE	BRANCH.brc_name = #{selectBrcCode};
+	</select>
+
+	<!-- 상영관등록 -->
+	<insert id="insertScreen"
+			parameterType="kr.co.cinema.dto.Screen">
+			INSERT INTO	SCREEN 
+						(scr_code,
+						 brc_code,
+						 scr_name,
+						 scr_rowSize,
+						 scr_colSize) 
+			VALUES		
+						(#{scrCode},
+						 #{brcCode},
+						 #{scrName},
+						 #{scrRowSize},
+						 #{scrColSize}); 
+			
+	</insert>
+	
+	<!-- 상영관리스트조회 -->
+	<select id="selectScreenList"
+			resultType="kr.co.cinema.dto.Screen">
+			SELECT		BRANCH.brc_name		AS	brcName,
+						SCREEN.scr_name		AS	scrName,
+						SCREEN.scr_rowSize	AS	scrRowSize,
+						SCREEN.scr_colSize	AS	scrColSize
+			FROM		SCREEN
+						JOIN	BRANCH
+						ON		SCREEN.brc_code = BRANCH.brc_code
+			ORDER BY	BRANCH.brc_name	ASC;
+	</select>
+	<!--****************************************************************************************
+	상영일정관리쿼리
+	******************************************************************************************-->
+
+	<!-- 상영일정등록전 영화이름으로 영화코드 조회 -->
+	<select id="selectMovieCode"
+			resultType="String"
+			parameterType="String">
+			SELECT	MOVIE.mov_code 
+			FROM	MOVIE 
+			WHERE	MOVIE.mov_korName = #{movKorName}; 
+	</select>
+	
+	<!-- 상영일정등록전 지점이름으로 지점코드, 스크린코드, 스크린이름조회 -->
+	<select id="selectmovieAndScreens"
+			resultType="kr.co.cinema.dto.BranchAndScreen"
+			parameterType="kr.co.cinema.dto.BranchAndScreen">
+			SELECT	BRANCH.brc_code,
+					SCREEN.scr_name,
+					SCREEN.scr_code
+			FROM	BRANCH
+					INNER JOIN	SCREEN
+							ON	BRANCH.brc_code = SCREEN.brc_code
+			WHERE	BRANCH.brc_name = #{brcName}
+	</select>
 </mapper>
