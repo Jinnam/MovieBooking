@@ -1,6 +1,8 @@
 package kr.co.cinema.screen;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -47,7 +49,7 @@ public class ScreenDao {
 	************************************************************************************************************/	
 
 	//상영일정 등록전 영화이름으로 영화코드 조회
-	public String selectMovieCode(String movKorName) {
+	public Map<String, Object> selectMovieCode(String movKorName) {
 		logger.debug(" Dao selectMovieCode");
 		return sqlSession.selectOne(NS+"selectMovieCode", movKorName);
 	}
@@ -56,5 +58,23 @@ public class ScreenDao {
 	public List<BranchAndScreen> selectmovieAndScreens(List<BranchAndScreen> movieAndScreens) {
 		logger.debug(" Dao selectmovieAndScreens");
 		return sqlSession.selectList(NS+"selectmovieAndScreens", movieAndScreens);
+	}
+	
+	// 스크린 가격 가져오기
+	public List<String> selectListScreenCost(){
+		logger.debug("	selectListScreenCost 진입");
+		return sqlSession.selectList(NS+"selectScreenCost");
+	}
+	
+	// 지점 정보 가져오기
+	public List<HashMap<String, Object>> selectBranchInfo(){
+		logger.debug("	selectBranchInfo 진입");
+		return sqlSession.selectList(NS+"selectBranchInfo");
+	}
+	
+	// 상영관 정보 가져오기
+	public List<HashMap<String, Object>> selectScreenInfo(String brcCode){
+		logger.debug("	selectScreenInfo 진입 brcCode : "+brcCode);
+		return sqlSession.selectList(NS+"selectScreenInfo", brcCode);
 	}
 }

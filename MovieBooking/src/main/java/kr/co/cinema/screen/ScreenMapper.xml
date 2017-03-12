@@ -53,12 +53,47 @@
 	******************************************************************************************-->
 
 	<!-- 상영일정등록전 영화이름으로 영화코드 조회 -->
-	<select id="selectMovieCode"
-			resultType="String"
-			parameterType="String">
-			SELECT	MOVIE.mov_code 
-			FROM	MOVIE 
-			WHERE	MOVIE.mov_korName = #{movKorName}; 
+	<select id="selectMovieCode" resultType="Map" parameterType="String">
+			SELECT
+				MOVIE.mov_code AS movCode,
+				mov_runningTime AS movRunTime
+			FROM
+				MOVIE 
+			WHERE
+				MOVIE.mov_korName = #{movKorName}; 
+	</select>
+	
+	<!-- 상영종류 가져오기 -->
+	<select id="selectScreenCost" resultType="String">
+		SELECT
+			scco_screen AS sccoScreen
+		FROM
+			SCREEN_COST
+		WHERE
+			scco_status="적용"
+	</select>
+	
+	<!-- 지점 정보 가져오기 -->
+	<select id="selectBranchInfo" resultType="Map">
+		SELECT
+			brc_name AS brcName,
+			brc_code AS brcCode
+		FROM
+			BRANCH
+		ORDER BY
+			brc_name
+	</select>
+	
+	<!-- 지점코드로 상영관 정보 가져오기 -->
+	<select id="selectScreenInfo" parameterType="String" resultType="Map">
+		SELECT
+			scr_name AS scrName,
+			scr_rowSize AS scrRowSize,
+			scr_colSize AS scrColSize
+		FROM
+			SCREEN
+		WHERE
+			brc_code=#{brc_code}
 	</select>
 	
 	<!-- 상영일정등록전 지점이름으로 지점코드, 스크린코드, 스크린이름조회 -->

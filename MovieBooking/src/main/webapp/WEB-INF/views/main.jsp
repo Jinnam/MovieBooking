@@ -54,7 +54,7 @@
 	          
 	        </a>
 	
-	        <a href="adminMain" style=" text-decoration:none; color:#000000">
+	        <a href="adminLogin" style=" text-decoration:none; color:#000000">
 	        
 	          <div class="col s6">
 	            <div class="card">

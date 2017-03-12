@@ -1,6 +1,8 @@
 package kr.co.cinema.screen;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.cinema.dto.BranchAndScreen;
 import kr.co.cinema.dto.Screen;
+import kr.co.cinema.dto.ScreenCost;
 
 @Controller
 public class ScreenController {
@@ -77,16 +80,30 @@ private static final Logger logger = LoggerFactory.getLogger(ScreenController.cl
 		
 		//상영일정등록 : 페이지이동
 		@RequestMapping(value="screenScheduleInsert", method=RequestMethod.GET)
-		public String insertScreenSchedule() {
+		public String insertScreenSchedule(Model model) {
 			logger.debug(" Controller insertScreenSchedule get실행");
+			List<String> screenCost = screenService.searchListScreenCost();
+			List<HashMap<String,Object>> branchInfo = screenService.searchBranchInfo();
+			model.addAttribute("screenCost",screenCost);
+			model.addAttribute("branchInfo",branchInfo);
+
 			return "screen/screenScheduleInsert";
+		}
+		
+		// 상영관 정보 가져오기
+		@RequestMapping(value="selectScreenInfo", method=RequestMethod.POST)
+		public @ResponseBody List<HashMap<String, Object>> selectScreenInfo(@RequestParam String brcCode){
+			logger.debug(" selectScreenInfo 진입");
+			List<HashMap<String, Object>> screenInfo = screenService.findScreenInfo(brcCode);
+			logger.debug("screenInfo : "+screenInfo.toString());
+			return screenInfo;
 		}
 		
 		//상영일정 등록 : 영화한글이름으로 영화 코드조회하기 AJAX
 		@RequestMapping(value="selectMovieCode", method=RequestMethod.POST)
-		public @ResponseBody String selectMovieCodeforInsertScrSchedule(@RequestParam("movKorName")String movKorName) {
+		public @ResponseBody Map<String, Object> selectMovieCodeforInsertScrSchedule(@RequestParam("movKorName")String movKorName) {
 			logger.debug(" Controller selectMovieCodeforInsertScrSchedule post실행");
-			String selectMovieCode = screenService.selectMovieCode(movKorName);
+			Map<String, Object> selectMovieCode = screenService.selectMovieCode(movKorName);
 			return selectMovieCode;
 		}
 		
@@ -101,7 +118,7 @@ private static final Logger logger = LoggerFactory.getLogger(ScreenController.cl
 		
 		//***상영일정리스트조회 : 페이지이동
 		@RequestMapping(value="screenScheduleList", method=RequestMethod.GET)
-		public String selectScreenScheduleList() {
+		public String selectScreenScheduleList(Model model) {
 			logger.debug(" Controller selectScreenScheduleList get실행");
 			return "screen/screenScheduleList";
 		}
