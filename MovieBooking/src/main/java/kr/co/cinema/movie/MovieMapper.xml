@@ -5,6 +5,16 @@
   
 <mapper namespace="kr.co.cinema.movie.MovieMapper">
 
+	<!-- 영화 코드로 좋아요 -->
+	<insert id="insertLikeMovie" parameterType="String">
+		UPDATE
+			ANALYSIS
+		SET
+			ANALYSIS.anl_likeTotalCount = ANALYSIS.anl_likeTotalCount+1
+		WHERE
+			ANALYSIS.mov_code=#{movCode}
+	</insert>
+
 	<!-- 리플 평점 등록 reply 테이블 -->
 	<insert id="insertReplyToReply" parameterType="kr.co.cinema.movie.ReplyInputDto">
 		INSERT INTO 

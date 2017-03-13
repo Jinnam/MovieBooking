@@ -1,5 +1,7 @@
 package kr.co.cinema.movie;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,16 @@ public class MovieController {
 	MovieDao movieDao;
 	@Autowired
 	MovieService movieService;
+	
+	
+	//좋아요
+	@RequestMapping(value = "/addlikeMovie", method = RequestMethod.GET)
+	public String addLikeMovie(@RequestParam(value="movCode")String movCode, HttpSession session) {
+		logger.debug("addLikeMovie 좋아요");
+		String mId=(String) session.getAttribute("id");	
+		movieDao.insertLikeMovie(mId, movCode);
+		return "movie/afterLikeMovie";
+	}
 	
 	//평점 & 리플등록
 	@RequestMapping(value = "/addReplyforMovie", method = RequestMethod.POST)

@@ -36,7 +36,7 @@
           <!-- 상영예정작 -->
           <li id="movieNavLiExp"><a href="clientMovieListExpected3"><img src="resources/module-img/menu_expected.png" style="width:100px;height:40px"></a></li>
           <!-- 우측메뉴 -->
-          <li class="brand-logo right"><a href="beforeReady"><img src="resources/module-img/menu_boxoffice.png" style="width:100px;height:40px"></a></li>
+          <!-- <li class="brand-logo right"><a href="beforeReady"><img src="resources/module-img/menu_boxoffice.png" style="width:100px;height:40px"></a></li> -->
         </ul>
       </div>
     </nav>

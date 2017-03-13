@@ -18,6 +18,12 @@ public class MovieDao {
 	
 	private final String mapperNS="kr.co.cinema.movie.MovieMapper.";
 	
+	//좋아요 
+	public int insertLikeMovie(String mId,String movCode){
+		logger.debug("insertLikeMovie 좋아요");
+		return session.insert(mapperNS+"insertLikeMovie",movCode);
+	}
+	
 	//리플 & 평점 등록 reply 테이블
 	public int insertReplyToReply(ReplyInputDto replyInputDto){
 		logger.debug("insertReplyToReply 리플 등록 (reply)");
@@ -31,6 +37,7 @@ public class MovieDao {
 	
 	//평점 중복검사
 	public Map<String,Object> selectOneReply(ReplyInputDto replyInputDto){
+		logger.debug("selectOneReply 평점 중복검사");
 		return session.selectOne(mapperNS+"selectOneReply",replyInputDto);
 	}
 	

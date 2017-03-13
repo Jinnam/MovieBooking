@@ -19,9 +19,9 @@ public class MovieService {
 	@Autowired
 	HomeService homeService;
 	
+	
 	public int addReplyforMovie(ReplyInputDto replyInputDto){
 		
-
 		Map<String,Object> map = movieDao.selectOneReply(replyInputDto);		
 		
 		if(map==null){ //중복 안될경우

@@ -101,7 +101,7 @@
                   <sapn style="position:relative ; top:10px;">${movie.movEngName}</span>
                   <span>${movie.movStatus} </span>
                   <c:if test="${movie.movStatus == '상영중' || movie.movStatus == '상영예정'}">
-                 	 <span style="text-align:right;"><a class="waves-effect waves-light btn" style="border-radius:0em ;">예매하기</a></span>
+                 	 <span style="text-align:right;"><a href="bookingSelect"class="waves-effect waves-light btn" style="border-radius:0em ;">예매하기</a></span>
                   </c:if>
                   <!-- 간격 --><div style="height:10px;"></div>
                 </span>

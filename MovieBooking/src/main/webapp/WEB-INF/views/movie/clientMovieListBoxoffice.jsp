@@ -6,6 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>박스오피스</title>
 <link rel="SHORTCUT ICON" href="resources/module-img/titleIcon.png">
+
+
+
 </head>
 <body>
 
@@ -17,6 +20,19 @@
 
 <!-- 영화 메뉴 바-->
 <%@ include file="/WEB-INF/clientModule/topMovieBar.jsp" %>
+
+		<script>
+			//좋아요 클릭시
+			$(document).on('click','.like',function(){
+				console.log('click like');
+				alert('.');
+			});			
+			$(document).on('click','.likeNoLogin',function(){
+				console.log('click nologin');
+				alert('좋아요 기능은 로그인후 이용 가능합니다.');
+			});
+		</script>
+
 
         <!-- 플립 스크립트 -->
         <script>
@@ -71,10 +87,25 @@
 
 		              	</a>
 		              	<a href="#">
-			              	<div style="display:inline-block;position:absolute;top:70%;left:50%;">
+		              	
+		              	<!-- 로그인시 좋아요 -->
+						<c:if test="${sessionScope.id != null}">
+							<a href="addlikeMovie?movCode=${map.movCode}">
+			              	<div class="like" style="display:inline-block;position:absolute;top:70%;left:50%;">
 			              		<div style="color:#eeeeee;"><i class="huge heart icon"></i></div>
 			              		<div style="color:#eeeeee;text-align:center;">좋아요</div>
-			              	</div>		              	
+			              	</div>								
+							</a>
+						</c:if>		
+						
+						<!-- 비 로그인시 좋아요 -->
+						<c:if test="${sessionScope.id == null}">
+			              	<div class="likeNoLogin" style="display:inline-block;position:absolute;top:70%;left:50%;">
+			              		<div style="color:#eeeeee;"><i class="huge heart icon"></i></div>
+			              		<div style="color:#eeeeee;text-align:center;">좋아요</div>
+			              	</div>	
+						</c:if>										              	
+	              	
 		              	</a>
 	                  </div>
 	                  
