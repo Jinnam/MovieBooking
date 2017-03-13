@@ -14,6 +14,8 @@ import kr.co.cinema.HomeService;
 import kr.co.cinema.dto.BranchAndScreen;
 import kr.co.cinema.dto.Screen;
 import kr.co.cinema.dto.ScreenCost;
+import kr.co.cinema.dto.ScreenSchedule;
+import kr.co.cinema.dto.Seat;
 
 @Service
 public class ScreenService {
@@ -82,5 +84,75 @@ public class ScreenService {
 		logger.debug("	findScreenInfo 진입 brcCode : "+brcCode);
 		return screenDao.selectScreenInfo(brcCode);
 	}
+	
+	// *****상영일정 main*****
+	public int insertScs(ScreenSchedule screenSchedule){
+		logger.debug("	insertScs 진입 screenSchedule : "+screenSchedule);
+		
+		String scsCode = homeService.madeCode(screenSchedule);				// 상영일정 코드 생성
+		screenSchedule.setScsCode(scsCode);									// 상영일정 코드 셋팅
+		String getScrCode = screenSchedule.getScrCode();					// 스크린코드 가져오기
+		Map<String, Integer> getRowCol=screenDao.selectRowCol(getScrCode);	// 상영관 행열 갖오기
+		int getRow = getRowCol.get("scrRowSize");							// 행
+		int getCol = getRowCol.get("scrColSize");							// 열
+		
+		// 상영일정 등록
+		insertScreenSchedule(screenSchedule);
+		
+		// 좌석 등록
+		insertSeat(getScrCode,scsCode,getRow,getCol);
+		return screenDao.insertScs(screenSchedule);
+	}
+	// seatCode, scsCode scrCode 
+	// 좌석 등록
+	public int insertSeat(String scrCode, String scsCode, int row, int col){
+		logger.debug("	insertSeat 진입 scrCode : "+scrCode+" scsCode : "+scsCode+" row:"+row+" col :"+col);
+		int result=-1;
+		for(int i=0;i<row;i++){
+			for(int j=0;j<col;j++){
+				Seat seat = new Seat();
+				seat.setScrCode(scrCode);						// 상영관코드 셋팅
+				seat.setScsCode(scsCode);						// 상영일정 코드 셋팅
+				seat.setSeatRow((char)(i+65));					// 알파벳으로 변환 후 셋팅  
+				seat.setSeatCol(j+1);							// 열번호 1부터 시작
+				seat.setSeatCode(homeService.madeCode(seat));	// 좌석코드 생성
+				result = screenDao.insertSeat(seat);
+			}
+		}
+		return result;
+	}
+	
+	
+	// 상영일정 등록 
+		public int insertScreenSchedule(ScreenSchedule screenSchedule){
+			logger.debug("	insertScreenSchedule 진입 screenSchedule : "+screenSchedule);
+			
+			String getStartTime = screenSchedule.getScsStartTime();		// 시작 시간 h시m분
+			String getFinishTime = screenSchedule.getScsFinishTime();	// 종료시간 h시 m분
+			String startTime = changeTimeStyle(getStartTime);			// hh:mm:ss 로 변환
+			String finishTime = changeTimeStyle(getFinishTime);			// hh:mm:ss 로 변환
 
+			screenSchedule.setScsStartTime(startTime);		// 시작시간 셋팅
+			screenSchedule.setScsFinishTime(finishTime);	// 종료시간 셋팅
+			
+			return screenDao.insertScs(screenSchedule);
+		}
+	// h시m분으로 들어온 값 hh:mm:ss로 바꾸기
+		public String changeTimeStyle(String getTime){
+			
+			int si = getTime.indexOf("시");				// "시" 인덱스 값
+			String hour = getTime.substring(0,si);		// "시" 앞 글자 가져오기
+			int boon = getTime.indexOf("분");			// "분" 인덱스 값
+			String minute=getTime.substring(si+1,boon);	// "시"와"분"사이 값
+			
+			if(hour.length()<2){		//시간 값이 한자리이면 앞에 "0" 붙여줌
+				hour="0"+hour;
+			}
+			if(minute.length()<2){		// 분 값이 한자리이면 앞에 "0" 붙여줌
+				minute="0"+minute;
+			}
+			
+			String returnStartTime=hour+":"+minute+":00"; //반환 값
+			return returnStartTime;
+		}
 }

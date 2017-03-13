@@ -12,6 +12,8 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.cinema.dto.BranchAndScreen;
 import kr.co.cinema.dto.Screen;
+import kr.co.cinema.dto.ScreenSchedule;
+import kr.co.cinema.dto.Seat;
 
 @Repository
 public class ScreenDao {
@@ -70,5 +72,23 @@ public class ScreenDao {
 	public List<HashMap<String, Object>> selectScreenInfo(int brcCode){
 		logger.debug("	selectScreenInfo 진입 brcCode : "+brcCode);
 		return sqlSession.selectList(NS+"selectScreenInfo", brcCode);
+	}
+	
+	// 상영일정 등록
+	public int insertScs(ScreenSchedule screenSchedule){
+		logger.debug("	insertScs 진입 screenSchedule : "+screenSchedule);
+		return sqlSession.insert(NS+"insertScs",screenSchedule);
+	}
+	
+	//좌석 등록
+	public int insertSeat(Seat seat){
+		logger.debug("	insertSeat 진입 seat : "+seat);
+		return sqlSession.insert(NS+"insertSeat");	
+	}
+	
+	// 좌석 행/열 가져오기
+	public Map<String,Integer> selectRowCol(String scsCode){
+		logger.debug("	selectRowCol 진입 scsCode : "+scsCode);
+		return sqlSession.selectOne(NS+"selectRowCol",scsCode);
 	}
 }

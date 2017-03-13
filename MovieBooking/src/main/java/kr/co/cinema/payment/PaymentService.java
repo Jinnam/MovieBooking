@@ -375,8 +375,8 @@ public class PaymentService {
 			if(seatInfo == null){
 				returnSeatInfo=null;
 			}else{
-				String seatRow = seatInfo.getSeatRow();
-				int seatCol = seatInfo.getSeatCol();
+				char seatRow = seatInfo.getSeatRow();
+				String seatCol =Integer.toString(seatInfo.getSeatCol());
 				returnSeatInfo = seatRow+seatCol;
 			}
 			return returnSeatInfo;

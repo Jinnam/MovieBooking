@@ -13,7 +13,21 @@ public class ScreenSchedule {
 	private String scsScreen;			// 스크린 종류
 	private String scsTimeDiscount;		// 할인 정보
 	private String scsInsertDate;		// 등록일
+	private String seatCol;				// 좌석 열
+	private String seatRow;				// 좌석 행
 	
+	public String getSeatCol() {
+		return seatCol;
+	}
+	public void setSeatCol(String seatCol) {
+		this.seatCol = seatCol;
+	}
+	public String getSeatRow() {
+		return seatRow;
+	}
+	public void setSeatRow(String seatRow) {
+		this.seatRow = seatRow;
+	}
 	public String getScrCode() {
 		return scrCode;
 	}
@@ -80,7 +94,7 @@ public class ScreenSchedule {
 		return "ScreenSchedule [scsCode=" + scsCode + ", movCode=" + movCode + ", brcCode=" + brcCode + ", scrCode="
 				+ scrCode + ", scsDate=" + scsDate + ", scsStartTime=" + scsStartTime + ", scsFinishTime="
 				+ scsFinishTime + ", scsScreen=" + scsScreen + ", scsTimeDiscount=" + scsTimeDiscount
-				+ ", scsInsertDate=" + scsInsertDate + "]";
+				+ ", scsInsertDate=" + scsInsertDate + ", seatCol=" + seatCol + ", seatRow=" + seatRow + "]";
 	}
 	
 	

@@ -106,7 +106,7 @@ private static final Logger logger = LoggerFactory.getLogger(ScreenController.cl
 		@RequestMapping(value="screenScheduleInsert", method=RequestMethod.POST)
 		public String screenScheduleInsert(ScreenSchedule screenSchedule){
 			logger.debug("screenScheduleInsert post 진입 screenSchedule: "+screenSchedule.toString());
-			
+			screenService.insertScs(screenSchedule);
 			
 			return "admin/adminMain";
 		}
