@@ -27,12 +27,11 @@ public class HomeService {
 	//******코드(PK) 생성 시작******
 	
 	static private String resultCode = "";							// 반환할 코드 초기화
-	Map<String, String> map = new HashMap<String, String>();		// Mapper에 parameter값으로 들어갈 맵 생성
 	
 	// 코드 생성하는 메서드(비회원,마일리지,한줄평/평점,좌석(다:다))
 	public String madeCode(String kind){
 		logger.debug("		makeCode(String) 진입");
-		
+		Map<String, String> map = new HashMap<String, String>();	// Mapper에 parameter값으로 들어갈 맵 생성
 		map.put("kind", kind);										// 맵에 "kind"라는 이름으로 들어온 입력값을 put
 		String getCode = homeDao.selectOneCode(map);				// db에서 마지막으로 입력된 코드 값 가져오기
 		String getFirst= getCode.substring(0,2);					// 코드에서 고유번호 추출
@@ -98,6 +97,7 @@ public class HomeService {
 				logger.debug("		makeCode(Object) Screen");
 				Screen screen = (Screen) object;											// object를 Screen으로 형변환
 				
+				Map<String, String> map = new HashMap<String, String>();					// Mapper에 parameter값으로 들어갈 맵 생성
 				String getBrcCode=Integer.toString(screen.getBrcCode());					// 입력값에서 brcCode 가져오기 ex)41101
 				
 				map.put("ScreenBrcCode",getBrcCode);
@@ -122,6 +122,7 @@ public class HomeService {
 				
 				String getBrcCode=Integer.toString(branchDayCount.getBrcCode());			// 입력값에서 brcCode 가져오기 ex)41101
 				
+				Map<String, String> map = new HashMap<String, String>();					// Mapper에 parameter값으로 들어갈 맵 생성
 				map.put("BDCBrcCode",getBrcCode);
 				String getBranchDayCountCode = homeDao.selectObjectCode(map);				// brcCode에 해당하는 최신의 brcCnt_code 가져오기  ex)35101101
 				String brcNum= getBranchDayCountCode.substring(2,5);						// brcCode에서 지점 번호만 추출
@@ -143,6 +144,7 @@ public class HomeService {
 
 				String getScreenCode  = screenSchedule.getScrCode();						// 입력값에서 scrCode 가져오기 ex)42101101
 				
+				Map<String, String> map = new HashMap<String, String>();					// Mapper에 parameter값으로 들어갈 맵 생성
 				map.put("srcCode",getScreenCode);
 				String getScreenScheduleCode = homeDao.selectObjectCode(map);				// scrCode에 해당하는 최신의 scs_code 가져오기 
 				
@@ -172,6 +174,7 @@ public class HomeService {
 				logger.debug("		makeCode(Object) Seat");
 				Seat seat = (Seat) object;
 				
+				Map<String, String> map = new HashMap<String, String>();		// Mapper에 parameter값으로 들어갈 맵 생성
 				String getScsCode = seat.getScsCode();
 				map.put("SeatScsCode", getScsCode);
 				String getSeatCode = homeDao.selectObjectCode(map);
@@ -202,6 +205,8 @@ public class HomeService {
 				logger.debug("		makeCode(Object) Payment");
 				Payment payment = (Payment) object;
 				String getScsCode = payment.getScsCode();
+				
+				Map<String, String> map = new HashMap<String, String>();		// Mapper에 parameter값으로 들어갈 맵 생성
 				map.put("PaymentScsCode", getScsCode);
 				String getPmtCode = homeDao.selectObjectCode(map);
 				
