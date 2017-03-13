@@ -1,5 +1,6 @@
 package kr.co.cinema.movie;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -25,11 +26,11 @@ public class MovieController {
 	
 	//좋아요
 	@RequestMapping(value = "/addlikeMovie", method = RequestMethod.GET)
-	public String addLikeMovie(@RequestParam(value="movCode")String movCode, HttpSession session) {
+	public String addLikeMovie(@RequestParam(value="movCode")String movCode, HttpSession session,HttpServletRequest request) {
 		logger.debug("addLikeMovie 좋아요");
 		String mId=(String) session.getAttribute("id");	
 		movieDao.insertLikeMovie(mId, movCode);
-		return "movie/afterLikeMovie";
+		return "redirect:"+request.getHeader("referer");
 	}
 	
 	//평점 & 리플등록

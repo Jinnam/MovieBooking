@@ -25,7 +25,7 @@
 			//좋아요 클릭시
 			$(document).on('click','.like',function(){
 				console.log('click like');
-				alert('.');
+				alert('좋아요에 반영됩니다.');
 			});			
 			$(document).on('click','.likeNoLogin',function(){
 				console.log('click nologin');
