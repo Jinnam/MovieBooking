@@ -85,10 +85,10 @@ public class ScreenService {
 		return screenDao.selectScreenInfo(brcCode);
 	}
 	
-	// *****상영일정 main*****
+	// *****상영일정 등록 main*****
 	public int insertScs(ScreenSchedule screenSchedule){
 		logger.debug("	insertScs 진입 screenSchedule : "+screenSchedule);
-		
+
 		String scsCode = homeService.madeCode(screenSchedule);				// 상영일정 코드 생성
 		screenSchedule.setScsCode(scsCode);									// 상영일정 코드 셋팅
 		String getScrCode = screenSchedule.getScrCode();					// 스크린코드 가져오기
@@ -97,11 +97,11 @@ public class ScreenService {
 		int getCol = getRowCol.get("scrColSize");							// 열
 		
 		// 상영일정 등록
-		insertScreenSchedule(screenSchedule);
+		int resultScs = insertScreenSchedule(screenSchedule);
 		
 		// 좌석 등록
-		insertSeat(getScrCode,scsCode,getRow,getCol);
-		return screenDao.insertScs(screenSchedule);
+		int resultSeat = insertSeat(getScrCode,scsCode,getRow,getCol);
+		return resultScs+resultSeat;
 	}
 	// seatCode, scsCode scrCode 
 	// 좌석 등록
@@ -116,6 +116,7 @@ public class ScreenService {
 				seat.setSeatRow((char)(i+65));					// 알파벳으로 변환 후 셋팅  
 				seat.setSeatCol(j+1);							// 열번호 1부터 시작
 				seat.setSeatCode(homeService.madeCode(seat));	// 좌석코드 생성
+				logger.debug("seat : " + seat);
 				result = screenDao.insertSeat(seat);
 			}
 		}
@@ -154,5 +155,11 @@ public class ScreenService {
 			
 			String returnStartTime=hour+":"+minute+":00"; //반환 값
 			return returnStartTime;
+		}
+		
+		// 상영정보 가져오기(List)
+		public List<HashMap<String, Object>> searchScreenSchedule(){
+			logger.debug("	searchScreenSchedule 진입");
+			return screenDao.selectListScreenSchedule();
 		}
 }

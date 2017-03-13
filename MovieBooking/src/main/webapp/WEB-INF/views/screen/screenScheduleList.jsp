@@ -230,6 +230,56 @@
 				<!-- 페이지 강제 줄임 -->
 				<div class="col-lg-9 main-chart" align="center"></div>
 			</div>
+			<div class="jumbotron">
+				<h2 class="logo">상영일정</h2>
+			</div>
+				
+					<!-- 테이블 상단 -->
+					<table class="table table-striped table-hover ">
+						<thead>
+							<tr>
+								<th class="col-lg-1">#</th>
+								<th class="col-lg-1">영화이름</th>
+								<th class="col-lg-1">지점</th>
+								<th class="col-lg-1">상영관</th>
+								<th class="col-lg-1">상영일자</th>
+								<th class="col-lg-1">스크린 종류</th>
+								<th class="col-lg-1">시간별구분</th>
+								<th class="col-lg-1">시작시간</th>
+								<th class="col-lg-1">종료시간</th>
+							</tr>
+						</thead>
+						
+						<!-- 테이블 내용 -->
+						<tbody>
+							<c:forEach var="screenSchedule" varStatus="status" items="${screenSchedule}">
+								<tr>
+									<td class="col-lg-1">${status.count}</td>
+									<td class="col-lg-1">${screenSchedule.movKorName}</td>
+									<td class="col-lg-1">${screenSchedule.brcName}</td>
+									<td class="col-lg-1">${screenSchedule.scrName}</td>
+									<td class="col-lg-1">${screenSchedule.scsDate}</td>
+									<td class="col-lg-1">${screenSchedule.scsScreen}</td>
+									<td class="col-lg-1">${screenSchedule.scsTimeDiscount}</td>
+									<td class="col-lg-1">${screenSchedule.scsStartTime}</td>
+									<td class="col-lg-1">${screenSchedule.scsFinishTime}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				
+				<!-- 페이징 -->
+			<div align="center">
+				<ul class="pagination">
+					<li class="disabled"><a href="#">&laquo;</a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">&raquo;</a></li>
+				</ul>
+			</div>
 		</section>
 	</section>
 	<!-- 여기까지 메인 -->

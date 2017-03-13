@@ -143,11 +143,40 @@
 			seat_col,
 			seat_useStatus
 		)VALUES(
-			#{seat_code},
-			#{scs_code},
-			#{scr_code},
-			#{seat_row},
-			#{seat_col},
+			#{seatCode},
+			#{scsCode},
+			#{scrCode},
+			#{seatRow},
+			#{seatCol},
 			"able")
 	</insert>
+	
+	<!-- 상영일정 리스트 -->
+	<select id="selectScreenSchedule" resultType="Map">
+		SELECT
+			MOVIE.mov_korName AS movKorName,
+			BRANCH.brc_name AS brcName,
+			SCREEN.scr_name AS scrName,
+			SCREEN_SCHEDULE.scs_date AS scsDate,
+			SCREEN_SCHEDULE.scs_screen AS scsScreen,
+			SCREEN_SCHEDULE.scs_timeDiscount AS scsTimeDiscount,
+			SCREEN_SCHEDULE.scs_startTime AS scsStartTime,
+			SCREEN_SCHEDULE.scs_finishTime AS scsFinishTime
+		FROM
+			SCREEN_SCHEDULE
+		JOIN
+			MOVIE
+		ON
+			SCREEN_SCHEDULE.mov_code=MOVIE.mov_code
+		JOIN
+			BRANCH
+		ON
+			SCREEN_SCHEDULE.brc_code=BRANCH.brc_code
+		JOIN
+			SCREEN
+		ON
+			SCREEN_SCHEDULE.scr_code=SCREEN.scr_code
+	
+	</select>
+	
 </mapper>

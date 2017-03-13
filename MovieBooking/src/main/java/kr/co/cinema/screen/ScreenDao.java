@@ -83,12 +83,18 @@ public class ScreenDao {
 	//좌석 등록
 	public int insertSeat(Seat seat){
 		logger.debug("	insertSeat 진입 seat : "+seat);
-		return sqlSession.insert(NS+"insertSeat");	
+		return sqlSession.insert(NS+"insertSeat",seat);	
 	}
 	
 	// 좌석 행/열 가져오기
 	public Map<String,Integer> selectRowCol(String scsCode){
 		logger.debug("	selectRowCol 진입 scsCode : "+scsCode);
 		return sqlSession.selectOne(NS+"selectRowCol",scsCode);
+	}
+	
+	// 상영일정 리스트
+	public List<HashMap<String,Object>> selectListScreenSchedule(){
+		logger.debug("	selectListScreenSchedule 진입");
+		return sqlSession.selectList(NS+"selectScreenSchedule");
 	}
 }
