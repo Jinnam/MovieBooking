@@ -378,6 +378,7 @@
 		SELECT
 			ADMIN.adm_id AS admId,
 			ADMIN.adm_pw AS admPw,
+			ADMIN.brc_code AS brcCode,
 			BRANCH.brc_name AS brcName
 		FROM
 			ADMIN

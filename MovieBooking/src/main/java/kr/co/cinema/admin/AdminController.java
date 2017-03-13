@@ -384,8 +384,10 @@ public class AdminController {
 			logger.debug("adminInfo"+adminInfo.toString());
 			String dbPw = (String)adminInfo.get("admPw");		// 가져온 정보에서 비밀번호 가져오기
 			String brcName = (String)adminInfo.get("brcName");	// 가져온 정보에서 지점이름 가져오기
+			int brcCode =  (int) adminInfo.get("brcCode"); // 가져온 정보에서 지점코드 가져오기
 			if(adminPw.equals(dbPw)){							// 비밀번호 비교
 				model.addAttribute("brcName",brcName);			// @SessionAttributes 이용하기 위해 모델에 값 셋팅
+				model.addAttribute("brcCode",brcCode);			// @SessionAttributes 이용하기 위해 모델에 값 셋팅
 				loginResult="success";							// 로그인 성공시 반환 값
 			}else{
 				loginResult="noPw";								// 비밀번호가 다를 경우 반환 할 값
