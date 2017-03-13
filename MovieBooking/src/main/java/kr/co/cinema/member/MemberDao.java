@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Mileage;
+import kr.co.cinema.dto.MypageMemberReserve;
 import kr.co.cinema.dto.NonMember;
 import kr.co.cinema.dto.ScreenSchedule;
 
@@ -23,6 +24,13 @@ public class MemberDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	private final String Member_NS = "kr.co.cinema.member.MemberMapper.";
+	
+	
+	//비회원 예매 확인
+	public List<MypageMemberReserve> selectNonMemberReserve(){
+		logger.debug("비회원 예매 확인  dao *************** ");
+		return sqlSessionTemplate.selectList(Member_NS + "selectNonMemberReserve");
+	}
 	
 	//회원탈퇴 처리
 	public int updateMemberDelete(String memId){

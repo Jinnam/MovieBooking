@@ -56,11 +56,9 @@
 	              <div class="item" data-value="drop">
 	                <table>
 	                  <tr>
-							<td><p style="text-align: center;"><img src="resources/module-img/loginLogo.PNG"><p></td>
+							<td><p style="text-align: center;"><img src="resources/module-img/loginLogo.PNG"><p><br></td>
 	                  </tr>
-	                  <tr>
-	                  		<td>&nbsp;</td>
-	                  </tr>
+	                  
 	                  <tr>
 	                    	<td><input type="text" name="memId" id="memId" value="id001" style ="width:300px"></td>
 	                  </tr>
@@ -69,14 +67,15 @@
 	                  </tr>
 	                  
 	                  <tr>
-	                  		<td><span style="float:right"><input class="btn blue darken-4" type="button" id="btnLogin" value="로그인"></span></td>
+	                  		<td><br><span style="float:right"><input class="btn blue darken-4" type="button" id="btnLogin" value="로그인"></span></td>
 	                  </tr>
 	                  
 	                </table>
-	                <br><br>
+	                <br>
 	                <div>
 	                  <a href="memberFind"><img src="resources/module-img/memberFinds.PNG"></a>
 	                  <a href="memberProvision"><img src="resources/module-img/memberInserts.PNG"></a>
+	                  <a href="nonMemberLogin"><img src="resources/module-img/nonmemberReserve.png"></a>
 	                </div>
 	              </div>
 	              <!-- 로그인 폼 끝 -->
@@ -90,7 +89,7 @@
         <c:if test="${id !=null }">
         <div class="item ui floating dropdown" style="width:130px">
           <div id="loginDropDown" style="width:100%; padding:15px 0;">
-          <label>${name}님 환영합니다</label>
+          <label style="text-align: right;">${name}님 환영합니다</label>
             <!-- <img src="resources/module-img/menu_login.png" style="width:100px;height:40px"> -->
           </div>
           <div class="menu" style="position:absolute; left:-200px;">
