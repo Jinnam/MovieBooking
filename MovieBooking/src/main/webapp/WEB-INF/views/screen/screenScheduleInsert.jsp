@@ -238,73 +238,90 @@
 				</div>
 				<div class="col-lg-3"></div>
 				<div style="margin:0 auto;">
-					<form action="movieInsert"  class="col-lg-12 form-horizontal" method="post">
+				
+				
+					<form action="screenScheduleInsert"  id="scrForm" class="col-lg-12 form-horizontal" method="post">
 						<fieldset class="col-lg-5" style="float:left;">
 							<legend>add</legend>
+							
 							<!-- 영화한글이름 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">영화한글이름</label>
 								<div class="col-lg-7">
-									<input type="text" id="movKorName" name="movKorName" class="form-control" placeholder="영화이름을 입력하세요" required="required">
+									<input type="text" id="movKorName" name="movKorName" class="form-control" value="공조" placeholder="영화이름을 입력하세요" required="required">
 								</div>
 								<!-- 영화코드 조회버튼 -->
 								<div>
 									<input id="selectMovieCode" type="button" class="btn btn-button" value="조회">
 								</div>
 							</div>
+							
 							<!-- 영화코드출력 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">영화코드</label>
 								<div class="col-lg-9">
 									<input type="text" class="form-control" id="selectViewMovCode" name="movCode" required="required">
+									<div id="movComment"></div>
 								</div>
 							</div>
+							
 							<!-- 지점이름(한글) -->
 							<div class="form-group"> 
 								<label class="col-lg-3 control-label">지점이름</label>
 								<div class="col-lg-7">
-									<select id="brcInfo" name="brcCode">
-										<option>지점선택</option>
-										<c:forEach items="${branchInfo}" var="branchInfo">
-											<option value="${branchInfo.brcCode}">${branchInfo.brcName}</option>
-										</c:forEach>
-									</select>
-								</div>
-								<!-- 감독이름으로 인물코드를 인물테이블에서 조회 ajax-->
-								<div>
-									<input id="branchBtn" type="button" class="btn btn-button" value="조회">
+									<input type="text" class="form-control" value="${screenInfo[0].brcName}" readonly="readonly"/>
+									<input type="hidden" name="brcCode" value="${screenInfo[0].brcCode}"/>
 								</div>
 							</div>
-							<!-- 지점코드 출력 -->
+							
+							<!-- 상영관 선택 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">상영관 선택</label>
 								<div class="col-lg-9">
-									<select id="branchInfo" name="brcCode"></select>
-								</div>
-							</div>
-							<!-- 상영관리스트 출력 -->
-							<div class="form-group">
-								<label class="col-lg-3 control-label">상영관리스트</label>
-								<div class="col-lg-9">
-									<%-- <select class="form-control">
-										<c:forEach var="" items="${}">
-											<option>
-											 
+									<select id="branchInfo" name="scrCode">
+										<option value="noOption">상영관 선택</option>
+										<c:forEach items="${screenInfo}" var="screenInfo">
+											<option value="${screenInfo.scrCode}">**${screenInfo.scrName}** 
+												좌석크기 : ${screenInfo.scrRowSize} X ${screenInfo.scrColSize}
 											</option>
 										</c:forEach>
-									</select> --%>
+									</select>
 								</div>
 							</div>
-							<!-- 국가이름 -->
+							
+							<!-- 상영날짜 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">상영날짜</label>
 								<div class="col-lg-9">
-									<input type="date" class="form-control" placeholder="국가를 입력하세요" required="required">
+									<input type="date" id="screenDate" class="form-control" required="required">
+									<input type="hidden" name="scsDate" id="screenDateTostring"/>
 								</div>
 							</div>							
 						</fieldset>
 						<fieldset class="col-lg-5" style="float:left;">
 							<legend>&nbsp;</legend>
+							
+							<!-- 상영종류 -->
+							<div class="form-group">
+								<label class="col-lg-3 control-label">상영종류</label>
+								<div class="col-lg-9">
+									<select id="scsScreen" name="scsScreen" class="form-control">
+										<option value="noOption">상영종류</option>
+											<c:forEach items="${screenCost}" var="screen">
+												<option value="${screen}">${screen}</option>
+										</c:forEach>
+									</select>
+								</div>
+							</div>
+							
+							<!-- 안내 멘트 -->
+							<div class="form-group">
+								<div class="col-lg-12"><br/>
+									<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									*** 시작시간을 입력하면 상영 종료시간과 시간할인이 선택됩니다.***</label>
+								</div>
+							</div>
+							
 							<!-- 상영시작시간 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">상영시작시간</label>
@@ -314,44 +331,38 @@
 									<select name="startMin" id="startMin">
 									</select> 분
 									<input id="startTimeInput" type="button" class="btn btn-button" value="입력">
+									<input type="hidden" name="scsStartTime" id="scsStartTime"/>
 								</div>
 							</div>
+							
 							<!-- 상영종료시간 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">상영종료시간</label>
 								<div class="col-lg-9">
 									<input type="hidden" id="getHour"/>
 									<input type="hidden" id="getMinute"/>
-									<input type="text" id="finishTime" class="form-control" placeholder="상영종료시간" readonly="readonly"">
+									<input type="text" id="finishTime" class="form-control" placeholder="상영종료시간" readonly="readonly">
+									<input type="hidden" id="scsFinishTime" name="scsFinishTime"/>
 								</div>
 							</div>
-							<!-- 상영종류 -->
-							<div class="form-group">
-								<label class="col-lg-3 control-label">상영종류</label>
-								<div class="col-lg-9">
-									<select class="form-control">
-										<option>상영종류</option>
-											<c:forEach items="${screenCost}" var="screen">
-												<option value="${screen}">${screen}</option>
-										</c:forEach>
-									</select>
-								</div>
-							</div>
+							
 							<!-- 할인종류 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">시간할인(8~12:조조, 21~7:심야)</label>
 								<div class="col-lg-9">
-									<input type="text" id="dcInfo" class="form-control" placeholder="시간별 할인" readonly="readonly"">
+									<input type="text" name="scsTimeDiscount" id="dcInfo" class="form-control" placeholder="시간별 할인" readonly="readonly"">
 								</div>
 							</div>
+							
 							<!-- 등록버튼 -->
 							<div class="form-group">
 								<label class="col-lg-2 control-label"></label>
 								<div class="col-lg-8"></div>
 								<div>
-									<input type="submit" class="btn btn-button" value="등록">
+									<input type="button" id="submitBtn" class="btn btn-button" value="등록">
 								</div>
 							</div>
+							
 						</fieldset>
 					</form>
 				</div>
@@ -369,7 +380,23 @@
 
 
 	$(document).ready(function() {
-		$("#branchInfo").append('<option value="">상영관 선택</option>');
+		
+	// 현재 날짜 구하기 시작
+		var date = new Date(); 
+		var year = date.getFullYear(); 
+		var month = new String(date.getMonth()+1); 
+		var day = new String(date.getDate()); 
+
+		// 한자리수일 경우 0을 채워준다. 
+		if(month.length == 1){ 
+		  month = "0" + month; 
+		} 
+		if(day.length == 1){ 
+		  day = "0" + day; 
+		} 
+		$("#screenDate").val(year+"-"+month+"-"+ day);
+	// 현재 날짜 구하기 끝
+		
 		//영화이름으로 영화 코드 조회하기
 		$("#selectMovieCode").click(function() {
 			$.ajax({
@@ -378,7 +405,8 @@
 				type 	: "post",
 				success : function(data) {
 					console.log(data);
-					$("#selectViewMovCode").val(data.movCode);
+					$("#selectViewMovCode").val(data.movCode);	// 영화코드 삽입
+					// 영화 RunningTime 가져오기
 					getHour=data.getHour;
 					getMinute=data.getMinute;
 					console.log(getHour+' : '+getMinute)
@@ -388,78 +416,93 @@
 			});
 		});
 
-
-//지점이름으로 지점코드,상영코드 조회하기
-
-		$("#branchBtn").click(function() {
-			$.ajax({
-				url 	: "selectScreenInfo",
-				data 	: {"brcCode" : $("#brcInfo").val()},
-				type 	: "post",
-				success : function(data) {
-					console.log(data);
-					
-					$.each(data,function(i){
-						console.log("들어오나")
-						$("#branchInfo").append('<option value="">'+data[i].scrName+' 좌석 크기 :'+data[i].scrRowSize+' * '+data[i].scrColSize+'</option>');
-					})
-						
-					
-					
-				}
-			});
-		});
-	});
 	
 	// 상영 시작시간
 
 		$('#startHour').append('<option>시간 입력</option');
 		$('#startMin').append('<option>분 입력</option');
-		for(i=01;i<25;i++){
+		for(i=1;i<25;i++){
 			if(i<10){
 				$('#startHour').append('<option value='+i+'>0'+i+'</option');
 			}else{
 				$('#startHour').append('<option value='+i+'>'+i+'</option');	
 			}
 		}
-		for(i=01;i<61;i++){
+		for(i=0;i<61;i++){
 			if(i<10){
 				$('#startMin').append('<option value='+i+'>0'+i+'</option');
 			}else{
 				$('#startMin').append('<option value='+i+'>'+i+'</option');
 			}
 		}
+		
+		// 시작시간 입력 후 종료시간/시간별할인 구하는 스크립트
 		$('#startTimeInput').click(function(){
 			console.log(getHour+' : '+getMinute);
-			if($('#startHour').val()=="시간 입력") {
-				alert("시간을 선택하세요");
-			}else if($('#startMin').val()=="분 입력"){
-				alert("분을 선택하세요");	
-			
-			}else{	// 상영 종료 시간
-				var finishHour = Number($('#startHour').val())+Number($('#getHour').val());
-				var finishMinute =Number($('#startMin').val())+Number($('#getMinute').val());
-				if(finishMinute>59){
-					finishHour+=1;
-					finishMinute-=60;
-				}
-				$('#finishTime').val( finishHour+' 시 '+finishMinute+	' 분')
+			if($("#selectViewMovCode").val()==""){
+				alert("영화를 선택하세요.")
+			}else{
+				if($('#startHour').val()=="시간 입력") {
+					alert("시간을 선택하세요");
+				}else if($('#startMin').val()=="분 입력"){
+					alert("분을 선택하세요");	
 				
-				var startHour = Number($('#startHour').val());
-				console.log(startHour);
-				if(startHour>7 && startHour<12){
-					$('#dcInfo').val("조조");
-				}else if(startHour>20 || startHour<8){
-					$('#dcInfo').val("심야");
-				}else{
-					$('#dcInfo').val("일반");
+				}else{	// 상영 종료 시간
+					var finishHour = Number($('#startHour').val())+Number($('#getHour').val());
+					var finishMinute =Number($('#startMin').val())+Number($('#getMinute').val());
+					if(finishMinute>59){
+						finishHour+=1;
+						finishMinute-=60;
+					}
+					$('#finishTime').val( finishHour+'시 '+finishMinute+	'분')
+					
+					var startHour = Number($('#startHour').val());
+					console.log(startHour);
+					if(startHour>7 && startHour<12){
+						$('#dcInfo').val("조조");
+					}else if(startHour>20 || startHour<8){
+						$('#dcInfo').val("심야");
+					}else{
+						$('#dcInfo').val("일반");
+					}
 				}
 			}
-// 지점코드로 상영관 정보 가져오기
+
+
 		
 	})
-
 	
+	
+	// 제출
+	$('#submitBtn').click(function(){
+		console.log("제출버튼 클릭")
+		if($('#selectViewMovCode').val()==""){
+			alert("영화를 선택하세요")		
+		}else if($('#branchInfo').val()=="noOption"){
+			alert("상영관을 선택하세요.")
+		}else if($('#startHour').val()=="시간 입력") {
+			alert("시간을 선택하세요");
+		}else if($('#startMin').val()=="분 입력"){
+			alert("분을 선택하세요");
+		}else if($('#scsScreen').val()=="noOption"){
+			alert("상영종류를 선택하세요.");
+		}else{
+			// 상영날짜 String으로 바꾸기
+			$('#screenDateTostring').val($('#screenDate').val());
+			// 시작시간 셋팅
+			var submitStartTime = $('#startHour').val() +"시"+ $('#startMin').val() +"분";
+			$('#scsStartTime').val(submitStartTime);
+			// 종료시간 셋팅
+			$('#scsFinishTime').val($('#finishTime').val());
+			// 스크린 종류
+			$('#scsScreen').val()
+			// 제출
+			alert('제출합니다~~');
+			$('#scrForm').submit();
+		}
+	})
+
+});
 	</script>
 	
 	<!-- js placed at the end of the document so the pages load faster -->
