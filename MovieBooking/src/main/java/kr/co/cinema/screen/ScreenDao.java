@@ -65,15 +65,9 @@ public class ScreenDao {
 		logger.debug("	selectListScreenCost 진입");
 		return sqlSession.selectList(NS+"selectScreenCost");
 	}
-	
-	// 지점 정보 가져오기
-	public List<HashMap<String, Object>> selectBranchInfo(){
-		logger.debug("	selectBranchInfo 진입");
-		return sqlSession.selectList(NS+"selectBranchInfo");
-	}
-	
+
 	// 상영관 정보 가져오기
-	public List<HashMap<String, Object>> selectScreenInfo(String brcCode){
+	public List<HashMap<String, Object>> selectScreenInfo(int brcCode){
 		logger.debug("	selectScreenInfo 진입 brcCode : "+brcCode);
 		return sqlSession.selectList(NS+"selectScreenInfo", brcCode);
 	}

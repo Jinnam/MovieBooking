@@ -9,15 +9,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
-import kr.co.cinema.dto.BranchAndScreen;
 import kr.co.cinema.dto.Screen;
-import kr.co.cinema.dto.ScreenCost;
+import kr.co.cinema.dto.ScreenSchedule;
 
+@SessionAttributes({"brcName","brcCode"})
 @Controller
 public class ScreenController {
 
@@ -80,26 +82,19 @@ private static final Logger logger = LoggerFactory.getLogger(ScreenController.cl
 		
 		//상영일정등록 : 페이지이동
 		@RequestMapping(value="screenScheduleInsert", method=RequestMethod.GET)
-		public String insertScreenSchedule(Model model) {
-			logger.debug(" Controller insertScreenSchedule get실행");
+		public String insertScreenSchedule(Model model,@ModelAttribute(value="brcCode") String brcCode) {
+			logger.debug(" Controller insertScreenSchedule get실행 brcCode : "+brcCode);
+			int brcCode1 =Integer.parseInt(brcCode);
 			List<String> screenCost = screenService.searchListScreenCost();
-			List<HashMap<String,Object>> branchInfo = screenService.searchBranchInfo();
+			List<HashMap<String, Object>> screenInfo = screenService.findScreenInfo(brcCode1);
+			logger.debug("screenInfo : "+screenInfo.toString());
 			model.addAttribute("screenCost",screenCost);
-			model.addAttribute("branchInfo",branchInfo);
+			model.addAttribute("screenInfo",screenInfo);
 
 			return "screen/screenScheduleInsert";
 		}
 		
-		// 상영관 정보 가져오기
-		@RequestMapping(value="selectScreenInfo", method=RequestMethod.POST)
-		public @ResponseBody List<HashMap<String, Object>> selectScreenInfo(@RequestParam String brcCode){
-			logger.debug(" selectScreenInfo 진입");
-			List<HashMap<String, Object>> screenInfo = screenService.findScreenInfo(brcCode);
-			logger.debug("screenInfo : "+screenInfo.toString());
-			return screenInfo;
-		}
-		
-		//상영일정 등록 : 영화한글이름으로 영화 코드조회하기 AJAX
+		// 상영일정 등록 : 영화한글이름으로 영화 코드조회하기 AJAX
 		@RequestMapping(value="selectMovieCode", method=RequestMethod.POST)
 		public @ResponseBody Map<String, Object> selectMovieCodeforInsertScrSchedule(@RequestParam("movKorName")String movKorName) {
 			logger.debug(" Controller selectMovieCodeforInsertScrSchedule post실행");
@@ -107,14 +102,15 @@ private static final Logger logger = LoggerFactory.getLogger(ScreenController.cl
 			return selectMovieCode;
 		}
 		
-		//상영일정 등록 : 지점이름으로 지점코드, 상영관리스트 조회하기
-		@RequestMapping(value="selectmovieAndScreens", method=RequestMethod.POST)
-		public @ResponseBody List<BranchAndScreen> selectMovCodeAndScrNameList(@RequestParam("brcName")List<BranchAndScreen> movieAndScreens) {
-			logger.debug(" Controller selectMovCodeAndScrNameList post실행");
-			List<BranchAndScreen> selectmovieAndScreens = screenService.selectmovieAndScreens(movieAndScreens);
-			logger.debug(selectmovieAndScreens.toString());
-			return selectmovieAndScreens;
+		// 상영 일정 등록
+		@RequestMapping(value="screenScheduleInsert", method=RequestMethod.POST)
+		public String screenScheduleInsert(ScreenSchedule screenSchedule){
+			logger.debug("screenScheduleInsert post 진입 screenSchedule: "+screenSchedule.toString());
+			
+			
+			return "admin/adminMain";
 		}
+		
 		
 		//***상영일정리스트조회 : 페이지이동
 		@RequestMapping(value="screenScheduleList", method=RequestMethod.GET)

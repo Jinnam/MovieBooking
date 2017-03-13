@@ -77,14 +77,8 @@ public class ScreenService {
 		return screenDao.selectListScreenCost();
 	}
 	
-	// 지점 정보 가져오기
-		public List<HashMap<String, Object>> searchBranchInfo(){
-			logger.debug("	searchBranchInfo 진입");
-			return screenDao.selectBranchInfo();
-		}
-		
 	// 상영관 정보 가져오기
-	public List<HashMap<String, Object>> findScreenInfo(String brcCode){
+	public List<HashMap<String, Object>> findScreenInfo(int brcCode){
 		logger.debug("	findScreenInfo 진입 brcCode : "+brcCode);
 		return screenDao.selectScreenInfo(brcCode);
 	}
