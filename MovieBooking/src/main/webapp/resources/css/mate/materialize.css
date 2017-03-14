@@ -6029,7 +6029,7 @@ textarea.materialize-textarea + label:after {
 }
 
 .input-field.inline input,
-.input-field.inline .select-dropdown {
+.input-field.inline ./* select */-dropdown {
   margin-bottom: 1rem;
 }
 
@@ -6586,7 +6586,7 @@ input[/*type=checkbox*/]:not(:disabled).tabbed:focus ~ .lever::after {
   background-color: #BDBDBD;
 }
 
-/* Select Field
+/* select Field
    ========================================================================== */
 select {
   display: none;
@@ -8499,7 +8499,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   background: #b1dcfb;
 }
 
-/* Selected and hovered/focused time */
+/* selected and hovered/focused time */
 .picker__list-item--selected,
 .picker__list-item--selected:hover,
 .picker--focused .picker__list-item--selected {

@@ -8687,7 +8687,7 @@ i.icon.circle.thin:before {
   content: "\f1db";
 }
 
-/* Item Selection */
+/* Item selection */
 
 i.icon.checkmark:before {
   content: "\f00c";
@@ -13978,7 +13978,7 @@ ol.ui.list ol li,
 }
 
 /*-------------------
-      Selection
+      selection
 --------------------*/
 
 .ui.selection.list .list > .item,
@@ -14042,7 +14042,7 @@ ol.ui.list ol li,
   color: #ffffff;
 }
 
-/* Celled / Divided Selection List */
+/* Celled / Divided selection List */
 
 .ui.celled.selection.list .list > .item,
 .ui.divided.selection.list .list > .item,
@@ -14295,7 +14295,7 @@ ol.ui.horizontal.list li:before,
   padding-left: 1em;
 }
 
-/* Divided Selection */
+/* Divided selection */
 
 .ui.divided.selection.list .list > .item,
 .ui.divided.selection.list > .item {
@@ -17262,7 +17262,7 @@ ol.ui.horizontal.list li:before,
 }
 
 /*--------------------
-     Basic Select
+     Basic select
 ---------------------*/
 
 .ui.form select {
@@ -17638,7 +17638,7 @@ ol.ui.horizontal.list li:before,
   box-shadow: none;
 }
 
-/* Preserve Native Select Stylings */
+/* Preserve Native select Stylings */
 
 .ui.form .field.error select {
   -webkit-appearance: menulist-button;
@@ -17685,7 +17685,7 @@ ol.ui.horizontal.list li:before,
   background-color: #FBE7E7;
 }
 
-/* Selected */
+/* selected */
 
 .ui.form .fields.error .field .ui.dropdown .menu .selected.item,
 .ui.form .field.error .ui.dropdown .menu .selected.item {
@@ -23848,7 +23848,7 @@ Floated Menu / Item
 }
 
 /*--------------
-   Selectable
+   selectable
 ---------------*/
 
 .ui.selectable.table tbody tr:hover,
@@ -23863,7 +23863,7 @@ Floated Menu / Item
   color: #ffffff !important;
 }
 
-/* Selectable Cell Link */
+/* selectable Cell Link */
 
 .ui.table tbody tr td.selectable {
   padding: 0em;
@@ -28216,7 +28216,7 @@ a.ui.card:hover,
   z-index: -1;
 }
 
-/* Selectable Label */
+/* selectable Label */
 
 .ui.checkbox input.hidden + label {
   cursor: pointer;
@@ -29181,7 +29181,7 @@ body.dimmable > .dimmer {
 *******************************/
 
 /*--------------
-    Selection
+    selection
 ---------------*/
 
 /* Displays like a select box */
@@ -29243,7 +29243,7 @@ select.ui.dropdown {
   min-width: 0px;
 }
 
-/*  Selection Menu */
+/*  selection Menu */
 
 .ui.selection.dropdown .menu {
   overflow-x: hidden;
@@ -29396,7 +29396,7 @@ select.ui.dropdown {
    Searchable
 ---------------*/
 
-/* Search Selection */
+/* Search selection */
 
 .ui.search.dropdown {
   min-width: '';
@@ -29431,7 +29431,7 @@ select.ui.dropdown {
   z-index: 3;
 }
 
-/* Search Selection */
+/* Search selection */
 
 .ui.search.selection.dropdown > input.search {
   line-height: 1.2142em;
@@ -29508,7 +29508,7 @@ select.ui.dropdown {
     Multiple
 ---------------*/
 
-/* Multiple Selection */
+/* Multiple selection */
 
 .ui.multiple.dropdown {
   padding: 0.22620476em 2.1em 0.22620476em 0.35714286em;
@@ -29518,14 +29518,14 @@ select.ui.dropdown {
   cursor: auto;
 }
 
-/* Multiple Search Selection */
+/* Multiple Search selection */
 
 .ui.multiple.search.dropdown,
 .ui.multiple.search.dropdown > input.search {
   cursor: text;
 }
 
-/* Selection Label */
+/* selection Label */
 
 .ui.multiple.dropdown > .label {
   -webkit-user-select: none;
@@ -29755,10 +29755,10 @@ select.ui.dropdown {
 }
 
 /*--------------------
-    Keyboard Select
+    Keyboard select
 ----------------------*/
 
-/* Selected Item */
+/* selected Item */
 
 .ui.dropdown.selected,
 .ui.dropdown .menu .selected.item {
@@ -29919,7 +29919,7 @@ select.ui.dropdown {
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
 
-/* Selection */
+/* selection */
 
 .ui.upward.selection.dropdown .menu {
   border-top-width: 1px !important;
@@ -29958,7 +29958,7 @@ select.ui.dropdown {
      Simple
 ---------------*/
 
-/*  Selection Menu */
+/*  selection Menu */
 
 .ui.scrolling.dropdown .menu,
 .ui.dropdown .scrolling.menu {
@@ -32699,7 +32699,7 @@ a.ui.nag {
   color: rgba(0, 0, 0, 0.85);
 }
 
-/* Selected Icon */
+/* selected Icon */
 
 .ui.rating .icon.selected,
 .ui.rating .icon.selected.active {
@@ -32729,7 +32729,7 @@ a.ui.nag {
   text-shadow: 0px -1px 0px #DDC507, -1px 0px 0px #DDC507, 0px 1px 0px #DDC507, 1px 0px 0px #DDC507 !important;
 }
 
-/* Selected Star */
+/* selected Star */
 
 .ui.star.rating .icon.selected,
 .ui.star.rating .icon.selected.active {
@@ -32758,7 +32758,7 @@ a.ui.nag {
   text-shadow: 0px -1px 0px #CD0707, -1px 0px 0px #CD0707, 0px 1px 0px #CD0707, 1px 0px 0px #CD0707 !important;
 }
 
-/* Selected Heart */
+/* selected Heart */
 
 .ui.heart.rating .icon.selected,
 .ui.heart.rating .icon.selected.active {
@@ -32785,7 +32785,7 @@ a.ui.nag {
    User Interactive
 --------------------*/
 
-/* Selected Rating */
+/* selected Rating */
 
 .ui.rating.selected .active.icon {
   opacity: 1;
@@ -33179,7 +33179,7 @@ a.ui.nag {
 *******************************/
 
 /*--------------
-    Selection
+    selection
 ---------------*/
 
 .ui.search.selection .prompt {
