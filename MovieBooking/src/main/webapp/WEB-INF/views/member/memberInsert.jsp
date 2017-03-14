@@ -55,88 +55,94 @@
 		<!-- 주소 api script 종료 -->
 
 		
-	<script type="text/javascript">
-		function checkfield(){
-			/* 아이디 alert 시작 */
-			if(document.addjoin.memId.value==""){
-				alert("아이디를 입력하세요");
-				document.addjoin.memId.focus();
-				exit;
-			/* 아이디 alert 종료 */
+		<script type="text/javascript">
+			function checkfield(){
+				/* 아이디 alert 시작 */
+				if(document.addjoin.memId.value==""){
+					alert("아이디를 입력하세요");
+					document.addjoin.memId.focus();
+					return
+					/* exit; */
+				/* 아이디 alert 종료 */
+						
+				/* 비밀번호 alert 시작 */
+				}else if(document.addjoin.memPw.value==""){
+					alert("비밀번호를 입력하세요");
+					document.addjoin.memPw.focus();
+					return
+					/* exit; */
+				/* 비밀번호 alert 종료	 */
 					
-			/* 비밀번호 alert 시작 */
-			}else if(document.addjoin.memPw.value==""){
-				alert("비밀번호를 입력하세요");
-				document.addjoin.memPw.focus();
-				exit;
-			/* 비밀번호 alert 종료	 */
+				/* 휴대폰번호 alert 시작 */
+				}else if(document.addjoin.memPhone.value==""){
+					alert("휴대폰번호를 입력하세요");
+					document.addjoin.memPhone.focus();
+					return
+					/* exit; */
+				/* 휴대폰번호 alert 종료 */
+					
+				/* 이름 alert 시작 */
+				}else if(document.addjoin.memName.value==""){
+					alert("이름을 입력하세요");
+					document.addjoin.memName.focus();
+					return
+					/* exit; */
+				/* 이름 alert 종료 */
+					
+				/* 성별 alert 시작 */
+				}else if(document.addjoin.memGender.value==""){
+					alert("성별을 입력하세요");
+					document.addjoin.memGender.focus();
+					return
+					/* exit; */
+				/*성별 alert 종료 */
+					
+				/* 생년월일 alert 시작 */
+				}else if(document.addjoin.memBirth.value==""){
+					alert("생년월일을 입력하세요");
+					document.addjoin.memBirth.focus();
+					return
+					/* exit; */
+				/* 생년월일 alert 종료 */
+					
+				/* 주소 alert 시작 */
+				 }else if(document.addjoin.memAddr.value==""){
+					alert("주소를 입력하세요");
+					document.addjoin.memAddr.focus();
+					return
+					/* exit; */ 
+				/* 주소 alert 종료 */
+					
+				/* 이메일 alert 시작 */
+				}else if(document.addjoin.memMail.value==""){
+					alert("이메일을 입력하세요");
+					document.addjoin.memMail.focus();
+					return
+					/* exit; */ 
+				/* 이메일 alert 종료 */
+				}
 				
-			/* 휴대폰번호 alert 시작 */
-			}else if(document.addjoin.memPhone.value==""){
-				alert("휴대폰번호를 입력하세요");
-				document.addjoin.memPhone.focus();
-				exit;
-			/* 휴대폰번호 alert 종료 */
-				
-			/* 이름 alert 시작 */
-			}else if(document.addjoin.memName.value==""){
-				alert("이름을 입력하세요");
-				document.addjoin.memName.focus();
-				exit;
-			/* 이름 alert 종료 */
-				
-			/* 성별 alert 시작 */
-			}else if(document.addjoin.memGender.value==""){
-				alert("성별을 입력하세요");
-				document.addjoin.memGender.focus();
-				exit;
-			/*성별 alert 종료 */
-				
-			/* 생년월일 alert 시작 */
-			}else if(document.addjoin.memBirth.value==""){
-				alert("생년월일을 입력하세요");
-				document.addjoin.memBirth.focus();
-				exit;
-			/* 생년월일 alert 종료 */
-				
-			/* 주소 alert 시작 */
-			 }else if(document.addjoin.memAddr.value==""){
-				alert("주소를 입력하세요");
-				document.addjoin.memAddr.focus();
-				exit; 
-			/* 주소 alert 종료 */
-				
-			/* 이메일 alert 시작 */
-			}else if(document.addjoin.memMail.value==""){
-				alert("이메일을 입력하세요");
-				document.addjoin.memMail.focus();
-				exit;
-			/* 이메일 alert 종료 */
+				/* 버튼을 sumbit 하게하는 script */
+				alert("정상가입되셨습니다.")
+				document.addjoin.submit();
 			}
-			
-			/* 버튼을 sumbit 하게하는 script */
-			alert("가입하시겠습니까?")
-			document.addjoin.action="memberInsert";
-			document.addjoin.method="post";
-			document.addjoin.submit();
-		}
-		</script>
+			</script>
 
 </head>
 
 <body>
-		<!-- 네비게이션 바 -->
-		<%@ include file="/WEB-INF/clientModule/topNavBar.jsp" %>
-		
-		<!-- 전체메뉴 white-->
-		<%@ include file="/WEB-INF/clientModule/topTotalMenuBarWhite.jsp" %>
-		
-		<!-- 영화 메뉴 바-->
-		<%@ include file="/WEB-INF/clientModule/topMovieBar.jsp" %>
-		
-		<!-- 회원가입 폼 시작 -->
-		<div class="container" style="width:800px">
-		<br><br>
+<!-- 네비게이션 바 -->
+<%@ include file="/WEB-INF/clientModule/topNavBar.jsp" %>
+
+<!-- 전체메뉴 white-->
+<%@ include file="/WEB-INF/clientModule/topTotalMenuBarWhite.jsp" %>
+
+<!-- 영화 메뉴 바-->
+<%@ include file="/WEB-INF/clientModule/topMovieBar.jsp" %>
+
+<!-- 회원가입 폼 시작 -->
+<div class="container" style="width:800px">
+<br><br>
 		
 		<!-- 중복확인 ajax 시작 -->
 		<script>
@@ -180,8 +186,8 @@
                 }
             });
         });
-    </script>
-	<!-- 비밀번호 확인 종료 -->
+   	 	</script>
+		<!-- 비밀번호 확인 종료 -->
 
 
 

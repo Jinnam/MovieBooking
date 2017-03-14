@@ -27,28 +27,20 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	
+	//비회원 예매 확인 로그인 action
 	@RequestMapping(value="/nonMemberLogin", method=RequestMethod.POST)
-	public String selectNonMemberReserve(Model model){
-		model.addAttribute("list", memberService.findListNonMemberReserve());
+	public String selectNonMemberReserve(Model model, NonMember nonMember){
+		model.addAttribute("list", memberService.findListNonMemberReserve(nonMember));
 		logger.debug("비회원 예매 ********" + model.toString());
 		
 		return "login/nonMemberMovieList";
 	}
 	
-	
-	
-	//비회원 예매 로그인 form
+	//비회원 예매 확인 로그인 form
 	@RequestMapping(value="/nonMemberLogin", method=RequestMethod.GET)
 	public String selectNonMemberLogin(){
 		logger.debug("********************selectNonMemberLogin 진입");
 		return "login/nonMemberLogin";
-	}
-	
-	//마이페이지 나의 무비 스토리 리스트 form 아직안함
-		@RequestMapping(value="/memberMovieStory", method=RequestMethod.GET)
-		public String selectMovieStory(){
-			return "member/memberMovieStory";
 	}
 	
 	//마이페이지 회원탈퇴 처리

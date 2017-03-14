@@ -74,7 +74,7 @@
 	                </table>
 	                <br>
 	                <div>
-	                  <a href="memberFind"><img src="resources/module-img/memberFinds.PNG"></a>
+	                  <a href="memberFind"><img src="resources/module-img/memberFind.PNG"></a>
 	                  <a href="memberProvision"><img src="resources/module-img/memberInserts.PNG"></a>
 	                  <a href="nonMemberLogin"><img src="resources/module-img/nonmemberReserve.png"></a>
 	                </div>

@@ -36,11 +36,14 @@
 										nmem_phone=#{nmemPhone}
 									AND
 										nmem_name=#{nmemName}
-									and
+									AND
 										nmem_birth=#{nmemBirth}
-									and
-										nmem_pw=#{nmemPw})	
+									AND
+										nmem_pw=#{nmemPw}
+									AND
+										pmt_status='결제완료')	
 	</select>
+	
 	<!-- 회원탈퇴 처리 -->
 	<select id="updateMemberDelete" parameterType="kr.co.cinema.dto.Member">
 		update 
@@ -94,6 +97,8 @@
 			BRANCH.brc_code = SCREEN_SCHEDULE.brc_code		
 		WHERE
 			PAYMENT.mem_id=#{memId}
+		AND
+			pmt_status='결제완료'
 	</select>
 	
 	<!-- 마이페이지 회원의 마일리지 가져오기 select-->

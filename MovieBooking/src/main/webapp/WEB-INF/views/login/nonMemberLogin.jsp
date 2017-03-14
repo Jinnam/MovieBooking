@@ -19,10 +19,10 @@
 <%@ include file="/WEB-INF/clientModule/topMovieBar.jsp" %>
 
 
-
+		<!-- 비회원 예매 확인 시작 -->
 		<div class="container" style="width:970px">
 		<h3>비회원 예매 확인</h3>
-		<form action="nonMemberLogin" method="post" id="nonForm">
+		<form action="nonMemberLogin" method="post" id="nonForm" name="btnForm">
 		<table	style="border-top: 2px solid #E8E7E7; border-bottom: 2px solid #E8E7E7;">
 			<tr>
 				<td><p>이름<p><input type="text" id = "nmemName" name = "nmemName" style ="width:200px"></td>
@@ -40,7 +40,7 @@
 		
 			<br><br>
      	 	<div align="right">
-				<input class="btn blue darken-4" type="button" value="로그인" id="nonBtn"/>
+				<input class="btn blue darken-4" type="button" value="로그인" onclick="nonBtn()"/>
 				<input class="btn white" style="color:black" type="reset" value="취소"/>
 			</div>
 		</form>
@@ -51,14 +51,48 @@
 		
 			<br>
 		</div>
-<script>
-	$(document).ready(function(){
-		$('#nonBtn').click(function(){
-			$('#nonForm').submit();
-		})
-	})
-</script>
-
+		<!-- 비회원 예매 확인 종료 -->
+		
+		<!-- <script>
+			$(document).ready(function(){
+				$('#nonBtn').click(function(){
+					$('#nonForm').submit();
+				})
+			})
+		</script> -->
+		
+		<!-- 유효성 검사 -->
+		<script type="text/javascript">
+			function nonBtn(){
+				if(document.btnForm.nmemName.value==""){
+					alert("아이디를 입력하세요");
+					document.btnForm.nmemName.focus();
+					return
+				}
+				
+				if(document.btnForm.nmemBirth.value==""){
+					alert("생년월일을 입력하세요");
+					document.btnForm.nmemBirth.focus();
+					return
+				}
+				
+				if(document.btnForm.nmemPhone.value==""){
+					alert("휴대폰번호를 입력하세요");
+					document.btnForm.nmemPhone.focus();
+					return
+				}
+				
+				if(document.btnForm.nmemPw.value==""){
+					alert("비밀번호를 입력하세요");
+					document.btnForm.nmemPw.focus();
+					return
+				}
+				
+				document.btnForm.submit()
+			}
+		</script>
+		<!-- 유효성 검사 -->
+		
 <!-- 하단바 -->
 <%@ include file="/WEB-INF/clientModule/footer.jsp" %>
 </body>

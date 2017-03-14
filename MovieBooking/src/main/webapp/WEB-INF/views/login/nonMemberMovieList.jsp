@@ -18,7 +18,9 @@
 <!-- 영화 메뉴 바-->
 <%@ include file="/WEB-INF/clientModule/topMovieBar.jsp" %>
 
-	<div class = "container" style="width: 970px">
+	<!-- 비회원 예매확인 취소 시작 -->
+	<div class = "container" style="width: 970px"><br>
+	<h3>비회원 예매 확인/취소  </h3><h3 align="right"><label>예매하신 영화 내역과 취소 내역을 확인할 수 있습니다.</label></h3>
 		<table style="border-top: 2px solid blue; border-bottom: 2px solid blue">
 			<tr>
 				<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">예매번호</td>
@@ -31,16 +33,16 @@
 				<c:forEach items="${list}" var="non">
 			<tr>
 				<td>${non.pmtCode}</td>			
-				<td>${non.pmtCode}</td>	
-				<td>${non.pmtCode}</td>	
-				<td>${non.pmtCode}</td>	
-				<td>${non.pmtCode}</td>	
-				<td><a href="#">취소</a></td>
+				<td>${non.movKorName}</td>	
+				<td>${non.brcName}</td>	
+				<td>${non.scsDate}</td>	
+				<td>${non.pmtDate}</td>	
+				<td><a href="cancelpayment?pmtCode=${non.pmtCode}">취소</a></td>
 			</tr>
 			</c:forEach>
 		</table>
-	</div>
-
+	</div><br>
+	<!-- 비회원 예매확인 취소 종료 -->
 
 <!-- 하단바 -->
 <%@ include file="/WEB-INF/clientModule/footer.jsp" %>

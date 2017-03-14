@@ -27,9 +27,9 @@ public class MemberService {
 	private HomeService homeService;
 	
 	//비회원 예매 확인
-	public List<MypageMemberReserve> findListNonMemberReserve(){
-		logger.debug(" 비회원 예매 확인 service **************** ");
-		return memberdao.selectNonMemberReserve();
+	public List<MypageMemberReserve> findListNonMemberReserve(NonMember nonMember){
+		logger.debug(" 비회원 예매 확인 service **************** " + nonMember);
+		return memberdao.selectNonMemberReserve(nonMember);
 	}
 	
 	//회원탈퇴 처리

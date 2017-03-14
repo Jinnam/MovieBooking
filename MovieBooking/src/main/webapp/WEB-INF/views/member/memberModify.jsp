@@ -72,7 +72,6 @@
 				<div style="width: 900px;" align="center">
 					<a href="mileageList"><img src="resources/module-img/mileageList.PNG"></a>
 					<a href="bookedMovieList"><img src="resources/module-img/bookedMovieList.PNG"></a>
-					<a href="memberMovieStory"><img src="resources/module-img/memberMovieStory.PNG"></a>
 					<a href="memberModify"><img src="resources/module-img/memberModify.PNG"></a>
 				</div>
 		

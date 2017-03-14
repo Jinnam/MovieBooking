@@ -25,11 +25,10 @@ public class MemberDao {
 	private SqlSessionTemplate sqlSessionTemplate;
 	private final String Member_NS = "kr.co.cinema.member.MemberMapper.";
 	
-	
 	//비회원 예매 확인
-	public List<MypageMemberReserve> selectNonMemberReserve(){
-		logger.debug("비회원 예매 확인  dao *************** ");
-		return sqlSessionTemplate.selectList(Member_NS + "selectNonMemberReserve");
+	public List<MypageMemberReserve> selectNonMemberReserve(NonMember nonMember){
+		logger.debug("비회원 예매 확인  dao *************** " + nonMember);
+		return sqlSessionTemplate.selectList(Member_NS + "selectNonMemberReserve", nonMember);
 	}
 	
 	//회원탈퇴 처리
