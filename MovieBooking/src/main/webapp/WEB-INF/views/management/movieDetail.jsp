@@ -123,22 +123,30 @@
 						</li> -->
 					</ul>
 				</li>
-				<!-- 인물 사이드 메뉴 -->
+				<!-- 단가/할인정보 사이드 메뉴 -->
 				<li class="sub-menu">
 					<a href="javascript:;">
-						<i class="fa fa-user"></i>
-						<span>인물 관리</span>
+						<i class="glyphicon glyphicon-credit-card"></i>
+						<span>단가/할인 관리</span>
 					</a>
 					<ul class="sub">
 						<li>
-							<a href="characterList">인물 목록</a>
+							<a href="costList">단가 목록</a>
 						</li>
 						<li>
-							<a href="characterInsert">인물 등록</a>
+							<a href="costInsert">단가 등록</a>
 						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
 						<!-- <li>
-							<a href="characterModify">인물 수정</a>
+							<a href="costModify">단가 수정</a>
+						</li> -->
+						<li>
+							<a href="discountInfoList">할인정보 목록</a>
+						</li>
+						<li>
+							<a href="discountInfoInsert">할인정보 등록</a>
+						</li>
+						<!-- <li>
+							<a href="discountInfoModify">할인정보 수정</a>
 						</li> -->
 					</ul>
 				</li>

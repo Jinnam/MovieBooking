@@ -142,11 +142,11 @@
 						</li> -->
 					</ul>
 				</li>
-				<!-- 단가 사이드 메뉴 -->
+				<!-- 단가/할인정보 사이드 메뉴 -->
 				<li class="sub-menu">
 					<a class="active" href="javascript:;">
 						<i class="glyphicon glyphicon-credit-card"></i>
-						<span>단가 관리</span>
+						<span>단가/할인 관리</span>
 					</a>
 					<ul class="sub">
 						<li class="active">
@@ -155,10 +155,19 @@
 						<li>
 							<a href="costInsert">단가 등록</a>
 						</li>
+						<!-- <li>
+							<a href="costModify">단가 수정</a>
+						</li> -->
+						<li>
+							<a href="discountInfoList">할인정보 목록</a>
+						</li>
+						<li>
+							<a href="discountInfoInsert">할인정보 등록</a>
+						</li>
+						<!-- <li>
+							<a href="discountInfoModify">할인정보 수정</a>
+						</li> -->
 					</ul>
-				<!-- <li>
-						<a href="costModify">단가 수정</a>
-					</li> -->
 				</li>
 				<!-- 극장 사이드 메뉴 -->
 				<li class="sub-menu">
