@@ -14,9 +14,9 @@
 		정확하지 않지만 system time이 1970-01-01로 시작되는 문제-->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://better4307.cafe24.com/better4307?zeroDateTimeBehavior=convertToNull"/>
-        <property name="username" value="better4307"/>
-        <property name="password" value="rladnqls!@"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/better4307?zeroDateTimeBehavior=convertToNull"/>
+        <property name="username" value="root"/>
+        <property name="password" value="java0000"/>
     </bean>
     
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

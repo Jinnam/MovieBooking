@@ -268,6 +268,7 @@
 											<option value="${branchInfo.brcCode}">${branchInfo.brcName}</option>
 										</c:forEach>
 									</select>
+									<input type="button" class="btn" value="선택"/>
 								</div>
 							</div>
 							
@@ -280,6 +281,7 @@
 										<option value="ticketCnt">예매</option>
 										<option value="saleCnt">매출</option>
 									</select>
+									<input type="button" class="btn" value="선택"/>
 								</div>
 							</div>
 							
@@ -288,7 +290,7 @@
 							<legend>&nbsp;</legend>
 							
 							<!-- 영화 선택 결과-->
-							<div id="resultTab" class="form-group">
+							<div class="form-group">
 								<!-- <label class="col-lg-3 control-label">영화 선택</label> -->
 								<div id="movSelectResult" class="col-lg-9">
 									
@@ -307,8 +309,8 @@
 	<script>
 	// 테이블 클릭 이벤트
 		function selectFunction(a){
-		alert(a);
-			$('#searchform').append('<div>'+$(this)+'</div>');
+			$('#searchform').append('<input tpye="button" class="btn btn-primary" value="'+a+'"/>');
+			$('#movSelectResult').contents().remove();
 		}
 		$(document).ready(function(){
 			$('#selectMovieCode').click(function(){
@@ -329,7 +331,6 @@
 													'<td>영화이름</td>'+
 													'<td>장르</td>'+
 													'<td>감독</td>'+
-													'<td>선택</td>'+
 												'</tr>'+
 											'</thead>'+
 											'<tbody  id="resultInfo">'+
@@ -338,18 +339,17 @@
 									'</div>');
 				        $(data).each(function(i){
 				        		$('#resultInfo')
-				        		.append('<tr id="movInfo'+i+'" onclick="selectFunction(this)">'+
-											'<td>'+i+1+'</td>'+
+				        		.append('<tr id="movInfo'+i+'" onclick="selectFunction(&quot;'+data[i].movKorName+'&quot;)">'+
+											'<td>'+i+'</td>'+
 											'<td>'+data[i].movKorName+'</td>'+
 											'<td>'+data[i].movGenre+'</td>'+
 											'<td>'+data[i].charKorName+'</td>'+
 											'<td colspan="4">'+
-											'<input type="button" class="btn" value="선택"/>'+
 											'</td>'+
 										'</tr>')
 				        })
 				      },error:function(){
-				          alert(i+"error");
+				          alert("error");
 				       }
 				   })
 				// ajax 끝
