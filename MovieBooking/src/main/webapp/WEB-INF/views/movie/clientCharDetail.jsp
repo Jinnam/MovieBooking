@@ -19,9 +19,10 @@
 
     <div class="row container" style="width:970px ; text-align:center; ">
       <div class="col s12" style="text-align:left;">
+      <h1>인물</h1>
         <div class="card grey lighten-4">
 
-          <!-- 영화 상세 내용 영역 -->
+          <!-- 인물 상세 내용 영역 -->
           <div class="card-content">
             <div class="row">
 

@@ -91,7 +91,7 @@
 			<div class="col s8 grey lighten-5" style="height:400px;text-align:center;">
 				
 				<!-- 스크린 이미지 -->
-				<div class="grey lighten-2">
+				<div class="grey lighten-2" style="margin-bottom:30px;">
 					<img src="resources/module-img/booking_menu_screen.png">
 				</div>
 				

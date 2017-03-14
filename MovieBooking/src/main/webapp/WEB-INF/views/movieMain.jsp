@@ -85,7 +85,7 @@
 	                  <!-- 카드 앞면 -->
 	                  <div class="active side">	                  
 	                  	
-	                    <img style="max-height:300px;"src="${map.movImgPath}">
+	                    <img style="max-height:310px;"src="${map.movImgPath}">
 	                    	<!-- 순위 -->
 	                    	<c:if test="${status.count < 6}">
 				              	<div style="display:inline-block;position:absolute;top:0px;left:-5px;">					                         		
@@ -96,7 +96,7 @@
 	                  
 	                  <!-- 카드 뒷면 -->
 	                  <div class="side black">
-	                    <img style="opacity: 0.3; max-height:300px;" src="${map.movImgPath}">
+	                    <img style="opacity: 0.3; max-height:310px;" src="${map.movImgPath}">
 	  						
 		              	<a href="clientMovieDetail?movCode=${map.movCode}">
 			              	<div style="display:inline-block;position:absolute;top:70%;left:20%;">
