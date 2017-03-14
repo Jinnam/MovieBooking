@@ -453,6 +453,13 @@
 								</div>
 							</div>
 							
+							<!-- 스틸컷이미지 -->
+							<div class="form-group">
+								<label class="col-lg-3 control-label">포스터이미지</label>
+								<div class="col-lg-9">
+									<input type="text" name="movImgPath" class="form-control" placeholder="이미지 경로를 입력하세요" required="required">
+								</div>
+							</div>
 							<!-- 포스터이미지 단일파일 미구현 & 파일크기때문에 사용 x-->
 							<!-- <div class="form-group">
 								<label class="col-lg-3 control-label">포스터이미지</label>
