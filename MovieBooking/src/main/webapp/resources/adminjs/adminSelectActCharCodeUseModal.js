@@ -11,7 +11,7 @@ function ActBtnClick(i) {
 			'<label class="col-lg-3 control-label">배우코드</label>'
 			+'<div class="col-lg-9">'
 			+	'<input type="text" class="form-control"'
-			+			'id="charCodeAct" name="charCode"'
+			+			'id="charCodeAct" name="charCodeAct"'
 			+			'value="'+choiceActCharCode.text()+'"'
 			+			'required="required" readonly="readonly">'
 			+'</div>'

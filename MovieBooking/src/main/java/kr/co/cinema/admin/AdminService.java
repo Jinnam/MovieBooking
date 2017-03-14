@@ -165,22 +165,19 @@ public class AdminService {
 		logger.debug(" Service choiceCharCode post실행");
 		return adminDao.choiceCharCode(charCode);
 	}
-	
-	
+
 	//영화등록
 	public int insertMovie(Movie movie) {
 		logger.debug(" Service insertMovie post실행");
-/*		String realPath = request.getRealPath("resources/movie-poster-img/");				//프로젝트안에 저장될 경로
-		String originalFilename = imgFile.getOriginalFilename();							//전체 이미지파일이름
-		String extension = originalFilename.substring(originalFilename.indexOf("."));		//확장자추출
-		UUID uuid = UUID.randomUUID();														//랜덤아이디 만들기
-		String onlyFileName = uuid.toString().replace("-","");								//파일이름에 랜덤아이디추가
-		String rename = onlyFileName + extension;											//랜덤아이디에 확장자추가
-		String fullPath = realPath + "\\" + rename;											//전체경로에 새로만든 파일명추가
-*/		
 		return adminDao.insertMovie(movie);
 	}
 	
+	//배우등록
+	public int insertCharacters(Movie movie) {
+		logger.debug(" Service insertCharacters post실행");
+		return adminDao.insertCharacters(movie);
+	}	
+
 	//관리자 영화조회
 	public List<Movie> selectMovieList() {
 		logger.debug(" Service selectMovieList get실행");
@@ -228,4 +225,5 @@ public class AdminService {
 		logger.debug("	findOneAdminInfo() 진입 adminId : "+adminId);
 		return adminDao.selectOneAmdinInfo(adminId);
 	}
+
 }

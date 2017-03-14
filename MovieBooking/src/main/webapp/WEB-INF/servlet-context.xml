@@ -51,8 +51,7 @@
 	<!-- 멀티파트 빈 추가 03/06 -->
 	<!-- MultipartResolver 설정 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="100000000" />
-		<property name="maxInMemorySize" value="100000000" />
+		<property name="maxUploadSize" value="5242880000" />
 	</bean>
     
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->

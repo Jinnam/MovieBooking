@@ -249,7 +249,9 @@
 	
 	<!-- 영화등록 쿼리 -->
 	<insert id="insertMovie"
-			parameterType="kr.co.cinema.dto.Movie">
+			parameterType="kr.co.cinema.dto.Movie"
+			useGeneratedKeys="true"
+			keyProperty="movCode">
 			INSERT INTO MOVIE
 						(mov_korName, 
 						 mov_engName, 
@@ -284,6 +286,16 @@
 						 now()); 
 	</insert>
 	
+	<!-- 영화(배우)등록 -->
+	<insert id="insertCharacters"
+			parameterType="kr.co.cinema.dto.Movie">
+			INSERT INTO CHARACTERS
+						(char_code,
+						mov_code)
+			VALUES
+						(#{charCodeAct},
+						#{movCode});
+	</insert>
 	<!-- 영화조회 -->
 	<select id="selectMovieList"
 			resultType="kr.co.cinema.dto.Movie">
@@ -375,19 +387,13 @@
 	<!-- *********로그인******** -->
 	<!-- 로그인 아이디 비번 가져오기 -->
 	<select id="selectAdminInfo" parameterType="String" resultType="Map">
-		SELECT
-			ADMIN.adm_id AS admId,
-			ADMIN.adm_pw AS admPw,
-			ADMIN.brc_code AS brcCode,
-			BRANCH.brc_name AS brcName
-		FROM
-			ADMIN
-		JOIN
-			BRANCH
-		ON
-			ADMIN.brc_code=BRANCH.brc_code
-		WHERE
-			adm_id=#{adminId}
+		SELECT	ADMIN.adm_id AS admId,
+				ADMIN.adm_pw AS admPw,
+				ADMIN.brc_code AS brcCode,
+				BRANCH.brc_name AS brcName
+		FROM	ADMIN
+		JOIN	BRANCH
+		ON		ADMIN.brc_code=BRANCH.brc_code
+		WHERE	adm_id=#{adminId}
 	</select>
-	
 </mapper>

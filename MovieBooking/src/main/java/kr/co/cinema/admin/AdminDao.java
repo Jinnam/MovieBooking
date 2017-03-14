@@ -172,6 +172,12 @@ public class AdminDao {
 		return sqlSession.insert(NS+"insertMovie", movie);
 	}
 	
+	//배우등록
+	public int insertCharacters(Movie movie) {
+		logger.debug(" Dao insertCharacters");
+		return sqlSession.insert(NS+"insertCharacters", movie);
+	}
+	
 	//관리자 영화조회
 	public List<Movie> selectMovieList() {
 		logger.debug(" Dao selectMovieList");
@@ -220,5 +226,5 @@ public class AdminDao {
 		return sqlSession.selectOne(NS+"selectAdminInfo", adminId);
 				
 	}
-	
+
 }

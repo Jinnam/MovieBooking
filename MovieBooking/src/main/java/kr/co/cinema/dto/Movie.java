@@ -1,5 +1,7 @@
 package kr.co.cinema.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 // 영화  dto
 public class Movie {
 
@@ -8,6 +10,7 @@ public class Movie {
 	private String movEngName;			// 영화 영문 제목
 	private String movNation;			// 국가
 	private int charCode;				// 인물코드 0228봉연추가
+	private int charCodeAct;			// 배우코드 0314봉연추가
 	private String movGrade;			// 등급
 	private String movGenre;			// 장르
 	private String movMaker;			// 제작사
@@ -20,7 +23,8 @@ public class Movie {
 	private String movFinalModifyDate;	// 최총 수정 일자
 	private String movDate;				// 등록일자 0306봉연추가
 	private String charKorName;			// 인물이름 0306봉연추가
-	
+	private MultipartFile uploadFile;	// 파일업로드 0314봉연추가
+
 	public int getMovCode() {
 		return movCode;
 	}
@@ -131,6 +135,18 @@ public class Movie {
 	}
 	public void setCharKorName(String charKorName) {
 		this.charKorName = charKorName;
+	}
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
+	public int getCharCodeAct() {
+		return charCodeAct;
+	}
+	public void setCharCodeAct(int charCodeAct) {
+		this.charCodeAct = charCodeAct;
 	}
 	
 	
