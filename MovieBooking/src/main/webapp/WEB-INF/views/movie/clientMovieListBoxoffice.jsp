@@ -52,7 +52,7 @@
    <!-- 메인 -->
   <br>
 
-    <div class="container" style="max-width:90%; width:90%"> <!-- 메인컨테이너 시작 -->
+    <div class="container" style="max-width:100%;width:1580px"> <!-- 메인컨테이너 시작 -->
       <div class="row"> <!-- 메인row 시작 -->
       
       
@@ -68,7 +68,7 @@
 	                  <!-- 카드 앞면 -->
 	                  <div class="active side">	                  
 	                  	
-	                    <img style="max-height:300px;"src="${map.movImgPath}">
+	                    <img style="max-height:310px;" src="${map.movImgPath}">
 	                    	<!-- 순위 -->
 	                    	<c:if test="${status.count < 6}">
 				              	<div style="display:inline-block;position:absolute;top:0px;left:-5px;">					                         		
@@ -79,7 +79,7 @@
 	                  
 	                  <!-- 카드 뒷면 -->
 	                  <div class="side black">
-	                    <img style="opacity: 0.3; max-height:300px;" src="${map.movImgPath}">
+	                    <img style="opacity: 0.3; max-height:310px;" src="${map.movImgPath}">
 	  						
 		              	<a href="clientMovieDetail?movCode=${map.movCode}">
 			              	<div style="display:inline-block;position:absolute;top:70%;left:20%;">
