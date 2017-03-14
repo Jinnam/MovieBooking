@@ -217,8 +217,10 @@
 			SCREEN_SCHEDULE
 		WHERE
 			SCREEN_SCHEDULE.brc_code=#{brcCode} &amp;&amp; SCREEN_SCHEDULE.scs_date = #{date}
+		GROUP BY
+			movCode					
 		ORDER BY
-			movCode ASC	
+			movCode ASC		
 	</when>
 	
 	<when test="brcCode==0">
@@ -230,6 +232,8 @@
 			SCREEN_SCHEDULE
 		WHERE
 			SCREEN_SCHEDULE.mov_code=#{movCode} &amp;&amp; SCREEN_SCHEDULE.scs_date = #{date}
+		GROUP BY
+			brcCode				
 		ORDER BY
 			brcCode ASC	
 	</when>
@@ -242,6 +246,8 @@
 			SCREEN_SCHEDULE
 		WHERE
 			SCREEN_SCHEDULE.mov_code=#{movCode} &amp;&amp; SCREEN_SCHEDULE.brc_code = #{brcCode}
+		GROUP BY
+			scsDate						
 		ORDER BY
 			scsDate ASC		
 	</when>
