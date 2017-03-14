@@ -88,7 +88,8 @@ public class MovieController {
 	public String clientCharDetail(Model model,@RequestParam(value="charCode") String charCode) {
 		logger.debug("clientCharDetail 클라이언트측 인물 상세페이지");
 		model.addAttribute("charInfo",movieDao.selectOneCharInfo(charCode)); //인물정보 세팅
-		model.addAttribute("filmoList",movieDao.selectListfilmography(charCode));
+		model.addAttribute("filmoList",movieDao.selectListfilmography(charCode)); //필모그래피
+		model.addAttribute("produceFilmoList",movieDao.selectListProduceFilmography(charCode)); //감독 필모그래피
 		return "movie/clientCharDetail";
 	}
 	

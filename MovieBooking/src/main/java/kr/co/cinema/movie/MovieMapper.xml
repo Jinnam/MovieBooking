@@ -69,6 +69,18 @@
 		WHERE
 			ANALYSIS.mov_code=#{movCode}	
 	</select>
+	
+	<!-- 인물코드로 감독 필모그래피 가져오기 -->
+	<select id="selectListProduceFilmography" parameterType="String" resultType="map">
+		SELECT
+			MOVIE.mov_code as movCode,
+			MOVIE.mov_korName as movKorName,
+			MOVIE.mov_imgPath as movImgPath
+		FROM
+			MOVIE
+		WHERE
+			MOVIE.char_code =#{charCode}
+	</select>	
 
 	<!-- 인물코드로 필모그래피 가져오기 -->
 	<select id="selectListfilmography" parameterType="String" resultType="map">

@@ -47,6 +47,12 @@ public class MovieDao {
 		return session.selectOne(mapperNS+"selectOneMovieCountInfo", movCode);		
 	}
 	
+	//인물코드로 감독 필모그래피 가져오기
+	public List<Map> selectListProduceFilmography(String charCode){
+		logger.debug("selectListProduceFilmography 인물코드로 감독 필모그래피 가져오기");
+		return session.selectList(mapperNS+"selectListProduceFilmography",charCode);		
+	}	
+	
 	//인물코드로 필모그래피 가져오기
 	public List<Map> selectListfilmography(String charCode){
 		logger.debug("selectListfilmography 인물코드로 필모그래피 가져오기");

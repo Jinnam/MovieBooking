@@ -57,6 +57,20 @@
               <div class="col s12">
                 <h3>필모그래피</h3>
                 <div class="row">
+                
+                	<!-- 감독 필모그래피 -->
+					<c:forEach var="filmo" items="${produceFilmoList}"> 
+	                  <div class="col s3">
+	                    <div>
+	                    	<a href="clientMovieDetail?movCode=${filmo.movCode}">
+	                    		<img class = "responsive-img" src="${filmo.movImgPath}">
+	                    	</a>
+	                    </div>
+	                    <div style="text-align:center">${filmo.movKorName}</div>
+	                  </div>
+					</c:forEach>                
+                
+                	<!-- 배우 필모그래피 -->
 					<c:forEach var="filmo" items="${filmoList}"> 
 	                  <div class="col s3">
 	                    <div>
