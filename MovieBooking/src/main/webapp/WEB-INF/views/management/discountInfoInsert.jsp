@@ -239,6 +239,75 @@
 				<!-- 페이지 강제 줄임 -->
 				<div class="col-lg-9 main-chart" align="center"></div>
 			</div>
+			<div class="container" style="margin: 0 auto;">
+				<div class="jumbotron">
+					<h2 class="logo">할인정보 등록</h2>
+				</div>
+				<div class="col-lg-3"></div>
+				<div class="col-lg-6" style="float: left: ;">
+					<form action="" class="form-horizontal" method="post">
+						<fieldset>
+							<legend>add</legend>
+							
+							<!-- 할인정보 -->
+							<div class="row form-group">
+								<label class="col-lg-2 control-label">할인정보</label>
+								<div class="col-lg-8">
+									<input type="text" class="form-control" placeholder="할인정보를 입력하세요" required="required">
+								</div>
+							</div>
+							
+							<!-- 할인가 -->
+							<div class="form-group">
+								<label class="col-lg-2 control-label">할인가</label>
+								<div class="col-lg-8">
+									<input type="text" class="form-control" placeholder="할인가를 입력하세요" required="required">
+								</div>
+							</div>
+							
+							<!-- 적용연도-->
+							<div class="form-group">
+								<label class="col-lg-2 control-label">적용연도</label>
+								<div class="col-lg-8">
+									<input type="text" class="form-control" placeholder="적용연도를 입력하세요" required="required">
+								</div>
+							</div>
+							
+							<!-- 적용상태 -->
+							<div class="form-group">
+								<label class="col-lg-2 control-label">적용상태</label>
+								<div class="col-lg-8">
+									<select name="" class="form-control">
+										<option>적용</option>
+										<option>미적용</option>
+									</select>
+								</div>
+							</div>
+							
+							<!-- 할인구분 -->
+							<div class="form-group">
+								<label class="col-lg-2 control-label">할인구분</label>
+								<div class="col-lg-8">
+									<select name="" class="form-control">
+										<option>사람</option>
+										<option>시간</option>
+									</select>
+								</div>
+							</div>
+							
+							<!-- 등록버튼 -->
+							<div class="form-group">
+								<label class="col-lg-2 control-label"></label>
+								<div class="col-lg-8 ">
+									<div class="col-lg-8 col-lg-offset-10 ">
+										<input type="submit" class="btn btn-button" value="등록">
+									</div>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
 		</section>
 	</section>
 	<!-- 여기까지 메인 -->
