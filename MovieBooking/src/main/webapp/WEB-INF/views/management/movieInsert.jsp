@@ -380,12 +380,6 @@
 									</div>
 								</div>
 							</div>
-						</fieldset>
-						
-						<!-- 두번째 필드셋 -->
-						<fieldset class="col-lg-5" style="float:left;">
-							<legend>&nbsp;</legend>
-							
 							<!-- 국가이름 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">국가</label>
@@ -417,6 +411,11 @@
 									<textarea class="form-control" rows="3" name="movInfoDetail" required="required"></textarea>
 								</div>
 							</div>
+						</fieldset>
+						
+						<!-- 두번째 필드셋 -->
+						<fieldset class="col-lg-5" style="float:left;">
+							<legend>&nbsp;</legend>
 							
 							<!-- 제작사 -->
 							<div class="form-group">
