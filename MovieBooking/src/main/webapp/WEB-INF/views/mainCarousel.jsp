@@ -37,14 +37,14 @@
     <div class="carousel-inner" role="listbox">
 
       <div class="item active">
-        <img src="http://image2.megabox.co.kr/mop/home/ad/1600x600/170112_cinemareplay_1600x600.jpg" alt="Chania" style="height:600px;width:100%">
+        <img src="http://image2.megabox.co.kr/mop/home/ad/1600x600/170314_beast_1600x600.jpg" alt="Chania" style="height:600px;width:100%">
         <div class="carousel-caption">
 
         </div>
       </div>
 
       <div class="item">
-        <img src="http://image2.megabox.co.kr/mop/home/ad/1600x600/170209_trol_1600x600.jpg" alt="Chania" style="height:600px;width:100%">
+        <img src="http://image2.megabox.co.kr/mop/home/ad/1600x600/170314_space_1600x600.jpg" alt="Chania" style="height:600px;width:100%">
         <div class="carousel-caption">
 
         </div>
