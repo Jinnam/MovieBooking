@@ -32,7 +32,7 @@
 		
 			<h3 align="right" style="color: blue;">${name}<label>님의 사용내역입니다.</label></h3>
 			<h5 align="right">현재 보유 포인트는 ${mileages}p 입니다</h5>
-				<table style="border-top: 2px solid blue; text-align: center; border-bottom: 2px solid blue" >
+				<table class = "striped" style="border-top: 2px solid blue; text-align: center; border-bottom: 2px solid blue" >
 					<thead>
 						<tr>
 							<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">사용 마일리지</td>

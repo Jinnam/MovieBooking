@@ -11,6 +11,9 @@
 	<meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 	<title>Mega Box Admin - Admin Main</title>
 	
+	<!--jQuery  -->
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+	
 	<!-- Bootstrap core CSS -->
 	<link href="resources/assets/css/bootstrap.css" rel="stylesheet">
 	<!--external css-->
@@ -223,16 +226,135 @@
 	</aside>
 	<!-- 여기까지 사이드바-->
 	
+	<!-- ******************************************************************************************************* -->
 	<!-- 여기부터 메인 -->
 	<section id="main-content">
 		<section class="wrapper">
 			<div class="row">
 				<!-- 페이지 강제 줄임 -->
-				<div class="col-lg-9 main-chart" align="center"></div>
+				<div class="col-lg-12 main-chart" align="center">
+				
+				<fieldset class="col-lg-4" style="float:left;">
+							<legend>add</legend>
+							
+							<!-- 영화 선택 -->
+							<div class="form-group">
+								<label class="col-lg-4 control-label">영화 선택</label>
+								<div class="col-lg-6">
+									<input type="text" id="movKorName" name="movKorName" class="form-control" value="공조" placeholder="영화이름을 입력하세요" required="required">
+								</div>
+								<!-- 영화코드 조회버튼 -->
+								<div>
+									<input id="selectMovieCode" type="button" class="btn btn-button" value="검색">
+								</div>
+							</div>
+							
+							<!-- 지점 선택 -->
+							<div class="form-group">
+								<label class="col-lg-4 control-label">지점 선택</label>
+								<div class="col-lg-8">
+									<select class="form-control" name="brcCode">
+										<option value="allBrc">지점 전체</option>
+										<c:forEach items="${branchInfo}" var="branchInfo">
+											<option value="${branchInfo.brcCode}">${branchInfo.brcName}</option>
+										</c:forEach>
+									</select>
+								</div>
+							</div>
+							
+							<!-- 예매/매출 선택 -->
+							<div class="form-group"> 
+								<label class="col-lg-4 control-label">예매/매출 선택</label>
+								<div class="col-lg-8">
+									<select class="form-control">
+										<option value="allCnt">전체</option>
+										<option value="ticketCnt">예매</option>
+										<option value="saleCnt">매출</option>
+									</select>
+								</div>
+							</div>
+							
+						</fieldset>
+						<fieldset class="col-lg-8" style="float:left;">
+							<legend>&nbsp;</legend>
+							
+							<!-- 영화 선택 결과-->
+							<div id="resultTab" class="form-group">
+								<!-- <label class="col-lg-3 control-label">영화 선택</label> -->
+								<div id="movSelectResult" class="col-lg-9">
+									
+								</div>
+							</div>
+							
+							
+						</fieldset>
+						<div id="searchform"></div>
+				</div>
 			</div>
 		</section>
 	</section>
 	<!-- 여기까지 메인 -->
+	
+	<script>
+	// 테이블 클릭 이벤트
+		function selectFunction(a){
+		alert(a);
+			$('#searchform').append('<div>'+$(this)+'</div>');
+		}
+		$(document).ready(function(){
+			$('#selectMovieCode').click(function(){
+				//ajax 시작
+				$.ajax({
+					url : "selectMovInfo", 
+				      type :"post", 
+				      data : { "movName" : $('#movKorName').val()},
+				      success : function(data){ 
+				    	  console.log(data);
+							$('#movSelectResult').children().remove();
+							$('#movSelectResult')
+							.append('<div class="col-lg-12">'+
+										'<table class="table table-striped table-hover">'+
+											'<thead>'+
+												'<tr>'+
+													'<td>번호</td>'+
+													'<td>영화이름</td>'+
+													'<td>장르</td>'+
+													'<td>감독</td>'+
+													'<td>선택</td>'+
+												'</tr>'+
+											'</thead>'+
+											'<tbody  id="resultInfo">'+
+											'</tbody>'+
+										'</table>'+
+									'</div>');
+				        $(data).each(function(i){
+				        		$('#resultInfo')
+				        		.append('<tr id="movInfo'+i+'" onclick="selectFunction(this)">'+
+											'<td>'+i+1+'</td>'+
+											'<td>'+data[i].movKorName+'</td>'+
+											'<td>'+data[i].movGenre+'</td>'+
+											'<td>'+data[i].charKorName+'</td>'+
+											'<td colspan="4">'+
+											'<input type="button" class="btn" value="선택"/>'+
+											'</td>'+
+										'</tr>')
+				        })
+				      },error:function(){
+				          alert(i+"error");
+				       }
+				   })
+				// ajax 끝
+				
+				$('.movInfo').click(function(){
+					console.log("movInfo Click");
+					$('.movInfo').removeClass("info");
+					$(this).addClass("info");
+				})
+			})
+			
+			
+		})
+	</script>
 	
 	<!-- 하단 -->
 	<%@include file="/WEB-INF/adminModule/footer.jsp" %>

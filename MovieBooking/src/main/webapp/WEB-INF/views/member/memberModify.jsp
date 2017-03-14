@@ -89,7 +89,8 @@
 						<tr>
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*아이디</td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
-								<input type="text" style="width: 200xp"  name="memId" value="${memberModify.memId}" readonly="readonly" style ="width:400px"/>&nbsp;
+								<input type="text" style="width: 300px"  name="memId" 
+															value="${memberModify.memId}" readonly="readonly"/>&nbsp;
 								<span id="spn"></span>
 						</tr>
 						
@@ -97,8 +98,8 @@
 						<tr bgcolor="ffffff">
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*비밀번호</td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
-								<input type="password" style="width: 200xp" name="memPw" 
-															value="${memberModify.memPw}" style ="width:300px"/></td>
+								<input type="password" style="width: 300px" name="memPw" 
+															value="${memberModify.memPw}"/></td>
 						</tr>
 						<!-- 비밀번호 수정 종료 -->
 						
@@ -124,7 +125,8 @@
 						<tr bgcolor="ffffff">
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 1px solid #DCDCDC;">*성별</td>
 							<td style="border-bottom: 1px solid #DCDCDC;">&nbsp;
-								<input type="text" name="memGender" value="${memberModify.memGender}" style ="width:300px"/></td> <!-- select 가 안먹힘; -->
+								<input type="text" name="memGender" 
+													value="${memberModify.memGender}" style ="width:300px"/></td> <!-- select 가 안먹힘; -->
 						</tr>
 						<!-- 성별 수정 종료-->
 						
@@ -152,7 +154,8 @@
 						<tr bgcolor="ffffff">
 							<td bgcolor="f5f5f5" align="center" style="border-bottom: 2px solid #DCDCDC;">*이메일</td>
 							<td style="border-bottom: 2px solid #DCDCDC;">&nbsp;
-							<input type="text" name="memMail" value="${memberModify.memMail}" style ="width:300px"/></td>
+							<input type="text" name="memMail" 
+														value="${memberModify.memMail}" style ="width:300px"/></td>
 						</tr>
 						<!-- 이메일 수정 종료-->
 					</table>

@@ -30,7 +30,7 @@
 		<!-- 예매확인 취소 시작 -->
 		<h3>예매 확인/취소  </h3>
 		<h5 align="right" style="color: blue;">${name}<label>님의 예매내역입니다.</label></h5>
-		<table style="border-top: 2px solid blue; border-bottom: 2px solid blue">
+		<table class = "striped" style="border-top: 2px solid blue; border-bottom: 2px solid blue">
 			<thead>
 				<tr>
 					<td bgcolor="#F2F2F2" align="center" style="border-bottom: 1px solid #DCDCDC;">예매번호</td>

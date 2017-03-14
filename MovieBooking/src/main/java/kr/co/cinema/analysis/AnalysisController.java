@@ -23,15 +23,36 @@ public class AnalysisController {
 	@Autowired
 	private AnalysisService analysisService;
 	
+	
+	//-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ 영화 통계 관련 /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
 	// 영화별 예매/매출조회 
 	@RequestMapping(value="analisysByMovie", method=RequestMethod.GET)
-	public String selectAnalisysByMovie() {
-		System.out.println("왜 안되지???");
-		logger.debug(" selectAnalisysByMovie get실행");
+	public String selectAnalisysByMovie(Model model) {
+		logger.debug(" selectAnalisysByMovie get 진입");
+
+		// 지점 목록 가져오기
+		List<Branch> branchInfo = analysisService.searchOneBranchInfo();
+		logger.debug("branchInfo : "+branchInfo.toString());
+		model.addAttribute("branchInfo",branchInfo);
 		
 		return "analisys/analisysByMovie";
 	}
+	// ajax 영화 정보 가져오기
+	@RequestMapping(value="selectMovInfo", method=RequestMethod.POST)
+	public @ResponseBody List<HashMap<String, Object>> selectMovInfo(@RequestParam String movName){
+		logger.debug("selectMovInfo ajax 진입 movName : "+movName);
+		List<HashMap<String, Object>> movieNameList=analysisService.searchListMovie(movName);
+		logger.debug("selectMovInfo ajax 가져온 movieNameList"+movieNameList.toString());
+		return movieNameList;
+	}
+	// 
+	@RequestMapping(value="analisysByMovie", method=RequestMethod.POST)
+	public List<HashMap<String, Object>> selectAnaysisByMovie(){
+		logger.debug(" selectAnalisysByMovie Post 진입");
+		return null;
+	}
 	
+	//-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ 지점 통계 관련 /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
 	// 지점별 예매/매출 GET
 	@RequestMapping(value="analisysByBranch", method=RequestMethod.GET)
 	public String selectAnalisysByBranch(Model model) {
@@ -59,6 +80,7 @@ public class AnalysisController {
 	}
 	
 	
+	//-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ 날짜별 통계 관련 /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
 	// 날짜별 예매,매출
 	@RequestMapping(value="analisysByDate", method=RequestMethod.GET)
 	public String selectAnalisysByDate() {

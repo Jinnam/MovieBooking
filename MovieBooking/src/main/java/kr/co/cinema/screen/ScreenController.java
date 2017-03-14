@@ -110,7 +110,7 @@ private static final Logger logger = LoggerFactory.getLogger(ScreenController.cl
 			// 상영일정, 좌석 등록
 			screenService.insertScs(screenSchedule);
 			
-			return "screen/screenScheduleInsert";
+			return "redirect:/screenScheduleInsert";
 		}
 		
 		
