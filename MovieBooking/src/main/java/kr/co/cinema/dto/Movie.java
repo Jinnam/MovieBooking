@@ -1,5 +1,7 @@
 package kr.co.cinema.dto;
 
+import java.util.Arrays;
+
 import org.springframework.web.multipart.MultipartFile;
 
 // 영화  dto
@@ -10,7 +12,7 @@ public class Movie {
 	private String movEngName;			// 영화 영문 제목
 	private String movNation;			// 국가
 	private int charCode;				// 인물코드 0228봉연추가
-	private int charCodeAct;			// 배우코드 0314봉연추가
+	private int[] charCodeAct;			// 배우코드 0314봉연추가
 	private String movGrade;			// 등급
 	private String movGenre;			// 장르
 	private String movMaker;			// 제작사
@@ -115,15 +117,6 @@ public class Movie {
 	public void setMovFinalModifyDate(String movFinalModifyDate) {
 		this.movFinalModifyDate = movFinalModifyDate;
 	}
-	
-	@Override
-	public String toString() {
-		return "Movie [mov_code=" + movCode + ", movKorName=" + movKorName + ", movEngName=" + movEngName
-				+ ", movNation=" + movNation + ", movGrade=" + movGrade + ", movGenre=" + movGenre + ", movMaker="
-				+ movMaker + ", movRunningTime=" + movRunningTime + ", movOpenDate=" + movOpenDate + ", movInfoDetail="
-				+ movInfoDetail + ", movImgPath=" + movImgPath + ", movVideoPath=" + movVideoPath + ", movStatus="
-				+ movStatus + ", movFinalModifyDate=" + movFinalModifyDate + "]";
-	}
 	public String getMovDate() {
 		return movDate;
 	}
@@ -142,13 +135,22 @@ public class Movie {
 	public void setUploadFile(MultipartFile uploadFile) {
 		this.uploadFile = uploadFile;
 	}
-	public int getCharCodeAct() {
+
+	public int[] getCharCodeAct() {
 		return charCodeAct;
 	}
-	public void setCharCodeAct(int charCodeAct) {
+	public void setCharCodeAct(int[] charCodeAct) {
 		this.charCodeAct = charCodeAct;
 	}
-	
-	
-	
+	@Override
+	public String toString() {
+		return "Movie [movCode=" + movCode + ", movKorName=" + movKorName + ", movEngName=" + movEngName
+				+ ", movNation=" + movNation + ", charCode=" + charCode + ", charCodeAct="
+				+ Arrays.toString(charCodeAct) + ", movGrade=" + movGrade + ", movGenre=" + movGenre + ", movMaker="
+				+ movMaker + ", movRunningTime=" + movRunningTime + ", movOpenDate=" + movOpenDate + ", movInfoDetail="
+				+ movInfoDetail + ", movImgPath=" + movImgPath + ", movVideoPath=" + movVideoPath + ", movStatus="
+				+ movStatus + ", movFinalModifyDate=" + movFinalModifyDate + ", movDate=" + movDate + ", charKorName="
+				+ charKorName + ", uploadFile=" + uploadFile + "]";
+	}
+
 }

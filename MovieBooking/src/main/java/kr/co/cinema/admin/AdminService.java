@@ -1,5 +1,6 @@
 package kr.co.cinema.admin;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -173,10 +174,30 @@ public class AdminService {
 	}
 	
 	//배우등록
-	public int insertCharacters(Movie movie) {
+	public int insertCharacters(Movie movie, int movCode) {
 		logger.debug(" Service insertCharacters post실행");
-		return adminDao.insertCharacters(movie);
-	}	
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		int[] CharCodeAct = movie.getCharCodeAct();
+		for(int i =0; i<CharCodeAct.length;i++) {
+			map.put("charCodeAct", CharCodeAct[i]);
+			map.put("movCode",movCode);
+			adminDao.insertCharacters(map);
+		}
+		return 0;
+	}
+	
+	//통계초기화
+	public int analisysReset(int movCode) {
+		logger.debug(" Service analisysReset post실행");
+		return adminDao.analisysReset(movCode);
+	}
+	
+	//평점초기화
+	public int gradeReset(int movCode) {
+		logger.debug(" Service gradeReset post실행");
+		return adminDao.gradeReset(movCode);
+	}
+
 
 	//관리자 영화조회
 	public List<Movie> selectMovieList() {

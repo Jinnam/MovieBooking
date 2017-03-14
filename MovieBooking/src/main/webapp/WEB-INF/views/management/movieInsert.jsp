@@ -439,7 +439,7 @@
 								<div class="col-lg-9">
 									<select name="movStatus" class="form-control">
 										<option>개봉전</option>
-										<option>상영</option>
+										<option>상영중</option>
 										<option>종영</option>
 									</select>
 								</div>

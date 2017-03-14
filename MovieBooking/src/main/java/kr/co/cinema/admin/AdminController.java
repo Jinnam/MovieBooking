@@ -259,11 +259,15 @@ public class AdminController {
 	//영화 등록
 	@RequestMapping(value="movieInsert", method=RequestMethod.POST)
 	public String insertMovie(Movie movie) {
-		logger.debug(" Controller insertMovie post실행");
+		logger.debug(" Controller insertMovie post실행 movie : "+movie);
 		//영화등록
 		adminService.insertMovie(movie);
 		//인물(배우)등록
-		adminService.insertCharacters(movie);
+		adminService.insertCharacters(movie, movie.getMovCode());
+		//통계초기화
+		adminService.analisysReset(movie.getMovCode());
+		//평점초가화
+		adminService.gradeReset(movie.getMovCode());
 		return "redirect:adminMovieList";
 	}
 	

@@ -268,7 +268,7 @@
 							<!-- 지점이름(한글) -->
 							<div class="form-group"> 
 								<label class="col-lg-3 control-label">지점이름</label>
-								<div class="col-lg-7">
+								<div class="col-lg-9">
 									<input type="text" class="form-control" value="${screenInfo[0].brcName}" readonly="readonly"/>
 									<input type="hidden" name="brcCode" value="${screenInfo[0].brcCode}"/>
 								</div>
@@ -278,7 +278,7 @@
 							<div class="form-group">
 								<label class="col-lg-3 control-label">상영관 선택</label>
 								<div class="col-lg-9">
-									<select id="branchInfo" name="scrCode">
+									<select class="form-control" id="branchInfo" name="scrCode">
 										<option value="noOption">상영관 선택</option>
 										<c:forEach items="${screenInfo}" var="screenInfo">
 											<option value="${screenInfo.scrCode}">**${screenInfo.scrName}** 
@@ -317,7 +317,7 @@
 							<!-- 안내 멘트 -->
 							<div class="form-group">
 								<div class="col-lg-12"><br/>
-									<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<label>&nbsp;
 									*** 시작시간을 입력하면 상영 종료시간과 시간할인이 선택됩니다.***</label>
 								</div>
 							</div>
@@ -326,11 +326,17 @@
 							<div class="form-group">
 								<label class="col-lg-3 control-label">상영시작시간</label>
 								<div class="col-lg-9">
-									<select name="startHour" id="startHour">
-									</select> 시 
-									<select name="startMin" id="startMin">
-									</select> 분
-									<input id="startTimeInput" type="button" class="btn btn-button" value="입력">
+									<div class="col-lg-1"> 시 </div>
+									<div class="col-lg-5">
+										<select class="form-control" name="startHour" id="startHour">
+										</select>
+									</div>
+									<div class="col-lg-1"> 분 </div>
+									<div class="col-lg-4">
+										<select class="form-control" name="startMin" id="startMin">
+										</select>
+									</div>
+									<input id="startTimeInput" type="button" class="col-lg-2 btn btn-button" value="입력">
 									<input type="hidden" name="scsStartTime" id="scsStartTime"/>
 								</div>
 							</div>

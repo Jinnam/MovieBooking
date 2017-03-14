@@ -172,10 +172,22 @@ public class AdminDao {
 		return sqlSession.insert(NS+"insertMovie", movie);
 	}
 	
+	//통계초기화
+	public int analisysReset(int movCode) {
+		logger.debug(" Dao analisysReset");
+		return sqlSession.insert(NS+"analisysReset", movCode);
+	}
+
+	//평점초기화
+	public int gradeReset(int movCode) {
+		logger.debug(" Dao gradeReset");
+		return sqlSession.insert(NS+"gradeReset", movCode);
+	}
+
 	//배우등록
-	public int insertCharacters(Movie movie) {
+	public int insertCharacters(Map<String, Integer> map) {
 		logger.debug(" Dao insertCharacters");
-		return sqlSession.insert(NS+"insertCharacters", movie);
+		return sqlSession.insert(NS+"insertCharacters", map);
 	}
 	
 	//관리자 영화조회

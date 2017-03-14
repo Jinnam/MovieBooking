@@ -21,8 +21,7 @@ function ActBtnClick(i) {
 			+			'id="charKorNameAct" required="required"'
 			+			'value="'+choiceActCharKorName.text()+'" readonly="readonly">'
 			+'</div>'
-	);
-	window.close();
+		);
 	}
 $(document).ready(function() {
 	$("#selectCharcodeActor").click(function() {

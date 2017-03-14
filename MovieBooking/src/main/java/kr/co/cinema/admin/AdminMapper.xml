@@ -288,13 +288,65 @@
 	
 	<!-- 영화(배우)등록 -->
 	<insert id="insertCharacters"
-			parameterType="kr.co.cinema.dto.Movie">
+			parameterType="map">
 			INSERT INTO CHARACTERS
 						(char_code,
 						mov_code)
 			VALUES
 						(#{charCodeAct},
 						#{movCode});
+	</insert>
+	
+	<!-- 영화등록 후 통계초기화 -->
+	<insert id="analisysReset"
+			parameterType="kr.co.cinema.dto.Analysis">
+			INSERT INTO ANALYSIS
+						(mov_code,
+						anl_likeTotalCount,
+						anl_totalTicketCount,
+						anl_10sTicketCount,
+						anl_20sTicketCount,
+						anl_30sTicketCount,
+						anl_40sTicketCount,
+						anl_over50sTicketCount,
+						anl_manTicketCount,
+						anl_womanTicketCount,
+						anl_acSales,
+						anl_finalModifyDate)
+			VALUES		
+						(#{movCode},
+						1,
+						5,
+						1,
+						1,
+						1,
+						1,
+						1,
+						2,
+						3,
+						45000,
+						now())
+	</insert>
+	
+	<!-- 평점초기화 -->
+	<insert id="gradeReset"
+			parameterType="kr.co.cinema.dto.Grade">
+			INSERT INTO GRADE
+						(mov_code,
+						gra_acGrade,
+						gra_totalNum,
+						gra_beforeOpenGrade,
+						gra_beforeOpenNum,
+						gra_vistorGrade,
+						gra_vistorGradeNum)
+			VALUES
+						(#{movCode},
+						0,
+						0,
+						0,
+						0,
+						0,
+						0)
 	</insert>
 	<!-- 영화조회 -->
 	<select id="selectMovieList"
