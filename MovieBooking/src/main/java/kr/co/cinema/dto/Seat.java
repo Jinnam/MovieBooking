@@ -3,12 +3,13 @@ package kr.co.cinema.dto;
 // 좌석 정보 dto
 public class Seat {
 
-	private String seatCode;			// 좌석 코드
+	private String seatCode;		// 좌석 코드
 	private String scsCode;			// 상영 코드
 	private String scrCode;			// 상영관 코드
-	private String seatRow;			// 행
+	private char seatRow;			// 행
 	private int seatCol;			// 열
 	private String seatUseStatus;	// 사용 여부
+	
 	public String getSeatCode() {
 		return seatCode;
 	}
@@ -27,10 +28,10 @@ public class Seat {
 	public void setScrCode(String scrCode) {
 		this.scrCode = scrCode;
 	}
-	public String getSeatRow() {
+	public char getSeatRow() {
 		return seatRow;
 	}
-	public void setSeatRow(String seatRow) {
+	public void setSeatRow(char seatRow) {
 		this.seatRow = seatRow;
 	}
 	public int getSeatCol() {

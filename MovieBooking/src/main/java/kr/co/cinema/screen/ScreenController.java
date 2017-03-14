@@ -107,15 +107,20 @@ private static final Logger logger = LoggerFactory.getLogger(ScreenController.cl
 		public String screenScheduleInsert(ScreenSchedule screenSchedule){
 			logger.debug("screenScheduleInsert post 진입 screenSchedule: "+screenSchedule.toString());
 			
+			// 상영일정, 좌석 등록
+			screenService.insertScs(screenSchedule);
 			
-			return "admin/adminMain";
+			return "screen/screenScheduleInsert";
 		}
 		
 		
 		//***상영일정리스트조회 : 페이지이동
 		@RequestMapping(value="screenScheduleList", method=RequestMethod.GET)
 		public String selectScreenScheduleList(Model model) {
-			logger.debug(" Controller selectScreenScheduleList get실행");
+			logger.debug(" selectScreenScheduleList get 진입");
+			
+			List<HashMap<String, Object>> screenSchedule = screenService.searchScreenSchedule();
+			model.addAttribute("screenSchedule",screenSchedule);
 			return "screen/screenScheduleList";
 		}
 		

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import kr.co.cinema.HomeService;
 import kr.co.cinema.dto.Member;
 import kr.co.cinema.dto.Mileage;
+import kr.co.cinema.dto.MypageMemberReserve;
 import kr.co.cinema.dto.NonMember;
 import kr.co.cinema.dto.ScreenSchedule;
 @Service
@@ -24,6 +25,12 @@ public class MemberService {
 	//비회원 코드를 불러오기 위한 autowired
 	@Autowired
 	private HomeService homeService;
+	
+	//비회원 예매 확인
+	public List<MypageMemberReserve> findListNonMemberReserve(){
+		logger.debug(" 비회원 예매 확인 service **************** ");
+		return memberdao.selectNonMemberReserve();
+	}
 	
 	//회원탈퇴 처리
 	public int removeOneMember(String memId){

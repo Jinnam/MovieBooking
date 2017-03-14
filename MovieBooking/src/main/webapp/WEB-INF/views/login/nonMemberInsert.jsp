@@ -100,11 +100,11 @@
           </tr>
       </table>
       <br><br>
-      <div align="right">
+     	 <div align="right">
 			<input class="btn blue darken-4" type="button" value="확인" id="nmemBtn"/>
 			<a href="movieMain">
 				<input class="btn white" style="color:black" type="button" value="취소"/></a>
-			</div>
+		</div>
       <br><br>
 </form>
 </div>

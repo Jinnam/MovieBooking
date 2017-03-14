@@ -109,19 +109,6 @@
 	</script>
 		<!-- 비밀번호 중복확인 ajax 종료 -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- 하단바 -->
 <%@ include file="/WEB-INF/clientModule/footer.jsp" %>
 </body>

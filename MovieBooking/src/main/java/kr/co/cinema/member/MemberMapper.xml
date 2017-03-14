@@ -5,6 +5,42 @@
   
 <mapper namespace="kr.co.cinema.member.MemberMapper">
 	
+	<!-- 비회원 예매 확인 -->
+	<select id="selectNonMemberReserve" parameterType="String" resultType="kr.co.cinema.dto.MypageMemberReserve">
+		SELECT
+			SCREEN_SCHEDULE.scs_date AS scsDate,
+			MOVIE.mov_korName AS movKorName,
+			PAYMENT.pmt_code AS pmtCode,
+			PAYMENT.pmt_date AS pmtDate,
+			BRANCH.brc_name AS brcName
+		FROM
+			SCREEN_SCHEDULE
+		JOIN
+			PAYMENT
+		ON
+			SCREEN_SCHEDULE.scs_code = PAYMENT.scs_code
+		JOIN
+			MOVIE
+		ON
+			SCREEN_SCHEDULE.mov_code=MOVIE.mov_code
+		JOIN
+			BRANCH
+		ON
+			BRANCH.brc_code = SCREEN_SCHEDULE.brc_code
+		WHERE
+			PAYMENT.nmem_code=(SELECT
+										nmem_code AS nmemCode
+									FROM
+										NON_MEMBER
+									WHERE
+										nmem_phone=#{nmemPhone}
+									AND
+										nmem_name=#{nmemName}
+									and
+										nmem_birth=#{nmemBirth}
+									and
+										nmem_pw=#{nmemPw})	
+	</select>
 	<!-- 회원탈퇴 처리 -->
 	<select id="updateMemberDelete" parameterType="kr.co.cinema.dto.Member">
 		update 

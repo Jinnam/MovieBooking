@@ -454,7 +454,7 @@
 						finishHour+=1;
 						finishMinute-=60;
 					}
-					$('#finishTime').val( finishHour+'시 '+finishMinute+	'분')
+					$('#finishTime').val( finishHour+'시'+finishMinute+'분')
 					
 					var startHour = Number($('#startHour').val());
 					console.log(startHour);

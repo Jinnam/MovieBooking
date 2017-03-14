@@ -91,5 +91,92 @@
 		WHERE
 			BRANCH.brc_code=#{brcCode}
 	</select>
+	<!--  지점 별 행/열 사이즈 가져오기 -->
+	<select id="selectRowCol" parameterType="String" resultType="Map">
+		SELECT
+			scr_rowSize AS scrRowSize,
+			scr_colSize AS scrColSize
+		FROM
+			SCREEN
+		WHERE
+			scr_code=#{scrCode}
+	</select>
+	
+	<!-- 상영 일정 등록 -->
+	<insert id="insertScs" parameterType="kr.co.cinema.dto.ScreenSchedule">
+		INSERT INTO 
+			SCREEN_SCHEDULE(
+				scs_code,
+				mov_code,
+				brc_code,
+				scr_code,
+				scs_date,
+				scs_startTime,
+				scs_finishTime,
+				scs_screen,
+				scs_timeDiscount,
+				scs_insertDate,
+				scs_status)
+			VALUES(
+				#{scsCode},
+				#{movCode},
+				#{brcCode},
+				#{scrCode},
+				#{scsDate},
+				#{scsStartTime},
+				#{scsFinishTime},
+				#{scsScreen},
+				#{scsTimeDiscount},
+				now(),
+				"상영전"
+				)
+	</insert>
+	
+	<!-- 좌석 정보 등록 -->
+	<insert id="insertSeat" parameterType="kr.co.cinema.dto.Seat">
+		INSERT INTO
+			SEAT(
+			seat_code,
+			scs_code,
+			scr_code,
+			seat_row,
+			seat_col,
+			seat_useStatus
+		)VALUES(
+			#{seatCode},
+			#{scsCode},
+			#{scrCode},
+			#{seatRow},
+			#{seatCol},
+			"able")
+	</insert>
+	
+	<!-- 상영일정 리스트 -->
+	<select id="selectScreenSchedule" resultType="Map">
+		SELECT
+			MOVIE.mov_korName AS movKorName,
+			BRANCH.brc_name AS brcName,
+			SCREEN.scr_name AS scrName,
+			SCREEN_SCHEDULE.scs_date AS scsDate,
+			SCREEN_SCHEDULE.scs_screen AS scsScreen,
+			SCREEN_SCHEDULE.scs_timeDiscount AS scsTimeDiscount,
+			SCREEN_SCHEDULE.scs_startTime AS scsStartTime,
+			SCREEN_SCHEDULE.scs_finishTime AS scsFinishTime
+		FROM
+			SCREEN_SCHEDULE
+		JOIN
+			MOVIE
+		ON
+			SCREEN_SCHEDULE.mov_code=MOVIE.mov_code
+		JOIN
+			BRANCH
+		ON
+			SCREEN_SCHEDULE.brc_code=BRANCH.brc_code
+		JOIN
+			SCREEN
+		ON
+			SCREEN_SCHEDULE.scr_code=SCREEN.scr_code
+	
+	</select>
 	
 </mapper>
