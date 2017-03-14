@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>      
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>       
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -44,6 +46,18 @@
 
     <div class="container" style="width:970px;"> <!-- 메인컨테이너 시작 -->
       <div class="row"> <!-- 메인row 시작 -->
+      
+		<script>
+			//좋아요 클릭시
+			$(document).on('click','.like',function(){
+				console.log('click like');
+				alert('좋아요에 반영됩니다.');
+			});			
+			$(document).on('click','.likeNoLogin',function(){
+				console.log('click nologin');
+				alert('좋아요 기능은 로그인후 이용 가능합니다.');
+			});
+		</script>
       
         <!-- 플립 스크립트 -->
         <script>
@@ -92,10 +106,23 @@
 
 		              	</a>
 		              	<a href="#">
-			              	<div style="display:inline-block;position:absolute;top:70%;left:50%;">
+		              	<!-- 로그인시 좋아요 -->
+						<c:if test="${sessionScope.id != null}">
+							<a href="addlikeMovie?movCode=${map.movCode}">
+			              	<div class="like" style="display:inline-block;position:absolute;top:70%;left:50%;">
 			              		<div style="color:#eeeeee;"><i class="huge heart icon"></i></div>
 			              		<div style="color:#eeeeee;text-align:center;">좋아요</div>
-			              	</div>		              	
+			              	</div>								
+							</a>
+						</c:if>		
+						
+						<!-- 비 로그인시 좋아요 -->
+						<c:if test="${sessionScope.id == null}">
+			              	<div class="likeNoLogin" style="display:inline-block;position:absolute;top:70%;left:50%;">
+			              		<div style="color:#eeeeee;"><i class="huge heart icon"></i></div>
+			              		<div style="color:#eeeeee;text-align:center;">좋아요</div>
+			              	</div>	
+						</c:if>		              	
 		              	</a>
 	                  </div>
 	                  
@@ -118,7 +145,14 @@
 	            <div class="card-content">
 	              	<div style="color:#424242;font-size:18px;">
 	              		<i class="grade16_${map.movGrade}" style="position:relative;top:2px;"></i>
-	              		<b>${map.movKorName}</b>
+						<c:choose>
+							<c:when test="${fn:length(map.movKorName) > 8}">
+								<c:out value="${fn:substring(map.movKorName,0,7)}"/>....
+							</c:when>
+							<c:otherwise>
+								<c:out value="${map.movKorName}"/>
+							</c:otherwise> 
+						</c:choose>
 	              	</div>
 	            </div>            
 	            

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>        
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>      
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -125,10 +127,17 @@
 	                      </script>
 	              	</div>
 	            </div>            
-	            <div class="card-content">
+	            <div class="card-content">	            
 	              	<div style="color:#424242;font-size:18px;">
 	              		<i class="grade16_${map.movGrade}" style="position:relative;top:2px;"></i>
-	              		<b>${map.movKorName}</b>
+						<c:choose>
+							<c:when test="${fn:length(map.movKorName) > 8}">
+								<c:out value="${fn:substring(map.movKorName,0,7)}"/>....
+							</c:when>
+							<c:otherwise>
+								<c:out value="${map.movKorName}"/>
+							</c:otherwise> 
+						</c:choose>
 	              	</div>
 	            </div>            
 	            
