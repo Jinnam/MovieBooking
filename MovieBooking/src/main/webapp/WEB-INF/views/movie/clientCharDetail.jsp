@@ -56,9 +56,11 @@
               <!-- 필모그래피 -->
               <div class="col s12">
                 <h3>필모그래피</h3>
-                <div class="row">
+
                 
                 	<!-- 감독 필모그래피 -->
+                	<h4>제작</h4>
+                	<div class="row">
 					<c:forEach var="filmo" items="${produceFilmoList}"> 
 	                  <div class="col s3">
 	                    <div>
@@ -68,9 +70,12 @@
 	                    </div>
 	                    <div style="text-align:center">${filmo.movKorName}</div>
 	                  </div>
-					</c:forEach>                
-                
+					</c:forEach>                 	
+                	</div>
+               
+                	<h4>출연</h4>
                 	<!-- 배우 필모그래피 -->
+                	<div class="row">
 					<c:forEach var="filmo" items="${filmoList}"> 
 	                  <div class="col s3">
 	                    <div>
@@ -80,8 +85,10 @@
 	                    </div>
 	                    <div style="text-align:center">${filmo.movKorName}</div>
 	                  </div>
-					</c:forEach>
-                </div>
+					</c:forEach>                	
+                	</div>                	
+
+
               </div>
 
 
