@@ -4,7 +4,28 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="kr.co.cinema.analisys.AnalisysMapper">
+<!-- ///////////////////// 영화 통계 관련 ////////////////////// -->
+ 	<select id="selectMovieList" parameterType="String" resultType="Map">
+ 		SELECT
+			MOVIE.mov_korName AS movKorName,
+			MOVIE.mov_code AS movCode,
+			MOVIE.mov_genre AS movGenre,
+			`CHARACTER`.char_korName AS charKorName
+		FROM
+			MOVIE
+		JOIN
+			ANALYSIS
+		ON
+			MOVIE.mov_code=ANALYSIS.mov_code
+		JOIN
+			`CHARACTER`
+		ON
+			MOVIE.char_code = `CHARACTER`.char_code
+		WHERE
+			mov_korName	like #{movName}
+ 	</select>
  
+ <!-- ///////////////////// 지점 통계 관련 ////////////////////// -->
  	<!-- 지점 정보 가져오기-->
  	<select id="selectBranchInfo" resultType="kr.co.cinema.dto.Branch">
  		SELECT

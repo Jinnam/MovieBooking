@@ -18,6 +18,15 @@ public class AnalysisService {
 	@Autowired
 	private AnalysisDao analysisDao;
 	
+	//-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ 영화 통계 관련 /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
+		// 영화 이름 가져오기
+		public List<HashMap<String, Object>> searchListMovie(String movName){
+			logger.debug("		searchListMovie() 진입");
+			String likeMovName="%"+movName+"%";
+			return analysisDao.selectListMovie(likeMovName);		
+		}
+		
+	//-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ 지점 통계 관련 /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
 	// 지점 정보 가져오기
 	public List<Branch> searchOneBranchInfo(){
 		logger.debug("		selectOneBranchInfo() 진입");

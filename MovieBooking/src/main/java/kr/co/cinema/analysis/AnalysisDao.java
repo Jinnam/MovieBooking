@@ -22,6 +22,15 @@ private static final Logger logger = LoggerFactory.getLogger(PaymentDao.class);
 	private SqlSessionTemplate sqlSession;
 	private final String NS="kr.co.cinema.analisys.AnalisysMapper.";
 	
+	//-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ 영화 통계 관련 /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
+	// 영화 이름 가져오기
+	public List<HashMap<String, Object>> selectListMovie(String movName){
+		logger.debug("		selectListMovie() 진입 movName : "+movName);
+		return sqlSession.selectList(NS+"selectMovieList",movName);		
+	}
+	
+	
+	//-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ 지점 통계 관련 /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
 	// 지점 정보 가져오기
 	public List<Branch> selectOneBranchInfo(){
 		logger.debug("		selectOneBranchInfo() 진입");
