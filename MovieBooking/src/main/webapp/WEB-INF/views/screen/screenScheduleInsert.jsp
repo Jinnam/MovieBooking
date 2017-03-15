@@ -334,18 +334,17 @@
 							<!-- 상영시작시간 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">상영시작시간</label>
-								<div class="col-lg-9">
-									<div class="col-lg-1"> 시 </div>
-									<div class="col-lg-5">
+								<div class="col-lg-4" style="margin: 0 auto;width:300px;">
+									<!-- <span class="col-lg-1">시</span> -->
+									<div style="float:left;">
 										<select class="form-control" name="startHour" id="startHour">
 										</select>
 									</div>
-									<div class="col-lg-1"> 분 </div>
-									<div class="col-lg-4">
+									<div style="float:left;">
 										<select class="form-control" name="startMin" id="startMin">
 										</select>
 									</div>
-									<input id="startTimeInput" type="button" class="col-lg-2 btn btn-button" value="입력">
+									<input id="startTimeInput" type="button" class="btn btn-button" value="입력" style="float:left;">
 									<input type="hidden" name="scsStartTime" id="scsStartTime"/>
 								</div>
 							</div>
@@ -443,7 +442,7 @@
 				$('#startHour').append('<option value='+i+'>'+i+'</option');	
 			}
 		}
-		for(i=0;i<61;i++){
+		for(i=0;i<60;i++){
 			if(i<10){
 				$('#startMin').append('<option value='+i+'>0'+i+'</option');
 			}else{
