@@ -45,11 +45,18 @@ public class AnalysisController {
 		logger.debug("selectMovInfo ajax 가져온 movieNameList"+movieNameList.toString());
 		return movieNameList;
 	}
-	// 
+	
+	// 예매/매출 정보 가져오기
 	@RequestMapping(value="analisysByMovie", method=RequestMethod.POST)
-	public List<HashMap<String, Object>> selectAnaysisByMovie(){
-		logger.debug(" selectAnalisysByMovie Post 진입");
-		return null;
+	public @ResponseBody List<HashMap<String, Object>> selectAnaysisByMovie(@RequestParam String brcName,@RequestParam String cntKind,@RequestParam String selectedMovie){
+		logger.debug(" selectAnalisysByMovie() Post 진입");
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("brcName", brcName);
+		map.put("cntKind", cntKind);
+		map.put("movKorName", selectedMovie);
+		List<HashMap<String, Object>> resultMap = analysisService.findOneSaleCnt(map);
+		logger.debug("selectAnalisysByMovie() resultMap: "+resultMap);
+		return resultMap;
 	}
 	
 	//-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ 지점 통계 관련 /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/

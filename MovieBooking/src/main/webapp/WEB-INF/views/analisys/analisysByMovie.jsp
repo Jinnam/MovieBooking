@@ -244,75 +244,96 @@
 				<div class="col-lg-12 main-chart" align="center">
 				
 				<fieldset class="col-lg-4" style="float:left;">
-							<legend>add</legend>
-							
-							<!-- 영화 선택 -->
-							<div class="form-group">
-								<label class="col-lg-4 control-label">영화 선택</label>
-								<div class="col-lg-6">
-									<input type="text" id="movKorName" name="movKorName" class="form-control" value="공조" placeholder="영화이름을 입력하세요" required="required">
-								</div>
-								<!-- 영화코드 조회버튼 -->
-								<div>
-									<input id="selectMovieCode" type="button" class="btn btn-button" value="검색">
-								</div>
-							</div>
-							
-							<!-- 지점 선택 -->
-							<div class="form-group">
-								<label class="col-lg-4 control-label">지점 선택</label>
-								<div class="col-lg-8">
-									<select class="form-control" name="brcCode">
-										<option value="allBrc">지점 전체</option>
-										<c:forEach items="${branchInfo}" var="branchInfo">
-											<option value="${branchInfo.brcCode}">${branchInfo.brcName}</option>
-										</c:forEach>
-									</select>
-									<input type="button" class="btn" value="선택"/>
-								</div>
-							</div>
-							
-							<!-- 예매/매출 선택 -->
-							<div class="form-group"> 
-								<label class="col-lg-4 control-label">예매/매출 선택</label>
-								<div class="col-lg-8">
-									<select class="form-control">
-										<option value="allCnt">전체</option>
-										<option value="ticketCnt">예매</option>
-										<option value="saleCnt">매출</option>
-									</select>
-									<input type="button" class="btn" value="선택"/>
-								</div>
-							</div>
-							
-						</fieldset>
-						<fieldset class="col-lg-8" style="float:left;">
-							<legend>&nbsp;</legend>
-							
-							<!-- 영화 선택 결과-->
-							<div class="form-group">
-								<!-- <label class="col-lg-3 control-label">영화 선택</label> -->
-								<div id="movSelectResult" class="col-lg-9">
-									
-								</div>
-							</div>
-							
-							
-						</fieldset>
-						<div id="searchform"></div>
-				</div>
-			</div>
-		</section>
+					<legend>통계</legend>
+					
+				
+					<!-- 영화 검색 -->
+					<div class="form-group">
+						<label class="col-lg-4 control-label">영화 검색</label>
+						<div class="col-lg-6">
+							<input type="text" id="movKorName" name="movKorName" class="form-control" value="공조" placeholder="영화이름을 입력하세요" required="required"/>
+						</div>
+						<!-- 영화코드 조회버튼 -->
+						<div>
+							<input id="selectMovieCode" type="button" class="btn btn-button" value="찾기">
+						</div>
+					</div>
+					
+					<!-- 영화 검색 결과 -->
+					<div class="form-group" id="findCondition">
+						<label class="col-lg-4 control-label">선택 영화</label>
+						<div class="col-lg-8">
+							<input type="text" id="selectedMovie" class="form-control" readonly="readonly"/>
+						</div>
+					</div>
+					
+					<!-- 지점 선택 -->
+					<div class="form-group">
+						<label class="col-lg-4 control-label">지점 선택</label>
+						<div class="col-lg-8">
+							<select class="form-control" id="brcName" name="brcName">
+								<option value="전체">지점 전체</option>
+								<c:forEach items="${branchInfo}" var="branchInfo">
+									<option value="${branchInfo.brcName}">${branchInfo.brcName}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					
+					<!-- 예매/매출 선택 -->
+					<div class="form-group"> 
+						<label class="col-lg-4 control-label">예매/매출 선택</label>
+						<div class="col-lg-8">
+							<select name="cntKind" id="cntKind" class="form-control">
+								<option value="전체">전체</option>
+								<option value="예매">예매</option>
+								<option value="매출">매출</option>
+							</select>	
+						</div>
+					</div>
+					
+					<!-- 통계 검색 버튼 -->
+					<div class="form-group">
+						<div class="col-lg-12" align="right">
+							<input type="button" id="analBtn" class="btn" value="검색"/>
+						</div>
+					</div>
+
+					
+				</fieldset>
+				<fieldset class="col-lg-8" style="float:left;">
+					<legend>&nbsp;</legend>
+					
+					
+					<!-- 선택 결과-->
+					<div class="form-group">
+							<div id="movSelectResult" class="col-lg-9"></div>
+					</div>
+
+			</fieldset>
+						
+		</div>
+	</div>
 	</section>
+	<section class="wrapper">
+		<div class="container" style="background-color:black">
+			<div id="ajaxResult"></div>
+		</div>
+	</section>
+</section>
+	
 	<!-- 여기까지 메인 -->
 	
 	<script>
-	// 테이블 클릭 이벤트
-		function selectFunction(a){
-			$('#searchform').append('<input tpye="button" class="btn btn-primary" value="'+a+'"/>');
+	// 테이블 클릭 함수
+		function selectFunction(value){
+			$('#selectedMovie').val("");
+			$('#selectedMovie').val(value);
 			$('#movSelectResult').contents().remove();
 		}
 		$(document).ready(function(){
+			
+			// 영화이름으로 영화 목록 가져오기
 			$('#selectMovieCode').click(function(){
 				//ajax 시작
 				$.ajax({
@@ -321,7 +342,7 @@
 				      data : { "movName" : $('#movKorName').val()},
 				      success : function(data){ 
 				    	  console.log(data);
-							$('#movSelectResult').children().remove();
+							$('#movSelectResult').contents().remove();
 							$('#movSelectResult')
 							.append('<div class="col-lg-12">'+
 										'<table class="table table-striped table-hover">'+
@@ -339,7 +360,7 @@
 									'</div>');
 				        $(data).each(function(i){
 				        		$('#resultInfo')
-				        		.append('<tr id="movInfo'+i+'" onclick="selectFunction(&quot;'+data[i].movKorName+'&quot;)">'+
+				        		.append('<tr onclick="selectFunction(&quot;'+data[i].movKorName+'&quot;)">'+
 											'<td>'+i+'</td>'+
 											'<td>'+data[i].movKorName+'</td>'+
 											'<td>'+data[i].movGenre+'</td>'+
@@ -353,14 +374,44 @@
 				       }
 				   })
 				// ajax 끝
-				
-				$('.movInfo').click(function(){
-					console.log("movInfo Click");
-					$('.movInfo').removeClass("info");
-					$(this).addClass("info");
-				})
 			})
+			// 영화 이름으로 영화찾기 끝
 			
+			var movKorName = 
+			// 통계 정보 가져오기
+			$('#analBtn').click(function(){
+				$('#movSelectResult').contents().remove();
+				$('#movSelectResult')
+				.append('<div class="col-lg-12">'+
+							'<label class="col-lg-4 control-label">검색 조건</label>'+
+							'<input type="button" class="btn" value="영화 : '+$('#selectedMovie').val()+'"/>&nbsp;'+
+							'<input type="button" class="btn" value="지점 : '+$('#brcName option:selected').text()+'"/>&nbsp;'+
+							'<input type="button" class="btn" value="예매/매출 : '+$('#cntKind option:selected').text()+'"/>'+
+						'</div>');
+				var brcName = $('#brcName option:selected').val();
+				var cntKind = $('#cntKind option:selected').val();
+				var selectedMovie = $('#selectedMovie').val();
+				console.log(brcName+', '+cntKind+', '+selectedMovie);
+				// ajax 시작
+				$.ajax({
+					url : "analisysByMovie", 
+					type :"post", 
+					data : {"brcName":brcName,
+				    	 	 "cntKind":cntKind, 
+				    	 	 "selectedMovie" :selectedMovie},
+					success : function(data){ 
+						console.log(data);
+						$('#ajaxResult')
+							.append('<table>'+
+										'<tr>'+
+											'<td>'+
+											'</td>'+
+										'</tr>'+
+									'</table>')
+					}
+				}) 
+				// ajax 끝
+			})
 			
 		})
 	</script>

@@ -63,6 +63,39 @@
 			</if>
 	 </select>
 	 
+	 <!-- 영화/지점/별로 예매/매출 가져오기 -->
+	 <select id="selectSaleCnt" parameterType="Map" resultType="Map">
+		SELECT
+			MOVIE.mov_korName AS movKorName,
+			BRANCH.brc_name AS brcName,
+		<if test="cntKind=='예매'">
+			sum(brcCnt_clientCount) AS brcCntClientCount
+		</if>
+		<if test="cntKind=='매출'">
+			sum(brcCnt_saleTotal) AS brcCntSaleTotal
+		</if>
+		<if test="cntKind=='전체'">
+			sum(brcCnt_clientCount) AS brcCntClientCount,
+			sum(brcCnt_saleTotal) AS brcCntSaleTotal
+		</if>
+		FROM
+			BRANCH_DAY_COUNT
+		JOIN
+			MOVIE
+		ON
+			BRANCH_DAY_COUNT.mov_code=MOVIE.mov_code
+		JOIN
+			BRANCH
+		ON
+			BRANCH_DAY_COUNT.brc_code=BRANCH.brc_code
+		WHERE
+			mov_korName=#{movKorName}
+		<if test="brcName !='전체'">
+		AND
+			brc_name=#{brcName}
+		</if>
+		GROUP BY brc_name
+	 </select>
 	 <!-- 영화 정보 가져오기 -->
 	 <select id="">
 	 	SELECT

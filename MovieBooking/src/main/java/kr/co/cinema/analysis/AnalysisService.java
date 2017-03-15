@@ -1,5 +1,6 @@
 package kr.co.cinema.analysis;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,12 +20,19 @@ public class AnalysisService {
 	private AnalysisDao analysisDao;
 	
 	//-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ 영화 통계 관련 /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
-		// 영화 이름 가져오기
-		public List<HashMap<String, Object>> searchListMovie(String movName){
-			logger.debug("		searchListMovie() 진입");
-			String likeMovName="%"+movName+"%";
-			return analysisDao.selectListMovie(likeMovName);		
-		}
+		
+	// 영화 이름 가져오기
+	public List<HashMap<String, Object>> searchListMovie(String movName){
+		logger.debug("		searchListMovie() 진입");
+		String likeMovName="%"+movName+"%";
+		return analysisDao.selectListMovie(likeMovName);		
+	}
+		
+	// 예매/매출 정보 가져오기
+	public List<HashMap<String, Object>> findOneSaleCnt(Map<String,String> map){
+		logger.debug("		findOneSaleCnt() 진입 map : "+map);
+		return analysisDao.selectOneSaleCnt(map);
+	}
 		
 	//-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ 지점 통계 관련 /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
 	// 지점 정보 가져오기
