@@ -189,7 +189,13 @@ public class AdminDao {
 		logger.debug(" Dao insertCharacters");
 		return sqlSession.insert(NS+"insertCharacters", map);
 	}
-	
+
+	public int insertSteelCut(Map<String, Object> map) {
+		logger.debug(" Dao insertSteelCut");
+		return sqlSession.insert(NS+"insertSteelCut", map);
+		
+	}
+
 	//관리자 영화조회
 	public List<Movie> selectMovieList() {
 		logger.debug(" Dao selectMovieList");
@@ -238,5 +244,4 @@ public class AdminDao {
 		return sqlSession.selectOne(NS+"selectAdminInfo", adminId);
 				
 	}
-
 }

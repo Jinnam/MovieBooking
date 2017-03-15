@@ -83,10 +83,17 @@
 		<section class="wrapper">
 			<div class="row">
 				<!-- 페이지 강제 줄임 -->
-				<div class="col-lg-9 main-chart" align="center">
-
+				<div class="col-lg-10 main-chart" align="center">
+				</div>
+			</div>
+			<div class="col-lg-12 container" style="margin: 0 auto;">
+				<div class="jumbotron">
+					<h2 class="logo">로그인</h2>
+				</div>
+				<div class="col-lg-3" style="float: left;"></div>
+				<div class="col-lg-4" style="float: left;">
 					<!-- <시작> 로그인 테이블 -->
-					<table>
+					<table class="table">
 						<tr>
 							<td>아이디</td>
 							<td><input type="text" id="adminId" value="admin01"
@@ -102,10 +109,12 @@
 								id="loginBtn" value="로그인" /></td>
 						</tr>
 					</table>
-					<!-- <끝> 로그인 테이블  -->
-
 				</div>
 			</div>
+			<!-- <끝> 로그인 테이블  -->
+
+				
+			
 		</section>
 	</section>
 

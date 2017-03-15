@@ -340,11 +340,11 @@
 									<input id="selectCharcodeActor" type="button" class="btn btn-button"  data-toggle="modal" data-target="#ActModal" value="조회">
 								</div>
 							</div>
-							
+
 							<!-- 배우코드 출력 -->
 							<div class="form-group" id="ActCharInfo">
 							</div>
-							
+
 							<!-- Modal -->
 							<div class="modal fade" id="ActModal" role="dialog">
 								<div class="modal-dialog modal-lg">
@@ -453,6 +453,14 @@
 								</div>
 							</div>
 							
+							<!-- 영상경로 영상경로는 유투브-영상선택-공유-소스코드 -->
+							<div class="form-group">
+								<label class="col-lg-3 control-label">영상경로</label>
+								<div class="col-lg-9">
+									<input type="text" name="movVideoPath" class="form-control" placeholder="영상 경로를 입력하세요" required="required">
+								</div>
+							</div>
+							
 							<!-- 포스터이미지 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">포스터이미지</label>
@@ -464,10 +472,14 @@
 							<!-- 스틸컷이미지 -->
 							<div class="form-group">
 								<label class="col-lg-3 control-label">스틸컷이미지</label>
-								<div class="col-lg-9">
-									<input type="text" name="movImgPath" class="form-control" placeholder="이미지 경로를 입력하세요" required="required">
+								<div class="col-lg-7" id="steelCutImg">
+									<input type="text" name="stcImgPath" class="form-control" placeholder="이미지 경로를 입력하세요" required="required">
+								</div>
+								<div class="col-lg-1">
+									<input type="button" id="steelCutAddBtn" class="btn btn-button" value="추가">
 								</div>
 							</div>
+							
 							<!-- 포스터이미지 단일파일 미구현 & 파일크기때문에 사용 x-->
 							<!-- <div class="form-group">
 								<label class="col-lg-3 control-label">포스터이미지</label>
@@ -483,14 +495,6 @@
 									<input type="file" name="movImgPath" class="btn btn-button" placeholder="이미지 경로를 입력하세요" required="required">
 								</div>
 							</div> -->
-							
-							<!-- 영상경로 영상경로는 유투브-영상선택-공유-소스코드 -->
-							<div class="form-group">
-								<label class="col-lg-3 control-label">영상경로</label>
-								<div class="col-lg-9">
-									<input type="text" name="movVideoPath" class="form-control" placeholder="영상 경로를 입력하세요" required="required">
-								</div>
-							</div>
 							
 							<!-- 등록버튼 -->
 							<div class="form-group">
@@ -516,6 +520,18 @@
 	<!-- 인물(배우)코드 조회하기 modal-->
 	<script src="resources/adminjs/adminSelectActCharCodeUseModal.js"></script>
 
+	<!-- 스틸컷추가  -->
+	<script>
+	$(function() {
+		$("#steelCutAddBtn").click(function(){
+			$("#steelCutImg").append(
+					'<input class="form-control"'
+					+'type="text" name="stcImgPath"'
+					+'placeholder="이미지 경로를 입력하세요" required="required">'
+				)
+		})
+	});
+	</script>
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="resources/assets/js/jquery.js"></script>
 	<script src="resources/assets/js/jquery-1.8.3.min.js"></script>
