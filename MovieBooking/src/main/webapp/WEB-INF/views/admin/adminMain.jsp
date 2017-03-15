@@ -301,6 +301,20 @@
 				</div>
 			</div>
 			<!-- 하단 우측 예매율 순위 차트 -->
+			
+			<div><!-- 0315작업중 -->
+			<!-- SELECT 	BRANCH_DAY_COUNT.mov_code 					AS movCode,
+					MOVIE.mov_korName 							AS movKorName,
+					SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal)		AS brcCntSaleTotal
+			FROM		BRANCH_DAY_COUNT
+						INNER JOIN MOVIE
+							ON BRANCH_DAY_COUNT.mov_code = MOVIE.mov_code
+			WHERE		BRANCH_DAY_COUNT.brc_code = 41102
+			GROUP 	BY BRANCH_DAY_COUNT.mov_code
+			ORDER 	BY SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) DESC
+			LIMIT 	3;
+			 -->
+			</div>
 		</section>
 	</section>
 	
@@ -359,6 +373,7 @@
 		} */
 	</script>
 	
+	<script src="resources/adminjs"></script>
 	<!-- 메인화면 상단 바 그래프 자바 스크립트 -->
 	<script type="text/javascript">
 	//표에 어떻게 뿌리는지 모르겠다..
@@ -406,19 +421,19 @@
 			},
 			series: [
 				{
-					type: 'column',					//첫번째 바 내용
+					type: 'column',					//첫번째 하늘색 바 내용
 					name: MovieCodeGraphList[0],	//매출1위점 영화이름
-					data: [3, 2, 1, 3, 4]
+					data: [3, 2, 1, 3, 4]			//각지점별 매출1위의 영화매출
 				},
 				{
-					type: 'column',					//두번째 바 내용
+					type: 'column',					//두번째 검은색 바 내용
 					name: MovieCodeGraphList[1],	//매출2위점 영화이름
-					data: [2, 3, 5, 7, 6]
+					data: [2, 3, 5, 7, 6]			//각지점별 매출2위의 영화매출
 				},
 				{
-					type: 'column',					//세번째 바 내용
+					type: 'column',					//세번째 초록색 바 내용
 					name: MovieCodeGraphList[2],	//매출3위점 영화이름
-					data: [4, 3, 3, 9, 1]
+					data: [4, 3, 3, 9, 1]			//각지점별 매출3위의 영화매출
 				},
 				{
 					type: 'spline',					//평균치 곡선 그래프 내용
