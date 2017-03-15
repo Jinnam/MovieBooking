@@ -121,7 +121,7 @@
 					BRANCH.brc_local = #{brcLocal},
 					BRANCH.brc_addr = #{brcAddr},
 					BRANCH.brc_infoDetail = #{brcInfoDetail},
-					BRANCH.brc_imgPath = #{brcImgPath} 
+					BRANCH.brc_imgPath = #{brcImgPath}
 			WHERE	BRANCH.brc_code = #{brcCode}
 	</update>
 	

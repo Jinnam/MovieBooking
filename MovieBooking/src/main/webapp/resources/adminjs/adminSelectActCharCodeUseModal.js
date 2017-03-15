@@ -9,14 +9,14 @@ function ActBtnClick(i) {
 	//화면에 선택한 인물 코드와 인물 이름 추가
 	$("#ActCharInfo").append(
 			'<label class="col-lg-3 control-label">배우코드</label>'
-			+'<div class="col-lg-9">'
+			+'<div class="col-lg-9">'									//코드출력되는 div
 			+	'<input type="text" class="form-control"'
 			+			'id="charCodeAct" name="charCodeAct"'
 			+			'value="'+choiceActCharCode.text()+'"'
 			+			'required="required" readonly="readonly">'
 			+'</div>'
 			+'<label class="col-lg-3 control-label">배우이름</label>'
-			+'<div class="col-lg-9">'
+			+'<div class="col-lg-9">'									//이름출력되는 div
 			+	'<input type="text" class="form-control"'
 			+			'id="charKorNameAct" required="required"'
 			+			'value="'+choiceActCharKorName.text()+'" readonly="readonly">'
@@ -37,15 +37,15 @@ $(document).ready(function() {
 				$.each(list, function(i) {			//감독이름으로 감독정보 모달에 조회	
 					$("#charNameActor").append(
 								'<tr>'
-									+'<td>'+(i+1)				+'</td>'
-									+'<td id="choiceActCharKorName'+i+'">'	+list[i].charKorName	+'</td>'
-									+'<td id="choiceActCharCode'+i+'">'		+list[i].charCode		+'</td>'
-									+'<td>'+list[i].charNation	+'</td>'
-									+'<td>'+list[i].charBirth	+'</td>'
-									+'<td>'+list[i].charGender	+'</td>'
+									+'<td>'+(i+1)				+'</td>'										//인덱스번호
+									+'<td id="choiceActCharKorName'+i+'">'	+list[i].charKorName	+'</td>'	//배우이름
+									+'<td id="choiceActCharCode'+i+'">'		+list[i].charCode		+'</td>'	//배우코드
+									+'<td>'+list[i].charNation	+'</td>'										//배우국적
+									+'<td>'+list[i].charBirth	+'</td>'										//배우생년월일
+									+'<td>'+list[i].charGender	+'</td>'										//배우성별
 									+'<td>'
-									+'	<input	type="button"'
-									+'			onClick="ActBtnClick('+i+')"'
+									+'	<input	type="button"'													//버튼
+									+'			onClick="ActBtnClick('+i+')"'									//클릭이벤트
 									+'			id="choiceCharCodeBtn;"'
 									+'			class="btn btn-button" value="선택">'
 									+'</td>'
