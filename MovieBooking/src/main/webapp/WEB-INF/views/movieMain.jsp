@@ -171,7 +171,7 @@
     <div class="parallax-container">
       <div class="parallax"><img src="resources/module-img/main_pa1.jpg"></div>
 		<div style="width:100%">
-	      	<div style="width:970px;margin:0 auto;">
+	      	<div style="width:865px;margin:auto;">
 	      		<img src="resources/module-img/main_pa2.png" >
 	      	</div>		
 		</div>
