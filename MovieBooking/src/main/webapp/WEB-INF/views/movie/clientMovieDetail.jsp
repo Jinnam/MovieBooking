@@ -97,33 +97,46 @@
                 	<i class="grade24_${movie.movGrade}" style="position:relative;top:5px;"></i>
                 	 ${movie.movKorName}
                 </h2>
-                <span class="col s9" style="color:#8C8C8C;">
-                  <sapn style="position:relative ; top:10px;">${movie.movEngName}</span>
-                  <span>${movie.movStatus} </span>
-                  <c:if test="${movie.movStatus == '상영중' || movie.movStatus == '상영예정'}">
-                 	 <span style="text-align:right;"><a href="bookingSelect"class="waves-effect waves-light btn" style="border-radius:0em ;">예매하기</a></span>
-                  </c:if>
-                  <!-- 간격 --><div style="height:10px;"></div>
-                </span>
-                <div class="divider"></div>
-                <div><b>평점 : </b> <span>${movie.grade*2} / 10</span></div>
-                <div><b>감독 : </b> <span><a href="clientCharDetail?charCode=${movie.charCode}">${movie.producer}</a></span></div>
-                <div><b>출연진 : </b> 
-                	<span>
-						<c:forEach var="charInfo" items="${charList}"> 
-							<a href="clientCharDetail?charCode=${charInfo.charCode}">${charInfo.charKorName}</a>
-						</c:forEach>
-                	</span>
-                </div>
-                <div><b>장르 : </b> <span>${movie.movGenre} / 러닝타임 : ${movie.movRunningTime}/${movie.movNation}</span></div>
-                <div><b>개봉일 : </b> <span>${movie.movOpenDate}</span></div>
-                <div style="height:40px;"></div>
-                <div>
-                  <i class="medium material-icons">thumb_up</i>
-                  <div class="ui large label" style="position:relative ; top:-15px;">
-                    ${movie.likeTotalCount}
+                <div class="col s12" style="color:#8C8C8C;">
+                  <span>${movie.movEngName}</span>
+                  <div style="float:right;">
+	                  <span>${movie.movStatus} </span>
+	                  <c:if test="${movie.movStatus == '상영중' || movie.movStatus == '상영예정'}">
+	                 	 <span style=:float:right;>
+	                 	 	<a href="bookingSelect"class="waves-effect waves-light btn" style="border-radius:0em ;">예매하기</a>
+	                 	 </span>
+	                  </c:if>     	                               
                   </div>
+                  
+                  <!-- 간격 --><div style="height:10px;"></div>
+                  
                 </div>
+				
+                <div class="col s 12">
+                
+                	<div class="divider"></div>
+                	<!-- 간격 --><div style="height:10px;"></div>
+	                <div><b>평점 : </b> <span>${movie.grade*2} / 10</span></div>
+	                <div><b>감독 : </b> <span><a href="clientCharDetail?charCode=${movie.charCode}">${movie.producer}</a></span></div>
+	                <div><b>출연진 : </b> 
+	                	<span>
+							<c:forEach var="charInfo" items="${charList}"> 
+								<a href="clientCharDetail?charCode=${charInfo.charCode}">${charInfo.charKorName}</a>
+							</c:forEach>
+	                	</span>
+	                </div>
+	                <div><b>장르 : </b> <span>${movie.movGenre} / 러닝타임 : ${movie.movRunningTime}/${movie.movNation}</span></div>
+	                <div><b>개봉일 : </b> <span>${movie.movOpenDate}</span></div>
+	                <div style="height:40px;"></div>
+	                <div>
+	                  <i class="medium material-icons">thumb_up</i>
+	                  <div class="ui large label" style="position:relative ; top:-15px;">
+	                    ${movie.likeTotalCount}
+	                  </div>
+                </div>                	
+                </div>
+                
+
               </div>
 
               <!-- 줄거리 -->

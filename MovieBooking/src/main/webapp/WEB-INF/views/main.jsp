@@ -98,7 +98,7 @@
 	                <img src="resources/index_img/jbin.png" style="height:auto;">
 	              </div>
 	              <div class="card-content">
-	                <p>팀원 개인 포트폴리오 준비중</p>
+	                <p>김정빈</p>
 	              </div>
 	            </div>
 	          </div>

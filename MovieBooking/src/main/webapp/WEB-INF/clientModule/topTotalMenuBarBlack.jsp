@@ -93,8 +93,8 @@
       <!-- 전체메뉴 modal  -->
       <div id="modal1" class="modal">
         <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
+          <h4>전체메뉴</h4>
+          <p></p>
         </div>
       </div>
 
