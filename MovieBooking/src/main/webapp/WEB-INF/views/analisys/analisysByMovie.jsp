@@ -316,7 +316,7 @@
 	</div>
 	</section>
 	<section class="wrapper">
-		<div class="container" style="background-color:black">
+		<div class="container">
 			<div id="ajaxResult"></div>
 		</div>
 	</section>
@@ -400,14 +400,83 @@
 				    	 	 "cntKind":cntKind, 
 				    	 	 "selectedMovie" :selectedMovie},
 					success : function(data){ 
+						
 						console.log(data);
-						$('#ajaxResult')
-							.append('<table>'+
-										'<tr>'+
-											'<td>'+
-											'</td>'+
-										'</tr>'+
+						$('#ajaxResult').contents().remove();
+						
+						if(cntKind=="매출"){
+							$('#ajaxResult')
+							.append('<table class="table table-striped table-hover">'+
+										'<thead>'+
+											'<tr>'+
+												'<td>영화</td>'+
+												'<td>지점</td>'+
+												'<td>매출액</td>'+
+											'</tr>'+
+										'</thead>'+
+										'<tbody id="ajaxResultBody">'+
+										'</tbody>'+
 									'</table>')
+						}else if(cntKind=="예매"){
+							$('#ajaxResult')
+							.append('<table class="table table-striped table-hover">'+
+										'<thead>'+
+											'<tr>'+
+												'<td>영화</td>'+
+												'<td>지점</td>'+
+												'<td>예매수</td>'+
+											'</tr>'+
+										'</thead>'+
+										'<tbody id="ajaxResultBody">'+
+										'</tbody>'+
+									'</table>')
+						}else{
+							$('#ajaxResult')
+							.append('<table class="table table-striped table-hover">'+
+										'<thead>'+
+											'<tr>'+
+												'<td>영화</td>'+
+												'<td>지점</td>'+
+												'<td>예매수</td>'+
+												'<td>매출액</td>'+
+											'</tr>'+
+										'</thead>'+
+										'<tbody id="ajaxResultBody">'+
+										'</tbody>'+
+									'</table>')
+						}
+						
+						
+						$(data).each(function(i){
+							if(cntKind=="매출"){
+								$('#ajaxResultBody')
+								.append(
+										'<tr>'+
+											'<td>'+data[i].movKorName+'</td>'+
+											'<td>'+data[i].brcName+'</td>'+
+											'<td>'+data[i].brcCntSaleTotal+'</td>'+
+										'</tr>')
+							}else if(cntKind=="예매"){
+								$('#ajaxResultBody')
+									.append(
+										'<tr>'+
+											'<td>'+data[i].movKorName+'</td>'+
+											'<td>'+data[i].brcName+'</td>'+
+											'<td>'+data[i].brcCntClientCount+'</td>'+
+										'</tr>')
+							}else{
+								$('#ajaxResultBody')
+								.append(
+									'<tr>'+
+										'<td>'+data[i].movKorName+'</td>'+
+										'<td>'+data[i].brcName+'</td>'+
+										'<td>'+data[i].brcCntClientCount+'</td>'+	
+										'<td>'+data[i].brcCntSaleTotal+'</td>'+
+									'</tr>')
+							}
+							
+						})
+						
 					}
 				}) 
 				// ajax 끝

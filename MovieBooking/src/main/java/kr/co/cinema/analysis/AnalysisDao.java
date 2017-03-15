@@ -33,7 +33,7 @@ private static final Logger logger = LoggerFactory.getLogger(PaymentDao.class);
 	// 예매/매출 정보 가져오기
 	public List<HashMap<String, Object>> selectOneSaleCnt(Map<String,String> map){
 		logger.debug("		selectOneSaleCnt() 진입 map : "+map);
-		return sqlSession.selectOne(NS+"selectSaleCnt",map);
+		return sqlSession.selectList(NS+"selectSaleCnt",map);
 	}
 	
 	//-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ 지점 통계 관련 /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
