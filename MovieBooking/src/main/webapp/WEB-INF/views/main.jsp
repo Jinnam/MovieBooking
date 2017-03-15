@@ -75,12 +75,12 @@
 	      
 	      <div class="row"> <!-- row 열기 -->
 	      
-	        <a href="http://kjb7907.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
+	        <a href="#" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/jbin.png" style="height:auto;">
+	                <img src="#" style="height:200px;">
 	              </div>
 	              <div class="card-content">
 	                <p>팀원 개인 포트폴리오 준비중</p>
@@ -95,7 +95,7 @@
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/jbin.png" style="height:auto;">
+	                <img src="resources/index_img/jbin.png" style="height:200px;">
 	              </div>
 	              <div class="card-content">
 	                <p>김정빈</p>
@@ -105,12 +105,12 @@
 	          
 	        </a>	
 	        
-	        <a href="http://kjb7907.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
+	        <a href="#" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/jbin.png" style="height:auto;">
+	                <img src="#" style="height:200px;">
 	              </div>
 	              <div class="card-content">
 	                <p>팀원 개인 포트폴리오 준비중</p>
@@ -120,12 +120,12 @@
 	          
 	        </a>		
 	        
-	        <a href="http://kjb7907.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
+	        <a href="#" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/jbin.png" style="height:auto;">
+	                <img src="#" style="height:200px;">
 	              </div>
 	              <div class="card-content">
 	                <p>팀원 개인 포트폴리오 준비중</p>
