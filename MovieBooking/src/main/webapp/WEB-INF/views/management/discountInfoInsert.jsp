@@ -245,7 +245,7 @@
 				</div>
 				<div class="col-lg-3"></div>
 				<div class="col-lg-6" style="float: left: ;">
-					<form action="" class="form-horizontal" method="post">
+					<form action="discountInfoInsert" class="form-horizontal" method="post">
 						<fieldset>
 							<legend>add</legend>
 							
@@ -253,7 +253,7 @@
 							<div class="row form-group">
 								<label class="col-lg-2 control-label">할인정보</label>
 								<div class="col-lg-8">
-									<input type="text" class="form-control" placeholder="할인정보를 입력하세요" required="required">
+									<input type="text" name="dcinfInfo" class="form-control" placeholder="할인정보를 입력하세요" required="required">
 								</div>
 							</div>
 							
@@ -261,7 +261,7 @@
 							<div class="form-group">
 								<label class="col-lg-2 control-label">할인가</label>
 								<div class="col-lg-8">
-									<input type="text" class="form-control" placeholder="할인가를 입력하세요" required="required">
+									<input type="text" name="dcinfPrice" class="form-control" placeholder="할인가를 입력하세요" required="required">
 								</div>
 							</div>
 							
@@ -269,7 +269,7 @@
 							<div class="form-group">
 								<label class="col-lg-2 control-label">적용연도</label>
 								<div class="col-lg-8">
-									<input type="text" class="form-control" placeholder="적용연도를 입력하세요" required="required">
+									<input type="text" name="dcinfApplyYear" class="form-control" placeholder="적용연도를 입력하세요" required="required">
 								</div>
 							</div>
 							
@@ -277,7 +277,7 @@
 							<div class="form-group">
 								<label class="col-lg-2 control-label">적용상태</label>
 								<div class="col-lg-8">
-									<select name="" class="form-control">
+									<select name="dcinfStatus" class="form-control">
 										<option>적용</option>
 										<option>미적용</option>
 									</select>
@@ -288,7 +288,7 @@
 							<div class="form-group">
 								<label class="col-lg-2 control-label">할인구분</label>
 								<div class="col-lg-8">
-									<select name="" class="form-control">
+									<select name="dcinfSeparation" class="form-control">
 										<option>사람</option>
 										<option>시간</option>
 									</select>

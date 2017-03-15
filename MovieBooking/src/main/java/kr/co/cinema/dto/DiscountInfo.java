@@ -4,7 +4,7 @@ package kr.co.cinema.dto;
 public class DiscountInfo {
 	
 	private int dcinfCode;			// 할인정보 코드
-	private String dcinfInfo;		// 할인정보
+	private String dcinfInfo;		// 할인 정보
 	private int dcinfPrice;			// 할인 가격
 	private int dcinfApplyYear;		// 적용 년도
 	private String dcinfStatus;		// 현재 적용 유무

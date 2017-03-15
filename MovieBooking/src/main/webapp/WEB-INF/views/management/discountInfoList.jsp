@@ -239,6 +239,82 @@
 				<!-- 페이지 강제 줄임 -->
 				<div class="col-lg-9 main-chart" align="center"></div>
 			</div>
+			<div class="container">
+				<div class="jumbotron">
+					<h2 class="logo">할인정보 목록</h2>
+				</div>
+				<!-- 상단가로바 아직 미구현 -->
+				<!-- <nav class="navbar navbar-default">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<button type="button" 
+								class="navbar-toggle collapsed"
+								data-toggle="collapse"
+								data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="adminMovieList">영화목록</a>
+						</div>
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<div class="navbar-form navbar-right">
+								<select class="form-control " id="select" style="width: 100px;">
+										<option></option>
+										<option></option>
+										<option></option>
+								</select>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="검색사항을 입력하세요">
+								</div>
+								<input type="submit" class="btn btn-default" value="검색" />
+								<a href="adminMovieList">
+									<input type="submit" class="btn btn-default" value="전체영화목록" />
+								</a>
+							</div>
+						</div>
+					</div>
+				</nav> -->
+				<!-- 테이블 상단 -->
+				<table class="table table-striped table-hover ">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th class="col-lg-2">할인정보</th>
+							<th class="col-lg-2">할인가격</th>
+							<th class="col-lg-2">적용연도</th>
+							<th class="col-lg-2">현재적용유무</th>
+							<th class="col-lg-2">할인구분</th>
+						</tr>
+					</thead>
+					<!-- 테이블 내용 -->
+					<tbody>
+						<c:forEach var="selectDiscountInfoList" varStatus="status" items="${selectDiscountInfoList}">
+							<tr>
+								<td>${status.count}</td>
+								<td class="col-lg-1">${selectDiscountInfoList.dcinfInfo}</td>
+								<td class="col-lg-1">${selectDiscountInfoList.dcinfPrice}</td>
+								<td class="col-lg-1">${selectDiscountInfoList.dcinfApplyYear}</td>
+								<td class="col-lg-1">${selectDiscountInfoList.dcinfStatus}</td>
+								<td class="col-lg-1">${selectDiscountInfoList.dcinfSeparation}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+				<!-- 페이징 -->
+				<div align="center">
+					<ul class="pagination">
+						<li class="disabled"><a href="#">&laquo;</a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">&raquo;</a></li>
+					</ul>
+				</div>
+			</div>
 		</section>
 	</section>
 	<!-- 여기까지 메인 -->
