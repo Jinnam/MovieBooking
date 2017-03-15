@@ -328,7 +328,7 @@
 	<script src="resources/assets/js/sparkline-chart.js"></script>
 	<script src="resources/assets/js/zabuto_calendar.js"></script>
 	<script type="application/javascript">
-		$(document).ready(function () {
+		/* $(document).ready(function () {
 			$("#date-popover").popover({html: true, trigger: "manual"});
 			$("#date-popover").hide();
 			$("#date-popover").click(function (e) {
@@ -356,12 +356,34 @@
 			var nav = $("#" + id).data("navigation");
 			var to = $("#" + id).data("to");
 			console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-		}
+		} */
 	</script>
 	
 	<!-- 메인화면 상단 바 그래프 자바 스크립트 -->
 	<script type="text/javascript">
 	//표에 어떻게 뿌리는지 모르겠다..
+	//배열 객체 생성
+	var BranchrGraphList = new Array();												//지점 값 담을 객체 생성
+	var MovieCodeGraphList = new Array();											//영화코드 값 담을 객체 생성
+	
+	//매출 탑 5지점
+	<c:forEach	var = "selectBranchForBarGraph"
+				items = "${selectBranchForBarGraph}">
+				BranchrGraphList.push('${selectBranchForBarGraph.brcName}'),		//BranchrGraphList에 push메서드로 값 넣기
+	</c:forEach>
+
+	//매출 탑 3영화
+	<c:forEach	var = "MovieCodeForCircleGraph"
+				varStatus = "status"
+				items = "${MovieCodeForCircleGraph}">
+				MovieCodeGraphList.push('${MovieCodeForCircleGraph.movKorName}'),	//MovieCodeGraphList에 push메서드로 값 넣기
+	</c:forEach>
+
+	//log
+	console.log(MovieCodeGraphList)
+	console.log(BranchrGraphList)
+	
+	//여기부터 표 시작
 	Highcharts
 	.chart(
 		'branchGraph', {
@@ -369,9 +391,7 @@
 				text: '지점별 영화 매출(단위 월)'			//상단 타이틀
 			},
 			xAxis: {
-				categories: [<c:forEach var="selectBranchForBarGraph" items="${selectBranchForBarGraph}">
-								'${selectBranchForBarGraph.brcName}',
-							</c:forEach>]			//하단 지점 이름 상위 5개점
+				categories: BranchrGraphList		//하단 지점 이름 상위 5개점
 			},
 			labels: {
 				items: [{
@@ -385,30 +405,23 @@
 				}]
 			},
 			series: [
-				<c:forEach var="MovieCodeForCircleGraph" items="${MovieCodeForCircleGraph}">
-					{
-						type: 'column', 			//첫번째 바 내용
-						name: '${MovieCodeForCircleGraph.movKorName}', //매출 탑 3영화
-						data: [3, 2, 1, 3, 4]
-					},
-				</c:forEach>
-				/* {
-					type: 'column', //첫번째 바 내용
-					name: '조작된도시',
+				{
+					type: 'column',					//첫번째 바 내용
+					name: MovieCodeGraphList[0],	//매출1위점 영화이름
 					data: [3, 2, 1, 3, 4]
 				},
 				{
-					type: 'column', //두번째 바 내용
-					name: '공조',
+					type: 'column',					//두번째 바 내용
+					name: MovieCodeGraphList[1],	//매출2위점 영화이름
 					data: [2, 3, 5, 7, 6]
 				},
 				{
-					type: 'column', //세번째 바 내용
-					name: '재심',
+					type: 'column',					//세번째 바 내용
+					name: MovieCodeGraphList[2],	//매출3위점 영화이름
 					data: [4, 3, 3, 9, 1]
-				}, */
+				},
 				{
-					type: 'spline', //평균치 곡선 그래프 내용
+					type: 'spline',					//평균치 곡선 그래프 내용
 					name: 'Average',
 					data: [3, 2.67, 3, 6.33, 3.33],
 					marker: {

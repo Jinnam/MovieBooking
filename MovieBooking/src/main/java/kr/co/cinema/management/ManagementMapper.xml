@@ -4,5 +4,34 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="kr.co.cinema.management.ManagementMapper">
- 
+	
+	<!-- 할인정보 등록 -->
+	<insert id="insertDiscountInfo"
+			parameterType="kr.co.cinema.dto.DiscountInfo">
+			INSERT INTO DISCOUNT_INFO
+						(dcinf_info,
+						dcinf_price,
+						dcinf_applyYear,
+						dcinf_status,
+						dcinf_separation,
+						dcinf_date)
+			VALUES
+						(#{dcinfInfo},
+						#{dcinfPrice},
+						#{dcinfApplyYear},
+						#{dcinfStatus},
+						#{dcinfSeparation},
+						now())
+	</insert>
+
+	<!-- 할인정보 리스트 -->
+	<select id="selectDiscountInfoList"
+			resultType="kr.co.cinema.dto.DiscountInfo">
+			SELECT	DISCOUNT_INFO.dcinf_info		AS dcinfInfo,
+					DISCOUNT_INFO.dcinf_price		AS dcinfPrice,
+					DISCOUNT_INFO.dcinf_applyYear	AS dcinfApplyYear,
+					DISCOUNT_INFO.dcinf_status		AS dcinfStatus,
+					DISCOUNT_INFO.dcinf_separation	AS dcinfSeparation
+			FROM	DISCOUNT_INFO
+	</select>
 </mapper>
