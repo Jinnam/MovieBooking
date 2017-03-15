@@ -297,6 +297,17 @@
 						#{movCode});
 	</insert>
 	
+	<!-- 스틸컷이미지 등록 -->
+	<insert id="insertSteelCut"
+			parameterType="map">
+			INSERT INTO	STILLCUTIMG
+						(mov_code,
+						stcImg_path)
+			VALUES
+						(#{movCode},
+						#{steelCutImg});
+	</insert>
+	
 	<!-- 영화등록 후 통계초기화 -->
 	<insert id="analisysReset"
 			parameterType="kr.co.cinema.dto.Analysis">
@@ -348,6 +359,7 @@
 						0,
 						0)
 	</insert>
+	
 	<!-- 영화조회 -->
 	<select id="selectMovieList"
 			resultType="kr.co.cinema.dto.Movie">

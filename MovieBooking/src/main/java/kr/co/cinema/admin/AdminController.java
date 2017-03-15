@@ -254,6 +254,8 @@ public class AdminController {
 		adminService.insertMovie(movie);
 		//인물(배우)등록
 		adminService.insertCharacters(movie, movie.getMovCode());
+		//스틸컷추가
+		adminService.insertSteelCut(movie, movie.getMovCode());
 		//통계초기화
 		adminService.analisysReset(movie.getMovCode());
 		//평점초가화

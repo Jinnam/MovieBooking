@@ -72,7 +72,6 @@ public class AdminService {
 	public List<Branch> selectBranchList() {
 		logger.debug(" Service selectBranchList get실행");
 		List<Branch> branchList = adminDao.selectBranchList();
-		logger.debug(" Service selectBranchList"+branchList.toString());
 		return branchList;
 	}
 	
@@ -176,16 +175,31 @@ public class AdminService {
 	//배우등록
 	public int insertCharacters(Movie movie, int movCode) {
 		logger.debug(" Service insertCharacters post실행");
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		int[] CharCodeAct = movie.getCharCodeAct();
-		for(int i =0; i<CharCodeAct.length;i++) {
-			map.put("charCodeAct", CharCodeAct[i]);
-			map.put("movCode",movCode);
-			adminDao.insertCharacters(map);
+		Map<String, Integer> map = new HashMap<String, Integer>();	//맵 객체 생성
+		int[] CharCodeAct = movie.getCharCodeAct();					//VO의 int배열 영화코드 가져옴
+		for(int i =0; i<CharCodeAct.length; i++) {					//영화코드 길이만큼 반복
+			map.put("charCodeAct", CharCodeAct[i]);					//영화코드 길이만큼 i번째 인물코드를 put메서드로 넣어줌
+			map.put("movCode",movCode);								//영화코드 길이만큼 영화코드를 put메서드로 넣어줌
+			adminDao.insertCharacters(map);							//adminDao메서드 호출
 		}
 		return 0;
 	}
 	
+	//스틸컷추가
+	public int insertSteelCut(Movie movie, int movCode) {
+		logger.debug(" Service insertSteelCut post실행");
+		Map<String, Object> map = new HashMap<String, Object>();
+		String[] steelCutImg = movie.getStcImgPath();
+		logger.debug(movie.getStcImgPath().toString());
+		logger.debug(steelCutImg.toString());
+		for(int i=0; i<steelCutImg.length; i++) {
+			map.put("movCode", movCode);
+			map.put("steelCutImg", steelCutImg[i]);
+			adminDao.insertSteelCut(map);
+		}
+		return 0;
+	}
+
 	//통계초기화
 	public int analisysReset(int movCode) {
 		logger.debug(" Service analisysReset post실행");
@@ -197,7 +211,6 @@ public class AdminService {
 		logger.debug(" Service gradeReset post실행");
 		return adminDao.gradeReset(movCode);
 	}
-
 
 	//관리자 영화조회
 	public List<Movie> selectMovieList() {
@@ -246,5 +259,4 @@ public class AdminService {
 		logger.debug("	findOneAdminInfo() 진입 adminId : "+adminId);
 		return adminDao.selectOneAmdinInfo(adminId);
 	}
-
 }

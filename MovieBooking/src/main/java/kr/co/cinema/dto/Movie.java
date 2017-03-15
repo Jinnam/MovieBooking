@@ -26,7 +26,7 @@ public class Movie {
 	private String movDate;				// 등록일자 0306봉연추가
 	private String charKorName;			// 인물이름 0306봉연추가
 	private MultipartFile uploadFile;	// 파일업로드 0314봉연추가
-
+	private String[] stcImgPath;			// 스틸컷이미지경로  0315봉연추가
 	public int getMovCode() {
 		return movCode;
 	}
@@ -142,6 +142,12 @@ public class Movie {
 	public void setCharCodeAct(int[] charCodeAct) {
 		this.charCodeAct = charCodeAct;
 	}
+	public String[] getStcImgPath() {
+		return stcImgPath;
+	}
+	public void setStcImgPath(String[] stcImgPath) {
+		this.stcImgPath = stcImgPath;
+	}
 	@Override
 	public String toString() {
 		return "Movie [movCode=" + movCode + ", movKorName=" + movKorName + ", movEngName=" + movEngName
@@ -150,7 +156,6 @@ public class Movie {
 				+ movMaker + ", movRunningTime=" + movRunningTime + ", movOpenDate=" + movOpenDate + ", movInfoDetail="
 				+ movInfoDetail + ", movImgPath=" + movImgPath + ", movVideoPath=" + movVideoPath + ", movStatus="
 				+ movStatus + ", movFinalModifyDate=" + movFinalModifyDate + ", movDate=" + movDate + ", charKorName="
-				+ charKorName + ", uploadFile=" + uploadFile + "]";
+				+ charKorName + ", uploadFile=" + uploadFile + ", stcImgPath=" + Arrays.toString(stcImgPath) + "]";
 	}
-
 }
