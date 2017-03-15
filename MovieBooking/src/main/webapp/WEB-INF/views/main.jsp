@@ -75,20 +75,20 @@
 	      
 	      <div class="row"> <!-- row 열기 -->
 	      
-	        <a href="movieMain" target="_blank" style=" text-decoration:none; color:#000000 ">
+	        <a href="http://kjb7907.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/1team_movieMain.jpg" style="height:auto;">
+	                <img src="resources/index_img/jbin.png" style="height:auto;">
 	              </div>
 	              <div class="card-content">
-	                <p>1</p>
+	                <p>팀원 개인 포트폴리오 준비중</p>
 	              </div>
 	            </div>
 	          </div>
 	          
-	        </a>	
+	        </a>		
 	        	      
 	        <a href="http://kjb7907.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
@@ -98,44 +98,52 @@
 	                <img src="resources/index_img/jbin.png" style="height:auto;">
 	              </div>
 	              <div class="card-content">
-	                <p>^오^</p>
+	                <p>팀원 개인 포트폴리오 준비중</p>
 	              </div>
 	            </div>
 	          </div>
 	          
 	        </a>	
 	        
-	        <a href="movieMain" target="_blank" style=" text-decoration:none; color:#000000 ">
+	        <a href="http://kjb7907.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/1team_movieMain.jpg" style="height:auto;">
+	                <img src="resources/index_img/jbin.png" style="height:auto;">
 	              </div>
 	              <div class="card-content">
-	                <p>3</p>
+	                <p>팀원 개인 포트폴리오 준비중</p>
 	              </div>
 	            </div>
 	          </div>
 	          
-	        </a>	
+	        </a>		
 	        
-	        <a href="movieMain" target="_blank" style=" text-decoration:none; color:#000000 ">
+	        <a href="http://kjb7907.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/1team_movieMain.jpg" style="height:auto;">
+	                <img src="resources/index_img/jbin.png" style="height:auto;">
 	              </div>
 	              <div class="card-content">
-	                <p>4</p>
+	                <p>팀원 개인 포트폴리오 준비중</p>
 	              </div>
 	            </div>
 	          </div>
 	          
-	        </a>		        	        	        	      
+	        </a>			        	        	        	      
 	      
 	      </div> <!-- row 닫기 -->
+	      
+	      <!-- ERD -->
+	      <h2>ERD</h2>
+	      <div class="row">
+	      	<div class="col s12">
+	      		<img src="resources/index_img/erd.jpg" style="width:100%" class="materialboxed responsive-img">
+	      	</div>
+	      </div>
 	      
       </div>
   
