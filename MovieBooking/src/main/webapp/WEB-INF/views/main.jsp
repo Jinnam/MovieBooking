@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>인덱스 페이지</title>
+<title>1Team Portfolio</title>
 <link rel="SHORTCUT ICON" href="resources/module-img/titleIcon.png">
 </head>
 <html>
@@ -29,7 +29,7 @@
     <div class="navbar-fixed">
       <nav class="light-blue darken-4">
         <div class="nav-wrapper container">
-          <a href="#" class="brand-logo">1Team Portfolio Index</a>
+          <a href="#" class="brand-logo">1Team Portfolio</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
           </ul>
         </div>
@@ -74,31 +74,32 @@
 	      </div> <!-- row 닫기 -->
 	      
 	      <div class="row"> <!-- row 열기 -->
+	      <h4>팀원 개인 포트폴리오</h4>
 	      
-	        <a href="#" target="_blank" style=" text-decoration:none; color:#000000 ">
+	        <a href="http://kjb7907.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="#" style="height:200px;">
+	                <img src="resources/index_img/jbin.png">
 	              </div>
 	              <div class="card-content">
-	                <p>팀원 개인 포트폴리오 준비중</p>
+	                <p>김정빈</p>
 	              </div>
 	            </div>
 	          </div>
 	          
 	        </a>		
 	        	      
-	        <a href="http://kjb7907.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
+	        <a href="#" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/jbin.png" style="height:200px;">
+	                <img src="resources/index_img/jbin.png">
 	              </div>
 	              <div class="card-content">
-	                <p>김정빈</p>
+	                <p>[준비중]김진남</p>
 	              </div>
 	            </div>
 	          </div>
@@ -110,10 +111,10 @@
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="#" style="height:200px;">
+	                <img src="resources/index_img/jbin.png">
 	              </div>
 	              <div class="card-content">
-	                <p>팀원 개인 포트폴리오 준비중</p>
+	                <p>[준비중]조민국</p>
 	              </div>
 	            </div>
 	          </div>
@@ -125,10 +126,10 @@
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="#" style="height:200px;">
+	                <img src="resources/index_img/jbin.png">
 	              </div>
 	              <div class="card-content">
-	                <p>팀원 개인 포트폴리오 준비중</p>
+	                <p>[준비중]조봉연</p>
 	              </div>
 	            </div>
 	          </div>
