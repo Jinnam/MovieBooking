@@ -244,7 +244,7 @@
 				<div class="col-lg-12 main-chart" align="center">
 				
 				<fieldset class="col-lg-4" style="float:left;">
-					<legend>통계</legend>
+					<legend>영화별 통계</legend>
 					
 				
 					<!-- 영화 검색 -->

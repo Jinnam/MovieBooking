@@ -248,14 +248,82 @@
 		<section class="wrapper">
 			<div class="row">
 				<!-- 페이지 강제 줄임 -->
+				<div class="col-lg-12 main-chart" align="center">
+				
+				<fieldset class="col-lg-6" style="float:left;">
+					<legend>지점별 통계</legend>
+					
+				
+					<!-- 지점 선택 -->
+					<div class="form-group">
+						<label class="col-lg-4 control-label">지점 선택</label>
+						<div class="col-lg-8">
+							<select id="brcSelect" class="form-control" >
+									<option value="">지점 전체</option>
+								<c:forEach items="${branchInfo}" var="branchInfo">
+									<option value="">${branchInfo.brcName}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					
+					<!-- 날짜 선택 -->
+					<div class="form-group">
+						<label class="col-lg-4 control-label">날짜 선택</label>
+						<div class="col-lg-8">
+							<div class="col-lg-5">
+								<input type="date" class="form-control"  id="brcCntDate1"/>
+							</div>
+							<div class="col-lg-2">~</div>
+							<div class="col-lg-5">
+								<input type="date" class="form-control"  id="brcCntDate2" />
+							</div>
+						</div>
+					</div>
+					
+					<div></div>
+					<!-- 검색 버튼 -->
+					<div class="form-group">
+						<div align="right">
+							<input type="button" class="btn" id="selectBtn" value="검색"/>
+						</div>
+					</div>
+						
+				</fieldset>
+				<fieldset class="col-lg-6" style="float:left;">
+					<legend>&nbsp;</legend>
+					
+					
+					<!-- 선택 결과-->
+					<div class="form-group">
+							<div id="movSelectResult" class="col-lg-9"></div>
+					</div>
+
+			</fieldset>
+						
+		</div>
+	</div>
+	</section>
+	<section class="wrapper">
+		<div class="container">
+			<div id="branchDayCount"></div>
+		</div>
+	</section>
+</section>
+
+
+
+
+	
+	<section id="main-content">
+		<section class="wrapper">
+			<div class="row">
+				<!-- 페이지 강제 줄임 -->
 				<div class="col-lg-9 main-chart" align="center">
 				
 				
 					<p>날짜를 선택하세요</p>
-						<div>
-							<input type="date" id="brcCntDate1"/> ~ 
-							<input type="date" id="brcCntDate2" />
-						</div>
+						
 					<p>지점을 선택하세요</p>
 						<c:forEach items="${branchInfo}" var="branchInfo">
 							<input type="button" class="branchName btn" value="${branchInfo.brcName}"/>
@@ -286,20 +354,43 @@
 			      success : function(data){ 
 			    	  console.log(data);
 						$('.branchDayCount').children().remove();
+						$('.branchDayCount')
+							.append('<table class="table table-striped table-hover">'+
+										'<thead>'+
+											'<tr>'+
+												'<td>#</td>'+
+												'<td>지점</td>'+
+												'<td>영화</td>'+
+												'<td>예매수</td>'+
+												'<td>매출</td>'+
+												'<td>날짜</td>'+
+											'</tr>'+
+										'</thead>'+
+										'<tbody id="resultInfo">'+
+										'</tbody>'+
+									'</table>')
 			        $(data).each(function(i){
 			        	if(kind=="main"){
-			        		$('.branchDayCount')
-							.append("<div> 지점 : "+data[i].brcName+
-									" 영화 : "+data[i].movKorName+
-									" 예매 수 : "+data[i].brcCntClientCount+
-									" 매출액 : "+data[i].brcCntSaleTotal+
-									" 날짜 : "+data[i].brcCntDate+"</div>")
+			        		$('#resultInfo')
+							.append('<tr>'+
+										'<td>'+i+'</td>'+
+										'<td>'+data[i].brcName+'</td>'+
+										'<td>'+data[i].movKorName+'</td>'+
+										'<td>'+data[i].brcCntClientCount+'</td>'+
+										'<td>'+data[i].brcCntSaleTotal+'</td>'+
+										'<td>'+data[i].brcCntDate+'</td>'+
+									'</tr>')
+									
 			        	}else if(kind=="branch"){
-			        		$('.branchDayCount')
-							.append("<div> 영화 : "+data[i].movKorName+
-									" 예매 수 : "+data[i].brcCntClientCount+
-									" 매출액 : "+data[i].brcCntSaleTotal+
-									" 날짜 : "+data[i].brcCntDate+"</div>")	
+			        		$('#resultInfo')
+							.append('<tr>'+
+										'<td>'+i+'</td>'+
+										'<td>'+data[i].brcName+'</td>'+
+										'<td>'+data[i].movKorName+'</td>'+
+										'<td>'+data[i].brcCntClientCount+'</td>'+
+										'<td>'+data[i].brcCntSaleTotal+'</td>'+
+										'<td>'+data[i].brcCntDate+'</td>'+
+									'</tr>')
 			        	}
 								        	
 			        })
@@ -316,10 +407,8 @@
 		
 		$.brcCntAjax("main","main",firstDate,finalDate);
 		
-		 $('.branchName').click(function(){
-		    	$('.branchName').removeClass('btn-primary');						/* 속성제거 */
-				$(this).addClass('btn-primary');									/* 속성추가 */
-				var brcName = $(this).val();
+		 $('#selectBtn').click(function(){
+				var brcName = $('#brcSelect option:selected').text();
 				console.log(brcName);
 				$.brcCntAjax("branch",brcName,firstDate,finalDate);
 				 
