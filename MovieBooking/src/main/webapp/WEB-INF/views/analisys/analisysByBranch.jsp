@@ -259,10 +259,21 @@
 						<label class="col-lg-4 control-label">지점 선택</label>
 						<div class="col-lg-8">
 							<select id="brcSelect" class="form-control" >
-									<option value="">지점 전체</option>
+									<option>지점 전체</option>
 								<c:forEach items="${branchInfo}" var="branchInfo">
-									<option value="">${branchInfo.brcName}</option>
+									<option>${branchInfo.brcName}</option>
 								</c:forEach>
+							</select>
+						</div>
+					</div>
+					
+					<!-- 영화 구분 -->
+					<div class="form-group">
+						<label class="col-lg-4 control-label">영화 구분</label>
+						<div class="col-lg-8">
+							<select id="movKind" class="form-control" >
+									<option value="all">영화 전체</option>
+									<option value="nonAll">지점별 매출만</option>
 							</select>
 						</div>
 					</div>
@@ -311,31 +322,6 @@
 	</section>
 </section>
 
-
-
-
-	
-	<section id="main-content">
-		<section class="wrapper">
-			<div class="row">
-				<!-- 페이지 강제 줄임 -->
-				<div class="col-lg-9 main-chart" align="center">
-				
-				
-					<p>날짜를 선택하세요</p>
-						
-					<p>지점을 선택하세요</p>
-						<c:forEach items="${branchInfo}" var="branchInfo">
-							<input type="button" class="branchName btn" value="${branchInfo.brcName}"/>
-						</c:forEach>
-						
-					<div class="branchDayCount"></div>
-					
-					
-				</div>
-			</div>
-		</section>
-	</section>
 	<!-- 여기까지 메인 -->
 	<script>
 	$(document).ready(function(){
@@ -344,17 +330,19 @@
 		$('#brcCntDate2').val("2017-03-01");						// 검색 마지막 날짜 설정
 		/* $('.branchName').eq(0).addClass('btn-primary');				// 페이지 로드되면 첫번째 지점 선택 & 첫번째 지점 데이터 가져오기 */
 		
-		$.brcCntAjax=function(kind,brcName,brcCntDate1,brcCntDate2){		// Ajax 함수 선언
+		$.brcCntAjax=function(kind,brcName,movKind,brcCntDate1,brcCntDate2){		// Ajax 함수 선언
 			$.ajax({
 				url : "analisysByBranch", 
 			      type :"post", 
 			      data : { "brcName" : brcName,
+			    	  	"movKind" : movKind,
 			    	  	"brcCntDate1" : brcCntDate1,
 			    	  	"brcCntDate2" : brcCntDate2}, 
 			      success : function(data){ 
 			    	  console.log(data);
-						$('.branchDayCount').children().remove();
-						$('.branchDayCount')
+						$('#branchDayCount').children().remove();
+						if(movKind=="all"){
+							$('#branchDayCount')
 							.append('<table class="table table-striped table-hover">'+
 										'<thead>'+
 											'<tr>'+
@@ -369,30 +357,70 @@
 										'<tbody id="resultInfo">'+
 										'</tbody>'+
 									'</table>')
+						}else{
+							$('#branchDayCount')
+							.append('<table class="table table-striped table-hover">'+
+										'<thead>'+
+											'<tr>'+
+												'<td>#</td>'+
+												'<td>지점</td>'+
+												'<td>예매수</td>'+
+												'<td>매출</td>'+
+												'<td>날짜</td>'+
+											'</tr>'+
+										'</thead>'+
+										'<tbody id="resultInfo">'+
+										'</tbody>'+
+									'</table>')
+						}
+						
 			        $(data).each(function(i){
-			        	if(kind=="main"){
-			        		$('#resultInfo')
-							.append('<tr>'+
-										'<td>'+i+'</td>'+
-										'<td>'+data[i].brcName+'</td>'+
-										'<td>'+data[i].movKorName+'</td>'+
-										'<td>'+data[i].brcCntClientCount+'</td>'+
-										'<td>'+data[i].brcCntSaleTotal+'</td>'+
-										'<td>'+data[i].brcCntDate+'</td>'+
-									'</tr>')
-									
-			        	}else if(kind=="branch"){
-			        		$('#resultInfo')
-							.append('<tr>'+
-										'<td>'+i+'</td>'+
-										'<td>'+data[i].brcName+'</td>'+
-										'<td>'+data[i].movKorName+'</td>'+
-										'<td>'+data[i].brcCntClientCount+'</td>'+
-										'<td>'+data[i].brcCntSaleTotal+'</td>'+
-										'<td>'+data[i].brcCntDate+'</td>'+
-									'</tr>')
+			        	if(movKind=="all"){
+			        		if(kind=="main"){
+				        		$('#resultInfo')
+								.append('<tr>'+
+											'<td>'+i+'</td>'+
+											'<td>'+data[i].brcName+'</td>'+
+											'<td>'+data[i].movKorName+'</td>'+
+											'<td>'+data[i].brcCntClientCount+'</td>'+
+											'<td>'+data[i].brcCntSaleTotal+'</td>'+
+											'<td>'+data[i].brcCntDate+'</td>'+
+										'</tr>')
+										
+				        	}else if(kind=="branch"){
+				        		$('#resultInfo')
+								.append('<tr>'+
+											'<td>'+i+'</td>'+
+											'<td>'+data[i].brcName+'</td>'+
+											'<td>'+data[i].movKorName+'</td>'+
+											'<td>'+data[i].brcCntClientCount+'</td>'+
+											'<td>'+data[i].brcCntSaleTotal+'</td>'+
+											'<td>'+data[i].brcCntDate+'</td>'+
+										'</tr>')
+				        	}
+			        	}else{
+			        		if(kind=="main"){
+				        		$('#resultInfo')
+								.append('<tr>'+
+											'<td>'+i+'</td>'+
+											'<td>'+data[i].brcName+'</td>'+
+											'<td>'+data[i].brcCntClientCount+'</td>'+
+											'<td>'+data[i].brcCntSaleTotal+'</td>'+
+											'<td>'+data[i].brcCntDate+'</td>'+
+										'</tr>')
+										
+				        	}else if(kind=="branch"){
+				        		$('#resultInfo')
+								.append('<tr>'+
+											'<td>'+i+'</td>'+
+											'<td>'+data[i].brcName+'</td>'+
+											'<td>'+data[i].brcCntClientCount+'</td>'+
+											'<td>'+data[i].brcCntSaleTotal+'</td>'+
+											'<td>'+data[i].brcCntDate+'</td>'+
+										'</tr>')
+				        	}
 			        	}
-								        	
+		        	
 			        })
 			         
 			      },error:function(){
@@ -405,13 +433,19 @@
 		var firstDate=$("#brcCntDate1").val();
 		var finalDate=$("#brcCntDate2").val()
 		
-		$.brcCntAjax("main","main",firstDate,finalDate);
+	//	$.brcCntAjax("main","main","all",firstDate,finalDate);			// 페이지 로딩시 보여지는 정보
 		
 		 $('#selectBtn').click(function(){
 				var brcName = $('#brcSelect option:selected').text();
-				console.log(brcName);
-				$.brcCntAjax("branch",brcName,firstDate,finalDate);
-				 
+				var movKind= $('#movKind option:selected').val()
+				console.log("영화 구분:"+movKind);
+				if(brcName =="지점 전체"){
+					console.log(brcName);
+					$.brcCntAjax("main","main",movKind,firstDate,finalDate);
+				}else{
+					console.log(brcName);
+					$.brcCntAjax("branch",brcName,movKind,firstDate,finalDate);
+				}
 				
 		})
 		
