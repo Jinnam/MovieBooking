@@ -91,15 +91,15 @@
 	          
 	        </a>		
 	        	      
-	        <a href="#" target="_blank" style=" text-decoration:none; color:#000000 ">
+	        <a href="http://better4307.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/jbin.png">
+	                <img src="resources/index_img/jinnam.jpg">
 	              </div>
 	              <div class="card-content">
-	                <p>[준비중]김진남</p>
+	                <p>김진남</p>
 	              </div>
 	            </div>
 	          </div>
