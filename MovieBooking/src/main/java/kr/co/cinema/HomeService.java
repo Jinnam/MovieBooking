@@ -31,27 +31,51 @@ public class HomeService {
 	// 코드 생성하는 메서드(비회원,마일리지,한줄평/평점,좌석(다:다))
 	public String madeCode(String kind){
 		logger.debug("		makeCode(String) 진입");
+		
+		// DB에서 Code 가져오기
 		Map<String, String> map = new HashMap<String, String>();	// Mapper에 parameter값으로 들어갈 맵 생성
 		map.put("kind", kind);										// 맵에 "kind"라는 이름으로 들어온 입력값을 put
 		String getCode = homeDao.selectOneCode(map);				// db에서 마지막으로 입력된 코드 값 가져오기
-		String getFirst= getCode.substring(0,2);					// 코드에서 고유번호 추출
-		String getDate = getCode.substring(2, 8);					// 코드에서 날짜 추출
-		String getNum= getCode.substring(8);						// 코드에서 숫자 추출
-		
-		logger.debug("		makeCode() db에서 가져온 값 : "+getCode+
-				",고유번호 : "+getFirst+", 날짜 : "+getDate+", 누적 번호 : "+getNum);
-		
+
+		// 현재 날짜 생성
 		SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");		// yyMMdd 형식으로  포맷지정
 		Date currentDate = new Date();								// 현재 날짜
 		String dDay=sdf.format(currentDate);						// 현재 날자를 yyMMdd로 바꿈
 		logger.debug("		makeCode() 현재 날짜 : "+dDay);
 		
-		if(getDate.equals(dDay)){									// 코드에서 추출한 날짜와 현재 날짜 비교 후 같으면
-			logger.debug("		makeCode() 날짜 값이 같음");
-			int intNum = Integer.parseInt(getNum);					// 코드에서 추출한 숫자를 int형으로 변환
-			resultCode =getFirst + getDate 
-					+ Integer.toString(intNum+1);					// 숫자 1 증가
-		}else{														// 코드에서 추출한 날짜와 현재 날짜 가 다르면
+		String getFirst="";
+		String getDate ="";
+		String getNum="";
+		
+		// DB에서 가져온 값이 null일때
+		if(getCode==null){
+			resultCode = differenceDayCodeMake(dDay,kind);		// 코드 생성
+		}else{
+			getFirst= getCode.substring(0,2);					// 코드에서 고유번호 추출
+			getDate = getCode.substring(2, 8);					// 코드에서 날짜 추출
+			getNum= getCode.substring(8);						// 코드에서 숫자 추출	
+			
+			// 날짜가 같으면
+			if(getDate.equals(dDay)){									// 코드에서 추출한 날짜와 현재 날짜 비교 후 같으면
+				logger.debug("		makeCode() 날짜 값이 같음");
+				int intNum = Integer.parseInt(getNum);					// 코드에서 추출한 숫자를 int형으로 변환
+				resultCode =getFirst + getDate 
+						+ Integer.toString(intNum+1);					// 숫자 1 증가
+			}else{	// 날짜가 다르면
+				differenceDayCodeMake(dDay,kind);
+			}
+		}
+		
+		
+		logger.debug("		makeCode() db에서 가져온 값 : "+getCode+
+				",고유번호 : "+getFirst+", 날짜 : "+getDate+", 누적 번호 : "+getNum);
+		
+		return resultCode;
+	}
+	
+	
+		public String differenceDayCodeMake(String dDay,String kind){
+
 			logger.debug("		makeCode() 날짜 값이 다름");
 			switch(kind){											// 입력값에 따른 스위치 문
 				case "nonMember" :									// 입력값이 nonMember이면
@@ -76,8 +100,6 @@ public class HomeService {
 					break;
 				default : break;
 				}
-		
-		}
 		logger.debug("		makeCode() 반환할 코드 값 : "+resultCode);
 		return resultCode;
 	}
@@ -103,15 +125,20 @@ public class HomeService {
 				map.put("ScreenBrcCode",getBrcCode);
 				
 				String getScreenCode = homeDao.selectObjectCode(map);						// brcCode에 해당하는 최신의 screen_code 가져오기  ex)42101101
-				String brcNum= getScreenCode.substring(2,5);								// brcCode에서 지점 번호만 추출
-				String screenNum = getScreenCode.substring(5);								// screenCode에서 누적 번호 추출
-				int resultNum = Integer.parseInt(screenNum)+1;								// 추출한 번호에 +1로 다음번호 생성
-				
-				System.out.println("brcNum : "+brcNum);
-				logger.debug("		makeCode() db에서 가져온 값 : "+getScreenCode+
-						",지점 번호 : "+brcNum+", 누적 번호 : "+screenNum);
-				
-				resultCode = "42"+brcNum+resultNum;											// 반환 코드 생성
+				if(getScreenCode==null){
+					resultCode = "42"+getBrcCode.substring(2,5)+"101";	
+				}else{
+					String brcNum= getScreenCode.substring(2,5);								// brcCode에서 지점 번호만 추출
+					String screenNum = getScreenCode.substring(5);								// screenCode에서 누적 번호 추출
+					int resultNum = Integer.parseInt(screenNum)+1;								// 추출한 번호에 +1로 다음번호 생성
+					
+					System.out.println("brcNum : "+brcNum);
+					logger.debug("		makeCode() db에서 가져온 값 : "+getScreenCode+
+							",지점 번호 : "+brcNum+", 누적 번호 : "+screenNum);
+					
+					resultCode = "42"+brcNum+resultNum;		
+				}
+													// 반환 코드 생성
 				logger.debug("		makeCode() 반환될 코드 값 : "+resultCode);
 			}
 			
@@ -125,15 +152,22 @@ public class HomeService {
 				Map<String, String> map = new HashMap<String, String>();					// Mapper에 parameter값으로 들어갈 맵 생성
 				map.put("BDCBrcCode",getBrcCode);
 				String getBranchDayCountCode = homeDao.selectObjectCode(map);				// brcCode에 해당하는 최신의 brcCnt_code 가져오기  ex)35101101
-				String brcNum= getBranchDayCountCode.substring(2,5);						// brcCode에서 지점 번호만 추출
-				String branchDayCountNum = getBranchDayCountCode.substring(5);				// getBranchDayCountCode에서 누적 번호 추출
-				int resultNum = Integer.parseInt(branchDayCountNum)+1;						// 추출한 번호에 +1로 다음번호 생성
 				
-				System.out.println("brcNum : "+brcNum);
-				logger.debug("		makeCode() db에서 가져온 값 : "+getBranchDayCountCode+
-						",지점 번호 : "+brcNum+", 누적 번호 : "+branchDayCountNum);
-				
-				resultCode = "35"+brcNum+resultNum;											// 반환 코드 생성
+				// DB에서 가져온 코드가 null일때
+				if(getBranchDayCountCode==null){
+					resultCode="35"+getBrcCode.substring(2,5)+"101";
+				}else{
+					String brcNum= getBranchDayCountCode.substring(2,5);						// brcCode에서 지점 번호만 추출
+					String branchDayCountNum = getBranchDayCountCode.substring(5);				// getBranchDayCountCode에서 누적 번호 추출
+					int resultNum = Integer.parseInt(branchDayCountNum)+1;						// 추출한 번호에 +1로 다음번호 생성
+					
+					System.out.println("brcNum : "+brcNum);
+					logger.debug("		makeCode() db에서 가져온 값 : "+getBranchDayCountCode+
+							",지점 번호 : "+brcNum+", 누적 번호 : "+branchDayCountNum);
+					
+					resultCode = "35"+brcNum+resultNum;			
+				}
+												// 반환 코드 생성
 				logger.debug("		makeCode() 반환될 코드 값 : "+resultCode);
 				
 			}
