@@ -263,7 +263,6 @@ public class AdminController {
 		return "redirect:adminMovieList";
 	}
 	
-	
 	//영화조회
 	@RequestMapping(value="adminMovieList", method=RequestMethod.GET)
 	public String selectMovieList(Model model) {
