@@ -42,131 +42,20 @@
 			<ul class="sidebar-menu" id="nav-accordion">
 				<p class="centered">
 					<!-- 상단원형로고 -->
-					<a href="adminMain">
+					<a href="branchMain">
 						<img src="resources/assets/img/megaboxlogo.JPG" class="img-circle" width="60">
 					</a>
 				</p>
 				<!-- 사이드 바 원형로고 아래 텍스트 -->
-				<h5 class="centered">Mega Box Admin Page</h5>
+				<h5 class="centered">Mega Box Branch Page</h5>
 				<!-- 사이드 바 메인 메뉴 -->
 				<li class="mt">
-					<a href="adminMain">
+					<a href="branchMain">
 						<i class="fa fa-home"></i>
 						<span>H O M E</span>
 					</a>
 				</li>
-				<!-- 지점, 지점관리자 사이드 메뉴-->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="fa fa-desktop"></i>
-						<span>지점/관리자 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="branchList">지점 목록</a>
-						</li>
-						<li>
-							<a href="branchInsert">지점 등록</a>
-						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
-						<!-- <li>
-							<a href="branchModify">지점 수정</a>
-						</li> -->
-						<!-- <li>
-							<a href="branchDelete">지점 탈퇴</a>
-						</li> -->
-						<li>
-							<a href="adminList">지점 관리자 목록</a>
-						</li>
-						<li>
-							<a href="adminInsert">지점 관리자 등록</a>
-						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
-						<!-- <li>
-							<a href="adminModify">지점 관리자 수정</a>
-						</li> -->
-						<!-- <li>
-							<a href="adminDelete">지점 관리자 삭제</a>
-						</li> -->
-					</ul>
-				</li>
-				<!-- 회원 사이드 메뉴 -->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="fa fa-list"></i>
-						<span>회원 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="memberList">회원 목록</a>
-						</li>
-					</ul>
-				</li>
-				<!-- 영화 사이드 메뉴 -->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="fa fa-tasks"></i>
-						<span>영화 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="adminMovieList">영화 목록</a>
-						</li>
-						<li>
-							<a href="movieInsert">영화 등록</a>
-						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
-						<!-- <li>
-							<a href="adminModify">영화 수정</a>
-						</li> -->
-					</ul>
-				</li>
-				<!-- 인물 사이드 메뉴 -->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="fa fa-user"></i>
-						<span>인물 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="characterList">인물 목록</a>
-						</li>
-						<li>
-							<a href="characterInsert">인물 등록</a>
-						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
-						<!-- <li>
-							<a href="characterModify">인물 수정</a>
-						</li> -->
-					</ul>
-				</li>
-				<!-- 단가/할인정보 사이드 메뉴 -->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="glyphicon glyphicon-credit-card"></i>
-						<span>단가/할인 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="costList">단가 목록</a>
-						</li>
-						<li>
-							<a href="costInsert">단가 등록</a>
-						</li>
-						<!-- <li>
-							<a href="costModify">단가 수정</a>
-						</li> -->
-						<li>
-							<a href="discountInfoList">할인정보 목록</a>
-						</li>
-						<li>
-							<a href="discountInfoInsert">할인정보 등록</a>
-						</li>
-						<!-- <li>
-							<a href="discountInfoModify">할인정보 수정</a>
-						</li> -->
-					</ul>
-				</li>
+				
 				<!-- 극장 사이드 메뉴 -->
 				<li class="sub-menu">
 					<a class="active" href="javascript:;">
