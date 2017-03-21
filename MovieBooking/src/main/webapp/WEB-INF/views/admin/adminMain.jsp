@@ -300,23 +300,6 @@
 					</div>
 				</div>
 			</div>
-			<!-- 하단 우측 예매율 순위 차트 -->
-			
-			<div>
-			<!-- 0315작업중 -->
-			<!-- 
-			SELECT 	BRANCH_DAY_COUNT.mov_code 					AS movCode,
-					MOVIE.mov_korName 							AS movKorName,
-					SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal)		AS brcCntSaleTotal
-			FROM		BRANCH_DAY_COUNT
-						INNER JOIN MOVIE
-							ON BRANCH_DAY_COUNT.mov_code = MOVIE.mov_code
-			WHERE		BRANCH_DAY_COUNT.brc_code = 41102
-			GROUP 	BY BRANCH_DAY_COUNT.mov_code
-			ORDER 	BY SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) DESC
-			LIMIT 	3;
-			 -->
-			</div>
 		</section>
 	</section>
 	
@@ -380,25 +363,75 @@
 	<script type="text/javascript">
 	//표에 어떻게 뿌리는지 모르겠다..
 	//배열 객체 생성
-	var BranchrGraphList = new Array();												//지점 값 담을 객체 생성
+	var BranchNameGraphList = new Array();											//지점이름 값 담을 객체 생성
+	var BranchCodeGraphList = new Array();											//지점코드 값 담을 객체 생성
+	var MovieNameGraphList = new Array();											//영화이름 값 담을 객체 생성
 	var MovieCodeGraphList = new Array();											//영화코드 값 담을 객체 생성
-	
 	//매출 탑 5지점
 	<c:forEach	var = "selectBranchForBarGraph"
 				items = "${selectBranchForBarGraph}">
-				BranchrGraphList.push('${selectBranchForBarGraph.brcName}'),		//BranchrGraphList에 push메서드로 값 넣기
+				BranchNameGraphList.push('${selectBranchForBarGraph.brcName}')		//BranchNameGraphList에 push메서드로 값 넣기
+				BranchCodeGraphList.push('${selectBranchForBarGraph.brcCode}')		//BranchCodeGraphList에 push메서드로 값 넣기
 	</c:forEach>
 
 	//매출 탑 3영화
 	<c:forEach	var = "MovieCodeForCircleGraph"
 				varStatus = "status"
 				items = "${MovieCodeForCircleGraph}">
-				MovieCodeGraphList.push('${MovieCodeForCircleGraph.movKorName}'),	//MovieCodeGraphList에 push메서드로 값 넣기
+				MovieNameGraphList.push('${MovieCodeForCircleGraph.movKorName}')	//MovieNameGraphList에 push메서드로 값 넣기
+				MovieCodeGraphList.push('${MovieCodeForCircleGraph.movCode}')		//MovieCodeGraphList에 push메서드로 값 넣기
 	</c:forEach>
 
 	//log
-	console.log(MovieCodeGraphList)
-	console.log(BranchrGraphList)
+	
+	console.log("******************************영화/지점매출순위********************************")
+	console.log("영화매출3순위 이름 배열(top3) : "+MovieNameGraphList)
+	console.log("영화매출3순위 이름 코드(top3) : "+MovieCodeGraphList)
+	console.log("지점매출5순위 이름 배열(top5) : "+BranchNameGraphList)
+	console.log("지점매출5순위 이름 코드(top5) : "+BranchCodeGraphList)
+	console.log("******************************영화/지점매출순위********************************")
+	console.log("")
+	
+	//매출 3순위 영화코드 변수 선언
+	var FirstMovieList = MovieCodeGraphList[0];
+	var SecondMovieList = MovieCodeGraphList[1];
+	var ThirdMovieList = MovieCodeGraphList[2];
+	
+	//매출 1, 2, 3위 영화코드 log
+	console.log("******************************매출 3순위 영화코드********************************")
+	console.log("매출1순위 영화코드 : "+FirstMovieList);
+	console.log("매출2순위 영화코드 : "+SecondMovieList);
+	console.log("매출3순위 영화코드 : "+ThirdMovieList);
+	console.log("******************************매출 3순위 영화코드********************************")
+	console.log("")
+	
+	//매출 5순위 지점이름 변수 선언
+	var FirstBranch = BranchCodeGraphList[0];
+	var SecondBranch = BranchCodeGraphList[1];
+	var ThirdBranch = BranchCodeGraphList[2];
+	var FourthBranch = BranchCodeGraphList[3];
+	var FifthBranch = BranchCodeGraphList[4];
+	
+	//매출 1~5위 지점코드 log
+	console.log("******************************매출 5순위 지점코드********************************")
+	console.log("매출1순위 지점이름코드 : "+FirstBranch);
+	console.log("매출2순위 지점이름코드 : "+SecondBranch);
+	console.log("매출3순위 지점이름코드 : "+ThirdBranch);
+	console.log("매출4순위 지점이름코드 : "+FourthBranch);
+	console.log("매출5순위 지점이름코드 : "+FifthBranch);
+	console.log("******************************매출 5순위 지점코드********************************")
+	console.log("")
+	$(document).ready(function(){
+		/* $.ajax({
+			url 		: "selectBranchCntSaleTatal",
+			data 		: {"brcCode" : $(FirstBranch).val()},
+			dataType 	: "json",
+			type 		: "post",
+			success 	: function(data) {
+				
+			}
+		}) */
+	});
 	
 	//여기부터 표 시작
 	Highcharts
@@ -408,7 +441,7 @@
 				text: '지점별 영화 매출(단위 월)'			//상단 타이틀
 			},
 			xAxis: {
-				categories: BranchrGraphList		//하단 지점 이름 상위 5개점
+				categories: BranchNameGraphList		//하단 지점 이름 상위 5개점
 			},
 			labels: {
 				items: [{
@@ -424,18 +457,18 @@
 			series: [
 				{
 					type: 'column',					//첫번째 하늘색 바 내용
-					name: MovieCodeGraphList[0],	//매출1위점 영화이름
-					data: [3, 2, 1, 3, 4]			//각지점별 매출1위의 영화매출
+					name: MovieNameGraphList[0],	//매출1위점 영화이름
+					data: [3, 2, 1, 3, 4]			//매출1위지점 영화매출 [1위지점1위영화매출, 2위지점1위영화매출,  3위지점1위영화매출,  4위지점1위영화매출,  5위지점1위영화매출]
 				},
 				{
 					type: 'column',					//두번째 검은색 바 내용
-					name: MovieCodeGraphList[1],	//매출2위점 영화이름
-					data: [2, 3, 5, 7, 6]			//각지점별 매출2위의 영화매출
+					name: MovieNameGraphList[1],	//매출2위점 영화이름
+					data: [2, 3, 5, 7, 6]			//매출2위지점 영화매출 [1위지점2위영화매출, 2위지점2위영화매출,  3위지점2위영화매출,  4위지점2위영화매출,  5위지점2위영화매출]
 				},
 				{
 					type: 'column',					//세번째 초록색 바 내용
-					name: MovieCodeGraphList[2],	//매출3위점 영화이름
-					data: [4, 3, 3, 9, 1]			//각지점별 매출3위의 영화매출
+					name: MovieNameGraphList[2],	//매출3위점 영화이름
+					data: [4, 3, 3, 9, 1]			//매출3위지점 영화매출 [1위지점3위영화매출, 2위지점3위영화매출,  3위지점3위영화매출,  4위지점3위영화매출,  5위지점3위영화매출]
 				},
 				{
 					type: 'spline',					//평균치 곡선 그래프 내용
@@ -482,5 +515,17 @@
 			]
 	});
 	</script>
+	<!-- 
+	SELECT 	BRANCH_DAY_COUNT.mov_code 					AS movCode,
+			MOVIE.mov_korName 							AS movKorName,
+			SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal)		AS brcCntSaleTotal
+	FROM		BRANCH_DAY_COUNT
+				INNER JOIN MOVIE
+					ON BRANCH_DAY_COUNT.mov_code = MOVIE.mov_code
+	WHERE		BRANCH_DAY_COUNT.brc_code = 41102 AND BRANCH_DAY_COUNT.mov_code = 2100004
+	GROUP 	BY BRANCH_DAY_COUNT.mov_code
+	ORDER 	BY SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) DESC
+	LIMIT 	3;
+	 -->
 </body>
 </html>

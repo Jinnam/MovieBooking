@@ -64,6 +64,11 @@ public class AdminService {
 		return adminDao.selectMovieCodeForCircleGraph();
 	}
 
+	//
+	public int selectBranchCntSaleTatal(Movie movie) {
+		logger.debug(" Service selectBranchCntSaleTatal get실행");
+		return adminDao.selectBranchCntSaleTatal(movie);
+	}
 	/************************************************************************************************************
 	지점관리자 메서드 : 지점관리자등록/지점관리자조회/지점관리자수정/지점관리자삭제
 	************************************************************************************************************/	
