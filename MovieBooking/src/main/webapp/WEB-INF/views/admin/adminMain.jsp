@@ -302,8 +302,10 @@
 			</div>
 			<!-- 하단 우측 예매율 순위 차트 -->
 			
-			<div><!-- 0315작업중 -->
-			<!-- SELECT 	BRANCH_DAY_COUNT.mov_code 					AS movCode,
+			<div>
+			<!-- 0315작업중 -->
+			<!-- 
+			SELECT 	BRANCH_DAY_COUNT.mov_code 					AS movCode,
 					MOVIE.mov_korName 							AS movKorName,
 					SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal)		AS brcCntSaleTotal
 			FROM		BRANCH_DAY_COUNT
@@ -373,7 +375,7 @@
 		} */
 	</script>
 	
-	<script src="resources/adminjs"></script>
+	<script src="resources/adminjs/highChart.js"></script>
 	<!-- 메인화면 상단 바 그래프 자바 스크립트 -->
 	<script type="text/javascript">
 	//표에 어떻게 뿌리는지 모르겠다..

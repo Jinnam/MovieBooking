@@ -227,6 +227,7 @@ public class AdminService {
 		logger.debug(" Service insertCost post실행");
 		return adminDao.insertCost(screenCost);
 	}
+	
 	//단가조회
 	public List<ScreenCost> selectCostList() {
 		logger.debug(" Service selectCostList get실행");
