@@ -35,7 +35,7 @@ public class AdminController {
 	
 	//관리자 메인 페이지 : 메인으로 이동
 	@RequestMapping(value="adminMain", method=RequestMethod.GET)
-	public String adminMain(Model model, BranchDayCount branchDayCount) {
+	public /*@ResponseBody*/ String adminMain(Model model/*, @RequestParam int brcCode,  @RequestParam int movCode*/) {
 		logger.debug(" Controller adminMain get실행");
 		//하단우측 표 데이터
 		List<Movie> selectClientCount = adminService.selectClientCount();
@@ -52,8 +52,8 @@ public class AdminController {
 		//선그래프 월별 합계
 		List<BranchDayCount> selectMonthBranchCount = adminService.selectMonthBranchCount();
 		model.addAttribute("selectMonthBranchCount", selectMonthBranchCount);
-		//
-		/*int selectBranchCntSaleTatal = adminService.selectBranchCntSaleTatal(branchDayCount);
+		//바그래프 바데이터(매출)조회
+		/*int selectBranchCntSaleTatal = adminService.selectBranchCntSaleTatal(brcCode, movCode);
 		model.addAttribute("selectBranchCntSaleTatal", selectBranchCntSaleTatal);*/
 		
 		//집에서 log4j안됨 일단 이렇게 출력 log4j바꿀것 //System.out.println //logger.debug

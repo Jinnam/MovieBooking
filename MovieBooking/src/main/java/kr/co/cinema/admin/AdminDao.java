@@ -60,9 +60,9 @@ public class AdminDao {
 	}
 
 	//
-	public int selectBranchCntSaleTatal(Movie movie) {
+	public int selectBranchCntSaleTatal(Map<String, Integer> map) {
 		logger.debug(" Dao selectBranchCntSaleTatal");
-		return sqlSession.selectOne(NS+"selectBranchCntSaleTatal", movie);
+		return sqlSession.selectOne(NS+"selectBranchCntSaleTatal", map);
 	}
 	/************************************************************************************************************
 	지점관리 메서드 : 지점등록/지점조회/지점수정/지점탈퇴

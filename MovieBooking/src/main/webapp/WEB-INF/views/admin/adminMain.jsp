@@ -424,11 +424,11 @@
 	$(document).ready(function(){
 		/* $.ajax({
 			url 		: "selectBranchCntSaleTatal",
-			data 		: {"brcCode" : $(FirstBranch).val()},
+			data 		: {"brcCode" : FirstBranch, "movCode" : FirstMovieList},
 			dataType 	: "json",
-			type 		: "post",
+			type 		: "get",
 			success 	: function(data) {
-				
+				console.log(data)
 			}
 		}) */
 	});

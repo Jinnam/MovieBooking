@@ -70,6 +70,7 @@
 	
 	<!--  -->
 	<select id="selectBranchCntSaleTatal"
+			parameterType="Map"
 			resultType="kr.co.cinema.dto.BranchDayCount">
 			SELECT	SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal)	AS brcCntSaleTotal
 			FROM	BRANCH_DAY_COUNT
