@@ -141,7 +141,7 @@ public class AdminController {
 	@RequestMapping(value="selectOverLapCheck", method=RequestMethod.POST)
 	public @ResponseBody String selectOverLapCheck(@RequestParam("admId")String admId) {
 		logger.debug(" Controller selectOverLapCheck post실행");
-		logger.debug(" 들어온 id값 : "+admId);
+		//중복아이디 조회
 		String selectOverLapCheck = adminService.selectOverLapCheck(admId);
 		if(selectOverLapCheck != null) {
 			logger.debug(" 나갈 id값 : "+selectOverLapCheck.toString());
@@ -229,15 +229,17 @@ public class AdminController {
 	@RequestMapping(value="selectCharcodeUseModal", method=RequestMethod.POST)
 	public @ResponseBody List<Character> selectCharCodeForAddMovie(@RequestParam("charKorName")String charKorName) {
 		logger.debug(" Controller selectCharCodeForAddMovie post실행");
+		//인물이름으로 인물코드와 인물이름 조회
 		List<Character> selectCharCodeForAddMovie = adminService.selectCharCodeForAddMovie(charKorName);
 		logger.debug(selectCharCodeForAddMovie.toString());
 		return selectCharCodeForAddMovie;
 	}
 	
-	//영화 등록 : 모달에서 조회한 인물정보 중 인물 코드로 폼에 넣을 선택한 인물코드조회//수정중
+	//영화 등록 : 모달에서 조회한 인물정보 중 인물 코드로 폼에 넣을 선택한 인물코드조회//쓰는메서드인지 체크해볼것
 	@RequestMapping(value="choiceCharCode", method=RequestMethod.POST)
 	public @ResponseBody int choiceCharCode(@RequestParam("charKorName")int charCode) {
 		logger.debug(" Controller choiceCharCode post실행");
+		//모달에 띄운 리스트중 한의 인물이름 선택한 인물코드조회
 		int choiceCharCode = adminService.choiceCharCode(charCode);
 		return choiceCharCode;
 	}
@@ -256,13 +258,13 @@ public class AdminController {
 		logger.debug(" Controller insertMovie post실행 movie : "+movie);
 		//영화등록
 		adminService.insertMovie(movie);
-		//인물(배우)등록
+		//인물(배우)등록 등록된 영화 코드가져오기
 		adminService.insertCharacters(movie, movie.getMovCode());
-		//스틸컷추가
+		//스틸컷추가 등록된 영화 코드가져오기
 		adminService.insertSteelCut(movie, movie.getMovCode());
-		//통계초기화
+		//통계초기화 등록된 영화 코드가져오기
 		adminService.analisysReset(movie.getMovCode());
-		//평점초가화
+		//평점초가화 등록된 영화 코드가져오기
 		adminService.gradeReset(movie.getMovCode());
 		return "redirect:adminMovieList";
 	}
