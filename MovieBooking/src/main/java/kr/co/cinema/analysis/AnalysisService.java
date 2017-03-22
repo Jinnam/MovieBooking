@@ -1,6 +1,5 @@
 package kr.co.cinema.analysis;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,8 +41,15 @@ public class AnalysisService {
 	}
 	
 	// 지점별 영화 예매.매출 정보 가져오기
-	public List<HashMap<String, Object>> selectListBrcDayCount(Map<String, String> map){
+	public List<HashMap<String, Object>> findListBrcDayCount(Map<String, String> map){
 		logger.debug("		selectListBrcDayCount() 진입");
 		return analysisDao.selectListBrcDayCount(map);
+	}
+	
+	//-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ 날짜 통계 관련 /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
+	// 날짜별 영화예매.매출정보 가져오기
+	public List<HashMap<String,Object>> findListDateCnt(Map<String, String> map){
+		logger.debug("		selectListDateCnt() 진입 map : "+map);
+		return analysisDao.selectListDateCnt(map);
 	}
 }

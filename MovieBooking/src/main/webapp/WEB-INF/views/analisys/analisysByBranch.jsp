@@ -55,131 +55,20 @@
 			<ul class="sidebar-menu" id="nav-accordion">
 				<p class="centered">
 					<!-- 상단원형로고 -->
-					<a href="adminMain">
+					<a href="branchMain">
 						<img src="resources/assets/img/megaboxlogo.JPG" class="img-circle" width="60">
 					</a>
 				</p>
 				<!-- 사이드 바 원형로고 아래 텍스트 -->
-				<h5 class="centered">Mega Box Admin Page</h5>
+				<h5 class="centered">Mega Box Branch Page</h5>
 				<!-- 사이드 바 메인 메뉴 -->
 				<li class="mt">
-					<a href="adminMain">
+					<a href="branchMain">
 						<i class="fa fa-home"></i>
 						<span>H O M E</span>
 					</a>
 				</li>
-				<!-- 지점, 지점관리자 사이드 메뉴-->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="fa fa-desktop"></i>
-						<span>지점/관리자 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="branchList">지점 목록</a>
-						</li>
-						<li>
-							<a href="branchInsert">지점 등록</a>
-						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
-						<!-- <li>
-							<a href="branchModify">지점 수정</a>
-						</li> -->
-						<!-- <li>
-							<a href="branchDelete">지점 탈퇴</a>
-						</li> -->
-						<li>
-							<a href="adminList">지점 관리자 목록</a>
-						</li>
-						<li>
-							<a href="adminInsert">지점 관리자 등록</a>
-						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
-						<!-- <li>
-							<a href="adminModify">지점 관리자 수정</a>
-						</li> -->
-						<!-- <li>
-							<a href="adminDelete">지점 관리자 삭제</a>
-						</li> -->
-					</ul>
-				</li>
-				<!-- 회원 사이드 메뉴 -->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="fa fa-list"></i>
-						<span>회원 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="memberList">회원 목록</a>
-						</li>
-					</ul>
-				</li>
-				<!-- 영화 사이드 메뉴 -->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="fa fa-tasks"></i>
-						<span>영화 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="adminMovieList">영화 목록</a>
-						</li>
-						<li>
-							<a href="movieInsert">영화 등록</a>
-						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
-						<!-- <li>
-							<a href="adminModify">영화 수정</a>
-						</li> -->
-					</ul>
-				</li>
-				<!-- 인물 사이드 메뉴 -->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="fa fa-user"></i>
-						<span>인물 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="characterList">인물 목록</a>
-						</li>
-						<li>
-							<a href="characterInsert">인물 등록</a>
-						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
-						<!-- <li>
-							<a href="characterModify">인물 수정</a>
-						</li> -->
-					</ul>
-				</li>
-				<!-- 단가/할인정보 사이드 메뉴 -->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="glyphicon glyphicon-credit-card"></i>
-						<span>단가/할인 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="costList">단가 목록</a>
-						</li>
-						<li>
-							<a href="costInsert">단가 등록</a>
-						</li>
-						<!-- <li>
-							<a href="costModify">단가 수정</a>
-						</li> -->
-						<li>
-							<a href="discountInfoList">할인정보 목록</a>
-						</li>
-						<li>
-							<a href="discountInfoInsert">할인정보 등록</a>
-						</li>
-						<!-- <li>
-							<a href="discountInfoModify">할인정보 수정</a>
-						</li> -->
-					</ul>
-				</li>
+				
 				<!-- 극장 사이드 메뉴 -->
 				<li class="sub-menu">
 					<a href="javascript:;">
@@ -259,10 +148,21 @@
 						<label class="col-lg-4 control-label">지점 선택</label>
 						<div class="col-lg-8">
 							<select id="brcSelect" class="form-control" >
-									<option value="">지점 전체</option>
+									<option>지점 전체</option>
 								<c:forEach items="${branchInfo}" var="branchInfo">
-									<option value="">${branchInfo.brcName}</option>
+									<option>${branchInfo.brcName}</option>
 								</c:forEach>
+							</select>
+						</div>
+					</div>
+					
+					<!-- 영화 구분 -->
+					<div class="form-group">
+						<label class="col-lg-4 control-label">영화 구분</label>
+						<div class="col-lg-8">
+							<select id="movKind" class="form-control" >
+									<option value="all">영화 전체</option>
+									<option value="nonAll">지점별 매출만</option>
 							</select>
 						</div>
 					</div>
@@ -311,31 +211,6 @@
 	</section>
 </section>
 
-
-
-
-	
-	<section id="main-content">
-		<section class="wrapper">
-			<div class="row">
-				<!-- 페이지 강제 줄임 -->
-				<div class="col-lg-9 main-chart" align="center">
-				
-				
-					<p>날짜를 선택하세요</p>
-						
-					<p>지점을 선택하세요</p>
-						<c:forEach items="${branchInfo}" var="branchInfo">
-							<input type="button" class="branchName btn" value="${branchInfo.brcName}"/>
-						</c:forEach>
-						
-					<div class="branchDayCount"></div>
-					
-					
-				</div>
-			</div>
-		</section>
-	</section>
 	<!-- 여기까지 메인 -->
 	<script>
 	$(document).ready(function(){
@@ -344,17 +219,19 @@
 		$('#brcCntDate2').val("2017-03-01");						// 검색 마지막 날짜 설정
 		/* $('.branchName').eq(0).addClass('btn-primary');				// 페이지 로드되면 첫번째 지점 선택 & 첫번째 지점 데이터 가져오기 */
 		
-		$.brcCntAjax=function(kind,brcName,brcCntDate1,brcCntDate2){		// Ajax 함수 선언
+		$.brcCntAjax=function(kind,brcName,movKind,brcCntDate1,brcCntDate2){		// Ajax 함수 선언
 			$.ajax({
 				url : "analisysByBranch", 
 			      type :"post", 
 			      data : { "brcName" : brcName,
+			    	  	"movKind" : movKind,
 			    	  	"brcCntDate1" : brcCntDate1,
 			    	  	"brcCntDate2" : brcCntDate2}, 
 			      success : function(data){ 
 			    	  console.log(data);
-						$('.branchDayCount').children().remove();
-						$('.branchDayCount')
+						$('#branchDayCount').children().remove();
+						if(movKind=="all"){
+							$('#branchDayCount')
 							.append('<table class="table table-striped table-hover">'+
 										'<thead>'+
 											'<tr>'+
@@ -369,30 +246,70 @@
 										'<tbody id="resultInfo">'+
 										'</tbody>'+
 									'</table>')
+						}else{
+							$('#branchDayCount')
+							.append('<table class="table table-striped table-hover">'+
+										'<thead>'+
+											'<tr>'+
+												'<td>#</td>'+
+												'<td>지점</td>'+
+												'<td>예매수</td>'+
+												'<td>매출</td>'+
+												'<td>날짜</td>'+
+											'</tr>'+
+										'</thead>'+
+										'<tbody id="resultInfo">'+
+										'</tbody>'+
+									'</table>')
+						}
+						
 			        $(data).each(function(i){
-			        	if(kind=="main"){
-			        		$('#resultInfo')
-							.append('<tr>'+
-										'<td>'+i+'</td>'+
-										'<td>'+data[i].brcName+'</td>'+
-										'<td>'+data[i].movKorName+'</td>'+
-										'<td>'+data[i].brcCntClientCount+'</td>'+
-										'<td>'+data[i].brcCntSaleTotal+'</td>'+
-										'<td>'+data[i].brcCntDate+'</td>'+
-									'</tr>')
-									
-			        	}else if(kind=="branch"){
-			        		$('#resultInfo')
-							.append('<tr>'+
-										'<td>'+i+'</td>'+
-										'<td>'+data[i].brcName+'</td>'+
-										'<td>'+data[i].movKorName+'</td>'+
-										'<td>'+data[i].brcCntClientCount+'</td>'+
-										'<td>'+data[i].brcCntSaleTotal+'</td>'+
-										'<td>'+data[i].brcCntDate+'</td>'+
-									'</tr>')
+			        	if(movKind=="all"){
+			        		if(kind=="main"){
+				        		$('#resultInfo')
+								.append('<tr>'+
+											'<td>'+i+'</td>'+
+											'<td>'+data[i].brcName+'</td>'+
+											'<td>'+data[i].movKorName+'</td>'+
+											'<td>'+data[i].brcCntClientCount+'</td>'+
+											'<td>'+data[i].brcCntSaleTotal+'</td>'+
+											'<td>'+data[i].brcCntDate+'</td>'+
+										'</tr>')
+										
+				        	}else if(kind=="branch"){
+				        		$('#resultInfo')
+								.append('<tr>'+
+											'<td>'+i+'</td>'+
+											'<td>'+data[i].brcName+'</td>'+
+											'<td>'+data[i].movKorName+'</td>'+
+											'<td>'+data[i].brcCntClientCount+'</td>'+
+											'<td>'+data[i].brcCntSaleTotal+'</td>'+
+											'<td>'+data[i].brcCntDate+'</td>'+
+										'</tr>')
+				        	}
+			        	}else{
+			        		if(kind=="main"){
+				        		$('#resultInfo')
+								.append('<tr>'+
+											'<td>'+i+'</td>'+
+											'<td>'+data[i].brcName+'</td>'+
+											'<td>'+data[i].brcCntClientCount+'</td>'+
+											'<td>'+data[i].brcCntSaleTotal+'</td>'+
+											'<td>'+data[i].brcCntDate+'</td>'+
+										'</tr>')
+										
+				        	}else if(kind=="branch"){
+				        		$('#resultInfo')
+								.append('<tr>'+
+											'<td>'+i+'</td>'+
+											'<td>'+data[i].brcName+'</td>'+
+											'<td>'+data[i].brcCntClientCount+'</td>'+
+											'<td>'+data[i].brcCntSaleTotal+'</td>'+
+											'<td>'+data[i].brcCntDate+'</td>'+
+										'</tr>')
+				        	}
 			        	}
-								        	
+		        	
 			        })
 			         
 			      },error:function(){
@@ -405,13 +322,19 @@
 		var firstDate=$("#brcCntDate1").val();
 		var finalDate=$("#brcCntDate2").val()
 		
-		$.brcCntAjax("main","main",firstDate,finalDate);
+	//	$.brcCntAjax("main","main","all",firstDate,finalDate);			// 페이지 로딩시 보여지는 정보
 		
 		 $('#selectBtn').click(function(){
 				var brcName = $('#brcSelect option:selected').text();
-				console.log(brcName);
-				$.brcCntAjax("branch",brcName,firstDate,finalDate);
-				 
+				var movKind= $('#movKind option:selected').val()
+				console.log("영화 구분:"+movKind);
+				if(brcName =="지점 전체"){
+					console.log(brcName);
+					$.brcCntAjax("main","main",movKind,firstDate,finalDate);
+				}else{
+					console.log(brcName);
+					$.brcCntAjax("branch",brcName,movKind,firstDate,finalDate);
+				}
 				
 		})
 		

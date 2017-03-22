@@ -16,6 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import kr.co.cinema.admin.AdminService;
+import kr.co.cinema.dto.Branch;
+import kr.co.cinema.dto.BranchDayCount;
+import kr.co.cinema.dto.Movie;
+import kr.co.cinema.dto.MovieAndBranchDayCount;
 import kr.co.cinema.dto.Screen;
 import kr.co.cinema.dto.ScreenSchedule;
 
@@ -27,6 +32,36 @@ private static final Logger logger = LoggerFactory.getLogger(ScreenController.cl
 	
 	@Autowired
 	private ScreenService screenService;
+	@Autowired
+	private AdminService adminService;
+	
+		// 지점 메인 화면이동
+		@RequestMapping(value="branchMain", method=RequestMethod.GET)
+		public String adminMain(Model model) {
+			logger.debug(" Controller adminMain get실행");
+			//하단우측 표 데이터
+			List<Movie> selectClientCount = adminService.selectClientCount();
+			model.addAttribute("selectClientCount", selectClientCount);
+			//바 그래프 데이터 상위5지점조회
+			List<Branch> selectBranchForBarGraph = adminService.selectBranchForBarGraph();
+			model.addAttribute("selectBranchForBarGraph", selectBranchForBarGraph);
+			//원 그래프 데이터 상위3지점조회
+			List<MovieAndBranchDayCount> MovieCodeForCircleGraph = adminService.selectMovieCodeForCircleGraph();
+			model.addAttribute("MovieCodeForCircleGraph", MovieCodeForCircleGraph);
+			//선그래프 매출 총 합계
+			int selectBranchCount = adminService.selectBranchCount();
+			model.addAttribute("selectBranchCount", selectBranchCount);
+			//선그래프 월별 합계
+			List<BranchDayCount> selectMonthBranchCount = adminService.selectMonthBranchCount();
+			model.addAttribute("selectMonthBranchCount", selectMonthBranchCount);
+			//집에서 log4j안됨 일단 이렇게 출력 log4j바꿀것 //System.out.println //logger.debug
+			logger.debug("컨트롤러 바그래프 :"+selectBranchForBarGraph);
+			logger.debug("컨트롤러 우측하단표 : " + selectClientCount);
+			logger.debug("컨트롤러 선그래프 매출 총 합계 : "+selectBranchCount);
+			logger.debug("컨트롤러 선그래프 매출 월 합계 : "+selectMonthBranchCount);
+			logger.debug("컨트롤러 원그래프 매출 월 합계 : "+MovieCodeForCircleGraph);
+			return "admin/branchMain";
+		}
 	
 		//상영관등록 : 페이지이동
 		@RequestMapping(value="screenInsert", method=RequestMethod.GET)
@@ -129,5 +164,43 @@ private static final Logger logger = LoggerFactory.getLogger(ScreenController.cl
 		public String updateScreenScheduleList() {
 			logger.debug(" Controller updateScreenScheduleList get실행");
 			return "screen/screenScheduleModify";
+		}
+		
+		/************************************************************************************************************
+		로그인 관리 메서드
+		************************************************************************************************************/	
+		
+		// 로그인 페이지 이동
+		@RequestMapping(value="/branchLogin", method=RequestMethod.GET)
+		public String adminLogin(){
+			logger.debug("	adminLogin() get 진입");
+			return "login/branchLogin";
+		}
+		
+		// 로그인 가입 여부 판단
+		@RequestMapping(value="/branchLogin", method=RequestMethod.POST)
+		public @ResponseBody String adminLogin(Model model,@RequestParam String adminId, @RequestParam String adminPw){
+			logger.debug("	adminLogin() post 진입 adminId : "+adminId+" adminPw : "+adminPw);
+			
+			String loginResult = "";		// 로그인결과 반환할 변수선언 & 초기화
+			
+			Map<String, Object> adminInfo = adminService.findOneAdminInfo(adminId);		// 입력한 id 값으로 admin정보 가져오기
+			if(adminInfo != null){									// 아이디가 존재할 경우
+				logger.debug("adminInfo"+adminInfo.toString());
+				String dbPw = (String)adminInfo.get("admPw");		// 가져온 정보에서 비밀번호 가져오기
+				String brcName = (String)adminInfo.get("brcName");	// 가져온 정보에서 지점이름 가져오기
+				int brcCode =  (int) adminInfo.get("brcCode"); 		// 가져온 정보에서 지점코드 가져오기
+				if(adminPw.equals(dbPw)){							// 비밀번호 비교
+					model.addAttribute("brcName",brcName);			// @SessionAttributes 이용하기 위해 모델에 값 셋팅
+					model.addAttribute("brcCode",brcCode);			// @SessionAttributes 이용하기 위해 모델에 값 셋팅
+					loginResult="success";							// 로그인 성공시 반환 값
+				}else{
+					loginResult="noPw";								// 비밀번호가 다를 경우 반환 할 값
+				}
+			}else{
+				loginResult="noId";									// 아이디가 다를 경우 반환 할 값
+			}
+			
+			return loginResult;
 		}
 }

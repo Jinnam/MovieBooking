@@ -48,4 +48,11 @@ private static final Logger logger = LoggerFactory.getLogger(PaymentDao.class);
 		logger.debug("		selectListBrcDayCount() 진입 map : "+map);
 		return sqlSession.selectList(NS+"seleceBrcCntSale",map);
 	}
+	
+	//-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ 날짜 통계 관련 /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
+	// 날짜별 영화예매.매출정보 가져오기
+	public List<HashMap<String,Object>> selectListDateCnt(Map<String, String> map){
+		logger.debug("		selectListDateCnt() 진입 map : "+map);
+		return sqlSession.selectList(NS+"selectDateCnt",map);
+	}
 }

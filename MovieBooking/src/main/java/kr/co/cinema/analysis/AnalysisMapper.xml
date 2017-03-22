@@ -41,9 +41,11 @@
 	 <select id="seleceBrcCntSale" parameterType="Map" resultType="Map">
 	 	SELECT
 			BRANCH.brc_name AS brcName,
+			<if test="movKorName=='all'">
 			MOVIE.mov_korName AS movKorName,
-			BRANCH_DAY_COUNT.brcCnt_clientCount AS brcCntClientCount,
-			BRANCH_DAY_COUNT.brcCnt_saleTotal AS brcCntSaleTotal,
+			</if>
+			SUM(BRANCH_DAY_COUNT.brcCnt_clientCount) AS brcCntClientCount,
+			SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) AS brcCntSaleTotal,
 			BRANCH_DAY_COUNT.brcCnt_date AS brcCntDate
 		FROM
 			BRANCH_DAY_COUNT
@@ -61,6 +63,12 @@
 		AND
 			BRANCH.brc_name=#{brcName}	
 			</if>
+		GROUP BY
+			<if test="movKorName=='all'">
+			mov_korName,
+			</if> 
+			brc_name
+		ORDER BY brcName
 	 </select>
 	 
 	 <!-- 영화/지점/별로 예매/매출 가져오기 -->
@@ -96,27 +104,40 @@
 		</if>
 		GROUP BY brc_name
 	 </select>
-	 <!-- 영화 정보 가져오기 -->
-	 <select id="">
-	 	SELECT
-			MOVIE.mov_korName,
-			ANALYSIS.anl_totalTicketCount,
-			ANALYSIS.anl_totalTicketCount,
-			ANALYSIS.anl_10sTicketCount,
-			ANALYSIS.anl_20sTicketCount,
-			ANALYSIS.anl_30sTicketCount,
-			ANALYSIS.anl_40sTicketCount,
-			ANALYSIS.anl_over50sTicketCount,
-			ANALYSIS.anl_manTicketCount,
-			ANALYSIS.anl_womanTicketCount,
-			ANALYSIS.anl_acSales
+	 
+	 <!-- ///////////////////// 날짜 통계 관련 ////////////////////// -->
+	 
+	 <!-- 날짜별 통계 가져오기 -->
+	 <select id="selectDateCnt" resultType="Map" parameterType="Map">
+		SELECT
+			BRANCH_DAY_COUNT.brcCnt_date AS brcCntDate,
+			BRANCH.brc_name AS brcName,
+			MOVIE.mov_korName AS movKorName,
+			SUM(BRANCH_DAY_COUNT.brcCnt_clientCount) AS brcCntClientCount,
+			SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) AS brcCntSaleTotal
 		FROM
-			ANALYSIS
+			BRANCH_DAY_COUNT
+		JOIN
+			BRANCH
+		ON
+			BRANCH.brc_code=BRANCH_DAY_COUNT.brc_code
 		JOIN
 			MOVIE
 		ON
-			ANALYSIS.mov_code=MOVIE.mov_code
+			BRANCH_DAY_COUNT.mov_code=MOVIE.mov_code
 		WHERE
-			MOVIE.mov_code=#{movCode}
+			BRANCH_DAY_COUNT.brcCnt_date 
+		BETWEEN
+			#{brcCntDate1}
+		AND 
+			#{brcCntDate2}
+		GROUP BY
+			brcCnt_date,
+			<if test="">
+			brc_name,
+			</if>
+			mov_korName
+		ORDER BY
+			brcCnt_date
 	 </select>
 </mapper>

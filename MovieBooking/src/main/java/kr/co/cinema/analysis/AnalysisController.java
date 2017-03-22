@@ -72,16 +72,18 @@ public class AnalysisController {
 	
 	// 지점별 예매/매출 POST
 	@RequestMapping(value="analisysByBranch", method=RequestMethod.POST)
-	public @ResponseBody List<HashMap<String, Object>> selectAnalisysByBranch(@RequestParam String brcName, 
+	public @ResponseBody List<HashMap<String, Object>> selectAnalisysByBranch(@RequestParam String brcName,
+																			@RequestParam String movKind,
 																			@RequestParam String brcCntDate1,
 																			@RequestParam String brcCntDate2){
 		logger.debug(" selectAnalisysByBranch post 진입 : brcName : "+brcName+
 				" brcCntDate1 : "+brcCntDate1+" brcCntDate2 : "+brcCntDate2);
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("brcName", brcName);
+		map.put("movKorName", movKind);
 		map.put("brcCntDate1", brcCntDate1);
 		map.put("brcCntDate2", brcCntDate2);
-		List<HashMap<String, Object>> returnList = analysisService.selectListBrcDayCount(map);
+		List<HashMap<String, Object>> returnList = analysisService.findListBrcDayCount(map);
 		logger.debug("selectAnalisysByBranch returnList : "+returnList.toString());
 		return returnList; 
 	}
@@ -90,9 +92,30 @@ public class AnalysisController {
 	//-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ 날짜별 통계 관련 /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
 	// 날짜별 예매,매출
 	@RequestMapping(value="analisysByDate", method=RequestMethod.GET)
-	public String selectAnalisysByDate() {
-		logger.debug(" Controller selectAnalisysByDate get실행");
+	public String selectAnalisysByDate(Model model) {
+		logger.debug(" selectAnalisysByDate get 진입");
+		List<Branch> branchInfo = analysisService.searchOneBranchInfo();
+		logger.debug("	selectAnalisysByDate() get branchInfo : "+branchInfo.toString());
+		model.addAttribute("branchInfo",branchInfo);
 		return "analisys/analisysByDate";
 	}
 	
+	// 날짜별 예매,매출 ajax post
+	@RequestMapping(value="analisysByDate", method=RequestMethod.POST)
+	public @ResponseBody List<HashMap<String, Object>> selectAnalysisBydate(@RequestParam String brcName,
+																			@RequestParam String movKind,
+																			@RequestParam String brcCntDate1,
+																			@RequestParam String brcCntDate2){
+		logger.debug(" selectAnalisysByDate post 진입 brcName : "+brcName+" movKind: "+movKind+" brcCntDate : "+brcCntDate1+", "+brcCntDate2);
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("brcName", brcName);
+		map.put("movKind", movKind);
+		map.put("brcCntDate1", brcCntDate1);
+		map.put("brcCntDate2", brcCntDate2);
+		
+		List<HashMap<String, Object>> resultMap = analysisService.findListDateCnt(map);
+		
+		return resultMap;
+	}
 }

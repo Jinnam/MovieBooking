@@ -59,6 +59,11 @@ public class AdminDao {
 		return sqlSession.selectList(NS+"selectMovieCodeForCircleGraph");
 	}
 
+	//
+	public int selectBranchCntSaleTatal(Movie movie) {
+		logger.debug(" Dao selectBranchCntSaleTatal");
+		return sqlSession.selectOne(NS+"selectBranchCntSaleTatal", movie);
+	}
 	/************************************************************************************************************
 	지점관리 메서드 : 지점등록/지점조회/지점수정/지점탈퇴
 	************************************************************************************************************/

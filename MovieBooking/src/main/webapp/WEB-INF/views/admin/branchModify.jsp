@@ -249,6 +249,12 @@
 					<form action="branchModify" class="form-horizontal" method="post">
 						<fieldset>
 							<legend>기입사항</legend>
+							<div class="form-group" style="display: none;">
+								<label class="col-lg-2 control-label">지점코드</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" value="${selectBranchForUpdate.brcCode}" name="brcCode" placeholder="지점이름을 입력하세요">
+								</div>
+							</div>
 							<div class="form-group">
 								<label class="col-lg-2 control-label">지점이름</label>
 								<div class="col-lg-10">

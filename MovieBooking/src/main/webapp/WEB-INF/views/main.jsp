@@ -41,9 +41,26 @@
     
       <div class="row"> <!-- row 열기 -->
       
+      	<h4 style="text-align:center;">호스팅 링크</h4>
+      
+	        <a href="adminLogin" style=" text-decoration:none; color:#000000">
+	        
+	          <div class="col s4">
+	            <div class="card">
+	              <div class="card-image">
+	                <img src="resources/index_img/1team_adminMain.jpg" style="height:auto;">
+	              </div>
+	              <div class="card-content">
+	                <p>중앙 관리자</p>
+	              </div>
+	            </div>
+	          </div>
+	          
+	        </a>      
+      
 	        <a href="movieMain" style=" text-decoration:none; color:#000000 ">
 	        
-	          <div class="col s6">
+	          <div class="col s4">
 	            <div class="card">
 	              <div class="card-image">
 	                <img src="resources/index_img/1team_movieMain.jpg" style="height:auto;">
@@ -56,15 +73,15 @@
 	          
 	        </a>
 	
-	        <a href="adminLogin" style=" text-decoration:none; color:#000000">
+	        <a href="branchLogin" style=" text-decoration:none; color:#000000">
 	        
-	          <div class="col s6">
+	          <div class="col s4">
 	            <div class="card">
 	              <div class="card-image">
 	                <img src="resources/index_img/1team_adminMain.jpg" style="height:auto;">
 	              </div>
 	              <div class="card-content">
-	                <p>관리자</p>
+	                <p>지점 관리자</p>
 	              </div>
 	            </div>
 	          </div>
@@ -74,7 +91,7 @@
 	      </div> <!-- row 닫기 -->
 	      
 	      <div class="row"> <!-- row 열기 -->
-	      <h4>팀원 개인 포트폴리오</h4>
+	      <h4 style="text-align:center;">팀원 개인 포트폴리오</h4>
 	      
 	        <a href="http://kjb7907.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
@@ -91,15 +108,15 @@
 	          
 	        </a>		
 	        	      
-	        <a href="#" target="_blank" style=" text-decoration:none; color:#000000 ">
+	        <a href="http://better4307.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/jbin.png">
+	                <img src="resources/index_img/jinnam.jpg">
 	              </div>
 	              <div class="card-content">
-	                <p>[준비중]김진남</p>
+	                <p>김진남</p>
 	              </div>
 	            </div>
 	          </div>
@@ -121,15 +138,15 @@
 	          
 	        </a>		
 	        
-	        <a href="#" target="_blank" style=" text-decoration:none; color:#000000 ">
+	        <a href="http://jby9215.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/jbin.png">
+	                <img src="resources/index_img/jby.png">
 	              </div>
 	              <div class="card-content">
-	                <p>[준비중]조봉연</p>
+	                <p>조봉연</p>
 	              </div>
 	            </div>
 	          </div>
@@ -139,7 +156,7 @@
 	      </div> <!-- row 닫기 -->
 	      
 	      <!-- ERD -->
-	      <h2>ERD</h2>
+	      <h4 style="text-align:center;">ERD</h4>
 	      <div class="row">
 	      	<div class="col s12">
 	      		<img src="resources/index_img/erd.jpg" style="width:100%" class="materialboxed responsive-img">

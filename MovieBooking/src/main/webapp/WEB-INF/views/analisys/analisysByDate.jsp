@@ -11,6 +11,9 @@
 	<meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 	<title>Mega Box Admin - 관리자 통계</title>
 	
+	<!--jQuery  -->
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+	
 	<!-- Bootstrap core CSS -->
 	<link href="resources/assets/css/bootstrap.css" rel="stylesheet">
 	<!--external css-->
@@ -44,131 +47,20 @@
 			<ul class="sidebar-menu" id="nav-accordion">
 				<p class="centered">
 					<!-- 상단원형로고 -->
-					<a href="adminMain">
+					<a href="branchMain">
 						<img src="resources/assets/img/megaboxlogo.JPG" class="img-circle" width="60">
 					</a>
 				</p>
 				<!-- 사이드 바 원형로고 아래 텍스트 -->
-				<h5 class="centered">Mega Box Admin Page</h5>
+				<h5 class="centered">Mega Box Branch Page</h5>
 				<!-- 사이드 바 메인 메뉴 -->
 				<li class="mt">
-					<a href="adminMain">
+					<a href="branchMain">
 						<i class="fa fa-home"></i>
 						<span>H O M E</span>
 					</a>
 				</li>
-				<!-- 지점, 지점관리자 사이드 메뉴-->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="fa fa-desktop"></i>
-						<span>지점/관리자 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="branchList">지점 목록</a>
-						</li>
-						<li>
-							<a href="branchInsert">지점 등록</a>
-						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
-						<!-- <li>
-							<a href="branchModify">지점 수정</a>
-						</li> -->
-						<!-- <li>
-							<a href="branchDelete">지점 탈퇴</a>
-						</li> -->
-						<li>
-							<a href="adminList">지점 관리자 목록</a>
-						</li>
-						<li>
-							<a href="adminInsert">지점 관리자 등록</a>
-						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
-						<!-- <li>
-							<a href="adminModify">지점 관리자 수정</a>
-						</li> -->
-						<!-- <li>
-							<a href="adminDelete">지점 관리자 삭제</a>
-						</li> -->
-					</ul>
-				</li>
-				<!-- 회원 사이드 메뉴 -->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="fa fa-list"></i>
-						<span>회원 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="memberList">회원 목록</a>
-						</li>
-					</ul>
-				</li>
-				<!-- 영화 사이드 메뉴 -->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="fa fa-tasks"></i>
-						<span>영화 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="adminMovieList">영화 목록</a>
-						</li>
-						<li>
-							<a href="movieInsert">영화 등록</a>
-						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
-						<!-- <li>
-							<a href="adminModify">영화 수정</a>
-						</li> -->
-					</ul>
-				</li>
-				<!-- 인물 사이드 메뉴 -->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="fa fa-user"></i>
-						<span>인물 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="characterList">인물 목록</a>
-						</li>
-						<li>
-							<a href="characterInsert">인물 등록</a>
-						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
-						<!-- <li>
-							<a href="characterModify">인물 수정</a>
-						</li> -->
-					</ul>
-				</li>
-				<!-- 단가/할인정보 사이드 메뉴 -->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="glyphicon glyphicon-credit-card"></i>
-						<span>단가/할인 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="costList">단가 목록</a>
-						</li>
-						<li>
-							<a href="costInsert">단가 등록</a>
-						</li>
-						<!-- <li>
-							<a href="costModify">단가 수정</a>
-						</li> -->
-						<li>
-							<a href="discountInfoList">할인정보 목록</a>
-						</li>
-						<li>
-							<a href="discountInfoInsert">할인정보 등록</a>
-						</li>
-						<!-- <li>
-							<a href="discountInfoModify">할인정보 수정</a>
-						</li> -->
-					</ul>
-				</li>
+				
 				<!-- 극장 사이드 메뉴 -->
 				<li class="sub-menu">
 					<a href="javascript:;">
@@ -237,11 +129,342 @@
 		<section class="wrapper">
 			<div class="row">
 				<!-- 페이지 강제 줄임 -->
-				<div class="col-lg-9 main-chart" align="center"></div>
-			</div>
-		</section>
+				<div class="col-lg-12 main-chart" align="center">
+				
+				<fieldset class="col-lg-6" style="float:left;">
+					<legend>날짜별 통계</legend>
+					
+					<!-- 날짜 선택 -->
+					<div class="form-group">
+						<label class="col-lg-4 control-label">날짜 선택</label>
+						<div class="col-lg-8">
+							<div class="col-lg-2">
+								<input type="button" id="oneWeek" class="dateClick btn" value="1주일"/>
+							</div>
+							<div class="col-lg-2">
+								<input type="button" id="oneMonth" class="dateClick btn" value="1개월"/>
+							</div>
+							<div class="col-lg-2">
+								<input type="button" id="threeMonth" class="dateClick btn" value="3개월"/>
+							</div>
+							<div class="col-lg-2">
+								<input type="button" id="sixMonth" class="dateClick btn" value="6개월"/>
+							</div>
+							<div class="col-lg-2">
+								<input type="button" id="oneYear" class="dateClick btn" value="1년"/>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-4 control-label">기간 지정</label>
+						<div class="col-lg-8">
+							<div class="col-lg-5">
+								<input type="date" class="form-control"  id="brcCntDate1"/>
+							</div>
+							<div class="col-lg-2">~</div>
+							<div class="col-lg-5">
+								<input type="date" class="form-control"  id="brcCntDate2" />
+							</div>
+						</div>
+					</div>
+					
+					<!-- 지점 선택 -->
+					<div class="form-group">
+						<label class="col-lg-4 control-label">지점 선택</label>
+						<div class="col-lg-8">
+							<select id="brcSelect" class="form-control" >
+									<option>지점 전체</option>
+								<c:forEach items="${branchInfo}" var="branchInfo">
+									<option>${branchInfo.brcName}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					
+					<!-- 영화 구분 -->
+					<div class="form-group">
+						<label class="col-lg-4 control-label">영화 구분</label>
+						<div class="col-lg-8">
+							<select id="movKind" class="form-control" >
+									<option value="all">영화 전체</option>
+									<option value="nonAll">지점별 매출만</option>
+							</select>
+						</div>
+					</div>
+					
+					
+					
+					<div></div>
+					<!-- 검색 버튼 -->
+					<div class="form-group">
+						<div align="right">
+							<input type="button" class="btn" id="selectBtn" value="검색"/>
+						</div>
+					</div>
+						
+				</fieldset>
+				<fieldset class="col-lg-6" style="float:left;">
+					<legend>&nbsp;</legend>
+					
+					
+					<!-- 선택 결과-->
+					<div class="form-group">
+							<div id="movSelectResult" class="col-lg-9"></div>
+					</div>
+
+			</fieldset>
+						
+		</div>
+	</div>
 	</section>
+	<section class="wrapper">
+		<div class="container">
+			<div id="branchDayCount"></div>
+		</div>
+	</section>
+</section>
+
 	<!-- 여기까지 메인 -->
+	<script>
+	$(document).ready(function(){
+		
+		// 현재 날짜 구하기
+		var currentDay = "";
+		var nowDate = new Date();
+		var getNowYear = nowDate.getFullYear();		// 오늘 년
+		var getNowMonth = (nowDate.getMonth()+1);	// 오늘 달
+		var getNowDate = nowDate.getDate();			// 오늘 일
+		
+		// 월 숫자가 1자리 2자리 구분
+		var month="";
+		if(getNowMonth<10){
+			if(getNowDate<10){
+				currentDay = getNowYear+"-0"+getNowMonth+"-0"+getNowDate;
+			}else{
+				currentDay = getNowYear+"-0"+getNowMonth+"-"+getNowDate;
+			}
+		}else{
+			if(getNowDate<10){
+				currentDay = getNowYear+"-"+getNowMonth+"-"+"0"+getNowDate;
+			}else{
+				currentDay = getNowYear+"-"+getNowMonth+"-"+getNowDate;
+			}
+		}
+
+		console.log("현재 날짜 : "+currentDay);
+		
+		// 페이지 로딩시 현재 날짜 설정
+		$("#brcCntDate1").val(currentDay);					// 검색 시작 날짜 설정
+		$('#brcCntDate2').val(currentDay);					// 검색 마지막 날짜 설정
+		
+		
+		// 날짜 계산 함수
+		var dateCal=function(dYear,dMonth,dDate){
+			console.log(dYear);
+			console.log(dMonth);
+			console.log(dDate);
+			
+			// 현재날짜 생성
+			var dDay = new Date();
+			console.log(dDay)
+			
+			// 입력값에 따른 날짜 설정
+			if(dYear==0 && dMonth==0){
+				console.log("일짜 진입"+dDate)
+				console.log("dDay date : "+dDay.getDate());
+				dDay.setDate(dDay.getDate()-dDate);
+				console.log("dDay date : "+dDay.getFullYear()+"-"+(dDay.getMonth()+1)+"-"+dDay.getDate());
+			}else if(dYear==0 && dDate==0){
+				console.log("월 진입"+dMonth)
+				console.log("dDay month : "+dDay.getMonth());
+				dDay.setMonth(dDay.getMonth()-dMonth);
+				console.log("dDay month : "+dDay.getFullYear()+"-"+(dDay.getMonth()+1)+"-"+dDay.getDate());
+				console.log("dDay : "+dDay);
+			}else if(dMonth==0 && dDate==0){
+				console.log("년 진입"+dYear)
+				console.log("dDay year : "+dDay.getFullYear());
+				dDay.setFullYear(dDay.getFullYear()-dYear);
+				console.log("dDay.year : "+dDay.getFullYear()+"-"+(dDay.getMonth()+1)+"-"+dDay.getDate());
+				
+			}
+			
+			// 날짜 형식 변경 yyyy-MM-dd
+			if(dDay.getDate()<10) {
+				if(dDay.getMonth()+1<10){
+					var returnDate = dDay.getFullYear()+"-"+"0"+(dDay.getMonth()+1)+"-"+"0"+dDay.getDate();
+				}else{
+					var returnDate = dDay.getFullYear()+"-"+(dDay.getMonth()+1)+"-"+"0"+dDay.getDate();
+				}
+			}else{
+				if(dDay.getMonth()+1<10){
+					var returnDate = dDay.getFullYear()+"-"+"0"+(dDay.getMonth()+1)+"-"+dDay.getDate();
+				}else{
+					var returnDate = dDay.getFullYear()+"-"+(dDay.getMonth()+1)+"-"+dDay.getDate();
+				}
+			}
+			return returnDate;
+		}
+		// 날짜 계산 함수 끝
+		
+		// 날짜 선택(1주일,1달,3달,6달,1년)
+		$('.dateClick').click(function(){
+			console.log("dateClick 클릭")
+			$('.dateClick').removeClass('btn-primary');
+			$(this).addClass('btn-primary');
+			var dateKind = $(this).val();
+			console.log("dateKind: "+dateKind)
+			if(dateKind=="1주일"){
+				var startDate=dateCal(0,0,7);
+				console.log("startDate : "+startDate);
+				$("#brcCntDate1").val(startDate);
+			}else if(dateKind=="1개월"){
+				var startDate=dateCal(0,1,0);
+				console.log("startDate : "+startDate);
+				$("#brcCntDate1").val(startDate);
+			}else if(dateKind=="3개월"){
+				var startDate=dateCal(0,3,0);
+				console.log("startDate : "+startDate);
+				$("#brcCntDate1").val(startDate);
+			}else if(dateKind=="6개월"){
+				var startDate=dateCal(0,6,0);
+				console.log("startDate : "+startDate);
+				$("#brcCntDate1").val(startDate);
+			}else if(dateKind=="1년"){
+				var startDate=dateCal(1,0,0);
+				console.log("startDate : "+startDate);
+				$("#brcCntDate1").val(startDate);
+			}
+		})
+		
+		
+		
+		$.brcCntAjax=function(kind,brcName,movKind,brcCntDate1,brcCntDate2){		// Ajax 함수 선언
+			$.ajax({
+				url : "analisysByDate", 
+			      type :"post", 
+			      data : { "brcName" : brcName,
+			    	  	"movKind" : movKind,
+			    	  	"brcCntDate1" : brcCntDate1,
+			    	  	"brcCntDate2" : brcCntDate2}, 
+			      success : function(data){ 
+			    	  console.log(data);
+						$('#branchDayCount').children().remove();
+						if(movKind=="all"){
+							$('#branchDayCount')
+							.append('<table class="table table-striped table-hover">'+
+										'<thead>'+
+											'<tr>'+
+												'<td>#</td>'+
+												'<td>날짜</td>'+
+												'<td>지점</td>'+
+												'<td>영화</td>'+
+												'<td>예매수</td>'+
+												'<td>매출</td>'+
+											'</tr>'+
+										'</thead>'+
+										'<tbody id="resultInfo">'+
+										'</tbody>'+
+									'</table>')
+						}else{
+							$('#branchDayCount')
+							.append('<table class="table table-striped table-hover">'+
+										'<thead>'+
+											'<tr>'+
+												'<td>#</td>'+
+												'<td>날짜</td>'+
+												'<td>지점</td>'+
+												'<td>예매수</td>'+
+												'<td>매출</td>'+
+											'</tr>'+
+										'</thead>'+
+										'<tbody id="resultInfo">'+
+										'</tbody>'+
+									'</table>')
+						}
+						
+			        $(data).each(function(i){
+			        	if(movKind=="all"){
+			        		if(kind=="main"){
+				        		$('#resultInfo')
+								.append('<tr>'+
+											'<td>'+i+'</td>'+
+											'<td>'+data[i].brcCntDate+'</td>'+
+											'<td>'+data[i].brcName+'</td>'+
+											'<td>'+data[i].movKorName+'</td>'+
+											'<td>'+data[i].brcCntClientCount+'</td>'+
+											'<td>'+data[i].brcCntSaleTotal+'</td>'+
+										'</tr>')
+										
+				        	}else if(kind=="branch"){
+				        		$('#resultInfo')
+								.append('<tr>'+
+											'<td>'+i+'</td>'+
+											'<td>'+data[i].brcCntDate+'</td>'+
+											'<td>'+data[i].brcName+'</td>'+
+											'<td>'+data[i].movKorName+'</td>'+
+											'<td>'+data[i].brcCntClientCount+'</td>'+
+											'<td>'+data[i].brcCntSaleTotal+'</td>'+
+										'</tr>')
+				        	}
+			        	}else{
+			        		if(kind=="main"){
+				        		$('#resultInfo')
+								.append('<tr>'+
+											'<td>'+i+'</td>'+
+											'<td>'+data[i].brcCntDate+'</td>'+
+											'<td>'+data[i].brcName+'</td>'+
+											'<td>'+data[i].brcCntClientCount+'</td>'+
+											'<td>'+data[i].brcCntSaleTotal+'</td>'+
+										'</tr>')
+										
+				        	}else if(kind=="branch"){
+				        		$('#resultInfo')
+								.append('<tr>'+
+											'<td>'+i+'</td>'+
+											'<td>'+data[i].brcCntDate+'</td>'+
+											'<td>'+data[i].brcName+'</td>'+
+											'<td>'+data[i].brcCntClientCount+'</td>'+
+											'<td>'+data[i].brcCntSaleTotal+'</td>'+
+										'</tr>')
+				        	}
+			        	}
+		        	
+			        })
+			         
+			      },error:function(){
+			          alert("error");
+			       }
+			   })	
+	}
+	
+		// 검색 버튼 클릭 이벤트
+		 $('#selectBtn').click(function(){
+			var firstDate=$("#brcCntDate1").val();			// 시작 날짜
+			var finalDate=$("#brcCntDate2").val();			// 마지막 날짜
+			console.log("day : "+firstDate+", "+finalDate);
+			
+			var brcName = $('#brcSelect option:selected').text();	// 지점 이름
+			var movKind= $('#movKind option:selected').val()		// 영화 선택
+			console.log("영화 구분:"+movKind);
+			if(brcName =="지점 전체"){
+				console.log(brcName);
+				$.brcCntAjax("main","main",movKind,firstDate,finalDate);
+			}else{
+				console.log(brcName);
+				$.brcCntAjax("branch",brcName,movKind,firstDate,finalDate);
+			}
+				
+		})
+		
+	})
+
+	
+	
+			
+		
+	
+	
+	</script>
 	
 	<!-- 하단 -->
 	<%@include file="/WEB-INF/adminModule/footer.jsp" %>
