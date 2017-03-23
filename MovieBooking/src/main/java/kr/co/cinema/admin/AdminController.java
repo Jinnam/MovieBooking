@@ -35,7 +35,7 @@ public class AdminController {
 	
 	//관리자 메인 페이지 : 메인으로 이동
 	@RequestMapping(value="adminMain", method=RequestMethod.GET)
-	public /*@ResponseBody*/ String adminMain(Model model/*, @RequestParam int brcCode,  @RequestParam int movCode*/) {
+	public String adminMain(Model model) {
 		logger.debug(" Controller adminMain get실행");
 		//하단우측 표 데이터
 		List<Movie> selectClientCount = adminService.selectClientCount();
@@ -52,10 +52,7 @@ public class AdminController {
 		//선그래프 월별 합계
 		List<BranchDayCount> selectMonthBranchCount = adminService.selectMonthBranchCount();
 		model.addAttribute("selectMonthBranchCount", selectMonthBranchCount);
-		//바그래프 바데이터(매출)조회
-		/*int selectBranchCntSaleTatal = adminService.selectBranchCntSaleTatal(brcCode, movCode);
-		model.addAttribute("selectBranchCntSaleTatal", selectBranchCntSaleTatal);*/
-		
+
 		//집에서 log4j안됨 일단 이렇게 출력 log4j바꿀것 //System.out.println //logger.debug
 		logger.debug("컨트롤러 바그래프 :"+selectBranchForBarGraph);
 		logger.debug("컨트롤러 우측하단표 : " + selectClientCount);
@@ -65,6 +62,14 @@ public class AdminController {
 		return "admin/adminMain";
 	}
 	
+	//바그래프 바데이터(매출)조회
+	@RequestMapping(value="selectBranchCntSaleTatal", method=RequestMethod.GET)
+	public @ResponseBody BranchDayCount mainGraph(@RequestParam int brcCode,  @RequestParam int movCode) {
+		//바그래프 바데이터(매출)조회
+		BranchDayCount selectBranchCntSaleTatal = adminService.selectBranchCntSaleTatal(brcCode, movCode);
+		logger.debug("매출데이터 : "+selectBranchCntSaleTatal);
+		return selectBranchCntSaleTatal;
+	}
 	/************************************************************************************************************
 	지점관리 메서드
 	************************************************************************************************************/

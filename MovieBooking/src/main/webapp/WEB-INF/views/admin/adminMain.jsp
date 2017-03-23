@@ -421,16 +421,18 @@
 	console.log("매출5순위 지점이름코드 : "+FifthBranch);
 	console.log("******************************매출 5순위 지점코드********************************")
 	console.log("")
+		
 	$(document).ready(function(){
-		/* $.ajax({
+		$.ajax({
 			url 		: "selectBranchCntSaleTatal",
 			data 		: {"brcCode" : FirstBranch, "movCode" : FirstMovieList},
 			dataType 	: "json",
 			type 		: "get",
 			success 	: function(data) {
-				console.log(data)
+				console.log("통신해서 가져온 값 : "+data.brcCntSaleTotal)
+				
 			}
-		}) */
+		})
 	});
 	
 	//여기부터 표 시작
@@ -515,17 +517,5 @@
 			]
 	});
 	</script>
-	<!-- 
-	SELECT 	BRANCH_DAY_COUNT.mov_code 					AS movCode,
-			MOVIE.mov_korName 							AS movKorName,
-			SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal)		AS brcCntSaleTotal
-	FROM		BRANCH_DAY_COUNT
-				INNER JOIN MOVIE
-					ON BRANCH_DAY_COUNT.mov_code = MOVIE.mov_code
-	WHERE		BRANCH_DAY_COUNT.brc_code = 41102 AND BRANCH_DAY_COUNT.mov_code = 2100004
-	GROUP 	BY BRANCH_DAY_COUNT.mov_code
-	ORDER 	BY SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) DESC
-	LIMIT 	3;
-	 -->
 </body>
 </html>

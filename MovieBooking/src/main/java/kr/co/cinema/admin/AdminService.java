@@ -65,7 +65,7 @@ public class AdminService {
 	}
 
 	//
-	public int selectBranchCntSaleTatal(int brcCode, int movCode) {
+	public BranchDayCount selectBranchCntSaleTatal(int brcCode, int movCode) {
 		logger.debug(" Service selectBranchCntSaleTatal get실행");
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("brcCode", brcCode);
