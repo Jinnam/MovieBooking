@@ -71,14 +71,14 @@
 	<!--  -->
 	<select id="selectBranchCntSaleTatal"
 			parameterType="Map"
-			resultType="kr.co.cinema.dto.BranchDayCount">
+			resultType="kr.co.cinema.dto.MovieAndBranchDayCount">
 			SELECT	SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal)	AS brcCntSaleTotal
 			FROM	BRANCH_DAY_COUNT
 					INNER JOIN MOVIE
 					ON BRANCH_DAY_COUNT.mov_code = MOVIE.mov_code
-			WHERE	BRANCH_DAY_COUNT.brc_code = #{brcCode} AND BRANCH_DAY_COUNT.mov_code = #{movCode}
-			GROUP 	BY BRANCH_DAY_COUNT.mov_code
-			ORDER 	BY SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) DESC
+			WHERE	BRANCH_DAY_COUNT.mov_code = #{movCode}
+			GROUP 	BY BRANCH_DAY_COUNT.brc_code
+			ORDER 	BY SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) DESC LIMIT 5;
 	</select>
 	<!--****************************************************************************************
 	지점관리쿼리

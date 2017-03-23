@@ -65,10 +65,9 @@ public class AdminService {
 	}
 
 	//
-	public BranchDayCount selectBranchCntSaleTatal(int brcCode, int movCode) {
+	public List<BranchDayCount> selectBranchCntSaleTatal(int movCode) {
 		logger.debug(" Service selectBranchCntSaleTatal get실행");
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("brcCode", brcCode);
 		map.put("movCode", movCode);
 		return adminDao.selectBranchCntSaleTatal(map);
 	}

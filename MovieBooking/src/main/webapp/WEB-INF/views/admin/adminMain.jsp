@@ -361,17 +361,19 @@
 	<script src="resources/adminjs/highChart.js"></script>
 	<!-- 메인화면 상단 바 그래프 자바 스크립트 -->
 	<script type="text/javascript">
-	//표에 어떻게 뿌리는지 모르겠다..
+	//표에 어떻게 뿌리는지 모르겠다...
 	//배열 객체 생성
 	var BranchNameGraphList = new Array();											//지점이름 값 담을 객체 생성
 	var BranchCodeGraphList = new Array();											//지점코드 값 담을 객체 생성
 	var MovieNameGraphList = new Array();											//영화이름 값 담을 객체 생성
 	var MovieCodeGraphList = new Array();											//영화코드 값 담을 객체 생성
+	var SaleGraphList = new Array();												//영화매출 값 담을 객체 생성
 	//매출 탑 5지점
 	<c:forEach	var = "selectBranchForBarGraph"
 				items = "${selectBranchForBarGraph}">
 				BranchNameGraphList.push('${selectBranchForBarGraph.brcName}')		//BranchNameGraphList에 push메서드로 값 넣기
 				BranchCodeGraphList.push('${selectBranchForBarGraph.brcCode}')		//BranchCodeGraphList에 push메서드로 값 넣기
+				SaleGraphList.push('${selectBranchForBarGraph.brcCntSaleTotal}')	//SaleGraphList에 push메서드로 값 넣기
 	</c:forEach>
 
 	//매출 탑 3영화
@@ -390,6 +392,18 @@
 	console.log("지점매출5순위 이름 배열(top5) : "+BranchNameGraphList)
 	console.log("지점매출5순위 이름 코드(top5) : "+BranchCodeGraphList)
 	console.log("******************************영화/지점매출순위********************************")
+	console.log("")
+	
+	//매출 3순위 영화매출 변수 선언
+	var FirstSaleGraphList = SaleGraphList[0];
+	var SecondSaleGraphList = SaleGraphList[1];
+	var ThirdSaleGraphList = SaleGraphList[2];
+	
+	console.log("******************************매출 3순위 영화코드********************************")
+	console.log("매출1순위 영화매출 : "+FirstSaleGraphList);
+	console.log("매출2순위 영화매출 : "+SecondSaleGraphList);
+	console.log("매출3순위 영화매출 : "+ThirdSaleGraphList);
+	console.log("******************************매출 3순위 영화코드********************************")
 	console.log("")
 	
 	//매출 3순위 영화코드 변수 선언
@@ -421,20 +435,24 @@
 	console.log("매출5순위 지점이름코드 : "+FifthBranch);
 	console.log("******************************매출 5순위 지점코드********************************")
 	console.log("")
-		
+	
 	$(document).ready(function(){
 		$.ajax({
 			url 		: "selectBranchCntSaleTatal",
-			data 		: {"brcCode" : FirstBranch, "movCode" : FirstMovieList},
+			data 		: {"movCode" : FirstMovieList},
 			dataType 	: "json",
 			type 		: "get",
 			success 	: function(data) {
-				console.log("통신해서 가져온 값 : "+data.brcCntSaleTotal)
+				console.log("통신해서 가져온 값 : "+data)
+				console.log("통신해서 가져온 값 : "+data[0])
+				var firstBranchCntSale = data[0]
+				var secondBranchCntSale = data[1]
+				console.log("1 : "+firstBranchCntSale.brcCntSaleTotal)
+				console.log("2 : "+secondBranchCntSale.brcCntSaleTotal)
 				
 			}
 		})
 	});
-	
 	//여기부터 표 시작
 	Highcharts
 	.chart(
@@ -486,28 +504,34 @@
 					type: 'pie', //원그래프 내용
 					name: 'Total consumption',
 					data: [{
-						name: '조작된도시',
-						y: 13,
+						name: MovieNameGraphList[0],
+						y:	/* FirstSaleGraphList.val() */
+							/* FirstSaleGraphList.text() */
+							/* FirstSaleGraphList */
+							/* SaleGraphList[0] */
+							12840000,
 						color: Highcharts
 							.getOptions().colors[0]
 						// 조작된도시 색상 하늘색
 						},
 						{
-						name: '공조',
-						y: 23,
+						name: MovieNameGraphList[1],
+						y: /* SaleGraphList[1] */7246000,
 						color: Highcharts
 							.getOptions().colors[1]
 						// 공조 색상 검은색
 						},
 						{
-						name: '재심',
-						y: 19,
+						name: MovieNameGraphList[2],
+						y: /* SaleGraphList[2] */4440000,
 						color: Highcharts
 							.getOptions().colors[2]
 						// 재심 색상 녹색
 						}
 					],
+					//위치
 					center: [100, 80],
+					//사이즈
 					size: 100,
 					showInLegend: false,
 					dataLabels: {

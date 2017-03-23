@@ -64,9 +64,9 @@ public class AdminController {
 	
 	//바그래프 바데이터(매출)조회
 	@RequestMapping(value="selectBranchCntSaleTatal", method=RequestMethod.GET)
-	public @ResponseBody BranchDayCount mainGraph(@RequestParam int brcCode,  @RequestParam int movCode) {
+	public @ResponseBody List<BranchDayCount> mainGraph(@RequestParam int movCode) {
 		//바그래프 바데이터(매출)조회
-		BranchDayCount selectBranchCntSaleTatal = adminService.selectBranchCntSaleTatal(brcCode, movCode);
+		List<BranchDayCount> selectBranchCntSaleTatal = adminService.selectBranchCntSaleTatal(movCode);
 		logger.debug("매출데이터 : "+selectBranchCntSaleTatal);
 		return selectBranchCntSaleTatal;
 	}
