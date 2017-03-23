@@ -122,15 +122,15 @@
 	          
 	        </a>	
 	        
-	        <a target="_blank" style=" text-decoration:none; color:#000000 ">
+	        <a href="http://lovec90.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/dd.png">
+	                <img src="resources/index_img/mainjmk.PNG">
 	              </div>
 	              <div class="card-content">
-	                <p>[준비중]조민국</p>
+	                <p>조민국</p>
 	              </div>
 	            </div>
 	          </div>
