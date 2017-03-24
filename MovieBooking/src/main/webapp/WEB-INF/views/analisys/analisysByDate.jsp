@@ -325,17 +325,17 @@
 		
 		
 		
-		$.brcCntAjax=function(kind,brcName,brcCntDate1,brcCntDate2){		// Ajax 함수 선언
+		$.brcCntAjax=function(kind,brcCntDate1,brcCntDate2){		// Ajax 함수 선언
 			$.ajax({
 				url : "analisysByDate", 
 			      type :"post", 
-			      data : { "brcName" : brcName,
+			      data : { "brcName" : kind,
 			    	  	"brcCntDate1" : brcCntDate1,
 			    	  	"brcCntDate2" : brcCntDate2}, 
 			      success : function(data){ 
 			    	  console.log(data);
 						$('#branchDayCount').children().remove();
-						if(movKind=="all"){
+						
 							$('#branchDayCount')
 							.append('<table class="table table-striped table-hover">'+
 										'<thead>'+
@@ -351,26 +351,9 @@
 										'<tbody id="resultInfo">'+
 										'</tbody>'+
 									'</table>')
-						}else{
-							$('#branchDayCount')
-							.append('<table class="table table-striped table-hover">'+
-										'<thead>'+
-											'<tr>'+
-												'<td>#</td>'+
-												'<td>날짜</td>'+
-												'<td>지점</td>'+
-												'<td>예매수</td>'+
-												'<td>매출</td>'+
-											'</tr>'+
-										'</thead>'+
-										'<tbody id="resultInfo">'+
-										'</tbody>'+
-									'</table>')
-						}
+						
 						
 			        $(data).each(function(i){
-			        	if(movKind=="all"){
-			        		if(kind=="main"){
 				        		$('#resultInfo')
 								.append('<tr>'+
 											'<td>'+i+'</td>'+
@@ -380,40 +363,8 @@
 											'<td>'+data[i].brcCntClientCount+'</td>'+
 											'<td>'+data[i].brcCntSaleTotal+'</td>'+
 										'</tr>')
-										
-				        	}else if(kind=="branch"){
-				        		$('#resultInfo')
-								.append('<tr>'+
-											'<td>'+i+'</td>'+
-											'<td>'+data[i].brcCntDate+'</td>'+
-											'<td>'+data[i].brcName+'</td>'+
-											'<td>'+data[i].movKorName+'</td>'+
-											'<td>'+data[i].brcCntClientCount+'</td>'+
-											'<td>'+data[i].brcCntSaleTotal+'</td>'+
-										'</tr>')
-				        	}
-			        	}else{
-			        		if(kind=="main"){
-				        		$('#resultInfo')
-								.append('<tr>'+
-											'<td>'+i+'</td>'+
-											'<td>'+data[i].brcCntDate+'</td>'+
-											'<td>'+data[i].brcName+'</td>'+
-											'<td>'+data[i].brcCntClientCount+'</td>'+
-											'<td>'+data[i].brcCntSaleTotal+'</td>'+
-										'</tr>')
-										
-				        	}else if(kind=="branch"){
-				        		$('#resultInfo')
-								.append('<tr>'+
-											'<td>'+i+'</td>'+
-											'<td>'+data[i].brcCntDate+'</td>'+
-											'<td>'+data[i].brcName+'</td>'+
-											'<td>'+data[i].brcCntClientCount+'</td>'+
-											'<td>'+data[i].brcCntSaleTotal+'</td>'+
-										'</tr>')
-				        	}
-			        	}
+							
+				        	
 		        	
 			        })
 			         
@@ -432,10 +383,10 @@
 			var brcName = $('#brcSelect option:selected').text();	// 지점 이름
 			if(brcName =="지점 전체"){
 				console.log(brcName);
-				$.brcCntAjax("main","main",firstDate,finalDate);
+				$.brcCntAjax("main",firstDate,finalDate);
 			}else{
 				console.log(brcName);
-				$.brcCntAjax("branch",brcName,firstDate,finalDate);
+				$.brcCntAjax(brcName,firstDate,finalDate);
 			}
 				
 		})

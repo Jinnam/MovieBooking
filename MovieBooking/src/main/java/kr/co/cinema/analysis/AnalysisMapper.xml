@@ -126,6 +126,10 @@
 		ON
 			BRANCH_DAY_COUNT.mov_code=MOVIE.mov_code
 		WHERE
+		<if test="brcName != 'main'">
+			BRANCH.brc_name=#{brcName}
+		AND
+		</if>
 			BRANCH_DAY_COUNT.brcCnt_date 
 			BETWEEN
 				#{brcCntDate1}
@@ -133,9 +137,7 @@
 				#{brcCntDate2}
 		GROUP BY
 			brcCnt_date,
-			<if test="brcName == '지점 전체'">
 			brc_name,
-			</if>
 			mov_korName
 		ORDER BY
 			brcCnt_date
