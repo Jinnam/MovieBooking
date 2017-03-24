@@ -65,11 +65,20 @@ public class AdminService {
 	}
 
 	//
-	public List<BranchDayCount> selectBranchCntSaleTatal(int movCode) {
+	public Map<Integer,List<Integer>> selectBranchCntSaleTatal(int[] movCode) {
 		logger.debug(" Service selectBranchCntSaleTatal get실행");
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("movCode", movCode);
-		return adminDao.selectBranchCntSaleTatal(map);
+		Map<Integer,List<Integer>> returnMap = new HashMap<Integer,List<Integer>>();
+		for(int i=0; i<movCode.length; i++) {
+			map.put("movCode", movCode[i]);
+			List<Integer> result = adminDao.selectBranchCntSaleTatal(map);
+			
+			returnMap.put(movCode[i], result);
+			logger.debug("selectBranchCntSaleTatal result : "+result);
+			
+			
+		}
+		return returnMap;
 	}
 	/************************************************************************************************************
 	지점관리자 메서드 : 지점관리자등록/지점관리자조회/지점관리자수정/지점관리자삭제

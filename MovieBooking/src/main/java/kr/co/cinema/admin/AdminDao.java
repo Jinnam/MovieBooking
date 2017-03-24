@@ -60,7 +60,7 @@ public class AdminDao {
 	}
 
 	//
-	public List<BranchDayCount> selectBranchCntSaleTatal(Map<String, Integer> map) {
+	public List<Integer> selectBranchCntSaleTatal(Map<String, Integer> map) {
 		logger.debug(" Dao selectBranchCntSaleTatal");
 		return sqlSession.selectList(NS+"selectBranchCntSaleTatal", map);
 	}

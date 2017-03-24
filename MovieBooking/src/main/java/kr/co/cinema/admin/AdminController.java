@@ -64,11 +64,13 @@ public class AdminController {
 	
 	//바그래프 바데이터(매출)조회
 	@RequestMapping(value="selectBranchCntSaleTatal", method=RequestMethod.GET)
-	public @ResponseBody List<BranchDayCount> mainGraph(@RequestParam int movCode) {
+	public @ResponseBody Map<Integer,List<Integer>> mainGraph(@RequestParam int[] movCode) {
+		
+		logger.debug("mainGraph : movCode: "+movCode.toString());
 		//바그래프 바데이터(매출)조회
-		List<BranchDayCount> selectBranchCntSaleTatal = adminService.selectBranchCntSaleTatal(movCode);
-		logger.debug("매출데이터 : "+selectBranchCntSaleTatal);
-		return selectBranchCntSaleTatal;
+		Map<Integer,List<Integer>> resultMap = adminService.selectBranchCntSaleTatal(movCode);
+		logger.debug("매출데이터 : "+resultMap);
+		return resultMap;
 	}
 	/************************************************************************************************************
 	지점관리 메서드

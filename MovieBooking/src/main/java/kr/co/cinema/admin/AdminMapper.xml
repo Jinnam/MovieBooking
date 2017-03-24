@@ -71,7 +71,7 @@
 	<!--  -->
 	<select id="selectBranchCntSaleTatal"
 			parameterType="Map"
-			resultType="kr.co.cinema.dto.MovieAndBranchDayCount">
+			resultType="int">
 			SELECT	SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal)	AS brcCntSaleTotal
 			FROM	BRANCH_DAY_COUNT
 					INNER JOIN MOVIE

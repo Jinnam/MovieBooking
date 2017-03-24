@@ -436,110 +436,121 @@
 	console.log("******************************매출 5순위 지점코드********************************")
 	console.log("")
 	
+	//test
+	console.log(MovieCodeGraphList)
+	
+	//data배열로 넘기는 ajax세팅
+	jQuery.ajaxSettings.traditional = true;
+
 	$(document).ready(function(){
 		$.ajax({
 			url 		: "selectBranchCntSaleTatal",
-			data 		: {"movCode" : FirstMovieList},
+			data 		: {"movCode" : MovieCodeGraphList},
 			dataType 	: "json",
 			type 		: "get",
 			success 	: function(data) {
-				console.log("통신해서 가져온 값 : "+data)
-				console.log("통신해서 가져온 값 : "+data[0])
-				var firstBranchCntSale = data[0]
-				var secondBranchCntSale = data[1]
-				console.log("1 : "+firstBranchCntSale.brcCntSaleTotal)
-				console.log("2 : "+secondBranchCntSale.brcCntSaleTotal)
 				
+				var key = Object.keys(data);
+				var value = Object.values(data);
+				
+				//test log
+				console.log("key : "+key);
+				console.log("vlaue : "+value);
+				for(var i in key) {
+					console.log("key >> "+key[i]+", value >> "+data[key[i]] )
+				}
+
+				//여기부터 차트 시작
+				Highcharts
+				.chart(
+					'branchGraph', {
+						title: {
+							text: '지점별 영화 매출(단위 월)'			//상단 타이틀
+						},
+						xAxis: {
+							categories: BranchNameGraphList		//하단 지점 이름 상위 5개점
+						},
+						labels: {
+							items: [{
+								html: '', 		//원 그래프 타이틀
+								style: {
+									left: '50px',
+									top: '18px',
+									color: (Highcharts.theme && Highcharts.theme.textColor) ||
+										'black'
+								}
+							}]
+						},
+						series: [
+							{
+								type: 'column',					//첫번째 하늘색 바 내용
+								name: MovieNameGraphList[0],	//매출1위점 영화이름
+								data: data[key[0]]				//[1위지점1위영화매출, 2위지점1위영화매출, 3위지점1위영화매출, 4위지점1위영화매출, 5위지점1위영화매출]
+							},
+							{
+								type: 'column',					//두번째 검은색 바 내용
+								name: MovieNameGraphList[1],	//매출2위점 영화이름
+								data: data[key[2]]				//매출2위지점 영화매출 [1위지점2위영화매출, 2위지점2위영화매출,  3위지점2위영화매출,  4위지점2위영화매출,  5위지점2위영화매출]
+							},
+							{
+								type: 'column',					//세번째 초록색 바 내용
+								name: MovieNameGraphList[2],	//매출3위점 영화이름
+								data: data[key[1]]				//매출3위지점 영화매출 [1위지점3위영화매출, 2위지점3위영화매출,  3위지점3위영화매출,  4위지점3위영화매출,  5위지점3위영화매출]
+							},
+							{
+								type: 'spline',					//평균치 곡선 그래프 내용
+								name: 'Average',
+								data: [0, 0, 0, 0, 0],
+								marker: {
+									lineWidth: 0,
+									lineColor: Highcharts.getOptions().colors[3],
+									fillColor: 'white'
+								}
+							},
+							{
+								type: 'pie', //원그래프 내용
+								name: 'Total consumption',
+								data: [{
+									name: MovieNameGraphList[0],
+									y:	/* FirstSaleGraphList.val() */
+										/* FirstSaleGraphList.text() */
+										/* FirstSaleGraphList */
+										/* SaleGraphList[0] */
+										12840000,
+									color: Highcharts
+										.getOptions().colors[0]
+									// 조작된도시 색상 하늘색
+									},
+									{
+									name: MovieNameGraphList[1],
+									y: /* SaleGraphList[1] */7246000,
+									color: Highcharts
+										.getOptions().colors[1]
+									// 공조 색상 검은색
+									},
+									{
+									name: MovieNameGraphList[2],
+									y: /* SaleGraphList[2] */4440000,
+									color: Highcharts
+										.getOptions().colors[2]
+									// 재심 색상 녹색
+									}
+								],
+								//위치
+								center: [100, 80],
+								//사이즈
+								size: 1,
+								showInLegend: false,
+								dataLabels: {
+									//원그래프 목록
+									enabled: false
+								}
+							}
+						]
+				});
 			}
 		})
-	});
-	//여기부터 표 시작
-	Highcharts
-	.chart(
-		'branchGraph', {
-			title: {
-				text: '지점별 영화 매출(단위 월)'			//상단 타이틀
-			},
-			xAxis: {
-				categories: BranchNameGraphList		//하단 지점 이름 상위 5개점
-			},
-			labels: {
-				items: [{
-					html: '총 영화 매출순위(단위 월)', 		//원 그래프 타이틀
-					style: {
-						left: '50px',
-						top: '18px',
-						color: (Highcharts.theme && Highcharts.theme.textColor) ||
-							'black'
-					}
-				}]
-			},
-			series: [
-				{
-					type: 'column',					//첫번째 하늘색 바 내용
-					name: MovieNameGraphList[0],	//매출1위점 영화이름
-					data: [3, 2, 1, 3, 4]			//매출1위지점 영화매출 [1위지점1위영화매출, 2위지점1위영화매출,  3위지점1위영화매출,  4위지점1위영화매출,  5위지점1위영화매출]
-				},
-				{
-					type: 'column',					//두번째 검은색 바 내용
-					name: MovieNameGraphList[1],	//매출2위점 영화이름
-					data: [2, 3, 5, 7, 6]			//매출2위지점 영화매출 [1위지점2위영화매출, 2위지점2위영화매출,  3위지점2위영화매출,  4위지점2위영화매출,  5위지점2위영화매출]
-				},
-				{
-					type: 'column',					//세번째 초록색 바 내용
-					name: MovieNameGraphList[2],	//매출3위점 영화이름
-					data: [4, 3, 3, 9, 1]			//매출3위지점 영화매출 [1위지점3위영화매출, 2위지점3위영화매출,  3위지점3위영화매출,  4위지점3위영화매출,  5위지점3위영화매출]
-				},
-				{
-					type: 'spline',					//평균치 곡선 그래프 내용
-					name: 'Average',
-					data: [3, 2.67, 3, 6.33, 3.33],
-					marker: {
-						lineWidth: 2,
-						lineColor: Highcharts.getOptions().colors[3],
-						fillColor: 'white'
-					}
-				},
-				{
-					type: 'pie', //원그래프 내용
-					name: 'Total consumption',
-					data: [{
-						name: MovieNameGraphList[0],
-						y:	/* FirstSaleGraphList.val() */
-							/* FirstSaleGraphList.text() */
-							/* FirstSaleGraphList */
-							/* SaleGraphList[0] */
-							12840000,
-						color: Highcharts
-							.getOptions().colors[0]
-						// 조작된도시 색상 하늘색
-						},
-						{
-						name: MovieNameGraphList[1],
-						y: /* SaleGraphList[1] */7246000,
-						color: Highcharts
-							.getOptions().colors[1]
-						// 공조 색상 검은색
-						},
-						{
-						name: MovieNameGraphList[2],
-						y: /* SaleGraphList[2] */4440000,
-						color: Highcharts
-							.getOptions().colors[2]
-						// 재심 색상 녹색
-						}
-					],
-					//위치
-					center: [100, 80],
-					//사이즈
-					size: 100,
-					showInLegend: false,
-					dataLabels: {
-						enabled: false
-					}
-				}
-			]
-	});
+});
 	</script>
 </body>
 </html>
