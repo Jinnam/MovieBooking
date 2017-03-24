@@ -127,13 +127,13 @@
 			BRANCH_DAY_COUNT.mov_code=MOVIE.mov_code
 		WHERE
 			BRANCH_DAY_COUNT.brcCnt_date 
-		BETWEEN
-			#{brcCntDate1}
-		AND 
-			#{brcCntDate2}
+			BETWEEN
+				#{brcCntDate1}
+			AND 
+				#{brcCntDate2}
 		GROUP BY
 			brcCnt_date,
-			<if test="">
+			<if test="brcName == '지점 전체'">
 			brc_name,
 			</if>
 			mov_korName

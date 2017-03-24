@@ -103,14 +103,12 @@ public class AnalysisController {
 	// 날짜별 예매,매출 ajax post
 	@RequestMapping(value="analisysByDate", method=RequestMethod.POST)
 	public @ResponseBody List<HashMap<String, Object>> selectAnalysisBydate(@RequestParam String brcName,
-																			@RequestParam String movKind,
 																			@RequestParam String brcCntDate1,
 																			@RequestParam String brcCntDate2){
-		logger.debug(" selectAnalisysByDate post 진입 brcName : "+brcName+" movKind: "+movKind+" brcCntDate : "+brcCntDate1+", "+brcCntDate2);
+		logger.debug(" selectAnalisysByDate post 진입 brcName : "+brcName+" brcCntDate : "+brcCntDate1+", "+brcCntDate2);
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("brcName", brcName);
-		map.put("movKind", movKind);
 		map.put("brcCntDate1", brcCntDate1);
 		map.put("brcCntDate2", brcCntDate2);
 		

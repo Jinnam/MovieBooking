@@ -180,20 +180,7 @@
 							</select>
 						</div>
 					</div>
-					
-					<!-- 영화 구분 -->
-					<div class="form-group">
-						<label class="col-lg-4 control-label">영화 구분</label>
-						<div class="col-lg-8">
-							<select id="movKind" class="form-control" >
-									<option value="all">영화 전체</option>
-									<option value="nonAll">지점별 매출만</option>
-							</select>
-						</div>
-					</div>
-					
-					
-					
+	
 					<div></div>
 					<!-- 검색 버튼 -->
 					<div class="form-group">
@@ -338,12 +325,11 @@
 		
 		
 		
-		$.brcCntAjax=function(kind,brcName,movKind,brcCntDate1,brcCntDate2){		// Ajax 함수 선언
+		$.brcCntAjax=function(kind,brcName,brcCntDate1,brcCntDate2){		// Ajax 함수 선언
 			$.ajax({
 				url : "analisysByDate", 
 			      type :"post", 
 			      data : { "brcName" : brcName,
-			    	  	"movKind" : movKind,
 			    	  	"brcCntDate1" : brcCntDate1,
 			    	  	"brcCntDate2" : brcCntDate2}, 
 			      success : function(data){ 
@@ -444,14 +430,12 @@
 			console.log("day : "+firstDate+", "+finalDate);
 			
 			var brcName = $('#brcSelect option:selected').text();	// 지점 이름
-			var movKind= $('#movKind option:selected').val()		// 영화 선택
-			console.log("영화 구분:"+movKind);
 			if(brcName =="지점 전체"){
 				console.log(brcName);
-				$.brcCntAjax("main","main",movKind,firstDate,finalDate);
+				$.brcCntAjax("main","main",firstDate,finalDate);
 			}else{
 				console.log(brcName);
-				$.brcCntAjax("branch",brcName,movKind,firstDate,finalDate);
+				$.brcCntAjax("branch",brcName,firstDate,finalDate);
 			}
 				
 		})
