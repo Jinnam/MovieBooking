@@ -394,54 +394,9 @@
 	console.log("******************************영화/지점매출순위********************************")
 	console.log("")
 	
-	//매출 3순위 영화매출 변수 선언
-	var FirstSaleGraphList = SaleGraphList[0];
-	var SecondSaleGraphList = SaleGraphList[1];
-	var ThirdSaleGraphList = SaleGraphList[2];
-	
-	console.log("******************************매출 3순위 영화코드********************************")
-	console.log("매출1순위 영화매출 : "+FirstSaleGraphList);
-	console.log("매출2순위 영화매출 : "+SecondSaleGraphList);
-	console.log("매출3순위 영화매출 : "+ThirdSaleGraphList);
-	console.log("******************************매출 3순위 영화코드********************************")
-	console.log("")
-	
-	//매출 3순위 영화코드 변수 선언
-	var FirstMovieList = MovieCodeGraphList[0];
-	var SecondMovieList = MovieCodeGraphList[1];
-	var ThirdMovieList = MovieCodeGraphList[2];
-	
-	//매출 1, 2, 3위 영화코드 log
-	console.log("******************************매출 3순위 영화코드********************************")
-	console.log("매출1순위 영화코드 : "+FirstMovieList);
-	console.log("매출2순위 영화코드 : "+SecondMovieList);
-	console.log("매출3순위 영화코드 : "+ThirdMovieList);
-	console.log("******************************매출 3순위 영화코드********************************")
-	console.log("")
-	
-	//매출 5순위 지점이름 변수 선언
-	var FirstBranch = BranchCodeGraphList[0];
-	var SecondBranch = BranchCodeGraphList[1];
-	var ThirdBranch = BranchCodeGraphList[2];
-	var FourthBranch = BranchCodeGraphList[3];
-	var FifthBranch = BranchCodeGraphList[4];
-	
-	//매출 1~5위 지점코드 log
-	console.log("******************************매출 5순위 지점코드********************************")
-	console.log("매출1순위 지점이름코드 : "+FirstBranch);
-	console.log("매출2순위 지점이름코드 : "+SecondBranch);
-	console.log("매출3순위 지점이름코드 : "+ThirdBranch);
-	console.log("매출4순위 지점이름코드 : "+FourthBranch);
-	console.log("매출5순위 지점이름코드 : "+FifthBranch);
-	console.log("******************************매출 5순위 지점코드********************************")
-	console.log("")
-	
-	//test
-	console.log(MovieCodeGraphList)
-	
 	//data배열로 넘기는 ajax세팅
 	jQuery.ajaxSettings.traditional = true;
-
+	
 	$(document).ready(function(){
 		$.ajax({
 			url 		: "selectBranchCntSaleTatal",
@@ -450,6 +405,7 @@
 			type 		: "get",
 			success 	: function(data) {
 				
+				//사용할 맵의 키, 값 분리 변수선언
 				var key = Object.keys(data);
 				var value = Object.values(data);
 				
@@ -457,7 +413,7 @@
 				console.log("key : "+key);
 				console.log("vlaue : "+value);
 				for(var i in key) {
-					console.log("key >> "+key[i]+", value >> "+data[key[i]] )
+					console.log("key : "+key[i]+", value : "+data[key[i]] )
 				}
 
 				//여기부터 차트 시작
@@ -512,25 +468,21 @@
 								name: 'Total consumption',
 								data: [{
 									name: MovieNameGraphList[0],
-									y:	/* FirstSaleGraphList.val() */
-										/* FirstSaleGraphList.text() */
-										/* FirstSaleGraphList */
-										/* SaleGraphList[0] */
-										12840000,
+									y: 12840000,
 									color: Highcharts
 										.getOptions().colors[0]
 									// 조작된도시 색상 하늘색
 									},
 									{
 									name: MovieNameGraphList[1],
-									y: /* SaleGraphList[1] */7246000,
+									y: 7246000,
 									color: Highcharts
 										.getOptions().colors[1]
 									// 공조 색상 검은색
 									},
 									{
 									name: MovieNameGraphList[2],
-									y: /* SaleGraphList[2] */4440000,
+									y: 4440000,
 									color: Highcharts
 										.getOptions().colors[2]
 									// 재심 색상 녹색
