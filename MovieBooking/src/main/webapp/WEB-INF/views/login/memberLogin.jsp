@@ -94,7 +94,6 @@ $(document).on('click','#btnLogin',function(){
 	         if(data.memId == null){ 
 	            alert("로그인 정보가 잘못되었습니다.") 
 	          }else{ 
-	            alert("로그인 성공");	
 	            $('#paymentForm').submit();
 	         }
 	      },error:function(){
