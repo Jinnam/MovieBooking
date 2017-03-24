@@ -131,13 +131,13 @@
 				<!-- 페이지 강제 줄임 -->
 				<div class="col-lg-12 main-chart" align="center">
 				
-				<fieldset class="col-lg-6" style="float:left;">
+				<fieldset class="col-lg-5" style="float:left;">
 					<legend>날짜별 통계</legend>
 					
 					<!-- 날짜 선택 -->
 					<div class="form-group">
-						<label class="col-lg-4 control-label">날짜 선택</label>
-						<div class="col-lg-8">
+						<label class="col-lg-2 control-label">날짜 선택</label>
+						<div class="col-lg-10">
 							<div class="col-lg-2">
 								<input type="button" id="oneWeek" class="dateClick btn" value="1주일"/>
 							</div>
@@ -156,8 +156,8 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-lg-4 control-label">기간 지정</label>
-						<div class="col-lg-8">
+						<label class="col-lg-2 control-label">기간 지정</label>
+						<div class="col-lg-10">
 							<div class="col-lg-5">
 								<input type="date" class="form-control"  id="brcCntDate1"/>
 							</div>
@@ -170,8 +170,8 @@
 					
 					<!-- 지점 선택 -->
 					<div class="form-group">
-						<label class="col-lg-4 control-label">지점 선택</label>
-						<div class="col-lg-8">
+						<label class="col-lg-2 control-label">지점 선택</label>
+						<div class="col-lg-10">
 							<select id="brcSelect" class="form-control" >
 									<option>지점 전체</option>
 								<c:forEach items="${branchInfo}" var="branchInfo">
@@ -190,7 +190,7 @@
 					</div>
 						
 				</fieldset>
-				<fieldset class="col-lg-6" style="float:left;">
+				<fieldset class="col-lg-7" style="float:left;">
 					<legend>&nbsp;</legend>
 					
 					
@@ -379,8 +379,17 @@
 			var firstDate=$("#brcCntDate1").val();			// 시작 날짜
 			var finalDate=$("#brcCntDate2").val();			// 마지막 날짜
 			console.log("day : "+firstDate+", "+finalDate);
-			
 			var brcName = $('#brcSelect option:selected').text();	// 지점 이름
+			
+			// 검색 조건 표시
+			$('#movSelectResult').children().remove();
+			$('#movSelectResult').append('<div class="col-lg-12">'+
+					'<label class="col-lg-2 control-label">검색 조건</label>'+
+					'<input type="button" class="btn" value="시작일 : '+firstDate+'"/>&nbsp;'+
+					'<input type="button" class="btn" value="종료일 : '+finalDate+'"/>&nbsp;'+
+					'<input type="button" class="btn" value="지점 : '+brcName+'"/>'+
+				'</div>');
+			
 			if(brcName =="지점 전체"){
 				console.log(brcName);
 				$.brcCntAjax("main",firstDate,finalDate);

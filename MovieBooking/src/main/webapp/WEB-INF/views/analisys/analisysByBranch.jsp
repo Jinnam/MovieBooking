@@ -139,14 +139,14 @@
 				<!-- 페이지 강제 줄임 -->
 				<div class="col-lg-12 main-chart" align="center">
 				
-				<fieldset class="col-lg-6" style="float:left;">
+				<fieldset class="col-lg-5" style="float:left;">
 					<legend>지점별 통계</legend>
 					
 				
 					<!-- 지점 선택 -->
 					<div class="form-group">
-						<label class="col-lg-4 control-label">지점 선택</label>
-						<div class="col-lg-8">
+						<label class="col-lg-2 control-label">지점 선택</label>
+						<div class="col-lg-10">
 							<select id="brcSelect" class="form-control" >
 									<option>지점 전체</option>
 								<c:forEach items="${branchInfo}" var="branchInfo">
@@ -158,8 +158,8 @@
 					
 					<!-- 영화 구분 -->
 					<div class="form-group">
-						<label class="col-lg-4 control-label">영화 구분</label>
-						<div class="col-lg-8">
+						<label class="col-lg-2 control-label">구분</label>
+						<div class="col-lg-10">
 							<select id="movKind" class="form-control" >
 									<option value="all">영화 전체</option>
 									<option value="nonAll">지점별 매출만</option>
@@ -169,8 +169,8 @@
 					
 					<!-- 날짜 선택 -->
 					<div class="form-group">
-						<label class="col-lg-4 control-label">날짜 선택</label>
-						<div class="col-lg-8">
+						<label class="col-lg-2 control-label">날짜 선택</label>
+						<div class="col-lg-10">
 							<div class="col-lg-5">
 								<input type="date" class="form-control"  id="brcCntDate1"/>
 							</div>
@@ -190,7 +190,7 @@
 					</div>
 						
 				</fieldset>
-				<fieldset class="col-lg-6" style="float:left;">
+				<fieldset class="col-lg-7" style="float:left;">
 					<legend>&nbsp;</legend>
 					
 					
@@ -321,13 +321,23 @@
 		
 		var firstDate=$("#brcCntDate1").val();
 		var finalDate=$("#brcCntDate2").val()
-		
-	//	$.brcCntAjax("main","main","all",firstDate,finalDate);			// 페이지 로딩시 보여지는 정보
+
 		
 		 $('#selectBtn').click(function(){
 				var brcName = $('#brcSelect option:selected').text();
 				var movKind= $('#movKind option:selected').val()
+				var gooboon= $('#movKind option:selected').text()
 				console.log("영화 구분:"+movKind);
+				
+				// 검색 조건 표시
+				$('#movSelectResult').children().remove();
+				$('#movSelectResult').append('<div class="col-lg-12">'+
+						'<label class="col-lg-2 control-label">검색 조건</label>'+
+						'<input type="button" class="btn" value="지점 : '+brcName+'"/>&nbsp;'+
+						'<input type="button" class="btn" value="구분 : '+gooboon+'"/><br/>'+
+						'&nbsp;&nbsp;<input type="button" class="btn" value="날짜 : '+firstDate+" ~ "+finalDate+'"/>'+
+					'</div>');
+				
 				if(brcName =="지점 전체"){
 					console.log(brcName);
 					$.brcCntAjax("main","main",movKind,firstDate,finalDate);

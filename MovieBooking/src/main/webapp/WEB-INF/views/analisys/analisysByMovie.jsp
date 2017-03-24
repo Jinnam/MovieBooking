@@ -150,9 +150,9 @@
 					
 					<!-- 영화 검색 결과 -->
 					<div class="form-group" id="findCondition">
-						<label class="col-lg-4 control-label">선택 영화</label>
+						<label class="col-lg-4 control-label">선택한 영화</label>
 						<div class="col-lg-8">
-							<input type="text" id="selectedMovie" class="form-control" readonly="readonly"/>
+							<input type="text" id="selectedMovie" class="form-control" readonly="readonly" value="공조"/>
 						</div>
 					</div>
 					
