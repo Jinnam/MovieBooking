@@ -41,7 +41,7 @@
         <!-- 스토어 -->					
         <a href="#" class="item" style ="width:130px"><img src="resources/module-img/menu_store.png" style="width:100px;height:40px"></a>       
         <!-- 이벤트 -->							
-        <a href="#" class="item" style ="width:130px"><img src="resources/module-img/menu_event.png" style="width:100px;height:40px"></a> 								
+        <a href="clientEventList" class="item" style ="width:130px"><img src="resources/module-img/menu_event.png" style="width:100px;height:40px"></a> 								
         
         <!-- 로그인 전 -->
         <c:if test="${id == null }">

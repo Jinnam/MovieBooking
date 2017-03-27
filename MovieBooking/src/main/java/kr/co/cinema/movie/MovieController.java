@@ -93,7 +93,12 @@ public class MovieController {
 		return "movie/clientCharDetail";
 	}
 	
-	
+	//클라이언트측 이벤트 리스트
+	@RequestMapping(value = "/clientEventList", method = RequestMethod.GET)
+	public String clientEventList() {
+		logger.debug("clientEventList 클라이언트측 이벤트 리스트페이지");
+		return "movie/clientEventList";
+	}
 	
 	
 }
