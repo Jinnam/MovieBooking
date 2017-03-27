@@ -90,7 +90,22 @@
 	      </div> <!-- row 닫기 -->
 	      
 	      <div class="row"> <!-- row 열기 -->
-	      <h4 style="text-align:center;">팀원 개인 포트폴리오</h4>
+	      <h5 style="text-align:center;">팀원 개인 포트폴리오</h5>
+	      
+	        <a href="http://better4307.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
+	        
+	          <div class="col s3">
+	            <div class="card">
+	              <div class="card-image">
+	                <img src="resources/index_img/jinnam.png">
+	              </div>
+	              <div class="card-content">
+	                <p>김진남</p>
+	              </div>
+	            </div>
+	          </div>
+	          
+	        </a>		      
 	      
 	        <a href="http://kjb7907.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
@@ -106,28 +121,13 @@
 	          </div>
 	          
 	        </a>		
-	        	      
-	        <a href="http://better4307.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
-	        
-	          <div class="col s3">
-	            <div class="card">
-	              <div class="card-image">
-	                <img src="resources/index_img/jinnam.jpg">
-	              </div>
-	              <div class="card-content">
-	                <p>김진남</p>
-	              </div>
-	            </div>
-	          </div>
-	          
-	        </a>	
-	        
+	        	      	        
 	        <a href="http://lovec90.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/mainjmk.PNG">
+	                <img src="resources/index_img/mainjmk.png">
 	              </div>
 	              <div class="card-content">
 	                <p>조민국</p>
@@ -158,9 +158,20 @@
 	      <h4 style="text-align:center;">ERD</h4>
 	      <div class="row">
 	      	<div class="col s12">
-	      		<img src="resources/index_img/erd.jpg" style="width:100%" class="materialboxed responsive-img">
+	      		<img src="resources/index_img/erd.jpg" class="materialboxed responsive-img" style="margin-left:auto;margin-right:auto;">
 	      	</div>
 	      </div>
+	      
+	      <h5 style="text-align:center;">프로젝트 문서</h5>
+	      <div class="row">
+	      	<div class="col s12">
+	      		<img src="resources/index_img/doc1.png" class="materialboxed responsive-img" style="margin-left:auto;margin-right:auto;">
+	      		<img src="resources/index_img/doc2.png" class="materialboxed responsive-img" style="margin-left:auto;margin-right:auto;">
+	      		<img src="resources/index_img/doc3.png" class="materialboxed responsive-img" style="margin-left:auto;margin-right:auto;">
+	      		<img src="resources/index_img/doc4.png" class="materialboxed responsive-img" style="margin-left:auto;margin-right:auto;">
+	      		<img src="resources/index_img/doc5.png" class="materialboxed responsive-img" style="margin-left:auto;margin-right:auto;">
+	      	</div>
+	      </div>	      
 	      
       </div>
   
