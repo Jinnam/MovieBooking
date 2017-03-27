@@ -97,7 +97,7 @@
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/jinnam.png">
+	                <img src="resources/index_img/jinnam.jpg">
 	              </div>
 	              <div class="card-content">
 	                <p>김진남</p>
@@ -127,7 +127,7 @@
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/mainjmk.png">
+	                <img src="resources/index_img/jmkmain.jpg">
 	              </div>
 	              <div class="card-content">
 	                <p>조민국</p>
