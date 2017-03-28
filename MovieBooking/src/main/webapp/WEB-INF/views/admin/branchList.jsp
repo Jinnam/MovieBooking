@@ -151,36 +151,6 @@
 						</li> -->
 					</ul>
 				</li>
-				<!-- 극장 -->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="fa fa-film"></i>
-						<span>상영관 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="screenInsert">상영관 등록</a>
-						</li>
-						<li>
-							<a href="screenList">상영관 목록</a>
-						</li>
-					</ul>
-				</li>
-				<!-- 상영일정 -->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="fa fa-play-circle"></i>
-						<span>상영일정 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="screenScheduleInsert">상영일정 등록</a>
-						</li>
-						<li>
-							<a href="screenScheduleList">상영일정 목록</a>
-						</li>
-					</ul>
-				</li>
 				<!-- 통계 -->
 				<li class="sub-menu"><a href="javascript:;">
 					<i class=" fa fa-bar-chart-o"></i>

@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="Dashboard">
 	<meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-	<title>Mega Box Admin - Admin Main</title>
+	<title>Mega Box Admin - Branch Main</title>
 	
 	<!-- Bootstrap core CSS -->
 	<link href="resources/assets/css/bootstrap.css" rel="stylesheet">
@@ -100,23 +100,6 @@
 						</li> -->
 					</ul>
 				</li>
-				<!-- 통계 사이드 메뉴 -->
-				<li class="sub-menu"><a href="javascript:;">
-					<i class=" fa fa-bar-chart-o"></i>
-					<span>통계 관리</span>
-				</a>
-					<ul class="sub">
-						<li>
-							<a href="analisysByMovie">영화별 예매/매출 </a>
-						</li>
-						<li>
-							<a href="analisysByBranch">지점별 예매/매출 </a>
-						</li>
-						<li>
-							<a href="analisysByDate">날짜별 예매/매출 </a>
-						</li>
-					</ul>
-				</li>
 			</ul>
 		</div>
 	</aside>
@@ -188,21 +171,6 @@
 						</table>
 					</div>
 				</div>
-			</div>
-			<!-- 하단 우측 예매율 순위 차트 -->
-			
-			<div><!-- 0315작업중 -->
-			<!-- SELECT 	BRANCH_DAY_COUNT.mov_code 					AS movCode,
-					MOVIE.mov_korName 							AS movKorName,
-					SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal)		AS brcCntSaleTotal
-			FROM		BRANCH_DAY_COUNT
-						INNER JOIN MOVIE
-							ON BRANCH_DAY_COUNT.mov_code = MOVIE.mov_code
-			WHERE		BRANCH_DAY_COUNT.brc_code = 41102
-			GROUP 	BY BRANCH_DAY_COUNT.mov_code
-			ORDER 	BY SUM(BRANCH_DAY_COUNT.brcCnt_saleTotal) DESC
-			LIMIT 	3;
-			 -->
 			</div>
 		</section>
 	</section>

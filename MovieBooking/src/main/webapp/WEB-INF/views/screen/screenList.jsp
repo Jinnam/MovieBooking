@@ -99,23 +99,6 @@
 						</li> -->
 					</ul>
 				</li>
-				<!-- 통계 사이드 메뉴 -->
-				<li class="sub-menu"><a href="javascript:;">
-					<i class=" fa fa-bar-chart-o"></i>
-					<span>통계 관리</span>
-				</a>
-					<ul class="sub">
-						<li>
-							<a href="analisysByMovie">영화별 예매/매출 </a>
-						</li>
-						<li>
-							<a href="analisysByBranch">지점별 예매/매출 </a>
-						</li>
-						<li>
-							<a href="analisysByDate">날짜별 예매/매출 </a>
-						</li>
-					</ul>
-				</li>
 			</ul>
 		</div>
 	</aside>

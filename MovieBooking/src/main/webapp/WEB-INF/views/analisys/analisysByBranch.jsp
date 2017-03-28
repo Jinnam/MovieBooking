@@ -55,59 +55,101 @@
 			<ul class="sidebar-menu" id="nav-accordion">
 				<p class="centered">
 					<!-- 상단원형로고 -->
-					<a href="branchMain">
+					<a href="adminMain">
 						<img src="resources/assets/img/megaboxlogo.JPG" class="img-circle" width="60">
 					</a>
 				</p>
 				<!-- 사이드 바 원형로고 아래 텍스트 -->
-				<h5 class="centered">Mega Box Branch Page</h5>
+				<h5 class="centered">Mega Box Admin Page</h5>
 				<!-- 사이드 바 메인 메뉴 -->
 				<li class="mt">
-					<a href="branchMain">
+					<a href="adminMain">
 						<i class="fa fa-home"></i>
 						<span>H O M E</span>
 					</a>
 				</li>
-				
-				<!-- 극장 사이드 메뉴 -->
+				<!-- 지점, 지점관리자 사이드 메뉴-->
 				<li class="sub-menu">
 					<a href="javascript:;">
-						<i class="fa fa-film"></i>
-						<span>상영관 관리</span>
+						<i class="fa fa-desktop"></i>
+						<span>지점/관리자 관리</span>
 					</a>
 					<ul class="sub">
 						<li>
-							<a href="screenList">상영관 목록</a>
+							<a href="branchList">지점 목록</a>
 						</li>
 						<li>
-							<a href="screenInsert">상영관 등록</a>
+							<a href="branchInsert">지점 등록</a>
 						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
-						<!-- <li>
-							<a href="screenModify">상영관 수정</a>
-						</li> -->
-						<!-- <li>
-							<a href="screenDelete">상영관 삭제</a>
-						</li> -->
+						<li>
+							<a href="adminList">지점 관리자 목록</a>
+						</li>
+						<li>
+							<a href="adminInsert">지점 관리자 등록</a>
+						</li>
 					</ul>
 				</li>
-				<!-- 상영일정 사이드 메뉴 -->
+				<!-- 회원 사이드 메뉴 -->
 				<li class="sub-menu">
 					<a href="javascript:;">
-						<i class="fa fa-play-circle"></i>
-						<span>상영일정 관리</span>
+						<i class="fa fa-list"></i>
+						<span>회원 관리</span>
 					</a>
 					<ul class="sub">
 						<li>
-							<a href="screenScheduleList">상영일정 목록</a>
+							<a href="memberList">회원 목록</a>
+						</li>
+					</ul>
+				</li>
+				<!-- 영화 사이드 메뉴 -->
+				<li class="sub-menu">
+					<a href="javascript:;">
+						<i class="fa fa-tasks"></i>
+						<span>영화 관리</span>
+					</a>
+					<ul class="sub">
+						<li>
+							<a href="adminMovieList">영화 목록</a>
 						</li>
 						<li>
-							<a href="screenScheduleInsert">상영일정 등록</a>
+							<a href="movieInsert">영화 등록</a>
 						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
-						<!-- <li>
-							<a href="screenScheduleModify">상영일정 수정</a>
-						</li> -->
+					</ul>
+				</li>
+				<!-- 인물 사이드 메뉴 -->
+				<li class="sub-menu">
+					<a href="javascript:;">
+						<i class="fa fa-user"></i>
+						<span>인물 관리</span>
+					</a>
+					<ul class="sub">
+						<li>
+							<a href="characterList">인물 목록</a>
+						</li>
+						<li>
+							<a href="characterInsert">인물 등록</a>
+						</li>
+					</ul>
+				</li>
+				<!-- 단가/할인정보 사이드 메뉴 -->
+				<li class="sub-menu">
+					<a href="javascript:;">
+						<i class="glyphicon glyphicon-credit-card"></i>
+						<span>단가/할인 관리</span>
+					</a>
+					<ul class="sub">
+						<li>
+							<a href="costList">단가 목록</a>
+						</li>
+						<li>
+							<a href="costInsert">단가 등록</a>
+						</li>
+						<li>
+							<a href="discountInfoList">할인정보 목록</a>
+						</li>
+						<li>
+							<a href="discountInfoInsert">할인정보 등록</a>
+						</li>
 					</ul>
 				</li>
 				<!-- 통계 사이드 메뉴 -->

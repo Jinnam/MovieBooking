@@ -165,47 +165,6 @@
 						</li> -->
 					</ul>
 				</li>
-				<!-- 극장 사이드 메뉴 -->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="fa fa-film"></i>
-						<span>상영관 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="screenList">상영관 목록</a>
-						</li>
-						<li>
-							<a href="screenInsert">상영관 등록</a>
-						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
-						<!-- <li>
-							<a href="screenModify">상영관 수정</a>
-						</li> -->
-						<!-- <li>
-							<a href="screenDelete">상영관 삭제</a>
-						</li> -->
-					</ul>
-				</li>
-				<!-- 상영일정 사이드 메뉴 -->
-				<li class="sub-menu">
-					<a href="javascript:;">
-						<i class="fa fa-play-circle"></i>
-						<span>상영일정 관리</span>
-					</a>
-					<ul class="sub">
-						<li>
-							<a href="screenScheduleList">상영일정 목록</a>
-						</li>
-						<li>
-							<a href="screenScheduleInsert">상영일정 등록</a>
-						</li>
-						<!-- 수정페이지는 목록에서 진입 -->
-						<!-- <li>
-							<a href="screenScheduleModify">상영일정 수정</a>
-						</li> -->
-					</ul>
-				</li>
 				<!-- 통계 사이드 메뉴 -->
 				<li class="sub-menu"><a href="javascript:;">
 					<i class=" fa fa-bar-chart-o"></i>
