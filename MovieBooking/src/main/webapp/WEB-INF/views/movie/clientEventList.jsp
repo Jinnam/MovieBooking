@@ -14,8 +14,6 @@
 <!-- 전체메뉴 white-->
 <%@ include file="/WEB-INF/clientModule/topTotalMenuBarWhite.jsp" %>
 
-<!-- 영화 메뉴 바-->
-<%@ include file="/WEB-INF/clientModule/topMovieBar.jsp" %>
 	<div class="row container" style="margin-right: 20%;margin-left: 20%;">
 		<div class="row"></div>
 		<div class="row">
