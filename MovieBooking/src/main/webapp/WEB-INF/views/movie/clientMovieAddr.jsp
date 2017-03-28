@@ -40,75 +40,109 @@
 
 	<!-- 선택조건 view div -->
 	<div class="grey darken-3 container" style="height:60px ; width:970px; margin-top:10px ; color:white ;"><!-- 선택조건 view div 열기 -->
-		<div class="container row" ></div>
-		
-		<!-- 선택조건 div -->
-		<div class="container row" style="width:970px;" >
-
-				<!-- 영화 선택 div -->
-				<div class="col s3" style="margin-left:20px;">
-					<div id="selectMovie"> </div>
-				</div>			
-				<!-- 지점 선택 div -->
-				<div class="col s2">
-					<div id="selectBranch"> </div>
-				</div>
-				<!-- 날짜 선택 div -->
-				<div class="col s2">
-					<div id="selectDate"> </div>
-				</div>				
-				<!-- 상영시간 선택 div -->
-				<div class="col s2">
-					<div id="selectScreen"> </div>
-				</div>		
-		</div>	
-			
+		<div class="container row" ></div>	
 	</div> <!-- 선택조건 view div 닫기 -->
 	
 	
 
-	<!-- 상영정보 div -->
+	<!--  div -->
     <div class="container row" style="width:970px;"> <!-- 상영정보 div 열기 -->
     
     
-	  <!-- 영화 선택자 -->
-      <div class="col s6 card grey lighten-4" style="height:500px ; margin_bottom:10px;">
-      	<div class="grey darken-3" style="text-align:center;">
-        	<img src="resources/module-img/booking_menu_movie.png">
+	  <!-- 지역 선택자 -->
+      <div class="col s4 card grey lighten-4" style="height:500px ; margin_bottom:10px;">
+      	<div class="grey darken-3" style="text-align:center;color:white;">
+        	지역
         </div>
 
-        <div style="height:450px ; overflow:auto;" id="movieSelector" >
-         
-        	<c:forEach var="Br" items="${BRANCH}">
-	        	<div class="scSelector scMovie selectorDiv waves-effect">
-		        	<div value="${movie.movCode}" style="display:inline-block;" >
-		        		<i class="grade16_${movie.movGrade}" style="position:relative;top:2px;"></i>
-		        		<div style="display:inline-block">${Br.brcocal}</div>
-		        	</div> 
-	        	</div>        	
-        	</c:forEach>   
+        <div style="height:450px ; overflow:auto;" align="center">
+		<ul>
+			<c:forEach items="${branchLocal}" var="branchLocal">
+				<li class="branchLocal" style="cursor: pointer;">${branchLocal}</li>
+			</c:forEach>
+		</ul>
         </div>        
       </div>
           
-	  <!-- 극장 선택자 -->
-      <div class="col s6 card grey lighten-4" style="height:500px ; margin_bottom:10px;">
-      	<div class="grey darken-3" style="text-align:center;">
-        	<img src="resources/module-img/booking_menu_theater.png">
+	  <!-- 지점 선택자 -->
+      <div class="col s4 card grey lighten-4" style="height:500px ; margin_bottom:10px;">
+      	<div class="grey darken-3" style="text-align:center;color:white;">
+        	지점
         </div>
-        <div style="height:450px ; overflow:auto;" id="branchSelector">
-        	<c:forEach var="branch" items="${branch}">
-	        	<div class="scSelector scBranch selectorDiv waves-effect">
-		        	<span value="${branch.brcCode}">${branch.brcName}</span>
-	        	</div>        	
-        	</c:forEach>          	
+        <div style="height:450px ; overflow:auto;" align="center">
+			<ul id="branchName">
+			</ul>
         </div>
       </div>
+      
+      <!-- 극장 정보 -->
+      <div class="col s4 card grey lighten-4" style="height:500px ; margin_bottom:10px;">
+      	<div class="grey darken-3" style="text-align:center;color:white;">
+        	극장 정보
+        </div>
+        <div style="height:450px ; overflow:auto;" id="branchSelector" align="center">
+        </div>
+      </div>
+      
 
     </div> <!-- 상영정보 div 닫기 -->
 
 
 <!-- 하단바 -->
 <%@ include file="/WEB-INF/clientModule/footer.jsp" %>
+
+<script>
+$(document).ready(function(){
+	
+	// 지역 선택
+	$('.branchLocal').click(function(){
+		$('#branchName').children().remove();				// 표시될부분 초기화
+		
+    	$('.branchLocal').removeClass('selectBlock');		// 속성제거 
+		$(this).addClass('selectBlock');					// 속성추가 
+		branchLocal = $(this).text();
+		// Ajax
+		$.ajax({
+			url : "clientMovieAddr", 
+		      type :"post", 
+		      data : { "branchLocal" : branchLocal},
+		      success : function(data){
+		    	  console.log(data);
+		    	  
+		    	  $(data).each(function(i){
+		    		  $('#branchName').append('<li class="brcName" style="cursor: pointer;">'+data[i]+'</li>')
+		    	  })
+		    	 
+		      }
+		})
+
+	})
+	
+	// 지점 선택
+	$(document).on('click','.brcName',function(){
+		console.log("지점 눌러지냐?");
+		$('#branchSelector').children().remove();				// 표시될부분 초기화
+    	$('.brcName').removeClass('selectBlock');				// 속성제거 
+		$(this).addClass('selectBlock');						// 속성추가 
+		brcName = $(this).text();
+		
+	 	$.ajax({
+			url : "clientBranchInfo", 
+		      type :"post", 
+		      data : { "branchName" : brcName},
+		      success : function(data){
+		    	  console.log(data);
+		    		  $('#branchSelector').append('<ul></ul>'
+							+'<div><img src="'+data.brcImgPath+'"width="100%" height="50%"/></div>'
+							+'<div>'+data.brcAddr+'</div>'
+							+'<div>'+data.brcInfoDetail+'</div>');
+
+		      }
+		}) 
+	})
+	
+})
+</script>
 
 </body>
 </html>

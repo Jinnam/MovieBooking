@@ -39,6 +39,7 @@
 				<value>classpath:kr/co/cinema/movie/MovieMapper.xml</value>
 				<value>classpath:kr/co/cinema/payment/PaymentMapper.xml</value>
 				<value>classpath:kr/co/cinema/screen/ScreenMapper.xml</value>
+				<value>classpath:kr/co/cinema/branch/BranchMapper.xml</value>
 				<value>classpath:kr/co/cinema/HomeMapper.xml</value>
             </list>
         </property>

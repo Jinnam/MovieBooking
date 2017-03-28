@@ -27,21 +27,6 @@ public class BookingController {
 	@Autowired
 	BookingDao bookingDao;
 	
-	@RequestMapping(value = "/clientMovieAddr", method = RequestMethod.POST)
-	public String addrsClientMovieAddr(Model model) {
-		model.addAttribute("branch",bookingDao.selectListBranch());	
-		logger.debug("addrClientMovieAddr 극장 ***********");
-		return "movie/clientMovieAddr";
-	}
-	
-	//극장 
-	@RequestMapping(value = "/clientMovieAddr", method = RequestMethod.GET)
-	public String addrClientMovieAddr() {
-		logger.debug("addrClientMovieAddr 극장 ***********");
-		return "movie/clientMovieAddr";
-	}
-	
-	
 	//AJAX 영화 조건선택
 	@RequestMapping(value = "/searchListBookingSelect", method = RequestMethod.GET)
 	public @ResponseBody Map<String,Object> searchListBookingSelect(BookingSelectDto bookingSelect) {	
