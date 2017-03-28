@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.cinema.HomeService;
+import kr.co.cinema.dto.Branch;
 
 @Service
 public class MovieService {
@@ -18,6 +19,7 @@ public class MovieService {
 	MovieDao movieDao;
 	@Autowired
 	HomeService homeService;
+	
 	
 	
 	public int addReplyforMovie(ReplyInputDto replyInputDto){

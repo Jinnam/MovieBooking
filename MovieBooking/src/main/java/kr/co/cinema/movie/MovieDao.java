@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.cinema.dto.Branch;
+
 @Repository
 public class MovieDao {
 	private static final Logger logger = LoggerFactory.getLogger(MovieDao.class);
@@ -17,6 +19,7 @@ public class MovieDao {
 	private SqlSessionTemplate session;
 	
 	private final String mapperNS="kr.co.cinema.movie.MovieMapper.";
+	
 	
 	//좋아요 
 	public int insertLikeMovie(String mId,String movCode){
