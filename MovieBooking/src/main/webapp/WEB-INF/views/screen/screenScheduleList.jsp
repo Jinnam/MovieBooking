@@ -167,7 +167,7 @@
 					</table>
 				
 				<!-- 페이징 -->
-			<div align="center">
+			<!-- <div align="center">
 				<ul class="pagination">
 					<li class="disabled"><a href="#">&laquo;</a></li>
 					<li class="active"><a href="#">1</a></li>
@@ -177,7 +177,7 @@
 					<li><a href="#">5</a></li>
 					<li><a href="#">&raquo;</a></li>
 				</ul>
-			</div>
+			</div> -->
 		</section>
 	</section>
 	<!-- 여기까지 메인 -->
