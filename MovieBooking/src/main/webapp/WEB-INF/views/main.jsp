@@ -97,7 +97,7 @@
 	          <div class="col s3">
 	            <div class="card">
 	              <div class="card-image">
-	                <img src="resources/index_img/jinnam.jpg">
+	                <img src="resources/index_img/jinnam.png">
 	              </div>
 	              <div class="card-content">
 	                <p>김진남</p>
