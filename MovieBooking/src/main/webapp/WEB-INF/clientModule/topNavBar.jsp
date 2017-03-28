@@ -35,7 +35,7 @@
         <!-- 영화 -->
         <a href="clientMovieListBoxoffice1" class="item" style ="width:130px"><img src="resources/module-img/menu_movie.png" style="width:100px;height:40px"></a>	
         <!-- 극장 -->		
-        <a href="#" class="item" style ="width:130px"><img src="resources/module-img/menu_theater.png" style="width:100px;height:40px"></a>			
+        <a href="clientMovieAddr" class="item" style ="width:130px"><img src="resources/module-img/menu_theater.png" style="width:100px;height:40px"></a>			
         <!-- 예매 -->				
         <a href="bookingSelect" class="item" style ="width:130px"><img src="resources/module-img/menu_ticket.png" style="width:100px;height:40px"></a>		
         <!-- 스토어 -->					

@@ -34,7 +34,6 @@ public class BookingController {
 		return "movie/clientMovieAddr";
 	}
 	
-	
 	//극장 
 	@RequestMapping(value = "/clientMovieAddr", method = RequestMethod.GET)
 	public String addrClientMovieAddr() {
