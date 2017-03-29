@@ -92,6 +92,21 @@
 	      <div class="row"> <!-- row 열기 -->
 	      <h5 style="text-align:center;">팀원 개인 포트폴리오</h5>
 	      
+	      <a href="http://kjb7907.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
+	        
+	          <div class="col s3">
+	            <div class="card">
+	              <div class="card-image">
+	                <img src="resources/index_img/jbin.png">
+	              </div>
+	              <div class="card-content">
+	                <p>김정빈</p>
+	              </div>
+	            </div>
+	          </div>
+	          
+	        </a>		
+	      
 	        <a href="http://better4307.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
 	          <div class="col s3">
@@ -106,21 +121,6 @@
 	          </div>
 	          
 	        </a>		      
-	      
-	        <a href="http://kjb7907.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
-	        
-	          <div class="col s3">
-	            <div class="card">
-	              <div class="card-image">
-	                <img src="resources/index_img/jbin.png">
-	              </div>
-	              <div class="card-content">
-	                <p>김정빈</p>
-	              </div>
-	            </div>
-	          </div>
-	          
-	        </a>		
 	        	      	        
 	        <a href="http://lovec90.cafe24.com/" target="_blank" style=" text-decoration:none; color:#000000 ">
 	        
